@@ -1,0 +1,50 @@
+
+a.o:     file format elf32-i386
+
+Disassembly of section .text:
+
+00000000 <a>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	57                   	push   %edi
+   4:	83 ec 14             	sub    $0x14,%esp
+   7:	8b 45 08             	mov    0x8(%ebp),%eax
+   a:	b9 ff ff ff ff       	mov    $0xffffffff,%ecx
+   f:	89 45 f8             	mov    %eax,-0x8(%ebp)
+  12:	b8 00 00 00 00       	mov    $0x0,%eax
+  17:	fc                   	cld    
+  18:	8b 7d f8             	mov    -0x8(%ebp),%edi
+  1b:	f2 ae                	repnz scas %es:(%edi),%al
+  1d:	89 c8                	mov    %ecx,%eax
+  1f:	f7 d0                	not    %eax
+  21:	83 e8 01             	sub    $0x1,%eax
+  24:	89 44 24 08          	mov    %eax,0x8(%esp)
+  28:	8b 45 08             	mov    0x8(%ebp),%eax
+  2b:	89 44 24 04          	mov    %eax,0x4(%esp)
+  2f:	c7 04 24 01 00 00 00 	movl   $0x1,(%esp)
+  36:	e8 fc ff ff ff       	call   37 <a+0x37>
+  3b:	83 c4 14             	add    $0x14,%esp
+  3e:	5f                   	pop    %edi
+  3f:	5d                   	pop    %ebp
+  40:	c3                   	ret    
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	00 47 43             	add    %al,0x43(%edi)
+   3:	43                   	inc    %ebx
+   4:	3a 20                	cmp    (%eax),%ah
+   6:	28 47 4e             	sub    %al,0x4e(%edi)
+   9:	55                   	push   %ebp
+   a:	29 20                	sub    %esp,(%eax)
+   c:	34 2e                	xor    $0x2e,%al
+   e:	31 2e                	xor    %ebp,(%esi)
+  10:	32 20                	xor    (%eax),%ah
+  12:	32 30                	xor    (%eax),%dh
+  14:	30 37                	xor    %dh,(%edi)
+  16:	30 39                	xor    %bh,(%ecx)
+  18:	32 35 20 28 52 65    	xor    0x65522820,%dh
+  1e:	64 20 48 61          	and    %cl,%fs:0x61(%eax)
+  22:	74 20                	je     44 <a+0x44>
+  24:	34 2e                	xor    $0x2e,%al
+  26:	31 2e                	xor    %ebp,(%esi)
+  28:	32 2d 33 33 29 00    	xor    0x293333,%ch

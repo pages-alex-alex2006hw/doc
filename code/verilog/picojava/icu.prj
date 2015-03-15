@@ -1,0 +1,6 @@
+verilog work "orig/icu/rtl/ic_cntl.v"
+verilog work "orig/icu/rtl/ibuf_ctl.v"
+verilog work "orig/icu/rtl/ibuffer.v"
+verilog work "orig/icu/rtl/icu_dpath.v"
+verilog work "orig/icu/rtl/icctl.v"
+verilog work "orig/icu/rtl/icu.v"

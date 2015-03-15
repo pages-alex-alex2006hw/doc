@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/cjeong/ztmp/code/verilog/gold_code_ver_217/gold_code.ncd
+OUTFILE=/home/cjeong/ztmp/code/verilog/gold_code_ver_217/gold_code.bit
+FAMILY=Spartan3E
+PART=xc3s500e-5fg320
+WORKINGDIR=/home/cjeong/ztmp/code/verilog/gold_code_ver_217
+LICENSE=WebPack
+USER_INFO=0_0_330

@@ -1,0 +1,114 @@
+#!/usr/bin/ruby -w
+#
+# $Id: cart,v 1.7 2006/08/06 00:57:26 ianmacd Exp $
+#
+# This is a more involved example of shopping cart access than rcart. This
+# program will take one or more valid ASINs on amazon.com, add them to a
+# remote shopping cart, then log into Amazon as the given user and merge the
+# remote shopping cart with that user's real shopping cart.
+
+require 'amazon/shoppingcart'
+require 'cgi'
+require 'uri'
+
+class Hash
+
+  # Take a hash of key/value pairs and turn them into a URL-encoded
+  # query string.
+  # 
+  def url_encode
+    str = ''
+    each { |k,v| str << CGI::escape(k) << '=' << CGI::escape(v) << '&' }
+    str.chomp('&')
+  end
+end
+
+# Run a block of statements with warnings switched off.
+#
+def silently(&block)
+  warn_level = $VERBOSE
+  $VERBOSE = nil
+  result = block.call
+  $VERBOSE = warn_level
+  result
+end
+
+# We need to load Net::HTTPS without warnings, as it performs redefinition
+# of several methods.
+#
+silently { require 'net/https' }
+
+if ARGV.size < 2
+  $stderr.puts 'Usage: cart <locale> <asin>+'
+  exit 1
+end
+
+locale = ARGV.shift.dup
+
+sc = Amazon::ShoppingCart.new(nil, Amazon::DEFAULT_ID[locale], locale)
+
+# Add items to remote shopping cart
+#
+ARGV.each { |asin| sc.add_items(asin, 1) }
+
+# This is the path to which we will POST.
+#
+path = '/exec/obidos/flex-sign-in-done/'
+
+# Set Content-Type for POSTing a form.
+#
+headers = { 'Content-Type' => 'application/x-www-form-urlencoded' }
+
+# Connect to the HTTPS port and use SSL.
+#
+http = Net::HTTP.new(Amazon::SITE[locale], 443)
+http.use_ssl = true
+
+# These are the values that Amazon requires to allow a log-in.
+#
+begin
+  line = __LINE__ + 2
+  query = {
+    'email'       => sc.config['email'],    # replace this with e-mail address
+    'password'    => sc.config['password'], # replace this with your password
+    'method'      => 'get',
+    'opt'	  => 'a',
+    'page'        => 'misc/login/flex-sign-in-secure.html',
+    'response'    => 'shopping-basket',
+    'action'      => 'sign-in'
+  }
+rescue NoMethodError
+  $stderr.puts "Enter your e-mail and password at line #{line} or " +
+	       "define them in your \n" +
+	       "~/.amazonrc file."
+  exit 2
+end
+
+# Perform POST.
+#
+response = silently { http.post(path, query.url_encode, headers) }
+headers = {}
+
+# Grab the necessary cookies from the header.
+#
+cookies = CGI::Cookie::parse(response['set-cookie'])
+
+# Set outgoing cookie to let Amazon know who we are.
+#
+headers['Cookie'] = 'Cookie: '
+cookies.each { |k,v| headers['Cookie'] << "%s=%s;" % [ k, v[0] ] }
+
+# Parse purchase URL from shopping cart object and reassemble, minus the
+# scheme (https?://).
+#
+uri = URI.parse(sc.purchase_url)
+url = uri.path << '?' << uri.query
+
+silently do 
+  # Getting the purchase URL page gives us an HTTP redirect.
+  redirect_location = http.get(url, headers)['location']
+  redirect_location.sub!(/MergeCart=False$/, 'MergeCart=True')
+
+  # Now we need to follow the HTTP redirect.
+  response = http.get(redirect_location)
+end

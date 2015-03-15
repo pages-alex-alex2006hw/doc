@@ -1,0 +1,12 @@
+so-dir=$prefix/local/lib/site_ruby/1.8/i686-linux
+without-ext=no
+ruby-prog=/usr/bin/ruby1.8
+ruby-path=/usr/bin/ruby1.8
+rb-dir=$site-ruby
+make-prog=make
+data-dir=$prefix/share
+prefix=/usr
+bin-dir=$prefix/bin
+site-ruby=$prefix/local/lib/site_ruby/1.8
+std-ruby=$prefix/lib/ruby/1.8
+site-ruby-common=$prefix/local/lib/site_ruby

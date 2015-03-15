@@ -1,0 +1,436 @@
+
+;; Function foo (foo)
+
+
+;; Generating RTL for tree basic block 0
+
+;; Generating RTL for tree basic block 1
+
+;; Generating RTL for tree basic block 2
+
+;; Generating RTL for tree basic block 3
+
+;; Generating RTL for tree basic block 4
+
+;; Generating RTL for tree basic block 5
+
+;; Generating RTL for tree basic block 6
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 2 0 5 NOTE_INSN_DELETED)
+
+;; Start of basic block 0, registers live: (nil)
+(note 5 2 3 0 [bb 0] NOTE_INSN_BASIC_BLOCK)
+
+(note 3 5 4 0 NOTE_INSN_FUNCTION_BEG)
+
+(note 4 3 6 0 NOTE_INSN_DELETED)
+;; End of basic block 0, registers live:
+ (nil)
+
+;; Start of basic block 1, registers live: (nil)
+(note 6 4 8 1 [bb 1] NOTE_INSN_BASIC_BLOCK)
+
+(insn 8 6 10 1 (set (mem/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                (const_int -12 [0xfffffff4])) [0 n+0 S4 A32])
+        (const_int 10 [0xa])) -1 (nil)
+    (nil))
+
+(insn 10 8 12 1 (set (mem/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                (const_int -8 [0xfffffff8])) [0 i+0 S4 A32])
+        (const_int 0 [0x0])) -1 (nil)
+    (nil))
+
+(jump_insn 12 10 13 1 (set (pc)
+        (label_ref 28)) -1 (nil)
+    (nil))
+;; End of basic block 1, registers live:
+ (nil)
+
+(barrier 13 12 14)
+
+;; Start of basic block 2, registers live: (nil)
+(code_label 14 13 15 2 3 "" [1 uses])
+
+(note 15 14 17 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 17 15 18 2 (set (reg:SI 67 [ i.0 ])
+        (mem/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                (const_int -8 [0xfffffff8])) [0 i+0 S4 A32])) -1 (nil)
+    (nil))
+
+(insn 18 17 19 2 (set (reg:SI 66 [ i.1 ])
+        (reg:SI 67 [ i.0 ])) -1 (nil)
+    (nil))
+
+(insn 19 18 20 2 (parallel [
+            (set (reg:SI 65 [ D.2138 ])
+                (plus:SI (reg:SI 66 [ i.1 ])
+                    (mem/f/c/i:SI (reg/f:SI 53 virtual-incoming-args) [0 a+0 S4 A32])))
+            (clobber (reg:CC 17 flags))
+        ]) -1 (nil)
+    (nil))
+
+(insn 20 19 21 2 (set (reg:SI 69)
+        (mem/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                (const_int -4 [0xfffffffc])) [0 g+0 S4 A32])) -1 (nil)
+    (nil))
+
+(insn 21 20 22 2 (parallel [
+            (set (reg:SI 64 [ D.2139 ])
+                (mult:SI (reg:SI 69)
+                    (mem/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                            (const_int -8 [0xfffffff8])) [0 i+0 S4 A32])))
+            (clobber (reg:CC 17 flags))
+        ]) -1 (nil)
+    (nil))
+
+(insn 22 21 23 2 (set (reg:QI 63 [ D.2140 ])
+        (subreg:QI (reg:SI 64 [ D.2139 ]) 0)) -1 (nil)
+    (nil))
+
+(insn 23 22 24 2 (parallel [
+            (set (reg:QI 62 [ D.2141 ])
+                (plus:QI (reg:QI 63 [ D.2140 ])
+                    (const_int 3 [0x3])))
+            (clobber (reg:CC 17 flags))
+        ]) -1 (nil)
+    (nil))
+
+(insn 24 23 25 2 (set (reg:QI 61 [ D.2142 ])
+        (reg:QI 62 [ D.2141 ])) -1 (nil)
+    (nil))
+
+(insn 25 24 27 2 (set (mem:QI (reg:SI 65 [ D.2138 ]) [0 S1 A8])
+        (reg:QI 61 [ D.2142 ])) -1 (nil)
+    (nil))
+
+(insn 27 25 28 2 (parallel [
+            (set (mem/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                        (const_int -8 [0xfffffff8])) [0 i+0 S4 A32])
+                (plus:SI (mem/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                            (const_int -8 [0xfffffff8])) [0 i+0 S4 A32])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) -1 (nil)
+    (nil))
+;; End of basic block 2, registers live:
+ (nil)
+
+;; Start of basic block 3, registers live: (nil)
+(code_label 28 27 29 3 2 "" [1 uses])
+
+(note 29 28 31 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 31 29 32 3 (set (reg:SI 70)
+        (mem/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                (const_int -8 [0xfffffff8])) [0 i+0 S4 A32])) -1 (nil)
+    (nil))
+
+(insn 32 31 33 3 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg:SI 70)
+            (mem/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                    (const_int -12 [0xfffffff4])) [0 n+0 S4 A32]))) -1 (nil)
+    (nil))
+
+(jump_insn 33 32 34 3 (set (pc)
+        (if_then_else (lt (reg:CCGC 17 flags)
+                (const_int 0 [0x0]))
+            (label_ref 14)
+            (pc))) -1 (nil)
+    (nil))
+;; End of basic block 3, registers live:
+ (nil)
+
+;; Start of basic block 4, registers live: (nil)
+(code_label 34 33 35 4 4 "" [0 uses])
+
+(note 35 34 37 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 37 35 38 4 (set (reg/f:SI 71)
+        (mem/f/c/i:SI (reg/f:SI 53 virtual-incoming-args) [0 a+0 S4 A32])) -1 (nil)
+    (nil))
+
+(insn 38 37 40 4 (set (mem:QI (reg/f:SI 71) [0 S1 A8])
+        (const_int 3 [0x3])) -1 (nil)
+    (nil))
+
+(insn 40 38 41 4 (parallel [
+            (set (reg:SI 60 [ D.2143 ])
+                (plus:SI (mem/f/c/i:SI (reg/f:SI 53 virtual-incoming-args) [0 a+0 S4 A32])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) -1 (nil)
+    (nil))
+
+(insn 41 40 42 4 (set (reg:QI 59 [ D.2144 ])
+        (mem:QI (reg:SI 60 [ D.2143 ]) [0 S1 A8])) -1 (nil)
+    (nil))
+
+(insn 42 41 43 4 (set (reg:CCGOC 17 flags)
+        (compare:CCGOC (reg:QI 59 [ D.2144 ])
+            (const_int 0 [0x0]))) -1 (nil)
+    (nil))
+
+(jump_insn 43 42 44 4 (set (pc)
+        (if_then_else (lt (reg:CCGOC 17 flags)
+                (const_int 0 [0x0]))
+            (label_ref 53)
+            (pc))) -1 (nil)
+    (nil))
+;; End of basic block 4, registers live:
+ (nil)
+
+;; Start of basic block 5, registers live: (nil)
+(code_label 44 43 45 5 6 "" [0 uses])
+
+(note 45 44 47 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 47 45 48 5 (set (reg:SI 72)
+        (mem/f/c/i:SI (reg/f:SI 53 virtual-incoming-args) [0 a+0 S4 A32])) -1 (nil)
+    (nil))
+
+(insn 48 47 49 5 (set (mem:SI (plus:SI (reg/f:SI 56 virtual-outgoing-args)
+                (const_int 4 [0x4])) [0 S4 A32])
+        (reg:SI 72)) -1 (nil)
+    (nil))
+
+(insn 49 48 50 5 (set (mem:SI (reg/f:SI 56 virtual-outgoing-args) [0 S4 A32])
+        (symbol_ref/f:SI ("*.LC0") [flags 0x2] <string_cst 0xb7cfd71c>)) -1 (nil)
+    (nil))
+
+(call_insn 50 49 51 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:SI ("printf") [flags 0x41] <function_decl 0xb7c75c80 printf>) [0 S1 A8])
+            (const_int 8 [0x8]))) -1 (nil)
+    (nil)
+    (nil))
+
+(jump_insn 51 50 52 5 (set (pc)
+        (label_ref 60)) -1 (nil)
+    (nil))
+;; End of basic block 5, registers live:
+ (nil)
+
+(barrier 52 51 53)
+
+;; Start of basic block 6, registers live: (nil)
+(code_label 53 52 54 6 5 "" [1 uses])
+
+(note 54 53 56 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 56 54 57 6 (set (reg:SI 73)
+        (mem/f/c/i:SI (reg/f:SI 53 virtual-incoming-args) [0 a+0 S4 A32])) -1 (nil)
+    (nil))
+
+(insn 57 56 58 6 (set (mem:SI (plus:SI (reg/f:SI 56 virtual-outgoing-args)
+                (const_int 4 [0x4])) [0 S4 A32])
+        (reg:SI 73)) -1 (nil)
+    (nil))
+
+(insn 58 57 59 6 (set (mem:SI (reg/f:SI 56 virtual-outgoing-args) [0 S4 A32])
+        (symbol_ref/f:SI ("*.LC1") [flags 0x2] <string_cst 0xb7cae938>)) -1 (nil)
+    (nil))
+
+(call_insn 59 58 60 6 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:SI ("printf") [flags 0x41] <function_decl 0xb7c75c80 printf>) [0 S1 A8])
+            (const_int 8 [0x8]))) -1 (nil)
+    (nil)
+    (nil))
+;; End of basic block 6, registers live:
+ (nil)
+
+;; Start of basic block 7, registers live: (nil)
+(code_label 60 59 61 7 7 "" [1 uses])
+
+(note 61 60 63 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn 63 61 64 7 (set (reg:SI 58 [ D.2145 ])
+        (mem/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                (const_int -8 [0xfffffff8])) [0 i+0 S4 A32])) -1 (nil)
+    (nil))
+
+(insn 64 63 65 7 (set (reg:SI 68 [ <result> ])
+        (reg:SI 58 [ D.2145 ])) -1 (nil)
+    (nil))
+
+(jump_insn 65 64 66 7 (set (pc)
+        (label_ref 69)) -1 (nil)
+    (nil))
+;; End of basic block 7, registers live:
+ (nil)
+
+(barrier 66 65 67)
+
+(note 67 66 77 NOTE_INSN_FUNCTION_END)
+
+;; Start of basic block 8, registers live: (nil)
+(note 77 67 71 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(insn 71 77 72 8 (clobber (reg/i:SI 0 ax)) -1 (nil)
+    (nil))
+
+(insn 72 71 73 8 (clobber (reg:SI 68 [ <result> ])) -1 (nil)
+    (nil))
+
+(jump_insn 73 72 74 8 (set (pc)
+        (label_ref 75)) -1 (nil)
+    (nil))
+;; End of basic block 8, registers live:
+ (nil)
+
+(barrier 74 73 69)
+
+;; Start of basic block 9, registers live: (nil)
+(code_label 69 74 78 9 1 "" [1 uses])
+
+(note 78 69 70 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+
+(insn 70 78 75 9 (set (reg/i:SI 0 ax)
+        (reg:SI 68 [ <result> ])) -1 (nil)
+    (nil))
+;; End of basic block 9, registers live:
+ (nil)
+
+;; Start of basic block 10, registers live: (nil)
+(code_label 75 70 79 10 8 "" [1 uses])
+
+(note 79 75 76 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+
+(insn 76 79 0 10 (use (reg/i:SI 0 ax)) -1 (nil)
+    (nil))
+;; End of basic block 10, registers live:
+ (nil)
+
+
+;; Function main (main)
+
+
+;; Generating RTL for tree basic block 0
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 2 0 6 NOTE_INSN_DELETED)
+
+;; Start of basic block 0, registers live: (nil)
+(note 6 2 3 0 [bb 0] NOTE_INSN_BASIC_BLOCK)
+
+(insn 3 6 4 0 (set (reg:SI 61)
+        (reg:SI 2 cx)) -1 (nil)
+    (nil))
+
+(note 4 3 5 0 NOTE_INSN_FUNCTION_BEG)
+
+(note 5 4 7 0 NOTE_INSN_DELETED)
+;; End of basic block 0, registers live:
+ (nil)
+
+;; Start of basic block 1, registers live: (nil)
+(note 7 5 9 1 [bb 1] NOTE_INSN_BASIC_BLOCK)
+
+(insn 9 7 10 1 (set (mem:SI (reg/f:SI 56 virtual-outgoing-args) [0 S4 A32])
+        (const_int 40 [0x28])) -1 (nil)
+    (nil))
+
+(call_insn 10 9 11 1 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:SI ("malloc") [flags 0x41] <function_decl 0xb7c84a00 malloc>) [0 S1 A8])
+            (const_int 4 [0x4]))) -1 (nil)
+    (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (nil))
+
+(insn 11 10 12 1 (set (reg/f:SI 62)
+        (reg:SI 0 ax)) -1 (nil)
+    (expr_list:REG_NOALIAS (reg/f:SI 62)
+        (nil)))
+
+(insn 12 11 13 1 (set (reg:SI 59 [ D.2174 ])
+        (reg/f:SI 62)) -1 (nil)
+    (nil))
+
+(insn 13 12 15 1 (set (mem/f/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                (const_int -4 [0xfffffffc])) [0 A+0 S4 A32])
+        (reg:SI 59 [ D.2174 ])) -1 (nil)
+    (nil))
+
+(insn 15 13 16 1 (set (reg:SI 63)
+        (mem/f/c/i:SI (plus:SI (reg/f:SI 54 virtual-stack-vars)
+                (const_int -4 [0xfffffffc])) [0 A+0 S4 A32])) -1 (nil)
+    (nil))
+
+(insn 16 15 17 1 (set (mem:SI (reg/f:SI 56 virtual-outgoing-args) [0 S4 A32])
+        (reg:SI 63)) -1 (nil)
+    (nil))
+
+(call_insn 17 16 18 1 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:SI ("foo") [flags 0x3] <function_decl 0xb7cf9680 foo>) [0 S1 A8])
+            (const_int 4 [0x4]))) -1 (nil)
+    (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (nil))
+
+(insn 18 17 19 1 (set (reg:SI 58 [ D.2175 ])
+        (reg:SI 0 ax)) -1 (nil)
+    (nil))
+
+(insn 19 18 20 1 (set (mem:SI (plus:SI (reg/f:SI 56 virtual-outgoing-args)
+                (const_int 4 [0x4])) [0 S4 A32])
+        (reg:SI 58 [ D.2175 ])) -1 (nil)
+    (nil))
+
+(insn 20 19 21 1 (set (mem:SI (reg/f:SI 56 virtual-outgoing-args) [0 S4 A32])
+        (symbol_ref/f:SI ("*.LC2") [flags 0x2] <string_cst 0xb7d02480>)) -1 (nil)
+    (nil))
+
+(call_insn 21 20 22 1 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:SI ("printf") [flags 0x41] <function_decl 0xb7c75c80 printf>) [0 S1 A8])
+            (const_int 8 [0x8]))) -1 (nil)
+    (nil)
+    (nil))
+;; End of basic block 1, registers live:
+ (nil)
+
+(note 22 21 32 NOTE_INSN_FUNCTION_END)
+
+;; Start of basic block 2, registers live: (nil)
+(note 32 22 26 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 26 32 27 2 (clobber (reg/i:SI 0 ax)) -1 (nil)
+    (nil))
+
+(insn 27 26 28 2 (clobber (reg:SI 60 [ <result> ])) -1 (nil)
+    (nil))
+
+(jump_insn 28 27 29 2 (set (pc)
+        (label_ref 30)) -1 (nil)
+    (nil))
+;; End of basic block 2, registers live:
+ (nil)
+
+(barrier 29 28 24)
+
+;; Start of basic block 3, registers live: (nil)
+(code_label 24 29 33 3 9 "" [0 uses])
+
+(note 33 24 25 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 25 33 30 3 (set (reg/i:SI 0 ax)
+        (reg:SI 60 [ <result> ])) -1 (nil)
+    (nil))
+;; End of basic block 3, registers live:
+ (nil)
+
+;; Start of basic block 4, registers live: (nil)
+(code_label 30 25 34 4 10 "" [1 uses])
+
+(note 34 30 31 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 31 34 0 4 (use (reg/i:SI 0 ax)) -1 (nil)
+    (nil))
+;; End of basic block 4, registers live:
+ (nil)
+

@@ -1,0 +1,228 @@
+# 212 "/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+# 67 "../common/book.h"
+___device__(extern  __no_sc__) unsigned char _Z5valueffi(float, float, int);
+# 80 "../common/book.h"
+__global__ __var_used__ extern void _Z14float_to_colorPhPKf(unsigned char *, const float *);
+# 104 "../common/book.h"
+__global__ __var_used__ extern void _Z14float_to_colorP6uchar4PKf(uchar4 *, const float *);
+# 4 "test.cu"
+__global__ __var_used__ extern void _Z3addiiPi(int, int, int *);
+#include "common_functions.h"
+# 67 "../common/book.h"
+___device__( __no_sc__) unsigned char _Z5valueffi(
+# 67 "../common/book.h"
+float n1, 
+# 67 "../common/book.h"
+float n2, 
+# 67 "../common/book.h"
+int hue){
+# 67 "../common/book.h"
+{
+# 67 "../common/book.h"
+{
+# 68 "../common/book.h"
+if (hue > 360)
+# 68 "../common/book.h"
+{
+# 68 "../common/book.h"
+hue -= 360;
+# 68 "../common/book.h"
+}
+# 68 "../common/book.h"
+else 
+# 68 "../common/book.h"
+{
+# 69 "../common/book.h"
+if (hue < 0)
+# 69 "../common/book.h"
+{
+# 69 "../common/book.h"
+hue += 360;
+# 69 "../common/book.h"
+}
+# 69 "../common/book.h"
+}
+# 71 "../common/book.h"
+if (hue < 60)
+# 71 "../common/book.h"
+{
+# 72 "../common/book.h"
+return (unsigned char)(__float2uint_rz(((double)((float)((255.0F) * (n1 + ((float)(fdividef(((double)((n2 - n1) * ((float)hue))), (60.0))))))))));
+# 72 "../common/book.h"
+}
+# 73 "../common/book.h"
+if (hue < 180)
+# 73 "../common/book.h"
+{
+# 74 "../common/book.h"
+return (unsigned char)(__float2uint_rz(((double)((float)((255.0F) * n2)))));
+# 74 "../common/book.h"
+}
+# 75 "../common/book.h"
+if (hue < 240)
+# 75 "../common/book.h"
+{
+# 76 "../common/book.h"
+return (unsigned char)(__float2uint_rz(((double)((float)((255.0F) * (n1 + ((float)(fdividef(((double)((n2 - n1) * ((float)(240 - hue)))), (60.0))))))))));
+# 76 "../common/book.h"
+}
+# 77 "../common/book.h"
+return (unsigned char)(__float2uint_rz(((double)((float)((255.0F) * n1)))));
+# 78 "../common/book.h"
+}
+# 78 "../common/book.h"
+}}
+# 80 "../common/book.h"
+__global__ __var_used__ void _Z14float_to_colorPhPKf(
+# 80 "../common/book.h"
+unsigned char *optr, 
+# 81 "../common/book.h"
+const float *outSrc){
+# 81 "../common/book.h"
+{
+# 81 "../common/book.h"
+{
+# 83 "../common/book.h"
+ int __cuda_local_var_32703_9_non_const_x;
+# 84 "../common/book.h"
+ int __cuda_local_var_32704_9_non_const_y;
+# 85 "../common/book.h"
+ int __cuda_local_var_32705_9_non_const_offset;
+# 87 "../common/book.h"
+ float __cuda_local_var_32707_11_non_const_l;
+# 88 "../common/book.h"
+ float __cuda_local_var_32708_11_non_const_s;
+# 89 "../common/book.h"
+ int __cuda_local_var_32709_9_non_const_h;
+# 90 "../common/book.h"
+ float __cuda_local_var_32710_11_non_const_m1;
+# 90 "../common/book.h"
+ float __cuda_local_var_32710_15_non_const_m2;
+# 83 "../common/book.h"
+__cuda_local_var_32703_9_non_const_x = ((int)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 84 "../common/book.h"
+__cuda_local_var_32704_9_non_const_y = ((int)((threadIdx.y) + ((blockIdx.y) * (blockDim.y))));
+# 85 "../common/book.h"
+__cuda_local_var_32705_9_non_const_offset = ((int)(((unsigned)__cuda_local_var_32703_9_non_const_x) + ((((unsigned)__cuda_local_var_32704_9_non_const_y) * (blockDim.x)) * (gridDim.x))));
+# 87 "../common/book.h"
+__cuda_local_var_32707_11_non_const_l = (outSrc[__cuda_local_var_32705_9_non_const_offset]);
+# 88 "../common/book.h"
+__cuda_local_var_32708_11_non_const_s = (1.0F);
+# 89 "../common/book.h"
+__cuda_local_var_32709_9_non_const_h = ((180 + ((int)(__float2int_rz(((double)((float)((360.0F) * (outSrc[__cuda_local_var_32705_9_non_const_offset])))))))) % 360);
+# 92 "../common/book.h"
+if (__cuda_local_var_32707_11_non_const_l <= (0.5F))
+# 92 "../common/book.h"
+{
+# 93 "../common/book.h"
+__cuda_local_var_32710_15_non_const_m2 = (__cuda_local_var_32707_11_non_const_l * ((1.0F) + __cuda_local_var_32708_11_non_const_s));
+# 93 "../common/book.h"
+}
+# 93 "../common/book.h"
+else 
+# 93 "../common/book.h"
+{
+# 95 "../common/book.h"
+__cuda_local_var_32710_15_non_const_m2 = ((__cuda_local_var_32707_11_non_const_l + __cuda_local_var_32708_11_non_const_s) - (__cuda_local_var_32707_11_non_const_l * __cuda_local_var_32708_11_non_const_s));
+# 95 "../common/book.h"
+}
+# 96 "../common/book.h"
+__cuda_local_var_32710_11_non_const_m1 = (((2.0F) * __cuda_local_var_32707_11_non_const_l) - __cuda_local_var_32710_15_non_const_m2);
+# 98 "../common/book.h"
+(optr[((__cuda_local_var_32705_9_non_const_offset * 4) + 0)]) = (_Z5valueffi(__cuda_local_var_32710_11_non_const_m1, __cuda_local_var_32710_15_non_const_m2, (__cuda_local_var_32709_9_non_const_h + 120)));
+# 99 "../common/book.h"
+(optr[((__cuda_local_var_32705_9_non_const_offset * 4) + 1)]) = (_Z5valueffi(__cuda_local_var_32710_11_non_const_m1, __cuda_local_var_32710_15_non_const_m2, __cuda_local_var_32709_9_non_const_h));
+# 100 "../common/book.h"
+(optr[((__cuda_local_var_32705_9_non_const_offset * 4) + 2)]) = (_Z5valueffi(__cuda_local_var_32710_11_non_const_m1, __cuda_local_var_32710_15_non_const_m2, (__cuda_local_var_32709_9_non_const_h - 120)));
+# 101 "../common/book.h"
+(optr[((__cuda_local_var_32705_9_non_const_offset * 4) + 3)]) = ((unsigned char)255U);
+# 102 "../common/book.h"
+} 
+# 102 "../common/book.h"
+}}
+# 104 "../common/book.h"
+__global__ __var_used__ void _Z14float_to_colorP6uchar4PKf(
+# 104 "../common/book.h"
+uchar4 *optr, 
+# 105 "../common/book.h"
+const float *outSrc){
+# 105 "../common/book.h"
+{
+# 105 "../common/book.h"
+{
+# 107 "../common/book.h"
+ int __cuda_local_var_32727_9_non_const_x;
+# 108 "../common/book.h"
+ int __cuda_local_var_32728_9_non_const_y;
+# 109 "../common/book.h"
+ int __cuda_local_var_32729_9_non_const_offset;
+# 111 "../common/book.h"
+ float __cuda_local_var_32731_11_non_const_l;
+# 112 "../common/book.h"
+ float __cuda_local_var_32732_11_non_const_s;
+# 113 "../common/book.h"
+ int __cuda_local_var_32733_9_non_const_h;
+# 114 "../common/book.h"
+ float __cuda_local_var_32734_11_non_const_m1;
+# 114 "../common/book.h"
+ float __cuda_local_var_32734_15_non_const_m2;
+# 107 "../common/book.h"
+__cuda_local_var_32727_9_non_const_x = ((int)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 108 "../common/book.h"
+__cuda_local_var_32728_9_non_const_y = ((int)((threadIdx.y) + ((blockIdx.y) * (blockDim.y))));
+# 109 "../common/book.h"
+__cuda_local_var_32729_9_non_const_offset = ((int)(((unsigned)__cuda_local_var_32727_9_non_const_x) + ((((unsigned)__cuda_local_var_32728_9_non_const_y) * (blockDim.x)) * (gridDim.x))));
+# 111 "../common/book.h"
+__cuda_local_var_32731_11_non_const_l = (outSrc[__cuda_local_var_32729_9_non_const_offset]);
+# 112 "../common/book.h"
+__cuda_local_var_32732_11_non_const_s = (1.0F);
+# 113 "../common/book.h"
+__cuda_local_var_32733_9_non_const_h = ((180 + ((int)(__float2int_rz(((double)((float)((360.0F) * (outSrc[__cuda_local_var_32729_9_non_const_offset])))))))) % 360);
+# 116 "../common/book.h"
+if (__cuda_local_var_32731_11_non_const_l <= (0.5F))
+# 116 "../common/book.h"
+{
+# 117 "../common/book.h"
+__cuda_local_var_32734_15_non_const_m2 = (__cuda_local_var_32731_11_non_const_l * ((1.0F) + __cuda_local_var_32732_11_non_const_s));
+# 117 "../common/book.h"
+}
+# 117 "../common/book.h"
+else 
+# 117 "../common/book.h"
+{
+# 119 "../common/book.h"
+__cuda_local_var_32734_15_non_const_m2 = ((__cuda_local_var_32731_11_non_const_l + __cuda_local_var_32732_11_non_const_s) - (__cuda_local_var_32731_11_non_const_l * __cuda_local_var_32732_11_non_const_s));
+# 119 "../common/book.h"
+}
+# 120 "../common/book.h"
+__cuda_local_var_32734_11_non_const_m1 = (((2.0F) * __cuda_local_var_32731_11_non_const_l) - __cuda_local_var_32734_15_non_const_m2);
+# 122 "../common/book.h"
+((optr[__cuda_local_var_32729_9_non_const_offset]).x) = (_Z5valueffi(__cuda_local_var_32734_11_non_const_m1, __cuda_local_var_32734_15_non_const_m2, (__cuda_local_var_32733_9_non_const_h + 120)));
+# 123 "../common/book.h"
+((optr[__cuda_local_var_32729_9_non_const_offset]).y) = (_Z5valueffi(__cuda_local_var_32734_11_non_const_m1, __cuda_local_var_32734_15_non_const_m2, __cuda_local_var_32733_9_non_const_h));
+# 124 "../common/book.h"
+((optr[__cuda_local_var_32729_9_non_const_offset]).z) = (_Z5valueffi(__cuda_local_var_32734_11_non_const_m1, __cuda_local_var_32734_15_non_const_m2, (__cuda_local_var_32733_9_non_const_h - 120)));
+# 125 "../common/book.h"
+((optr[__cuda_local_var_32729_9_non_const_offset]).w) = ((unsigned char)255U);
+# 126 "../common/book.h"
+} 
+# 126 "../common/book.h"
+}}
+# 4 "test.cu"
+__global__ __var_used__ void _Z3addiiPi(
+# 4 "test.cu"
+int a, 
+# 4 "test.cu"
+int b, 
+# 4 "test.cu"
+int *c){
+# 4 "test.cu"
+{
+# 5 "test.cu"
+{
+# 6 "test.cu"
+} 
+# 6 "test.cu"
+}}

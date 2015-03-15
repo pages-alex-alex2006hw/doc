@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?><MarketplaceSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xml.amazon.com/schemas3/dev-heavy.xsd">
+
+<Request><Args><Arg value="Ruby/Amazon 0.3.99" name="UserAgent"></Arg><Arg value="1SSG2TZTWHRGMT8CW35F" name="RequestID"></Arg><Arg value="awful truth" name="keyword"></Arg><Arg value="us" name="locale"></Arg><Arg value="D23XFCO2UKJY82" name="dev-t"></Arg><Arg value="webservices-20" name="t"></Arg><Arg value="xml" name="f"></Arg><Arg value="keyword" name="MarketplaceSearch"></Arg><Arg value="heavy" name="type"></Arg></Args></Request>   <MarketplaceSearchDetails>
+      <NumberOfOpenListings>239</NumberOfOpenListings>
+      <ListingProductInfo>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y2005074Y8131121</ExchangeId>
+            <ListingId>1220J531686</ListingId>
+            <ExchangeTitle>The Awful Truth About Publishing: Why They Always Reject Your Manuscript and...</ExchangeTitle>
+            <ExchangePrice>$6.31</ExchangePrice>
+            <ExchangeAsin>0446512087</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A3ENSIQ3ZA4FFN</ExchangeSellerId>
+            <ExchangeSellerNickname>abebooks</ExchangeSellerNickname>
+            <ExchangeStartDate>12/20/2003 07:11:03 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>SKU: 246766886; Hard Cover. Very Good/Very Good. 8vo - over 7¾" - 9¾" tall. VG/VG(Ex Library)Hardcover Publisher: Warner Books; (September 1986) ASIN: 0446512087</ExchangeCondition>
+            <ExchangeConditionType>good</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>WA</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y2690042Y2779684</ExchangeId>
+            <ListingId>0915B363023</ListingId>
+            <ExchangeTitle>Switzerland: The Awful Truth  by Ziegler, Jean</ExchangeTitle>
+            <ExchangePrice>$8.31</ExchangePrice>
+            <ExchangeAsin>0060147997</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A1FAYCF19U4WTF</ExchangeSellerId>
+            <ExchangeSellerNickname>wonderbook2</ExchangeSellerNickname>
+            <ExchangeStartDate>09/15/2003 22:52:37 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Publisher: HarperCollins Publishers&lt;br>Date of Publication: 1979&lt;br>Binding: Hard Cover&lt;br>Edition: First Edition&lt;br>Condition: Very Good/Good&lt;br>Description: 0060147997</ExchangeCondition>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>MD</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y2862524Y0084986</ExchangeId>
+            <ListingId>1106K393073</ListingId>
+            <ExchangeTitle>The Awful Truth About Publishing: Why They Always Reject Your Manuscript and...</ExchangeTitle>
+            <ExchangePrice>$1.75</ExchangePrice>
+            <ExchangeAsin>0446512087</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A3S16FCPACI5MT</ExchangeSellerId>
+            <ExchangeSellerNickname>seashell_books</ExchangeSellerNickname>
+            <ExchangeStartDate>11/06/2003 18:30:35 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Publisher: Warner Books, Incorporated&lt;br>Date of Publication: 1986&lt;br>Binding: Hard Cover&lt;br>Condition: Near Fine</ExchangeCondition>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>FL</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y2967478Y3025387</ExchangeId>
+            <ListingId>0108T323750</ListingId>
+            <ExchangeTitle>The Awful Truth [DVD] (2003) McCarey, Leo; Dunne, Irene; Grant, Cary; Bellamy...</ExchangeTitle>
+            <ExchangePrice>$21.23</ExchangePrice>
+            <ExchangeAsin>B000085EFE</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A2NT0F3A6LH7YD</ExchangeSellerId>
+            <ExchangeSellerNickname>alphacraze</ExchangeSellerNickname>
+            <ExchangeStartDate>01/08/2004 14:48:37 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>30</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68315</ExchangeFeaturedCategory>
+            <ExchangeCondition>All of our items are brand new!</ExchangeCondition>
+            <ExchangeConditionType>mint</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>CT</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.0</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y3178374Y0344383</ExchangeId>
+            <ListingId>0729J424624</ListingId>
+            <ExchangeTitle>The Awful Truth About Publishing: Why They Always Reject Your Manuscript and...</ExchangeTitle>
+            <ExchangePrice>$15.00</ExchangePrice>
+            <ExchangeAsin>0446512087</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A3RTBOGJYB981B</ExchangeSellerId>
+            <ExchangeSellerNickname>venturapacific</ExchangeSellerNickname>
+            <ExchangeStartDate>07/29/2003 19:27:06 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Publisher: Warner&lt;br>Date of Publication: 1986&lt;br>Binding: Hard Cover&lt;br>Edition: Ex-Lib</ExchangeCondition>
+            <ExchangeConditionType>good</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>CA</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y4807595Y8441989</ExchangeId>
+            <ListingId>0117H192771</ListingId>
+            <ExchangeTitle>The Awful Truth About Publishing: Why They Always Reject Your Manuscript and...</ExchangeTitle>
+            <ExchangePrice>$1.00</ExchangePrice>
+            <ExchangeAsin>0446512087</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AIJLDCM5SURD</ExchangeSellerId>
+            <ExchangeSellerNickname>mainele</ExchangeSellerNickname>
+            <ExchangeStartDate>01/17/2004 05:34:36 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>1</ExchangeFeaturedCategory>
+            <ExchangeCondition>Clean tight pages. Very light edgewear on DJ.</ExchangeCondition>
+            <ExchangeConditionType>good</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>ME</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>5.0</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y5146924Y8120095</ExchangeId>
+            <ListingId>0207F258325</ListingId>
+            <ExchangeTitle>Switzerland: The Awful Truth  by Ziegler, Jean</ExchangeTitle>
+            <ExchangePrice>$15.84</ExchangePrice>
+            <ExchangeAsin>0060147997</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>collectible</ExchangeOfferingType>
+            <ExchangeSellerId>A3ENSIQ3ZA4FFN</ExchangeSellerId>
+            <ExchangeSellerNickname>abebooks</ExchangeSellerNickname>
+            <ExchangeStartDate>02/07/2003 15:24:04 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>SKU: 66741898; Hard Cover. Good/Good. First U.S. Edition. 8v-Large. ISBN:0060147997. DJ bumped, chipped, browning, price clipped and soiled with edgewear. Cover bumped with edgewear. Spine has gold gi</ExchangeCondition>
+            <ExchangeConditionType>mint</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>WA</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y2832964Y8302965</ExchangeId>
+            <ListingId>1120H876767</ListingId>
+            <ExchangeTitle>The Awful Truth About Publishing: Why They Always Reject Your Manuscript and...</ExchangeTitle>
+            <ExchangePrice>$6.88</ExchangePrice>
+            <ExchangeAsin>0446512087</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>new</ExchangeOfferingType>
+            <ExchangeSellerId>A1B0D8RDMODDHQ</ExchangeSellerId>
+            <ExchangeSellerNickname>beckys_book_boutique</ExchangeSellerNickname>
+            <ExchangeStartDate>11/20/2003 12:53:38 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Fast==>Shipping! 11-20-03-Right-Amazon</ExchangeCondition>
+            <ExchangeConditionType>new</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>SC</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y4124179Y0357670</ExchangeId>
+            <ListingId>0211J981190</ListingId>
+            <ExchangeTitle>Switzerland: The Awful Truth  by Ziegler, Jean</ExchangeTitle>
+            <ExchangePrice>$15.71</ExchangePrice>
+            <ExchangeAsin>0060147997</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A1W3KL3V5J40VH</ExchangeSellerId>
+            <ExchangeSellerNickname>alibris_sellers</ExchangeSellerNickname>
+            <ExchangeStartDate>02/11/2003 15:53:55 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Good in Good jacket</ExchangeCondition>
+            <ExchangeConditionType>good</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>NV</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y5254909Y6002365</ExchangeId>
+            <ListingId>0701B572708</ListingId>
+            <ExchangeTitle>Switzerland: The Awful Truth  by Ziegler, Jean</ExchangeTitle>
+            <ExchangePrice>$4.85</ExchangePrice>
+            <ExchangeAsin>0060147997</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A1T3UM7CFRMKRC</ExchangeSellerId>
+            <ExchangeSellerNickname>wathenbooks</ExchangeSellerNickname>
+            <ExchangeStartDate>07/01/2003 05:45:21 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Publisher: HarperCollins Publishers&lt;br>Date of Publication: 1979&lt;br>Binding: Hard Cover&lt;br>Condition: Very Good&lt;br>Description: 0060147997 Very good clean copy.  In nice shape!!</ExchangeCondition>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>KS</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>5.0</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y0083563Y1065080</ExchangeId>
+            <ListingId>0629T904903</ListingId>
+            <ExchangeTitle>Switzerland: The Awful Truth  by Ziegler, Jean</ExchangeTitle>
+            <ExchangePrice>$15.76</ExchangePrice>
+            <ExchangeAsin>0060147997</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A1W3KL3V5J40VH</ExchangeSellerId>
+            <ExchangeSellerNickname>alibris_sellers</ExchangeSellerNickname>
+            <ExchangeStartDate>06/29/2003 18:04:03 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Very Good in Good jacket 8vo-over 7&amp;#190;"'"-9&amp;#190;"'" tall.</ExchangeCondition>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>NV</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y0094122Y4875984</ExchangeId>
+            <ListingId>0405J494321</ListingId>
+            <ExchangeTitle>Switzerland: The Awful Truth  by Ziegler, Jean</ExchangeTitle>
+            <ExchangePrice>$14.00</ExchangePrice>
+            <ExchangeAsin>0060147997</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A1M9WPQ82RD0MC</ExchangeSellerId>
+            <ExchangeSellerNickname>brookhillbooks</ExchangeSellerNickname>
+            <ExchangeStartDate>04/05/2002 00:20:45 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Publisher: New York, NY, U.S.A.: HarperCollins Publishers, 1979.&lt;br>Description: BUYER PAYS FOR SHIPPING - please see below. ISBN: 0060147997 xlib, minor wear, tight, clean pages and dj, Great Book!.</ExchangeCondition>
+            <ExchangeConditionType>acceptable</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>NY</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1438907Y2762079</ExchangeId>
+            <ListingId>1210R105363</ListingId>
+            <ExchangeTitle>Switzerland: The Awful Truth  by Ziegler, Jean</ExchangeTitle>
+            <ExchangePrice>$7.41</ExchangePrice>
+            <ExchangeAsin>0060147997</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>collectible</ExchangeOfferingType>
+            <ExchangeSellerId>A3ENSIQ3ZA4FFN</ExchangeSellerId>
+            <ExchangeSellerNickname>abebooks</ExchangeSellerNickname>
+            <ExchangeStartDate>12/10/2002 21:12:54 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>SKU: 125338388; 1979 1st. ed. &amp;#212;'If you see a Swiss banker jumping out of a window,jump after him: there's bound to be money in it.&amp;#211; Voltaire verygood hdbk. dj.v/gd.</ExchangeCondition>
+            <ExchangeConditionType>acceptable</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>WA</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y3664577Y0946445</ExchangeId>
+            <ListingId>1130F042130</ListingId>
+            <ExchangeTitle>The Awful Truth About Publishing: Why They Always Reject Your Manuscript and...</ExchangeTitle>
+            <ExchangePrice>$11.89</ExchangePrice>
+            <ExchangeAsin>0446512087</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A1W3KL3V5J40VH</ExchangeSellerId>
+            <ExchangeSellerNickname>alibris_sellers</ExchangeSellerNickname>
+            <ExchangeStartDate>11/30/2003 03:02:54 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Near Fine/very good DJ, price clipped, small corner tear. 8vo, 161pp, 208x144mm. Remainder mark.</ExchangeCondition>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>NV</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y4230052Y4481546</ExchangeId>
+            <ListingId>0713K773231</ListingId>
+            <ExchangeTitle>Switzerland: The Awful Truth  by Ziegler, Jean</ExchangeTitle>
+            <ExchangePrice>$12.71</ExchangePrice>
+            <ExchangeAsin>0060147997</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>collectible</ExchangeOfferingType>
+            <ExchangeSellerId>A3ENSIQ3ZA4FFN</ExchangeSellerId>
+            <ExchangeSellerNickname>abebooks</ExchangeSellerNickname>
+            <ExchangeStartDate>07/13/2003 21:27:43 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>SKU: 217782986; Cloth. As New/Very Good. First American Edition. 173pp including index Dust jacket is price clipped and has two repaired tears on back cover</ExchangeCondition>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>WA</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y4692539Y5906744</ExchangeId>
+            <ListingId>1212L619511</ListingId>
+            <ExchangeTitle>The Awful Truth About Publishing: Why They Always Reject Your Manuscript and...</ExchangeTitle>
+            <ExchangePrice>$0.85</ExchangePrice>
+            <ExchangeAsin>0446512087</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A14MPLZZF570E5</ExchangeSellerId>
+            <ExchangeSellerNickname>patricobooks</ExchangeSellerNickname>
+            <ExchangeStartDate>12/12/2003 17:27:14 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>170161</ExchangeFeaturedCategory>
+            <ExchangeCondition>Former library book. Hardcover.</ExchangeCondition>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>NY</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>5.0</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y4968621Y8158146</ExchangeId>
+            <ListingId>0929L161723</ListingId>
+            <ExchangeTitle>The Awful Truth [VHS Tape] (1992) McCarey, Leo; Dunne, Irene; Grant, Cary...</ExchangeTitle>
+            <ExchangePrice>$10.95</ExchangePrice>
+            <ExchangeAsin>6302305950</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AFLTHO3MB4825</ExchangeSellerId>
+            <ExchangeSellerNickname>rwillert</ExchangeSellerNickname>
+            <ExchangeStartDate>09/29/2003 00:48:34 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>296621</ExchangeFeaturedCategory>
+            <ExchangeCondition>Video and original box in NEW condition.</ExchangeCondition>
+            <ExchangeConditionType>mint</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>CA</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>5.0</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y5169182Y0301042</ExchangeId>
+            <ListingId>1219J211181</ListingId>
+            <ExchangeTitle>Sports Nutrition: The Awful Truth [Paperback]  by Baugh, Mark A.</ExchangeTitle>
+            <ExchangePrice>$10.33</ExchangePrice>
+            <ExchangeAsin>1568250428</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A3ENSIQ3ZA4FFN</ExchangeSellerId>
+            <ExchangeSellerNickname>abebooks</ExchangeSellerNickname>
+            <ExchangeStartDate>12/19/2003 01:13:04 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>SKU: 216223880; Trade Paperback. As New. BRAND NEW BOOK!!!</ExchangeCondition>
+            <ExchangeConditionType>mint</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>WA</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y5211483Y8021245</ExchangeId>
+            <ListingId>0112H183859</ListingId>
+            <ExchangeTitle>Switzerland: The Awful Truth  by Ziegler, Jean</ExchangeTitle>
+            <ExchangePrice>$12.61</ExchangePrice>
+            <ExchangeAsin>0060147997</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A1W3KL3V5J40VH</ExchangeSellerId>
+            <ExchangeSellerNickname>alibris_sellers</ExchangeSellerNickname>
+            <ExchangeStartDate>01/12/2004 21:08:32 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>1st American ed. , cloth, v.g. in price clipped, torn d/j</ExchangeCondition>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>NV</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y6847972Y9035543</ExchangeId>
+            <ListingId>1021F652928</ListingId>
+            <ExchangeTitle>The Awful Truth About Publishing: Why They Always Reject Your Manuscript and...</ExchangeTitle>
+            <ExchangePrice>$1.95</ExchangePrice>
+            <ExchangeAsin>0446512087</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A3FHD0R6JB0VL8</ExchangeSellerId>
+            <ExchangeSellerNickname>alibris</ExchangeSellerNickname>
+            <ExchangeStartDate>10/21/2003 17:21:21 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Very Good. In very good dust jacket, p. c.</ExchangeCondition>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>NV</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y0018422Y2171666</ExchangeId>
+            <ListingId>0308R509821</ListingId>
+            <ExchangeTitle>Switzerland: The Awful Truth  by Ziegler, Jean</ExchangeTitle>
+            <ExchangePrice>$9.95</ExchangePrice>
+            <ExchangeAsin>0060147997</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A2E3YESGTGB52I</ExchangeSellerId>
+            <ExchangeSellerNickname>mimibooks</ExchangeSellerNickname>
+            <ExchangeStartDate>03/08/2002 10:12:03 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68299</ExchangeFeaturedCategory>
+            <ExchangeCondition>tight bdg,1pg stamped,rst cln(cloth,HBK)no Dj(shp Int)E716</ExchangeCondition>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>MO</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>5.0</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y0090013Y1651060</ExchangeId>
+            <ListingId>0121J726769</ListingId>
+            <ExchangeTitle>The Awful Truth [VHS Tape] (1992) McCarey, Leo; Dunne, Irene; Grant, Cary...</ExchangeTitle>
+            <ExchangePrice>$15.64</ExchangePrice>
+            <ExchangeAsin>6302305950</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A3FK5IOPTOSSU4</ExchangeSellerId>
+            <ExchangeSellerNickname>a1bestsellers</ExchangeSellerNickname>
+            <ExchangeStartDate>01/21/2004 09:58:37 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>5</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68324</ExchangeFeaturedCategory>
+            <ExchangeCondition>Brand New, Directly from Distributor, Shipped within 24 hours.</ExchangeCondition>
+            <ExchangeConditionType>mint</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>NJ</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y0532605Y4823663</ExchangeId>
+            <ListingId>1006A754205</ListingId>
+            <ExchangeTitle>The Awful Truth About Publishing: Why They Always Reject Your Manuscript and...</ExchangeTitle>
+            <ExchangePrice>$15.95</ExchangePrice>
+            <ExchangeAsin>0446512087</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AHVVWQJW6WT2E</ExchangeSellerId>
+            <ExchangeSellerNickname>epwsb</ExchangeSellerNickname>
+            <ExchangeStartDate>10/06/2003 16:20:18 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>161 pp. ISBN: 0446512087. G+/G. Reader highlights throughout. Recommended to anyone who wants to know how publishing works. Insider stuff from literary agent, book packager, and co-writer of What ...</ExchangeCondition>
+            <ExchangeConditionType>acceptable</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>KY</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>5.0</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y0548467Y0237360</ExchangeId>
+            <ListingId>1102K153780</ListingId>
+            <ExchangeTitle>Switzerland: The Awful Truth  by Ziegler, Jean</ExchangeTitle>
+            <ExchangePrice>$19.06</ExchangePrice>
+            <ExchangeAsin>0060147997</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>collectible</ExchangeOfferingType>
+            <ExchangeSellerId>A3ENSIQ3ZA4FFN</ExchangeSellerId>
+            <ExchangeSellerNickname>abebooks</ExchangeSellerNickname>
+            <ExchangeStartDate>11/02/2002 07:19:02 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>SKU: 80209037; copyright 1979 Hardcover, 173 pages, 1st US edition so stated vg/vg- dj 07/16/92</ExchangeCondition>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>WA</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y0624164Y3847669</ExchangeId>
+            <ListingId>1226T238658</ListingId>
+            <ExchangeTitle>The Awful Truth About Publishing: Why They Always Reject Your Manuscript and...</ExchangeTitle>
+            <ExchangePrice>$5.49</ExchangePrice>
+            <ExchangeAsin>0446512087</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>A3ICOUPBHH77N7</ExchangeSellerId>
+            <ExchangeSellerNickname>secondtimebooks</ExchangeSellerNickname>
+            <ExchangeStartDate>12/26/2003 10:16:15 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Publisher: Warner Books, Incorporated&lt;br>Date of Publication: 1986&lt;br>Binding: Hard Cover&lt;br>Condition: Good +/Good&lt;br>Description: 0446512087 CREASING ON EDGES OF DUST JACKET.</ExchangeCondition>
+            <ExchangeConditionType>good</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>FL</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+      </ListingProductInfo>
+   </MarketplaceSearchDetails>
+</MarketplaceSearch>

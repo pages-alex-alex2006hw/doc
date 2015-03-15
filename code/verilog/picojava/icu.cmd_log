@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/cjeong/ztmp/code/verilog/picojava/icu.xst" -ofn "/home/cjeong/ztmp/code/verilog/picojava/icu.syr" 

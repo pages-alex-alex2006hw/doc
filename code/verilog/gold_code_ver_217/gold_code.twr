@@ -1,0 +1,81 @@
+--------------------------------------------------------------------------------
+Release 12.3 Trace  (lin)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/12.3/ISE_DS/ISE/bin/lin/unwrapped/trce -intstyle ise -v 3 -s 5 -n 3
+-fastpaths -xml gold_code.twx gold_code.ncd -o gold_code.twr gold_code.pcf -ucf
+gold_code.ucf
+
+Design file:              gold_code.ncd
+Physical constraint file: gold_code.pcf
+Device,package,speed:     xc3s500e,fg320,-5 (PRODUCTION 1.27 2010-09-15)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock Clock
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+Enable      |    0.589(R)|    1.386(R)|Clock_BUFGP       |   0.000|
+Fill_En_A   |    0.494(R)|    0.737(R)|Clock_BUFGP       |   0.000|
+Fill_En_B   |    0.060(R)|    1.079(R)|Clock_BUFGP       |   0.000|
+New_Fill_A  |    0.156(R)|    1.008(R)|Clock_BUFGP       |   0.000|
+New_Fill_B  |    0.148(R)|    1.009(R)|Clock_BUFGP       |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock Clock to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+Gold_Code   |    8.455(R)|Clock_BUFGP       |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock Clock
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+Clock          |    1.705|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Thu Oct 28 04:00:38 2010 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 93 MB
+
+
+

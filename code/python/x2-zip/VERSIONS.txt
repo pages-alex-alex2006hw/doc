@@ -1,0 +1,7 @@
+Version 40002643_B created April 29, 2008
+
+- Added codecs and basic encoding support
+
+Version 40002643_A
+
+- Initial revision tracked version of python.zip

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?><ProductInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xml.amazon.com/schemas3/dev-heavy.xsd">
+
+<Request><Args><Arg value="Ruby/Amazon 0.3.99" name="UserAgent"></Arg><Arg value="1DVNV07PJNM4RVGGZAFB" name="RequestID"></Arg><Arg value="All" name="offer"></Arg><Arg value="B00001X5BO,B000093NRE" name="AsinSearch"></Arg><Arg value="us" name="locale"></Arg><Arg value="D23XFCO2UKJY82" name="dev-t"></Arg><Arg value="webservices-20" name="t"></Arg><Arg value="xml" name="f"></Arg><Arg value="1" name="offerpage"></Arg><Arg value="heavy" name="type"></Arg></Args></Request>   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00001X5BO/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00001X5BO</Asin>
+      <ProductName>BBC Sessions</ProductName>
+      <Catalog>Music</Catalog>
+      <Artists>
+         <Artist>Cocteau Twins</Artist>
+      </Artists>
+      <ReleaseDate>12 October, 1999</ReleaseDate>
+      <Manufacturer>Rykodisc</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00001X5BO.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00001X5BO.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00001X5BO.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$24.98</ListPrice>
+      <OurPrice>$24.98</OurPrice>
+      <UsedPrice>$7.99</UsedPrice>
+      <ThirdPartyNewPrice>$13.99</ThirdPartyNewPrice>
+      <SalesRank>15,517</SalesRank>
+      <Lists>
+         <ListId>16VSIHP5C4PK9</ListId>
+         <ListId>3ZE9RZ3J2FZ5</ListId>
+         <ListId>1T1CUM63T9W2K</ListId>
+      </Lists>
+      <Tracks>
+         <Track>Wax And Wane</Track>
+         <Track>Garlands</Track>
+         <Track>Alas Dies Laughing</Track>
+         <Track>Feathers-Oar-Blades</Track>
+         <Track>Hearsay Please</Track>
+         <Track>Dear Heart</Track>
+         <Track>Blind Dumb Deaf</Track>
+         <Track>Hazel</Track>
+         <Track>The Tinderbox (Of A Heart)</Track>
+         <Track>Strange Fruit</Track>
+         <Track>Hitherto</Track>
+         <Track>From The Flagstones</Track>
+         <Track>Sugar Hiccup</Track>
+         <Track>In Our Angelhood</Track>
+         <Track>My Hue And Cry</Track>
+         <Track>Musette And Drums</Track>
+         <Track>Hitherto</Track>
+         <Track>From The Flagstones</Track>
+         <Track>Musette And Drums</Track>
+         <Track>Pepper-Tree</Track>
+         <Track>Beatrix</Track>
+         <Track>Ivo</Track>
+         <Track>Otterley</Track>
+         <Track>Serpentskirt</Track>
+         <Track>Golden-Vein</Track>
+         <Track>Half-Gifts</Track>
+         <Track>Seekers Who Are Lovers</Track>
+         <Track>Calfskin Smack</Track>
+         <Track>Fifty-Fifty Clown</Track>
+         <Track>Violaine</Track>
+         <Track>Hitherto</Track>
+         <Track>From the Flagstones</Track>
+         <Track>Musette and Drums</Track>
+         <Track>Pepper-Tree</Track>
+         <Track>Beatrix</Track>
+         <Track>Ivo</Track>
+         <Track>Otterley</Track>
+         <Track>Serpentskirt</Track>
+         <Track>Golden-Vein</Track>
+         <Track>Half-Gifts</Track>
+         <Track>Seekers Who Are Lovers</Track>
+         <Track>Calfskin Smack</Track>
+         <Track>Fifty-Fifty Clown</Track>
+         <Track>Violaine</Track>
+      </Tracks>
+      <NumberOfOfferings>31</NumberOfOfferings>
+      <ThirdPartyNewCount>14</ThirdPartyNewCount>
+      <UsedCount>17</UsedCount>
+      <ThirdPartyProductInfo>
+         <ThirdPartyProductDetails>
+            <OfferingType>ThirdPartyNew</OfferingType>
+            <SellerId>AOR2FCLNHHUQ2</SellerId>
+            <SellerNickname>boltbeats</SellerNickname>
+            <ExchangeId>Y03Y2308031Y2137944</ExchangeId>
+            <OfferingPrice>$13.99</OfferingPrice>
+            <Condition>new</Condition>
+            <ConditionType>Sealed, 2CD Advanced copy, Alternate back card, no booklet, In Stock!</ConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <SellerCountry>United States</SellerCountry>
+            <SellerState>NJ</SellerState>
+            <ShipComments>International shipping available
+Expedited shipping available
+</ShipComments>
+            <SellerRating>5.0</SellerRating>
+         </ThirdPartyProductDetails>
+         <ThirdPartyProductDetails>
+            <OfferingType>ThirdPartyNew</OfferingType>
+            <SellerId>A2VDX2R0ADYXRC</SellerId>
+            <SellerNickname>cds2u</SellerNickname>
+            <ExchangeId>Y02Y1919477Y6166417</ExchangeId>
+            <OfferingPrice>$15.95</OfferingPrice>
+            <Condition>new</Condition>
+            <ConditionType>) *** brand new *** factory sealed ***</ConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <SellerCountry>United States</SellerCountry>
+            <SellerState>MS</SellerState>
+            <ShipComments>International shipping available
+Expedited shipping available
+</ShipComments>
+            <SellerRating>4.9</SellerRating>
+         </ThirdPartyProductDetails>
+         <ThirdPartyProductDetails>
+            <OfferingType>ThirdPartyNew</OfferingType>
+            <SellerId>A2QSBSBNS7GKLG</SellerId>
+            <SellerNickname>dixonmusic</SellerNickname>
+            <ExchangeId>Y02Y0463579Y5756069</ExchangeId>
+            <OfferingPrice>$17.98</OfferingPrice>
+            <Condition>new</Condition>
+            <ConditionType>2 x CD Brand new, still sealed in shrinkwrap - Ship Now with FREE upgrade to FAST 1st class Mail - Or Fast International Air Mail Shipping upgrade !</ConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <SellerCountry>United States</SellerCountry>
+            <SellerState>SC</SellerState>
+            <ShipComments>International shipping available
+Expedited shipping available
+</ShipComments>
+            <SellerRating>4.8</SellerRating>
+         </ThirdPartyProductDetails>
+         <ThirdPartyProductDetails>
+            <OfferingType>Used</OfferingType>
+            <SellerId>A5QL4126OL6TV</SellerId>
+            <SellerNickname>jay993</SellerNickname>
+            <ExchangeId>Y02Y6982851Y4397324</ExchangeId>
+            <OfferingPrice>$7.99</OfferingPrice>
+            <Condition>mint</Condition>
+            <ConditionType>MINT CONDITION*WILL SHIP FIRST CLASS</ConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <SellerCountry>United States</SellerCountry>
+            <SellerState>IL</SellerState>
+            <ShipComments>International shipping available
+Expedited shipping available
+</ShipComments>
+            <SellerRating>4.8</SellerRating>
+         </ThirdPartyProductDetails>
+         <ThirdPartyProductDetails>
+            <OfferingType>Used</OfferingType>
+            <SellerId>A2VP1U0QIF3HYL</SellerId>
+            <SellerNickname>pittsburgh@cddvdgametrader.com</SellerNickname>
+            <ExchangeId>Y04Y3660169Y2337363</ExchangeId>
+            <OfferingPrice>$8.99</OfferingPrice>
+            <Condition>verygood</Condition>
+            <ConditionType></ConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <SellerCountry>United States</SellerCountry>
+            <SellerState>PA</SellerState>
+            <ShipComments>Expedited shipping available
+</ShipComments>
+            <SellerRating>4.4</SellerRating>
+         </ThirdPartyProductDetails>
+         <ThirdPartyProductDetails>
+            <OfferingType>Used</OfferingType>
+            <SellerId>A2UI1XC55HS6XG</SellerId>
+            <SellerNickname>maggiesmusic</SellerNickname>
+            <ExchangeId>Y03Y1342181Y1482961</ExchangeId>
+            <OfferingPrice>$12.98</OfferingPrice>
+            <Condition>mint</Condition>
+            <ConditionType>FREE upgrade to FAST 1st class mail  *** I ship daily ***</ConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <SellerCountry>United States</SellerCountry>
+            <SellerState>FL</SellerState>
+            <ShipComments>Expedited shipping available
+</ShipComments>
+            <SellerRating>4.8</SellerRating>
+         </ThirdPartyProductDetails>
+      </ThirdPartyProductInfo>
+      <Media>Audio CD</Media>
+      <NumMedia>2</NumMedia>
+      <Features>
+         <Feature>Live</Feature>
+      </Features>
+      <Availability>Usually ships within 24 hours</Availability>
+      <Upc>014431049729</Upc>
+      <ProductDescription>The Cocteau Twins were one of the more distinctive recording acts of the 1980s and their dreamy, atmospheric sound provided an ethereal sonic template for many Euro-pop groups of the time. With Elizabeth Fraser's haunting vocals and Robin Guthrie's innovative use of guitars, drum machines, and other electronic instrumentation, the Cocteau Twins created a rich, textured sound that endured over a large number of recordings. This double disc serves nicely as a greatest-hits package as well as a lengthy memento of the band's evolution from 1982 through 1996. Including shimmering renditions of old favorites like "Musette and Drums" and "Ivo," as well as a stirring rendition of Billie Holiday's "Strange Fruit," this collection is a must for all Cocteau Twins fans. &lt;i>--Mitch Myers&lt;/i> </ProductDescription>
+      <Reviews>
+         <AvgCustomerRating>3.91</AvgCustomerRating>
+         <TotalCustomerReviews>22</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Excellent CD set, but somewhat lacking</Summary>
+            <Comment>A remarkable collection of live songs by the Cocteau Twins. Unfortunatly, no tracks are included from certain albums, and I really would've liked to have heard those songs live. Naturally, Elizabeth Fraser's voice is beautiful and powerful on all tracks. The recording quality is excellent. I think the songs half-gifts, seekers who are lovers, and calfskin smack are my favourites. All of the songs have easier to understand lyrics than the studio versions. Half-gifts is completely decipherable. I'm not fond of some songs on the first CD, but I totally recommend this two-CD set to anyone who wishes to hear the Cocteaus live.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>4</Rating>
+            <Summary>Excellent performances of some Cocteau Twins classics</Summary>
+            <Comment>This collection is just what fans starved for more Cocteau Twins need. Unfortunately, the band's breakup seems final and re-issues, retrospectives and live albums are all we may get. Only two complaints - no liner notes or booklet?!?!! Why not?? And also - I think this collection is a bit heavy on the early part of the Twins' career. About one-third of Disc 1 will seem mediocre especially for fans' of post 1984 (the "Treasure" album) period. But the rest of the music is brilliant, including an exceptional recording of "Seekers Who Are Lovers". Possibly even better than the "Milk and Kisses" version - I'll need a few more listens. "From The Flagstones", "Pepper-Tree", "Musette and Drums", "Violaine", and "Fifty-fifty Clown" are all performed wonderfully. This is a definite must for any Cocteau Twins fan's collection.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Truly magnificent</Summary>
+            <Comment>This is an album you should enjoy and enjoy a lot. Incidentally when a BBC sessions album is released by a band it doesn't really mean it's a live album. It's just the band recording the songs at BBC's studios so that it can be broadcasted on radio at a particular time. So for those who were wondering why there were Liz's voice in the background as well as at the forefront should rest at ease - there was a little bit of studio trickery there. I just I should point that out lest someone gets confused</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>B00009ATJD</Product>
+         <Product>B00004Y82V</Product>
+         <Product>B00007IFR5</Product>
+         <Product>B00001QEEV</Product>
+         <Product>B00006L5PQ</Product>
+      </SimilarProducts>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B000093NRE/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B000093NRE</Asin>
+      <ProductName>Imperial</ProductName>
+      <Catalog>Music</Catalog>
+      <Artists>
+         <Artist>Robin Guthrie</Artist>
+      </Artists>
+      <ReleaseDate>06 May, 2003</ReleaseDate>
+      <Manufacturer>Bella Union</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B000093NRE.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B000093NRE.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B000093NRE.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$15.98</ListPrice>
+      <OurPrice>$14.99</OurPrice>
+      <UsedPrice>$11.99</UsedPrice>
+      <ThirdPartyNewPrice>$11.48</ThirdPartyNewPrice>
+      <SalesRank>19,247</SalesRank>
+      <Tracks>
+         <Track>Imperial</Track>
+         <Track>Freefal</Track>
+         <Track>Thunderbird Road</Track>
+         <Track>Tera</Track>
+         <Track>Crossing The Line</Track>
+         <Track>Into Stressa</Track>
+         <Track>Music For Labour</Track>
+         <Track>Falling From Grace</Track>
+         <Track>Elemental</Track>
+         <Track>Drift</Track>
+      </Tracks>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Pop</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Rock</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <NumberOfOfferings>9</NumberOfOfferings>
+      <ThirdPartyNewCount>7</ThirdPartyNewCount>
+      <UsedCount>2</UsedCount>
+      <ThirdPartyProductInfo>
+         <ThirdPartyProductDetails>
+            <OfferingType>ThirdPartyNew</OfferingType>
+            <SellerId>A2U84RID2RXM9W</SellerId>
+            <SellerNickname>npsbookie</SellerNickname>
+            <ExchangeId>Y03Y0321655Y5733626</ExchangeId>
+            <OfferingPrice>$11.48</OfferingPrice>
+            <Condition>new</Condition>
+            <ConditionType>Brand New, still factory-sealed!! Case may have hairline crack.</ConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <SellerCountry>United States</SellerCountry>
+            <SellerState>UT</SellerState>
+            <ShipComments>Expedited shipping available
+</ShipComments>
+            <SellerRating>4.9</SellerRating>
+         </ThirdPartyProductDetails>
+         <ThirdPartyProductDetails>
+            <OfferingType>ThirdPartyNew</OfferingType>
+            <SellerId>A1MSHKP33DCC6</SellerId>
+            <SellerNickname>caiman_com</SellerNickname>
+            <ExchangeId>Y03Y5605940Y8389528</ExchangeId>
+            <OfferingPrice>$11.48</OfferingPrice>
+            <Condition>new</Condition>
+            <ConditionType>New Item, never been opened. Still shrink-wrapped in original packaging.</ConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <SellerCountry>United States</SellerCountry>
+            <SellerState>FL</SellerState>
+            <ShipComments>International shipping available
+</ShipComments>
+            <SellerRating>4.5</SellerRating>
+         </ThirdPartyProductDetails>
+         <ThirdPartyProductDetails>
+            <OfferingType>ThirdPartyNew</OfferingType>
+            <SellerId>A1IA7FBFQVYOSO</SellerId>
+            <SellerNickname>blackdogmusic2002</SellerNickname>
+            <ExchangeId>Y02Y5379503Y8368687</ExchangeId>
+            <OfferingPrice>$11.69</OfferingPrice>
+            <Condition>new</Condition>
+            <ConditionType>@1ST CLASS SHIPPING. BRAND NEW. FACTORY SEALED. GUARANTEED.</ConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <SellerCountry>United States</SellerCountry>
+            <SellerState>SC</SellerState>
+            <SellerRating>4.8</SellerRating>
+         </ThirdPartyProductDetails>
+         <ThirdPartyProductDetails>
+            <OfferingType>Used</OfferingType>
+            <SellerId>AOYOEBY0JFUMY</SellerId>
+            <SellerNickname>cybermusicsurplus</SellerNickname>
+            <ExchangeId>Y04Y5432644Y0220421</ExchangeId>
+            <OfferingPrice>$11.99</OfferingPrice>
+            <Condition>mint</Condition>
+            <ConditionType>Brand New!! Shrinkwrapped All of our items are BRAND NEW</ConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <SellerCountry>United States</SellerCountry>
+            <SellerState>OR</SellerState>
+            <ShipComments>International shipping available
+Expedited shipping available
+</ShipComments>
+            <SellerRating>4.8</SellerRating>
+         </ThirdPartyProductDetails>
+         <ThirdPartyProductDetails>
+            <OfferingType>Used</OfferingType>
+            <SellerId>A2NT0F3A6LH7YD</SellerId>
+            <SellerNickname>alphacraze</SellerNickname>
+            <ExchangeId>Y01Y1353968Y3500467</ExchangeId>
+            <OfferingPrice>$13.49</OfferingPrice>
+            <Condition>mint</Condition>
+            <ConditionType>All of our items are brand new!</ConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <SellerCountry>United States</SellerCountry>
+            <SellerState>CT</SellerState>
+            <ShipComments>Expedited shipping available
+</ShipComments>
+            <SellerRating>4.2</SellerRating>
+         </ThirdPartyProductDetails>
+      </ThirdPartyProductInfo>
+      <Media>Audio CD</Media>
+      <Availability>Usually ships within 4 to 5 days</Availability>
+      <Upc>723724559325</Upc>
+      <Reviews>
+         <AvgCustomerRating>5</AvgCustomerRating>
+         <TotalCustomerReviews>5</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Spare and Haunted</Summary>
+            <Comment>Robin Guthrie's first solo album is essential for everyone who loves the Cocteau Twins. Each track is a beautiful exploration of mood and texture. Occasionally, bits of melody surface and float away. But most significant is that each song holds an empty space in it, a space that seems to be haunted by the memory of a certain voice...&lt;BR> Either as it is or supplemented by this imaginary voice, this record is truly gorgeous. Get it before it's gone.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Worth the Wait!</Summary>
+            <Comment>The music on this album is absolutely beautiful! Instrumental tracks recalling the quieter side of the Cocteau Twins, this is music to drift away into. The somewhat more organic-sounding guitar has a bit of a western tinge to it (IMO), but all the familiar treatments are there. If you know his past work you will most likely be very pleased.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>A desolate walk to nowhere</Summary>
+            <Comment>Evoking the loneliness of wide open spaces, this first solo release from founding member, producer, and guitarist of Cocteau Twins sounds as a soundtrack of a drive through the American Southwest. Devoid of percussion, minimal bass and characterized by simple guitar chords, Imperial has a resonant desolate quality that not quite takes you to despair but has you on the road leading to it. "Music for labour" captures the despair most noticably, while the stand out track, "falling from grace" could have been an instrumental out-take from the Cocteau's Victorialand, and is one of the best pieces of music Guthrie has written sans Simon Raymonde and Elizabeth Fraser.</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>B00005UF2H</Product>
+         <Product>B00005BGK9</Product>
+         <Product>B00008XERP</Product>
+         <Product>B00005Y88A</Product>
+         <Product>B0000AM6P9</Product>
+      </SimilarProducts>
+   </Details>
+</ProductInfo>

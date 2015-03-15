@@ -1,0 +1,1 @@
+codec/home/cjeong/ztmp/code/make/examples/ch07-separate-binaries-1/out/mp3_player_out/lib/codec/.o /home/cjeong/ztmp/code/make/examples/ch07-separate-binaries-1/out/mp3_player_out/lib/codec/codec.d:  lib/codec/codec.c include/codec/codec.h

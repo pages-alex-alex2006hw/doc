@@ -1,0 +1,1289 @@
+
+          	         GENERAL PROCESS SPECIFICATIONS FOR
+
+			HP AMOSI 1.0 micron CMOS Bulk Wafers
+
+
+HP AMOSI wafers use the HP CMOS34 specification (attached) with the
+following additions for the linear capacitor option.
+
+				Min	Nom	Max	Units
+				---	---	---	-----
+Nominal capacitance (C_0)	1.15	1.26	1.38	fF/um^2
+
+Voltage coefficent (C_1)	1.04	1.51	2.07	aF/um^2/V
+
+Voltage coefficent		0.09	0.12	0.15	%/Volt
+
+Loss tangent @ 1 Mhz		0.14	0.17	0.20	-
+
+Breakdown V for 150 aA/um^2	9.00	-	-	Volts
+
+Leakage current	@ 5 V		-	-	95.0	aA/um^2
+
+Dielectric absorption		-	-	1E-4	V/V
+
+Self discharge rate		-	-	50.0	mV/sec
+
+
+Capacitor oxide thickness	250	275	300	Angstroms
+
+
+
+
+Definition of Terms
+
+The capacitance is represented by a first order polynominal in voltage.
+The designer must scale the coefficients to the area of the capacitor.
+
+	C = (C_0 * A) + (C_1 * A * V)
+
+Voltage cofficent = ( 1 / C ) * ( dC / dV ) = 100% ( C_1 / C_0 )
+
+Loss tangent is the ratio of the real to the imaginary components of
+the admittance phasor measured at 1 Mhz.
+
+Self discharge rate = dV / dt = J_leakage / C_0
+
+
+
+          		WAFER ACCEPTANCE SPECIFICATIONS FOR
+
+			HP CMOS34 1.0 micron CMOS Bulk Wafers
+
+
+Wafer acceptance is based on the following measurements from the 2120
+parametric test insert on every wafer.  The wafer summary will be sent
+to MOSIS with the wafers.  This document includes one section for the
+wafer acceptance specifications and another section for general
+process specifications.  The general process specifications are
+included to provide simulation information for MOSIS customers.  NID
+does not base wafer acceptance on the general process specifications.
+
+
+		    WAFER ACCEPTANCE SPECIFICATONS
+
+
+A.  Transistor Specifications
+
+    A.1	 P-Channel Transistor (50u/50u):   		 
+    	 A.1.1	 Threshold Voltage	         -0.90	 +/- 0.1 V
+    	 A.1.2	 Gamma			          0.50	 +/- 0.1 V^0.5
+    	 A.1.3	 Ids with Vds = -5v, Vgs = -5v      155	 +/-  25 uA
+
+    A.2	 N-Channel Transistor (50u/50u):
+    	 A.1.1	 Threshold Voltage	          0.70	 +/- 0.1 V
+    	 A.1.2	 Gamma			          0.58	 +/- 0.1 V^0.5
+    	 A.1.3	 Ids with Vds = +5v, Vgs = +5v	   555	 +/-  75 uA
+
+B.  Sheet Resistances (Ohms per square):
+
+    B.1	 P-Island (non-minimum island width)       120	 +/-  30 Ohms
+    B.2	 N-Island (non-minimum island width)        75	 +/-  20 Ohms
+    B.3	 N-Well (under field oxide)	          1500	 +/- 250 Ohms
+    B.4	 Poly-Si (In N-diffusion regions)           25	 +/-   8 Ohms
+
+C.  Contact and Via String Resistance:
+
+    C.1	 Metal-1 to Metal-2 Via String	           .20	 +/-0.12 Ohms
+    C.2	 P-island to Metal-1 Contact String        130	 +/-  40 Ohms
+    C.3	 N-island to Metal-1 Contact String        100	 +/-  30 Ohms
+    C.4	 Poly-Si to Metal-1 Contact String	    23	 +/-   8 Ohms
+
+D.  Electrical Poly-Si CD:			  0.95	 +/-0.30 Ohms
+
+
+
+
+		    GENERAL PROCESS SPECIFICATIONS
+
+Dielectric Thicknesses:
+
+    Gate Oxide	 			        200	 +/-  15 A
+    Field Oxide (under poly-si)		       5500	 +/-1000 A
+    Metal-1 to Poly-Si Oxide		       4600	 +/-1500 A
+    Metal-2 to Metal-1 (over Poly on Fox)      5300	 +/- 875 A
+    Total Field Oxide Encroachment 
+         (referenced to drawn MOSIS rules)     0.75	 +/- 0.3 um
+
+
+Transistor Specifications:
+
+    Note:  The K' values only apply to low source drain voltages 
+	   where the transistor is not in saturation.  (T = 25 C)
+
+    P Channel Transistor:
+    	 K' = uCox		   34.5	       +/- 3.3 uAmp/V^2
+    	 Subthreshold slope	   84.0	               mV/Decade
+
+    N Channel Transistor:
+    	 K' = uCox		   93.2	       +/- 8.2 uAmp/V^2
+    	 Subthreshold slope	   93.0		       mV/Decade
+
+
+Sheet Resistances:
+    Metal-1	 		   55.0        +/-   3 mOhms/square
+    Metal-2	 		   36.0        +/-   3 mOhms/square
+
+
+Contact and Via Resistance (1.2u x 1.2u Drawn Contact or Via):
+    Metal-1 to Metal-2 Via		 .13
+    Metal-1 to P-island Contact	      30        +/-  35
+    Metal-1 to N-island Contact	      40	+/-  25
+    Metal-1 to Poly-Si Contact	       8	+/-   6
+
+Max current thru 1.2 x 1.2 Drawn Contact to Active
+    static                              0.75 mamps
+    peak                               15.0  mamps
+
+Max current thru 1.2 x 1.2 Drawn Via
+    static                             1.5 mamps
+    peak                              30.0 mamps
+
+Parasitic Capacitance Values
+    Gate Oxide Plate		    1.730       +/-  0.130 fF/um^2
+    Poly to Substrate Over Field Oxide
+	Area			     .065       +/-  0.013 fF/um^2
+	Fringing per edge	     .055       +/-  0.008 fF/um
+    Metal-1 to Island or Poly-Si
+	Area			     .069	+/-  0.033 fF/um^2
+	Fringing per edge	     .064	+/-  0.012 fF/um
+    Metal-1 to Substrate
+	Area			     .035	+/-  0.014 fF/um^2
+	Fringing per edge	     .045	+/-  0.010 fF/um
+
+    Metal-2 to Island
+	Area			     .026	+/-  0.006 fF/um^2
+	Fringing per edge	     .038	+/-  0.007 fF/um
+
+    Metal-2 to Substrate
+	Area			     .020	+/-  0.005 fF/um^2
+	Fringing per edge	     .031	+/-  0.006 fF/um
+
+    Metal-2 to Poly-Si
+	Area			     .029	+/-  0.008 fF/um^2
+	Fringing per edge	     .041	+/-  0.007 fF/um
+
+    Metal-2 to Metal-1
+	Area			     .066	+/-  0.019 fF/um^2
+	Fringing per edge	     .065	+/-  0.008 fF/um
+    N+ Junction Cap (@ 0 volts)      .320	+/-  0.030 fF/um^2
+    P+ Junction Cap (@ 0 volts)	     .520       +/-  0.050 fF/um^2
+
+Note:	Fringing capacitances are per isolated line. Closely spaced lines
+	will have reduced fringing capacitance and increased interline
+	capacitance, with increased total capacitance.
+
+                                          
+                           MOSIS PARAMETRIC TEST RESULTS
+                                          
+           RUN: N41O                                        VENDOR: HP-NID
+     TECHNOLOGY: SCN12                                FEATURE SIZE: 1.2 microns
+
+
+INTRODUCTION: This report contains the lot average results obtained by MOSIS
+              from measurements of the MOSIS test structures on each wafer
+              of this fabrication lot. The SPICE parameters obtained from
+              similar measurements on a selected wafer are also attached.
+
+COMMENTS: This looks like a typical Hewlett Packard CMOS34 run.
+
+
+TRANSISTOR PARAMETERS   W/L       N-CHANNEL P-CHANNEL  UNITS
+                                                      
+ MINIMUM                1.8/1.2                       
+  Vth                                  0.75     -0.98  Volts
+                                                      
+ SHORT                  10.8/1.2                      
+  Vth                                  0.70     -0.92  Volts
+  Vpt                                 13.9     -12.1   Volts
+  Vbkd                                13.8     -12.1   Volts
+  Idss                              3204     -1306     uA
+                                                      
+ LARGE                  10.8/10.8                     
+  Vth                                  0.76     -0.95  Volts
+  Vjbkd                               14.1     -12.6   Volts
+  Ijlk                                 7.0      60.0   pA
+  Gamma                                0.56      0.58  V^0.5
+                                                      
+ Delta length                          0.39      0.11  microns
+  (L_eff = L_drawn-DL)                                
+ Delta width                           0.54      0.60  microns
+  (W_eff = W_drawn-DW)                                
+ K' (Uo*Cox/2)                        41.2     -12.6   uA/V^2
+                                                      
+
+FOX TRANSISTORS         GATE      N+ACTIVE  P+ACTIVE  UNITS
+ Vth                    Poly         25.0     -25.0   Volts
+
+
+PROCESS PARAMETERS      N+DIFF   P+DIFF     POLY    METAL1    METAL2  UNITS
+ Sheet Resistance        70.5    121.3     23.1       0.06      0.04  Ohms/sq
+ Width Variation         -0.23    -0.41    -0.23     -0.16     -0.23  microns
+  (measured - drawn)
+ Contact Resistance      55.1     48.9     14.1                 0.09  Ohms
+ Gate Oxide Thickness   214                                           Angstroms
+
+
+
+CAPACITANCE PARAMETERS    N+DIFF    P+DIFF    POLY    METAL1    METAL2  UNITS
+ Area (substrate)         301       517        63      40        28     aF/um^2
+ Area (poly)                                           61        23     aF/um^2
+ Area (metal1)                                                   27     aF/um^2
+ Area (N+active)                             1564                       aF/um^2
+ Area (P+active)                             1516                       aF/um^2
+ Fringe (N+active)                             65                       aF/um
+ Fringe (P+active)                            270                       aF/um
+
+
+CIRCUIT PARAMETERS                          UNITS
+ Inverters                   K
+  Vinv                      1.0       1.82  Volts
+  Vinv                      1.5       2.06  Volts
+  Vlow                      2.0       0.00  Volts
+  Vhigh                     2.0       5.00  Volts
+  Vinv                      2.0       2.24  Volts
+  Gain                      2.0     -18.00
+ Ring Oscillator
+  MOSIS (31 stages)                  74.25  MHz
+
+ 
+N41O  SPICE LEVEL 3 PARAMETERS
+ 
+.MODEL CMOSN NMOS LEVEL=3 PHI=0.600000 TOX=2.2300E-08 XJ=0.200000U TPG=1
++ VTO=0.7910 DELTA=6.6210E-01 LD=1.9480E-07 KP=9.1671E-05 
++ UO=592.0 THETA=6.8490E-02 RSH=5.7240E+01 GAMMA=0.6404 
++ NSUB=2.9620E+16 NFS=1.98E+12 VMAX=1.7760E+05 ETA=4.2830E-02 
++ KAPPA=6.6740E-02 CGDO=4.5247E-10 CGSO=4.5247E-10 
++ CGBO=3.9731E-10 CJ=3.1897E-04 MJ=1.1097 CJSW=1.3855E-10 
++ MJSW=0.12395 PB=0.800000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 5.4440E-07
+.MODEL CMOSP PMOS LEVEL=3 PHI=0.600000 TOX=2.2300E-08 XJ=0.200000U TPG=-1
++ VTO=-0.9729 DELTA=9.7640E-01 LD=5.6320E-08 KP=3.0800E-05 
++ UO=198.9 THETA=1.4050E-01 RSH=9.5270E+01 GAMMA=0.4837 
++ NSUB=1.6900E+16 NFS=3.46E+12 VMAX=3.1500E+05 ETA=5.2070E-02 
++ KAPPA=1.0000E+01 CGDO=1.3082E-10 CGSO=1.3082E-10 
++ CGBO=4.1423E-10 CJ=4.7744E-04 MJ=0.4943 CJSW=1.5698E-10 
++ MJSW=0.227052 PB=0.850000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 5.9820E-07
+
+ 
+N41O  SPICE BSIM PARAMETERS
+ 
+NM1 PM1 DU1 DU2 ML1 ML2
+*
+*PROCESS=hp		
+*RUN=n41o
+*WAFER=9
+*Gate-oxide thickness= 223.0 angstroms 
+*Geometries (W-drawn/L-drawn, units are um/um) of transistors measured were: 
+* 1.8/1.2, 3.6/1.2, 10.8/1.2, 3.6/3.6, 3.6/10.8 
+*Bias range to perform the extraction (Vdd)=5 volts 
+*DATE=03-18-94
+*
+* N41O  SPICE BSIM PARAMETERS
+* MOSIS (31 stages)                  74.25  MHz
+*NMOS PARAMETERS
+*
+-9.97143E-01,-9.47550E-02, 9.31633E-02
+ 8.17898E-01, 6.50671E-25, 0.00000E+00
+ 1.13702E+00, 9.72777E-02,-7.57472E-02
+ 1.35242E-01, 8.65295E-02,-9.11915E-02
+-3.45882E-03, 1.09129E-02, 4.02186E-03
+ 5.60051E+02,4.26573E-001,5.83344E-001
+ 6.30413E-02, 8.28909E-02,-4.64111E-02
+-1.65317E-02, 2.51999E-01,-7.92918E-02
+ 8.60663E+00,-6.54068E+00, 3.36527E+01
+-1.07924E-03,-7.21374E-03, 4.99921E-03
+ 3.59544E-04,-1.31670E-03,-3.31438E-03
+ 6.72154E-04,-2.12938E-03, 2.04407E-02
+-4.35031E-04, 4.80908E-03,-2.91843E-04
+ 6.05566E+02, 1.65212E+02,-8.28375E+01
+-1.75892E+00, 1.14507E+01, 4.30094E+01
+ 8.21416E-01, 2.92442E+01,-1.69687E+01
+-1.08339E-03, 2.38862E-02,-1.24566E-02
+2.23000E-002, 2.70000E+01, 5.00000E+00                                        
+4.95410E-010,4.95410E-010,4.09558E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+* Gate Oxide Thickness is 222 Angstroms
+*
+*
+*PMOS PARAMETERS
+*
+-2.34604E-01, 6.19905E-02,-1.10455E-01
+ 7.45422E-01, 7.75661E-25,-3.60618E-24
+ 5.03959E-01,-1.14926E-01, 2.21300E-01
+-1.15324E-02, 6.73531E-03, 2.64140E-02
+-3.17290E-03, 2.19606E-02,-3.80774E-03
+ 1.86163E+02,2.06546E-001,6.68162E-001
+ 1.45777E-01, 3.88985E-02,-4.82811E-02
+-1.00612E-02, 1.30553E-01,-2.29259E-02
+ 9.40164E+00,-2.74971E+00, 2.98681E+00
+-1.56508E-04,-8.91799E-04,-4.57574E-03
+ 2.40221E-04,-7.75485E-04,-2.84480E-03
+ 8.84178E-03,-2.53726E-03, 3.98777E-03
+-1.04995E-03, 2.71427E-03, 8.04192E-03
+ 1.92278E+02, 6.71309E+01,-4.89985E+00
+ 8.59588E+00, 5.05667E-01, 8.89974E+00
+ 4.20301E-01, 5.33143E+00,-9.64429E-01
+ 4.64338E-04,-6.77982E-03, 1.77979E-03
+2.23000E-002, 2.70000E+01, 5.00000E+00                                        
+2.39877E-010,2.39877E-010,4.36244E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+*N+ diffusion:: 
+*
+70.6,    3.189700e-04,    1.385500e-10,    1.000000e-08,    0.8
+0.8,    1.10966,    0.12395,    0,    0
+*
+*P+ diffusion:: 
+*
+121.5,    4.774400e-04,    1.569800e-10,    1.000000e-08,    0.85
+0.85,    0.494312,    0.227052,    0,    0
+*
+*METAL LAYER -- 1
+*
+5.700000e-02,    2.600000e-05,    0,    0,    0
+0,    0,    0,    0,    0
+*
+*METAL LAYER -- 2
+*
+3.840000e-02,    0,    0,    0,    0
+0,    0,    0,    0,    0
+                                          
+                           MOSIS PARAMETRIC TEST RESULTS
+                                          
+           RUN: N41P                                        VENDOR: HP-NID
+     TECHNOLOGY: SCN12                                FEATURE SIZE: 1.2 microns
+
+
+INTRODUCTION: This report contains the lot average results obtained by MOSIS
+              from measurements of the MOSIS test structures on each wafer
+              of this fabrication lot. The SPICE parameters obtained from
+              similar measurements on a selected wafer are also attached.
+
+COMMENTS: This looks like a typical Hewlett Packard CMOS34 run.
+
+
+TRANSISTOR PARAMETERS   W/L       N-CHANNEL P-CHANNEL  UNITS
+                                                      
+ MINIMUM                1.8/1.2                       
+  Vth                                  0.75     -0.97  Volts
+                                                      
+ SHORT                  10.8/1.2                      
+  Vth                                  0.72     -0.91  Volts
+  Vpt                                 13.9     -12.0   Volts
+  Vbkd                                13.8     -12.1   Volts
+  Idss                              3138     -1298     uA
+                                                      
+ LARGE                  10.8/10.8                     
+  Vth                                  0.77     -0.94  Volts
+  Vjbkd                               14.2     -12.7   Volts
+  Ijlk                                 7.9      22.2   pA
+  Gamma                                0.57      0.58  V^0.5
+                                                      
+ Delta length                          0.34      0.01  microns
+  (L_eff = L_drawn-DL)                                
+ Delta width                           0.56      0.52  microns
+  (W_eff = W_drawn-DW)                                
+ K' (Uo*Cox/2)                        41.3     -12.8   uA/V^2
+                                                      
+
+FOX TRANSISTORS         GATE      N+ACTIVE  P+ACTIVE  UNITS
+ Vth                    Poly         30.0     -30.0   Volts
+
+
+PROCESS PARAMETERS      N+DIFF   P+DIFF     POLY    METAL1    METAL2  UNITS
+ Sheet Resistance        68.6    106.4     24.1       0.06      0.04  Ohms/sq
+ Width Variation         -0.21    -0.46    -0.18     -0.13     -0.23  microns
+  (measured - drawn)
+ Contact Resistance      47.7     47.4     14.3                 0.10  Ohms
+ Gate Oxide Thickness   217                                           Angstroms
+
+
+
+CAPACITANCE PARAMETERS    N+DIFF    P+DIFF    POLY    METAL1    METAL2  UNITS
+ Area (substrate)         302       517        63      37        32     aF/um^2
+ Area (poly)                                           62        23     aF/um^2
+ Area (metal1)                                                   27     aF/um^2
+ Area (N+active)                             1541                       aF/um^2
+ Area (P+active)                             1489                       aF/um^2
+ Fringe (substrate)       162         1                                 aF/um
+ Fringe (N+active)                             35                       aF/um
+ Fringe (P+active)                            259                       aF/um
+
+
+CIRCUIT PARAMETERS                          UNITS
+ Inverters                   K
+  Vinv                      1.0       1.82  Volts
+  Vinv                      1.5       2.06  Volts
+  Vlow                      2.0       0.00  Volts
+  Vhigh                     2.0       5.00  Volts
+  Vinv                      2.0       2.24  Volts
+  Gain                      2.0     -19.02
+ Ring Oscillator
+  MOSIS (31 stages)                  71.04  MHz
+
+ 
+N41P  SPICE LEVEL 3 PARAMETERS
+ 
+.MODEL CMOSN NMOS LEVEL=3 PHI=0.600000 TOX=2.2600E-08 XJ=0.200000U TPG=1
++ VTO=0.8005 DELTA=9.0720E-01 LD=1.7010E-07 KP=8.9323E-05 
++ UO=584.6 THETA=7.0460E-02 RSH=4.5070E+01 GAMMA=0.6200 
++ NSUB=2.7030E+16 NFS=1.980E+12 VMAX=1.7430E+05 ETA=4.6830E-02 
++ KAPPA=7.2610E-02 CGDO=3.8985E-10 CGSO=3.8985E-10 
++ CGBO=4.0152E-10 CJ=3.2201E-04 MJ=1.1172 CJSW=1.3615E-10 
++ MJSW=0.1239346 PB=0.800000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 5.5980E-07
+.MODEL CMOSP PMOS LEVEL=3 PHI=0.600000 TOX=2.2600E-08 XJ=0.200000U TPG=-1
++ VTO=-0.9620 DELTA=7.6480E-01 LD=6.1290E-09 KP=2.9245E-05 
++ UO=191.4 THETA=1.2440E-01 RSH=8.2340E+01 GAMMA=0.5095 
++ NSUB=1.8260E+16 NFS=3.460E+12 VMAX=3.9040E+05 ETA=8.7520E-02 
++ KAPPA=9.9930E+00 CGDO=1.4047E-11 CGSO=1.4047E-11 
++ CGBO=3.8967E-10 CJ=4.7520E-04 MJ=0.4998 CJSW=1.4153E-10 
++ MJSW=0.191978 PB=0.850000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 5.2200E-07
+
+ 
+N41P  SPICE BSIM PARAMETERS
+ 
+NM1 PM1 DU1 DU2 ML1 ML2
+*
+*MOSIS (31 stages)                  71.04  MHz
+* N41P  SPICE BSIM PARAMETERS
+*PROCESS=hp	
+*RUN=n41p
+*WAFER=1
+*Gate-oxide thickness= 226.0 angstroms 
+*Geometries (W-drawn/L-drawn, units are um/um) of transistors measured were: 
+* 1.8/1.2, 3.6/1.2, 10.8/1.2, 3.6/3.6, 3.6/10.8 
+*Bias range to perform the extraction (Vdd)=5 volts 
+*DATE=03-18-94
+*
+*NMOS PARAMETERS
+*
+-9.92132E-01,-5.95562E-02, 7.89590E-02
+ 8.13038E-01, 1.62771E-25, 0.00000E+00
+ 1.12579E+00, 6.17037E-02,-3.62116E-02
+ 1.25451E-01, 7.13337E-02,-5.92134E-02
+-6.56896E-03, 9.50100E-03, 1.05733E-02
+ 5.54760E+02,3.67034E-001,6.27200E-001
+ 5.96229E-02, 7.45265E-02,-3.80899E-02
+-1.83931E-02, 3.01878E-01,-1.07240E-01
+ 7.53220E+00,-7.74087E+00, 3.45300E+01
+-1.84896E-03,-6.54683E-03, 5.71165E-03
+ 5.63024E-04,-6.52135E-04,-4.02809E-03
+-2.21070E-05,-2.52770E-03, 2.03938E-02
+ 1.87622E-04, 2.60585E-03,-4.44951E-03
+ 5.97185E+02, 1.84806E+02,-8.92732E+01
+-1.98567E+00, 6.15845E+00, 4.23176E+01
+ 3.64440E-01, 3.35167E+01,-1.76153E+01
+-1.41320E-03, 3.04354E-02,-1.53003E-02
+2.26000E-002, 2.70000E+01, 5.00000E+00                                        
+4.20604E-010,4.20604E-010,4.22645E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+* Gate Oxide Thickness is 226 Angstroms
+*
+*
+*PMOS PARAMETERS
+*
+-8.12751E-02,-1.38311E-01, 3.20145E-03
+ 7.23910E-01, 0.00000E+00, 0.00000E+00
+ 3.20594E-01, 1.54809E-01, 2.46566E-02
+-5.76248E-02, 7.65865E-02,-2.87106E-02
+-2.08971E-03, 1.93050E-02, 1.91312E-03
+ 1.85505E+02,1.54644E-001,6.70011E-001
+ 1.39870E-01, 4.35095E-02,-5.34281E-02
+-9.82464E-03, 1.35578E-01,-2.94912E-02
+ 9.33288E+00,-2.63686E+00, 2.93855E+00
+ 1.62903E-03,-2.76752E-03,-4.32582E-03
+ 5.98576E-04,-6.39980E-04,-3.52954E-03
+ 8.12958E-03,-1.31370E-03, 3.36155E-03
+-1.02184E-03, 1.45191E-03, 8.96961E-03
+ 1.83736E+02, 7.84567E+01,-2.41509E+01
+ 7.30796E+00, 1.87042E+00, 7.18059E+00
+ 7.77359E-01, 4.97765E+00,-2.77521E+00
+ 8.37593E-04,-7.27540E-03,-1.56162E-03
+2.26000E-002, 2.70000E+01, 5.00000E+00                                        
+1.77215E-010,1.77215E-010,4.36066E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+*N+ diffusion:: 
+*
+68.18,    3.220100e-04,    1.361500e-10,    1.000000e-08,    0.8
+0.8,    1.11722,    0.123946,    0,    0
+*
+*P+ diffusion:: 
+*
+105.93,    4.752000e-04,    1.415300e-10,    1.000000e-08,    0.85
+0.85,    0.499761,    0.191978,    0,    0
+*
+*METAL LAYER -- 1
+*
+5.520000e-02,    2.600000e-05,    0,    0,    0
+0,    0,    0,    0,    0
+*
+*METAL LAYER -- 2
+*
+3.690000e-02,    0,    0,    0,    0
+0,    0,    0,    0,    0
+                                          
+                           MOSIS PARAMETRIC TEST RESULTS
+                                          
+           RUN: N42U                                        VENDOR: HP-NID
+     TECHNOLOGY: SCN12                                FEATURE SIZE: 1.2 microns
+
+
+INTRODUCTION: This report contains the lot average results obtained by MOSIS
+              from measurements of the MOSIS test structures on each wafer of
+              this fabrication lot. The SPICE parameters obtained from similar
+              measurements on a selected wafer are also attached.
+
+COMMENTS: This looks like a typical Hewlett Packard CMOS34/AMOSI run.
+
+
+TRANSISTOR PARAMETERS   W/L       N-CHANNEL P-CHANNEL  UNITS
+                                                      
+ MINIMUM                1.8/1.2                       
+  Vth                                  0.73     -0.97  Volts
+                                                      
+ SHORT                  10.8/1.2                      
+  Vth                                  0.70     -0.92  Volts
+  Vpt                                 14.1     -12.1   Volts
+  Vbkd                                14.1     -12.1   Volts
+  Idss                              3322     -1369     uA
+                                                      
+ LARGE                  10.8/10.8                     
+  Vth                                  0.75     -0.95  Volts
+  Vjbkd                               14.4     -12.6   Volts
+  Ijlk                                 6.6      24.9   pA
+  Gamma                                0.56      0.57  V^0.5
+                                                      
+ Delta length                          0.42      0.17  microns
+  (L_eff = L_drawn-DL)                                
+ Delta width                           0.59      0.50  microns
+  (W_eff = W_drawn-DW)                                
+ K' (Uo*Cox/2)                        41.6     -12.8   uA/V^2
+                                                      
+
+FOX TRANSISTORS         GATE      N+ACTIVE  P+ACTIVE  UNITS
+ Vth                    Poly         30.0     -30.0   Volts
+
+
+PROCESS PARAMETERS      N+DIFF   P+DIFF     POLY    METAL1    METAL2  UNITS
+ Sheet Resistance        68.8    115.0     23.5       0.06      0.04  Ohms/sq
+ Width Variation         -0.17    -0.39    -0.25     -0.10     -0.20  microns
+  (measured - drawn)
+ Contact Resistance      47.7     47.7     13.2                 0.10  Ohms
+ Gate Oxide Thickness   211                                           Angstroms
+
+
+
+CAPACITANCE PARAMETERS    N+DIFF    P+DIFF    POLY    METAL1    METAL2  UNITS
+ Area (substrate)         299       608        63      38        35     aF/um^2
+ Area (poly)                                           63        23     aF/um^2
+ Area (metal1)                                                   29     aF/um^2
+ Area (N+active)                             1586                       aF/um^2
+ Area (P+active)                             1513                       aF/um^2
+ Area (cap well)                             1145                       aF/um^2
+ Area (cap implant)                          1135                       aF/um^2
+ Fringe (substrate)       170                                           aF/um
+ Fringe (P+active)                            228                       aF/um
+
+
+CIRCUIT PARAMETERS                          UNITS
+ Inverters                   K
+  Vinv                      1.0       1.80  Volts
+  Vinv                      1.5       2.05  Volts
+  Vlow                      2.0       0.00  Volts
+  Vhigh                     2.0       5.00  Volts
+  Vinv                      2.0       2.23  Volts
+  Gain                      2.0     -17.00
+ Ring Oscillator
+  MOSIS (31 stages)                  77.04  MHz
+
+ 
+N42U  SPICE LEVEL 3 PARAMETERS
+ 
+.MODEL CMOSN NMOS LEVEL=3 PHI=0.600000 TOX=2.3200E-08 XJ=0.200000U TPG=1
++ VTO=0.8099 DELTA=8.4340E-01 LD=2.0960E-07 KP=9.0719E-05 
++ UO=609.5 THETA=6.4120E-02 RSH=5.4540E+01 GAMMA=0.6173 
++ NSUB=2.5430E+16 NFS=5.4970E+12 VMAX=1.7510E+05 ETA=3.6970E-02 
++ KAPPA=6.8600E-02 CGDO=4.6796E-10 CGSO=4.6796E-10 
++ CGBO=3.9685E-10 CJ=3.0180E-04 MJ=1.1165 CJSW=1.385E-10 
++ MJSW=0.12395 PB=0.800000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 5.4880E-07
+.MODEL CMOSP PMOS LEVEL=3 PHI=0.600000 TOX=2.3200E-08 XJ=0.200000U TPG=-1
++ VTO=-0.9404 DELTA=1.3330E+00 LD=8.2980E-08 KP=2.8712E-05 
++ UO=192.9 THETA=1.1400E-01 RSH=9.9640E+01 GAMMA=0.4650 
++ NSUB=1.4430E+16 NFS=5.2520E+12 VMAX=1.9900E+05 ETA=5.0680E-02 
++ KAPPA=8.5120E+00 CGDO=1.8526E-10 CGSO=1.8526E-10 
++ CGBO=3.8091E-10 CJ=5.0045E-04 MJ=0.5187 CJSW=1.6955E-10 
++ MJSW=0.239906 PB=0.850000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 4.9760E-07
+
+ 
+N42U  SPICE BSIM PARAMETERS
+ 
+NM1 PM1 DU1 DU2 ML1 ML2
+* N42U  SPICE BSIM PARAMETERS
+* MOSIS (31 stages)                  77.04  MHz
+*
+*PROCESS=hp
+*RUN=n42u
+*WAFER=9
+*Gate-oxide thickness= 211.0 angstroms 
+*Geometries (W-drawn/L-drawn, units are um/um) of transistors measured were: 
+* 1.8/1.2, 3.6/1.2, 10.8/1.2, 3.6/3.6, 3.6/10.8 
+*Bias range to perform the extraction (Vdd)=5 volts 
+*DATE=03-30-94
+*
+*NMOS PARAMETERS
+*
+-9.99127E-01,-1.00250E-01, 2.28493E-01
+ 8.08362E-01,-6.50689E-25, 0.00000E+00
+ 1.14313E+00, 1.10730E-01,-2.91945E-01
+ 1.37212E-01, 9.22933E-02,-1.63946E-01
+-4.56630E-03, 1.17472E-02, 1.86713E-03
+ 5.17025E+02,4.19304E-001,5.85216E-001
+ 6.20666E-02, 8.13566E-02,-3.33852E-02
+-1.19039E-02, 2.54579E-01,-1.28916E-01
+ 7.14801E+00,-6.21930E+00, 3.38133E+01
+-8.87041E-04,-6.35875E-03, 2.09368E-04
+ 7.57832E-04,-1.46870E-03,-4.94910E-03
+ 3.01983E-04,-2.17167E-03, 2.14491E-02
+-8.98569E-04, 2.98743E-03, 6.23900E-03
+ 5.65082E+02, 1.62947E+02,-1.30860E+02
+-1.97516E+00, 8.30677E+00, 4.52878E+01
+ 1.13767E+00, 2.98025E+01,-2.45988E+01
+-3.54381E-04, 2.57421E-02,-2.17108E-02
+2.11000E-002, 2.70000E+01, 5.00000E+00                                        
+5.14662E-010,5.14662E-010,4.12899E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+* Gate Oxide Thickness is 210 Angstroms
+*
+*
+*PMOS PARAMETERS
+*
+-2.74471E-01, 6.18780E-02,-1.13019E-01
+ 7.55291E-01, 0.00000E+00, 0.00000E+00
+ 4.70800E-01,-8.50053E-02, 2.76732E-01
+-2.17895E-02, 5.53265E-03, 6.31629E-02
+-7.85026E-03, 2.18943E-02, 3.57236E-03
+ 1.69098E+02,2.54768E-001,6.78748E-001
+ 1.29925E-01, 4.82498E-02,-4.47481E-02
+-7.31239E-03, 1.19064E-01,-4.02662E-02
+ 8.54233E+00,-2.44389E+00, 3.34050E+00
+-3.39089E-04,-2.40147E-03, 1.16915E-04
+ 7.28769E-04,-2.26208E-04,-2.90417E-03
+ 8.04402E-03,-1.70862E-03, 5.43645E-03
+-4.70013E-04, 3.52328E-03, 1.37550E-03
+ 1.74929E+02, 5.99878E+01,-1.56524E+01
+ 7.65546E+00, 1.41808E+00, 5.65155E+00
+ 1.28002E+00, 1.38669E+01,-1.66488E+01
+ 1.04197E-03, 3.01251E-03,-1.34375E-02
+2.11000E-002, 2.70000E+01, 5.00000E+00                                        
+3.12708E-010,3.12708E-010,4.42767E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+*N+ diffusion:: 
+*
+68.8,    3.018000e-04,    1.385000e-10,    1.000000e-08,    0.8
+0.8,    1.11653,    0.12395,    0,    0
+*
+*P+ diffusion:: 
+*
+115,    5.004500e-04,    0.000000e+00,    1.000000e-08,    0.85
+0.85,    0.518633,    0.239906,    0,    0
+*
+*METAL LAYER -- 1
+*
+6.000000e-02,    2.600000e-05,    0,    0,    0
+0,    0,    0,    0,    0
+*
+*METAL LAYER -- 2
+*
+4.000000e-02,    1.300000e-05,    0,    0,    0
+0,    0,    0,    0,    0
+                                          
+                           MOSIS PARAMETRIC TEST RESULTS
+                                          
+           RUN: N43A                                        VENDOR: HP-NID
+     TECHNOLOGY: SCN12                                FEATURE SIZE: 1.2 microns
+
+
+INTRODUCTION: This report contains the lot average results obtained by MOSIS
+              from measurements of the MOSIS test structures on each wafer of
+              this fabrication lot. The SPICE parameters obtained from similar
+              measurements on a selected wafer are also attached.
+
+COMMENTS: This looks like a typical Hewlett Packard CMOS34 run.
+
+
+TRANSISTOR PARAMETERS   W/L       N-CHANNEL P-CHANNEL  UNITS
+                                                      
+ MINIMUM                1.8/1.2                       
+  Vth                                  0.75     -1.00  Volts
+                                                      
+ SHORT                  10.8/1.2                      
+  Vth                                  0.71     -0.95  Volts
+  Vpt                                 14.0     -12.0   Volts
+  Vbkd                                13.9     -12.0   Volts
+  Idss                              3399     -1370     uA
+                                                      
+ LARGE                  10.8/10.8                     
+  Vth                                  0.76     -0.97  Volts
+  Vjbkd                               14.2     -12.7   Volts
+  Ijlk                                 8.4      27.8   pA
+  Gamma                                0.56      0.58  V^0.5
+                                                      
+ Delta length                          0.41      0.11  microns
+  (L_eff = L_drawn-DL)                                
+ Delta width                           0.55      0.51  microns
+  (W_eff = W_drawn-DW)                                
+ K' (Uo*Cox/2)                        43.1     -13.0   uA/V^2
+                                                      
+
+FOX TRANSISTORS         GATE      N+ACTIVE  P+ACTIVE  UNITS
+ Vth                    Poly        >30.0    <-30.0   Volts
+
+
+PROCESS PARAMETERS      N+DIFF   P+DIFF     POLY    METAL1    METAL2  UNITS
+ Sheet Resistance        65.3    108.3     24.4       0.05      0.04  Ohms/sq
+ Width Variation         -0.16    -0.34    -0.21     -0.23     -0.15  microns
+  (measured - drawn)
+ Contact Resistance      48.6     46.9     15.1                 0.09  Ohms
+ Gate Oxide Thickness   209                                           Angstroms
+
+
+
+CAPACITANCE PARAMETERS    N+DIFF    P+DIFF    POLY    METAL1    METAL2  UNITS
+ Area (substrate)         296       565        68      40        37     aF/um^2
+ Area (poly)                                           66        23     aF/um^2
+ Area (metal1)                                                   29     aF/um^2
+ Area (N+active)                             1600                       aF/um^2
+ Area (P+active)                             1524                       aF/um^2
+ Fringe (substrate)       229        10                                 aF/um
+ Fringe (P+active)                            283                       aF/um
+
+
+CIRCUIT PARAMETERS                          UNITS
+ Inverters                   K
+  Vinv                      1.0       1.79  Volts
+  Vinv                      1.5       2.03  Volts
+  Vlow                      2.0       0.00  Volts
+  Vhigh                     2.0       5.00  Volts
+  Vinv                      2.0       2.21  Volts
+  Gain                      2.0     -18.00
+ Ring Oscillator
+  MOSIS (31 stages)                  78.95  MHz
+
+ 
+N43A  SPICE LEVEL 3 PARAMETERS
+ 
+.MODEL CMOSN NMOS LEVEL=3 PHI=0.600000 TOX=2.1900E-08 XJ=0.200000U TPG=1
++ VTO=0.7889 DELTA=4.9970E-01 LD=2.0500E-07 KP=9.5679E-05 
++ UO=606.8 THETA=6.7730E-02 RSH=5.4160E+01 GAMMA=0.6410 
++ NSUB=3.0770E+16 NFS=4.9990E+12 VMAX=1.8220E+05 ETA=4.3500E-02 
++ KAPPA=3.2630E-02 CGDO=4.8486E-10 CGSO=4.8486E-10 
++ CGBO=3.9934E-10 CJ=3.0254E-04 MJ=1.0942 CJSW=1.6478E-10 
++ MJSW=-0.126349 PB=0.800000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 5.4820E-07
+.MODEL CMOSP PMOS LEVEL=3 PHI=0.600000 TOX=2.1900E-08 XJ=0.200000U TPG=-1
++ VTO=-1.0220 DELTA=1.4080E+00 LD=5.7330E-08 KP=3.4027E-05 
++ UO=215.8 THETA=1.5530E-01 RSH=8.9620E+01 GAMMA=0.4319 
++ NSUB=1.3970E+16 NFS=4.5270E+12 VMAX=2.2750E+05 ETA=6.2600E-02 
++ KAPPA=1.0000E+01 CGDO=1.3560E-10 CGSO=1.3560E-10 
++ CGBO=3.8689E-10 CJ=5.0124E-04 MJ=0.5185 CJSW=1.5515E-10 
++ MJSW=0.196249 PB=0.850000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 5.0880E-07
+
+ 
+N43A  SPICE BSIM PARAMETERS
+ 
+NM1 PM1 DU1 DU2 ML1 ML2
+* N43A  SPICE BSIM PARAMETERS
+*MOSIS (31 stages)                  78.95  MHz
+*
+*PROCESS=hp	
+*RUN=n43a
+*WAFER=4
+*Gate-oxide thickness= 219.0 angstroms 
+*Geometries (W-drawn/L-drawn, units are um/um) of transistors measured were: 
+* 1.8/1.2, 3.6/1.2, 10.8/1.2, 3.6/3.6, 3.6/10.8 
+*Bias range to perform the extraction (Vdd)=5 volts 
+*DATE=04-23-94
+*
+*NMOS PARAMETERS
+*
+-9.09782E-01,-9.35054E-02,-1.73391E-02
+ 8.19569E-01, 0.00000E+00, 9.62831E-25
+ 1.02517E+00, 1.06904E-01, 4.17874E-02
+ 1.06645E-01, 9.12839E-02,-5.09667E-02
+-2.76134E-03, 1.38943E-02, 1.15677E-03
+ 5.75459E+02,4.58498E-001,6.00573E-001
+ 6.36508E-02, 9.10469E-02,-5.51910E-02
+-1.45668E-02, 2.24779E-01,-7.31177E-02
+ 7.95265E+00,-6.01746E+00, 3.73973E+01
+-6.84262E-04,-6.84203E-03, 3.75690E-03
+ 3.13769E-04,-2.34187E-04,-5.97693E-03
+ 2.89762E-04,-1.68086E-03, 2.23147E-02
+-4.95574E-04, 3.49646E-03, 1.60615E-03
+ 6.12681E+02, 1.53115E+02,-6.34759E+01
+-3.09584E+00, 1.08703E+01, 4.99177E+01
+ 1.30464E+00, 2.36023E+01,-9.48016E+00
+-1.05692E-03, 1.92949E-02,-8.24974E-03
+2.19000E-002, 2.70000E+01, 5.00000E+00                                        
+5.42212E-010,5.42212E-010,4.15902E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+* Gate Oxide Thickness is 219 Angstroms
+*
+*
+*PMOS PARAMETERS
+*
+-2.15718E-01,-1.22830E-02, 4.69282E-02
+ 7.35184E-01, 0.00000E+00, 1.79096E-24
+ 4.94626E-01, 1.79519E-02, 4.12811E-02
+-9.95829E-03, 3.51636E-02,-1.31970E-02
+-6.32864E-03, 2.15462E-02, 1.98077E-04
+ 1.84490E+02,2.97821E-001,6.74885E-001
+ 1.32768E-01, 5.72581E-02,-6.24928E-02
+-8.08755E-03, 1.11676E-01,-2.57795E-02
+ 9.38042E+00,-3.02640E+00, 3.80580E+00
+ 3.45923E-04,-3.33718E-03,-8.72936E-04
+ 1.25863E-03,-1.35951E-03,-2.56297E-03
+ 8.25775E-03,-2.91934E-03, 6.57699E-03
+-6.09476E-04, 4.25987E-03, 2.06409E-03
+ 1.92146E+02, 6.74418E+01,-2.34179E+01
+ 8.54273E+00, 1.79110E+00, 5.86598E+00
+ 5.57341E-01, 4.79116E+00,-1.96195E+00
+ 5.13712E-04,-4.35046E-03,-1.00713E-03
+2.19000E-002, 2.70000E+01, 5.00000E+00                                        
+3.52198E-010,3.52198E-010,4.39396E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+*N+ diffusion:: 
+*
+65.5,    3.025400e-04,    1.394000e-10,    1.000000e-08,    0.8
+0.8,    1.09425,    0.12519,    0,    0
+*
+*P+ diffusion:: 
+*
+108.6,    5.012400e-04,    1.551500e-10,    1.000000e-08,    0.85
+0.85,    0.518458,    0.196249,    0,    0
+*
+*METAL LAYER -- 1
+*
+5.550000e-02,    2.600000e-05,    0,    0,    0
+0,    0,    0,    0,    0
+*
+*METAL LAYER -- 2
+*
+3.710000e-02,    0,    0,    0,    0
+0,    0,    0,    0,    0
+                                          
+                           MOSIS PARAMETRIC TEST RESULTS
+                                          
+           RUN: N43D                                        VENDOR: HP-NID
+     TECHNOLOGY: SCN12                                FEATURE SIZE: 1.2 microns
+
+
+INTRODUCTION: This report contains the lot average results obtained by MOSIS
+              from measurements of the MOSIS test structures on each wafer of
+              this fabrication lot. The SPICE parameters obtained from similar
+              measurements on a selected wafer are also attached.
+
+COMMENTS: This looks like a typical Hewlett Packard CMOS34/AMOSI run.
+
+
+TRANSISTOR PARAMETERS   W/L       N-CHANNEL P-CHANNEL  UNITS
+                                                      
+ MINIMUM                1.8/1.2                       
+  Vth                                  0.74     -0.97  Volts
+                                                      
+ SHORT                  10.8/1.2                      
+  Vth                                  0.69     -0.90  Volts
+  Vpt                                 14.1     -12.1   Volts
+  Vbkd                                14.0     -12.1   Volts
+  Idss                              3493     -1467     uA
+                                                      
+ LARGE                  10.8/10.8                     
+  Vth                                  0.76     -0.91  Volts
+  Vjbkd                               14.4     -12.7   Volts
+  Ijlk                                 8.1      58.3   pA
+  Gamma                                0.55      0.56  V^0.5
+                                                      
+ Delta length                          0.38      0.09  microns
+  (L_eff = L_drawn-DL)                                
+ Delta width                           0.54      0.51  microns
+  (W_eff = W_drawn-DW)                                
+ K' (Uo*Cox/2)                        43.3     -13.1   uA/V^2
+                                                      
+
+FOX TRANSISTORS         GATE      N+ACTIVE  P+ACTIVE  UNITS
+ Vth                    Poly        >15.0    <-15.0   Volts
+
+
+PROCESS PARAMETERS      N+DIFF   P+DIFF     POLY    METAL1    METAL2  UNITS
+ Sheet Resistance        67.5    109.6     24.3       0.06      0.04  Ohms/sq
+ Width Variation         -0.19    -0.38    -0.21     -0.10     -0.27  microns
+  (measured - drawn)
+ Contact Resistance      51.2     46.0     14.3                 0.10  Ohms
+ Gate Oxide Thickness   207                                           Angstroms
+
+
+
+CAPACITANCE PARAMETERS    N+DIFF    P+DIFF    POLY    METAL1    METAL2  UNITS
+ Area (substrate)         310       558        62      42        30     aF/um^2
+ Area (poly)                                           67        24     aF/um^2
+ Area (metal1)                                                   29     aF/um^2
+ Area (N+active)                             1614                       aF/um^2
+ Area (P+active)                             1542                       aF/um^2
+ Area (cap well)                             1177                       aF/um^2
+ Area (cap implant)                          1158                       aF/um^2
+ Fringe (P+active)                            226                       aF/um
+
+
+CIRCUIT PARAMETERS                          UNITS
+ Inverters                   K
+  Vinv                      1.0       1.80  Volts
+  Vinv                      1.5       2.05  Volts
+  Vlow                      2.0       0.00  Volts
+  Vhigh                     2.0       5.00  Volts
+  Vinv                      2.0       2.24  Volts
+  Gain                      2.0     -16.79
+ Ring Oscillator
+  MOSIS (31 stages)                  83.58  MHz
+
+ 
+N43D  SPICE LEVEL 3 PARAMETERS
+ 
+.MODEL CMOSN NMOS LEVEL=3 PHI=0.600000 TOX=2.1800E-08 XJ=0.200000U TPG=1
++ VTO=0.7810 DELTA=8.2240E-01 LD=1.9310E-07 KP=9.5532E-05 
++ UO=603.1 THETA=7.6440E-02 RSH=5.5660E+01 GAMMA=0.6000 
++ NSUB=2.7210E+16 NFS=1.9800E+12 VMAX=1.7840E+05 ETA=4.6270E-02 
++ KAPPA=5.8030E-02 CGDO=4.5881E-10 CGSO=4.5881E-10 
++ CGBO=3.9696E-10 CJ=3.2891E-04 MJ=1.1274 CJSW=1.1271E-10 
++ MJSW=-0.331942 PB=0.800000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 5.4000E-07
+.MODEL CMOSP PMOS LEVEL=3 PHI=0.600000 TOX=2.1800E-08 XJ=0.200000U TPG=-1
++ VTO=-0.9561 DELTA=1.2810E+00 LD=4.7430E-08 KP=3.1189E-05 
++ UO=196.9 THETA=1.3450E-01 RSH=9.5680E+01 GAMMA=0.4834 
++ NSUB=1.7660E+16 NFS=3.460E+12 VMAX=2.2530E+05 ETA=8.2280E-02 
++ KAPPA=8.8120E+00 CGDO=1.1269E-10 CGSO=1.1269E-10 
++ CGBO=3.8810E-10 CJ=4.9310E-04 MJ=0.5168 CJSW=1.5387E-10 
++ MJSW=0.213701 PB=0.850000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 5.1200E-07
+
+ 
+N43D  SPICE BSIM PARAMETERS
+ 
+NM1 PM1 DU1 DU2 ML1 ML2
+*
+*MOSIS (31 stages)                  83.58  MHz
+*PROCESS=hp	
+*RUN=n43d
+*WAFER=12
+*Gate-oxide thickness= 218.0 angstroms 
+*Geometries (W-drawn/L-drawn, units are um/um) of transistors measured were: 
+* 1.8/1.2, 3.6/1.2, 10.8/1.2, 3.6/3.6, 3.6/10.8 
+*Bias range to perform the extraction (Vdd)=5 volts 
+*DATE=05-05-94
+*
+*NMOS PARAMETERS
+*
+-9.43634E-01,-9.96676E-02, 5.53878E-02
+ 8.16333E-01,-1.29139E-25,-6.88098E-25
+ 1.08880E+00, 6.15756E-02,-2.56217E-03
+ 1.31584E-01, 6.65307E-02,-5.17248E-02
+-1.57830E-03, 9.43462E-03, 7.28912E-03
+ 5.58811E+02,3.96042E-001,4.71416E-001
+ 7.81670E-02, 8.35192E-02,-4.06166E-02
+-5.36514E-03, 2.25343E-01,-3.06604E-02
+ 5.69692E+00,-2.30956E+00, 2.79858E+01
+-2.55780E-03,-4.29895E-03, 1.08758E-04
+-3.13429E-04,-8.57023E-04,-4.39425E-03
+-1.97406E-03, 1.40989E-03, 1.68512E-02
+ 6.12492E-04, 3.19654E-03,-2.04135E-03
+ 6.38701E+02, 1.47283E+02,-1.32286E+02
+-1.26427E+00, 1.06048E+01, 3.98428E+01
+ 4.74379E+00, 2.47382E+01,-1.06739E+01
+ 7.52596E-04, 2.04713E-02,-5.67812E-03
+2.18000E-002, 2.70000E+01, 5.00000E+00                                        
+4.70501E-010,4.70501E-010,3.75251E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+* Gate Oxide Thickness is 218 Angstroms
+*
+*
+*PMOS PARAMETERS
+*
+-9.01675E-02,-1.35231E-01,-9.86095E-02
+ 7.50430E-01, 0.00000E+00,-3.45941E-24
+ 2.09469E-01, 1.90704E-01, 2.09530E-01
+-9.68999E-02, 9.58226E-02, 2.74780E-02
+-7.85453E-03, 2.55944E-02,-4.61301E-03
+ 1.85358E+02,2.48652E-001,7.08916E-001
+ 1.42311E-01, 4.91117E-02,-5.19897E-02
+-8.57978E-03, 1.15576E-01,-2.39556E-02
+ 9.17853E+00,-2.74802E+00, 3.28939E+00
+-4.02274E-04,-1.51622E-03,-2.75653E-03
+ 1.38933E-03,-1.79323E-03,-2.56345E-03
+ 8.24763E-03,-2.38328E-03, 4.73752E-03
+-7.86069E-04, 3.05013E-03, 5.01521E-03
+ 1.79362E+02, 7.39432E+01,-6.19072E+00
+ 6.79642E+00, 2.36910E+00, 7.64112E+00
+-2.31426E-01, 4.79049E+00,-6.59595E-01
+ 4.62958E-04,-6.78960E-03, 1.82168E-03
+2.18000E-002, 2.70000E+01, 5.00000E+00                                        
+2.95401E-010,2.95401E-010,4.50431E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+*N+ diffusion:: 
+*
+67.92,    3.289000e-04,    1.394000e-10,    1.000000e-08,    0.8
+0.8,    1.12737,    0.12519,    0,    0
+*
+*P+ diffusion:: 
+*
+109.97,    4.931000e-04,    1.538700e-10,    1.000000e-08,    0.85
+0.85,    0.5167,    0.2137,    0,    0
+*
+*METAL LAYER -- 1
+*
+5.600000e-02,    2.600000e-05,    0,    0,    0
+0,    0,    0,    0,    0
+*
+*METAL LAYER -- 2
+*
+3.800000e-02,    0,    0,    0,    0
+0,    0,    0,    0,    0
+                                          
+                           MOSIS PARAMETRIC TEST RESULTS
+                                          
+           RUN: N43F                                        VENDOR: HP-NID
+     TECHNOLOGY: SCN12                                FEATURE SIZE: 1.2 microns
+
+
+INTRODUCTION: This report contains the lot average results obtained by MOSIS
+              from measurements of the MOSIS test structures on each wafer of
+              this fabrication lot. The SPICE parameters obtained from similar
+              measurements on a selected wafer are also attached.
+
+COMMENTS: This looks like a typical Hewlett Packard CMOS34 run.
+
+
+TRANSISTOR PARAMETERS   W/L       N-CHANNEL P-CHANNEL  UNITS
+                                                      
+ MINIMUM                1.8/1.2                       
+  Vth                                  0.75     -0.98  Volts
+                                                      
+ SHORT                  10.8/1.2                      
+  Vth                                  0.70     -0.92  Volts
+  Vpt                                 14.2     -12.3   Volts
+  Vbkd                                14.2     -12.3   Volts
+  Idss                              3220     -1300     uA
+                                                      
+ LARGE                  10.8/10.8                     
+  Vth                                  0.76     -0.94  Volts
+  Vjbkd                               14.4     -12.8   Volts
+  Ijlk                                 8.0      61.0   pA
+  Gamma                                0.56      0.57  V^0.5
+                                                      
+ Delta length                          0.37      0.09  microns
+  (L_eff = L_drawn-DL)                                
+ Delta width                           0.59      0.60  microns
+  (W_eff = W_drawn-DW)                                
+ K' (Uo*Cox/2)                        42.1     -12.9   uA/V^2
+
+
+FOX TRANSISTORS         GATE      N+ACTIVE  P+ACTIVE  UNITS
+ Vth                    Poly        >25.0    <-25.0   Volts
+
+
+PROCESS PARAMETERS      N+DIFF   P+DIFF     POLY    METAL1    METAL2  UNITS
+ Sheet Resistance        66.4    111.8     24.1       0.05      0.04  Ohms/sq
+ Width Variation         -0.23    -0.42    -0.16     -0.11     -0.16  microns
+  (measured - drawn)
+ Contact Resistance      50.3     47.3     13.6                 0.13  Ohms
+ Gate Oxide Thickness   214                                           Angstroms
+
+
+
+CAPACITANCE PARAMETERS    N+DIFF    P+DIFF    POLY    METAL1    METAL2  UNITS
+ Area (substrate)         310       546        62      42        30     aF/um^2
+ Area (poly)                                           66        24     aF/um^2
+ Area (metal1)                                                   29     aF/um^2
+ Area (N+active)                             1567                       aF/um^2
+ Area (P+active)                             1495                       aF/um^2
+ Fringe (substrate)                   6                                 aF/um
+ Fringe (N+active)                             15                       aF/um
+ Fringe (P+active)                            289                       aF/um
+
+
+CIRCUIT PARAMETERS                          UNITS
+ Inverters                   K
+  Vinv                      1.0       1.81  Volts
+  Vinv                      1.5       2.05  Volts
+  Vlow                      2.0       0.00  Volts
+  Vhigh                     2.0       4.99  Volts
+  Vinv                      2.0       2.23  Volts
+  Gain                      2.0     -18.32
+ Ring Oscillator
+  MOSIS (31 stages)                  76.69  MHz
+
+ 
+N43F  SPICE LEVEL 3 PARAMETERS
+ 
+.MODEL CMOSN NMOS LEVEL=3 PHI=0.600000 TOX=2.2500E-08 XJ=0.200000U TPG=1
++ VTO=0.7869 DELTA=6.3210E-01 LD=1.8620E-07 KP=9.2222E-05 
++ UO=600.9 THETA=7.1220E-02 RSH=4.5660E+01 GAMMA=0.6537 
++ NSUB=3.0320E+16 NFS=9.9000E+12 VMAX=1.7760E+05 ETA=4.2980E-02 
++ KAPPA=7.1370E-02 CGDO=4.2865E-10 CGSO=4.2865E-10 
++ CGBO=4.1190E-10 CJ=3.3222E-04 MJ=1.1356 CJSW=1.394E-10 
++ MJSW=0.12519 PB=0.800000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 5.9220E-07
+.MODEL CMOSP PMOS LEVEL=3 PHI=0.600000 TOX=2.2500E-08 XJ=0.200000U TPG=-1
++ VTO=-1.0230 DELTA=5.3220E-01 LD=4.6330E-08 KP=3.2536E-05 
++ UO=212.0 THETA=1.4740E-01 RSH=8.2050E+01 GAMMA=0.5403 
++ NSUB=2.0710E+16 NFS=6.1340E+12 VMAX=2.2010E+05 ETA=5.8550E-02 
++ KAPPA=9.9990E+00 CGDO=1.0666E-10 CGSO=1.0666E-10 
++ CGBO=4.1535E-10 CJ=4.9140E-04 MJ=0.5177 CJSW=1.3535E-10 
++ MJSW=0.154717 PB=0.850000
+* Weff = Wdrawn - Delta_W
+* The suggested Delta_W is 6.0320E-07
+
+ 
+N43F  SPICE BSIM PARAMETERS
+ 
+NM1 PM1 DU1 DU2 ML1 ML2
+*
+*MOSIS (31 stages)                  76.69  MHz
+*PROCESS=hp
+*RUN=n43f		
+*WAFER=7		
+*Gate-oxide thickness= 225.0 angstroms 
+*Geometries (W-drawn/L-drawn, units are um/um) of transistors measured were: 
+* 1.8/1.2, 3.6/1.2, 10.8/1.2, 3.6/3.6, 3.6/10.8 
+*Bias range to perform the extraction (Vdd)=5 volts 
+*DATE=04-26-94	
+*
+*NMOS PARAMETERS
+*
+-9.82860E-01,-1.09169E-01, 6.00220E-02
+ 8.19362E-01, 1.30266E-24, 0.00000E+00
+ 1.10613E+00, 1.17105E-01,-4.88995E-02
+ 1.24399E-01, 8.93576E-02,-7.27764E-02
+-5.15992E-03, 1.23317E-02, 2.25691E-03
+ 5.65807E+02,4.13811E-001,6.55595E-001
+ 6.16132E-02, 8.69651E-02,-4.80691E-02
+-1.71379E-02, 2.51812E-01,-7.20951E-02
+ 8.75088E+00,-7.56979E+00, 3.21216E+01
+-1.09173E-03,-6.96250E-03, 3.74945E-03
+ 1.14704E-04,-1.16782E-03,-3.84563E-03
+ 8.06979E-04,-2.75014E-03, 1.83771E-02
+-7.59885E-04, 3.54365E-03, 4.24744E-03
+ 6.11164E+02, 1.68916E+02,-7.43654E+01
+-1.95190E+00, 8.49202E+00, 4.61654E+01
+ 2.54973E+00, 3.02501E+01,-1.77978E+01
+-1.12524E-03, 2.53012E-02,-1.32973E-02
+2.25000E-002, 2.70000E+01, 5.00000E+00                                        
+4.76316E-010,4.76316E-010,4.31793E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+* Gate Oxide Thickness is 225 Angstroms
+*
+*
+*PMOS PARAMETERS
+*
+-7.22873E-02,-9.83106E-02,-1.16774E-01
+ 7.44845E-01,-1.87232E-25, 4.19025E-25
+ 2.49689E-01, 1.54350E-01, 1.91372E-01
+-8.27131E-02, 8.07583E-02, 2.17028E-02
+-5.68427E-03, 2.38771E-02,-1.27033E-03
+ 1.84824E+02,2.36551E-001,7.38826E-001
+ 1.30543E-01, 6.16167E-02,-5.88042E-02
+-8.39979E-03, 1.11799E-01,-2.19712E-02
+ 9.39209E+00,-2.36679E+00, 2.92716E+00
+ 5.28754E-04,-2.25529E-03,-2.28515E-03
+ 5.35733E-04,-1.19041E-03,-3.33047E-03
+ 7.98860E-03,-3.61437E-04, 3.01266E-03
+-6.44807E-04, 2.11387E-03, 4.47415E-03
+ 1.79285E+02, 7.28060E+01,-1.22561E+01
+ 6.91033E+00, 2.65833E+00, 6.24836E+00
+-3.93045E-01, 5.58591E+00,-8.55524E-01
+ 4.30542E-04,-5.63692E-03, 1.03714E-03
+2.25000E-002, 2.70000E+01, 5.00000E+00                                        
+2.72282E-010,2.72282E-010,4.57917E-010
+1.00000E+000,0.00000E+000,0.00000E+000
+1.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+0.00000E+000,0.00000E+000,0.00000E+000
+*
+*N+ diffusion:: 
+*
+66.3,    3.322000e-04,    1.394000e-10,    1.000000e-08,    0.8
+0.8,    1.1356,    0.1252,    0,    0
+*
+*P+ diffusion:: 
+*
+111.4,    4.914000e-04,    1.354000e-10,    1.000000e-08,    0.85
+0.85,    0.5177,    0.1547,    0,    0
+*
+*METAL LAYER -- 1
+*
+5.000000e-02,    2.600000e-05,    0,    0,    0
+0,    0,    0,    0,    0
+*
+*METAL LAYER -- 2
+*
+4.000000e-02,    0,    0,    0,    0
+0,    0,    0,    0,    0

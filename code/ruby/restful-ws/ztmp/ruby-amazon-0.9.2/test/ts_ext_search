@@ -1,0 +1,18 @@
+#!/usr/bin/ruby -w
+#
+# $Id: ts_ext_search,v 1.3 2006/08/03 16:50:59 ianmacd Exp $
+
+require 'test/unit'
+require 'tc_amazon-blended-search'
+require 'tc_amazon-exchange'
+require 'tc_amazon-file-search'
+
+# Marketplace searches now require a seller ID, but I'm not a seller, so I
+# don't know any.
+#
+#require 'tc_amazon-marketplace-search'
+
+require 'tc_amazon-offerings-search'
+require 'tc_amazon-seller-search'
+require 'tc_amazon-thirdparty-search'
+#require 'tc_amazon-non_existent_search'

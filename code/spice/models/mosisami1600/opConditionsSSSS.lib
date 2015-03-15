@@ -1,0 +1,10 @@
+**************** Enviromental and Process Parameters *********************
+*
+* ddiaz@hmc.edu 12/04/02
+* Modified by gbreed@hmc.edu 2/18/03
+
+.lib TT
+.temp 125
+.param Supply='0.9*Sup'
+.lib 'ami_abn_corner_bsim3.txt' SS
+.endl TT

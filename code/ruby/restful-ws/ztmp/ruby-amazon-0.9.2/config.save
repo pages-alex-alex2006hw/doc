@@ -1,0 +1,12 @@
+data-dir=$prefix/share
+make-prog=make
+std-ruby=$prefix/lib/ruby/1.8
+without-ext=no
+ruby-prog=/usr/bin/ruby
+so-dir=$prefix/lib/ruby/site_ruby/1.8/i386-linux
+rb-dir=$site-ruby
+site-ruby-common=$prefix/lib/ruby/site_ruby
+ruby-path=/usr/bin/ruby
+bin-dir=$prefix/bin
+prefix=/usr
+site-ruby=$prefix/lib/ruby/site_ruby/1.8

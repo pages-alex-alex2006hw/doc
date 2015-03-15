@@ -1,0 +1,755 @@
+# 1 "sum-cuda.cudafe1.gpu"
+# 52 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+struct _ZN6thrust6detail10functional8argumentILj0EEE;
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj0EEEEE;
+# 52 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+struct _ZN6thrust6detail10functional8argumentILj1EEE;
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj1EEEEE;
+# 52 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+struct _ZN6thrust6detail10functional8argumentILj2EEE;
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj2EEEEE;
+# 52 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+struct _ZN6thrust6detail10functional8argumentILj3EEE;
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj3EEEEE;
+# 52 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+struct _ZN6thrust6detail10functional8argumentILj4EEE;
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj4EEEEE;
+# 52 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+struct _ZN6thrust6detail10functional8argumentILj5EEE;
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj5EEEEE;
+# 52 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+struct _ZN6thrust6detail10functional8argumentILj6EEE;
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj6EEEEE;
+# 52 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+struct _ZN6thrust6detail10functional8argumentILj7EEE;
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj7EEEEE;
+# 52 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+struct _ZN6thrust6detail10functional8argumentILj8EEE;
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj8EEEEE;
+# 52 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+struct _ZN6thrust6detail10functional8argumentILj9EEE;
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj9EEEEE;
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIyEEPyS3_yNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElEE;
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.h"
+struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIyEEyNS_16device_referenceIyEENS0_21cuda_device_space_tagEEE;
+# 64 "/usr/local/cuda/bin/../include/thrust/device_ptr.h"
+struct _ZN6thrust10device_ptrIyEE;
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_6detail15normal_iteratorINS_10device_ptrIyEEEES5_S5_NS_11use_defaultES7_S7_S7_S7_EE;
+# 38 "/usr/local/cuda/bin/../include/thrust/iterator/detail/normal_iterator.h"
+struct _ZN6thrust6detail15normal_iteratorINS_10device_ptrIyEEEE;
+# 544 "/usr/local/cuda/bin/../include/thrust/detail/internal_functional.h"
+struct _ZN6thrust6detail12fill_functorIyEE;
+# 204 "/usr/local/cuda/bin/../include/thrust/detail/internal_functional.h"
+struct _ZN6thrust6detail23device_generate_functorINS0_12fill_functorIyEEEE;
+# 45 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail7backend4cuda18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEE;
+# 45 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail7backend4cuda18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEE;
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_17counting_iteratorIlNS_11use_defaultES3_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllEE;
+# 131 "/usr/local/cuda/bin/../include/thrust/iterator/counting_iterator.h"
+struct _ZN6thrust17counting_iteratorIlNS_11use_defaultES1_lEE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consINS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consINS_17counting_iteratorIlNS_11use_defaultES3_lEENS1_INS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEEEE;
+# 197 "/usr/local/cuda/bin/../include/thrust/tuple.h"
+struct _ZN6thrust5tupleINS_17counting_iteratorIlNS_11use_defaultES2_lEENS_6detail15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeES9_S9_S9_S9_S9_S9_S9_EE;
+# 139 "/usr/local/cuda/bin/../include/thrust/iterator/zip_iterator.h"
+struct _ZN6thrust12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES3_lEENS_6detail15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESA_SA_SA_SA_SA_SA_SA_EEEE;
+# 55 "/usr/local/cuda/bin/../include/thrust/detail/sequence.inl"
+struct _ZN6thrust6detail16sequence_functorIiEE;
+# 284 "/usr/local/cuda/bin/../include/thrust/detail/internal_functional.h"
+struct _ZN6thrust6detail30device_unary_transform_functorINS0_16sequence_functorIiEEEE;
+# 45 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail7backend4cuda18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES7_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESD_SD_SD_SD_SD_SD_SD_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEE;
+# 45 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail7backend4cuda18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES7_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESD_SD_SD_SD_SD_SD_SD_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEE;
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIiEEPiS3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElEE;
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.h"
+struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIiEEiNS_16device_referenceIiEENS0_21cuda_device_space_tagEEE;
+# 64 "/usr/local/cuda/bin/../include/thrust/device_ptr.h"
+struct _ZN6thrust10device_ptrIiEE;
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_6detail15normal_iteratorINS_10device_ptrIiEEEES5_S5_NS_11use_defaultES7_S7_S7_S7_EE;
+# 38 "/usr/local/cuda/bin/../include/thrust/iterator/detail/normal_iterator.h"
+struct _ZN6thrust6detail15normal_iteratorINS_10device_ptrIiEEEE;
+# 155 "/usr/local/cuda/bin/../include/thrust/functional.h"
+struct _ZN6thrust4plusIiEE;
+# 65 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+struct _ZN6thrust6detail7backend4cuda24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS4_INS5_IiEEEENS_4plusIiEEEE;
+# 35 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/extern_shared_ptr.h"
+struct _ZN6thrust6detail7backend4cuda17extern_shared_ptrIiEE;
+# 65 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+struct _ZN6thrust6detail7backend4cuda24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS7_NS_4plusIiEEEE;
+# 27 "/usr/local/cuda/bin/../include/thrust/iterator/detail/backend_iterator_spaces.h"
+struct _ZN6thrust6detail21cuda_device_space_tagE;
+# 115 "/usr/local/cuda/bin/../include/thrust/iterator/detail/zip_iterator_base.h"
+struct _ZN6thrust6detail27device_dereference_iteratorE;
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIvEEPvS3_vNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagEvlEE;
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.h"
+struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIvEEvNS_16device_referenceIvEENS0_21cuda_device_space_tagEEE;
+# 53 "/usr/local/cuda/bin/../include/thrust/device_malloc_allocator.h"
+struct _ZN6thrust23device_malloc_allocatorIyEE;
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIKyEEPS3_S4_S3_NS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIS3_EElEE;
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.h"
+struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIKyEES3_NS_16device_referenceIS3_EENS0_21cuda_device_space_tagEEE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consImNS_9null_typeEEE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consImNS1_ImNS_9null_typeEEEEE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consImNS1_ImNS1_ImNS_9null_typeEEEEEEE;
+# 63 "/usr/local/cuda/bin/../include/thrust/iterator/detail/zip_iterator_base.h"
+struct _ZN6thrust6detail16advance_iteratorIlEE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consIRyNS_9null_typeEEE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consIlNS1_IRyNS_9null_typeEEEEE;
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIKiEEPS3_S4_S3_NS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIS3_EElEE;
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.h"
+struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIKiEES3_NS_16device_referenceIS3_EENS0_21cuda_device_space_tagEEE;
+# 36 "/usr/local/cuda/bin/../include/thrust/detail/reference_base.h"
+struct _ZN6thrust6detail14reference_baseINS_16device_referenceIiEEiNS_10device_ptrIiEEEE;
+# 214 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+struct _ZN6thrust12experimental15iterator_facadeINS_10device_ptrIyEES3_yNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElEE;
+# 214 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+struct _ZN6thrust12experimental15iterator_facadeINS_6detail15normal_iteratorINS_10device_ptrIyEEEES5_yNS2_21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElEE;
+# 214 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+struct _ZN6thrust12experimental15iterator_facadeINS_17counting_iteratorIlNS_11use_defaultES3_lEEPllNS_13any_space_tagENS_27random_access_traversal_tagEllEE;
+# 214 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+struct _ZN6thrust12experimental15iterator_facadeINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES5_lEENS_6detail15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESC_SC_SC_SC_SC_SC_SC_EEEEPNS3_IlNS_16device_referenceIyEESC_SC_SC_SC_SC_SC_SC_SC_EENS3_IlySC_SC_SC_SC_SC_SC_SC_SC_EENS7_21cuda_device_space_tagENS_27random_access_traversal_tagESH_lEE;
+# 214 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+struct _ZN6thrust12experimental15iterator_facadeINS_10device_ptrIiEES3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElEE;
+# 214 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+struct _ZN6thrust12experimental15iterator_facadeINS_6detail15normal_iteratorINS_10device_ptrIiEEEES5_iNS2_21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElEE;
+# 23 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust9null_typeE;
+# 197 "/usr/local/cuda/bin/../include/thrust/tuple.h"
+struct _ZN6thrust5tupleIlRyNS_9null_typeES2_S2_S2_S2_S2_S2_S2_EE;
+# 186 "/usr/local/cuda/bin/../include/thrust/device_reference.h"
+struct _ZN6thrust16device_referenceIiEE;
+# 212 "/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/host_runtime.h"
+# 10 "sum-cuda.cu"
+typedef unsigned long long llong_t;
+# 156 "/usr/include/c++/4.6/x86_64-linux-gnu/./bits/c++config.h" 3
+typedef long _ZSt9ptrdiff_t;
+# 420 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZSt9ptrdiff_t _ZN6thrust6detail9identity_IlE4typeE;
+# 412 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail9identity_IlE4typeE _ZN6thrust6detail7eval_ifILb0ENS_14iterator_valueIlEENS0_9identity_IlEEE4typeE;
+# 67 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_adaptor.inl"
+typedef _ZN6thrust6detail7eval_ifILb0ENS_14iterator_valueIlEENS0_9identity_IlEEE4typeE _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_17counting_iteratorIlNS_11use_defaultENS_27random_access_traversal_tagES4_EElPllNS_13any_space_tagES5_llE5valueE;
+# 184 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_17counting_iteratorIlNS_11use_defaultENS_27random_access_traversal_tagES4_EElPllNS_13any_space_tagES5_llE5valueE _ZN6thrust6detail12remove_constIlE4typeE;
+# 412 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail9identity_IlE4typeE _ZN6thrust6detail7eval_ifILb0ENS_19iterator_differenceIlEENS0_9identity_IlEEE4typeE;
+# 412 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail9identity_IlE4typeE _ZN6thrust6detail7eval_ifILb0ENS1_ILb0ENS_18iterator_referenceIlEENS0_13add_referenceIlEEEENS0_9identity_IlEEE4typeE;
+# 412 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail9identity_IlE4typeE _ZN6thrust6detail7eval_ifILb0ENS_19iterator_differenceIPyEENS0_9identity_IlEEE4typeE;
+# 91 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_adaptor.inl"
+typedef _ZN6thrust6detail7eval_ifILb0ENS_19iterator_differenceIPyEENS0_9identity_IlEEE4typeE _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_10device_ptrIyEEPyS4_yNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElE10differenceE;
+# 240 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+typedef _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_10device_ptrIyEEPyS4_yNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElE10differenceE _ZN6thrust12experimental15iterator_facadeINS_10device_ptrIyEES3_yNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElE15difference_typeE;
+# 90 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+typedef _ZN6thrust12experimental15iterator_facadeINS_10device_ptrIyEES3_yNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElE15difference_typeE _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIyEEPyS3_yNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElE15difference_typeE;
+# 168 "/usr/include/c++/4.6/bits/stl_iterator_base_types.h" 3
+typedef _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIyEEPyS3_yNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElE15difference_typeE _ZNSt15iterator_traitsIN6thrust10device_ptrIyEEE15difference_typeE;
+# 75 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_traits.inl"
+typedef _ZNSt15iterator_traitsIN6thrust10device_ptrIyEEE15difference_typeE _ZN6thrust19iterator_differenceINS_10device_ptrIyEEE4typeE;
+# 406 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust19iterator_differenceINS_10device_ptrIyEEE4typeE _ZN6thrust6detail7eval_ifILb1ENS_19iterator_differenceINS_10device_ptrIyEEEENS0_9identity_INS_11use_defaultEEEE4typeE;
+# 91 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_adaptor.inl"
+typedef _ZN6thrust6detail7eval_ifILb1ENS_19iterator_differenceINS_10device_ptrIyEEEENS0_9identity_INS_11use_defaultEEEE4typeE _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_6detail15normal_iteratorINS_10device_ptrIyEEEES6_S6_NS_11use_defaultES8_S8_S8_S8_E10differenceE;
+# 240 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+typedef _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_6detail15normal_iteratorINS_10device_ptrIyEEEES6_S6_NS_11use_defaultES8_S8_S8_S8_E10differenceE _ZN6thrust12experimental15iterator_facadeINS_6detail15normal_iteratorINS_10device_ptrIyEEEES5_yNS2_21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElE15difference_typeE;
+# 90 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+typedef _ZN6thrust12experimental15iterator_facadeINS_6detail15normal_iteratorINS_10device_ptrIyEEEES5_yNS2_21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElE15difference_typeE _ZN6thrust12experimental16iterator_adaptorINS_6detail15normal_iteratorINS_10device_ptrIyEEEES5_S5_NS_11use_defaultES7_S7_S7_S7_E15difference_typeE;
+# 168 "/usr/include/c++/4.6/bits/stl_iterator_base_types.h" 3
+typedef _ZN6thrust12experimental16iterator_adaptorINS_6detail15normal_iteratorINS_10device_ptrIyEEEES5_S5_NS_11use_defaultES7_S7_S7_S7_E15difference_typeE _ZNSt15iterator_traitsIN6thrust6detail15normal_iteratorINS0_10device_ptrIyEEEEE15difference_typeE;
+# 57 "/usr/local/cuda/bin/../include/thrust/device_malloc_allocator.h"
+typedef struct _ZN6thrust10device_ptrIyEE _ZN6thrust23device_malloc_allocatorIyE7pointerE;
+# 33 "/usr/local/cuda/bin/../include/thrust/detail/contiguous_storage.h"
+typedef _ZN6thrust23device_malloc_allocatorIyE7pointerE _ZN6thrust6detail18contiguous_storageIyNS_23device_malloc_allocatorIyEEE7pointerE;
+# 91 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_adaptor.inl"
+typedef _ZN6thrust6detail7eval_ifILb0ENS_19iterator_differenceIlEENS0_9identity_IlEEE4typeE _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_17counting_iteratorIlNS_11use_defaultES4_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllE10differenceE;
+# 240 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+typedef _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_17counting_iteratorIlNS_11use_defaultES4_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllE10differenceE _ZN6thrust12experimental15iterator_facadeINS_17counting_iteratorIlNS_11use_defaultES3_lEEPllNS_13any_space_tagENS_27random_access_traversal_tagEllE15difference_typeE;
+# 90 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+typedef _ZN6thrust12experimental15iterator_facadeINS_17counting_iteratorIlNS_11use_defaultES3_lEEPllNS_13any_space_tagENS_27random_access_traversal_tagEllE15difference_typeE _ZN6thrust12experimental16iterator_adaptorINS_17counting_iteratorIlNS_11use_defaultES3_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllE15difference_typeE;
+# 86 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_adaptor.inl"
+typedef _ZN6thrust6detail7eval_ifILb0ENS1_ILb0ENS_18iterator_referenceIlEENS0_13add_referenceIlEEEENS0_9identity_IlEEE4typeE _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_17counting_iteratorIlNS_11use_defaultES4_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllE9referenceE;
+# 238 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+typedef _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_17counting_iteratorIlNS_11use_defaultES4_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllE9referenceE _ZN6thrust12experimental15iterator_facadeINS_17counting_iteratorIlNS_11use_defaultES3_lEEPllNS_13any_space_tagENS_27random_access_traversal_tagEllE9referenceE;
+# 88 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+typedef _ZN6thrust12experimental15iterator_facadeINS_17counting_iteratorIlNS_11use_defaultES3_lEEPllNS_13any_space_tagENS_27random_access_traversal_tagEllE9referenceE _ZN6thrust12experimental16iterator_adaptorINS_17counting_iteratorIlNS_11use_defaultES3_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllE9referenceE;
+# 142 "/usr/local/cuda/bin/../include/thrust/iterator/counting_iterator.h"
+typedef _ZN6thrust12experimental16iterator_adaptorINS_17counting_iteratorIlNS_11use_defaultES3_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllE15difference_typeE _ZN6thrust17counting_iteratorIlNS_11use_defaultES1_lE15difference_typeE;
+# 168 "/usr/include/c++/4.6/bits/stl_iterator_base_types.h" 3
+typedef _ZN6thrust17counting_iteratorIlNS_11use_defaultES1_lE15difference_typeE _ZNSt15iterator_traitsIN6thrust17counting_iteratorIlNS0_11use_defaultES2_lEEE15difference_typeE;
+# 141 "/usr/local/cuda/bin/../include/thrust/iterator/counting_iterator.h"
+typedef _ZN6thrust12experimental16iterator_adaptorINS_17counting_iteratorIlNS_11use_defaultES3_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllE9referenceE _ZN6thrust17counting_iteratorIlNS_11use_defaultES1_lE9referenceE;
+# 170 "/usr/include/c++/4.6/bits/stl_iterator_base_types.h" 3
+typedef _ZN6thrust17counting_iteratorIlNS_11use_defaultES1_lE9referenceE _ZNSt15iterator_traitsIN6thrust17counting_iteratorIlNS0_11use_defaultES2_lEEE9referenceE;
+# 492 "/usr/local/cuda/bin/../include/thrust/iterator/detail/zip_iterator_base.h"
+typedef _ZNSt15iterator_traitsIN6thrust17counting_iteratorIlNS0_11use_defaultES2_lEEE15difference_typeE _ZN6thrust6detail17zip_iterator_baseINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES4_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESA_SA_SA_SA_SA_SA_SA_EEE15difference_typeE;
+# 240 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+typedef _ZN6thrust6detail17zip_iterator_baseINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES4_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESA_SA_SA_SA_SA_SA_SA_EEE15difference_typeE _ZN6thrust12experimental15iterator_facadeINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES5_lEENS_6detail15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESC_SC_SC_SC_SC_SC_SC_EEEEPNS3_IlNS_16device_referenceIyEESC_SC_SC_SC_SC_SC_SC_SC_EENS3_IlySC_SC_SC_SC_SC_SC_SC_SC_EENS7_21cuda_device_space_tagENS_27random_access_traversal_tagESH_lE15difference_typeE;
+# 184 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef int _ZN6thrust6detail12remove_constIiE4typeE;
+# 331 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_facade.inl"
+typedef _ZN6thrust6detail12remove_constIiE4typeE _ZN6thrust12experimental6detail21iterator_facade_typesIiNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE10value_typeE;
+# 412 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail9identity_IlE4typeE _ZN6thrust6detail7eval_ifILb0ENS_19iterator_differenceIPiEENS0_9identity_IlEEE4typeE;
+# 91 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_adaptor.inl"
+typedef _ZN6thrust6detail7eval_ifILb0ENS_19iterator_differenceIPiEENS0_9identity_IlEEE4typeE _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_10device_ptrIiEEPiS4_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE10differenceE;
+# 240 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+typedef _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_10device_ptrIiEEPiS4_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE10differenceE _ZN6thrust12experimental15iterator_facadeINS_10device_ptrIiEES3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE15difference_typeE;
+# 90 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+typedef _ZN6thrust12experimental15iterator_facadeINS_10device_ptrIiEES3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE15difference_typeE _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIiEEPiS3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE15difference_typeE;
+# 168 "/usr/include/c++/4.6/bits/stl_iterator_base_types.h" 3
+typedef _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIiEEPiS3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE15difference_typeE _ZNSt15iterator_traitsIN6thrust10device_ptrIiEEE15difference_typeE;
+# 420 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef struct _ZN6thrust16device_referenceIiEE _ZN6thrust6detail9identity_INS_16device_referenceIiEEE4typeE;
+# 412 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail9identity_INS_16device_referenceIiEEE4typeE _ZN6thrust6detail7eval_ifILb0ENS1_ILb0ENS_18iterator_referenceIPiEENS0_13add_referenceIiEEEENS0_9identity_INS_16device_referenceIiEEEEE4typeE;
+# 86 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_adaptor.inl"
+typedef _ZN6thrust6detail7eval_ifILb0ENS1_ILb0ENS_18iterator_referenceIPiEENS0_13add_referenceIiEEEENS0_9identity_INS_16device_referenceIiEEEEE4typeE _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_10device_ptrIiEEPiS4_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE9referenceE;
+# 238 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+typedef _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_10device_ptrIiEEPiS4_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE9referenceE _ZN6thrust12experimental15iterator_facadeINS_10device_ptrIiEES3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE9referenceE;
+# 88 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+typedef _ZN6thrust12experimental15iterator_facadeINS_10device_ptrIiEES3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE9referenceE _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIiEEPiS3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE9referenceE;
+# 237 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+typedef _ZN6thrust12experimental6detail21iterator_facade_typesIiNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE10value_typeE _ZN6thrust12experimental15iterator_facadeINS_6detail15normal_iteratorINS_10device_ptrIiEEEES5_iNS2_21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE10value_typeE;
+# 167 "/usr/include/c++/4.6/bits/stl_iterator_base_types.h" 3
+typedef _ZN6thrust12experimental15iterator_facadeINS_6detail15normal_iteratorINS_10device_ptrIiEEEES5_iNS2_21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE10value_typeE _ZNSt15iterator_traitsIN6thrust6detail15normal_iteratorINS0_10device_ptrIiEEEEE10value_typeE;
+# 75 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_traits.inl"
+typedef _ZNSt15iterator_traitsIN6thrust10device_ptrIiEEE15difference_typeE _ZN6thrust19iterator_differenceINS_10device_ptrIiEEE4typeE;
+# 406 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust19iterator_differenceINS_10device_ptrIiEEE4typeE _ZN6thrust6detail7eval_ifILb1ENS_19iterator_differenceINS_10device_ptrIiEEEENS0_9identity_INS_11use_defaultEEEE4typeE;
+# 91 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_adaptor.inl"
+typedef _ZN6thrust6detail7eval_ifILb1ENS_19iterator_differenceINS_10device_ptrIiEEEENS0_9identity_INS_11use_defaultEEEE4typeE _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_6detail15normal_iteratorINS_10device_ptrIiEEEES6_S6_NS_11use_defaultES8_S8_S8_S8_E10differenceE;
+# 240 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+typedef _ZN6thrust12experimental6detail21iterator_adaptor_baseINS_6detail15normal_iteratorINS_10device_ptrIiEEEES6_S6_NS_11use_defaultES8_S8_S8_S8_E10differenceE _ZN6thrust12experimental15iterator_facadeINS_6detail15normal_iteratorINS_10device_ptrIiEEEES5_iNS2_21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElE15difference_typeE;
+# 46 "/usr/local/cuda/bin/../include/thrust/detail/backend/internal_allocator.h"
+typedef struct _ZN6thrust10device_ptrIiEE _ZN6thrust6detail7backend18internal_allocatorIiE7pointerE;
+# 33 "/usr/local/cuda/bin/../include/thrust/detail/contiguous_storage.h"
+typedef _ZN6thrust6detail7backend18internal_allocatorIiE7pointerE _ZN6thrust6detail18contiguous_storageIiNS0_7backend18internal_allocatorIiEEE7pointerE;
+# 420 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef struct _ZN6thrust6detail21cuda_device_space_tagE _ZN6thrust6detail9identity_INS0_21cuda_device_space_tagEE4typeE;
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIyEEPyS3_yNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElEE {
+# 141 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+llong_t *m_iterator;};
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.h"
+struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIyEEyNS_16device_referenceIyEENS0_21cuda_device_space_tagEEE { struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIyEEPyS3_yNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElEE __b_N6thrust12experimental16iterator_adaptorINS_10device_ptrIyEEPyS3_yNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIyEElEE;};
+# 64 "/usr/local/cuda/bin/../include/thrust/device_ptr.h"
+struct _ZN6thrust10device_ptrIyEE { struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIyEEyNS_16device_referenceIyEENS0_21cuda_device_space_tagEEE __b_N6thrust6detail12pointer_baseINS_10device_ptrIyEEyNS_16device_referenceIyEENS0_21cuda_device_space_tagEEE;};
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_6detail15normal_iteratorINS_10device_ptrIyEEEES5_S5_NS_11use_defaultES7_S7_S7_S7_EE {
+# 141 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+_ZN6thrust6detail18contiguous_storageIyNS_23device_malloc_allocatorIyEEE7pointerE m_iterator;};
+# 38 "/usr/local/cuda/bin/../include/thrust/iterator/detail/normal_iterator.h"
+struct _ZN6thrust6detail15normal_iteratorINS_10device_ptrIyEEEE { struct _ZN6thrust12experimental16iterator_adaptorINS_6detail15normal_iteratorINS_10device_ptrIyEEEES5_S5_NS_11use_defaultES7_S7_S7_S7_EE __b_N6thrust12experimental16iterator_adaptorINS_6detail15normal_iteratorINS_10device_ptrIyEEEES5_S5_NS_11use_defaultES7_S7_S7_S7_EE;};
+# 544 "/usr/local/cuda/bin/../include/thrust/detail/internal_functional.h"
+struct _ZN6thrust6detail12fill_functorIyEE {
+# 546 "/usr/local/cuda/bin/../include/thrust/detail/internal_functional.h"
+llong_t exemplar;};
+# 204 "/usr/local/cuda/bin/../include/thrust/detail/internal_functional.h"
+struct _ZN6thrust6detail23device_generate_functorINS0_12fill_functorIyEEEE {
+# 233 "/usr/local/cuda/bin/../include/thrust/detail/internal_functional.h"
+struct _ZN6thrust6detail12fill_functorIyEE gen;};
+# 45 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail7backend4cuda18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEE {
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail15normal_iteratorINS_10device_ptrIyEEEE first;
+# 50 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+long n;
+# 51 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail23device_generate_functorINS0_12fill_functorIyEEEE f;};
+# 45 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail7backend4cuda18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEE {
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail15normal_iteratorINS_10device_ptrIyEEEE first;
+# 50 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+unsigned n;
+# 51 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail23device_generate_functorINS0_12fill_functorIyEEEE f;};
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_17counting_iteratorIlNS_11use_defaultES3_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllEE {
+# 141 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+_ZNSt15iterator_traitsIN6thrust6detail15normal_iteratorINS0_10device_ptrIyEEEEE15difference_typeE m_iterator;};
+# 131 "/usr/local/cuda/bin/../include/thrust/iterator/counting_iterator.h"
+struct _ZN6thrust17counting_iteratorIlNS_11use_defaultES1_lEE { struct _ZN6thrust12experimental16iterator_adaptorINS_17counting_iteratorIlNS_11use_defaultES3_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllEE __b_N6thrust12experimental16iterator_adaptorINS_17counting_iteratorIlNS_11use_defaultES3_lEElPllNS_13any_space_tagENS_27random_access_traversal_tagEllEE;};
+# 249 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef struct _ZN6thrust17counting_iteratorIlNS_11use_defaultES1_lEE _ZN6thrust6detail4consINS_17counting_iteratorIlNS_11use_defaultES3_lEENS1_INS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEEE9head_typeE;
+# 237 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail4consINS_17counting_iteratorIlNS_11use_defaultES3_lEENS1_INS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEEE9head_typeE _ZN6thrust6detail23wrap_non_storeable_typeINS_17counting_iteratorIlNS_11use_defaultES3_lEEE4typeE;
+# 253 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail23wrap_non_storeable_typeINS_17counting_iteratorIlNS_11use_defaultES3_lEEE4typeE _ZN6thrust6detail4consINS_17counting_iteratorIlNS_11use_defaultES3_lEENS1_INS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEEE16stored_head_typeE;
+# 355 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef struct _ZN6thrust6detail15normal_iteratorINS_10device_ptrIyEEEE _ZN6thrust6detail4consINS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEE9head_typeE;
+# 237 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail4consINS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEE9head_typeE _ZN6thrust6detail23wrap_non_storeable_typeINS0_15normal_iteratorINS_10device_ptrIyEEEEE4typeE;
+# 360 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail23wrap_non_storeable_typeINS0_15normal_iteratorINS_10device_ptrIyEEEEE4typeE _ZN6thrust6detail4consINS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEE16stored_head_typeE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consINS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEE {
+# 361 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+_ZN6thrust6detail4consINS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEE16stored_head_typeE head;};
+# 448 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef struct _ZN6thrust6detail4consINS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEE _ZN6thrust6detail17map_tuple_to_consINS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeES6_S6_S6_S6_S6_S6_S6_S6_E4typeE;
+# 250 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail17map_tuple_to_consINS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeES6_S6_S6_S6_S6_S6_S6_S6_E4typeE _ZN6thrust6detail4consINS_17counting_iteratorIlNS_11use_defaultES3_lEENS1_INS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEEE9tail_typeE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consINS_17counting_iteratorIlNS_11use_defaultES3_lEENS1_INS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEEEE {
+# 255 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+_ZN6thrust6detail4consINS_17counting_iteratorIlNS_11use_defaultES3_lEENS1_INS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEEE16stored_head_typeE head;
+# 256 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+_ZN6thrust6detail4consINS_17counting_iteratorIlNS_11use_defaultES3_lEENS1_INS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEEE9tail_typeE tail;};
+# 197 "/usr/local/cuda/bin/../include/thrust/tuple.h"
+struct _ZN6thrust5tupleINS_17counting_iteratorIlNS_11use_defaultES2_lEENS_6detail15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeES9_S9_S9_S9_S9_S9_S9_EE { struct _ZN6thrust6detail4consINS_17counting_iteratorIlNS_11use_defaultES3_lEENS1_INS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEEEE __b_N6thrust6detail4consINS_17counting_iteratorIlNS_11use_defaultES3_lEENS1_INS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEEEE;};
+# 139 "/usr/local/cuda/bin/../include/thrust/iterator/zip_iterator.h"
+struct _ZN6thrust12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES3_lEENS_6detail15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESA_SA_SA_SA_SA_SA_SA_EEEE {
+# 216 "/usr/local/cuda/bin/../include/thrust/iterator/zip_iterator.h"
+struct _ZN6thrust5tupleINS_17counting_iteratorIlNS_11use_defaultES2_lEENS_6detail15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeES9_S9_S9_S9_S9_S9_S9_EE m_iterator_tuple;};
+# 55 "/usr/local/cuda/bin/../include/thrust/detail/sequence.inl"
+struct _ZN6thrust6detail16sequence_functorIiEE {
+# 57 "/usr/local/cuda/bin/../include/thrust/detail/sequence.inl"
+int init;
+# 58 "/usr/local/cuda/bin/../include/thrust/detail/sequence.inl"
+int step;};
+# 284 "/usr/local/cuda/bin/../include/thrust/detail/internal_functional.h"
+struct _ZN6thrust6detail30device_unary_transform_functorINS0_16sequence_functorIiEEEE {
+# 288 "/usr/local/cuda/bin/../include/thrust/detail/internal_functional.h"
+struct _ZN6thrust6detail16sequence_functorIiEE f;};
+# 45 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail7backend4cuda18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES7_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESD_SD_SD_SD_SD_SD_SD_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEE {
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES3_lEENS_6detail15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESA_SA_SA_SA_SA_SA_SA_EEEE first;
+# 50 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+long n;
+# 51 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail30device_unary_transform_functorINS0_16sequence_functorIiEEEE f;};
+# 45 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail7backend4cuda18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES7_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESD_SD_SD_SD_SD_SD_SD_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEE {
+# 49 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES3_lEENS_6detail15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESA_SA_SA_SA_SA_SA_SA_EEEE first;
+# 50 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+unsigned n;
+# 51 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+struct _ZN6thrust6detail30device_unary_transform_functorINS0_16sequence_functorIiEEEE f; char __nv_no_debug_dummy_end_padding_0[4];};
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIiEEPiS3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElEE {
+# 141 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+int *m_iterator;};
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.h"
+struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIiEEiNS_16device_referenceIiEENS0_21cuda_device_space_tagEEE { struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIiEEPiS3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElEE __b_N6thrust12experimental16iterator_adaptorINS_10device_ptrIiEEPiS3_iNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIiEElEE;};
+# 64 "/usr/local/cuda/bin/../include/thrust/device_ptr.h"
+struct _ZN6thrust10device_ptrIiEE { struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIiEEiNS_16device_referenceIiEENS0_21cuda_device_space_tagEEE __b_N6thrust6detail12pointer_baseINS_10device_ptrIiEEiNS_16device_referenceIiEENS0_21cuda_device_space_tagEEE;};
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_6detail15normal_iteratorINS_10device_ptrIiEEEES5_S5_NS_11use_defaultES7_S7_S7_S7_EE {
+# 141 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+_ZN6thrust6detail18contiguous_storageIiNS0_7backend18internal_allocatorIiEEE7pointerE m_iterator;};
+# 38 "/usr/local/cuda/bin/../include/thrust/iterator/detail/normal_iterator.h"
+struct _ZN6thrust6detail15normal_iteratorINS_10device_ptrIiEEEE { struct _ZN6thrust12experimental16iterator_adaptorINS_6detail15normal_iteratorINS_10device_ptrIiEEEES5_S5_NS_11use_defaultES7_S7_S7_S7_EE __b_N6thrust12experimental16iterator_adaptorINS_6detail15normal_iteratorINS_10device_ptrIiEEEES5_S5_NS_11use_defaultES7_S7_S7_S7_EE;};
+# 40 "/usr/local/cuda/bin/../include/thrust/detail/contiguous_storage.h"
+typedef struct _ZN6thrust6detail15normal_iteratorINS_10device_ptrIiEEEE _ZN6thrust6detail18contiguous_storageIiNS0_7backend18internal_allocatorIiEEE8iteratorE;
+# 155 "/usr/local/cuda/bin/../include/thrust/functional.h"
+struct _ZN6thrust4plusIiEE { char __nv_no_debug_dummy_end_padding_0;};
+# 65 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+struct _ZN6thrust6detail7backend4cuda24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS4_INS5_IiEEEENS_4plusIiEEEE {
+# 67 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+struct _ZN6thrust6detail15normal_iteratorINS_10device_ptrIyEEEE input;
+# 68 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+long n;
+# 69 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+int init;
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+_ZN6thrust6detail18contiguous_storageIiNS0_7backend18internal_allocatorIiEEE8iteratorE output;
+# 71 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+struct _ZN6thrust4plusIiEE binary_op;
+# 72 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+unsigned shared_array_size;};
+# 35 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/extern_shared_ptr.h"
+struct _ZN6thrust6detail7backend4cuda17extern_shared_ptrIiEE { char __nv_no_debug_dummy_end_padding_0;};
+# 65 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+struct _ZN6thrust6detail7backend4cuda24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS7_NS_4plusIiEEEE {
+# 67 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+_ZN6thrust6detail18contiguous_storageIiNS0_7backend18internal_allocatorIiEEE8iteratorE input;
+# 68 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+long n;
+# 69 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+int init;
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+_ZN6thrust6detail18contiguous_storageIiNS0_7backend18internal_allocatorIiEEE8iteratorE output;
+# 71 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+struct _ZN6thrust4plusIiEE binary_op;
+# 72 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+unsigned shared_array_size;};
+# 81 "/usr/local/cuda/bin/../include/thrust/detail/device_ptr.inl"
+typedef llong_t *_ZN6thrust6detail7backend18dereference_resultINS_10device_ptrIyEEE4typeE;
+# 90 "/usr/local/cuda/bin/../include/thrust/iterator/detail/normal_iterator.h"
+typedef _ZN6thrust6detail7backend18dereference_resultINS_10device_ptrIyEEE4typeE _ZN6thrust6detail7backend18dereference_resultINS0_15normal_iteratorINS_10device_ptrIyEEEEE4typeE;
+# 98 "/usr/local/cuda/bin/../include/thrust/iterator/detail/counting_iterator.inl"
+typedef _ZNSt15iterator_traitsIN6thrust17counting_iteratorIlNS0_11use_defaultES2_lEEE9referenceE _ZN6thrust6detail7backend18dereference_resultINS_17counting_iteratorIlNS_11use_defaultES4_lEEE4typeE;
+# 406 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail9identity_INS0_21cuda_device_space_tagEE4typeE _ZN6thrust6detail7eval_ifILb1ENS0_9identity_INS0_21cuda_device_space_tagEEENS1_ILb0ENS2_INS0_20omp_device_space_tagEEENS1_ILb0ENS2_INS_16device_space_tagEEENS2_IvEEEEEEE4typeE;
+# 406 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail7eval_ifILb1ENS0_9identity_INS0_21cuda_device_space_tagEEENS1_ILb0ENS2_INS0_20omp_device_space_tagEEENS1_ILb0ENS2_INS_16device_space_tagEEENS2_IvEEEEEEE4typeE _ZN6thrust6detail7eval_ifILb1ENS0_41device_iterator_category_to_backend_spaceINS0_38random_access_cuda_device_iterator_tagEEEvE4typeE;
+# 412 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail7eval_ifILb1ENS0_41device_iterator_category_to_backend_spaceINS0_38random_access_cuda_device_iterator_tagEEEvE4typeE _ZN6thrust6detail7eval_ifILb0ENS0_9identity_INS_14host_space_tagEEENS1_ILb1ENS0_41device_iterator_category_to_backend_spaceINS0_38random_access_cuda_device_iterator_tagEEEvEEE4typeE;
+# 412 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail7eval_ifILb0ENS0_9identity_INS_14host_space_tagEEENS1_ILb1ENS0_41device_iterator_category_to_backend_spaceINS0_38random_access_cuda_device_iterator_tagEEEvEEE4typeE _ZN6thrust6detail7eval_ifILb0ENS0_9identity_INS_13any_space_tagEEENS1_ILb0ENS2_INS_14host_space_tagEEENS1_ILb1ENS0_41device_iterator_category_to_backend_spaceINS0_38random_access_cuda_device_iterator_tagEEEvEEEEE4typeE;
+# 27 "/usr/local/cuda/bin/../include/thrust/iterator/detail/backend_iterator_spaces.h"
+struct _ZN6thrust6detail21cuda_device_space_tagE { char __nv_no_debug_dummy_end_padding_0;};
+# 122 "/usr/local/cuda/bin/../include/thrust/iterator/detail/zip_iterator_base.h"
+typedef _ZN6thrust6detail7backend18dereference_resultINS_17counting_iteratorIlNS_11use_defaultES4_lEEE4typeE _ZN6thrust6detail27device_dereference_iterator5applyINS_17counting_iteratorIlNS_11use_defaultES4_lEEE4typeE;
+# 115 "/usr/local/cuda/bin/../include/thrust/iterator/detail/zip_iterator_base.h"
+struct _ZN6thrust6detail27device_dereference_iteratorE { char __nv_no_debug_dummy_end_padding_0;};
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIvEEPvS3_vNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagEvlEE {
+# 141 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+void *m_iterator;};
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.h"
+struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIvEEvNS_16device_referenceIvEENS0_21cuda_device_space_tagEEE { struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIvEEPvS3_vNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagEvlEE __b_N6thrust12experimental16iterator_adaptorINS_10device_ptrIvEEPvS3_vNS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagEvlEE;};
+# 406 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail9identity_IlE4typeE _ZN6thrust6detail7eval_ifILb1ENS0_9identity_IlEENS1_ILb0ENS2_IiEENS1_ILb0ES3_NS2_IxEEEEEEE4typeE;
+# 87 "/usr/local/cuda/bin/../include/thrust/detail/numeric_traits.h"
+typedef _ZN6thrust6detail7eval_ifILb1ENS0_9identity_IlEENS1_ILb0ENS2_IiEENS1_ILb0ES3_NS2_IxEEEEEEE4typeE _ZN6thrust6detail18integer_differenceIlE4typeE;
+# 406 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail18integer_differenceIlE4typeE _ZN6thrust6detail7eval_ifILb1ENS0_18integer_differenceIlEENS0_9identity_IlEEE4typeE;
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIKyEEPS3_S4_S3_NS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIS3_EElEE {
+# 141 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+const llong_t *m_iterator;};
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.h"
+struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIKyEES3_NS_16device_referenceIS3_EENS0_21cuda_device_space_tagEEE { struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIKyEEPS3_S4_S3_NS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIS3_EElEE __b_N6thrust12experimental16iterator_adaptorINS_10device_ptrIKyEEPS3_S4_S3_NS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIS3_EElEE;};
+# 448 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef struct _ZN6thrust6detail4consImNS_9null_typeEEE _ZN6thrust6detail17map_tuple_to_consImNS_9null_typeES2_S2_S2_S2_S2_S2_S2_S2_E4typeE;
+# 448 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef struct _ZN6thrust6detail4consImNS1_ImNS_9null_typeEEEEE _ZN6thrust6detail17map_tuple_to_consImmNS_9null_typeES2_S2_S2_S2_S2_S2_S2_E4typeE;
+# 249 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef size_t _ZN6thrust6detail4consImNS1_ImNS1_ImNS_9null_typeEEEEEE9head_typeE;
+# 237 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail4consImNS1_ImNS1_ImNS_9null_typeEEEEEE9head_typeE _ZN6thrust6detail23wrap_non_storeable_typeImE4typeE;
+# 360 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail23wrap_non_storeable_typeImE4typeE _ZN6thrust6detail4consImNS_9null_typeEE16stored_head_typeE;
+# 202 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail4consImNS_9null_typeEE16stored_head_typeE _ZN6thrust6detail15remove_volatileImE4typeE;
+# 184 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail15remove_volatileImE4typeE _ZN6thrust6detail12remove_constImE4typeE;
+# 220 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail12remove_constImE4typeE _ZN6thrust6detail9remove_cvImE4typeE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consImNS_9null_typeEEE {
+# 361 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+_ZN6thrust6detail4consImNS_9null_typeEE16stored_head_typeE head;};
+# 250 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail17map_tuple_to_consImNS_9null_typeES2_S2_S2_S2_S2_S2_S2_S2_E4typeE _ZN6thrust6detail4consImNS1_ImNS_9null_typeEEEE9tail_typeE;
+# 253 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail23wrap_non_storeable_typeImE4typeE _ZN6thrust6detail4consImNS1_ImNS_9null_typeEEEE16stored_head_typeE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consImNS1_ImNS_9null_typeEEEEE {
+# 255 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+_ZN6thrust6detail4consImNS1_ImNS_9null_typeEEEE16stored_head_typeE head;
+# 256 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+_ZN6thrust6detail4consImNS1_ImNS_9null_typeEEEE9tail_typeE tail;};
+# 250 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail17map_tuple_to_consImmNS_9null_typeES2_S2_S2_S2_S2_S2_S2_E4typeE _ZN6thrust6detail4consImNS1_ImNS1_ImNS_9null_typeEEEEEE9tail_typeE;
+# 253 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail23wrap_non_storeable_typeImE4typeE _ZN6thrust6detail4consImNS1_ImNS1_ImNS_9null_typeEEEEEE16stored_head_typeE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consImNS1_ImNS1_ImNS_9null_typeEEEEEEE {
+# 255 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+_ZN6thrust6detail4consImNS1_ImNS1_ImNS_9null_typeEEEEEE16stored_head_typeE head;
+# 256 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+_ZN6thrust6detail4consImNS1_ImNS1_ImNS_9null_typeEEEEEE9tail_typeE tail;};
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/type_traits/pointer_traits.h"
+typedef struct _ZN6thrust10device_ptrIyEE _ZN6thrust6detail14pointer_traitsINS_10device_ptrIyEEE7pointerE;
+# 202 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail4consINS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEE16stored_head_typeE _ZN6thrust6detail15remove_volatileINS0_15normal_iteratorINS_10device_ptrIyEEEEE4typeE;
+# 184 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail15remove_volatileINS0_15normal_iteratorINS_10device_ptrIyEEEEE4typeE _ZN6thrust6detail12remove_constINS0_15normal_iteratorINS_10device_ptrIyEEEEE4typeE;
+# 220 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail12remove_constINS0_15normal_iteratorINS_10device_ptrIyEEEEE4typeE _ZN6thrust6detail9remove_cvINS0_15normal_iteratorINS_10device_ptrIyEEEEE4typeE;
+# 202 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail4consINS_17counting_iteratorIlNS_11use_defaultES3_lEENS1_INS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeEEEE16stored_head_typeE _ZN6thrust6detail15remove_volatileINS_17counting_iteratorIlNS_11use_defaultES3_lEEE4typeE;
+# 184 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail15remove_volatileINS_17counting_iteratorIlNS_11use_defaultES3_lEEE4typeE _ZN6thrust6detail12remove_constINS_17counting_iteratorIlNS_11use_defaultES3_lEEE4typeE;
+# 220 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail12remove_constINS_17counting_iteratorIlNS_11use_defaultES3_lEEE4typeE _ZN6thrust6detail9remove_cvINS_17counting_iteratorIlNS_11use_defaultES3_lEEE4typeE;
+# 68 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_traits.inl"
+typedef _ZNSt15iterator_traitsIN6thrust17counting_iteratorIlNS0_11use_defaultES2_lEEE9referenceE _ZN6thrust18iterator_referenceINS_17counting_iteratorIlNS_11use_defaultES2_lEEE4typeE;
+# 249 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust18iterator_referenceINS_17counting_iteratorIlNS_11use_defaultES2_lEEE4typeE _ZN6thrust6detail4consIlNS1_INS_16device_referenceIyEENS_9null_typeEEEE9head_typeE;
+# 237 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail4consIlNS1_INS_16device_referenceIyEENS_9null_typeEEEE9head_typeE _ZN6thrust6detail23wrap_non_storeable_typeIlE4typeE;
+# 220 "/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+typedef _ZN6thrust6detail12remove_constIlE4typeE _ZN6thrust6detail9remove_cvIlE4typeE;
+# 558 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef struct _ZN6thrust5tupleINS_17counting_iteratorIlNS_11use_defaultES2_lEENS_6detail15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeES9_S9_S9_S9_S9_S9_S9_EE _ZN6thrust6detail17make_tuple_mapperINS_17counting_iteratorIlNS_11use_defaultES3_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeES9_S9_S9_S9_S9_S9_S9_E4typeE;
+# 63 "/usr/local/cuda/bin/../include/thrust/iterator/detail/zip_iterator_base.h"
+struct _ZN6thrust6detail16advance_iteratorIlEE {
+# 75 "/usr/local/cuda/bin/../include/thrust/iterator/detail/zip_iterator_base.h"
+_ZN6thrust12experimental15iterator_facadeINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES5_lEENS_6detail15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESC_SC_SC_SC_SC_SC_SC_EEEEPNS3_IlNS_16device_referenceIyEESC_SC_SC_SC_SC_SC_SC_SC_EENS3_IlySC_SC_SC_SC_SC_SC_SC_SC_EENS7_21cuda_device_space_tagENS_27random_access_traversal_tagESH_lE15difference_typeE m_step;};
+# 448 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef struct _ZN6thrust6detail4consIRyNS_9null_typeEEE _ZN6thrust6detail17map_tuple_to_consIRyNS_9null_typeES3_S3_S3_S3_S3_S3_S3_S3_E4typeE;
+# 355 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail7backend18dereference_resultINS0_15normal_iteratorINS_10device_ptrIyEEEEE4typeE _ZN6thrust6detail4consIRyNS_9null_typeEE9head_typeE;
+# 237 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail4consIRyNS_9null_typeEE9head_typeE _ZN6thrust6detail23wrap_non_storeable_typeIRyE4typeE;
+# 360 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail23wrap_non_storeable_typeIRyE4typeE _ZN6thrust6detail4consIRyNS_9null_typeEE16stored_head_typeE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consIRyNS_9null_typeEEE {
+# 361 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+_ZN6thrust6detail4consIRyNS_9null_typeEE16stored_head_typeE head;};
+# 250 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail17map_tuple_to_consIRyNS_9null_typeES3_S3_S3_S3_S3_S3_S3_S3_E4typeE _ZN6thrust6detail4consIlNS1_IRyNS_9null_typeEEEE9tail_typeE;
+# 253 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef _ZN6thrust6detail23wrap_non_storeable_typeIlE4typeE _ZN6thrust6detail4consIlNS1_IRyNS_9null_typeEEEE16stored_head_typeE;
+# 247 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+struct _ZN6thrust6detail4consIlNS1_IRyNS_9null_typeEEEEE {
+# 255 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+_ZN6thrust6detail4consIlNS1_IRyNS_9null_typeEEEE16stored_head_typeE head;
+# 256 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+_ZN6thrust6detail4consIlNS1_IRyNS_9null_typeEEEE9tail_typeE tail;};
+# 55 "/usr/local/cuda/bin/../include/thrust/detail/tuple_meta_transform.h"
+typedef struct _ZN6thrust5tupleIlRyNS_9null_typeES2_S2_S2_S2_S2_S2_S2_EE _ZN6thrust6detail20tuple_meta_transformINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES4_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESA_SA_SA_SA_SA_SA_SA_EENS0_27device_dereference_iterator5applyELj2EE4typeE;
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/type_traits/pointer_traits.h"
+typedef struct _ZN6thrust10device_ptrIiEE _ZN6thrust6detail14pointer_traitsINS_10device_ptrIiEEE7pointerE;
+# 65 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIKiEEPS3_S4_S3_NS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIS3_EElEE {
+# 141 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+const int *m_iterator;};
+# 70 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.h"
+struct _ZN6thrust6detail12pointer_baseINS_10device_ptrIKiEES3_NS_16device_referenceIS3_EENS0_21cuda_device_space_tagEEE { struct _ZN6thrust12experimental16iterator_adaptorINS_10device_ptrIKiEEPS3_S4_S3_NS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIS3_EElEE __b_N6thrust12experimental16iterator_adaptorINS_10device_ptrIKiEEPS3_S4_S3_NS_6detail21cuda_device_space_tagENS_27random_access_traversal_tagENS_16device_referenceIS3_EElEE;};
+# 42 "/usr/local/cuda/bin/../include/thrust/detail/reference_base.h"
+typedef struct _ZN6thrust10device_ptrIiEE _ZN6thrust6detail14reference_baseINS_16device_referenceIiEEiNS_10device_ptrIiEEE7pointerE;
+# 43 "/usr/local/cuda/bin/../include/thrust/detail/reference_base.h"
+typedef _ZN6thrust6detail12remove_constIiE4typeE _ZN6thrust6detail14reference_baseINS_16device_referenceIiEEiNS_10device_ptrIiEEE10value_typeE;
+# 36 "/usr/local/cuda/bin/../include/thrust/detail/reference_base.h"
+struct _ZN6thrust6detail14reference_baseINS_16device_referenceIiEEiNS_10device_ptrIiEEEE {
+# 112 "/usr/local/cuda/bin/../include/thrust/detail/reference_base.h"
+_ZN6thrust6detail14reference_baseINS_16device_referenceIiEEiNS_10device_ptrIiEEE7pointerE m_ptr;};
+# 114 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef const _ZN6thrust6detail9remove_cvIlE4typeE *_ZN6thrust13access_traitsIlE14parameter_typeE;
+# 128 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+typedef llong_t *_ZN6thrust13access_traitsIRyE14parameter_typeE;
+# 197 "/usr/local/cuda/bin/../include/thrust/tuple.h"
+struct _ZN6thrust5tupleIlRyNS_9null_typeES2_S2_S2_S2_S2_S2_S2_EE { struct _ZN6thrust6detail4consIlNS1_IRyNS_9null_typeEEEEE __b_N6thrust6detail4consIlNS1_IRyNS_9null_typeEEEEE;};
+# 54 "/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_traits.inl"
+typedef _ZNSt15iterator_traitsIN6thrust6detail15normal_iteratorINS0_10device_ptrIiEEEEE10value_typeE _ZN6thrust14iterator_valueINS_6detail15normal_iteratorINS_10device_ptrIiEEEEE4typeE;
+# 186 "/usr/local/cuda/bin/../include/thrust/device_reference.h"
+struct _ZN6thrust16device_referenceIiEE { struct _ZN6thrust6detail14reference_baseINS_16device_referenceIiEEiNS_10device_ptrIiEEEE __b_N6thrust6detail14reference_baseINS_16device_referenceIiEEiNS_10device_ptrIiEEEE;};
+# 106 "/usr/local/cuda/bin/../include/thrust/detail/numeric_traits.h"
+typedef _ZN6thrust6detail7eval_ifILb1ENS0_18integer_differenceIlEENS0_9identity_IlEEE4typeE _ZZN6thrust6detail16numeric_distanceIlEENS0_18numeric_differenceIT_E4typeES3_S3_E15difference_type_29990;
+# 100 "/usr/local/cuda/bin/../include/thrust/detail/tuple_transform.h"
+typedef _ZN6thrust6detail20tuple_meta_transformINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES4_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESA_SA_SA_SA_SA_SA_SA_EENS0_27device_dereference_iterator5applyELj2EE4typeE _ZZN6thrust6detail23tuple_transform_functorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES4_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESA_SA_SA_SA_SA_SA_SA_EENS0_27device_dereference_iterator5applyESC_Lj2EE27do_it_on_the_host_or_deviceERKSB_SC_E9XfrmTuple_30337;
+# 80 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+typedef _ZN6thrust14iterator_valueINS_6detail15normal_iteratorINS_10device_ptrIiEEEEE4typeE _ZZN6thrust6detail7backend4cuda24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS4_INS5_IiEEEENS_4plusIiEEEclEvE10OutputType_31226;
+# 80 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+typedef _ZN6thrust14iterator_valueINS_6detail15normal_iteratorINS_10device_ptrIiEEEEE4typeE _ZZN6thrust6detail7backend4cuda24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS7_NS_4plusIiEEEclEvE10OutputType_31885;
+void *memcpy(void*, const void*, size_t); void *memset(void*, int, size_t);
+# 46 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/detail/launch_closure.inl"
+__asm(".align 2");
+# 76 "/usr/local/cuda/bin/../include/thrust/device_malloc_allocator.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 160 "/usr/local/cuda/bin/../include/thrust/iterator/counting_iterator.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 206 "/usr/local/cuda/bin/../include/thrust/iterator/counting_iterator.h"
+__asm(".align 2");
+# 69 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+__asm(".align 2");
+# 37 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 69 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+__asm(".align 2");
+# 37 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 37 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 296 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 296 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 296 "/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+__asm(".align 2");
+# 105 "/usr/local/cuda/bin/../include/thrust/detail/tuple_transform.h"
+__asm(".align 2");
+# 62 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+__asm(".align 2");
+# 69 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+__asm(".align 2");
+# 37 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 37 "/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 47 "/usr/local/cuda/bin/../include/thrust/detail/reference_base.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 116 "/usr/local/cuda/bin/../include/thrust/detail/reference_base.inl"
+__asm(".align 2");
+# 63 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 63 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 63 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 63 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 63 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 63 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 63 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 63 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 63 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 63 "/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 44 "/usr/local/cuda/bin/../include/thrust/detail/functional/actor.inl"
+__asm(".align 2");
+
+__asm(".align 2");
+# 145 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+__asm(".align 2");
+# 145 "/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+__asm(".align 2");
+# 85 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 85 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 85 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 85 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 85 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 85 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 85 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+__asm(".align 2");
+
+__asm(".align 2");
+# 85 "/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+__asm(".align 2");
+
+#include "sum-cuda.cudafe2.stub.c"

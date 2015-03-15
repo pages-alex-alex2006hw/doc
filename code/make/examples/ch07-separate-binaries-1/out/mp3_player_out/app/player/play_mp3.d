@@ -1,0 +1,1 @@
+play_mp3/home/cjeong/ztmp/code/make/examples/ch07-separate-binaries-1/out/mp3_player_out/app/player/.o /home/cjeong/ztmp/code/make/examples/ch07-separate-binaries-1/out/mp3_player_out/app/player/play_mp3.d:  app/player/play_mp3.c include/player/play_mp3.h

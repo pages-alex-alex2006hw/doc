@@ -1,0 +1,3 @@
+verilog work "sub_b.v"
+verilog work "sub_a.v"
+verilog work "infer.v"

@@ -1,0 +1,98 @@
+MDF Database:  version 1.0
+MDF_INFO | jc2_top | XC9572XL-7-CS48
+MACROCELL | 0 | 7 | q_1
+ATTRIBUTES | 8815362 | 0
+OUTPUTMC | 4 | 0 | 7 | 1 | 10 | 2 | 7 | 1 | 4
+INPUTS | 5 | q<2>  | BUF_run  | BUF_dir  | q<0>  | q<1>
+INPUTMC | 5 | 1 | 10 | 3 | 16 | 3 | 17 | 2 | 7 | 0 | 7
+EQ | 4 | 
+   q<1>.D = q<1> & BUF_run
+	# q<2> & !BUF_run & !BUF_dir
+	# q<0> & !BUF_run & BUF_dir;
+   q<1>.CLK = clk;	// GCK
+GLOBALS | 1 | 2 | clk
+
+MACROCELL | 1 | 10 | q_2
+ATTRIBUTES | 8815362 | 0
+OUTPUTMC | 4 | 0 | 7 | 1 | 10 | 2 | 7 | 1 | 4
+INPUTS | 5 | q<3>  | BUF_run  | BUF_dir  | q<1>  | q<2>
+INPUTMC | 5 | 1 | 4 | 3 | 16 | 3 | 17 | 0 | 7 | 1 | 10
+EQ | 4 | 
+   q<2>.D = q<2> & BUF_run
+	# q<1> & !BUF_run & BUF_dir
+	# q<3> & !BUF_run & !BUF_dir;
+   q<2>.CLK = clk;	// GCK
+GLOBALS | 1 | 2 | clk
+
+MACROCELL | 2 | 7 | q_0
+ATTRIBUTES | 8815362 | 0
+OUTPUTMC | 2 | 0 | 7 | 2 | 7
+INPUTS | 5 | q<0>  | BUF_run  | q<1>  | BUF_dir  | q<2>
+INPUTMC | 5 | 2 | 7 | 3 | 16 | 0 | 7 | 3 | 17 | 1 | 10
+EQ | 4 | 
+   q<0>.D = q<0> & BUF_run
+	# q<1> & !BUF_run & !BUF_dir
+	# !q<2> & !BUF_run & BUF_dir;
+   q<0>.CLK = clk;	// GCK
+GLOBALS | 1 | 2 | clk
+
+MACROCELL | 1 | 4 | q_3
+ATTRIBUTES | 8815362 | 0
+OUTPUTMC | 2 | 1 | 10 | 1 | 4
+INPUTS | 5 | q<3>  | BUF_run  | q<1>  | BUF_dir  | q<2>
+INPUTMC | 5 | 1 | 4 | 3 | 16 | 0 | 7 | 3 | 17 | 1 | 10
+EQ | 4 | 
+   q<3>.D = q<3> & BUF_run
+	# !q<1> & !BUF_run & !BUF_dir
+	# q<2> & !BUF_run & BUF_dir;
+   q<3>.CLK = clk;	// GCK
+GLOBALS | 1 | 2 | clk
+
+MACROCELL | 0 | 17 | dir
+ATTRIBUTES | 8553216 | 0
+OUTPUTMC | 1 | 3 | 17
+INPUTS | 1 | BUF_dir
+INPUTMC | 1 | 3 | 17
+EQ | 2 | 
+   dir.D = BUF_dir;
+   dir.CLK = clk;	// GCK
+GLOBALS | 1 | 2 | clk
+
+MACROCELL | 0 | 16 | run
+ATTRIBUTES | 8553216 | 0
+OUTPUTMC | 1 | 3 | 16
+INPUTS | 1 | BUF_run
+INPUTMC | 1 | 3 | 16
+EQ | 2 | 
+   !run.D = BUF_run;
+   run.CLK = clk;	// GCK
+GLOBALS | 1 | 2 | clk
+
+MACROCELL | 3 | 16 | BUF_run
+ATTRIBUTES | 133888 | 0
+OUTPUTMC | 5 | 0 | 7 | 1 | 10 | 2 | 7 | 1 | 4 | 0 | 16
+INPUTS | 4 | stop  | right  | left  | run
+INPUTMC | 1 | 0 | 16
+INPUTP | 3 | 72 | 46 | 92
+EQ | 2 | 
+   BUF_run = !stop
+	# right & left & !run;
+
+MACROCELL | 3 | 17 | BUF_dir
+ATTRIBUTES | 133888 | 0
+OUTPUTMC | 5 | 0 | 7 | 1 | 10 | 2 | 7 | 1 | 4 | 0 | 17
+INPUTS | 3 | right  | dir  | left
+INPUTMC | 1 | 0 | 17
+INPUTP | 2 | 46 | 92
+EQ | 2 | 
+   BUF_dir = right & dir
+	# right & !left;
+
+PIN | clk | 16384 | 0 | N/A | 24 | 6 | 0 | 7 | 1 | 10 | 2 | 7 | 1 | 4 | 0 | 17 | 0 | 16
+PIN | right | 64 | 0 | N/A | 46 | 2 | 3 | 16 | 3 | 17
+PIN | stop | 64 | 0 | N/A | 72 | 1 | 3 | 16
+PIN | left | 64 | 0 | N/A | 92 | 2 | 3 | 16 | 3 | 17
+PIN | q<1> | 536871040 | 0 | N/A | 15
+PIN | q<2> | 536871040 | 0 | N/A | 3
+PIN | q<0> | 536871040 | 0 | N/A | 33
+PIN | q<3> | 536871040 | 0 | N/A | 88

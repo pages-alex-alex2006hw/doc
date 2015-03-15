@@ -1,0 +1,20 @@
+#!/usr/bin/ruby -w
+#
+# $Id: ts_base_search,v 1.1 2004/02/29 11:30:04 ianmacd Exp $
+
+require 'test/unit'
+require 'tc_amazon-keyword_search'
+require 'tc_amazon-all_page_search'
+require 'tc_amazon-actor_search'
+require 'tc_amazon-artist_search'
+require 'tc_amazon-asin_search'
+require 'tc_amazon-upc_search'
+require 'tc_amazon-author_search'
+require 'tc_amazon-browse_node_search'
+require 'tc_amazon-director_search'
+require 'tc_amazon-manufacturer_search'
+require 'tc_amazon-listmania_search'
+require 'tc_amazon-similarity_search'
+require 'tc_amazon-power_search'
+require 'tc_amazon-wishlist_search'
+require 'tc_amazon-text_stream_search'

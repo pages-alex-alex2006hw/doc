@@ -1,0 +1,213 @@
+
+
+ *** HP COMPANY PRIVATE *** HP COMPANY PRIVATE *** HP COMPANY PRIVATE ***
+
+
+                        WAFER ACCEPTANCE SPECIFICATIONS FOR
+
+                      HP CMOS10 0.35 micron CMOS Bulk Wafers
+
+
+Wafer acceptance is based on the following measurements from the HP
+parametric test insert on every wafer. The wafer summary will be
+sent to MOSIS with the wafers. This document includes one section for
+the wafer acceptance specifications and another section for general
+process specifications. The general process specifications are
+included to provide simulation information for MOSIS customers. ICBD
+does not base wafer acceptance on the general process specifications.
+
+
+                    WAFER ACCEPTANCE SPECIFICATIONS
+
+
+						LOW     HIGH    units
+						---     ----    -----
+A.  Transistor Specifications
+
+    A.1  N-Channel Transistor:
+	 10u/5u   Threshold Voltage              0.55   0.65    V
+	 10u/0.4u Threshold Voltage              0.53   0.67    V
+	 10u/5u   Ids with Vds = Vgs = 3.3 V     0.62   0.82    mA
+	 10u/0.4u Ids with Vds = Vgs = 3.3 V     4.7    6.2     mA
+	 10u/0.4u BVdss                          6.0   10.5     V
+	 10u/5u   Gamma                          0.52   0.78    V^0.5
+	 10u/0.4u Isub                           3.2   50       uA/micron
+	 10u/0.4u Leff                           0.29   0.39    micron
+	 10u/0.4u Weff                           0.29   0.53    micron
+	 10u/0.4u Isubth                       -14     -9       Log(A)
+         N+ diode leakage, area                -17    -13.5     Log(A/um^2)
+         N+ diode leakage, edge                -17    -13.5     Log(A/um^2)
+         Vth, FOX				 6     12       V
+	 Igs, Vg = 3.6 V                       -14    -10       Log(A)
+
+    A.2  P-Channel Transistor:        
+	 10u/5u   Threshold Voltage             -0.72  -0.62    V
+	 10u/0.4u Threshold Voltage             -0.67  -0.53    V
+	 10u/5u   Ids with Vds = Vgs = 3.3 V     0.15   0.19    mA
+	 10u/0.4u Ids with Vds = Vgs = 3.3 V     2.0    3.0     mA
+	 10u/0.4u BVdss                        -10.5   -6       V
+	 10u/5u   Gamma                          0.55   0.80    V^0.5
+	 10u/0.4u Isub                           3.2   50       uA/micron
+	 10u/0.4u Leff                           0.25   0.35    micron
+	 10u/0.4u Weff                           0.29   0.53    micron
+	 10u/0.4u Isubth                       -14    -10       Log(A)
+         P+ diode leakage, area                -17    -13.5     Log(A/um^2)
+         P+ diode leakage, edge                -17    -13.5     Log(A/um^2)
+         N-well diode leakage                  -13     -8.5     Log(A)
+         Vth, FOX			       -12     -6       V
+	 Igs, Vg = -3.6 V                      -14    -10       Log(A)
+
+B. Dielectric and Passivation Thickness:
+    B.1  T(GOX)					65     75       angstrom
+    B.2  T(FOX)				      2600   4200       angstrom
+    B.3  T(PSG)				      3900   6700       angstrom
+    B.4  T(Dielectric2)			      6150  12450       angstrom
+    B.5  T(Dielectric3)			      6150  12450       angstrom
+    B.6  T(Dielectric4)			      6150  12450       angstrom
+    B.7  T(passivation nitride)		      4500   5500       angstrom
+
+C.  Inverter Threshold:				 ?.??   ?.??    V
+
+D.  Sheet Resistances
+
+    D.1  N-Well                                  1.25     1.75  Kohms/square
+    D.2  Polysilicon - N+, P+                    1.0      8     ohms/square
+    D.3  N+ island                               1.0      5     ohms/square
+    D.4  P+ island                               1.0      5     ohms/square
+    D.5  M1                                     63       73     mohms/square
+    D.6  M2                                     63       75     mohms/square
+    D.7  M3                                     63       75     mohms/square
+    D.8  M4                                     25       33     mohms/square
+
+E.  Contact and Via Resistance:
+
+    E.1  N+ poly                                 0.01    15     ohms/contact
+    E.2  P+ poly                                 0.01    15     ohms/contact
+    E.3  N+ island                               0.01    15     ohms/contact
+    E.4  P+ island                               0.01    15     ohms/contact
+    E.5  Contact 2                               0.01     3     ohms/contact
+    E.6  Contact 3                               0.01     3     ohms/contact
+    E.7  Contact 4                               0.01     3     ohms/contact
+
+
+ *** HP COMPANY PRIVATE *** HP COMPANY PRIVATE *** HP COMPANY PRIVATE ***
+
+		         GENERAL PROCESS SPECIFICATIONS FOR
+
+	           HP CMOS10 0.35 micron Low Voltage CMOS Bulk Wafers
+                   ===================================================
+
+
+     * Process developed for low voltage (3.3 Volt) designs.
+
+     * Minimum 0.4 micron drawn channel length MOSFETs.
+
+     * 0.34 and 0.30 micron effective channel length for NMOS and PMOS
+       device respectively.
+
+     * 0 to 125 degrees C of device junction temperature range.
+
+     * Planarized four metal interconnection technology.
+
+     * Self-aligned silicidation of both polysilicon and diffusion.
+
+
+ ----------------------------------------------------------------------
+  NOTE: All following parameter specifications are obtained with a 3.3
+        volt power supply if not otherwise specified.
+
+ ----------------------------------------------------------------------
+
+
+ *** HP COMPANY PRIVATE *** HP COMPANY PRIVATE *** HP COMPANY PRIVATE ***
+
+                                PROCESS
+------------------------------------------------------------------------
+
+1....
+
+2. Conducting Layers:                               thickness    Unit
+
+    Poly                                         2500  +/- 200 angstroms
+    Metal 1                                      6200  +/- 450     "
+    Metal 2					 6200  +/- 450     "
+    Metal 3					 6200  +/- 450     "
+    Metal 3 (C10QA)				10000  +/- 800     "
+    Metal 4					12000  +/-1000     "
+
+3. Junction Breakdown and Leakage:
+
+
+                            ACTIVE DEVICES
+------------------------------------------------------------------------
+
+1. Transistor Specifications:                   Min.  Typ.  Max.
+
+    Power Supply:				3.0   3.3   3.6   V
+
+    Effective Channel Length
+
+
+2. Diode Specifications:
+
+A junction diode can be seens as two diodes connected in parallel:
+an area diode and a perimeter diode. So we have
+
+    I = I_area_diode + I_perimeter_diode.
+
+where both can evaluated by the following equation:
+
+    I_diode = I_s * (e^[(q*V_d)/(nkT)] - 1).
+
+3. Forward Diode Current Parameters                           Unit
+    N-diffusion/P-substrate
+    P-diffusion/N-well
+    N-well/P-substrate
+
+
+                         PASSIVE DEVICES (RESISTOR)
+------------------------------------------------------------------------
+
+1. Sheet Resistance:                     Min.  Typ.  Max.    Unit
+
+2. Temperature Coefficient of Resistance:                     Unit
+
+3. Contact Resistance:                     Min.  Typ.  Max.   Unit
+
+   
+                         PASSIVE DEVICES (CAPACITOR)
+------------------------------------------------------------------------
+
+1. Junction Capacitance
+
+2. Interconnection Capacitance
+
+  The following parameters are obtained with 1.0 micron wide active
+  trace with 1.0 micron spacing to both side as illustrated by the
+  following crosssection drawing:
+
+    top    layer  ===============================
+    active layer       ====    ++++    ====       ++++ - active trace
+    bottom layer  ===============================
+
+  The total capacitance is calculated as
+
+     C_total = C_bot_a + C_top_a + 2 * (C_bot_p + C_bot_p + C_line)
+
+  where
+
+      C_bot_a is the area capacitance to the bottom layer.
+      C_bot_p is the perimeter capacitance to the bottom layer.
+      C_top_a is the area capacitance to the top layer.
+      C_top_p is the perimeter capacitance to the top layer.
+      C_line  is the one-side interline capacitance.
+
+
+
+                           RELIABILITY RULES
+------------------------------------------------------------------------
+
+1. Maximum Metal Line Current Density                   Unit
+
+2. Maximum Contact Current                              Unit
+

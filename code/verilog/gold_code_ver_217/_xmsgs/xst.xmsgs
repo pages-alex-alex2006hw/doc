@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="Xst" num="1643" delta="new" >&quot;<arg fmt="%s" index="1">sub_a.v</arg>&quot; line <arg fmt="%d" index="2">51</arg>: You are giving the signal <arg fmt="%s" index="3">i</arg> a default value. <arg fmt="%s" index="4">i</arg> already had a default value, which will be overridden by this one.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">i</arg>&gt; in unit &lt;<arg fmt="%s" index="2">sub_a</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">j</arg>&gt; in unit &lt;<arg fmt="%s" index="2">sub_a</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">k</arg>&gt; in unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">l</arg>&gt; in unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_10</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">second_lfsr</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_10</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_11</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_11&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_12&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_16&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_17</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_17&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_18</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_18&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_19</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_19&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">shiftB0_20</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">sub_b</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shiftB20_20&gt; </arg>
+</msg>
+
+</messages>
+

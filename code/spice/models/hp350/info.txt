@@ -1,0 +1,124 @@
+
+Thanks for your interest in the 'at-risk' run with the HP GMOS10
+process on June 16. The HSPICE parameters for this technology are
+attached below. Initial Magic technology files are available from
+the MOSIS Web/FTP site. Please pass this information along to
+your design team.
+
+As a reminder, the process will support the MOSIS SCMOS_SUBM rules at
+lambda of 0.2u and has four layers of metal with stacked vias. The
+mask channel length will be sized to 0.35um. The process will NOT have
+the silicide block or linear capacitor options inititally. The design
+rules for via3 and metal4 are shown below.
+
+ Via3               Width              2 lambda
+
+                    Spacing            4
+
+                    Overlap by         1
+                    Metal3
+
+                    Overlap by         2
+                    Metal4
+
+ Metal4             Width              6 lambda
+
+                    Spacing            6
+
+Regards, Wes
+
++-----------------------------------------------------------------+
+| Wes Hansford, Engineering Manager                               |
+| MOSIS   4676 Admiralty Way   Marina del Rey, CA  90292-6695     |
+| hansford@mosis.org      http://www.mosis.org                    |
+| 310-822-1511 x199 (voice), 310-823-5624 (fax)                   |
++-----------------------------------------------------------------+
+
+------- Forwarded Message
+
+Subject: HP 0.35um HSPICE parameters
+
+I've included the initial release notes as well as the nominal, fast, and
+slow cases for you.  Several blank lines separate each model case.
+
+************************************************************************
+*                                                                      *
+*           C/GMOS10QA HSPICE LEVEL-39 FET Model Library               *
+*                                                                      *
+*                           Version 6.1                                *
+*                           May 12, 1997                               *
+*                                                                      *
+*                       Hewlett-Packard Co.                            *
+*                 Integrated Circuit Business Division                 *
+*                                                                      *
+*                    Proprietary Information                           *
+*                                                                      *
+*  This file and the information it contains may not be used outside   *
+*  of Hewlett-Packard Co. without first executing a Confidential       *
+*  Disclosure Agreement.                                               *
+*                                                                      *
+************************************************************************
+
+These notes accompany a distribution of Hewlett-Packard's C/GMOS10QA FET
+H-SPICE Level-39 model libraries, Rev. 6.1 dated 5/12/97.
+
+
+(1) The HSPICE Level-39 models are converted from HP's internal
+    version of the public domain BSIM2 model. The models are
+    binned according to the following bin-boundaries:
+
+    NMOS L: 0.4, 0.43, 0.45, 0.5, 0.6, 0.8, 1.0, 1.4, 3.0, 5.0 microns.
+    NMOS W: 0.5, 0.60, 0.80, 1.0, 2.0, 5.0, 10.0 microns.
+
+    PMOS L: 0.4, 0.45, 0.5, 0.6, 0.8, 1.0, 1.4, 3.0, 5.0 microns.
+    PMOS W: 0.5, 0.80, 1.0, 2.0, 3.0, 10.0 microns.
+
+(2) Parameters/effects that are modeled differently:
+
+    * Overlap capacitance calculations.
+
+    It appears that HSPICE does not instantiate the overlap capacitances
+    by multiplying per-unit values numbers with the effective (AC) gate
+    width. To get around this problem, width reduction to the effective
+    value is modeled using the parameter XW.
+
+(3) The Level-39 gate capacitance model is known to be inaccurate below
+    device threshold, more so when non-zero body bias is present. Setting
+    CAPOP=13 is suggested as an alternative for analog applications.
+    However, the apparent threshold and body effect reflected in the
+    capacitance curves will be different from the DC equation values
+    since the Level-13 model does not have the non-uniform doping
+    parameter K2.
+
+    SPECTRE users will need to determine an appropriate work-around.
+    Please use the "tpd", "cmax" and "cdrain" results in the QA directory
+    to verify any changes you make. Please contact us if you need any
+    further clarifications.
+
+    These models are being shipped with CAPOP=39.
+
+(4) Please do not attempt to adjust the LD or XW values based on
+    photolithography bias-tables.
+
+    The models automatically account for these effects since the test
+    devices used in model extraction undergo the same processing as
+    product wafers.
+
+(5) The HP models allow a complete set of parameters (CJGW, MJGW, PBGW)
+    for the gate-side sidewall junction for source/drain. H-SPICE does
+    not, providing only a CJGATE parameter with the built-in potential
+    and grading coefficient borrowed from the field-edge (side-wall)
+    model.
+
+    Thus there are differences between the simulated input capacitance
+    looking into the drain or source terminals. The zero-bias values
+    match.
+    
+(6) There are differences in simulation results under non-zero substrate
+    bias for longer-channel devices. The HSPICE results are pessimistic
+    by around 10% for very long-channel devices. Please examine the
+    "QA.device" file for testname "idsatbb".
+
+(7) HSPICE version 96.1.1 and HP-SPICE version 3.8f were used for QA.
+
+

@@ -1,0 +1,135 @@
+**************** Enviromental and Process Parameters *********************
+*
+* Stef. 12/94
+* 
+* For the mosis hp 0.8um - 1.0um process.
+*
+*   SOME of the useful skews to employ are
+*
+*	TT    nt, pt, RCtyp     RT, nominal supply 
+*       SS    nl, pl, RCslo     Hi temp, lo supply voltage
+*       FF    nh, ph, RCfas     Lo temp, hi supply voltage
+*       FS    nh, ps, RCtyp     Hi temp, lo supply voltage
+*       SF    nl, ps, RCtyp     Lo temp, hi supply voltage
+*       SLOW  nt, pt, RCtyp     Hi temp, lo supply voltage
+*       FAST  nt, pt, RCtyp     Lo temp, hi supply voltage
+*       RACE1 nh, ph, RCslo     Lo temp, hi supply voltage
+*       RACE2 nl, pl, RCfas     Hi temp, lo supply voltage
+*       
+*       TM, SM, FM - devices same as TT, SS, FF but the temp 
+*                    is "medium" at 70 which is more likely 
+*		     to occur than 125.
+*        
+*
+* Need to define Sup before calling the library with a .lib
+*
+*
+
+**** Nominal Voltage, Room Temperature, Typical Process
+.lib TT
+.temp 70
+.param Supply='Sup'
+.lib 'nModels.lib' typical
+.lib 'pModels.lib' typical
+.endl TT
+
+*       SS    nl, pl, RCslo     Hi temp, lo supply voltage
+.lib SS
+.temp 125
+.param Supply='0.9 * Sup'
+.lib 'nModels.lib' slow
+.lib 'pModels.lib' slow
+.endl SS
+
+*       FF    nh, ph, RCfas     Lo temp, hi supply voltage
+.lib FF
+.temp 0
+.param Supply='1.1 * Sup'
+.lib 'nModels.lib' fast
+.lib 'pModels.lib' fast
+.endl FF
+
+*       FS    nh, pl, RCtyp     Hi temp, lo supply voltage
+.lib FS
+.temp 125
+.param Supply='0.9 * Sup'
+.lib 'nModels.lib' fast
+.lib 'pModels.lib' slow
+.endl FS
+
+*       SF    nl, ph, RCtyp     Lo temp, hi supply voltage
+.lib SF
+.temp 0
+.param Supply='1.1 * Sup'
+.lib 'nModels.lib' slow
+.lib 'pModels.lib' fast
+.endl SF
+
+*       SLOW  nt, pt, RCtyp     Hi temp, lo supply voltage
+.lib SLOW
+.temp 125
+.param Supply='0.9 * Sup'
+.lib 'nModels.lib' typical
+.lib 'pModels.lib' typical
+.endl SLOW
+
+*       FAST  nt, pt, RCtyp     Lo temp, hi supply voltage
+.lib FAST
+.temp 0
+.param Supply='1.1 * Sup'
+.lib 'nModels.lib' typical
+.lib 'pModels.lib' typical
+.endl FAST
+
+*       RACE1 nh, ph, RCslo     Lo temp, hi supply voltage
+.lib RACE1
+.temp 0
+.param Supply='1.1 * Sup'
+.lib 'nModels.lib' fast
+.lib 'pModels.lib' fast
+.endl RACE1
+
+*       RACE2 nl, pl, RCfas     Hi temp, lo supply voltage
+.lib RACE2
+.temp 125
+.param Supply='0.9 * Sup'
+.lib 'nModels.lib' slow
+.lib 'pModels.lib' slow
+.endl RACE2
+
+*       nt, pt, RCtyp     med temp, nom supply voltage
+.lib TM
+.temp 70
+.param Supply='Sup'
+.lib 'nModels.lib' typical
+.lib 'pModels.lib' typical
+.endl TM
+
+*       nf, pf, RCfast     med temp, nom supply voltage
+.lib FM
+.temp 70
+.param Supply='Sup'
+.lib 'nModels.lib' fast
+.lib 'pModels.lib' fast
+.endl FM
+
+*       ns, ps, RCslow     med temp, nom supply voltage
+.lib SM
+.temp 70
+.param Supply='Sup'
+.lib 'nModels.lib' slow
+.lib 'pModels.lib' slow
+.endl SM
+*
+.lib ST
+.temp 25
+.param Supply='Sup'
+.lib 'nModels.lib' slow
+.lib 'pModels.lib' slow
+.endl ST
+*
+.lib flatten
+.param Supply=0
+.model nmos NMOS LEVEL=1 LD=0 XW=0
+.model pmos PMOS LEVEL=1 LD=0 XW=0
+.endl flatten

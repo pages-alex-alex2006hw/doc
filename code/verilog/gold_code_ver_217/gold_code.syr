@@ -1,0 +1,453 @@
+Release 12.3 - xst M.70d (lin)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 0.02 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 0.02 secs
+ 
+--> 
+Reading design: gold_code.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "gold_code.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "gold_code"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : gold_code
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "sub_b.v" in library work
+Compiling verilog file "sub_a.v" in library work
+Module <sub_b> compiled
+Compiling verilog file "infer.v" in library work
+Module <sub_a> compiled
+Module <gold_code> compiled
+No errors in compilation
+Analysis of file <"gold_code.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <gold_code> in library <work>.
+
+Analyzing hierarchy for module <sub_a> in library <work> with parameters.
+	cycleA0 = "00000000000000000000000000011010"
+	cycleA3 = "00000000000000000000000000000100"
+	width = "00000000000000000000000000000001"
+
+Analyzing hierarchy for module <sub_b> in library <work> with parameters.
+	cycleB0 = "00000000000000000000000000011010"
+	cycleB20 = "00000000000000000000000000010101"
+	width = "00000000000000000000000000000001"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <gold_code>.
+Module <gold_code> is correct for synthesis.
+ 
+Analyzing module <sub_a> in library <work>.
+	cycleA0 = 32'sb00000000000000000000000000011010
+	cycleA3 = 32'sb00000000000000000000000000000100
+	width = 32'sb00000000000000000000000000000001
+WARNING:Xst:1643 - "sub_a.v" line 51: You are giving the signal i a default value. i already had a default value, which will be overridden by this one.
+Module <sub_a> is correct for synthesis.
+ 
+Analyzing module <sub_b> in library <work>.
+	cycleB0 = 32'sb00000000000000000000000000011010
+	cycleB20 = 32'sb00000000000000000000000000010101
+	width = 32'sb00000000000000000000000000000001
+Module <sub_b> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <i> in unit <sub_a> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <j> in unit <sub_a> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <k> in unit <sub_b> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <l> in unit <sub_b> has a constant value of 0 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <sub_a>.
+    Related source file is "sub_a.v".
+    Register <shiftA3<0>> equivalent to <shiftA0<0>> has been removed
+    Register <shiftA3<1>> equivalent to <shiftA0<1>> has been removed
+    Register <shiftA3<2>> equivalent to <shiftA0<2>> has been removed
+    Register <shiftA3<3>> equivalent to <shiftA0<3>> has been removed
+    Found 1-bit xor2 for signal <Data_In_A_0$xor0000> created at line 20.
+    Found 26-bit register for signal <shiftA0>.
+    Summary:
+	inferred  26 D-type flip-flop(s).
+Unit <sub_a> synthesized.
+
+
+Synthesizing Unit <sub_b>.
+    Related source file is "sub_b.v".
+    Register <shiftB20<0>> equivalent to <shiftB0<0>> has been removed
+    Register <shiftB20<1>> equivalent to <shiftB0<1>> has been removed
+    Register <shiftB20<2>> equivalent to <shiftB0<2>> has been removed
+    Register <shiftB20<3>> equivalent to <shiftB0<3>> has been removed
+    Register <shiftB20<4>> equivalent to <shiftB0<4>> has been removed
+    Register <shiftB20<5>> equivalent to <shiftB0<5>> has been removed
+    Register <shiftB20<6>> equivalent to <shiftB0<6>> has been removed
+    Register <shiftB20<7>> equivalent to <shiftB0<7>> has been removed
+    Register <shiftB20<8>> equivalent to <shiftB0<8>> has been removed
+    Register <shiftB20<9>> equivalent to <shiftB0<9>> has been removed
+    Found 1-bit xor2 for signal <Data_In_B_0$xor0000> created at line 23.
+    Found 26-bit register for signal <shiftB0>.
+    Found 11-bit register for signal <shiftB20<20:10>>.
+    Summary:
+	inferred  37 D-type flip-flop(s).
+Unit <sub_b> synthesized.
+
+
+Synthesizing Unit <gold_code>.
+    Related source file is "infer.v".
+    Found 1-bit xor2 for signal <Gold_Code>.
+Unit <gold_code> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 63
+ 1-bit register                                        : 63
+# Xors                                                 : 3
+ 1-bit xor2                                            : 3
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <shiftB0_10> in Unit <second_lfsr> is equivalent to the following FF/Latch, which will be removed : <shiftB20_10> 
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 63
+ Flip-Flops                                            : 63
+# Xors                                                 : 3
+ 1-bit xor2                                            : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <shiftB0_10> in Unit <sub_b> is equivalent to the following FF/Latch, which will be removed : <shiftB20_10> 
+INFO:Xst:2261 - The FF/Latch <shiftB0_11> in Unit <sub_b> is equivalent to the following FF/Latch, which will be removed : <shiftB20_11> 
+INFO:Xst:2261 - The FF/Latch <shiftB0_12> in Unit <sub_b> is equivalent to the following FF/Latch, which will be removed : <shiftB20_12> 
+INFO:Xst:2261 - The FF/Latch <shiftB0_13> in Unit <sub_b> is equivalent to the following FF/Latch, which will be removed : <shiftB20_13> 
+INFO:Xst:2261 - The FF/Latch <shiftB0_14> in Unit <sub_b> is equivalent to the following FF/Latch, which will be removed : <shiftB20_14> 
+INFO:Xst:2261 - The FF/Latch <shiftB0_15> in Unit <sub_b> is equivalent to the following FF/Latch, which will be removed : <shiftB20_15> 
+INFO:Xst:2261 - The FF/Latch <shiftB0_16> in Unit <sub_b> is equivalent to the following FF/Latch, which will be removed : <shiftB20_16> 
+INFO:Xst:2261 - The FF/Latch <shiftB0_17> in Unit <sub_b> is equivalent to the following FF/Latch, which will be removed : <shiftB20_17> 
+INFO:Xst:2261 - The FF/Latch <shiftB0_18> in Unit <sub_b> is equivalent to the following FF/Latch, which will be removed : <shiftB20_18> 
+INFO:Xst:2261 - The FF/Latch <shiftB0_19> in Unit <sub_b> is equivalent to the following FF/Latch, which will be removed : <shiftB20_19> 
+INFO:Xst:2261 - The FF/Latch <shiftB0_20> in Unit <sub_b> is equivalent to the following FF/Latch, which will be removed : <shiftB20_20> 
+
+Optimizing unit <gold_code> ...
+
+Optimizing unit <sub_a> ...
+
+Optimizing unit <sub_b> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block gold_code, actual ratio is 0.
+
+Final Macro Processing ...
+
+Processing Unit <gold_code> :
+	Found 22-bit shift register for signal <first_lfsr/shiftA0_25>.
+	Found 3-bit shift register for signal <first_lfsr/shiftA0_3>.
+	Found 5-bit shift register for signal <second_lfsr/shiftB0_25>.
+	Found 20-bit shift register for signal <second_lfsr/shiftB0_20>.
+Unit <gold_code> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 2
+ Flip-Flops                                            : 2
+# Shift Registers                                      : 4
+ 20-bit shift register                                 : 1
+ 22-bit shift register                                 : 1
+ 3-bit shift register                                  : 1
+ 5-bit shift register                                  : 1
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : gold_code.ngr
+Top Level Output File Name         : gold_code
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 7
+
+Cell Usage :
+# BELS                             : 5
+#      GND                         : 1
+#      LUT2                        : 1
+#      LUT4                        : 2
+#      VCC                         : 1
+# FlipFlops/Latches                : 6
+#      FDE                         : 6
+# Shift Registers                  : 6
+#      SRL16E                      : 4
+#      SRLC16E                     : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 6
+#      IBUF                        : 5
+#      OBUF                        : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                        5  out of   4656     0%  
+ Number of Slice Flip Flops:              6  out of   9312     0%  
+ Number of 4 input LUTs:                  9  out of   9312     0%  
+    Number used as logic:                 3
+    Number used as Shift registers:       6
+ Number of IOs:                           7
+ Number of bonded IOBs:                   7  out of    232     3%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Clock                              | BUFGP                  | 12    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 3.590ns (Maximum Frequency: 278.552MHz)
+   Minimum input arrival time before clock: 2.495ns
+   Maximum output required time after clock: 5.184ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clock'
+  Clock period: 3.590ns (frequency: 278.552MHz)
+  Total number of paths / destination ports: 14 / 12
+-------------------------------------------------------------------------
+Delay:               3.590ns (Levels of Logic = 0)
+  Source:            second_lfsr/Mshreg_shiftB0_20_0 (FF)
+  Destination:       second_lfsr/Mshreg_shiftB0_20_1 (FF)
+  Source Clock:      Clock rising
+  Destination Clock: Clock rising
+
+  Data Path: second_lfsr/Mshreg_shiftB0_20_0 to second_lfsr/Mshreg_shiftB0_20_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     SRLC16E:CLK->Q15      1   3.224   0.000  second_lfsr/Mshreg_shiftB0_20_0 (second_lfsr/Mshreg_shiftB0_20_0)
+     SRL16E:D                  0.366          second_lfsr/Mshreg_shiftB0_20_1
+    ----------------------------------------
+    Total                      3.590ns (3.590ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clock'
+  Total number of paths / destination ports: 16 / 14
+-------------------------------------------------------------------------
+Offset:              2.495ns (Levels of Logic = 2)
+  Source:            New_Fill_A (PAD)
+  Destination:       first_lfsr/shiftA0_0 (FF)
+  Destination Clock: Clock rising
+
+  Data Path: New_Fill_A to first_lfsr/shiftA0_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.106   0.509  New_Fill_A_IBUF (New_Fill_A_IBUF)
+     LUT4:I0->O            1   0.612   0.000  first_lfsr/Data_In_A_0_mux00001 (first_lfsr/Data_In_A)
+     FDE:D                     0.268          first_lfsr/shiftA0_0
+    ----------------------------------------
+    Total                      2.495ns (1.986ns logic, 0.509ns route)
+                                       (79.6% logic, 20.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clock'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              5.184ns (Levels of Logic = 2)
+  Source:            second_lfsr/shiftB0_25 (FF)
+  Destination:       Gold_Code (PAD)
+  Source Clock:      Clock rising
+
+  Data Path: second_lfsr/shiftB0_25 to Gold_Code
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              2   0.514   0.532  second_lfsr/shiftB0_25 (second_lfsr/shiftB0_25)
+     LUT2:I0->O            1   0.612   0.357  Mxor_Gold_Code_Result1 (Gold_Code_OBUF)
+     OBUF:I->O                 3.169          Gold_Code_OBUF (Gold_Code)
+    ----------------------------------------
+    Total                      5.184ns (4.295ns logic, 0.889ns route)
+                                       (82.9% logic, 17.1% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 18.00 secs
+Total CPU time to Xst completion: 3.05 secs
+ 
+--> 
+
+
+Total memory usage is 150552 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :   16 (   0 filtered)
+

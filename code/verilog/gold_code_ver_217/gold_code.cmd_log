@@ -1,0 +1,10 @@
+xst -intstyle ise -ifn "/home/cjeong/ztmp/code/verilog/gold_code_ver_217/gold_code.xst" -ofn "/home/cjeong/ztmp/code/verilog/gold_code_ver_217/gold_code.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-5 gold_code.ngc gold_code.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o gold_code_map.ncd gold_code.ngd gold_code.pcf 
+par -w -intstyle ise -ol high -t 1 gold_code_map.ncd gold_code.ncd gold_code.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml gold_code.twx gold_code.ncd -o gold_code.twr gold_code.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc gold_code.ucf -p xc3s500e-fg320-5 gold_code.ngc gold_code.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o gold_code_map.ncd gold_code.ngd gold_code.pcf 
+par -w -intstyle ise -ol high -t 1 gold_code_map.ncd gold_code.ncd gold_code.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml gold_code.twx gold_code.ncd -o gold_code.twr gold_code.pcf -ucf gold_code.ucf 
+bitgen -intstyle ise -f gold_code.ut gold_code.ncd 

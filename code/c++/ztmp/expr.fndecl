@@ -1,0 +1,16 @@
+ <function_decl 0xb7cac540 main
+    type <function_type 0xb7cad9c0
+        type <integer_type 0xb7c1a2d8 int public SI
+            size <integer_cst 0xb7c0c63c constant invariant 32>
+            unit size <integer_cst 0xb7c0c428 constant invariant 4>
+            align 32 symtab 0 alias set -1 canonical type 0xb7c1a2d8 precision 32 min <integer_cst 0xb7c0c5e8 -2147483648> max <integer_cst 0xb7c0c604 2147483647>
+            pointer_to_this <pointer_type 0xb7c21680>>
+        QI
+        size <integer_cst 0xb7c0c4b4 constant invariant 8>
+        unit size <integer_cst 0xb7c0c4d0 constant invariant 1>
+        align 8 symtab 0 alias set -1 canonical type 0xb7c24340>
+    public static decl_1 QI file expr.c line 5 col 1 align 8 initial <block 0xb7ca89f4>
+    result <result_decl 0xb7cab820 D.1568 type <integer_type 0xb7c1a2d8 int>
+        ignored SI file expr.c line 5 col 1 size <integer_cst 0xb7c0c63c 32> unit size <integer_cst 0xb7c0c428 4>
+        align 32 context <function_decl 0xb7cac540 main>>
+    saved-insns 0xb7c15218>

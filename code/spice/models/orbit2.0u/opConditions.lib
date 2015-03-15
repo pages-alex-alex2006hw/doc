@@ -1,0 +1,56 @@
+**************** Enviromental and Process Parameters *********************
+*
+* This file loads the appropriate process file and sets the voltage
+* and temperature for the simulation corner specified (e.g. TT, SS, FF).
+*
+* In this particular example, only TT, SS, and FF environments are
+* implemented.  No data was available for fast and slow processes,
+* so typical processes are used.  if you have better data available,
+* you can call the appropriate models.
+*
+*   SOME of the useful skews to employ are
+*
+*	TT    nt, pt, RCtyp     RT, nominal supply 
+*       SS    nl, pl, RCslo     Hi temp, lo supply voltage
+*       FF    nh, ph, RCfas     Lo temp, hi supply voltage
+*       FS    nl, ph, RCtyp     Hi temp, lo supply voltage
+*       SF    nh, pl, RCtyp     Lo temp, hi supply voltage
+*       SLOW  nt, pt, RCtyp     Hi temp, lo supply voltage
+*       FAST  nt, pt, RCtyp     Lo temp, hi supply voltage
+*       RACE1 nh, ph, RCslo     Lo temp, hi supply voltage
+*       RACE2 nl, pl, RCfas     Hi temp, lo supply voltage
+*       
+*       TM, SM, FM - devices same as TT, SS, FF but the temp 
+*                    is "medium" at 70 which is more likely 
+*		     to occur than 125.
+*        
+*
+* Need to define Sup before calling the library with a .lib
+* This file sets the supply voltage as a function of the nominal
+* supply value 'Sup'.
+*
+*
+
+.opt DEFL=2.0u
+*Operating Condition corners only - no process corners
+**** Nominal Voltage, Room Temperature, Typical Process
+.lib TT
+.temp 70
+.param Supply='Sup'
+.include 'nModels.lib'
+.include 'pModels.lib'
+.endl TT
+
+.lib FF
+.temp 0
+.param Supply='1.1*Sup'
+.include 'nModels.lib'
+.include 'pModels.lib'
+.endl FF
+
+.lib SS
+.temp 125
+.param Supply='0.9*Sup'
+.include 'nModels.lib'
+.include 'pModels.lib'
+.endl SS

@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?><SellerSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xml.amazon.com/schemas3/dev-heavy.xsd">
+
+<Request><Args><Arg value="Ruby/Amazon 0.3.99" name="UserAgent"></Arg><Arg value="1" name="page"></Arg><Arg value="D23XFCO2UKJY82" name="dev-t"></Arg><Arg value="xml" name="f"></Arg><Arg value="heavy" name="type"></Arg><Arg value="0C8WDZRYYNG3JV32TY74" name="RequestID"></Arg><Arg value="us" name="locale"></Arg><Arg value="open" name="offerstatus"></Arg><Arg value="webservices-20" name="t"></Arg><Arg value="AZPQKLIWQKVZ" name="SellerSearch"></Arg></Args></Request>   <SellerSearchDetails>
+      <SellerNickname>powells_books</SellerNickname>
+      <StoreId>S1D3S2WE2LSKFM</StoreId>
+      <StoreName>Powells.com</StoreName>
+      <NumberOfOpenListings>32000</NumberOfOpenListings>
+      <ListingProductInfo>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y4926754Y9172708</ExchangeId>
+            <ListingId>1218H091019</ListingId>
+            <ExchangeTitle>Getting Together: Building Relationships As We Negotiate [Paperback]  by Fisher</ExchangeTitle>
+            <ExchangePrice>$9.50</ExchangePrice>
+            <ExchangeAsin>0140126384</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>12/18/2003 04:03:53 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1298122Y0196481</ExchangeId>
+            <ListingId>1030B777401</ListingId>
+            <ExchangeTitle>Garzanti Narrativa: Ricordi [Unknown Binding]  by Gucciardini, F</ExchangeTitle>
+            <ExchangePrice>$11.50</ExchangePrice>
+            <ExchangeAsin>8817121258</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>10/30/2003 06:09:28 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Foreign Language</ExchangeCondition>
+            <ExchangeConditionType>acceptable</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1298237Y5569183</ExchangeId>
+            <ListingId>0617A668127</ListingId>
+            <ExchangeTitle>Happy Valley (Northwest Reprints) [Paperback]  by Monroe, Anne Shannon; Monroe</ExchangeTitle>
+            <ExchangePrice>$9.95</ExchangePrice>
+            <ExchangeAsin>0870715070</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/17/2003 02:16:15 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1298418Y5161088</ExchangeId>
+            <ListingId>0617K970101</ListingId>
+            <ExchangeTitle>Modern English Misusage [Paperback]  by Oliver, Barney; Stansbury, Herb</ExchangeTitle>
+            <ExchangePrice>$10.00</ExchangePrice>
+            <ExchangeAsin>0966633512</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>new</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/17/2003 10:18:16 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>May have small remainder mark or shelf wear.</ExchangeCondition>
+            <ExchangeConditionType>new</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1299396Y3419284</ExchangeId>
+            <ListingId>1126W353084</ListingId>
+            <ExchangeTitle>Uganda, an historical accident? : class, nation, state formation  by Mukherjee</ExchangeTitle>
+            <ExchangePrice>$24.95</ExchangePrice>
+            <ExchangeAsin>0865430152</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>11/26/2003 02:57:36 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>good</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1299741Y5921789</ExchangeId>
+            <ListingId>0114L136515</ListingId>
+            <ExchangeTitle>Act Like Somebody: Special Moments Of Parenting From the Andy Griffith Show...</ExchangeTitle>
+            <ExchangePrice>$4.50</ExchangePrice>
+            <ExchangeAsin>1558539956</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>01/14/2004 11:22:03 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>good</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1299753Y2215181</ExchangeId>
+            <ListingId>1029B141876</ListingId>
+            <ExchangeTitle>Seattle: World-Class City: A Contemporary Portrait  by Chasan, Daniel Jack...</ExchangeTitle>
+            <ExchangePrice>$12.95</ExchangePrice>
+            <ExchangeAsin>0897813901</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>10/29/2003 03:41:16 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>good</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1299981Y6318188</ExchangeId>
+            <ListingId>0722H186098</ListingId>
+            <ExchangeTitle>Fordism Transformed: The Development of Production Methods in the Automobile...</ExchangeTitle>
+            <ExchangePrice>$55.00</ExchangePrice>
+            <ExchangeAsin>0198289618</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>07/22/2003 03:33:19 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1300599Y1183887</ExchangeId>
+            <ListingId>0618R776807</ListingId>
+            <ExchangeTitle>The Highwayman and Mr. Dickens: An Account of the Strange Events of the Medusa</ExchangeTitle>
+            <ExchangePrice>$10.00</ExchangePrice>
+            <ExchangeAsin>031208207X</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/18/2003 18:37:24 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>2</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1300679Y5374289</ExchangeId>
+            <ListingId>0623B022689</ListingId>
+            <ExchangeTitle>The Doctor's Guide to Chronic Fatigue Syndrome: Understanding, Treating, and...</ExchangeTitle>
+            <ExchangePrice>$6.50</ExchangePrice>
+            <ExchangeAsin>0201626160</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/23/2003 12:56:49 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>acceptable</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1300752Y8323280</ExchangeId>
+            <ListingId>0713T676492</ListingId>
+            <ExchangeTitle>Green, Rough and Bunker: A Golfer's Companion  by</ExchangeTitle>
+            <ExchangePrice>$5.98</ExchangePrice>
+            <ExchangeAsin>1854795805</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>new</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>07/13/2003 04:30:06 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>May have small remainder mark or shelf wear.</ExchangeCondition>
+            <ExchangeConditionType>new</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1300900Y5572085</ExchangeId>
+            <ListingId>0617B053565</ListingId>
+            <ExchangeTitle>Suddenly at the Priory (Penguin True Crime)  by Williams, John</ExchangeTitle>
+            <ExchangePrice>$5.50</ExchangePrice>
+            <ExchangeAsin>0140113347</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/17/2003 15:41:29 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1301016Y8106682</ExchangeId>
+            <ListingId>0619B941430</ListingId>
+            <ExchangeTitle>Revelations: The Medieval World (Henry Holt Reference Book)  by Harpur, James...</ExchangeTitle>
+            <ExchangePrice>$19.95</ExchangePrice>
+            <ExchangeAsin>0805041400</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/19/2003 14:07:05 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1301151Y1641788</ExchangeId>
+            <ListingId>0623B425837</ListingId>
+            <ExchangeTitle>Cults That Kill: Probing the Underworld of Occult Crime  by Kahaner, Larry</ExchangeTitle>
+            <ExchangePrice>$13.00</ExchangePrice>
+            <ExchangeAsin>044651375X</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/23/2003 18:06:40 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1301240Y1734384</ExchangeId>
+            <ListingId>0830F907128</ListingId>
+            <ExchangeTitle>A Field Guide to Mysterious Places of the West [Paperback]  by Trento...</ExchangeTitle>
+            <ExchangePrice>$12.95</ExchangePrice>
+            <ExchangeAsin>0871088517</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>08/30/2003 03:50:09 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1301787Y1665887</ExchangeId>
+            <ListingId>0623R387857</ListingId>
+            <ExchangeTitle>Dark Arrows: Great Stories of Revenge  by Manguel, Alberto</ExchangeTitle>
+            <ExchangePrice>$6.95</ExchangePrice>
+            <ExchangeAsin>0517562596</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/23/2003 19:18:15 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1301832Y8195485</ExchangeId>
+            <ListingId>1207H680124</ListingId>
+            <ExchangeTitle>Steel Buildings  by Crawley, Stanley W.; Carter, Winfred O.; Dillon, Robert M.</ExchangeTitle>
+            <ExchangePrice>$35.00</ExchangePrice>
+            <ExchangeAsin>0471864145</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>12/07/2003 04:06:28 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeCondition>Steel Buildings Analysis &amp; Design 3RD Edition</ExchangeCondition>
+            <ExchangeConditionType>good</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302000Y0840086</ExchangeId>
+            <ListingId>0623A306004</ListingId>
+            <ExchangeTitle>The Bible Code [Hardcover]  by Drosnin, Michael; Vitstum, Doron</ExchangeTitle>
+            <ExchangePrice>$11.95</ExchangePrice>
+            <ExchangeAsin>0684810794</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/23/2003 22:40:31 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302024Y5889889</ExchangeId>
+            <ListingId>0623R667340</ListingId>
+            <ExchangeTitle>MEN ASTUTELY TRAINED : A HISTORY OF THE JESUITS IN THE AMERICAN CENTURY...</ExchangeTitle>
+            <ExchangePrice>$10.95</ExchangePrice>
+            <ExchangeAsin>002920528X</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/23/2003 09:47:09 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302269Y6360488</ExchangeId>
+            <ListingId>0627R293581</ListingId>
+            <ExchangeTitle>Noise in Nonlinear Dynamical Systems: Volume 3, Experiments and Simulations  by</ExchangeTitle>
+            <ExchangePrice>$39.00</ExchangePrice>
+            <ExchangeAsin>0521352657</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/27/2003 18:16:10 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>3</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>good</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302353Y7446689</ExchangeId>
+            <ListingId>0623L716661</ListingId>
+            <ExchangeTitle>Complications  by Prince Charming; Prince</ExchangeTitle>
+            <ExchangePrice>$7.95</ExchangePrice>
+            <ExchangeAsin>0525246207</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/23/2003 20:01:22 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302380Y3616585</ExchangeId>
+            <ListingId>1003A909886</ListingId>
+            <ExchangeTitle>Green Versus Gold: Sources in California's Environmental History [Paperback...</ExchangeTitle>
+            <ExchangePrice>$17.50</ExchangePrice>
+            <ExchangeAsin>1559635800</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>10/03/2003 03:25:52 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>acceptable</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302761Y1997483</ExchangeId>
+            <ListingId>1022B331917</ListingId>
+            <ExchangeTitle>As You Like It (Shakespeare at Stratford) [Paperback]  by Smallwood, Robert</ExchangeTitle>
+            <ExchangePrice>$24.99</ExchangePrice>
+            <ExchangeAsin>190343615X</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>new</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>10/22/2003 05:25:11 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>new</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302762Y2819581</ExchangeId>
+            <ListingId>0619J991495</ListingId>
+            <ExchangeTitle>Love Song to the Plains [Paperback]  by Mari Sandoz</ExchangeTitle>
+            <ExchangePrice>$6.95</ExchangePrice>
+            <ExchangeAsin>0803251726</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>06/19/2003 13:44:18 PDT</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>verygood</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302762Y4720582</ExchangeId>
+            <ListingId>1212J926852</ListingId>
+            <ExchangeTitle>Fire Truck [Board book]  by Dorling Kindersley Publishing</ExchangeTitle>
+            <ExchangePrice>$6.99</ExchangePrice>
+            <ExchangeAsin>0789497123</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>new</ExchangeOfferingType>
+            <ExchangeSellerId>AZPQKLIWQKVZ</ExchangeSellerId>
+            <ExchangeSellerNickname>powells_books</ExchangeSellerNickname>
+            <ExchangeStartDate>12/12/2003 03:51:47 PST</ExchangeStartDate>
+            <ExchangeStatus>Open</ExchangeStatus>
+            <ExchangeQuantity>1</ExchangeQuantity>
+            <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+            <ExchangeFeaturedCategory>68297</ExchangeFeaturedCategory>
+            <ExchangeConditionType>new</ExchangeConditionType>
+            <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+            <ExchangeSellerState>OR</ExchangeSellerState>
+            <ExchangeSellerCountry>United States</ExchangeSellerCountry>
+            <ExchangeSellerRating>4.5</ExchangeSellerRating>
+         </ListingProductDetails>
+      </ListingProductInfo>
+   </SellerSearchDetails>
+</SellerSearch>
+            <ExchangeAsin>8817121258</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1298237Y5569183</ExchangeId>
+            <ListingId>0617A668127</ListingId>
+            <ExchangeTitle>Happy Valley (Northwest Reprints) [Paperback]  by Monroe, Anne Shannon; Monroe</ExchangeTitle>
+            <ExchangePrice>$9.95</ExchangePrice>
+            <ExchangeAsin>0870715070</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1298418Y5161088</ExchangeId>
+            <ListingId>0617K970101</ListingId>
+            <ExchangeTitle>Modern English Misusage [Paperback]  by Oliver, Barney; Stansbury, Herb</ExchangeTitle>
+            <ExchangePrice>$10.00</ExchangePrice>
+            <ExchangeAsin>0966633512</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>new</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1299396Y3419284</ExchangeId>
+            <ListingId>1126W353084</ListingId>
+            <ExchangeTitle>Uganda, an historical accident? : class, nation, state formation  by Mukherjee</ExchangeTitle>
+            <ExchangePrice>$24.95</ExchangePrice>
+            <ExchangeAsin>0865430152</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1299741Y5921789</ExchangeId>
+            <ListingId>0114L136515</ListingId>
+            <ExchangeTitle>Act Like Somebody: Special Moments Of Parenting From the Andy Griffith Show...</ExchangeTitle>
+            <ExchangePrice>$4.50</ExchangePrice>
+            <ExchangeAsin>1558539956</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1299753Y2215181</ExchangeId>
+            <ListingId>1029B141876</ListingId>
+            <ExchangeTitle>Seattle: World-Class City: A Contemporary Portrait  by Chasan, Daniel Jack...</ExchangeTitle>
+            <ExchangePrice>$12.95</ExchangePrice>
+            <ExchangeAsin>0897813901</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1299981Y6318188</ExchangeId>
+            <ListingId>0722H186098</ListingId>
+            <ExchangeTitle>Fordism Transformed: The Development of Production Methods in the Automobile...</ExchangeTitle>
+            <ExchangePrice>$55.00</ExchangePrice>
+            <ExchangeAsin>0198289618</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1300599Y1183887</ExchangeId>
+            <ListingId>0618R776807</ListingId>
+            <ExchangeTitle>The Highwayman and Mr. Dickens: An Account of the Strange Events of the Medusa</ExchangeTitle>
+            <ExchangePrice>$10.00</ExchangePrice>
+            <ExchangeAsin>031208207X</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1300679Y5374289</ExchangeId>
+            <ListingId>0623B022689</ListingId>
+            <ExchangeTitle>The Doctor's Guide to Chronic Fatigue Syndrome: Understanding, Treating, and...</ExchangeTitle>
+            <ExchangePrice>$6.50</ExchangePrice>
+            <ExchangeAsin>0201626160</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1300752Y8323280</ExchangeId>
+            <ListingId>0713T676492</ListingId>
+            <ExchangeTitle>Green, Rough and Bunker: A Golfer's Companion  by</ExchangeTitle>
+            <ExchangePrice>$5.98</ExchangePrice>
+            <ExchangeAsin>1854795805</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>new</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1300900Y5572085</ExchangeId>
+            <ListingId>0617B053565</ListingId>
+            <ExchangeTitle>Suddenly at the Priory (Penguin True Crime)  by Williams, John</ExchangeTitle>
+            <ExchangePrice>$5.50</ExchangePrice>
+            <ExchangeAsin>0140113347</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1301016Y8106682</ExchangeId>
+            <ListingId>0619B941430</ListingId>
+            <ExchangeTitle>Revelations: The Medieval World (Henry Holt Reference Book)  by Harpur, James...</ExchangeTitle>
+            <ExchangePrice>$19.95</ExchangePrice>
+            <ExchangeAsin>0805041400</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1301151Y1641788</ExchangeId>
+            <ListingId>0623B425837</ListingId>
+            <ExchangeTitle>Cults That Kill: Probing the Underworld of Occult Crime  by Kahaner, Larry</ExchangeTitle>
+            <ExchangePrice>$13.00</ExchangePrice>
+            <ExchangeAsin>044651375X</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1301240Y1734384</ExchangeId>
+            <ListingId>0830F907128</ListingId>
+            <ExchangeTitle>A Field Guide to Mysterious Places of the West [Paperback]  by Trento...</ExchangeTitle>
+            <ExchangePrice>$12.95</ExchangePrice>
+            <ExchangeAsin>0871088517</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1301787Y1665887</ExchangeId>
+            <ListingId>0623R387857</ListingId>
+            <ExchangeTitle>Dark Arrows: Great Stories of Revenge  by Manguel, Alberto</ExchangeTitle>
+            <ExchangePrice>$6.95</ExchangePrice>
+            <ExchangeAsin>0517562596</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1301832Y8195485</ExchangeId>
+            <ListingId>1207H680124</ListingId>
+            <ExchangeTitle>Steel Buildings  by Crawley, Stanley W.; Carter, Winfred O.; Dillon, Robert M.</ExchangeTitle>
+            <ExchangePrice>$35.00</ExchangePrice>
+            <ExchangeAsin>0471864145</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302000Y0840086</ExchangeId>
+            <ListingId>0623A306004</ListingId>
+            <ExchangeTitle>The Bible Code [Hardcover]  by Drosnin, Michael; Vitstum, Doron</ExchangeTitle>
+            <ExchangePrice>$11.95</ExchangePrice>
+            <ExchangeAsin>0684810794</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302024Y5889889</ExchangeId>
+            <ListingId>0623R667340</ListingId>
+            <ExchangeTitle>MEN ASTUTELY TRAINED : A HISTORY OF THE JESUITS IN THE AMERICAN CENTURY...</ExchangeTitle>
+            <ExchangePrice>$10.95</ExchangePrice>
+            <ExchangeAsin>002920528X</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302269Y6360488</ExchangeId>
+            <ListingId>0627R293581</ListingId>
+            <ExchangeTitle>Noise in Nonlinear Dynamical Systems: Volume 3, Experiments and Simulations  by</ExchangeTitle>
+            <ExchangePrice>$39.00</ExchangePrice>
+            <ExchangeAsin>0521352657</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302353Y7446689</ExchangeId>
+            <ListingId>0623L716661</ListingId>
+            <ExchangeTitle>Complications  by Prince Charming; Prince</ExchangeTitle>
+            <ExchangePrice>$7.95</ExchangePrice>
+            <ExchangeAsin>0525246207</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302380Y3616585</ExchangeId>
+            <ListingId>1003A909886</ListingId>
+            <ExchangeTitle>Green Versus Gold: Sources in California's Environmental History [Paperback...</ExchangeTitle>
+            <ExchangePrice>$17.50</ExchangePrice>
+            <ExchangeAsin>1559635800</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302761Y1997483</ExchangeId>
+            <ListingId>1022B331917</ListingId>
+            <ExchangeTitle>As You Like It (Shakespeare at Stratford) [Paperback]  by Smallwood, Robert</ExchangeTitle>
+            <ExchangePrice>$24.99</ExchangePrice>
+            <ExchangeAsin>190343615X</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>new</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302762Y2819581</ExchangeId>
+            <ListingId>0619J991495</ListingId>
+            <ExchangeTitle>Love Song to the Plains [Paperback]  by Mari Sandoz</ExchangeTitle>
+            <ExchangePrice>$6.95</ExchangePrice>
+            <ExchangeAsin>0803251726</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>used</ExchangeOfferingType>
+         </ListingProductDetails>
+         <ListingProductDetails>
+            <ExchangeId>Y01Y1302762Y4720582</ExchangeId>
+            <ListingId>1212J926852</ListingId>
+            <ExchangeTitle>Fire Truck [Board book]  by Dorling Kindersley Publishing</ExchangeTitle>
+            <ExchangePrice>$6.99</ExchangePrice>
+            <ExchangeAsin>0789497123</ExchangeAsin>
+            <ExchangeEndDate>12/31/1969 16:00:00 PST</ExchangeEndDate>
+            <ExchangeOfferingType>new</ExchangeOfferingType>
+         </ListingProductDetails>
+      </ListingProductInfo>
+   </SellerSearchDetails>
+</SellerSearch>

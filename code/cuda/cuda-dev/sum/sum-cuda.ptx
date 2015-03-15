@@ -1,0 +1,691 @@
+	.version 1.4
+	.target sm_10, map_f64_to_f32
+	// compiled with /usr/local/cuda/open64/lib//be
+	// nvopencc 4.1 built on 2012-04-05
+
+	//-----------------------------------------------------------
+	// Compiling sum-cuda.cpp3.i (/tmp/ccBI#.1Vbgs6)
+	//-----------------------------------------------------------
+
+	//-----------------------------------------------------------
+	// Options:
+	//-----------------------------------------------------------
+	//  Target:ptx, ISA:sm_10, Endian:little, Pointer Size:64
+	//  -O3	(Optimization level)
+	//  -g0	(Debug level)
+	//  -m2	(Report advisories)
+	//-----------------------------------------------------------
+
+	.file	1	"<command-line>"
+	.file	2	"sum-cuda.cudafe2.gpu"
+	.file	3	"/usr/local/cuda/bin/../include/thrust/detail/functional/argument.h"
+	.file	4	"/usr/local/cuda/bin/../include/thrust/detail/functional/actor.h"
+	.file	5	"/usr/local/cuda/bin/../include/thrust/iterator/iterator_adaptor.h"
+	.file	6	"/usr/local/cuda/bin/../include/thrust/detail/pointer_base.h"
+	.file	7	"/usr/local/cuda/bin/../include/thrust/device_ptr.h"
+	.file	8	"/usr/local/cuda/bin/../include/thrust/iterator/detail/normal_iterator.h"
+	.file	9	"/usr/local/cuda/bin/../include/thrust/detail/internal_functional.h"
+	.file	10	"/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/for_each.inl"
+	.file	11	"/usr/local/cuda/bin/../include/thrust/iterator/counting_iterator.h"
+	.file	12	"/usr/local/cuda/bin/../include/thrust/detail/tuple.inl"
+	.file	13	"/usr/local/cuda/bin/../include/thrust/tuple.h"
+	.file	14	"/usr/local/cuda/bin/../include/thrust/iterator/zip_iterator.h"
+	.file	15	"/usr/local/cuda/bin/../include/thrust/detail/sequence.inl"
+	.file	16	"/usr/local/cuda/bin/../include/thrust/functional.h"
+	.file	17	"/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/reduce.inl"
+	.file	18	"/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/extern_shared_ptr.h"
+	.file	19	"/usr/local/cuda/bin/../include/thrust/iterator/detail/backend_iterator_spaces.h"
+	.file	20	"/usr/local/cuda/bin/../include/thrust/iterator/detail/zip_iterator_base.h"
+	.file	21	"/usr/local/cuda/bin/../include/thrust/device_malloc_allocator.h"
+	.file	22	"/usr/local/cuda/bin/../include/thrust/detail/reference_base.h"
+	.file	23	"/usr/local/cuda/bin/../include/thrust/iterator/iterator_facade.h"
+	.file	24	"/usr/local/cuda/bin/../include/thrust/device_reference.h"
+	.file	25	"/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stddef.h"
+	.file	26	"/usr/local/cuda/bin/../include/crt/device_runtime.h"
+	.file	27	"/usr/local/cuda/bin/../include/host_defines.h"
+	.file	28	"/usr/local/cuda/bin/../include/builtin_types.h"
+	.file	29	"/usr/local/cuda/bin/../include/device_types.h"
+	.file	30	"/usr/local/cuda/bin/../include/driver_types.h"
+	.file	31	"/usr/local/cuda/bin/../include/surface_types.h"
+	.file	32	"/usr/local/cuda/bin/../include/texture_types.h"
+	.file	33	"/usr/local/cuda/bin/../include/vector_types.h"
+	.file	34	"/usr/local/cuda/bin/../include/device_launch_parameters.h"
+	.file	35	"/usr/local/cuda/bin/../include/crt/storage_class.h"
+	.file	36	"sum-cuda.cu"
+	.file	37	"/usr/include/c++/4.6/x86_64-linux-gnu/./bits/c++config.h"
+	.file	38	"/usr/local/cuda/bin/../include/thrust/detail/type_traits.h"
+	.file	39	"/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_adaptor.inl"
+	.file	40	"/usr/include/c++/4.6/bits/stl_iterator_base_types.h"
+	.file	41	"/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_traits.inl"
+	.file	42	"/usr/local/cuda/bin/../include/thrust/detail/contiguous_storage.h"
+	.file	43	"/usr/local/cuda/bin/../include/thrust/iterator/detail/iterator_facade.inl"
+	.file	44	"/usr/local/cuda/bin/../include/thrust/detail/backend/internal_allocator.h"
+	.file	45	"/usr/local/cuda/bin/../include/thrust/detail/device_ptr.inl"
+	.file	46	"/usr/local/cuda/bin/../include/thrust/iterator/detail/counting_iterator.inl"
+	.file	47	"/usr/local/cuda/bin/../include/thrust/detail/numeric_traits.h"
+	.file	48	"/usr/local/cuda/bin/../include/thrust/detail/type_traits/pointer_traits.h"
+	.file	49	"/usr/local/cuda/bin/../include/thrust/detail/tuple_meta_transform.h"
+	.file	50	"/usr/local/cuda/bin/../include/thrust/detail/tuple_transform.h"
+	.file	51	"/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/detail/launch_closure.inl"
+	.file	52	"/usr/local/cuda/bin/../include/thrust/detail/pointer_base.inl"
+	.file	53	"/usr/local/cuda/bin/../include/thrust/detail/reference_base.inl"
+	.file	54	"/usr/local/cuda/bin/../include/thrust/detail/functional/actor.inl"
+	.file	55	"/usr/local/cuda/bin/../include/thrust/detail/backend/cuda/block/reduce.h"
+	.file	56	"/usr/local/cuda/bin/../include/thrust/detail/util/blocking.h"
+	.file	57	"/usr/local/cuda/bin/../include/thrust/detail/minmax.h"
+	.file	58	"/usr/local/cuda/bin/../include/common_functions.h"
+	.file	59	"/usr/local/cuda/bin/../include/math_functions.h"
+	.file	60	"/usr/local/cuda/bin/../include/math_constants.h"
+	.file	61	"/usr/local/cuda/bin/../include/device_functions.h"
+	.file	62	"/usr/local/cuda/bin/../include/sm_11_atomic_functions.h"
+	.file	63	"/usr/local/cuda/bin/../include/sm_12_atomic_functions.h"
+	.file	64	"/usr/local/cuda/bin/../include/sm_13_double_functions.h"
+	.file	65	"/usr/local/cuda/bin/../include/sm_20_atomic_functions.h"
+	.file	66	"/usr/local/cuda/bin/../include/sm_20_intrinsics.h"
+	.file	67	"/usr/local/cuda/bin/../include/sm_30_intrinsics.h"
+	.file	68	"/usr/local/cuda/bin/../include/surface_functions.h"
+	.file	69	"/usr/local/cuda/bin/../include/texture_fetch_functions.h"
+	.file	70	"/usr/local/cuda/bin/../include/math_functions_dbl_ptx1.h"
+
+
+	.entry _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT_ (
+		.param .align 8 .b8 __cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf[24])
+	{
+	.reg .u16 %rh<5>;
+	.reg .u32 %r<6>;
+	.reg .u64 %rd<15>;
+	.reg .pred %p<4>;
+	.loc	51	42	0
+$LDWbegin__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT_:
+	.loc	51	44	0
+	mov.u16 	%rh1, %ntid.x;
+	mov.u16 	%rh2, %nctaid.x;
+	mul.wide.u16 	%r1, %rh2, %rh1;
+	cvt.u64.u32 	%rd1, %r1;
+	mov.s64 	%rd2, %rd1;
+	mov.u16 	%rh3, %ctaid.x;
+	mul.wide.u16 	%r2, %rh3, %rh1;
+	cvt.u32.u16 	%r3, %tid.x;
+	add.u32 	%r4, %r3, %r2;
+	cvt.u64.u32 	%rd3, %r4;
+	mov.s64 	%rd4, %rd3;
+	mov.s64 	%rd5, %rd4;
+	ld.param.u64 	%rd6, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf+0];
+	mov.s64 	%rd7, %rd5;
+	mul.lo.u64 	%rd8, %rd7, 8;
+	add.u64 	%rd9, %rd6, %rd8;
+	ld.param.s64 	%rd10, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf+8];
+	setp.le.s64 	%p1, %rd10, %rd3;
+	@%p1 bra 	$Lt_0_1282;
+	mov.s64 	%rd11, %rd2;
+	mul.lo.u64 	%rd12, %rd11, 8;
+	ld.param.u64 	%rd13, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf+16];
+$Lt_0_1794:
+ //<loop> Loop body line 44, nesting depth: 1, estimated iterations: unknown
+	ld.param.u64 	%rd13, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf+16];
+	st.global.u64 	[%rd9+0], %rd13;
+	add.s64 	%rd4, %rd4, %rd1;
+	add.u64 	%rd9, %rd12, %rd9;
+	ld.param.s64 	%rd10, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf+8];
+	setp.gt.s64 	%p2, %rd10, %rd4;
+	@%p2 bra 	$Lt_0_1794;
+$Lt_0_1282:
+	.loc	51	45	0
+	exit;
+$LDWend__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT_:
+	} // _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEElNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT_
+
+	.entry _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT_ (
+		.param .align 8 .b8 __cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf[24])
+	{
+	.reg .u16 %rh<5>;
+	.reg .u32 %r<8>;
+	.reg .u64 %rd<13>;
+	.reg .pred %p<4>;
+	.loc	51	42	0
+$LDWbegin__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT_:
+	.loc	51	44	0
+	mov.u16 	%rh1, %ntid.x;
+	mov.u16 	%rh2, %ctaid.x;
+	mul.wide.u16 	%r1, %rh2, %rh1;
+	cvt.u32.u16 	%r2, %tid.x;
+	add.u32 	%r3, %r2, %r1;
+	mov.s32 	%r4, %r3;
+	cvt.u64.u32 	%rd1, %r3;
+	mov.s64 	%rd2, %rd1;
+	ld.param.u64 	%rd3, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf+0];
+	mov.s64 	%rd4, %rd2;
+	mul.lo.u64 	%rd5, %rd4, 8;
+	add.u64 	%rd6, %rd3, %rd5;
+	ld.param.u32 	%r5, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf+8];
+	setp.ge.u32 	%p1, %r3, %r5;
+	@%p1 bra 	$Lt_1_1282;
+	mov.u16 	%rh3, %nctaid.x;
+	mul.wide.u16 	%r6, %rh3, %rh1;
+	cvt.u64.u32 	%rd7, %r6;
+	ld.param.u64 	%rd8, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf+16];
+$Lt_1_1794:
+ //<loop> Loop body line 44, nesting depth: 1, estimated iterations: unknown
+	ld.param.u64 	%rd8, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf+16];
+	st.global.u64 	[%rd6+0], %rd8;
+	add.u32 	%r4, %r6, %r4;
+	mov.s64 	%rd9, %rd7;
+	mov.s64 	%rd10, %rd9;
+	mul.lo.u64 	%rd11, %rd10, 8;
+	add.u64 	%rd6, %rd6, %rd11;
+	ld.param.u32 	%r5, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT____val_paramf+8];
+	setp.lt.u32 	%p2, %r4, %r5;
+	@%p2 bra 	$Lt_1_1794;
+$Lt_1_1282:
+	.loc	51	45	0
+	exit;
+$LDWend__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT_:
+	} // _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEjNS0_23device_generate_functorINS0_12fill_functorIyEEEEEEEEvT_
+
+	.entry _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT_ (
+		.param .align 8 .b8 __cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf[32])
+	{
+	.reg .u16 %rh<5>;
+	.reg .u32 %r<11>;
+	.reg .u64 %rd<20>;
+	.reg .pred %p<4>;
+	.loc	51	42	0
+$LDWbegin__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT_:
+	.loc	51	44	0
+	mov.u16 	%rh1, %ntid.x;
+	mov.u16 	%rh2, %ctaid.x;
+	mul.wide.u16 	%r1, %rh2, %rh1;
+	cvt.u32.u16 	%r2, %tid.x;
+	add.u32 	%r3, %r2, %r1;
+	cvt.u64.u32 	%rd1, %r3;
+	mov.s64 	%rd2, %rd1;
+	.loc	20	279	0
+	ld.param.s64 	%rd3, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+0];
+	add.s64 	%rd4, %rd3, %rd1;
+	.loc	20	280	0
+	mov.s64 	%rd5, %rd1;
+	ld.param.u64 	%rd6, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+8];
+	mov.s64 	%rd7, %rd5;
+	mul.lo.u64 	%rd8, %rd7, 8;
+	add.u64 	%rd9, %rd6, %rd8;
+	.loc	51	44	0
+	ld.param.s64 	%rd10, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+16];
+	setp.le.s64 	%p1, %rd10, %rd1;
+	@%p1 bra 	$Lt_2_1282;
+	ld.param.s32 	%r4, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+28];
+	cvt.s64.s32 	%rd11, %r4;
+	mul.lo.s64 	%rd12, %rd11, %rd4;
+	mov.u16 	%rh3, %nctaid.x;
+	mul.wide.u16 	%r5, %rh3, %rh1;
+	cvt.u64.u32 	%rd13, %r5;
+	mul.wide.u32 	%rd14, %r4, %r5;
+	cvt.s32.s64 	%r6, %rd14;
+	ld.param.s32 	%r7, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+24];
+	cvt.s32.s64 	%r8, %rd12;
+	add.s32 	%r9, %r7, %r8;
+	cvt.s64.s32 	%rd15, %r9;
+	cvt.s64.s32 	%rd16, %r6;
+$Lt_2_1794:
+ //<loop> Loop body line 44, nesting depth: 1, estimated iterations: unknown
+	st.global.u64 	[%rd9+0], %rd15;
+	add.s64 	%rd2, %rd2, %rd13;
+	.loc	20	279	0
+	add.s64 	%rd15, %rd15, %rd16;
+	.loc	20	280	0
+	mov.s64 	%rd5, %rd13;
+	mov.s64 	%rd17, %rd5;
+	mul.lo.u64 	%rd18, %rd17, 8;
+	add.u64 	%rd9, %rd9, %rd18;
+	.loc	51	44	0
+	ld.param.s64 	%rd10, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+16];
+	setp.lt.s64 	%p2, %rd2, %rd10;
+	@%p2 bra 	$Lt_2_1794;
+$Lt_2_1282:
+	.loc	51	45	0
+	exit;
+$LDWend__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT_:
+	} // _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEElNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT_
+
+	.entry _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT_ (
+		.param .align 8 .b8 __cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf[32])
+	{
+	.reg .u16 %rh<5>;
+	.reg .u32 %r<13>;
+	.reg .u64 %rd<18>;
+	.reg .pred %p<4>;
+	.loc	51	42	0
+$LDWbegin__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT_:
+	.loc	51	44	0
+	mov.u16 	%rh1, %ntid.x;
+	mov.u16 	%rh2, %ctaid.x;
+	mul.wide.u16 	%r1, %rh2, %rh1;
+	cvt.u32.u16 	%r2, %tid.x;
+	add.u32 	%r3, %r2, %r1;
+	mov.s32 	%r4, %r3;
+	.loc	20	279	0
+	cvt.u64.u32 	%rd1, %r3;
+	ld.param.s64 	%rd2, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+0];
+	add.s64 	%rd3, %rd2, %rd1;
+	.loc	20	280	0
+	mov.s64 	%rd4, %rd1;
+	ld.param.u64 	%rd5, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+8];
+	mov.s64 	%rd6, %rd4;
+	mul.lo.u64 	%rd7, %rd6, 8;
+	add.u64 	%rd8, %rd5, %rd7;
+	.loc	51	44	0
+	ld.param.u32 	%r5, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+16];
+	setp.ge.u32 	%p1, %r3, %r5;
+	@%p1 bra 	$Lt_3_1282;
+	ld.param.s32 	%r6, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+24];
+	cvt.s64.s32 	%rd9, %r6;
+	mov.u16 	%rh3, %nctaid.x;
+	mul.wide.u16 	%r7, %rh3, %rh1;
+	mul.lo.s64 	%rd10, %rd9, %rd3;
+	cvt.u64.u32 	%rd11, %r7;
+	mul.wide.u32 	%rd12, %r6, %r7;
+	cvt.s32.s64 	%r8, %rd12;
+	ld.param.s32 	%r9, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+20];
+	cvt.s32.s64 	%r10, %rd10;
+	add.s32 	%r11, %r9, %r10;
+	cvt.s64.s32 	%rd13, %r11;
+	cvt.s64.s32 	%rd14, %r8;
+$Lt_3_1794:
+ //<loop> Loop body line 44, nesting depth: 1, estimated iterations: unknown
+	st.global.u64 	[%rd8+0], %rd13;
+	add.u32 	%r4, %r7, %r4;
+	.loc	20	279	0
+	add.s64 	%rd13, %rd13, %rd14;
+	.loc	20	280	0
+	mov.s64 	%rd4, %rd11;
+	mov.s64 	%rd15, %rd4;
+	mul.lo.u64 	%rd16, %rd15, 8;
+	add.u64 	%rd8, %rd8, %rd16;
+	.loc	51	44	0
+	ld.param.u32 	%r5, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT____val_paramf+16];
+	setp.lt.u32 	%p2, %r4, %r5;
+	@%p2 bra 	$Lt_3_1794;
+$Lt_3_1282:
+	.loc	51	45	0
+	exit;
+$LDWend__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT_:
+	} // _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_18for_each_n_closureINS_12zip_iteratorINS_5tupleINS_17counting_iteratorIlNS_11use_defaultES9_lEENS0_15normal_iteratorINS_10device_ptrIyEEEENS_9null_typeESF_SF_SF_SF_SF_SF_SF_EEEEjNS0_30device_unary_transform_functorINS0_16sequence_functorIiEEEEEEEEvT_
+	.extern	.shared .align 16 .b8 smem[];
+
+	.entry _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT_ (
+		.param .align 8 .b8 __cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT____val_paramf[40])
+	{
+	.reg .u32 %r<43>;
+	.reg .u64 %rd<43>;
+	.reg .pred %p<16>;
+	.loc	51	42	0
+$LDWbegin__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT_:
+	.loc	17	83	0
+	cvt.u32.u16 	%r1, %nctaid.x;
+	cvt.u32.u16 	%r2, %ntid.x;
+	mul.lo.u32 	%r3, %r1, %r2;
+	cvt.u64.u32 	%rd1, %r3;
+	mov.s64 	%rd2, %rd1;
+	.loc	17	85	0
+	cvt.u32.u16 	%r4, %ctaid.x;
+	mul.lo.u32 	%r5, %r4, %r2;
+	cvt.u32.u16 	%r6, %tid.x;
+	add.u32 	%r7, %r5, %r6;
+	cvt.u64.u32 	%rd3, %r7;
+	mov.s64 	%rd4, %rd3;
+	.loc	17	90	0
+	ld.param.u64 	%rd5, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT____val_paramf+0];
+	mov.s64 	%rd6, %rd4;
+	mul.lo.u64 	%rd7, %rd6, 8;
+	add.u64 	%rd8, %rd5, %rd7;
+	ld.global.s32 	%r8, [%rd8+0];
+	.loc	17	93	0
+	mov.s64 	%rd9, %rd2;
+	mul.lo.u64 	%rd10, %rd9, 8;
+	add.u64 	%rd11, %rd10, %rd8;
+	add.s64 	%rd12, %rd3, %rd1;
+	mov.s64 	%rd13, %rd12;
+	ld.param.s64 	%rd14, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT____val_paramf+8];
+	setp.ge.s64 	%p1, %rd12, %rd14;
+	@%p1 bra 	$Lt_4_9986;
+$Lt_4_10498:
+ //<loop> Loop body line 93, nesting depth: 1, estimated iterations: unknown
+	.loc	17	99	0
+	ld.global.s32 	%r9, [%rd11+0];
+	add.s32 	%r8, %r9, %r8;
+	.loc	17	102	0
+	add.u64 	%rd11, %rd10, %rd11;
+	add.s64 	%rd13, %rd13, %rd1;
+	.loc	17	93	0
+	ld.param.s64 	%rd14, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT____val_paramf+8];
+	.loc	17	102	0
+	setp.gt.s64 	%p2, %rd14, %rd13;
+	@%p2 bra 	$Lt_4_10498;
+$Lt_4_9986:
+	ld.param.u32 	%r10, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT____val_paramf+36];
+	setp.le.u32 	%p3, %r10, %r6;
+	@%p3 bra 	$Lt_4_11010;
+	.loc	17	107	0
+	mov.u64 	%rd15, smem;
+	cvt.u64.u32 	%rd16, %r6;
+	mul.wide.u32 	%rd17, %r6, 4;
+	add.u64 	%rd18, %rd15, %rd17;
+	st.shared.s32 	[%rd18+0], %r8;
+$Lt_4_11010:
+	mov.u64 	%rd15, smem;
+	.loc	17	102	0
+	ld.param.u32 	%r10, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT____val_paramf+36];
+	.loc	17	107	0
+	setp.ge.u32 	%p4, %r10, %r2;
+	@%p4 bra 	$Lt_4_11522;
+	.loc	17	102	0
+	ld.param.u32 	%r10, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT____val_paramf+36];
+	.loc	17	112	0
+	mov.s32 	%r11, %r10;
+	.loc	17	113	0
+	add.u32 	%r12, %r10, %r10;
+$Lt_4_12546:
+ //<loop> Loop body line 113, nesting depth: 1, estimated iterations: unknown
+	.loc	17	117	0
+	bar.sync 	0;
+	set.gt.u32.u32 	%r13, %r12, %r6;
+	neg.s32 	%r14, %r13;
+	set.le.u32.u32 	%r15, %r11, %r6;
+	neg.s32 	%r16, %r15;
+	and.b32 	%r17, %r14, %r16;
+	mov.u32 	%r18, 0;
+	setp.eq.s32 	%p5, %r17, %r18;
+	@%p5 bra 	$Lt_4_12802;
+	.loc	17	122	0
+	sub.u32 	%r19, %r6, %r11;
+	cvt.u64.u32 	%rd19, %r19;
+	mul.wide.u32 	%rd20, %r19, 4;
+	add.u64 	%rd21, %rd15, %rd20;
+	ld.shared.s32 	%r20, [%rd21+0];
+	add.s32 	%r21, %r20, %r8;
+	st.shared.s32 	[%rd21+0], %r21;
+$Lt_4_12802:
+	.loc	17	125	0
+	add.u32 	%r11, %r11, %r10;
+	.loc	17	126	0
+	add.u32 	%r12, %r12, %r10;
+	setp.lt.u32 	%p6, %r11, %r2;
+	@%p6 bra 	$Lt_4_12546;
+$Lt_4_11522:
+	.loc	17	130	0
+	bar.sync 	0;
+	.loc	17	132	0
+	min.u32 	%r22, %r10, %r2;
+	mov.s32 	%r23, %r22;
+	setp.le.u32 	%p7, %r22, %r2;
+	@%p7 bra 	$Lt_4_13570;
+	.loc	55	60	0
+	add.u32 	%r24, %r6, %r2;
+	mov.s32 	%r25, %r24;
+	setp.ge.u32 	%p8, %r24, %r22;
+	@%p8 bra 	$Lt_4_14082;
+	cvt.u64.u32 	%rd22, %r6;
+	mul.wide.u32 	%rd23, %r6, 4;
+	cvt.s64.u32 	%rd24, %r2;
+	mul.wide.u32 	%rd25, %r2, 4;
+	add.u64 	%rd26, %rd23, %rd15;
+	cvt.u64.u32 	%rd27, %r24;
+	mul.wide.u32 	%rd28, %r24, 4;
+	add.u64 	%rd29, %rd15, %rd28;
+	ld.shared.s32 	%r26, [%rd26+0];
+$Lt_4_14594:
+ //<loop> Loop body line 60, nesting depth: 1, estimated iterations: unknown
+	.loc	55	61	0
+	ld.shared.s32 	%r27, [%rd29+0];
+	add.s32 	%r26, %r27, %r26;
+	st.shared.s32 	[%rd26+0], %r26;
+	add.u32 	%r25, %r25, %r2;
+	add.u64 	%rd29, %rd25, %rd29;
+	setp.gt.u32 	%p9, %r22, %r25;
+	@%p9 bra 	$Lt_4_14594;
+$Lt_4_14082:
+	.loc	55	63	0
+	bar.sync 	0;
+$Lt_4_13570:
+	mov.u32 	%r28, 1;
+	setp.le.u32 	%p10, %r22, %r28;
+	@%p10 bra 	$Lt_4_15106;
+$Lt_4_15618:
+	shr.u32 	%r29, %r23, 1;
+	setp.le.u32 	%p11, %r29, %r6;
+	@%p11 bra 	$Lt_4_15874;
+	.loc	55	71	0
+	cvt.u64.u32 	%rd30, %r6;
+	mul.wide.u32 	%rd31, %r6, 4;
+	add.u64 	%rd32, %rd15, %rd31;
+	ld.shared.s32 	%r30, [%rd32+0];
+	sub.u32 	%r31, %r23, %r6;
+	sub.u32 	%r32, %r31, 1;
+	cvt.u64.u32 	%rd33, %r32;
+	mul.wide.u32 	%rd34, %r32, 4;
+	add.u64 	%rd35, %rd15, %rd34;
+	ld.shared.s32 	%r33, [%rd35+0];
+	add.s32 	%r34, %r30, %r33;
+	st.shared.s32 	[%rd32+0], %r34;
+$Lt_4_15874:
+	.loc	55	73	0
+	bar.sync 	0;
+	.loc	55	75	0
+	sub.u32 	%r23, %r23, %r29;
+	mov.u32 	%r35, 1;
+	setp.gt.u32 	%p12, %r23, %r35;
+	@%p12 bra 	$Lt_4_15618;
+$Lt_4_15106:
+	.loc	17	132	0
+	mov.u32 	%r36, 0;
+	setp.ne.u32 	%p13, %r6, %r36;
+	@%p13 bra 	$Lt_4_16642;
+	.loc	17	141	0
+	cvt.u64.u32 	%rd36, %r4;
+	mov.s64 	%rd37, %rd36;
+	.loc	17	142	0
+	ld.shared.s32 	%r37, [smem+0];
+	ld.param.s32 	%r38, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT____val_paramf+16];
+	add.s32 	%r39, %r38, %r37;
+	mov.u32 	%r40, 1;
+	setp.eq.u32 	%p14, %r1, %r40;
+	selp.s32 	%r41, %r39, %r37, %p14;
+	ld.param.u64 	%rd38, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT____val_paramf+24];
+	mov.s64 	%rd39, %rd37;
+	mul.lo.u64 	%rd40, %rd39, 4;
+	add.u64 	%rd41, %rd38, %rd40;
+	st.global.s32 	[%rd41+0], %r41;
+$Lt_4_16642:
+	.loc	51	45	0
+	exit;
+$LDWend__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT_:
+	} // _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIyEEEEliNS6_INS7_IiEEEENS_4plusIiEEEEEEvT_
+
+	.entry _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT_ (
+		.param .align 8 .b8 __cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT____val_paramf[40])
+	{
+	.reg .u32 %r<43>;
+	.reg .u64 %rd<43>;
+	.reg .pred %p<16>;
+	.loc	51	42	0
+$LDWbegin__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT_:
+	.loc	17	83	0
+	cvt.u32.u16 	%r1, %nctaid.x;
+	cvt.u32.u16 	%r2, %ntid.x;
+	mul.lo.u32 	%r3, %r1, %r2;
+	cvt.u64.u32 	%rd1, %r3;
+	mov.s64 	%rd2, %rd1;
+	.loc	17	85	0
+	cvt.u32.u16 	%r4, %ctaid.x;
+	mul.lo.u32 	%r5, %r4, %r2;
+	cvt.u32.u16 	%r6, %tid.x;
+	add.u32 	%r7, %r5, %r6;
+	cvt.u64.u32 	%rd3, %r7;
+	mov.s64 	%rd4, %rd3;
+	.loc	17	90	0
+	ld.param.u64 	%rd5, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT____val_paramf+0];
+	mov.s64 	%rd6, %rd4;
+	mul.lo.u64 	%rd7, %rd6, 4;
+	add.u64 	%rd8, %rd5, %rd7;
+	ld.global.s32 	%r8, [%rd8+0];
+	.loc	17	93	0
+	mov.s64 	%rd9, %rd2;
+	mul.lo.u64 	%rd10, %rd9, 4;
+	add.u64 	%rd11, %rd10, %rd8;
+	add.s64 	%rd12, %rd3, %rd1;
+	mov.s64 	%rd13, %rd12;
+	ld.param.s64 	%rd14, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT____val_paramf+8];
+	setp.ge.s64 	%p1, %rd12, %rd14;
+	@%p1 bra 	$Lt_5_9986;
+$Lt_5_10498:
+ //<loop> Loop body line 93, nesting depth: 1, estimated iterations: unknown
+	.loc	17	99	0
+	ld.global.s32 	%r9, [%rd11+0];
+	add.s32 	%r8, %r9, %r8;
+	.loc	17	102	0
+	add.u64 	%rd11, %rd10, %rd11;
+	add.s64 	%rd13, %rd13, %rd1;
+	.loc	17	93	0
+	ld.param.s64 	%rd14, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT____val_paramf+8];
+	.loc	17	102	0
+	setp.gt.s64 	%p2, %rd14, %rd13;
+	@%p2 bra 	$Lt_5_10498;
+$Lt_5_9986:
+	ld.param.u32 	%r10, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT____val_paramf+36];
+	setp.le.u32 	%p3, %r10, %r6;
+	@%p3 bra 	$Lt_5_11010;
+	.loc	17	107	0
+	mov.u64 	%rd15, smem;
+	cvt.u64.u32 	%rd16, %r6;
+	mul.wide.u32 	%rd17, %r6, 4;
+	add.u64 	%rd18, %rd15, %rd17;
+	st.shared.s32 	[%rd18+0], %r8;
+$Lt_5_11010:
+	mov.u64 	%rd15, smem;
+	.loc	17	102	0
+	ld.param.u32 	%r10, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT____val_paramf+36];
+	.loc	17	107	0
+	setp.ge.u32 	%p4, %r10, %r2;
+	@%p4 bra 	$Lt_5_11522;
+	.loc	17	102	0
+	ld.param.u32 	%r10, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT____val_paramf+36];
+	.loc	17	112	0
+	mov.s32 	%r11, %r10;
+	.loc	17	113	0
+	add.u32 	%r12, %r10, %r10;
+$Lt_5_12546:
+ //<loop> Loop body line 113, nesting depth: 1, estimated iterations: unknown
+	.loc	17	117	0
+	bar.sync 	0;
+	set.gt.u32.u32 	%r13, %r12, %r6;
+	neg.s32 	%r14, %r13;
+	set.le.u32.u32 	%r15, %r11, %r6;
+	neg.s32 	%r16, %r15;
+	and.b32 	%r17, %r14, %r16;
+	mov.u32 	%r18, 0;
+	setp.eq.s32 	%p5, %r17, %r18;
+	@%p5 bra 	$Lt_5_12802;
+	.loc	17	122	0
+	sub.u32 	%r19, %r6, %r11;
+	cvt.u64.u32 	%rd19, %r19;
+	mul.wide.u32 	%rd20, %r19, 4;
+	add.u64 	%rd21, %rd15, %rd20;
+	ld.shared.s32 	%r20, [%rd21+0];
+	add.s32 	%r21, %r20, %r8;
+	st.shared.s32 	[%rd21+0], %r21;
+$Lt_5_12802:
+	.loc	17	125	0
+	add.u32 	%r11, %r11, %r10;
+	.loc	17	126	0
+	add.u32 	%r12, %r12, %r10;
+	setp.lt.u32 	%p6, %r11, %r2;
+	@%p6 bra 	$Lt_5_12546;
+$Lt_5_11522:
+	.loc	17	130	0
+	bar.sync 	0;
+	.loc	17	132	0
+	min.u32 	%r22, %r10, %r2;
+	mov.s32 	%r23, %r22;
+	setp.le.u32 	%p7, %r22, %r2;
+	@%p7 bra 	$Lt_5_13570;
+	.loc	55	60	0
+	add.u32 	%r24, %r6, %r2;
+	mov.s32 	%r25, %r24;
+	setp.ge.u32 	%p8, %r24, %r22;
+	@%p8 bra 	$Lt_5_14082;
+	cvt.u64.u32 	%rd22, %r6;
+	mul.wide.u32 	%rd23, %r6, 4;
+	cvt.s64.u32 	%rd24, %r2;
+	mul.wide.u32 	%rd25, %r2, 4;
+	add.u64 	%rd26, %rd23, %rd15;
+	cvt.u64.u32 	%rd27, %r24;
+	mul.wide.u32 	%rd28, %r24, 4;
+	add.u64 	%rd29, %rd15, %rd28;
+	ld.shared.s32 	%r26, [%rd26+0];
+$Lt_5_14594:
+ //<loop> Loop body line 60, nesting depth: 1, estimated iterations: unknown
+	.loc	55	61	0
+	ld.shared.s32 	%r27, [%rd29+0];
+	add.s32 	%r26, %r27, %r26;
+	st.shared.s32 	[%rd26+0], %r26;
+	add.u32 	%r25, %r25, %r2;
+	add.u64 	%rd29, %rd25, %rd29;
+	setp.gt.u32 	%p9, %r22, %r25;
+	@%p9 bra 	$Lt_5_14594;
+$Lt_5_14082:
+	.loc	55	63	0
+	bar.sync 	0;
+$Lt_5_13570:
+	mov.u32 	%r28, 1;
+	setp.le.u32 	%p10, %r22, %r28;
+	@%p10 bra 	$Lt_5_15106;
+$Lt_5_15618:
+	shr.u32 	%r29, %r23, 1;
+	setp.le.u32 	%p11, %r29, %r6;
+	@%p11 bra 	$Lt_5_15874;
+	.loc	55	71	0
+	cvt.u64.u32 	%rd30, %r6;
+	mul.wide.u32 	%rd31, %r6, 4;
+	add.u64 	%rd32, %rd15, %rd31;
+	ld.shared.s32 	%r30, [%rd32+0];
+	sub.u32 	%r31, %r23, %r6;
+	sub.u32 	%r32, %r31, 1;
+	cvt.u64.u32 	%rd33, %r32;
+	mul.wide.u32 	%rd34, %r32, 4;
+	add.u64 	%rd35, %rd15, %rd34;
+	ld.shared.s32 	%r33, [%rd35+0];
+	add.s32 	%r34, %r30, %r33;
+	st.shared.s32 	[%rd32+0], %r34;
+$Lt_5_15874:
+	.loc	55	73	0
+	bar.sync 	0;
+	.loc	55	75	0
+	sub.u32 	%r23, %r23, %r29;
+	mov.u32 	%r35, 1;
+	setp.gt.u32 	%p12, %r23, %r35;
+	@%p12 bra 	$Lt_5_15618;
+$Lt_5_15106:
+	.loc	17	132	0
+	mov.u32 	%r36, 0;
+	setp.ne.u32 	%p13, %r6, %r36;
+	@%p13 bra 	$Lt_5_16642;
+	.loc	17	141	0
+	cvt.u64.u32 	%rd36, %r4;
+	mov.s64 	%rd37, %rd36;
+	.loc	17	142	0
+	ld.shared.s32 	%r37, [smem+0];
+	ld.param.s32 	%r38, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT____val_paramf+16];
+	add.s32 	%r39, %r38, %r37;
+	mov.u32 	%r40, 1;
+	setp.eq.u32 	%p14, %r1, %r40;
+	selp.s32 	%r41, %r39, %r37, %p14;
+	ld.param.u64 	%rd38, [__cudaparm__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT____val_paramf+24];
+	mov.s64 	%rd39, %rd37;
+	mul.lo.u64 	%rd40, %rd39, 4;
+	add.u64 	%rd41, %rd38, %rd40;
+	st.global.s32 	[%rd41+0], %r41;
+$Lt_5_16642:
+	.loc	51	45	0
+	exit;
+$LDWend__ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT_:
+	} // _ZN6thrust6detail7backend4cuda6detail23launch_closure_by_valueINS2_24unordered_reduce_closureINS0_15normal_iteratorINS_10device_ptrIiEEEEliS9_NS_4plusIiEEEEEEvT_
+

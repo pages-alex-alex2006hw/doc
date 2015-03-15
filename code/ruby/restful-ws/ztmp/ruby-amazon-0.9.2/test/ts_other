@@ -1,0 +1,13 @@
+#!/usr/bin/ruby -w
+#
+# $Id: ts_other,v 1.4 2006/08/03 19:58:05 ianmacd Exp $
+
+require 'test/unit'
+require 'tc_amazon-babyregistry'
+require 'tc_amazon-shoppingcart'
+require 'tc_amazon-transaction'
+require 'tc_amazon-weddingregistry'
+require 'tc_amazon-wishlist'
+require 'tc_attempts'
+require 'tc_accessors'
+require 'tc_connections'

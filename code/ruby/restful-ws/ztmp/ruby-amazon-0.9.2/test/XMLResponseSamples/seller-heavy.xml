@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><SellerProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xml.amazon.com/schemas3/dev-heavy.xsd">
+
+<Request><Args><Arg value="Ruby/Amazon 0.3.99" name="UserAgent"></Arg><Arg value="05M1B6797EZPDK5HPVE3" name="RequestID"></Arg><Arg value="us" name="locale"></Arg><Arg value="1" name="page"></Arg><Arg value="D23XFCO2UKJY82" name="dev-t"></Arg><Arg value="webservices-20" name="t"></Arg><Arg value="xml" name="f"></Arg><Arg value="AZPQKLIWQKVZ" name="SellerProfile"></Arg><Arg value="heavy" name="type"></Arg></Args></Request>   <SellerProfileDetails>
+      <SellerNickname>powells_books</SellerNickname>
+      <OverallFeedbackRating>4.6</OverallFeedbackRating>
+      <NumberOfFeedback>111501</NumberOfFeedback>
+      <StoreId>S1D3S2WE2LSKFM</StoreId>
+      <StoreName>Powells.com</StoreName>
+      <SellerFeedback>
+         <Feedback>
+            <FeedbackRating>5</FeedbackRating>
+            <FeedbackComments>excellent</FeedbackComments>
+            <FeedbackDate>02/02/2004</FeedbackDate>
+            <FeedbackRater></FeedbackRater>
+         </Feedback>
+         <Feedback>
+            <FeedbackRating>5</FeedbackRating>
+            <FeedbackComments>Very excellent. 6 stars!</FeedbackComments>
+            <FeedbackDate>02/02/2004</FeedbackDate>
+            <FeedbackRater></FeedbackRater>
+         </Feedback>
+         <Feedback>
+            <FeedbackRating>5</FeedbackRating>
+            <FeedbackComments>good seller......</FeedbackComments>
+            <FeedbackDate>02/01/2004</FeedbackDate>
+            <FeedbackRater></FeedbackRater>
+         </Feedback>
+         <Feedback>
+            <FeedbackRating>5</FeedbackRating>
+            <FeedbackComments>prompt delivery, book in fabulous condition - thanks!</FeedbackComments>
+            <FeedbackDate>02/01/2004</FeedbackDate>
+            <FeedbackRater></FeedbackRater>
+         </Feedback>
+         <Feedback>
+            <FeedbackRating>5</FeedbackRating>
+            <FeedbackComments>Library rate took around 4 weeks to reach Hawaii</FeedbackComments>
+            <FeedbackDate>02/01/2004</FeedbackDate>
+            <FeedbackRater></FeedbackRater>
+         </Feedback>
+      </SellerFeedback>
+   </SellerProfileDetails>
+</SellerProfile>

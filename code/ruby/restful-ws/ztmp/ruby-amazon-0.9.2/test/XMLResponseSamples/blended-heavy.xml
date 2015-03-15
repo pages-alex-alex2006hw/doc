@@ -1,0 +1,1316 @@
+<?xml version="1.0" encoding="UTF-8"?><BlendedSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xml.amazon.com/schemas3/dev-heavy.xsd">
+
+<Request><Args><Arg value="Ruby/Amazon 0.3.99" name="UserAgent"></Arg><Arg value="netherlands" name="BlendedSearch"></Arg><Arg value="1A970DE7WKW1RYM6ZNNM" name="RequestID"></Arg><Arg value="us" name="locale"></Arg><Arg value="D23XFCO2UKJY82" name="dev-t"></Arg><Arg value="webservices-20" name="t"></Arg><Arg value="xml" name="f"></Arg><Arg value="heavy" name="type"></Arg></Args></Request><ProductLine>
+   <Mode>books</Mode>
+   <RelevanceRank>1</RelevanceRank>
+<ProductInfo>
+   <TotalResults>21715</TotalResults>
+   <TotalPages>2172</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/0375508546/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>0375508546</Asin>
+      <ProductName>The Coffee Trader : A Novel</ProductName>
+      <Catalog>Book</Catalog>
+      <Authors>
+         <Author>David Liss</Author>
+      </Authors>
+      <ReleaseDate>04 March, 2003</ReleaseDate>
+      <Manufacturer>Random House</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/0375508546.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/0375508546.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/0375508546.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$24.95</ListPrice>
+      <OurPrice>$17.47</OurPrice>
+      <UsedPrice>$12.85</UsedPrice>
+      <CollectiblePrice>$14.00</CollectiblePrice>
+      <ThirdPartyNewPrice>$9.99</ThirdPartyNewPrice>
+      <SalesRank>10,487</SalesRank>
+      <Lists>
+         <ListId>MR7H810L1RBM</ListId>
+         <ListId>1Y50JDCI5JOPS</ListId>
+         <ListId>1H66PU4Q4BNE2</ListId>
+      </Lists>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Netherlands</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>History</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>1648-1714</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Fiction</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Jews</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>American Historical Fiction</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Fiction - Mystery/ Detective</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Mystery &amp; Detective - Historical</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Historical - General</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>Hardcover</Media>
+      <NumMedia>1</NumMedia>
+      <Isbn>0375508546</Isbn>
+      <Availability>Usually ships within 24 hours</Availability>
+      <Reviews>
+         <AvgCustomerRating>4.15</AvgCustomerRating>
+         <TotalCustomerReviews>34</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>2</Rating>
+            <Summary>Coffee trader could have been better</Summary>
+            <Comment>The idea behind the story was good. A great setting, and good characters. The problems with the book were historical value was diminished by too much that was inaccurate; all of the charactes were disgusting and were tricksters, slobs and cheats, all painting the supposedly pious Jews of the period too look like dishonest greedy thieves....no one was righteous; all immoral or amoral, everyone out to cheat everyone else all for different reasons was depressing, and the long discussions about the commodity trade were confusing to someone who didnt know the business, and finally, too much vulgar language which was inserted to create a sense of salacious appeal which was uneceesary.....although the concept was good and the setting interesting, the book failed in the story line itself</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>great read!!!!</Summary>
+            <Comment>Wonderful book that I could'nt put down!! Very well written and a great book if you like historical fiction. It reminded me because of the setting of Girl With A Pearl Earing.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>1</Rating>
+            <Summary>Coffee, women and tradition</Summary>
+            <Comment>I read the whole book and I don't know why. Individually, the story of the commoditiy traders and the history of the Jews from Portugal and Spain are interesting topics, but the story line used by Liss left me wanting. I think Liss did not take either aspect of the novel to any depth leaving just the whipped milk on my latte wasting away.</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>0804119120</Product>
+         <Product>0375505296</Product>
+         <Product>1400060494</Product>
+         <Product>0399149724</Product>
+         <Product>1400040442</Product>
+      </SimilarProducts>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/0935039821/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>0935039821</Asin>
+      <ProductName>Streetwise Amsterdam</ProductName>
+      <Catalog>Book</Catalog>
+      <Authors>
+         <Author>Streetwise Maps</Author>
+         <Author>Michael Brown</Author>
+      </Authors>
+      <ReleaseDate>01 July, 2001</ReleaseDate>
+      <Manufacturer>Streetwise Maps</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/0935039821.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/0935039821.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/0935039821.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$6.95</ListPrice>
+      <OurPrice>$6.95</OurPrice>
+      <ThirdPartyNewPrice>$6.95</ThirdPartyNewPrice>
+      <SalesRank>3,043</SalesRank>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Travel - Foreign</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Travel</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Amsterdam</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Amsterdam (Netherlands)</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Netherlands</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Maps</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Reference</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>Map</Media>
+      <NumMedia>1</NumMedia>
+      <Isbn>0935039821</Isbn>
+      <Availability>Usually ships within 24 hours</Availability>
+      <Reviews>
+         <AvgCustomerRating>4</AvgCustomerRating>
+         <TotalCustomerReviews>1</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>4</Rating>
+            <Summary>Streetwise Amsterdam</Summary>
+            <Comment>Trams, metros and automobiles! Streetwise Amsterdam is the map you need. Wandering through Amsterdam's semi-circular canals from Anne Frank House to the Van Gogh Museum, you'll find your way without difficulty with Streetwise Amsterdam. All major museums and points of interest are shown.&lt;P>Daring enough to try public transportation? This map shows tram and metro routes for the city center together with the street - no more trying to match public transport grids to street maps!&lt;P>Very small, laminated to be waterproof (which any Amsterdam veteran knows is invaluable!), and no fumbling with huge paper maps that won't refold correctly! If you will be traveling outside of the city center you will need a larger map as this does not cover the entire metropolitan Amsterdam area.&lt;P>As an American living in Amsterdam for three years, I still use this map to find the quaint cafe's and other treasures hiding in small side streets and alleyways.</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>9076499039</Product>
+         <Product>0789491826</Product>
+         <Product>0676901646</Product>
+         <Product>1566914531</Product>
+         <Product>1886705526</Product>
+      </SimilarProducts>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/052594527X/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>052594527X</Asin>
+      <ProductName>Girl With a Pearl Earring</ProductName>
+      <Catalog>Book</Catalog>
+      <Authors>
+         <Author>Tracy Chevalier</Author>
+      </Authors>
+      <ReleaseDate>27 December, 1999</ReleaseDate>
+      <Manufacturer>E P Dutton</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/052594527X.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/052594527X.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/052594527X.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$21.95</ListPrice>
+      <OurPrice>$15.37</OurPrice>
+      <UsedPrice>$7.95</UsedPrice>
+      <CollectiblePrice>$15.00</CollectiblePrice>
+      <ThirdPartyNewPrice>$14.41</ThirdPartyNewPrice>
+      <SalesRank>13,010</SalesRank>
+      <Lists>
+         <ListId>38HDBP5WENPD8</ListId>
+         <ListId>C8FBFVRSYD3S</ListId>
+         <ListId>2G30EY015KJ5E</ListId>
+      </Lists>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Vermeer, Johannes,</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>1632-1675</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Fiction</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Delft (Netherlands)</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Artists' models</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Fiction - Historical</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Historical - General</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Literary</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>General</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>Hardcover</Media>
+      <NumMedia>1</NumMedia>
+      <Isbn>052594527X</Isbn>
+      <Availability>Usually ships within 24 hours</Availability>
+      <ProductDescription>With precisely 35 canvases to his credit, the Dutch painter Johannes Vermeer represents one of the great enigmas of 17th-century art. The meager facts of his biography have been gleaned from a handful of legal documents. Yet Vermeer's extraordinary paintings of domestic life, with their subtle play of light and texture, have come to define the Dutch golden age. His portrait of the anonymous &lt;I>Girl with a Pearl Earring&lt;/I> has exerted a particular fascination for centuries--and it is this magnetic painting that lies at the heart of Tracy Chevalier's second novel of the same title.&lt;p>  &lt;I>Girl with a Pearl Earring&lt;/I> centers on Vermeer's prosperous Delft household during the 1660s. When Griet, the novel's quietly perceptive heroine, is hired as a servant, turmoil follows. First, the 16-year-old narrator becomes increasingly intimate with her master. Then Vermeer employs her as his assistant--and ultimately has Griet sit for him as a model. Chevalier vividly evokes the complex domestic tensions of the household, ruled over by the painter's jealous, eternally pregnant wife and his taciturn mother-in-law. At times the relationship between servant and master seems a little anachronistic. Still, &lt;I>Girl with a Pearl Earring&lt;/I> does contain a final delicious twist.&lt;p>  Throughout, Chevalier cultivates a limpid, painstakingly observed style, whose exactitude is an effective homage to the painter himself. Even Griet's most humdrum duties take on a high if unobtrusive gloss: &lt;blockquote> I came to love grinding the things he brought from the apothecary--bones, white lead, madder, massicot--to see how bright and pure I could get the colors. I learned that the finer the materials were ground, the deeper the color. From rough, dull grains madder became a fine bright red powder and, mixed with linseed oil, a sparkling paint. Making it and the other colors was magical. &lt;/blockquote> In assembling such quotidian particulars, the author acknowledges her debt to Simon Schama's classic study &lt;I>The Embarrassment of Riches&lt;/I>. Her novel also joins a crop of recent, painterly fictions, including Deborah Moggach's &lt;I>Tulip Fever&lt;/I> and Susan Vreeland's &lt;I>Girl in Hyacinth Blue&lt;/I>. Can novelists extract much more from the Dutch golden age? The question is an open one--but in the meantime, &lt;I>Girl with a Pearl Earring&lt;/I> remains a fascinating piece of speculative historical fiction, and an appealingly new take on an old master. &lt;I>--Jerry Brotton&lt;/I></ProductDescription>
+      <Reviews>
+         <AvgCustomerRating>4.04</AvgCustomerRating>
+         <TotalCustomerReviews>582</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>2</Rating>
+            <Summary>Entertaining but no masterpiece</Summary>
+            <Comment>I read this book in two days. While it was appealing to me as a person interested in art and gave me a renewed appreciation of Vermeer, it has little more to offer than that. The writing is cut and dry and the characters are just generic, paper-doll types (the humble maid, her witch of a mistress, the more understanding elderly lady). Chevalier seems afraid to develop too much the character of Jan Vermeer lest her description strays too far from historical accuracy. This is a bland novel with an anticlimatic, yet realistic, ending.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Want to love a sophisticated book, no effort required?</Summary>
+            <Comment>I didn't realize how much I had enjoyed reading *Girl with a Pearl Earring* until I had finished the last page, closed the book, and saw that there wasn't any more of it to read. It seduced my attention in such small steps that I hadn't noticed what Tracy Chevalier had accomplished: this is not just an interesting story about a painting, it is a stunning portrait in itself. To borrow a phrase from a high school teacher of mine, Tracy Chevalier could write about opening a box of cereal, and it would still be the most interesting thing you have read in a month. &lt;P>I read in a review on this website that *Pearl Earring* was a "surprisingly good read" despite its lack of plot and abundance of "uninteresting" and "unpleasant" characters. This description also suggests what the reviewer thinks would comprise an UNsurprisingly good book - lots of plot and pleasant characters? What fun would that be? &lt;P>The reason this reviewer thought the book was good _anyway_ is because Chevalier managed to break through his or her preconception that "good" means "a lot of cool stuff is going on." &lt;P>In Griet, Griet's family, and Griet's employers, Chevalier has created a wonderfully detailed and intelligent possible world where works of art may be created. After reading this book (in two days flat, by the way - I did not want to stop reading), I wanted to thank Chevalier for changing the way I could admire a painting. Vermeer was in the book, yes. All the little facts were correct, and historic Delft was presented plague, market, art patrons and all. &lt;P>But in the end, I only really cared about the girl - the girl who could read the people around her with only a glance, who knew that respectable women did not appear open-mouthed in portraits, who could see without being told what is missing in a small, dark spot of canvas, and who could find comfort in a small square of Delft tile made by her poor father when forced to live apart from him.&lt;P>If you are interested in this sort of an exercise in historical fiction, I highly recommend this book. And if you're wondering how a slow, quiet story without a plot can be enjoyable, read it and let Chevalier surprise you.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Stellar. One of my all time favorites</Summary>
+            <Comment>The opening scene of this book is masterly: a girl, chopping vegetables in her home arranges them by color and texture and tint like an artist's palette, listening as her parents arrange for her to leave the only home she's ever known and work for the painter Vermeer. She advances from scullery maid to become his helper and eventually the subject of one of his most famous painting. This wonderful, multi-layered book is historical fiction that rises many notches above other books in the genre.&lt;P>Vermeer's prosperous household is full of tensions: servants who have their own hierarchy, his domineering and perpetually-pregnant wife, the many resulting children, and his incredibly powerful mother-in-law. This exquisite and painstakingly- researched portrayal of life in 16th century Delft takes readers through all levels of society, giving us a vivid understanding of how small a sphere of life the people of that time and place were able to experience.</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>014029628X</Product>
+         <Product>0312195516</Product>
+         <Product>0142001740</Product>
+         <Product>0452283205</Product>
+         <Product>0452284449</Product>
+      </SimilarProducts>
+   </Details>
+</ProductInfo>
+</ProductLine>
+<ProductLine>
+   <Mode>classical</Mode>
+   <RelevanceRank>2</RelevanceRank>
+<ProductInfo>
+   <TotalResults>190</TotalResults>
+   <TotalPages>19</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00000426C/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00000426C</Asin>
+      <ProductName>Prokofiev/Britten: Peter And The Wolf/Lieutenant Kijé Suite/Young Person's Guide To The Orchestra</ProductName>
+      <Catalog>Music</Catalog>
+      <Artists>
+         <Artist>Sergey Prokofiev</Artist>
+         <Artist>Benjamin Britten</Artist>
+         <Artist>Antal Dorati</Artist>
+         <Artist>Tony D'Amato</Artist>
+      </Artists>
+      <ReleaseDate>14 May, 1996</ReleaseDate>
+      <Manufacturer>Polygram Records</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00000426C.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00000426C.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00000426C.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$9.98</ListPrice>
+      <OurPrice>$9.98</OurPrice>
+      <UsedPrice>$9.23</UsedPrice>
+      <ThirdPartyNewPrice>$7.99</ThirdPartyNewPrice>
+      <SalesRank>13,172</SalesRank>
+      <Tracks>
+         <Track>Peter And The Wolf, Op. 67: This Is The Story Of Peter And The Wolf</Track>
+         <Track>Peter And The Wolf, Op. 67: It Was Early Morning</Track>
+         <Track>Peter And The Wolf, Op. 67: Grandfather Led Him Back To The House</Track>
+         <Track>Peter And The Wolf, Op. 67: Now This Is How Things Stood</Track>
+         <Track>Peter And The Wolf, Op. 67: And Now, The Victory Parade</Track>
+         <Track>Lieutenant Kije - Suite: The Birth Of Kije</Track>
+         <Track>Lieutenant Kije - Suite: Romance</Track>
+         <Track>Lieutenant Kije - Suite: Kije's Wedding</Track>
+         <Track>Lieutenant Kije - Suite: Troika</Track>
+         <Track>Lieutenant Kije - Suite: The Funeral Of Kije</Track>
+         <Track>The Young Person's Guide To The Orchestra: Introduction</Track>
+         <Track>The Young Person's Guide To The Orchestra: Let Us Hear Each Instrument Play A Variation</Track>
+         <Track>The Young Person's Guide To The Orchestra: The Highest Instruments In The String Family</Track>
+         <Track>The Young Person's Guide To The Orchestra: We Now Come To The Brass Family</Track>
+         <Track>The Young Person's Guide To The Orchestra: The Percussion Family</Track>
+         <Track>The Young Person's Guide To The Orchestra: You Have Heard The Whole Orchestra In Sections</Track>
+      </Tracks>
+      <Media>Audio CD</Media>
+      <Availability>Usually ships within 24 hours</Availability>
+      <Upc>028944410426</Upc>
+      <Reviews>
+         <AvgCustomerRating>5</AvgCustomerRating>
+         <TotalCustomerReviews>3</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Found at last.</Summary>
+            <Comment>As a kindergarten teacher we enjoyed the music, but Connery's telling of Peter and the Wolf is absolutely the icing on the cake, he is able to create such suspense! I first started using this version when it was intially released as a record, perhaps thirty years ago, and other than a live performances no other telling has been able to keep the children enthralled like this one.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Through the eyes of a child-</Summary>
+            <Comment>Everything seems so much more impressive, colorful, and intricate when one is young. The two pieces here geared towards children (the Britten and Prokofiev) are pieces that simultaneously provide children a wonderful inroduction to classical music, while recreating some of that imaginative childhood experience for adults as well. &lt;P>Why should you buy this recording as opposed to the others on the market though? Well, First there is Dorati- who puts all the dance, gaitey and life into these pieces that are necessary. They sing, they dance, all because of Dorati's expertise with ballet-music. He also gets top-notch playing for the Lt. Kije Suite as well. Secondly, SEAN CONNERY- I laughed out loud when I first realized this icon of dialect was coupled with my favorite conductor on this CD, and later I was even more pleased at how well it worked. &lt;P>You will surely enjoy both the expert playing, and the narrating of all of these purely fun, purely child-like pieces.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Now available on CD!!!!</Summary>
+            <Comment>I grew up on the LP of this, which didn't include Lt. Kije, and I was psyched when this CD came out. A previous Peter/Young Peoples CD release has Sean Connery listed, but he only narrates the Britten, and Dorati does the Prokofiev, which was a major disappointment.&lt;P>As for sound quality, don't expect too much. It's an old recording. But can anything match the joy of hearing Sean utter, "Birdie and I have caught the wolf"?&lt;P>I think not. Buy now.</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>B0000025PI</Product>
+         <Product>0590386085</Product>
+         <Product>B00005YW4H</Product>
+      </SimilarProducts>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00001X57C/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00001X57C</Asin>
+      <ProductName>Mozart for Mommies and Daddies - Jumpstart your Newborn's IQ</ProductName>
+      <Catalog>Music</Catalog>
+      <Artists>
+         <Artist>Wolfgang Amadeus Mozart</Artist>
+         <Artist>Neville Marriner</Artist>
+         <Artist>Ingrid Haebler</Artist>
+         <Artist>Heinz Holliger</Artist>
+         <Artist>Ton Koopman</Artist>
+         <Artist>Maria Graf</Artist>
+         <Artist>Irena Grafenauer</Artist>
+         <Artist>Mitsuko Uchida</Artist>
+         <Artist>Antony Pay</Artist>
+      </Artists>
+      <ReleaseDate>12 October, 1999</ReleaseDate>
+      <Manufacturer>Polygram Records</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00001X57C.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00001X57C.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00001X57C.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$11.98</ListPrice>
+      <OurPrice>$10.99</OurPrice>
+      <UsedPrice>$8.99</UsedPrice>
+      <ThirdPartyNewPrice>$9.37</ThirdPartyNewPrice>
+      <SalesRank>7,105</SalesRank>
+      <Lists>
+         <ListId>2A6UEEXPDLDKE</ListId>
+      </Lists>
+      <Tracks>
+         <Track>Waking Up: Twinkle, Twinkle Little Star Theme</Track>
+         <Track>Waking Up: Papageno's Song (From The Magic Flute)</Track>
+         <Track>Waking Up: Minuet In F, K. 1D</Track>
+         <Track>Waking Up: Minuet In F, K..2</Track>
+         <Track>Waking Up: Minuet In G, K. 1-1 E- Minuet In C, K. 1-F</Track>
+         <Track>Waking Up: Papageno's Love Song (A Pretty Maiden For Me)</Track>
+         <Track>Morning Playtime: Four Dances From Five Country Dances: Country Dance No. 1 In C</Track>
+         <Track>Morning Playtime: Four Dances From Five Country Dances: Country Dance No. 2 In E Flat</Track>
+         <Track>Morning Playtime: Four Dances From Five Country Dances: Country Dance No. 3 In D Major</Track>
+         <Track>Morning Playtime: Four Dances From Dive Country Dances: Country Dance No. 4 In C</Track>
+         <Track>Morning Playtime: Wind Serenade On Themes From 'Don Giovanni': Notte E Giorno Faticar</Track>
+         <Track>Morning Playtime: Wind Serenade On Themes From 'Don Giovanni': Madamina (Part 1)</Track>
+         <Track>Morning Playtime: Wind Serenade On Themes From 'Don Giovanni': Minuet (Final Party Scene, Act 1)</Track>
+         <Track>Morning Playtime: Wind Serenade On Themes From 'Don Giovanni': Monostato's Aria (From The Magic Flute)</Track>
+         <Track>Morning Playtime: Wind Serenade On Themes From 'Don Giovanni': From Six Minuets -- Minuet No. 5 In F Major</Track>
+         <Track>Morning Playtime: Wind Serenade On Themes From 'Don Giovanni': From Six German Dances -- German Dance No. 5 In G Major</Track>
+         <Track>Mid-Day Naptime: Concerto for Flute, Harp &amp; Orchestra -- Andantino</Track>
+         <Track>Afternoon Playtime: Sonata in C (for Beginners) -- Allegro</Track>
+         <Track>Afternoon Playtime: Sonata in A -- Theme And Variations I-III</Track>
+         <Track>Afternoon Playtime: Wind Serenade On Themes From 'Don Giovanni':  Love Duet: La Ci Darem La Mano</Track>
+         <Track>Afternoon Playtime: Wind Serenade On Themes From 'Don Giovanni': Champagne Aria</Track>
+         <Track>Afternoon Playtime: Wind Serenade On Themes From 'Don Giovanni': Don Juan's Serenade</Track>
+         <Track>Afternoon Playtime: Wind Serenade On Themes From 'Don Giovanni': 12 Variations In C On Twinkle, Twinkle Little Star</Track>
+         <Track>And So To Bed: Eine Kleine Nachtmusik -- Romance (Andante)</Track>
+         <Track>And So To Bed: Wind Serenade On Themes From Don Giovanni- Vedrai, Carino</Track>
+         <Track>And So To Bed: Clarinet Quintet In A - Larghetto</Track>
+      </Tracks>
+      <Media>Audio CD</Media>
+      <Availability>Usually ships within 24 hours</Availability>
+      <Upc>028946440520</Upc>
+      <Reviews>
+         <AvgCustomerRating>5</AvgCustomerRating>
+         <TotalCustomerReviews>2</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Superior Performances. Mozart is Food for the Brain.</Summary>
+            <Comment>What differentiates this collection from other "Mozart for young children" CD's is that it is played by classical music virtuosos. Some of the biggest names are included, and the performances are outstanding. &lt;P>Playing quality music like this on a daily basis in the background or in the car will help your child's development in many areas. Mozart is food for the brain.&lt;P>I also highly recommend any other piano works (sonatas, variation, trios, etc.) by Mozart.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Love it!</Summary>
+            <Comment>Great playtime music, especially the "Twinkle, twinkle" variations. This cd is very playful and my kiddos listen to it (or maybe don't realize they are listening to it) during afternoon playtimes. I know it is sinking in, because their ears perk right up when they here the music in other venues (commercials and that kind of thing) and have even called out "Mozart!" much to my chagrin! A great addition to any child's music collection.</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>B0000041EV</Product>
+         <Product>B00000IIUP</Product>
+         <Product>B00000IIYV</Product>
+         <Product>B000009OU6</Product>
+         <Product>B00004U0QG</Product>
+      </SimilarProducts>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B0000042DL/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B0000042DL</Asin>
+      <ProductName>Prokofiev: Lieutenant Kijé; Scythian Suite</ProductName>
+      <Catalog>Music</Catalog>
+      <Artists>
+         <Artist>Sergey Prokofiev</Artist>
+         <Artist>Antal Dorati</Artist>
+         <Artist>Claudio Abbado</Artist>
+         <Artist>Vladimir Ashkenazy</Artist>
+         <Artist>Ernest Ansermet</Artist>
+         <Artist>Silvio Varviso</Artist>
+      </Artists>
+      <ReleaseDate>14 October, 1997</ReleaseDate>
+      <Manufacturer>Polygram Records</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B0000042DL.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B0000042DL.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B0000042DL.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$17.98</ListPrice>
+      <OurPrice>$17.98</OurPrice>
+      <UsedPrice>$15.67</UsedPrice>
+      <CollectiblePrice>$17.77</CollectiblePrice>
+      <ThirdPartyNewPrice>$15.67</ThirdPartyNewPrice>
+      <SalesRank>26,588</SalesRank>
+      <Lists>
+         <ListId>JUIL602Y39BW</ListId>
+      </Lists>
+      <Tracks>
+         <Track>Lieutenant Kije - Suite, Op. 60: The Birth Of Kije - S. Prokofiev</Track>
+         <Track>Lieutenant Kije - Suite, Op. 60: Romance - S. Prokofiev</Track>
+         <Track>Lieutenant Kije - Suite, Op. 60: The Wedding Of Kije - S. Prokofiev</Track>
+         <Track>Lieutenant Kije - Suite, Op. 60: Troika - S. Prokofiev</Track>
+         <Track>Lieutenant Kije - Suite, Op. 60: The Burial Of Kije - S. Prokofiev</Track>
+         <Track>Chout - Suite, Op. 21b: The Buffoon And His Wife - S. Prokofiev</Track>
+         <Track>Chout - Suite, Op. 21b: Dance Of The Wives - S. Prokofiev</Track>
+         <Track>Chout - Suite, Op. 21b: The Buffoons Kill Their Wives - S. Prokofiev</Track>
+         <Track>Chout - Suite, Op. 21b: Dance Of The Buffoons' Daughters - S. Prokofiev</Track>
+         <Track>Chout - Suite, Op. 21b: In The Merchant's Bedroom - S. Prokofiev</Track>
+         <Track>Choat - Suite, Op. 21b: The Young Wife Becomes A Goat - S. Prokofiev</Track>
+         <Track>Chout - Suite, Op. 21b: The Burial Of The Goat - S. Prokofiev</Track>
+         <Track>Chout - Suite, Op. 21b: Quarrel Between The Buffoon And The Merchant - S. Prokofiev</Track>
+         <Track>Chout - Suite, Op. 21b: Final Dance - S. Prokofiev</Track>
+         <Track>Autumnal, Op. 8 - S. Prokofiev</Track>
+         <Track>The Prodigal Son - Symphonic Suite, Op. 46b: Adagio - S. Prokofiev</Track>
+         <Track>The Prodigal Son - Symphonic Suite, Op. 46b: Allegro fastoso - S. Prokofiev</Track>
+         <Track>The Prodigal Son - Symphonic Suite, Op. 46b: Presto - S. Prokofiev</Track>
+         <Track>The Prodigal Son - Symphonic Suite, Op. 46b: Andante assai - S. Prokofiev</Track>
+         <Track>The Prodigal Son - Symphonic Suite, Op. 46b: Andante pomposo - S. Prokofiev</Track>
+         <Track>Scythian Suite, Op. 20: The Adoration Of Veles And Ala - Sergei Prokofiev</Track>
+         <Track>Scythian Suite, Op. 20: The Enemy God And Dance Of The Black Spirits - Sergei Prokofiev</Track>
+         <Track>Scythian Suite, Op. 20: Night - Sergei Prokofiev</Track>
+         <Track>Scythian Suite, Op. 20: The Glorious Departure Of Lolly and the Procession of the Sun - Sergei Prokofiev</Track>
+         <Track>The Stone Flower, Op. 118: Prologue - Sergei Prokofiev</Track>
+         <Track>The Stone Flower, Op. 118: From Act I - Sergei Prokofiev</Track>
+         <Track>The Stone Flower, Op. 118: From Act II - Sergei Prokofiev</Track>
+         <Track>The Stone Flower, Op. 118: From Act III - Sergei Prokofiev</Track>
+         <Track>The Stone Flower, Op. 118: From Act IV - Sergei Prokofiev</Track>
+      </Tracks>
+      <Media>Audio CD</Media>
+      <NumMedia>2</NumMedia>
+      <Availability>Usually ships within 24 hours</Availability>
+      <Upc>028944827323</Upc>
+      <ProductDescription>This is an excellent collection of music largely composed during Prokofiev's  &lt;I>Paris&lt;/I> period--the first two decades of this century--though &lt;I>The Stone Flower&lt;/I> comes  from the end of his career, and &lt;I>Kije&lt;/I> from the exact middle. The &lt;I>Scythian Suite&lt;/I> was  originally conceived as a ballet in direct competition with Stravinsky's &lt;I>The Rite of Spring&lt;/I>,  but when no production seemed imminent, the composer turned it into an orchestral piece. The  biting, fiercely brilliant music of the Paris ballets has never been as popular as Prokofiev's later  music, but this generous compilation allows you to hear the consistently high level of quality that  he maintained over his entire career, and at a bargain price it's most welcome. &lt;I>--David  Hurwitz&lt;/I></ProductDescription>
+      <Reviews>
+         <AvgCustomerRating>5</AvgCustomerRating>
+         <TotalCustomerReviews>1</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>stunning orchestral suites, recorded from 1965 to 1974</Summary>
+            <Comment>This is a gigantic, no-frills package of first-rate Prokofiev. Originally recorded between 1965 and 1974, this Decca Double includes six works, five of them major -- Autumnal, the Scythian Suite, Chout, The Prodigal Son, Lt. Kije, and The Stone Flower. Autumnal was composed in 1910 before Prokofiev left Russia, and was influenced by Scriabin and Debussy. The Scythian Suite, Chout and The Prodigal Son were all Paris works, intended for Diaghilev's ballets. The young Prokofiev was brilliant, urbane, witty, and definitely should not have been in Stravinsky's shadow. Lt. Kije was written as a Soviet film score in the early-mid 1930s, paving the way for Prokofiev's return. Kije contains three memorable themes, which are interwoven in the last movement. Prokofiev's populist touch here at its best! The Stone Flower, a 50-minute work, was one of his last compositions, based on Urals folk songs. The Stone Flower is lushly melodic -- Prokofiev was only getting better at the time of his tragic death in 1953(in the same hour as Stalin!). &lt;P> Prokofiev had a gift comparable to Mozart's. Prokofiev and Shostakovich, the Russian Mozart and Beethoven of the 20th century!</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>B00000IOCZ</Product>
+         <Product>B00009ZKXD</Product>
+         <Product>B00008DDXC</Product>
+         <Product>0385504209</Product>
+         <Product>B00005JM02</Product>
+      </SimilarProducts>
+   </Details>
+</ProductInfo>
+</ProductLine>
+<ProductLine>
+   <Mode>universal</Mode>
+   <RelevanceRank>7</RelevanceRank>
+<ProductInfo>
+   <TotalResults>60</TotalResults>
+   <TotalPages>6</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B0000D9N4N/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B0000D9N4N</Asin>
+      <ProductName>Old Amsterdam - 1 Pound</ProductName>
+      <Catalog>Gourmet</Catalog>
+      <Manufacturer>igourmet</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B0000D9N4N.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B0000D9N4N.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B0000D9N4N.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <Features>
+         <Feature>Gold Medal winner</Feature>
+         <Feature>aged 12 months</Feature>
+         <Feature>cow's milk</Feature>
+         <Feature>cross between a Parmigiano Reggiano and an Aged Gouda</Feature>
+         <Feature>imported from Holland</Feature>
+      </Features>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B0000D9MYL/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B0000D9MYL</Asin>
+      <ProductName>Beemster Classic Extra Aged Farmer Gouda - 1 Pound</ProductName>
+      <Catalog>Gourmet</Catalog>
+      <Manufacturer>igourmet</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B0000D9MYL.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B0000D9MYL.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B0000D9MYL.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <Features>
+         <Feature>aged 18 months</Feature>
+         <Feature>cow's milk</Feature>
+         <Feature>hard and grateable,yet creamy on the palate</Feature>
+         <Feature>imported from Holland</Feature>
+         <Feature>intense, butterscotch, nutty flavor</Feature>
+      </Features>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B0000TU98E/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B0000TU98E</Asin>
+      <ProductName>Douwe Egberts Ground Coffee - Medium Roast</ProductName>
+      <Catalog>Gourmet</Catalog>
+      <Manufacturer>igourmet</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B0000TU98E.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B0000TU98E.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B0000TU98E.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <Features>
+         <Feature>available in dark roast, medium roast, and decafe</Feature>
+         <Feature>imported from Holland</Feature>
+      </Features>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+      <Reviews>
+         <AvgCustomerRating>5</AvgCustomerRating>
+         <TotalCustomerReviews>2</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>The Best there is</Summary>
+            <Comment>As a resident of the Netherlands, it was funny to find 'our' national drink on an american site. How wonderful for you people that you have been given the oppertunity to tast Hollands Best Coffee. It let you see that there is more to Holland than Cheeses, wooden shoes, tullips and windmills. Yes, there is also coffee. Try dunkin'a bisquit in it preferably a 'speculaasje'</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Great Flavor for pre-ground coffee.</Summary>
+            <Comment>After traveling to the Netherlands and drinking Douwe Egberts coffee in just about every restaurant I decided to try to get some DE Coffee in the US. It's not very easy to find! I prefer a whole bean coffee for the freshest taste, but this pre-ground is hard to beat. Distinct flavor and the medium blend is the perfect match of a smooth drink and a bold flavor.</Comment>
+         </CustomerReview>
+      </Reviews>
+   </Details>
+</ProductInfo>
+</ProductLine>
+<ProductLine>
+   <Mode>music</Mode>
+   <RelevanceRank>3</RelevanceRank>
+<ProductInfo>
+   <TotalResults>24</TotalResults>
+   <TotalPages>3</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B000025M3E/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B000025M3E</Asin>
+      <ProductName>Prisoner of a Dream [Netherlands Bonus Track]</ProductName>
+      <Catalog>Music</Catalog>
+      <Artists>
+         <Artist>Walter Trout</Artist>
+      </Artists>
+      <ReleaseDate>18 March, 2003</ReleaseDate>
+      <Manufacturer>Import [Generic]</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B000025M3E.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B000025M3E.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B000025M3E.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$30.99</ListPrice>
+      <OurPrice>$30.99</OurPrice>
+      <UsedPrice>$23.99</UsedPrice>
+      <ThirdPartyNewPrice>$19.30</ThirdPartyNewPrice>
+      <SalesRank>68,062</SalesRank>
+      <Lists>
+         <ListId>3C104YUFXSDW4</ListId>
+         <ListId>3QGEBO6MRRYO1</ListId>
+      </Lists>
+      <Tracks>
+         <Track>Prisoner Of A Dream</Track>
+         <Track>The Love That We Once Knew</Track>
+         <Track>Sweet As A Flower</Track>
+         <Track>Love In Vain</Track>
+         <Track>Victor The Cajun</Track>
+         <Track>Girl From The North Country</Track>
+         <Track>False Alarm</Track>
+         <Track>Say Goodbye To The Blues</Track>
+         <Track>You're The One</Track>
+         <Track>Earrings On The Table</Track>
+         <Track>Tribute To Muddy Waters(Bonus Track)</Track>
+      </Tracks>
+      <Media>Audio CD</Media>
+      <NumMedia>1</NumMedia>
+      <Features>
+         <Feature>Extra tracks</Feature>
+         <Feature>Import</Feature>
+      </Features>
+      <Availability>Usually ships within 24 hours</Availability>
+      <Upc>766485231826</Upc>
+      <Reviews>
+         <AvgCustomerRating>5</AvgCustomerRating>
+         <TotalCustomerReviews>1</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Electrifyingly great blues</Summary>
+            <Comment>After two decades as a side man for the likes of John Mayall and John Lee Hooker, Walter Trout finally signed a recording contract of his own. His early albums, including this one, were distributed only in Europe and not in his native America. Trout has said in interviews that he feels that he could have done a better job on them but I cannot agree with him. This album approaches perfection as an exposition of magnificent electric blues.&lt;P>The CD, contains eleven tracks, including one bonus track, of the most powerful blues rock that I have ever heard. The opening track, "Prisoner of a Dream" is one of my favourite electric blues/rock songs of all time. It combines great guitar solos and a strong bass line all topped with terrific vocals and lyrics. This song really has everything that you could ask for in this type of music.&lt;P>The CD continues with a mixture of styles of from the light-hearted "Victor the Cajun" to slower laments and a traditional twelve bar format in the song "False Alarm" which packs the punch of a moon rocket.&lt;P>Just when you think that the CD cannot get any better you get to track eight and along comes "Say Goodbye to the Blues" which eclipses not just what came before on this CD but also almost everything else that I have ever heard.&lt;P>If you like guitar music by the likes of Eric Clapton then you will love this CD it is on my list of essential rock music and it is a great introduction to the work of Walter Trout.</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>B0000074KY</Product>
+         <Product>B000024HWD</Product>
+         <Product>B000040OVZ</Product>
+         <Product>B0000ADXFD</Product>
+         <Product>B000066ALU</Product>
+      </SimilarProducts>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00006HCL9/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00006HCL9</Asin>
+      <ProductName>Strange Things Are Happening</ProductName>
+      <Catalog>Music</Catalog>
+      <Artists>
+         <Artist>The Outsiders</Artist>
+      </Artists>
+      <ReleaseDate>03 December, 2002</ReleaseDate>
+      <Manufacturer>Rpm [Cherry Red]</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00006HCL9.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00006HCL9.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00006HCL9.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$15.98</ListPrice>
+      <OurPrice>$15.98</OurPrice>
+      <ThirdPartyNewPrice>$13.17</ThirdPartyNewPrice>
+      <SalesRank>36,781</SalesRank>
+      <Lists>
+         <ListId>37N0OIPJTYAIP</ListId>
+         <ListId>5MA188ID5DZ0</ListId>
+      </Lists>
+      <Tracks>
+         <Track>You Mistreat Me</Track>
+         <Track>Sun's Going Down</Track>
+         <Track>Felt Like I Wanted to Cry</Track>
+         <Track>I Love Her Still, I Always Will</Track>
+         <Track>Lying All the Time</Track>
+         <Track>Thinking About Today</Track>
+         <Track>Keep on Trying</Track>
+         <Track>That's Your Problem</Track>
+         <Track>Touch</Track>
+         <Track>Ballad of John B</Track>
+         <Track>Monkey on Your Back</Track>
+         <Track>What's Wrong With You</Track>
+         <Track>Summer Is Here</Track>
+         <Track>Teach Me to Forget</Track>
+         <Track>I've Been Loving You So Long</Track>
+         <Track>I'm Only Trying to Prove to Myself That I'm Not Like Everbody Else</Track>
+         <Track>Don't You Worry About Me</Track>
+         <Track>Bird in a Cage</Track>
+         <Track>Cup of Hot Coffee</Track>
+         <Track>Strange Things Are Happening</Track>
+         <Track>I Don't Care</Track>
+         <Track>You Remind Me</Track>
+         <Track>Do You Feel Allright</Track>
+         <Track>Daddy Died on a Saturday</Track>
+      </Tracks>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Pop</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Rock</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>Audio CD</Media>
+      <NumMedia>1</NumMedia>
+      <Availability>Usually ships within 5 to 8 days</Availability>
+      <Reviews>
+         <AvgCustomerRating>5</AvgCustomerRating>
+         <TotalCustomerReviews>2</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Excellent!!!</Summary>
+            <Comment>This compilation of all the Dutch Outsiders Material is great. You Mistreat me is early beat punk at its best while Im Only Trying is great early psychedelia. The aren't any weak tunes on this comp and if you like the rolling stones, pretty things, or Love this is highly recommended. The 1960's owned rock music and unknown bands like this prove that distinction. Modern Rock bands today can hardly hold a candle to this and lack the melodic invention of the Outsiders. Lying All The Time is classic folk rock easily the equal of anything off the byrds first album. Also recommend is C.Q. by the outsiders from 1968 and their first album which contains some of these songs. C.Q. is one of the finest psychedelic albums ever!</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Happyville if alas Hipville as well...</Summary>
+            <Comment>Sadly I have all the songs here, either as extras from their two albums and the double cd of "sessions" from the CQ album or from, uh,.... What bothers me is how hard I had to dig for the songs now so easily available. And this is great music lads. Tough r+b that makes a joke of a great deal of British and American attempts at the latter. Think of a cd of really good Nugget style music you had somehow missed. Alas this stuff getting easier to find means that rather trite trendies will be blaring it at their High Fidelity perches in their little record stores, but you mustn't judge a band by its fans, especially when they aren't around to defend themselves.&lt;P>If you dig mid sixties music, love the Stones and Pretty Things and need a new fix then my God man buy this. But don't get an attitude about it, o.k.?</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>B0000631PB</Product>
+         <Product>B0000070EB</Product>
+         <Product>B00007EL94</Product>
+         <Product>B00005JY1R</Product>
+         <Product>B000003H0W</Product>
+      </SimilarProducts>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B000002AC2/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B000002AC2</Asin>
+      <ProductName>Souvenirs/Captured Angel/Netherlands [box]</ProductName>
+      <Catalog>Music</Catalog>
+      <Artists>
+         <Artist>Dan Fogelberg</Artist>
+      </Artists>
+      <ReleaseDate>24 October, 1995</ReleaseDate>
+      <Manufacturer>Sony</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B000002AC2.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B000002AC2.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B000002AC2.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$24.98</ListPrice>
+      <OurPrice>$22.99</OurPrice>
+      <UsedPrice>$22.09</UsedPrice>
+      <ThirdPartyNewPrice>$21.67</ThirdPartyNewPrice>
+      <SalesRank>15,342</SalesRank>
+      <Tracks>
+         <Track>Part of the Plan</Track>
+         <Track>Illinois</Track>
+         <Track>Changing Horses</Track>
+         <Track>Better Change</Track>
+         <Track>Souvenirs</Track>
+         <Track>Long Way</Track>
+         <Track>As the Raven Flies</Track>
+         <Track>Song from Half Mountain</Track>
+         <Track>Morning Sky</Track>
+         <Track>(Someone's Been) Telling You Stories</Track>
+         <Track>There's a Place in the World for a Gambler</Track>
+         <Track>Aspen/These Days</Track>
+         <Track>Comes and Goes</Track>
+         <Track>Captured Angel</Track>
+         <Track>Old Tennessee</Track>
+         <Track>Next Time</Track>
+         <Track>Man in the Mirror/Below the Surface</Track>
+         <Track>Crow</Track>
+         <Track>Last Nail</Track>
+         <Track>Nether Lands</Track>
+         <Track>Once Upon a Time</Track>
+         <Track>Dancing Shoes</Track>
+         <Track>Lessons Learned</Track>
+         <Track>Loose Ends</Track>
+         <Track>Love Gone By</Track>
+         <Track>Promises Made</Track>
+         <Track>Give Me Some Time</Track>
+         <Track>Scarecrow's Dream</Track>
+         <Track>Sketches</Track>
+         <Track>False Faces</Track>
+      </Tracks>
+      <Media>Audio CD</Media>
+      <NumMedia>3</NumMedia>
+      <Features>
+         <Feature>Box set</Feature>
+      </Features>
+      <Availability>Usually ships within 24 hours</Availability>
+      <Upc>074646481424</Upc>
+      <Reviews>
+         <AvgCustomerRating>4.67</AvgCustomerRating>
+         <TotalCustomerReviews>3</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>4</Rating>
+            <Summary>Heartbreak Heaven</Summary>
+            <Comment>I'll admit it. I'm a sucker for heartbreak songs and Dan's one of the best ever at creating them. Especially when it comes to singing about the one who "got away." These three cds are also excellent examples of his excellent musicianship, production and songwriting, as well. So if you are suffering from the heartache of a lost relationship and you've tired of Joni Mitchell's "Blue" and Jackson Browne's "Late for the Sky" cds here is superb solace and shared misery on the same level. Dan was in his prime during this era of his career and sadly, after the "Innocent Age" lp, he never regained this level of quality again.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>America's Unassuming MusicalTreasure</Summary>
+            <Comment>I began to follow Dan's carrer in a junior college town back in the seventies. I thougt that he was just the coolest musician around becaus he was so enormoulsy talented; playing many of the instruments on the album I was looking at buying (Home Free). I bought the tape of it back then and was really surprised that he owned such wonderful dual abilities in both the areas of music and lyrics. Today he remains my favourite musician to listen too and also see live. When someday up the road there is an honest discussion of Royalty among the American musical class it will be far and away Dan Fogelberg at the top of the class. From the genres of country, blues, pop, and jazz, I cannot help but congratulate mysef on the honor of listening to his music by way of concerts and purchasing his musical artistry.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Three in one, what fun!</Summary>
+            <Comment>If you are a Dan Fogelberg fan and have worn out any of the three CD's included in this set, you couldn't ask for a better collection. These CD's are classic Dan Folgelberg, the stuff that make people keep coming back for more. I've hunted through music stores looking for Dan's older recording and could rarely find a good selection - now, here you have it. Three great CD's set together!</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>B0000024ZK</Product>
+         <Product>B0000996AB</Product>
+         <Product>B0000025EN</Product>
+         <Product>B0000025D3</Product>
+         <Product>B0000025NJ</Product>
+      </SimilarProducts>
+   </Details>
+</ProductInfo>
+</ProductLine>
+<ProductLine>
+   <Mode>magazines</Mode>
+   <RelevanceRank>8</RelevanceRank>
+<ProductInfo>
+   <TotalResults>12</TotalResults>
+   <TotalPages>2</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00006KPT3/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00006KPT3</Asin>
+      <ProductName>New Netherland Connections</ProductName>
+      <Catalog>Magazine</Catalog>
+      <Manufacturer>New Netherland Connections</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00006KPT3.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00006KPT3.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00006KPT3.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$15.00</ListPrice>
+      <OurPrice>$28.85</OurPrice>
+      <SalesRank>3,342</SalesRank>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Genealogy</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>Magazine</Media>
+      <Features>
+         <Feature>Magazine Subscription</Feature>
+      </Features>
+      <Availability>Usually ships within 2 to 4 months</Availability>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00006LBZN/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00006LBZN</Asin>
+      <ProductName>European Public Affairs Directory</ProductName>
+      <Catalog>Magazine</Catalog>
+      <Manufacturer>Landmarks Sa</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00006LBZN.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00006LBZN.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00006LBZN.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$161.14</ListPrice>
+      <OurPrice>$162.04</OurPrice>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>History: Netherlands (low Countries)</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>History</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>Magazine</Media>
+      <Features>
+         <Feature>Magazine Subscription</Feature>
+      </Features>
+      <Availability>Usually ships within 24 hours</Availability>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00006KD7U/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00006KD7U</Asin>
+      <ProductName>Environmental News From The Netherlands</ProductName>
+      <Catalog>Magazine</Catalog>
+      <Manufacturer>Distributiecentr Vrom</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00006KD7U.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00006KD7U.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00006KD7U.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$13.32</ListPrice>
+      <OurPrice>$13.32</OurPrice>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Economic History And Conditions (region)</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>Magazine</Media>
+      <Features>
+         <Feature>Magazine Subscription</Feature>
+      </Features>
+      <Availability>Usually ships within 2 to 4 months</Availability>
+   </Details>
+</ProductInfo>
+</ProductLine>
+<ProductLine>
+   <Mode>vhs</Mode>
+   <RelevanceRank>4</RelevanceRank>
+<ProductInfo>
+   <TotalResults>7</TotalResults>
+   <TotalPages>1</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B0000ACNPB/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B0000ACNPB</Asin>
+      <ProductName>Pilgrimages of Europe Amsterdam, The Netherlands</ProductName>
+      <Catalog>Video</Catalog>
+      <TheatricalReleaseDate>01 January, 2003</TheatricalReleaseDate>
+      <ReleaseDate>09 December, 2003</ReleaseDate>
+      <Manufacturer>Janson Video Inc</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B0000ACNPB.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B0000ACNPB.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B0000ACNPB.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$24.95</ListPrice>
+      <OurPrice>$24.95</OurPrice>
+      <UsedPrice>$19.95</UsedPrice>
+      <SalesRank>99,725</SalesRank>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Travel</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Special Interests</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Religion</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>VHS Tape</Media>
+      <NumMedia>1</NumMedia>
+      <Features>
+         <Feature>Color</Feature>
+         <Feature>NTSC</Feature>
+      </Features>
+      <Availability>Usually ships within 24 hours</Availability>
+      <Upc>646032016536</Upc>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00007IJ3C/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00007IJ3C</Asin>
+      <ProductName>Rick Steves' Europe: Prague, Amsterdam and the Swiss Alps (VHS Tape)</ProductName>
+      <Catalog>Video</Catalog>
+      <ReleaseDate>03 April, 2003</ReleaseDate>
+      <Manufacturer>Avalon Travel Publishing</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00007IJ3C.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00007IJ3C.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00007IJ3C.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$19.95</ListPrice>
+      <OurPrice>$19.95</OurPrice>
+      <SalesRank>6,367</SalesRank>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Travel</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Prague (Czech Republic)</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Amsterdam (Netherlands)</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Switzerland</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Europe - General</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Video - Non-Fiction</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>VHS Tape</Media>
+      <NumMedia>1</NumMedia>
+      <Availability>Special Order</Availability>
+      <Upc>015669164291</Upc>
+      <SimilarProducts>
+         <Product>B00007IJ3D</Product>
+         <Product>1568551762</Product>
+         <Product>B00005Q4FO</Product>
+         <Product>B00005JM5E</Product>
+      </SimilarProducts>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00003M5H0/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00003M5H0</Asin>
+      <ProductName>Rossini - Il barbiere di Seviglia (The Barber of Seville) / Zedda, Malis, Larmore, Netherlands Opera</ProductName>
+      <Catalog>Video</Catalog>
+      <Starring>
+         <Actor>Richard Croft</Actor>
+         <Actor>Jennifer Larmore</Actor>
+      </Starring>
+      <TheatricalReleaseDate>01 January, 1992</TheatricalReleaseDate>
+      <ReleaseDate>30 November, 1999</ReleaseDate>
+      <Manufacturer>Kultur Video</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00003M5H0.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00003M5H0.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00003M5H0.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$29.95</ListPrice>
+      <OurPrice>$29.95</OurPrice>
+      <ThirdPartyNewPrice>$18.93</ThirdPartyNewPrice>
+      <SalesRank>14,390</SalesRank>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Performing Arts - Opera</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>VHS Tape</Media>
+      <NumMedia>1</NumMedia>
+      <Features>
+         <Feature>Color</Feature>
+         <Feature>NTSC</Feature>
+      </Features>
+      <MpaaRating>NR (Not Rated)</MpaaRating>
+      <Availability>Special Order</Availability>
+      <Upc>032031208735</Upc>
+      <ProductDescription>In an audio recording, the distinctive quality of this  Netherlands Opera production would go unnoticed, and a lot of people  might like it better without pictures. The singing is first-class, with  a pert, smart, visually appealing Rosina (Jennifer Larmore), a Count  Almaviva who can spin out bel canto melodies and also do a good drunk  scene (Richard Croft), a Figaro with lots of personality (David Malis).  And conductor Alberto Zedda is an expert in the music of Rossini. But  video brings out the fact that, for better or for worse, this &lt;I>Barber  of Seville&lt;/I> differs radically from other treatments of Rossini's  comic masterpiece.&lt;p>  Usually &lt;I>The Barber of Seville&lt;/I> is an intimate little comedy with  a half-dozen solo roles and a small, all-male chorus. Except for a few  ensemble numbers, there are usually only two or three people on stage  at any given moment, often conversing in stage whispers. Sometimes, in  a plot full of secrets and deceptions, supernumeraries are out of  place.&lt;p>  Dario Fo's staging ignores this stylistic tradition. He gives the solo  singers a crowd of artfully choreographed silent partners (including  acrobats, dancers, and two men rigged to imitate a donkey), who scamper  around the stage carrying ladders and sheets, pushing platforms, waving  banners, and making sure that there is always something to amuse the  eyes as well as the ears. This staging gives a solid visual embodiment  to the comic spirit of the words and music, but it wipes out any  pretense of dramatic realism. &lt;I>The Barber of Seville&lt;/I> does not  pretend to be "a slice of life" and many patrons will find that the  energy of these added participants is its own justification. But those  who treasure traditional staging and the conventions of realism should  be ready for a lively but unconventional production. Perhaps they can  listen with their eyes closed and enjoy a first-class sound recording.  &lt;I>--Joe McLellan&lt;/I></ProductDescription>
+      <Reviews>
+         <AvgCustomerRating>3.48</AvgCustomerRating>
+         <TotalCustomerReviews>25</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Enchanting performance and colorful background scenery.</Summary>
+            <Comment>Watching the performance in this video, it so justifies as the masterpiece of Rossini. The bubling comedy is performed with such excellent singing and enlivened with background activty by a sort of circus group, which give the performance a more colorful and extra-ordinary nuance as a comedy. It is especially amusing to see David Mallis singing as the roguish Figaro in such a clear splendid voice which enlivened the performance,as well as Richard Croft singing as the romantic prankish Almaviva in his sparkling tenor voice made this opera more enchanting, while Jennifer Croft singing in her rare half deep soprano voice made this masterpiece opera into perfection. I have seen other performances of this opera but has never enjoy watching and listening over and over again to the performance and all the arias and singers. On top of that, the shooting of the video and recording is also so perfect that it seems like we were attending a live performance. This video is really one which shall not be overlooked and forgotten.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>4</Rating>
+            <Summary>Brilliantly Sung But Poorly Staged</Summary>
+            <Comment>This disc is a well executed performance of Il Barbiere. The singing is of a very high quality throughout. Jennifer Larmore is simply fabulous as Rosina. Her rich and deep mezzo is surprisingly agile in the coloratura portions of her role, and her stage presence is a plus. Richard Croft's tenor is a little bigger than is heard in most performances, but that is another plus, because Count Almaviva shouldn't sound like a wimp. David Malis is a wonderful Figaro, mainly because he can act as well as sing. The rest of the cast perform well, and the pacing of the score under the baton of Albero Zedda is exactly what one would expect from a noted Rossini scholar. Which leaves the staging. Il Barbiere is a comic opera, and the libretto provides ample room for buffa action on stage by the cast. The delicacy and the comedic sense of this gem of an opera are simply overwhelmed by stage busyness, like people running around with banners, ladders, furniture and all sorts of things that detract sharply from the plot, the real action and the singing. I am glad that I have this DVD, because I like Il Barbiere and this is the best performance currently available on DVD. I have reviewed a fair number of operas here, and maintain that the DVD medium is the next best thing to live performance. The video here is excellent, but why, oh why didn't the sound engineers produce this in Dolby 5.1 rather than in stereo? I recommend this performance to serious opera lovers, but I caution anyone who is "testing the water". There are other operas available on DVD that make better first ventures than this one. I think that the crazyness onstage would spoil the opera experience for newcomers to the art.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>A lot more fun than you might think</Summary>
+            <Comment>The first video Barber of Seville I saw was a VHS with Cecilia Bartoli. So I was scared off by some of the reviews below. Having watched it, I agree with another review: the negative reviews are unfair.&lt;P>True, early on the movements are distracting and there are moments where the crowd noise is a problem. But like any good drama, this staging draws you in. After the first scene or so, the extra action really adds to the production. If you like a static production where the singers just stand around and sing, then, no, you won't like this one. But if you like action that creates a grand spectacle, than you will experience this production more positively. On the whole, it works. I'm no expert in operatic historiography, but this production FEELS right for the genre.&lt;P>I'm also no expert in singing, but the music in this production sounds fine to me.&lt;P>As with "sinyung" I'm giving this 5 stars since it is "so much fun." I burst out laughing numerous times. Isn't that what a great comedy is to do? Yes, there are occasional flaws, but they are more than outweighed by the positive aspects.</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>B00005NGAB</Product>
+         <Product>B000050X31</Product>
+         <Product>B000022TSV</Product>
+         <Product>B000050X2Z</Product>
+         <Product>B00005UVDM</Product>
+      </SimilarProducts>
+   </Details>
+</ProductInfo>
+</ProductLine>
+<ProductLine>
+   <Mode>electronics</Mode>
+   <RelevanceRank>16</RelevanceRank>
+<ProductInfo>
+   <TotalResults>6</TotalResults>
+   <TotalPages>1</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00004ZA3V/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00004ZA3V</Asin>
+      <ProductName>Motorola Intl 3266 33.6K Sdc Ll &amp; Dial S/A V.34 Netherlands with Pwr/Linecord</ProductName>
+      <Catalog>Electronics</Catalog>
+      <Manufacturer>Motorola</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00004ZA3V.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00004ZA3V.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00004ZA3V.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <OurPrice>$1,125.20</OurPrice>
+      <Media>Electronics</Media>
+      <NumMedia>1</NumMedia>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+      <Upc>786523427202</Upc>
+      <Mpn>42720</Mpn>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00004ZA2B/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00004ZA2B</Asin>
+      <ProductName>Motorola Intl 3266 33.6K Ll &amp; Dial S/A V.34 Netherlands with Pwr / Eol 7/5</ProductName>
+      <Catalog>Electronics</Catalog>
+      <Manufacturer>Motorola</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00004ZA2B.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00004ZA2B.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00004ZA2B.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <OurPrice>$1,023.67</OurPrice>
+      <Media>Electronics</Media>
+      <NumMedia>1</NumMedia>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+      <Upc>786523426212</Upc>
+      <Mpn>42621</Mpn>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00007FHCP/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00007FHCP</Asin>
+      <ProductName>Intl 3266 33.6K Sdc Ll &amp; Dial for Belguim France And Netherlands</ProductName>
+      <Catalog>Electronics</Catalog>
+      <Manufacturer>TELENETICS</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00007FHCP.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00007FHCP.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00007FHCP.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$1,650.00</ListPrice>
+      <OurPrice>$991.99</OurPrice>
+      <Media>Electronics</Media>
+      <NumMedia>1</NumMedia>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+      <Upc>801762428114</Upc>
+      <Mpn>TEL-42811</Mpn>
+   </Details>
+</ProductInfo>
+</ProductLine>
+<ProductLine>
+   <Mode>dvd</Mode>
+   <RelevanceRank>5</RelevanceRank>
+<ProductInfo>
+   <TotalResults>2</TotalResults>
+   <TotalPages>1</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00005OCLH/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00005OCLH</Asin>
+      <ProductName>Ravel - L'Enfant et les Sortilèges / Netherlands Dance Theater (Jiri Kylian)</ProductName>
+      <Catalog>DVD</Catalog>
+      <Starring>
+         <Actor>Netherlands Dance Theater</Actor>
+      </Starring>
+      <TheatricalReleaseDate>01 January, 1986</TheatricalReleaseDate>
+      <ReleaseDate>16 October, 2001</ReleaseDate>
+      <Manufacturer>Image Entertainment</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00005OCLH.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00005OCLH.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00005OCLH.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$19.99</ListPrice>
+      <OurPrice>$17.99</OurPrice>
+      <UsedPrice>$16.75</UsedPrice>
+      <ThirdPartyNewPrice>$16.12</ThirdPartyNewPrice>
+      <SalesRank>12,827</SalesRank>
+      <Lists>
+         <ListId>DYVOKO9GB22V</ListId>
+         <ListId>6VIXWT26L857</ListId>
+         <ListId>3ANIAOQWRFEVA</ListId>
+      </Lists>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Performing Arts - Ballet/Dance</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>DVD</Media>
+      <NumMedia>1</NumMedia>
+      <Features>
+         <Feature>Color</Feature>
+      </Features>
+      <MpaaRating>NR (Not Rated)</MpaaRating>
+      <Availability>Usually ships within 5 to 8 days</Availability>
+      <Upc>014381928327</Upc>
+      <ProductDescription>Colette, the author of &lt;I>Gigi&lt;/I>, penned the story of &lt;I>L'enfant et  les sortil&amp;#233;ges&lt;/I>, which is related here in an introduction by the  choreographer Jiri Kylian with charm and a nod back at his own childhood pranks.  Viewers coming to this Netherlands Dance Theatre version of the opera for the  first time may be surprised that Ravel composed the boy's role for a girl, and a  rather buxom one in this instance. The somewhat gloomy, heavily embroidered  production misses no opportunity in bringing to life the toys in the boy's room  or the animals in the garden that turn on him in retribution. In conclusion, as  an act of compassion of binding the paw of an injured squirrel, the boy and the  animal kingdom are reconciled in music of a truly sublime nature. Lorin Maazel  conducts Ravel's sophisticated and witty score of translucent vocal lines with  the affection for which he has long been renowned. &lt;I>--Adrian Edwards&lt;/I></ProductDescription>
+      <Reviews>
+         <AvgCustomerRating>3</AvgCustomerRating>
+         <TotalCustomerReviews>2</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>1</Rating>
+            <Summary>This is not ballet, it is hardly even dance...</Summary>
+            <Comment>There is about 5 minutes of real dancing on this DVD the rest is writhing and silly movement. I love Ravel's music, and wish this company had done his opera music a more justice than this tripe. 99% of it isn't even athletic let alone artistic.&lt;P>Well lit, filmed, and costumed. Too bad the dancing is miserable.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Excellent DVD</Summary>
+            <Comment>I found this DVD highly entertaining: the music was beautiful and dancing was artistically attuned to the fairy tail story. I have never seen a production of this Ravel work. Too bad this beautiful work is not performed more often.</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>B000059H8C</Product>
+         <Product>B00005Y6ZF</Product>
+         <Product>B00005B6KM</Product>
+         <Product>B00005IB9A</Product>
+         <Product>B0000687DZ</Product>
+      </SimilarProducts>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00001O2G9/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00001O2G9</Asin>
+      <ProductName>Rossini - Il barbiere di Siviglia (The Barber of Seville) / Dario Fo, Zedda, Larmore, Croft, Netherlands Opera</ProductName>
+      <Catalog>DVD</Catalog>
+      <Directors>
+         <Director>Hans Hulscher</Director>
+      </Directors>
+      <TheatricalReleaseDate>01 January, 1992</TheatricalReleaseDate>
+      <ReleaseDate>26 October, 1999</ReleaseDate>
+      <Manufacturer>Image Entertainment 2</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00001O2G9.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00001O2G9.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00001O2G9.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$29.99</ListPrice>
+      <OurPrice>$26.99</OurPrice>
+      <UsedPrice>$25.15</UsedPrice>
+      <CollectiblePrice>$25.49</CollectiblePrice>
+      <ThirdPartyNewPrice>$23.53</ThirdPartyNewPrice>
+      <SalesRank>7,768</SalesRank>
+      <Lists>
+         <ListId>3A5LPU85ZVB3C</ListId>
+      </Lists>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Performing Arts - Opera</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>DVD</Media>
+      <NumMedia>1</NumMedia>
+      <Features>
+         <Feature>Color</Feature>
+         <Feature>Widescreen</Feature>
+      </Features>
+      <MpaaRating>NR (Not Rated)</MpaaRating>
+      <Availability>Usually ships within 2 to 3 days</Availability>
+      <Upc>014381577921</Upc>
+      <ProductDescription>In an audio recording, the distinctive quality of this  Netherlands Opera production would go unnoticed, and a lot of people  might like it better without pictures. The singing is first-class, with  a pert, smart, visually appealing Rosina (Jennifer Larmore), a Count  Almaviva who can spin out bel canto melodies and also do a good drunk  scene (Richard Croft), a Figaro with lots of personality (David Malis).  And conductor Alberto Zedda is an expert in the music of Rossini. But  video brings out the fact that, for better or for worse, this &lt;I>Barber  of Seville&lt;/I> differs radically from other treatments of Rossini's  comic masterpiece.&lt;p>  Usually &lt;I>The Barber of Seville&lt;/I> is an intimate little comedy with  a half-dozen solo roles and a small, all-male chorus. Except for a few  ensemble numbers, there are usually only two or three people on stage  at any given moment, often conversing in stage whispers. Sometimes, in  a plot full of secrets and deceptions, supernumeraries are out of  place.&lt;p>  Dario Fo's staging ignores this stylistic tradition. He gives the solo  singers a crowd of artfully choreographed silent partners (including  acrobats, dancers, and two men rigged to imitate a donkey), who scamper  around the stage carrying ladders and sheets, pushing platforms, waving  banners, and making sure that there is always something to amuse the  eyes as well as the ears. This staging gives a solid visual embodiment  to the comic spirit of the words and music, but it wipes out any  pretense of dramatic realism. &lt;I>The Barber of Seville&lt;/I> does not  pretend to be "a slice of life" and many patrons will find that the  energy of these added participants is its own justification. But those  who treasure traditional staging and the conventions of realism should  be ready for a lively but unconventional production. Perhaps they can  listen with their eyes closed and enjoy a first-class sound recording.  &lt;I>--Joe McLellan&lt;/I></ProductDescription>
+      <Reviews>
+         <AvgCustomerRating>3.48</AvgCustomerRating>
+         <TotalCustomerReviews>25</TotalCustomerReviews>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>Enchanting performance and colorful background scenery.</Summary>
+            <Comment>Watching the performance in this video, it so justifies as the masterpiece of Rossini. The bubling comedy is performed with such excellent singing and enlivened with background activty by a sort of circus group, which give the performance a more colorful and extra-ordinary nuance as a comedy. It is especially amusing to see David Mallis singing as the roguish Figaro in such a clear splendid voice which enlivened the performance,as well as Richard Croft singing as the romantic prankish Almaviva in his sparkling tenor voice made this opera more enchanting, while Jennifer Croft singing in her rare half deep soprano voice made this masterpiece opera into perfection. I have seen other performances of this opera but has never enjoy watching and listening over and over again to the performance and all the arias and singers. On top of that, the shooting of the video and recording is also so perfect that it seems like we were attending a live performance. This video is really one which shall not be overlooked and forgotten.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>4</Rating>
+            <Summary>Brilliantly Sung But Poorly Staged</Summary>
+            <Comment>This disc is a well executed performance of Il Barbiere. The singing is of a very high quality throughout. Jennifer Larmore is simply fabulous as Rosina. Her rich and deep mezzo is surprisingly agile in the coloratura portions of her role, and her stage presence is a plus. Richard Croft's tenor is a little bigger than is heard in most performances, but that is another plus, because Count Almaviva shouldn't sound like a wimp. David Malis is a wonderful Figaro, mainly because he can act as well as sing. The rest of the cast perform well, and the pacing of the score under the baton of Albero Zedda is exactly what one would expect from a noted Rossini scholar. Which leaves the staging. Il Barbiere is a comic opera, and the libretto provides ample room for buffa action on stage by the cast. The delicacy and the comedic sense of this gem of an opera are simply overwhelmed by stage busyness, like people running around with banners, ladders, furniture and all sorts of things that detract sharply from the plot, the real action and the singing. I am glad that I have this DVD, because I like Il Barbiere and this is the best performance currently available on DVD. I have reviewed a fair number of operas here, and maintain that the DVD medium is the next best thing to live performance. The video here is excellent, but why, oh why didn't the sound engineers produce this in Dolby 5.1 rather than in stereo? I recommend this performance to serious opera lovers, but I caution anyone who is "testing the water". There are other operas available on DVD that make better first ventures than this one. I think that the crazyness onstage would spoil the opera experience for newcomers to the art.</Comment>
+         </CustomerReview>
+         <CustomerReview>
+            <Rating>5</Rating>
+            <Summary>A lot more fun than you might think</Summary>
+            <Comment>The first video Barber of Seville I saw was a VHS with Cecilia Bartoli. So I was scared off by some of the reviews below. Having watched it, I agree with another review: the negative reviews are unfair.&lt;P>True, early on the movements are distracting and there are moments where the crowd noise is a problem. But like any good drama, this staging draws you in. After the first scene or so, the extra action really adds to the production. If you like a static production where the singers just stand around and sing, then, no, you won't like this one. But if you like action that creates a grand spectacle, than you will experience this production more positively. On the whole, it works. I'm no expert in operatic historiography, but this production FEELS right for the genre.&lt;P>I'm also no expert in singing, but the music in this production sounds fine to me.&lt;P>As with "sinyung" I'm giving this 5 stars since it is "so much fun." I burst out laughing numerous times. Isn't that what a great comedy is to do? Yes, there are occasional flaws, but they are more than outweighed by the positive aspects.</Comment>
+         </CustomerReview>
+      </Reviews>
+      <SimilarProducts>
+         <Product>B00005NGAB</Product>
+         <Product>B000050X31</Product>
+         <Product>B000022TSV</Product>
+         <Product>B000050X2Z</Product>
+         <Product>B00005UVDM</Product>
+      </SimilarProducts>
+   </Details>
+</ProductInfo>
+</ProductLine>
+<ProductLine>
+   <Mode>garden</Mode>
+   <RelevanceRank>9</RelevanceRank>
+<ProductInfo>
+   <TotalResults>2</TotalResults>
+   <TotalPages>1</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B0000CNQVI/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B0000CNQVI</Asin>
+      <ProductName>Daffodil, Mixed</ProductName>
+      <Catalog>Kitchen</Catalog>
+      <Manufacturer>Netherlands</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B0000CNQVI.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B0000CNQVI.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B0000CNQVI.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <Features>
+         <Feature>12-14 cm bulbs</Feature>
+         <Feature>14-18 inches tall</Feature>
+         <Feature>Bloom Time Mar/May</Feature>
+         <Feature>Full-Sun</Feature>
+         <Feature>Hardy in zone 3</Feature>
+      </Features>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B0000CNQVJ/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B0000CNQVJ</Asin>
+      <ProductName>Crocus, Mixed</ProductName>
+      <Catalog>Kitchen</Catalog>
+      <Manufacturer>Netherlands</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B0000CNQVJ.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B0000CNQVJ.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B0000CNQVJ.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <Features>
+         <Feature>4-6 inches tall</Feature>
+         <Feature>8-9 cm bulbs</Feature>
+         <Feature>Bloom Time Mar/April</Feature>
+         <Feature>Full-Sun</Feature>
+         <Feature>Hardy in zone 4</Feature>
+      </Features>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+   </Details>
+</ProductInfo>
+</ProductLine>
+<ProductLine>
+   <Mode>pc-hardware</Mode>
+   <RelevanceRank>15</RelevanceRank>
+<ProductInfo>
+   <TotalResults>2</TotalResults>
+   <TotalPages>1</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00006HPFF/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00006HPFF</Asin>
+      <ProductName>POWER/TELCO KIT-NETHERLANDS TO</ProductName>
+      <Catalog>Electronics</Catalog>
+      <Manufacturer>MULTI-TECH SYSTEMS</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00006HPFF.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00006HPFF.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00006HPFF.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <OurPrice>$21.99</OurPrice>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Power Cable (Cables)</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Accessories (Accessory)</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>Electronics</Media>
+      <NumMedia>1</NumMedia>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+      <Upc>789407026799</Upc>
+      <Mpn>LK-ZBA-NL</Mpn>
+   </Details>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B00006HPDN/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B00006HPDN</Asin>
+      <ProductName>MultiTech NETHERLANDS TELCO ADAPTER TO BE ( TA-NL )</ProductName>
+      <Catalog>Electronics</Catalog>
+      <Manufacturer>MULTI-TECH SYSTEMS</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B00006HPDN.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B00006HPDN.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B00006HPDN.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <ListPrice>$12.99</ListPrice>
+      <OurPrice>$6.95</OurPrice>
+      <BrowseList>
+         <BrowseNode>
+            <BrowseName>Surge Protection (Protector, Protectors, Power Strips, Strip)</BrowseName>
+         </BrowseNode>
+         <BrowseNode>
+            <BrowseName>Accessories (Accessory)</BrowseName>
+         </BrowseNode>
+      </BrowseList>
+      <Media>Electronics</Media>
+      <NumMedia>1</NumMedia>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+      <Upc>789407024993</Upc>
+      <Mpn>TA-NL</Mpn>
+   </Details>
+</ProductInfo>
+</ProductLine>
+<ProductLine>
+   <Mode>apparel</Mode>
+   <RelevanceRank>10</RelevanceRank>
+<ProductInfo>
+   <TotalResults>1</TotalResults>
+   <TotalPages>1</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B0000DZNS2/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B0000DZNS2</Asin>
+      <ProductName>Netherlands Country Flag Caps</ProductName>
+      <Catalog>Apparel</Catalog>
+      <Manufacturer>Global</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B0000DZNS2.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B0000DZNS2.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B0000DZNS2.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+   </Details>
+</ProductInfo>
+</ProductLine>
+<ProductLine>
+   <Mode>kitchen</Mode>
+   <RelevanceRank>11</RelevanceRank>
+<ProductInfo>
+   <TotalResults>1</TotalResults>
+   <TotalPages>1</TotalPages>
+   <Details url="http://www.amazon.com/exec/obidos/ASIN/B0000CFTOH/webservices-20?dev-t=D23XFCO2UKJY82%26camp=2025%26link_code=xm2">
+      <Asin>B0000CFTOH</Asin>
+      <ProductName>2002 Netherland Trees Around the World Collector's Plate</ProductName>
+      <Catalog>Kitchen</Catalog>
+      <Manufacturer>Lenox</Manufacturer>
+      <ImageUrlSmall>http://images.amazon.com/images/P/B0000CFTOH.01.THUMBZZZ.jpg</ImageUrlSmall>
+      <ImageUrlMedium>http://images.amazon.com/images/P/B0000CFTOH.01.MZZZZZZZ.jpg</ImageUrlMedium>
+      <ImageUrlLarge>http://images.amazon.com/images/P/B0000CFTOH.01.LZZZZZZZ.jpg</ImageUrlLarge>
+      <Features>
+         <Feature>10 3/4" Diameter</Feature>
+         <Feature>24K Gold trim</Feature>
+         <Feature>Fine ivory china</Feature>
+      </Features>
+      <Availability>This item is not stocked or has been discontinued.</Availability>
+      <Upc>091709424792</Upc>
+   </Details>
+</ProductInfo>
+</ProductLine>
+</BlendedSearch>

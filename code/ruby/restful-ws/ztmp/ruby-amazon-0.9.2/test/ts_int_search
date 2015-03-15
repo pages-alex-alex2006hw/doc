@@ -1,0 +1,10 @@
+#!/usr/bin/ruby -w
+#
+# $Id: ts_int_search,v 1.2 2005/03/02 02:15:03 ianmacd Exp $
+
+require 'test/unit'
+require 'tc_amazon-search-de'
+require 'tc_amazon-search-jp'
+require 'tc_amazon-search-uk'
+require 'tc_amazon-search-fr'
+require 'tc_amazon-search-ca'

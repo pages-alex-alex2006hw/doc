@@ -1,0 +1,5 @@
+MO encode_shift_module NULL orig/icu/rtl/ibuf_ctl.v vlg74/encode__shift__module.bin 1294005630
+MO ic_cntl NULL orig/icu/rtl/ic_cntl.v vlg64/ic__cntl.bin 1294005630
+MO ibuf_ctl_slice NULL orig/icu/rtl/ibuf_ctl.v vlg43/ibuf__ctl__slice.bin 1294005630
+MO ibuffer NULL orig/icu/rtl/ibuffer.v vlg4F/ibuffer.bin 1294005630
+MO ibuf_ctl NULL orig/icu/rtl/ibuf_ctl.v vlg64/ibuf__ctl.bin 1294005630

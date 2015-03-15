@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><ExchangeSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xml.amazon.com/schemas3/dev-heavy.xsd">
+
+<Request><Args><Arg value="Ruby/Amazon 0.3.99" name="UserAgent"></Arg><Arg value="09J5EDHN5JWP4Z4CX7FJ" name="RequestID"></Arg><Arg value="us" name="locale"></Arg><Arg value="D23XFCO2UKJY82" name="dev-t"></Arg><Arg value="webservices-20" name="t"></Arg><Arg value="xml" name="f"></Arg><Arg value="Y03Y2771295Y5700712" name="ExchangeSearch"></Arg><Arg value="heavy" name="type"></Arg></Args></Request>   <ListingProductDetails>
+      <ExchangeId>Y03Y2771295Y5700712</ExchangeId>
+      <ListingId>0404L634368</ListingId>
+      <ExchangeTitle>Led Zeppelin - Led Zeppelin - First Album - CD - Brand New - Still Sealed</ExchangeTitle>
+      <ExchangeDescription>&lt;CENTER>&lt;FONT COLOR=BLUE>&lt;H1>Led Zeppelin &lt;br> "Led Zeppelin"&lt;/H1>&lt;/FONT>&lt;FONT COLOR=GREEN>&lt;H3>BRAND NEW  -  STILL SEALED&lt;p>&lt;h2>&lt;font color=navy>$11.99&lt;/font color=navy>&lt;/h2>&lt;/FONT>&lt;/H3>&lt;/CENTER>
+ &lt;HR>&lt;u>Track Listing&lt;/u>&lt;br>&lt;ol>&lt;li> 
+ Good Times Bad Times
+&lt;/li>&lt;li>Babe I'm Gonna Leave You
+&lt;/li>&lt;li>You Shook Me
+&lt;/li>&lt;li>Dazed And Confused
+&lt;/li>&lt;li>Your Time Is Gonna Come
+ &lt;/li>&lt;li>Black Mountain Side - (with Viram Jasani)
+&lt;/li>&lt;li>Communication Breakdown
+&lt;/li>&lt;li>I Can't Quit You Baby
+&lt;/li>&lt;li>How Many More Times 
+
+&lt;/li>&lt;/ol>
+
+
+ &lt;HR>&lt;FONT COLOR=blue>Buyer pays shipping charges of $3.50&lt;/FONT>&lt;p>&lt;font color=green>International shipping via USPS air mail is available.&lt;br>  Shipping charges are $5.00 to most territories.  Shipping charges are $6.00 to Japan, Australia, and the South Pacific.&lt;br>  If you desire
+
+insurance coverage, registration of the shipment (including insurance
+
+
+coverage up to $40) is an additional $7.50.&lt;br>  IF YOU DO NOT PAY
+FOR REGISTRATION OF AN INTERNATIONAL SHIPMENT YOU MUST ASSUME THE RISK FOR ANY PROBLEM
+WITH DELIVERY.&lt;/font>&lt;P>&lt;FONT COLOR=red>Visa,Mastercard, Discover, American Express, Money Orders, and Personal Checks accepted.&lt;br>Payment by check held for 14 days.&lt;/FONT>&lt;P>&lt;FONT COLOR=blue>Payment due within 10 days.&lt;/FONT></ExchangeDescription>
+      <ExchangePrice>$11.99</ExchangePrice>
+      <ExchangeEndDate>03/19/2004 20:44:37 PST</ExchangeEndDate>
+      <ExchangeTinyImage>http://s1-images.amazon.com/images/A/Y03Y2771295Y5700712.0001.04.TZZZZZZZ.gif</ExchangeTinyImage>
+      <ExchangeSellerId>A37VPPOCKWM3IH</ExchangeSellerId>
+      <ExchangeSellerNickname>alovesupreme</ExchangeSellerNickname>
+      <ExchangeStartDate>04/04/2001 20:44:37 PDT</ExchangeStartDate>
+      <ExchangeStatus>Open</ExchangeStatus>
+      <ExchangeQuantity>1</ExchangeQuantity>
+      <ExchangeQuantityAllocated>0</ExchangeQuantityAllocated>
+      <ExchangeFeaturedCategory>404282</ExchangeFeaturedCategory>
+      <ExchangeAvailability>Usually ships in 1-2 business days</ExchangeAvailability>
+      <ExchangeSellerRating>5.0</ExchangeSellerRating>
+   </ListingProductDetails>
+</ExchangeSearch>

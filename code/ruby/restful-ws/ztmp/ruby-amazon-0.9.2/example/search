@@ -1,0 +1,37 @@
+#!/usr/bin/ruby -w
+#
+# $Id: search,v 1.13 2006/08/05 09:26:11 ianmacd Exp $
+
+require 'amazon/search'
+
+include Amazon::Search
+
+req = Request.new
+
+searches = [
+  ['keyword_search', 'ruby programming', 'books', HEAVY, 'Keyword'],
+  ['actor_search', 'angelina jolie', 'dvd', HEAVY, 'Actor'],
+  ['artist_search', 'stranglers', 'music', HEAVY, 'Artist'],
+  ['asin_search', '0971394253', HEAVY, 'ASIN'],
+  ['upc_search', '071331704462', 'electronics', HEAVY, 'UPC'],
+  ['node_search', '602360', 'magazines', HEAVY, 'Browse node'],
+  ['author_search', 'iain banks', 'books', HEAVY, 'Author'],
+  ['director_search', 'oliver stone', 'vhs', HEAVY, 'Director'],
+  ['manufacturer_search', 'red hat', 'software', HEAVY, 'Manufacturer'],
+  ['listmania_search', '10AHWTZSWG8NC', HEAVY, 'Listmania'],
+  ['similarity_search', '0596005423', HEAVY, 'Similarity'],
+  ['power_search',
+   'language:french and keywords:travel and title-begins:Michelin',
+   'books', HEAVY, 'Power'],
+  ]
+
+searches.each do |s|
+  printf(%Q(\nHit [Enter] for %s search on "%s"%s:\n\n), s.pop, s[1],
+	 (s[2].kind_of?(String) ? " using %s mode" % s[2] : ''))
+  $stdin.gets
+
+  # parse and display the results of each search
+  response = req.send(*s) { |prod| puts prod, '' }
+  printf("Arguments returned from search were:\n\n%s\n", response.args.inspect)
+
+end
