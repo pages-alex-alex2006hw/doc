@@ -1,0 +1,245 @@
+\documentclass{memo}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+\usepackage[all]{xy}
+\begin{document}
+\noindent{\large\bf{}Notes on Design Patterns}
+\small
+
+\paragraph{Creational Patterns}
+\bit
+\w \bb{creational patterns}: abstract the \bb{instantiation process}
+  \bit
+  \w \bb{class creational pattern}: uses inheritance to vary the class that's instantiated
+  \w \bb{object creational pattern}: delegates instantiation to another object
+  \eit
+\w creational patterns gets more important as systems evolve to depend more on
+\bb{object composition} than \bb{class inheritance}
+  \bit
+  \w i.e. emphasis shifts away from hardcoding a fixed set of behaviors
+  towards defining a {\em smaller set of fundamental behaviors \/} which can
+  be composed into any number of more complex ones
+  \eit
+\w \bb{Late binding}: when ``instantiating an object'', don NOT \bb{hard code} the
+instantiation so that a concrete class will be given as an argument to
+\verb+new+. This allows flexibility in:
+  \bit
+  \w \bb{what gets created}: any object of its subclass of LHS is ok
+  \w \bb{who creates it}: 
+  \w \bb{how it gets created}: fixed code uses ``new'' but create() can use
+  object pool or lookup table or any suitable method  for object creation
+  \w \bb{when it's created}: ``new'' creates object at the time we hit
+  ``new''; create() can control the exact time when object is created
+  \eit
+\eit
+
+\paragraph{BASELINE: Hard-coded}
+{\scriptsize
+\begin{verbatim}
+  Maze *MazeGame::createMaze() {
+    // hard-coded constructors
+    Maze *maze = new Maze;
+    Room *r1 = new Room(1);
+    Room *r2 = new Room(2);
+    Door *d = new Door(r1, r2); 
+
+    maze->addRoom(r1);
+    maze->addRoom(r2);
+  }
+\end{verbatim}
+}
+
+\paragraph{ABSTRACT FACTORY (C)}
+\bit
+\w provides an interface for creating families of related or dependent objects
+without specifying their concrete classes
+\w pass an ``(factory) object'' to {\tt CreateMaze}, which can be used to
+create walls, doors, rooms, etc.
+
+{\scriptsize
+\begin{verbatim}
+  class MazeFactory {
+    virtual Maze *makeMaze() const { 
+      return new Maze;
+    }
+    viirtual Wall *makeWall() const {
+      return new Wall;
+    }
+    ... 
+  };
+  class EnchantedMazeFactory : public MazeFactory {
+    ...
+  };
+
+  Maze *MazeGame::createMaze(MazeFactory& factory) {
+    Maze *maze = factory.makeMaze();
+    Room *r1 = factory.makeRoom(1);
+    Room *r2 = factory.makeRoom(2);
+    Door *d = factory.makeDoor(r1, r2);
+  }
+\end{verbatim}
+}
+\eit
+
+\paragraph{FACTORY METHOD (C)}
+\bit
+\w {\tt createMaze()} calls virtual functions (instead of constructor calls to
+creaate rooms, walls, etc.)
+\w create a subclass of {\tt MazeGame\/} which redefines virtual functions
+{\scriptsize
+\begin{verbatim}
+  class MazeGame {
+    Maze *createMaze();
+   
+    // factory methods
+    virtual Maze *makeMaze() const { ... }
+    virtual Wall *makeWall() const { ... }
+    virtual Door *makeDoor() const { ... }
+    virtual Room *makeRoom(int i) const { ... }
+  };
+
+  Maze *MazeGame::createMaze() {
+    Maze *maze = makeMaze();
+    Room *r1 = makeRoom(1);
+    Room *r2 = makeRoom(2);
+    Door *d = makeDoor(r1, r2);
+
+  }
+
+  class BombedMazeGame : public MazeGame {
+    virtual Maze *makeMaze() const {
+      return new BombedWall; 
+    }
+    ...
+  };
+\end{verbatim}
+}
+\eit
+
+\paragraph{BUILDER (C)}
+\bit
+\w pass an object that can create a new maze \bb{in its entierty} using
+operations for adding rooms, doors, and walls
+\w then you can use inheritance to change parts of the maze or the way the
+maze is built
+{\scriptsize
+\begin{verbatim}  
+  class MazeBuilder {
+  public: 
+    virtual void buildMaze();
+    virtual void buildRoom(int);
+    virtual void buildDoor(int, int);
+    virtual Maze *getMaze();
+  }; 
+  Maze *MazeGame::createMaze(MazeBuilder& builder) {
+    builder.buildMaze();
+    builder.buildRoom(1);
+    builder.buildRoom(2);
+    builder.buildDoor(1, 2);
+    return builder.getMaze();
+  }
+
+  class StandardMazeBuilder : public MazeBuilder {
+  public:
+    virtual void BuildRoom(int n) {
+      if (_currentMaze->roomNo(n)) {
+        Room *room = new Room(n);
+        _currentMaze->addRoom(room);
+      }
+    }
+  private:
+    Maze *_currentMaze;
+  };
+\end{verbatim}
+}
+\eit
+
+\paragraph{PROTOTYPE (C)}
+\bit
+\w parameterize {\tt createMaze} by various prototypical room, door, and wall
+objects, then copy and add them to the maze; then change the maze's
+composition by replacing these prototypical objects with different ones
+{\scriptsize
+\begin{verbatim}
+  class MazePrototypeFactory : public MazeFactory {
+  public:
+    MazePrototypeFactory(Maze *, Wall *, Room *, Door *);
+    virtual Maze *makeMaze() const;
+    virtual Room *makeRoom() const;
+    virtual Wall *makeWall() const;
+    virtual Door *makeDoor(Room *, Room *) const;
+  private:
+    Maze *_protytypeMaze;
+    Room *_protytypeRoom;
+    Wall *_protytypeWall;
+    Door *_protytypeDoor;
+  };
+
+  MazePrototypeFactory::MazePrototypeFactory(Maze *m, 
+      Wall *w, Room *r, Door *d) {
+    _protytypeMaze = m;
+    _protytypeWall = w;
+    _protytypeRoom = r;
+    _protytypeDoor = d;
+  }
+  Door *MazePrototypeFactory::makeDoor(Room *r1, 
+      Room *r2) const {
+    Door *door = _protytypeDoor->clone();
+    door->initialize(r1, r2);
+    return door;
+  }
+  Wall *MazePrototypeFactory::makeWall() const {
+    Wall *wall = _protytypeWall->clone();
+  }
+
+  // create prototypyical maze
+  MazeGame game;
+  MazeProtytypeFactory simpleMazeFactory(new Maze,
+    new Wall, new Room, new Door);
+  Maze *maze = game.createMaze(simpleMazeFactory);
+
+  // to change maze, initialize MazePrototypeFactory
+  // with different set of prototypes
+  MazePrototypeFactory bomedMazeFactory(new Maze,
+    new BombedWall, new RoomWithBomb, new Door);
+\end{verbatim}
+}
+\eit
+
+\paragraph{Structural Patterns}
+\bit
+\w \bb{COMPOSITE (S)}: 
+  \bit
+  \w most common pattern: trees, ASTs, etc.
+  \eit
+\w \bb{BRIDGE (S)}:
+  \bit
+  \w decouple abstraction from its implementation so the two can vary
+  independently
+{\scriptsize
+\begin{verbatim}
+  class Window {
+    void drawText(Text& t) {
+      getWindowImpl->drawText();
+    }
+  protected:
+    WindowImpl *getWindowImpl();
+  };
+
+  class WindowImpl {
+  public:
+    void drawText(Text& t) { ... }
+  }
+\end{verbatim}
+}
+  \eit
+\w \bb{ADAPTOR (S)}:
+\w \bb{FLYWEIGHT (S)}: 
+  \bit
+  \w in case the objects are immutable and there're limited
+number of possible objects, \bb{share} them 
+  \eit
+\eit
+
+
+\end{document}

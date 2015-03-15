@@ -1,0 +1,52 @@
+\documentclass{note}
+\usepackage{hfont,mydef}
+\def\opt{\mbox{OPT}}
+\begin{document}
+
+\section*{Minimum Makespan Scheduling Problem}
+\begin{problem}[Minimum Makespan Scheduling]
+Given $n$ jobs, $J_1, \cdots, J_n$, with processing times
+$P_1, \cdots, P_n$, schedule the jobs in $m$ identical machines
+to minimze the schedule length (a.k.a. makespan).
+\end{problem}
+
+
+
+\paragraph{Generals}
+\bit
+\w \bb{dual} for the ``bin packing problem'';  
+  (processing time
+  $\leftrightarrow$ size, machines $\leftrightarrow$ bins)
+\w even on $2$ machines, NP-complete!
+  \bit
+  \w because of the complexity of partition
+  \eit
+\eit
+
+\paragraph{Graham's List Scheduling Algorithm}
+\bit
+\w Two lowerbounds
+  \bit
+  \w $\frac{\sum_i{P_i}}{m}$
+  \w $P_{\mbox{\scriptsize{}max}} = \mbox{max}_j\{P_j\}$
+  \eit
+\w \bb{Algorithm}: for a list of jobs; when a machine becomes available,
+schedule the next job on the list
+\w \bb{Analysis}:
+  \bit
+  \w $J_k$: last job to finish
+  \w $t$: the time $J_k$ starts
+  \w at the time $P_k$ starts (time $t$), all machines are busy! that is
+     below the time line $t$, all the machines were ``filled with jobs''
+\begin{eqnarray*}
+ C_{\mbox{\scriptsize max}} & = & t + P_k\\
+ & \le & \frac{\sum_{j}P_j}{m} + P_k\\
+ & \le & \frac{\sum_{j}P_j}{m} + P_{\mbox{\scriptsize max}}\\
+ & \le & LB + LB \le 2\opt
+\end{eqnarray*}
+  \eit
+\eit
+
+\paragraph{LPT: Longest Processing Time First}
+
+\end{document}

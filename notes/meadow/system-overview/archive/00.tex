@@ -1,0 +1,912 @@
+\documentclass{note}
+\usepackage{mathptm,mydef}
+%\usepackage{MinionPro}
+\usepackage{color}
+%\usepackage[scaled]{beramono}
+%\usepackage[scaled]{ulgothic}
+%\usepackage[ocr-a]{ocr}
+%\usepackage{ocr}
+\usepackage{courier}
+\usepackage{alltt}
+%\renewcommand*\ttdefault{lmodern}
+\usepackage[T1]{fontenc}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black, 
+    filecolor=black, 
+    linkcolor=blue, 
+    urlcolor=black
+}
+
+
+%\setlength\oddsidemargin{-1.5cm}
+%\setlength\evensidemargin{-1.5cm}
+%\setlength\textwidth{19.3cm}
+%\addtolength\topmargin{-1cm}
+%\addtolength\textheight{2cm}
+%\addtolength\columnsep{0.2cm}
+%\newtheorem{theorem}{Theorem}
+%\theoremstyle{definition}
+%\newtheorem{definition}[theorem]{Definition}
+%\def\EE{\mbox{\eufm{}E}}1
+
+\begin{document}
+\small
+
+%\begin{center}
+%{\Large\bf Meadow Event Processing Language: User Guide} \par \bigskip
+%Cheoljoo Jeong (cjeongkr@gmail.com)
+%\end{center}
+
+\title{\large\bf{}\textcolor{blue2}{Meadow:  A Workflow System for Devices}}
+%\author{\normalsize Cheoljoo Jeong (cjeongkr@gmail.com)}
+%\date{\normalsize\today}
+\date{}
+\maketitle
+
+\section{Introduction}
+Programming multiple, autonomous devices to accomplish a well-defined
+task is not easy. Consider programming $n$ devices to 
+perform a task which requires interaction of these devices.
+Assuming that they depend on {\em message passing\/} for interaction,
+guaranteeing that the system works correctly under any order of
+interactions is not trivial. Though huge amount of research efforts
+have been devoted to beahvior of concurrent systems, 
+most efforts have beeen focused on
+{\em specification\/} and verification of systems, rather than 
+``programming'' such systems~\cite{Hoare85,MP91,Milner89,Murata89}. 
+
+As more programmable devices are connected, coordinating them
+to perform tasks is becoming common activities. Many new 
+technologies, such as Internet of Things, robot programming, industrial
+automation, and smart cars, require interaction of autonomous components to
+accomplish a task. 
+
+\textcolor{blue2}{\textbf{The Meadow system}} allows a developer to 
+orchestrate the devices from a higher viewpoint, just like a
+conductor orchestrate a group of musicians to play a single piece of music. 
+Devices are considered as ``programmable objects'' which has some predefined
+native capabilities. Using \textcolor{blue2}{\textbf{the Meadowview
+    language}}, users 
+can define a workflow over a set of devices. The defined workflow can be
+executed using \textcolor{blue2}{\textbf{the Meadow runtime}}, which is
+installed on each of the participating devices. 
+ 
+\subsection{Devices}
+In the Meadow system, a \textcolor{blue2}{\bf device} is a programmable
+entity, which offers
+three types of services to other devices -- {\em native functions\/},
+{\em properties\/}, and {\em events\/}. 
+A \textcolor{blue2}{\bf native function} is 
+a predefined (or built-in) function provided by a device. 
+For example, an LED banner can display a message on the screen. 
+The Meadow system uses the notion of ``method invocation'' or ``function
+call'' as an abstraction through which one devices gets the native function
+service from another device (as in RPC).
+A \textcolor{blue2}{\bf property} is a value stored on the device which can be
+read or written by itself and other devices. Through properties, devices
+can perform demand-driven communication (a.k.a. pull dataflow model)
+An \textcolor{blue2}{\bf event} of a device represents a change of state 
+which can be of interest to outside. Any outside object which is interested in
+the event can add a callback process to the event. 
+Using events, devices can perform data-driven communication (a.k.a. push
+dataflow model).\footnote{Note that event-based programming is inevitable in
+  distributed systems, where a single process does not have a global knowledge
+  about when a certain event will happen. Consider a traditional
+  single-threaded program -- for simplicity, assume the program is a
+  straight-line code. You can follow the thread of control from the first
+  statement of the {\tt{}main()} function until you hit the last statement of
+  this function. A single statement in this program,  you have the knowledge
+  when it will happen -- ``after the previous statement is
+  executed''. However, in distributed 
+  system, sometimes we want to execute a statement $S_0$ in process $P_0$
+  right after statement $S_1$ in process $P_1$ has finished its execution. 
+  How could this be done when $P_0$ and $P_1$ are totally independent?
+  The most obvious solution is to schedule the execution of $S_0$ on
+  an event $e$ which will be fired by $P_1$ upon its completion of $S_1$.}
+
+\textcolor{red2}{\em The notion of {\bf\em devices} is very similar to that of {\bf\em classes\/} in a
+(class-based) object-oriented programming language, such as C++. \/}
+Just like a C++ class represents a set of objects which has the same set of
+fields and member functions, a device represents a set of device instances
+which has the same set of properties, events, and native functions.
+Differences include that devices support``events'' which facilitate
+{\em asynchronous programming\/} through event-based, reactive programming
+model of the Meadowview language.\footnote{The event-based programming model is
+  arguably the most scalable approach to build large, complicated, distributed
+  systems. The Verilog hardware description language~\cite{Verilog2001} is based on event-based
+  programming model and has been used to build highly-complex chips with
+  billions of gates. One characteristics of distributed systems is that we are
+  don't have a knowledge about when ``something will happen'', since we don't
+  have a full control/knowledge over all computational activities. In many
+  cases, only way to add some behavior is through adding callbacks to events
+  and let these events--reaction chains do the job.}
+
+\paragraph{\small\bf{}Lifetimes of devices and device instances}
+Another difference is the lifetimes of classes and objects are different than
+those of devices and device instances. For example, let a C++ program that
+defines a class \verb+MyClass+ be given. Then, this class begins to exist when
+object file of the program which uses this class is executed. An object of
+the \verb+MyClass+ class is created when the runtime generates an internal
+structure for the object, at the time when ``\verb+new MyClass+'' is to be
+executed. Also, it is destroyed as this object is destroyed by the C++
+semantics. 
+
+Device is more like a database scheme, which is created and registered into 
+a global registry or a name directory. Unless deregistered, the device
+persists. 
+While objects are abstract entities which can be
+created and destroyed by the runtime, a device instance is an ``handle'' to a
+concrete, physical entity. So, its creation and deletion is more like a
+registration and deregistration to a registry or a name directory.
+
+
+While objects are created by the runtime, the existence of device instances is 
+possible inside the runtime by the device instances themselves by {\em
+  sign-on\/} and {\em sign-off} procedures. 
+
+\paragraph{Processes}
+The Meadow system allows to describe collective behavior of the involved
+devices using {\em processes\/}. 
+A \textcolor{blue2}{\bf process} consists of a set of events, to which it is
+reactive, and a piece of code. The code is executed when the given events
+occur.  The code can perform computation using the services from the involved
+devices. 
+
+
+\paragraph{Workflows}
+A \textcolor{blue2}{\bf{}workflow} is a set of processes, prarameterized by
+{\em devices\/}. A workflow can be instantiated with actual device instances.  
+
+For further details about the concepts discussed in this section, see the
+companion document, ``\textcolor{blue2}{Meadowview: A Language for Device
+  Orchestration}''.
+
+
+\section{Example Setup: Devices}
+The rest of the document will present a walk-through of main concepts of the
+Meadow system through an example. 
+For this, we make a few assumptions.
+\bit
+\w We assume a common middleware for device communication, such as
+   AllJoyn, is installed in each device.
+   Also, native functionality of the device (e.g. switch channel of a TV) is
+   programmatically registered as AllJoyn methods, signals, and properties.
+  
+   In addition to this, the common service interfaces which is defined in
+   AllJoyn service frameworks (e.g. \verb+org.alljoyn.About+,
+   \verb+org.alljoyn.Onboarding+, etc.) are already implemented. 
+
+   \textcolor{red2}{\em Note that even if a industry consensus on a single common framework is not
+   possible, we can always create a common wrapper framework, say using
+   AllJoy,  which is located above proprietary frameworks such as
+   Apple Home 
+   Kit or Google Nest framework.\/}
+   
+%\w Devices are connected to the network. 
+\w \textcolor{red2}{\em Manufacturers do not know about the Meadow
+  system yet.\/}  
+\eit
+
+\subsection{Device \#1: An iPhone app}
+Assume that the 24 hour fitness club developed an iPhone app using the AllJoyn
+framework. While this app is being executed, this iPhone (i.e. app) is
+discoverable from within the AllJoyn network and can provide services to other
+AllJoyn network. We assume that it supports a very simple service -- a
+\verb+userid+ property.
+By this, we mean that other AllJoyn application can query the value of
+\verb+userid+ in a programmatic way when this app joins an AllJoyn bus. 
+
+\paragraph{Making the app known to the Meadow system}
+Now, to make this app programmable in the Meadow system, we need to do
+a few more things
+  \bit
+  \w register the app as the Meadow device
+  \w register each device instance name
+  \w install the Meadow VM (runtime) on top of the AllJoyn framework
+  \eit
+First, to register this app as a device, interface of the device must be
+defined using the \textcolor{blue2}{\textbf{Meadowview Interface Definition
+    Language (IDL)}}.\footnote{Typically, an IDL description is mandatory in
+  binding statically compiled languages since it allows to generate stubs
+  against which the callers can be compiled. However, in dynamically-typed
+  languages, these are not mandatory. Meadowview is a dynamically-typed
+  language but we still optionally allow MIDL descriptions to facilitate early
+  error checking instead of runtime error.}
+\begin{alltt}
+  \textcolor{black}{device com.24.app.iphone \{
+    // property name must match the ``AllJoyn'' property name
+    string userid;
+    string username;
+  \};}
+\end{alltt}
+This textual definition needs to be compiled and be registered to the
+\textcolor{blue2}{\bf Meadow name server} (for simplicity, we assume there is a central name
+server. however, to avoid bottleneck, we may elect to implement a 
+decentralized server.) by either the app developer or somebody who wants to
+create a Meadow workflow. Let's assume that above definition is stored in
+a file \verb+24app.dev+. 
+Then, the following command will register a globally-unique name to the global
+server and bind it to the device definition.
+\begin{alltt}
+  \textcolor{black}{# meadow-register 24app.dev}
+\end{alltt}
+
+Second, we need to assign a device instance name. Each installation of the
+App is unique and we need to tell the Meadow system that
+\bit
+\w this app is an instance of \verb+com.24.app.iphone+, and
+\w the name of this device instance is \verb+abc+, and
+\w a password (or a public-key) is created for this device instance 
+   and registered to the Meadow system. 
+\eit
+The fully-qualified name of the device instance will be
+\verb+com.24.app.iphone[abc]+ in the Meadow system. 
+
+Now, when this device signs in, the Meadow system will ask the device to
+identify itself. The device will tell the system that ``I am
+\verb+com.24.app.iphone[abc]+'', which is a globally-unique name, along with a
+password\footnote{Or encryption of a system-provided text using the
+  private-key so that the System can authentication of the device instance.}. 
+When device instance name and password is correct, this device instance is
+signed on and now this device instance is discoverable within the Meadow
+network. 
+
+
+\subsection{Device \#2: Treadmill}
+The treadmills installed at the 24-hour fitness club in San Jose has the
+following device definition.
+\begin{alltt}
+  \textcolor{black}{device com.24.sj.treadmill \{
+    string instid;            // instance id
+    int status;               // 0: stopped, 1: running
+
+    void start();             // start the treadmill
+    void stop();              // stop the treadmill
+    void resetStepCount();    // resets the step count
+    int getStepCount();       // number of steps since last reset
+
+    event startButtonPressed;
+    event stopButtonPressed;
+  \};}
+\end{alltt}
+Also, we assume there are 50 treadmills in the club and each of them are given
+unique names -- e.g. \verb+com.24.sj.treadmill[1F.01]+,\ \ 
+\verb+com.24.sj.treadmill[1F.02]+, etc.
+
+\subsection{Device \#3: TV monitor on Treadmill}
+Also, for each treadmill, a third-party TV with larger screen was installed.
+The device definition is given below.
+\begin{alltt}
+  \textcolor{black}{device com.24.sj.tv.samsung \{
+    string id;                // instance id
+    int status;               // 0: on, 1: off
+    int channel;              // current channel
+
+    void turnOn();
+    void turnOff();
+    void switchChannel(int ch);
+    void printMessage(string msg);
+
+    event turnedOn;
+    event turnedOff;
+    event channelSwitched \{
+      int oldChannel;
+      int newChannel;
+    \};
+  \};}
+\end{alltt}
+A total of 50 TVs were installed and their names were assigned to match those
+of treadmills -- e.g. \verb+com.24.sj.tv.samsung[1F.01]+.
+
+\subsection{Device \#4: Database server}
+Also, a database server will be registered as a Meadow device. There will be 2
+servers, each named as \verb+com.24.sj.dbserver[0]+ and
+\verb+com.24.sj.dbserver[1]+, respectively. 
+
+\begin{alltt}
+  \textcolor{black}{device com.24.sj.dbserver \{
+    void log(time t, string userid, string message); 
+    void saveStepCount(time t, string userid, int count);
+  \};}
+\end{alltt}
+
+
+%%\section{An Example}
+%% The Meadow system allows to define workflows of devices. A workflow definition
+%% can be instantiated and executed by the Meadow runtime.
+%% Consider the following devices as an example (by a ``device'', we mean 
+%% any computational entity which can execute the Meadow VM (or runtime)).
+%% Each device will have a globally unique name, a device type, and has a
+%% set of services provided to the outside world.
+%% \bit
+%% \w An \bb{ID device}, which can identify the owner of the device. Upon
+%%    configuration, this device can authenticate the user id upon request for
+%%    any context (in terms of 24 hour fitness membership, Starbucks membership,
+%%    ...)\footnote{I think  this device is interesting by itself. \bb{Could this
+%%        be a killer device by itself}? Basically, it's a customizable badge
+%%      that can  be used in many different contexts. We might 
+%%      be able to implement this with simple electronic components with 
+%%      some ideas borrowed from public key cryptography. Might be related to
+%%      Passbook app of iPhone but may have many usages -- both consumer and
+%%      industrial.}. 
+%%    %Has one small LED   screen and has two buttons: ``YES'' and ``NO''. 
+%%     \bit
+%%     \w globally registered device type: \verb+com.myid.model5+\footnote{DISCUSSION:
+%%       what attributes should a device have? A ``device type'' can determine
+%%       which type of exported methods are available, while ``device ID'' can
+%%       uniquely identify a single device.}
+%%     \w globally registered device name: \verb+com.myid.cj2005+
+%%     %\w unique deivce ID:  \verb+1234+
+%%     \w exported methods specific to \verb+com.myid.model5+: 
+%%        \bit
+%%        \w \verb+int getID(int context)+: returns a unique ID in the given
+%%        context 
+%%        \w \verb+string getOwnerName()+: returns the name of the owner
+%%        \eit
+%%     \eit
+%% \w A \bb{treadmill} at a 24 hour fitness gym.
+%%     \bit
+%%     \w globally registered device type: \verb+com.precor.treadmill.model66.v3+
+%%     \w globally registered device name: \verb+com.24fitness.sanjose.tm55+
+%%     %\w unique device ID: \verb+9999+
+%%     \w exported methods specific to \verb+com.precor.treadmill.model66.v3+: 
+%%         \bit
+%%         \w \verb+void printMsg(string msg)+: prints message to  screen 
+%%         \w \verb+void resetStepCount()+: reset step count to 0
+%%         \w \verb+int getStepCount()+: number of step count since last reset
+%%         \w \verb+pairDevice(Device dev)+: pair device to dev (TODO: need some
+%%         more details) 
+%%         \w \verb+int isPaired()+: is paired with another device or not
+%%         \eit
+%%     \w exported signals: 
+%%         \bit
+%%         \w \verb+startButtonPressed()+: generated when start button pressed
+%%         \w \verb+stopButtonPressed()+: generated when stop button pressed  
+%%         \w \verb+deviceFound(Device dev)+: generated when the customer,
+%%         who has Meadow-compatible device, stepped onto the treadmill; also as
+%%         a payload, the found device handle is attached to the signal
+%%               (please ignore how this can be done for now; actually, it's a
+%%         topic for discussion since there could be multiple compatible devices
+%%         around the treadmill.)
+%%         \eit
+%%     \eit
+%% \w A \bb{database server} which stored any information about a person
+%% (e.g. through Amazon service), owned by a healthcare company. 
+%%     \bit 
+%%     \w globally registered device type: \verb+com.unitedhealth.dbserver+
+%%     \w globally registered device name: \verb+com.unitedhealth.dbserver51+
+%%     %\w unique device ID: \verb+5555+
+%%     \w device name: \verb+com.unitedhealth.dbserver+
+%%     \w exported method: \verb+void addStepCount(int userid, int stepcount)+
+%%     \eit
+%% \eit
+
+\section{Default interfaces}
+There are some built-in functions, properties, and signals that are
+supported by Meadow devices. 
+\begin{alltt}
+  \textcolor{black}{device Device \{
+    list<Device> getPairedDevices();
+    list<Device> getPairedDevicesByType(string type);
+    
+    event devicePairedEvent \{
+      string devid;
+    \}
+  \}}
+\end{alltt}
+
+\section{Example \#1: Recording Step Counts}
+Consider the following scenario.
+\begin{quote}
+  \textcolor{red2}{\em Whenever a person, who installed 24-hour fitness app on iPhone, steps
+    onto a treadmill located in 24hour fitness San Jose site, store the step
+    count in the DB. Also, print a welcome message on the treadmill screen.\/} 
+\end{quote}
+Maybe 24hour fitness wants to sell a new service, which will record all
+customer exercise history, which can be browsed through Web. For this, they
+can sell a small 10-dollar ``SecureID'' device, which will contain the ``ID''
+of the owner. They want to program their treadmills that when a user with this
+ID steps on, it will pair with the device and send the treadmill usage to the
+DB server. 
+
+\subsection{Static workflow}
+One way to program the flow in the Meadowview language is given below.
+\begin{alltt}
+  \textcolor{black}{workflow StepCountFlow(com.24.app.iphone app,
+                         com.24.sj.treadmill tms[],
+                         com.24.sj.tv.samsung tvs[]);
+  \{
+    // get handle of any DB server instance
+    Device dbserver = getDeviceType("com.24.sj.dbserver");
+
+    // "foreach" may be similar to Verilog generate statement;
+    // not sure if foreach construct is essential but could be
+    // useful for configuring multiple devices 
+    foreach tm in tms \{
+   
+      // whenever the treadmill is paired with a device,
+      // the following process will wake up; "dev" will be 
+      // bound to a Device object which was paired with the
+      // the treadmill
+      process @(tm.devicePaired(dev)) \{  
+        if (dev.getDeviceType() == "com.24.app.iphone") \{
+          string appowner = dev.username;
+          tvdev = tm.getPairedDeviceByType("com.24.tv.samsung");
+          if (tvdev)
+            tvdev.printMessage("Welcome: " + appowner);
+        \}
+      \}
+
+      // the following process wakes up when the start button 
+      // of the treadmill is pressed; 
+      process @(tm.startButtonPressed()) \{
+        if (tm.isPaired()) \{
+          list<Device> pdevs = tm.getPairedDevices();
+          foreach pdev in pdevs \{
+            int pdevid = pdev.getID();
+            tm.resetStepCount();
+            @(tm.stopButtonPressed());
+            int steps = tm.stopStepCount();
+            dbserver.addStepCount(dev.getID(24HOUR), steps);
+          \}
+        \}
+      \}
+    \}
+  \}}
+ \end{alltt}
+
+\subsection{Dynamic discovery}
+\begin{verbatim}
+  workflow StepCountFlow(com.24.app.iphone app,
+                         com.24.sj.treadmill tms[],
+                         com.24.sj.tv.samsung tvs[]);
+
+    list<Device> tms = getDevicesByName("24fitness.sanjose.treadmill*");
+    Device dbserver = getDeviceByType("com.unitedhealth.dbserver");
+
+    // actually "foreach" may be similar to Verilog generate statement;
+    // I'm not sure if foreach construct is essential but could be useful for 
+    // configuring multiple devices 
+    foreach tm in tms {
+   
+      // whenever someone with a device steps on a treadmill, the following
+      // process will wake up; "dev" will be bound to a Device object which 
+      // represents a device that the user owns
+      process @(tm.deviceFound(dev)) {
+        if (dev.getDeviceType() == "com.myid") {
+          tm.pairDevice(dev);
+          String devowner = dev.getOwnerName();
+          tm.printMsg("Welcome: " + devowner);
+        }
+      }
+
+      process @(tm.startButtonPressed()) {
+        if (tm.isPaired()) {
+          Device dev = tm.getPairedDevice();
+          int devid = dev.getID();
+          tm.resetStepCount();
+          @(tm.stopButtonPressed());
+          int steps = tm.stopStepCount();
+          dbserver.addStepCount(dev.getID(24HOUR), steps);
+        }
+      }
+    }
+  endflow
+\end{verbatim}
+The Meadow system compiles the above description into ``native'' code which
+can be executed by Meadow runtime (VM). And then, the code is deployed to
+relevant devices. (\bb{NOTE}: This somewhat reminds of the use model of Java
+VM, though Java does not have the notion of automatic synthesis of
+choreography of components. Might need to prepare what differentiates Meadow
+VM from Java VM.) 
+
+%In current technology, to support this functionality, all related 24 hour
+%fitness treadmills should be programmed with the intended behavior.
+
+\section{Example \#2: Streaming Producer and Consumer}
+Next example and an interaction between the iPhone and the TV attached to each
+treadmill. 
+\begin{quote}
+  \textcolor{red2}{\em Whenever a person, who installed 24-hour fitness app on iPhone, steps
+    onto a treadmill located in 24hour fitness San Jose site, store the step
+    count in the DB. Also, print a welcome message on the treadmill screen.\/} 
+\end{quote}
+
+
+
+
+\section{Components of the System}
+
+\subsection{Infrastructure}
+The Meadow system takes advantages of available infrastructures for device
+communication. One such infrastructure is AllJoyn framework developed by
+Qualcomm.  This framework allows devices to talk to each other through ``method
+invocation''. In particular, under this framework, each device exports its
+services which can be used in the form of a \bb{method call} (pull service) or
+  \bb{signal notification} (push service). 
+
+  Another alternative
+is ZeroMQ message system. In ZeroMQ, it does not have any notion of function
+calls but allows to deliver a free-form messages to be sent from one device to
+another. Application can impose meaning on these messages by defining its own
+format for service request/reply (i.e. ZeroMQ allows to build customized
+application-level communication protocol easily). 
+
+Basically, infrastructural software allows:
+\bit
+\w to name/discover devices
+\w to export service of a device to outside world
+\w to get service from other device
+\w to define events
+\w to publish events
+\w to subscribe events
+\w to add callbacks to the subscribed events
+\eit
+
+These frameworks typically support multiple protocols: low-level physical
+protocols such as Bluetooth, ZigBee, WiFi, ethernet, etc. and high-level
+application protocol such as HTTP, CoAP, etc.
+Also, they support multiple platforms: Linux, Windows, iOS, MacOS, Andriod,
+small embedded operating systems, etc. 
+
+These infrastructures typically exist in two forms: software library (.so or
+.a) and daemon. To use these infrastructure, developers could either link with
+the library or use IPC/socket to communicate with the daemon.
+Both AllJoyn and ZeroMQ support multiple languages through language
+bindings. For example, they provide Java class library allows Java programs to
+the call the software library. These Java class library could use JNI (Java
+Native Interface) to call the native library in .a or .so. 
+
+\paragraph{ASSUMPTION} For discussions below, we will assume that AllJoyn is
+used as our infrastructure. ({\em However, we can relatively easily change our
+  tool to target different infrastructures -- i.e. runtime can be configured
+  to target multiple infrastructures.})
+
+One major assumption is that all services (e.g. turn on LED, print
+   message on a OLED screen, etc) provided by a device  are already
+   developed and registered as an AllJoyn method or AllJoyn signal.
+   Device manufacturer sells a device which has a set of exported services.
+     That is, if we want to define workflow over some devices using Meadow, we
+     expect that all services provided by these devices are exported as
+     AllJoyn methods (also, these devices must internally have AllJoyn daemon
+     inside). In addition to this AllJoyn, they also run Meadow runtime on top
+     of AllJoyn. \bb{THIS COULD BE THE MOST DIFFICULT ISSUE TO OVERCOME. How
+       can we bell the cat -- i.e. have manufacturers install Meadow
+       runtime?}  
+
+%These services must be provided as, say, AllJoyn method calls (which
+%     means that the provider must have AllJoyn daemon/library pre-installed). 
+
+When two AllJoyn-compatible devices, say A and B, are given, we can use AllJoyn API to
+develop a code which make A and B interact with each other by manually
+deploying the code. The Meadowview system tries to avoid this hard-coding. We
+want to control the interaction of devices from a higher-level than than going
+down to AllJoyn-level. 
+
+
+
+
+\subsection{The Meadow VM (or Runtime)}
+Each device runs a Meadow runtime (e.g. in the form 
+    of daemon).  The runtime runs on top of the infrastructure and 
+    is responsible for the following:
+   \bit
+   \w Maintains the set of processes (Verilog always-process like):
+      some are \bb{built-in processes}, some are 
+      \bb{user-defined processes}. 
+       \bit
+       \w A process is basically ``if event X happens, do Y.'' 
+        The event X is either a ``method call request either internal or
+        coming from other device'' or ``signal which is generated internally
+        or by other device''.
+       \w The ``action Y''  might need to be limited to very simple
+       actions. For example,  
+          \bit
+          \w \bb{method call}, which is available locally or remotely 
+          \w \bb{signal generation}: generate signal with some payload
+          \w \bb{simple branching}: IF (simple-cond) THEN Y' ELSE Y''
+          \eit
+        \eit
+   \w Maintains the set of events (i.e. method call request, 
+      property get/set request, signals in AllJoyn 
+      terminology\footnote{Essentially, method call or property 
+      get/set calls is essentially an "event with a payload" that is sent from
+other device to this device. A signal an "event (with our without a payload)"
+that is sent from this device to other device.  So, all three different
+services can be represented using a single notion of "events"}) that 
+this runtime subscribes or publishes: an event is either a \bb{built-in
+  event}, a \bb{manufacturer's event}, or \bb{Meadow's event}.
+       \bit
+       \w \bb{built-in event}: some events are very basic events provided by
+       AllJoyn 
+       \w \bb{manufacturer's event}: The method call request, signals defined
+       and registered by the manufacturer
+       \w \bb{Meadow's event}: Meadow will create internal events for
+       instrumentation purpose.
+       \eit
+   \w Waits for the lower-level framework (e.g. AllJoyn Bus or 
+      ZeroMQ message queue) on Meadowview events.
+      \bit
+      \w Though the device reacts to all three different types of events ,
+       at Meadow runtime level, only Meadowview events are relevant.
+       Built-in events and manufacturer's events should have been already
+       registered to infrastructure (infrastructure does not know anything
+       about Meadow 
+       runtime) and should be handled directly by the infrastructure.
+   \w The behavior of the runtime is quite similar to the event loop 
+       executed by Verilog simulator.
+   \eit
+   \eit
+
+\subsection{Two languages}
+\bit
+\w \bb{Meadowview: A workflow definition language}: 
+   Users define workflows over some devices using a language, to
+   \bb{orchestrate} or \bb{compose device services}.
+   \bit
+   \w This is like seeing the problem from a conductor viewpoint. 
+   \eit
+\w \bb{Native language for VM}
+   Given that workflow is  defined as an orchestration of device services, now
+   we have to derive (or \bb{synthesize}) what each device needs to do to
+   accomplish the job described by the workflow. 
+   \bit
+   \w This is like creating a choreography of devices -- define which needs to
+   be done from a viewpoint of ``each'' device. 
+   A device involved in the workflow doesn't need to know the entire picture
+   of the workflow. All it needs to know is ``under this circumstance, do this
+   or do that, etc.'' 
+   \w So, from a Meadowview workflow definition, we need to derive VM code for
+   each devices involved. This code will be have the form of ``a set of
+   Verilog process-like code fragments''. However, the syntax of such a
+   process must be limited to very simple constructs for efficient VM
+   implementation.
+
+   For example, We may not even need loops since we could restrict any real computation to
+   be provided by the manufacturer-provided method implementation.
+   
+   This VM language is a native language for the Meadow system, which
+   is directly executable by the Meadow runtime (VM). See the next section for
+   generated VM process examples.
+   \eit
+\eit
+
+\subsection{Synthesis Tool}
+Given a workflow definition written in Meadowview, this needs to be
+synthesized to VM processes for execution. There may be multiple ways to
+synthesize a single workflow definition (just like there are multiple ways to
+synthesize an Verilog design using AND/OR gates) and synthesizing efficient
+code will be a big challenge.  
+
+The following is one possible example of how the workflow definition given in
+Section~1 can be synthesized in to VM code. (\bb{NOTE}: The VM language is not
+yet defined. So, there are plenty of holes, missing pieces, etc.)
+
+\begin{verbatim}
+
+  // signal definition; internal signal generated to represent
+  // that function call reply has received from the function call
+  // to getDeviceType of Device dev
+  //
+  // synthesis tool must define/register these internal signals
+  // to infrastructure (e.g. AllJoyn)
+  signal signal000 {
+    string devtype;    // payload of the signal000 (return value of 
+                       // getDeviceType)
+  };
+  process @(deviceFound(dev)) {
+    // funccall is a primitive which calls a function and,
+    // upon termination of function call, will generate a signal
+    // putting the return value of the function call as a 
+    // payload of the signal
+    funccall(dev,            // target device
+             getDeviceType,  // function name
+             NULL,           // args
+             signal000);     // signal that will be generated when
+                             // function returns
+  }
+
+  process @(signal000) {
+    // process body can have exactly one statement;
+    // either a function call or a IF-statement or IF-ELSE
+    // statement
+    if (signal000.devtype == "com.myid") {
+      funccall(self, pairDevice, dev, signal001);
+    }
+  }
+
+  signal signal002 {
+    string ownername;
+  };
+  process @(signal001) {
+    funccall(dev, getOwnerName, NULL, signal002);
+  }
+
+  signal signal002 { bool boolvalue; }
+  process @(signal002) {
+    // how do we support string concatenation? should we support this?
+    funccall(self, printMsg, "Welcome: " + signal002.ownername, signal003);
+  }
+
+  process @(startButtonPressed) {
+    funccall(self, isPaired, NULL, signal003);
+  }
+
+  process @(signal003) {
+    if (signal003.boolvalue) {
+      funccall(self, getPairedDevice, NULL, signal004);
+    }
+  }
+
+  ...
+\end{verbatim}
+As seen above, synthesis tool might need to break down the original workflow definition into tiny small processes.
+Each process can have one "event" to which the process sensitized 
+and up to one condition checking at the beginning and one action.
+An action can be either a function call or a signal generation.
+A called function can be either local or remote. 
+
+
+\subsection{Deployment of VM processes}
+Let's say that a developer employed by 24hour fitness has created a workflow
+and used a Meadowview compiler to get the synthesized VM code. 
+Then, the problem is how to deploy this code to the treadmills in the San Jose
+site. 
+For this, several things might be needed. First, two built-in VM processes
+inside each Meadow VM runtime may be needed:
+\bit
+\w \bb{int loadProcess(Process proc)}: a built-in Meadow VM process, which loads
+the given process into the runtime 
+\w \bb{unloadProcess(int procid)}: a built-in Meadow VM process, which
+unloads the process with the given id
+\eit
+
+Also, a loader utility, which loads a VM process(es) to a device may be
+needed. This loader utility can be triggered either by the person or
+dynamically by a tool. 
+
+\subsection{Meadow VM runtime}
+A VM runtime maintains a list of processes. Whenever some event happens, 
+it picks a process in the list and executes it.
+Essentially, runtime executes an infinite event loop like that of Verilog S/W
+simulator. 
+
+
+
+%% \section{Background}
+
+%% \subsection{Devices}
+%% Devices are getting more intelligent and more capable.
+%% As chips (from full-scale processor to limited
+%% microcontroller) become cheaper, more devices are produced, equipped with
+%% chips. Manufacturers would want to add chips to their products
+%% for more value (e.g. more electronic devices are added to cars).
+
+%% %Car manufacturer are trying to add
+%% %more value to the cars and sell at a higher prices by adding more
+%% %chips to the car. 
+
+%% \paragraph{Device Example: Fitbit}
+%% A fitbit (http://www.fitbit.com) produces pedometers and weight scales, which
+%% are equipped with microcontrollers and wireless chips so that measured data
+%% can be automatically transmitted to a cloud. Users can view 
+%% many different statistics on the data.
+
+%% \subsection{Lowered barrier to manufacturing}
+%% It's getting easier to manufacture devices without a plant. 
+%% If you have a design on what to be built, you can send an order to a Chinese
+%% factory to build  small number of devices (like 10Ks to 100Ks) to be
+%% manufactured. Then, you can sell it on Amazon.
+%% You can search for ``portable battery chargers'' in Amazon. There are
+%% many different vendors and I guess many of them were produced that way. 
+
+%% \subsection{Maker culture\/}
+%% Recent {\em Maker culture\/} will encourage people to build ``anything cool.''
+%% This culture is advocated by people with all kinds of
+%% backgrounds, not just engineers. Technologically, it might be nothing novel
+%% about this (there are rather low-tech; like resurgence of 80's hobby
+%% electronics)  but all kinds of creative and innovative ideas might come out of
+%% this culture -- law of numbers1.
+
+%% \subsection{Wearable computers}
+
+%% \subsection{Augmented reality}
+
+%% \subsection{Expansion of middle class}
+%% It is widely expected that people will become richer, with 
+%% the increasing size of ``middle class'' population. More people will be
+%% able to afford reasonably expensive devices -- like 
+%% \$100 pedometers.  This might open up a new industry which builds smart,
+%% value-added devices.
+
+%% \subsection{Devices used by corporates}
+%% Companies have long been used special devices for many different purposes.
+%% Factories have many different types of sensors, acturators, devices installed
+%% and they need to operate/maintain them.
+%% Delivery companies uses some special devices which can track items.
+
+%% \subsection{Rise of robots}
+%% In labs,
+%% even humanoid-type of robots are being built.
+%% AI might still have long way to go but ``robot programming'' might 
+%% become a mainstream soon. (of course, people should have been doing
+%% robot programming for long in related industries but I think they 
+%% should have been doing this in an ad-hoc hard-coded way.)
+
+%% Consider a very complicated robot, consisting of many parts. One way to
+%% program a robot is to have a single brain (CPU) which controlls every part
+%% (just like single-threaded program is built in a traditional way).
+%% The other approach is to have several autonomously-working parts interacting
+%% with each other. Now each part becomes a ``reactive process'' (just like a
+%% Verilog process which wakes up on events to which it is sensitized) and
+%% programmingis to add events and processes which cooperate to do some work. 
+
+%% \subsection{Internet of Things}
+%% Most major large corporates (including non-IT companies) 
+%% are predicting the next Big Thing is
+%% {\em Internet of Things\/}. You can search for ``Intenet of Things'' in Google
+%% or in Youtube.
+%% If some huge marketing/R\&D effort at this scale
+%% continues, then the shape of industry is destined to change in one way or
+%% another. 
+
+%% \subsection{Event-based programming model}
+%% Event-based programming model has been used only in limited contexts:
+%% e.g. GUI (such as X-windows) or Javascript.
+%% As things become more distributed, reactive programs are
+%% getting a lot of attention as an alternative programming model.
+%% %Reactive model is essentially, 
+%% %Things are become nonblocking/asynchronous. We cannot
+%% %send method call to another device and wait until it returns (it may take too
+%% %long). 
+%% The notion of Actors, which was proposed in the 70s but dormant over 40 years,
+%% are getting some attention. Also, the notion of reactive
+%% processes are getting attention (e.g. Akka).
+%% Also, see Twisted, a network programming tool for an example.
+
+%% \subsection{Verilog}
+%% Verilog is a very unique language at least in two points: 1) it has the notion
+%% of space (real estate) and 2) it's based in reactive (event-based) processes.
+%% Traditional programming languages (excluding any thread-related discussion)
+%% only have the notion of time but no space. 
+
+%% To write a program, in old traditional approach, you can follow the thread
+%% from the first statement of main() and until the point of exit(). In Verilog
+%% it's not like that. there are many seemingly-independent processes waiting
+%% some events. As stimulus comes in these independent processes work together.
+
+%% Better yet, this model of computation has been proven to cope with 
+%% billion-gate chips, one of the most complicated human inventions.
+
+%% \subsection{Workflow systems}
+%% %Software workflow market is huge.
+%% These systems are chracterized by Web-based view-layer, Java-based logic layer, 
+%% heavy middlewares, backend DB. In particular, I believe
+%% that they are mostly centralized server-based and does not easily scale.
+
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{bib/mac,bib/softsys,bib/compsys,bib/digital,bib/pl,bib/theory,bib/formal}
+%\nocite{EN11,Agha86,Hewitt76,Verilog2005,JK13,SK09}
+%\nocite{LABHJJLTZ05,VD10}
+\end{document}
+
+%%  LocalWords:  MeadowView EPL Hadoop proc FSM API insertEvent TCP IP ev MV
+%%  LocalWords:  Runtime workflow lookup Namespace stateful Meadow Jeong VM
+%%  LocalWords:  Cheoljoo runtime HDLs Verilog VHDL HDL APIs softsys compsys
+x
+%%  LocalWords:  workflows iPhone getID getOwnerName printMsg msg pairDevice
+%%  LocalWords:  resetStepCount getStepCount dev TODO isPaired deviceFound
+%%  LocalWords:  startButtonPressed stopButtonPressed healthcare addStepCount
+%%  LocalWords:  userid stepcount SecureID AllJoyn Qualcomm ZeroMQ Bluetooth
+%%  LocalWords:  ZigBee WiFi ethernet CoAP iOS MacOS Andriod IPC JNI OLED pre
+%%  LocalWords:  MessageQueue Meadowview loadProcess unloadProcess procid abc
+%%  LocalWords:  programmatically instid turnOn turnOff switchChannel strign
+%%  LocalWords:  turnedOn turnedOff channelSwitched oldChannel newChannel
+%%  LocalWords:  saveStepCount middleware username printMessage

@@ -1,0 +1,1344 @@
+\documentclass{article}
+\usepackage{theorem,mydef,amssymb}
+\usepackage[all]{xy}
+\begin{document}
+\title{\large\bf{}Notes on Programming Languages}
+%\author{\normalsize{}Cheoljoo Jeong (cjeong@cs.columbia.edu)}
+\author{\normalsize{}Cheoljoo Jeong}
+\date{}
+\maketitle
+\small
+
+\section{Elements of Programming Languages}
+\subsection{Notations for Expressions}
+\bit
+\w Infix, prefix, postfix notations for binary operators
+\w An expression in {\em{}prefix notation\/} is written as follows:
+	\ben
+	\w [(a)] The prefix notation for a constant or variable is
+		the constant or variable itself.
+	\w [(b)] The application of an operator {\bf{}op} to 
+		subexpressions $E_1$ and $E_2$ is written in
+		prefix notation as {\bf{}op} $E_1 E_2$.
+	\een
+\w When two different operators share a operand in an expression,
+	which will take that operand is determined by the 
+	{\bf{}precedence relation\/} between the two operators.
+	\bit
+	\w The operator with higher precedence take the operand.
+	\eit
+\w An {\em{}operator\/}
+	is said to be {\bf{}left associative} if subexpressions
+	containing multiple occurrences of this 
+	operator are grouped from left to right.
+\eit
+
+\subsection{Evaluation of Expressions}
+\bit
+\w An expression $E_1$ {\bf{}op} $E_2$ is evaluated as follows:
+	\ben	
+	\w [(a)] Evaluate the subexpression $E_1$ and $E_2$ in some order.
+	\w [(b)] Apply the operator {\bf{}op} to the resulting values of
+		$E_1$ and $E_2$.
+	\een
+\w Expression evaluation corresponds to {\bf{}tree rewriting}.
+\w {\bf{}Stack implementation of expression evaluation}
+	\ben
+	\w [(a)] Translate the expression to be evaluated into 
+		{\em{}postfix notation\/}.
+	\w [(b)] Scan the postfix notation from left to right
+		\ben
+		\w [(b.1)] On seeing a constant, push it onto the stack.
+		\w [(b.2)] On seeing a binary operator, pop two values from
+			the top of the stack, apply the operator to the values,
+			and push the result back onto the stack.
+		\een
+	\w [(c)] After the entire postfix notation is scanned, the value 
+		of the expression is on the top of the stack.
+	\een
+\eit
+\subsection{Function Declarations and Applications}
+\bit
+\w A function in a programming language comes together with an algorithm
+	for computing the value of the function at each element of 
+	its domain.
+\w Under the {\bf{}innermost-evaluation} rule, a function application
+	\[ \arc{\mbox{\em{}name}} ( \arc{\mbox{\em{}actual-parameters}} ) \]
+	is computed as follows:
+	\ben
+	\w [(a)] Evaluate the expressions in 
+		$\arc{\mbox{\em{}actual-parameters}}$;
+		({\bf{}call-by-value} evaluation)
+	\w [(b)] Substitute the results for the 
+		formals in the function body;
+	\w [(c)] Evaluate the body;
+	\w [(d)] Return its value as the answer;
+	\een
+\w Each evaluation of a function body is called an {\bf{}activation}
+	of the function.
+\eit
+\paragraph{Selective evaluation}
+\bit
+\w In {\bf{}if} $\arc{cond}$ {\bf{}then} $E_1$ {\bf{}else} $E_2$,
+	only one of $E_1$ and $E_2$ is ever evaluated depending on 
+	the value of $\arc{cond}$.
+\w The operators {\bf{}andalso} and {\bf{}orelse} perform
+	{\bf{}short-circuit} evaluation of boolean expressions,
+	in which the `right' operand is evaluated only if it has to be.
+\eit
+
+
+\subsection{Recursive Functions}
+\bit
+\w The definition of a function $f$ is said to be {\bf{}linear-recursive}
+	if an activation $f(a)$ of $f$ can initiate at most
+	one new activation of $f$.
+\w Evaluation of a linear-recursive function has two phases:
+	\bit
+	\w a {\bf{}winding phase} in which new activations are activated, and
+       	\w a subsequent {\bf{}unwinding phase} in which control returns
+		from the activations in a LIFO manner.
+	\eit
+\w A function $f$ is {\bf{}tail recursive} if it either returns a value 
+	without needing recursion\footnote{recursive process \cite{ASS85}}, 
+	or it simply returns the result 
+	of a recursive activation.
+\w All the work of a linear tail-recursive function is done in the
+	{\em{}winding phase\/}, 
+	as new activations are initiated. The unwinding
+	phase is trivial because the value computed by the final activation 
+	becomes the result of the entire evaluation.
+\w {\sl\bfseries{}A linear tail-recursive function can be turned into
+	a loop\/}. 
+	\bit
+	\w Linear tail-recursive factorial program:
+	\begin{verbatim}
+	fun g(n, a) = if n = 0 then a else g(n-1, n*a);
+	\end{verbatim}
+	\w Recursion-free loop-version of {\tt{}g}:
+	\begin{verbatim}
+        loop
+           if n = 0 return a;
+           else a := n*a; n := n-1;
+        end
+	\end{verbatim}
+	\eit
+\eit
+\subsection{Lexical Scopes and Regions}
+\bit
+\w {\bf{}Lexical scope rules} use the program {\em{}text\/} surrounding
+	a function declaration to determine the context in which nonlocal
+	names are evaluated.
+	\bit
+	\w The program text is static by contrast with run-time execution,
+		so lexical scope rules are also called
+		{\bf{}static scope rules}.
+	\eit
+%\section{Scopes and Regions}
+%\bit
+\w The {\bf{}region} (or {\bf{}block}) 
+	of a {\em{}variable declaration\/} is the
+	portion of text within which the declaration is effective.
+	\bit
+	\w Blocks may be {\em{}nested\/}.
+	\eit
+\w The {\bf{}scope} of a {\em{}variable declaration\/} is the text within
+	which references to the variable refer to the declaration.
+	\bit
+	\w We may speak of the ``declarations that are
+		{\em{}visible\/} at the point of a variable
+		reference''
+	\w The declaration of a variable $v$ has a scope that 
+		includes all references to $v$ that {\em{}occur
+		free\/} in the region associated with the declaration.
+	\w That is, {\em{}the scope of a declaration is the region of text
+		associated with the declaration, `excluding' any inner regions
+		associated with declarations that use the same variable
+		name.\/}
+	\eit
+\w In most languages, a declaration's region and scope can be
+	determined statically. These languages are called to be
+	{\bf{}statically scoped}.
+%\w The {\bf{}extent} (a.k.a. {\bf{}lifetime}) 
+%	of a dynamic binding is defined to be the time
+%	period during which the variable contains the new value.
+%	\bit
+%	\w {\em{}Note that extent is a temporal concept while the 
+%		scope or the region is a spatial concept\/}.
+%	\eit
+
+\w {\bf{}The only mechanism for introducing regions in programming languages
+	is $\lambda$-abstraction}:
+	\[ \mbox{\tt{}let\ } x_1 = N_1, \cdots, x_n = N_n \mbox{\tt\ in\ }
+	M \]
+	can be decoded into a $\lambda$-expression
+	\[ (\lambda{x_1\cdots{x_n}}.M) N_1 \cdots N_n \]
+	where {\sl\bfseries{}the region of $x_i$ is $M$\/}.
+	\bit
+	\w The {\tt{}letrec} expression is special: in
+	\[ \mbox{\tt{}letrec\ } x_1 = N_1, \cdots, x_n = N_n \mbox{\tt\ in\ }
+		M \]
+		the {\sl\bfseries{}region of a variable 
+		$x_i$ is not $M$ but the 
+		``{\tt{}letrec}	expression itself''\/} and can be encoded into
+	\[ \mbox{\tt{}let\ } x_1 = Y(\lambda{x_1}.N_1), \cdots, 
+		x_n = Y(\lambda{x_n}.N_n) \mbox{\tt\ in\ }
+	M \]
+	\w The {\tt{}letrec} problem is due to the fact 
+		that ``$L \equiv $ ({\tt{}let} $x = N$ {\tt{}in}
+		$M$)'' only binds $x$ in $M$ not in $L$.
+	\eit
+\eit
+\subsection{Dynamic Scope and Dynamic Assignment}
+\bit
+\w Example of dynamic scope:
+\[\xymatrix@-0.3pc{
+	& B \ar[rd]^{\mbox{calls}}& \\
+	A \ar[ru]^{\mbox{calls}}& & C
+}\]	
+	\bit
+	\w Function $A$ binds the variable {\tt{}foo}.
+	\w Function $C$ uses the variable {\tt{}foo}.
+	\eit
+\eit
+
+\subsection{Types}
+\bit
+\w The {\bf{}type} of an expression tells us the values it can denote and
+	the operations that can be applied to it.
+\w The widely accepted principle of language design is
+	that {\sl\bfseries{}every expression must have a unique type\/}.
+	\bit
+	\w This principle makes types a mechanism for classifying
+		expressions.
+	\w Variations:
+		\ben 
+		\w Overloading
+		\w Coercion
+		\w Parametric polymorphism	
+		\een
+	\eit
+\w A {\bf{}type system} for a language is a set of rules for associating
+	a type with expressions in the language.
+	\bit
+	\w A type system {\bf{}rejects} an expression if it cannot
+		associate a type with the expression.
+	\eit
+\w The rules of type system specify the proper usage of each operator
+	in the langauge.
+\w A program that exectues without type errors is said to be
+	{\bf{}type safe}.
+\w {\bf{}Static type checking} cannot check some properties that
+	depend on values computed at run-time such as:
+	\bit
+	\w {\em{}division by zero\/}
+	\w {\em{}array indices being within bounds\/}
+	\eit
+\w {\bf{}Dynamic type checking} is done during program execution.
+	\bit
+	\w This is usually done by {\em{}inserting extra code\/} into
+	the program to watch for impending errors.
+	\w The serious problem of dynamic checking is that {\em{}errors can
+		lurk in a program until they are reached during execution.\/}
+	\eit
+\w A type system is {\bf{}strong} if it accepts only safe expressions.
+	\bit
+	\w Expressions that are accepted by a strong type system are
+		guaranteed to evaluate without type error.
+	\eit
+\w Let $P$ be the set of all programs and $T$ be the set of type-safe
+	programs. And let $S$ be the set of programs accepted by a 
+	strong type system and $W$ be the set of programs accepted by
+	a weak type system.
+	\bit
+	\w {\em{}Strong type systems accept only subset of $T$\/}. I.e.,
+		\[ S \subseteq T.\]
+	   The smaller $T \setminus S$ is, the more powerful 
+		the type system is.
+	\w {\em{}Weak type systems may accept non-type-safe programs\/}.
+		I.e.,
+		\[  W \setminus T \ne \emptyset.\]
+	\eit
+\eit
+
+\section{Imperative Programming Languages}
+\subsection{Programming with Assignments}
+\bit
+\w Characteristic properties of {\bf{}imperative programming languages\/}:
+	\ben
+	\w [(a)] {\bf{}Assignments}: 
+		Variables denote {\em{}locations\/} in an underlying machine.
+	\w [(b)] {\bf{}Mutable date structures}:
+		A data structure is {\bf{}mutable} 
+		if it has components whose values can be changed by 
+		assignments.
+	\w [(c)] {\bf{}Control flow semantics}:
+		The flow of control through a progarm is specified
+		by constructs called {\bf{}statements\/}
+	\een
+\eit
+\subsection{The Effect of An Assignment}
+\bit
+\w A characteristic property of an assignment is that it
+	{\bf{}changes a value} held inside a machine.
+\w An assignment changes the {\em{}state\/} of the machine, where
+	{\bf{}state} corresponds roughly to a snapshot of the machine's
+	memory.
+\w The distinction between a location and its contents can be
+	clarified usign the neutral terms
+	{\bf{}$l$-value} for a location and {\bf{}$r$-value} for a value
+	that can be held in a location.
+\w {\em{}A dynamic computation can be visualized as a thread
+	laid down by the flow of control through the
+	static program text\/}
+	\bit
+	\w Let {\bf{}points} exist before the first instruction,
+	between any two adjacent instructions, and after the last instruction.
+	\w The {\bf{}thread} of computation consists of sequence of
+	program texts that are reached as control flows through the
+	program text.
+	\eit
+\w The effect of computation thread on a RAM is described by taking
+	snapshots, called {\em{}states\/}; a {\bf{}state} has
+	three parts:
+	\ben
+	\w [(a)] a mapping from locations to values
+	\w [(b)] the remaining input sequence
+	\w [(c)] the output sequence produced so far.
+	\een
+\w {\em{}Assignment instructions, I/O instructions\/}, and 
+	{\em{}control-flow instructions\/}
+	are among the most important instruction-classes in imperative
+	programming languages.
+	\bit
+	\w {\sl\bfseries{}Assignment 
+		and I/O instructions change the state without
+		interfering the normal flow of control.}
+	\w {\sl\bfseries{}Control-flow 
+		instructions direct the thread without changing
+		the state.}
+	\eit
+\eit
+
+\subsection{Procedure Activations}
+\bit
+\w A {\bf{}procedure declaration} has four parts:
+	\ben
+	\w [(a)] the {\em{}name\/} of the declared procedure,
+	\w [(b)] the {\em{}formal parameter\/} of the procedure,
+	\w [(c)] a {\em{}body\/} consisting of local declarations 
+		and a statement list, and
+	\w [(d)] an {\em{}optional result type\/}.
+	\een
+\w A declaration of a name is also called a {\bf{}binding} of the name;
+	it introduces a new use of the name.
+\w The treatment of parameters in procedure calls depends on
+	whether the occurence of $x$ in the body refers
+	\ben
+	\w to the name itself,
+	\w to its $l$-value, or
+	\w to its $r$-value.
+	\een
+\eit
+\paragraph{Environments and stores}
+\bit
+\w An {\bf{}environment} maps a variable name to an $l$-value.
+\w A {\bf{}store} maps an $l$-value to its contents\footnote{Note that
+	the two notions of environments and stores come from the fact
+	that the language in concern is an `imperative language.'
+	There are no notions of $l$-values or $r$-values in
+	purely functional languages, where there are no assignments.}.
+\[\xymatrix@+1pc{
+	\mbox{variable}\ar@/^3ex/[r]^{\mbox{\footnotesize{}environment}} &
+	\mbox{$l$-value}\ar@/^3ex/[r]^{\mbox{\footnotesize{}store}} &
+	\mbox{$r$-value}
+}\]
+\eit
+\paragraph{Scope rules}
+\bit
+\w {\em{}The {\sl\bfseries{}lexical 
+	environment} of a procedure is the environment
+	in which the procedure body appears.
+\w A {\sl\bfseries{}calling environment} is 
+	the environment at a point of call of
+	the procedure.
+\w In the {\sl\bfseries{}lexical scope rule}, 	
+	the nonlocals in a procedure body
+	refer to their values in the lexical environment.
+\w In the {\sl\bfseries{}dynamic scope rule}, 
+	the nonlocals in a procedure body
+	refer to their values in the calling environment.\/}
+\eit
+
+\paragraph{Lifetime of local variables}
+\bit
+\w In principle, local variables are local to a procedure activation.
+\w This indicates that local variables are located in the 
+	{\bf{}stack} and deallocated when the activation
+	ends.
+\w Some languages allow local variables to be existent after the
+	end of the activation; the memory elements for 
+	this variables are allocated at {\bf{}heap} (a.k.a
+	{\bf{}garbage-collected memory}).
+	
+\eit
+
+\subsection{Parameter Passing}
+\bit
+\w Parameter passing determines the {\em{}correspondence
+	betweent the actual parameters in a procedure call
+	and the formal parameters in the procedure body\/}.
+\w Given a procedure call $P(A[j])$, there are four types of
+	parameter passing:
+	\ben
+	\w [(a)] {\bf{}Call-by-value}: Pass the $r$-value of $A[j]$;
+	\w [(b)] {\bf{}Call-by-reference}: Pass the $l$-value of $A[j]$;
+	\w [(c)] {\bf{}Call-by-name}: Pass the text $A[j]$ itself, avoiding
+		``variable capture''
+	\w [(d)] {\bf{}Call-by-value-result} (a.k.a. {\bf{}copy-in/copy-out}): 
+		\ben
+		\w {\em{}Copy-in phase\/}: Both the $r$-values and
+			$l$-values of the actual parameters are computed;
+			The $r$-values are assigned to the corresponding 
+			formals, as in call-by-value, and te $l$-values are 
+			saved for the copy-out phase.
+		\w {\em{}Copy-out phase\/}:
+			After the procedure body is executed, the final
+			values of formals are copied back out to the 
+			$l$-values computed in the copy-in phase.
+		\een
+	\een
+\w Notice the difference between the {\bf{}call-by-value
+	evaluation} and {\bf{}call-by-value parameter passing}.
+\w Parameter passing in programming languages:
+	\bit
+	\w C uses call-by-value.
+	\w Pascal uses call-by-value, but it also supports 
+		call-by-reference by the keyword {\bf{}var}.
+	\w Ada supports three kinds of parameters:
+		\bit
+		\w {\bf{}in} parameters, corresponding to value parameters
+		\w {\bf{}out} parameters, corresponding to just
+			the copy-out phase of call-by-value-result, and
+		\w {\bf{}in out} parameters, corresponding to either
+			reference parameters or value-result parameters,
+			at the discretion of the implementation.
+		\eit
+	\eit
+\eit
+\paragraph{Parameter Passing Examples}
+\bit
+\w {\bf{}Call-by-value}:
+	\bit
+	\w C procedure {\tt{}swap1}:
+\begin{verbatim}
+void swap1(int x, int y) {
+   int z;
+   z = x; x = y; y = z;
+}
+\end{verbatim}
+	\w A call {\tt{}swap1(a, b)} does nothing to {\tt{}a} and {\tt{}b}.
+	\w Effect of {\tt{}swap1(a, b)}:
+\begin{verbatim}
+x = a;
+y = b;
+z = x; x = y; y = z;
+\end{verbatim}
+	\w This problem can be remedied in C by passing $l$-values as in:
+\begin{verbatim}
+void swap(int *px, int *py) {
+   int z;
+   z = *px; *px = *py; *py = z;
+}
+\end{verbatim}
+		\bit
+		\w Note that {\tt{}swap} is invoked following 
+			a call-by-value method, since the actual
+			parameters are $l$-{\bf{}values}.
+		\eit
+	\eit
+\w {\bf{}Call-by-reference}:
+	\bit
+	\w Modula-2 procedure {\tt{}P}:
+\begin{verbatim}
+procedure P(x: xType; var y: yType);
+...
+end P;
+\end{verbatim}
+	\w {\tt{}x} is a value parameter and {\tt{}y} is a reference
+		parameter.
+	\w Effect of the call {\tt{}P(a + b, c)}:
+		\ben
+		\w Assign {\tt{}x} the $r$-value of {\tt{}a + b}.
+		\w Make the $l$-value of reference parameter {\tt{}y}
+			the same as that of {\tt{}c}.
+		\w Execute the body of procedure {\tt{}P}.
+		\een
+	\w Modula-2 version of {\tt{}swap}:
+\begin{verbatim}
+procedure swap(var x : integer; var y : integer);
+var z : integer
+begin
+   z := x; x := y; y := z;
+end swap;
+\end{verbatim}
+	\eit	
+\w {\bf{}Call-by-value-result}:
+	\bit
+	\w Call-by-value-result can result in anomalies in case of
+		{\bf{}aliases}. Refer to \cite[page 130]{Sethi89} for details.
+	\eit
+\eit
+
+\subsection{Activations Have Nested Lifetimes}
+\bit
+\w The {\bf{}lifetime} of an activation begins when control
+	enters the activation and ends when control returns from the 
+	activation.
+	\bit
+	\w When $P$ calls $Q$, the lifetime of $Q$ is nested within 
+		the lifetime of $P$.
+	\eit
+\w The flow of control between activations can be depicted by a tree,
+	called an {\bf{}activation tree}.
+	\bit
+	\w Nodes in a tree represent activations.
+	\eit
+\eit
+\subsection{Lexical Scope in C}
+\bit
+\w Data needed for an activation of a procedure is collected in a
+	record called an {\bf{}activation record} or {\bf{}frame}.
+	\bit
+	\w Since control flows between activations in a stack-like manner,
+		a {\em{}Stack\/} can be used to hold frames.
+	\w For this reason, frames are sometimes referred to as {\em{}stack
+		frames\/}.
+	\eit
+\w C does not allow procedure bodies to be nested, so stack-frame 
+	management for C is simpler than for Modula-2.
+\w {\bf{}Compound statement} construct in C:
+	\[\mbox{\tt{}\ \ $\{$$\arc{declarations}\ \arc{statements}$ $\}$} \]
+\w A redeclaration of $x$ creates a {\bf{}hole} in the scope of any
+	outer bindings of $x$. E.g.,
+\begin{verbatim}
+int x;
+for (...) {
+   int x;
+   ...
+}
+...
+\end{verbatim}
+\w {\bf{}Storage for local variables} in C
+	\bit
+	\w A variable declared in a compound statement is local to an
+		execution of the statement.
+	\w {\em{}C compilers tend to allocate storage for all the variables
+		in a procedure all at once when the procedure is called.}
+	\eit
+\eit
+
+\paragraph{Procedure call and return in C}
+\bit
+\w C uses call-by-value, so the \bb{caller} evaluates the actual
+	parameters for the call and places their
+	values in the  activation record for the \bb{callee}.
+\w Information needed to restart execution of the \bb{caller} is saved:
+	this includes {\em{}return address\/}.
+\w The \bb{callee} allocates space for its local variables.
+	\bit
+	\w Also temporary storage for compiler-generated variables
+		are allocated.
+	\eit
+\w The body of the \bb{callee} is executed.
+\w Control returns to the \bb{caller}.
+\eit
+
+\paragraph{Tail-recursion elimination}
+\bit
+\w When {\em{}the last `statement' executed in the body of a procedure $P$
+	is a recursive call\/}, the call is said to be {\bf{}tail 
+	recursive}.
+\w Tail-recursion elimination:
+	\bit
+	\w A tail-recursive call $P(a, b)$ of a procedure $P$ with 
+		formals $x$ and $y$ can be replaced by
+	\begin{verbatim}
+x = a;
+y = b;
+goto the 1st executable statement in P;
+	\end{verbatim}
+	\eit
+\eit
+
+\subsection{Block Structure in Modula-2}
+\bit
+\w A {\bf{}block} consists of a sequence of declarations, including
+	procedure declarations, and a sequence of statements.
+\w A language is said to be {\bf{}block-structured} if it allows
+	blocks to be nested.
+\eit
+\paragraph{Access to nonlocals: control and access links}
+\bit
+\w Memory category:
+	\ben
+	\w {\bf{}code}
+	\w {\bf{}static global data}
+	\w {\bf{}run-time stack} including {\em{}static local data}
+	\w {\bf{}heap}: garbage-collected memory
+	\een
+\w What's the difference between C and Modula-2?
+	\bit
+	\w Modula-2 is block-structured but C is not!
+	\w {\bf{}C}: 
+		A {\sl\bfseries{}nonlocal\/} refers to a location in 
+		`static global data' area.
+	\w {\bf{}Modula-2}: 
+		A {\sl\bfseries{}nonlocal\/} refers to a location in 
+		some other {\sl\bfseries{}activation record\/} in
+		`run-time stack' area.
+	\eit
+\w The, what other activation record does nonlocal refer to?
+	\bit
+	\w {\bf{}Control link} (or {\bf{}dynamic link}) points to the
+		activation record of the run-time caller.
+	\w {\bf{}Access link} (or {\bf{}static link}) points to the most
+		recent activation of the lexically enclosing block.
+	\eit
+\eit
+\paragraph{Procedures as parameters}
+\bit
+\w {\em{}A procedure that is passed as a parameter carries its lexical
+	environment along with it\/}.
+	\bit
+	\w In other words, when a procedure $X$ is passed as a parameter,
+		an access link $a$ goes with it.
+	\w Later, when $X$ is called, $a$ is used as the access link for its
+		block.
+	\eit
+\eit
+\paragraph{Displays in the absence of procedures as parameters}
+\bit
+\w Displays are an optimization technique for obtaining faster
+	access to nonlocals.
+\w A {\bf{}display} is an array $d$ of pointers to activation records,
+	indexed by nesting depth.
+	\bit
+	\w An array element $d[i]$ is maintained so that it points to the
+		most recent activation of the block at nesting depth $i$.
+	\eit
+\w With a display, a nonlocal $n$ can be found as follows:
+	\ben	
+	\w Use one array access to find the activation record containing $n$.
+	\w Use the relative address within the activation record to find the
+	$l$-value for $n$.
+	\een
+\w The calling sequence for maintaining the display is
+	\ben
+	\w Save $d[i]$ in the activation record of the callee at nesting
+		depth $i$.
+	\w Make $d[i]$ point to the callee.
+	\een
+\eit
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Object-Oriented Programming Languages}
+\subsection{Objects, Classes, Object Types}
+\bit
+\w An {\bf{}object} is a collection of {\em{}data\/} and {\em{}codes\/}.
+	\bit
+	\w Data are called {\bf{}instance variables} or {\bf{}fields}.
+	\w Codes are called {\bf{}methods}.
+	\w Data and codes altogether are called {\bf{}attributes}.
+	\eit
+\w An {\bf{}object type} describes the `shape' of a collection of objects.
+	\bit
+	\w Sometimes, an object type is called an {\bf{}interface}.
+	\w A {\bf{}object protocol} is the type signature for the
+		attributes of an object.
+	\eit
+
+\w A {\bf{}class} 
+\w A taxonomy of object-oriented languages
+	\bit
+	\w {\bf{}Class-based languages}: In Simula, Smalltalk, and C++,
+		the {\sl\bfseries{}implementation\/} is described by
+		classes. In these languages, we create objects by
+		{\bf{}instantiating} classes.
+	\w {\bf{}Object-based languages}: In Self, objects are
+		defined by adding methods to {\em{}existing objects\/}
+		through {\bf{}method addition} or {\bf{}method 
+		overriding}.
+	\eit
+\eit
+
+\subsection{Basic Features of Object-Oriented Languages}
+\bit
+\w {\bf{}Dynamic lookup}
+	\bit
+	\w ``Dynamic lookup'' means that when we send a message to
+		an object, the {\sl\bfseries{}method body to execute\/}
+		is determined
+		by the {\em{}run-time type\/} of the object, not by
+		the static type\footnote{Dynamic lookup is referred 
+		also as dynamic binding, dynamic dispatch, 
+		and run-time dispatch\/.}.
+	\w {\bf{}Implementation of dynamic lookup mechanism}
+		\ben
+		\w [(a)] Using {\bf{}method tables}: Suppose that a message $m$
+			is sent to an object $ob$. Object $ob$ maintains 
+			a message table and locates the table entry 
+			using the message $m$ as the {\em{}index\/} to the
+			table. C++ or Smalltalk uses this implementation.
+			\vspace{0.1cm}
+
+{\small
+\centerline{\begin{tabular}{|c|c|}\hline
+\multicolumn{2}{|c|}{\sl\bfseries{}object} \\ \hline
+\multicolumn{2}{|c|}{internal state} \\ \hline
+method $m_1$ & method body for $m_1$ \\ 
+$\vdots$ & $\vdots$ \\
+method $m_k$ & method body for $m_k$ \\ \hline
+\multicolumn{2}{c}{objects as tables}
+\end{tabular}}}
+		\w [(b)] Using {\bf{}overloaded functions}: 
+			In this implementation. ``message name'' is used
+			as an overloaded function. When a message $m$ is
+			sent to $ob$, ``$ob$'' is used as an index to
+			the overloaded function $m$ and is used to determine
+			the appropriate method body. \vspace{0.1cm}
+			
+{\small\centerline{\begin{tabular}{|c|c|}\hline
+\multicolumn{2}{|c|}{\sl\bfseries{}method $m_i$} \\ \hline
+object type $t_1$ & method body for $t_1$ \\ 
+object type $t_2$ & method body for $t_2$ \\ 
+$\vdots$ & $\vdots$ \\
+object type $t_n$ & method body for $t_n$ \\ \hline
+\multicolumn{2}{c}{methods as overloaded functions} \\
+\end{tabular}}}
+		\een
+	\eit
+\eit
+
+
+
+
+
+\subsection{Class-Based Languages}
+\subsection{Object-Based Languages}
+
+\section{Data Encapsulation}
+\subsection{Difference between Modules and Classes}
+\bit
+\w {\em{}Modules partition the static program text, whereas classes
+	can be used, in addition, to describe dynamic objects
+	that exist at run time.\/}
+\w A {\bf{}module} partitions the text of a program into manageable pieces.
+	\bit
+	\w Modules are {\em{}static\/}. We cannot create new modules or copies
+		of existing modules dynamically as a program runs.
+	\w The {\bf{}interface} (or {\bf{}signature}) of a module 
+		is a collection of declarations of types, variables, 
+		procedures, and so on.
+	\w The {\bf{}implementation} of a module consists everything else
+		about the module, including the {\em{}code\/}.
+	\w A module is said to have a {\bf{}local state} since its
+		variables retain their values
+		even when control is not in the module.
+	\eit
+\w A {\bf{}class} corresponds to a `type' (not in a precise sense).
+	\bit
+	\w {\em{}Objects\/} are {\em{}dynamic\/}. We can create and delete
+		objects as a program runs.
+	\eit
+\eit
+
+
+\subsection{Representation Independence}
+\bit
+\w An {\bf{}abstract specification} tells us the behavior of an object
+	independently of its implementation.
+\w A {\bf{}concrete representation} tells us how an element is implemented,
+	how its data is laid out inside a machine, and how this data is
+	manipulated.
+\w {\bf{}Representation independence principle}:
+	\bit
+	\w A program should be designed so that the {\em{}representation
+		of an object can be changed without affecting the rest of
+		the program\/}.
+	\w Also known as {\em{}implementation hiding\/}, 
+		{\em{}encapsulation\/}, or {\em{}information hiding\/}.	
+	\w {\em{}Scope rules\/}, which control the visibility of names,
+		are the primary tool for achieving representation 
+		independence.
+	\eit
+\w A {\bf{}data invariant} for an element is a property of its local
+	data that holds whenever control is not in the object. E.g.
+	\bit
+	\w The buffer is empty if array index {\em{}front\/} equals index 
+		{\em{}rear\/}.
+	\w The elments between {\em{}front\/} and {\em{}rear\/} are in
+		the order they entered.
+	\eit
+\w {\bf{}Data invariant principle}:
+	\bit
+	\w Design an object around a data invariant.
+	\eit
+\eit
+
+\subsection{Program Structure in Modula-2}
+\bit
+\w A module in Modula-2 establishes a scope for the declarations within it.
+	\bit
+	\w A name crosses a module boundary only through an explicit
+		{\bf{}import} or {\bf{}export} declaration.
+	\eit
+\w {\em{}Definition} and {\em{}implementation\/} modules set up
+	public and private views.
+\w Execution of a Modula-2 program is controlled by a {\em{}program\/} or
+	{\em{}main module\/}.
+\w A {\em{}local module\/} appears within another module or procedure.
+	\bit
+	\w The lifetime of local module is determined by the lifetime
+		of tis enclosing construct.
+	\eit
+\eit
+\paragraph{Multiple instances in Modula-2}
+\bit
+\w {\bf{}Opaque export} of a type occurs when the type is exported by 
+	mentioning only its name in a definition module, as in
+	\begin{verbatim}
+definition module ComplexNumbers;
+   export qualified Complex, cartesian, xpart, ypart;
+   type Complex;
+   procedure cartesian(x, y: real): Complex
+   ...
+end ComplexNumbers.
+	\end{verbatim}
+	\bit
+	\w The only operations on opaque types are {\em{}assignment\/}
+		and {\em{}tests for equality\/}.
+	\eit
+\eit
+
+\subsection{Classes in C++}
+\paragraph{In-line expansion of function bodies}
+\bit
+\w Implementation hiding can result in lots of little functions that
+	manipulate private data. 
+	\bit
+	\w Function-call overhead can be avoided by using an implementation
+		technique called {\bf{}in-line expansion}, which replaces
+		a call by a function body, taking care to preserve the
+		semantics of the language.
+	\w In-line expansion in C++ differs from macroexpansion in C
+		because in-line expansion preservesthe semantics of
+		call-by-value parameter passing.
+	\w In-line expansion eliminates the overhead of function calls 
+		at run time,
+		so it encourages free use of functions, 
+		even small functions.
+	\eit
+\w (Example)
+	\bit
+	\w {\tt{}Buffer} class:
+	\begin{verbatim}
+class Buffer {
+   int front, rear;
+   int notempty () { return front != rear; }
+}
+	\end{verbatim}
+	\w {\tt{}buf}, an instance of {\tt{}Buffer} class:
+	\begin{verbatim}
+if (frand() >= 0.5 && buf.notempty()) ...
+	\end{verbatim}
+	\w After in-line expansion:
+\begin{verbatim}
+if (frand() >= 0.5 && buf.front != buf.rear)) ...
+\end{verbatim}
+
+	\eit
+\eit
+
+\section{Inheritance}
+\bit
+\w Inheritance is a language facility for defining a new class of
+	objects as an extension of previously defined classes
+	\bit
+	\w Inheritance facilitates {\bf{}code reuse}.
+	\eit
+\w A {\bf{}subtype} $S$ of a type $T$ is such that any $S$-object
+	is at the same time $T$-object.
+	\bit
+	\w That is, an object of type $S$ also has type $T$.
+	\eit
+\w {\bf{}Subtype principle}:
+	\bit
+	\w An object of a subtype can appear wherever an object of
+		a supertype is expected.
+	\eit
+\w In {\bf{}multiple inheritnace}, a class can be a direct subtype of 
+	more than one class.
+	\bit
+	\w Smalltalk, C++, and CLOS supports multiple inheritance.
+	\eit
+\w Single inheritance leads to a {\em{}class hierarchy\/}.
+\eit
+
+\subsection{The Smalltalk-80 Vocabulary}
+\bit
+\w Smalltalk, the language, is just one part of the Smalltalk 
+	system.
+\w The Smalltalk vocabulary reflects the view of a running program 
+	as a collection of interacting objects.
+\w Five words of the Smalltalk vocabulary:
+	\bit
+	\w {\bf{}Object}: collection of private data and public operations
+	\w {\bf{}Class}: description of a set of objects
+	\w {\bf{}Instance}: an instance of a class is an object of that class
+	\w {\bf{}Method}: a procedure body implementing an operation
+	\w {\bf{}Message}: a procedure call; request to execute a message
+	\eit
+\w General form of a message in Smalltalk
+	\begin{verbatim}
+        elements at: top put: 'celebrate'
+	\end{verbatim}
+	\bit
+	\w This expression sends {\tt{}elements} a message consisting
+		of two keywords.
+	\w Keyword {\tt{}at:} carries argument {\tt{}top}
+	\w An {\tt{}at:put:} message is sent to object {\tt{}elements}.
+	\eit
+\eit
+\paragraph{Elements of Smalltalk-80}
+\bit
+\w Variables must be declared before they are used.
+	\bit
+	\w A single copy of {\em{}class variable\/} is shared by all instances
+		of a class.
+	\w A single copy of {\em{}global variable\/} is shared by all instances
+		of all classes.
+	\eit
+\w Messages for {\em{}class methods\/}
+	are sent to the class, and messages for {\em{}instance
+	methods\/} are send to the individual instances of the class.
+\w Returning values:
+	\begin{verbatim}
+        isEmpty
+           ^(top = 0)
+	\end{verbatim}
+\eit
+
+\section{Functional Programming Languages}
+\subsection{Basic Concepts}
+\bit
+\w A {\bf{}statement} is a programming language construct that
+	is evaluated only for its {\em{}effect\/}.
+	\bit
+	\w Example: assignment statements, I/O statements, 
+		control statements
+	\w Programs in most languages are composed primarily 
+		of statements; such languages are said to be 
+		{\bf{}statement-oriented}.
+	\eit
+\w Programming language constructs that are evaluated to 
+	obtain values are called {\bf{}expressions}.
+	\bit
+	\w The data that may be returned as the values of expressions
+		constitute the {\em{}expressed values} of a 
+		programming languages.
+	\w Expressions that are evaluated solely for its value,
+		not for any other effects of the computation,
+		are said to be {\bf{}functional}.
+	\w Scheme and ML are {\bf{}expression-oriented} languages;
+		their programs are constructed of definitions and
+		expressions but no statements.
+	\eit
+\w {\em{}Pure functional programming\/} is characterized by the following
+	informally stated principle:
+	\begin{quote}
+	The value of an expression depends only on the values of its 
+	subexpressions, if any.
+	\end{quote}
+	\bit
+	\w This principle rules out side effects within expressions.
+	\eit
+\w Another characteristic of functinoal languages is that users
+	do not worry about managing storage for date:
+	\begin{quote}
+	{\em{}Implicit storage management: Built-in operations on data
+		allocate storage as needed. Storage that becomes
+		inaccessible is automatically deallocated.}
+	\end{quote}
+\w Finally, functions are treated as `first-class citizens':
+	\begin{quote}
+	{\em{}Functions are first-class values: Functions can be passed
+	as an argument, can be a value of an expression, returned from
+	a function, and can be put in a data structure.}
+	\end{quote}
+\eit
+
+\subsection{Scheme, A Dialect of Lisp}
+\bit
+\w Scheme is a dialect of Lisp that supports {\em{}static scoping\/}
+	and {\em{}truely first-class functions\/}.
+\w Scheme supports higher-order functions.
+	\bit
+	\w A function is called {\bf{}higher order} if either its 
+		arguments or its results are themselves functions.
+	\eit
+\eit
+
+\subsection{ML: Static Type Checking}
+\bit
+\w A fundamental difference between Standard ML and Scheme is that ML is
+	{\em{}strongly typed\/} while Scheme is {\em{}untyped\/}.
+\w ML supports {\em{}type inference\/}.
+\w A {\bf{}polymorphic} function can be applied to arguments of 
+	more than on type.
+	\bit
+	\w {\bf{}Parametric polymorphism} is a kind of polymorphism
+		in which {\em{}type expressions are parameterized}.
+		E.g. for type parameter $\alpha$, $\alpha \rightarrow
+		\alpha$ is denotes a class of types of functions whose
+		argument and return value have the same type.
+	\eit
+\w ML supports {\em{}data type declaration}.
+\eit
+
+\subsection{An Evaluator with No Environments}
+\begin{quote}
+\begin{verbatim}
+(define Eval
+  (lambda (M)
+    (cond
+     ((var? M) ...)
+     ((proc? M) M)
+     (else ;(app? M) = #t
+      (Apply
+       (Eval (app-rator M))
+       (Eval (app-rand M)))))))
+
+(define Apply 
+  (lambda (a-proc a-value)
+    (Eval (substitute a-val
+		      (proc-param a-proc)
+		      (proc-body a-proc)))))
+
+(define substitute
+  (lambda (v x M)
+    (cond ...))))
+\end{verbatim}
+\end{quote}
+
+
+\section{Types}
+\subsection{Evolution of Types in Programming Languages}
+\bit
+\w Fortran found it convenient to distinguish between integers
+	and floating-point numbers, which is accomplished by
+	an implicit lexical rule.
+\w Algol 60 made the type distinction {\em{}explicit\/} using
+	by introducing redundant identifier-type declarations.
+	\bit
+	\w Algol 60 introduced the {\em{}explicit notion of types\/}.
+	\w Explicit notion of types required the {\em{}compile-time
+		type checking\/}.
+	\w Algol 60's block structure introduced the {\em{}scope
+		$($visibility$)$ of the variables\/}.
+	\eit
+\w PL/I extended the repertoire of types by including
+	{\em{}typed arrays, records\/}, and {\em{}pointers\/}.
+\w Pascal provided a cleaner extension of types to arrays, records,
+	and pointers, as well as {\em{}user-defined types\/}.
+\w Algol 68 introduced the well-defined notion of 
+	{\em{}type equivalence\/}.
+\w Simula introduced the notion of {\em{}classes\/}.
+\w Modula-2 is the first widespread language to use {\em{}modularization\/}
+	as a major structuring principle\footnote{Modularization was
+	first used in Mesa}.
+	\bit
+	\w {\em{}Typed interfaces\/} specify the types and operations
+		available in a module.
+	\w An interface can be specified independent of the implementation.
+	\eit
+\w ML introduced the notion of {\em{}parametric polymorphism\/}.
+	\bit
+	\w ML types can contain {\em{}type variables\/}.
+	\eit
+\w Ada used the {\em{}name equivalence\/} as type equivalence.
+\eit
+
+\subsection{Static and Strong Typing}
+\bit
+\w A type may be viewed as a set of clothes that protects an underlying
+	untyped representation from arbitrary or unintended use.
+\w Objects of a given type have a {\em{}representation\/} that respects
+	the expected properties of the data type.
+\w To prevent type violations, we generally impose a {\em{}static type
+	structure\/}.
+\w A {\bf{}type inference systems\/} can be used to infer the types of
+	expressions when little or no type information is given 
+	explicitly.
+\w Programming languages in which the type of every expression can be
+	determined by static program analysis are said to be
+	{\bf{}statically typed}.
+	\bit
+	\w Static typing is a useful property, but the requirement that
+		all variables and expressions are bound to a type at 
+		compile-time is sometimes too restrictive.
+	\w It may be replaced by weaker requirement that all expressions
+		are guaranteed to be {\em{}type consistent\/} although the
+		type itself may be statically unknown. This is usually
+		achieved by {\bf{}run-time type checking}.
+	\eit
+\w Languages in which all expressions are type-consistent are 
+	called {\bf{}strongly typed} languages.
+\w {\em{}Every statically typed language is strongly typed but the
+	converse is not true.}
+\eit
+
+\subsection{Types as Sets of Values}
+\bit
+\w There is a universe $V$ of all values: integers, pairs, records, 
+	functions. (a {\em{}CPO}).
+\w A {\bf{}type} is a set of elements of $V$.
+	\bit
+	\w Not all subsets of $V$ are legal types: tyey must obey some
+		technical properties.
+	\w The subsets of $V$ beying such properties are called
+		{\bf{}ideals}.
+	\w Hence, {\sl\bfseries{}a type is an ideal}.
+	\eit
+\w The set of types (ideals) over $V$, when ordered by set inclusion,
+	forms a {\bf{}lattice}. (with top {\sf{}Top} and bottom $\emptyset$)
+	\bit
+	\w The phrase {\bf{}having a type} is interpreted as {\bf{}membership
+	in the appropriate set}.
+	\w As ideals over $V$ may overlap, a value can have many types.
+	\eit
+\w A {\bf{}type system} is a collection of ideals of $V$, which is 
+	usually identified by giving a $^{1)}$ 
+	{\em{}language of type expressions\/} 
+	and a 
+	$^{2)}$ {\em{}mapping from type expressions to ideals\/}.
+\w Since types are sets, subtypes simply correspond to subsets.
+	\bit
+	\w The semantic assertion {\bf{}$T_1$ is a  subtype of $T_2$}
+		corresponds to the mathematical condition
+		$T_1 \subseteq T_2$ in the {\em{}type lattice\/}.
+	\eit
+\w The type lattice contains many more points than can be named in any 
+	type language.
+	
+\eit
+
+
+\section{Polymorphism}
+\bit
+\w In {\bf{}monomorphic} languages, every value and variable
+	can be interpreted to be one and only one type.
+\w In {\bf{}polymorphic} langauges, some values and variables may have
+	more than one type.
+\w Kinds of polymorphism
+	\bit
+	\w [(a)] {\bf{}Universal polymorphism\/}
+		\bit
+		\w {\bf{}Parametric polymorphism\/}
+		\w {\bf{}Inclusion polymorphism\/}
+		\eit
+	\w [(b)] {\bf{}Ad-hoc polymorphism\/}
+		\bit
+		\w {\bf{}Overloading\/}
+		\w {\bf{}Coercion\/}
+		\eit
+	\eit
+\w {\bf{}Universal polymorphims} are ``true polymorphisms.''
+	\bit
+\w {\bf{}Parametric polymorphism} is so called since the uniformity
+	of type structure is normally achieved by 
+	{\bf{}type parameters}.
+	\bit
+	\w Parametric polymorphism is obtained when a function works
+		uniformly on a range of types.
+	\w Functions exhibiting parametric polymorphism are
+		also called {\bf{}generic functions}. (e.g.,
+		{\it{}length: 'a list $\ra$ int})
+		\eit
+	\w {\bf{}Inclusion polymorphism} is used to model {\em{}subtypes\/}
+		and {\em{}inheritance\/}.
+	\eit
+\w {\bf{}Ad-hoc polymorphism} is obtained when a function works,
+	or appears to work, on several different types (which may not
+	exhibit a common structure) and may behave in {\em{}unrelated
+	ways for each type\/}.
+	\bit
+	\w In {\bf{}overloading}, the same {\em{}variable name\/} is used
+		to denote {\em{}different functions\/}.
+	\w A {\bf{}coercion} is a semantic operation which is needed to
+		convert an argument to the type expected by a function, in 
+		a situation which would otherwise result in a type error.
+	\eit
+\w Real and apparent exceptions to the monomorphic typing rule in 
+	conventional langauges include:
+	\ben
+	\w (Overloading) Integer constants may have both type integer
+		and real.
+	\w (Coercion) an integer value can be used where a real is
+		expected, and vice versa.
+	\w (Subtyping) elements of a subrange type also belong to superrange
+		type
+	\w (Value sharing) {\tt{}nil} in Pascal is a constant which is
+		shared by all the pointer types.
+	\een
+\w Parametric polymorphism is the purest form of polymorphism but
+	it should be noted that this uniformity of behavior
+	requires that {\sl\bfseries{}all data be represented,
+	or somehow dealt with, uniformly (e.g., by pointers)}.
+\eit
+
+\subsection{Universal Quantification}
+\paragraph{Generic functions}
+\bit
+\w {\bf{}Universal quantification} enriches the 1st-order $\lambda$-calculus
+	with {\em{}parameterized types\/} that may be specialized by
+	substituting actual type parameters for universally quantified
+	parameters.
+\w {\bf{}Universally quantified type epxression}: 
+	\[ \forall{\mbox{\tt{}a}}.\arc{\mbox{\rm\em{}type expression 
+		on {\tt{}a}}}\]
+\w {\bf{}Generic functions} factors out the {\em{}types of its arguments\/}.
+	\bit
+	\w I.e., {\sl\bfseries{}generic function takes arguments of 
+		universally quantified 
+		types\/}.
+	\eit
+\w Two versions of {\tt{}twice}
+	\bit
+	\w {\tt{}value twice1 = all[t]$\lambda$(f:$\forall$a.a$\rightarrow$a)$\lambda$(x:t)f[t](f[t](x))}
+		\bit
+		\w e.g., {\tt{}twice1[Int](id)(3)}
+		\w In this case, {\tt{}id:$\forall$a.a$\ra$a} is a 
+			{\em{}generic identity function}.
+		\eit
+	\w {\tt{}value twice2 = all[t]$\lambda$(f:t$\rightarrow$t)$\lambda$(x:t)f(f(x))}
+		\bit
+		\w {\tt{}twice2[Int] $\equiv$ 
+		   $\lambda$(f:Int$\rightarrow$Int)$\lambda$(x:Int)f(f(x))}
+		\w {\tt{}twice2[Int](intId) $\equiv$
+			$\lambda$(x:Int)intId(intId(x))}
+		\w e.g., {\tt{}twice2[Int](id[Int])(3)}
+		\eit
+	\eit
+\eit
+
+\paragraph{Parametric types}
+\bit
+\w Parametric type definition factors out the common structures in 
+	{\em{}type definitions}
+	\begin{eqnarray*}
+	&&\mbox{\tt{}type Pair[T] = T $\times$ T}\\
+	&&\mbox{\tt{}type PairOfBool = Pair[Bool]}\\
+	&&\mbox{\tt{}type PairOfInt = Pair[Int]}
+	\end{eqnarray*}
+\w A parametric type definition introduces a new {\em{}type operator}.
+	\bit
+	\w {\bf{}Type operators} are not types, they operate on types, i.e.,
+		{\bf{}type operators takes a type and returns a type}.
+	\w {\tt{}Pair} above is a type operator.
+	\w c.f., in {\tt{}type B = $\forall$T.T$\ra$T}, 
+		{\tt{}B} is not a type operator but a {\em{}type}.
+	\eit
+\eit
+
+\subsection{Existential Quantification}
+\bit
+\w {\bf{}Existential type expression}: 
+	\[ \mbox{$\exists$a.$\arc{\mbox{\rm\em{}type expression on {\tt{}a}}}$}\]
+	\bit
+	\w {\tt{}p:$\exists$a.t(a)} means that ``for some type {\tt{}a}, 
+		{\tt{}p} has type {\tt{}t(a)}.''
+	\w e.g., $(3, 4): \exists$a.a$\times$a, where {\tt{}a} = {\tt{}Int}
+	\w e.g., $(3, 4): \exists$a.a, where {\tt{}a $=$ Int$\times$Int}
+	\eit
+\w More examples
+	\bit
+	\w {\tt{}type Top = $\exists$a.a}: the type of any value ({\em{}the
+		biggest type!})
+	\w {\tt{}$\exists$a.$\exists$b.a$\times$b}: the type of any pair
+	\eit
+\w {\bf{}Counterintuitive example}
+	\bit
+	\w Consider {\tt{}$\exists$a.a$\times$a}: this is not only the
+		type of {\tt{}(3, 4)} but also of {\tt{}(3, true)}.
+	\w This is because {\tt{}3:Top} and {\tt{}true:Top}.
+	\eit
+\w {\tt{}$\exists$a.a$\times$(a$\ra$Int)} forces a relation!
+	\bit
+	\w Consider {\tt{}(3, length)} where
+		{\tt{}length:$\forall$a.List[a]$\ra$a}.
+	\w {\tt{}(3, length)$\not{:}$} {\tt{}$\exists$a.a$\times$(a$\ra$Int)}
+	\w Why? Can't we show that {\tt{}3:Top} and
+		{\tt{}length:Top$\ra$\underline{Int}}?
+	\w No. Since {\tt{}length} maps ``integer 
+		lists'' to \underline{integers}, we 
+		cannot assume that any arbitrary object of type 
+		{\tt{}Top} will be mapped into integer.
+	\eit
+\w Sometimes existential types does not convey much information to us.
+	\bit
+	\w But when an existential type expression is sufficiently 
+		structured, it can be useful.
+	\w {\tt{}x:$\exists$a.a$\times$(a$\ra$Int)} means that
+		{\tt{}(snd(x))(fst(x))} yields an `integer'.
+	\eit
+\eit
+
+\paragraph{Existential quantification and information hiding}
+\bit
+\w {\bfseries{}We can view {\tt{}x:$\exists$a.a$\times$(a$\ra$Int)} as a 
+	simple
+	example of {\sl\bfseries{}abstract type} 
+	packaged with its set of operations\/}
+	\bit
+	\w {\tt{}a} is the abstract type itself, which hides a representation.
+	\eit
+\w An ordinary object {\tt{}(3, succ)} may be converted to an abstract object
+	having type {\tt{}$\exists$a.a$\times$(a$\ra$Int)}
+	by {\bf{}packaging} it so that some of its structure is hidden.
+	\bit
+	\w The operation {\tt{}pack} below encapsulates the object
+	{\tt{}(3, succ)} so that the user knows only that an object
+	of the type {\tt{}a$\times$(a$\ra$Int)} exists without
+	knowing the actual object.
+	\w {\small\tt{}value p = pack[a=Int in a$\times$(a$\ra$Int)](3, succ):$\exists$a.a$\times$(a$\ra$Int)}
+       	\w Packaged object such as {\tt{}p} are called {\bf{}packages}.
+	\w The value {\tt{}(3, succ)} is referred to as the 
+	{\bf{}content} of the package.
+	\w The type {\tt{}$\exists$a.a$\times$(a$\ra$Int)} is the 
+		{\bf{}interface}: it determines the structure specification
+		of the contents and corresponds to the specification part 
+		of a data abstraction.
+	\eit
+\eit
+
+
+
+\bibliographystyle{plain}
+\bibliography{bib/mac,bib/theory,bib/pl,bib/softsys}
+\nocite{CW85,FWH92,Sethi89,Scott00}
+
+\tableofcontents
+\end{document}
+% LocalWords:  ob Smalltalk Simula Modula polymorphism CLOS op Int intId snd
+% LocalWords:  fst succ LocalWords

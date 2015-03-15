@@ -1,0 +1,321 @@
+\documentclass{myproc}
+\usepackage{mydef,myenv}
+\usepackage{mathptm}
+
+
+%\def\sbf{\sf\bfseries}
+\def\sbf{\bfseries}
+\pagestyle{empty}
+
+\begin{document}
+\small
+
+\noindent{\large\bf Notes on Graphs}
+
+\paragraph{Graphs}
+\bit
+\w A \bb{graph} $G$ consists of a finite nonempty set $V$ of \bb{vertices} and
+   a set $E$ of \bb{edges}, where an edge is a unordered pair of
+   distinct vertices of $V$.
+\w We denote a graph $G$ with the vertex set $V$ and the edge set $E$ by 
+   $G = (V, E)$. And the vertex set of a graph $G$ is denoted by $V(G)$ and
+   the edge set of $G$ is denoted by $E(G)$.
+\w Given that $e = (u, v) \in E$, we say that $u$ is \bb{adjacent} to $v$ and
+   $u$ (or $v$) is \bb{incident} to $e$.
+\w A \bb{directed graph} (or \bb{digraph}) consists of a finite nonempty set
+$V$ of \bb{vertices} and a set $E$ of \bb{directed edges} (or \bb{arcs}),
+  where a directed edge is an ordered pair of distinct vertices of $V$.
+\eit
+
+\paragraph{Subgraphs}
+\bit
+\w A \bb{subgraph} of $G = (V, E)$ is a graph having a vertex set $V'
+   \subseteq V$ and 
+   an edge set $E' \subseteq E$ such that, for each $(u, v) \in E'$, 
+   $u, v \in V'$.
+\w A \bb{spanning subgraph} is a subgraph containing all the vertices of $V$.
+\w For any set $S \subseteq V$, the \bb{induced subgraph} $G\arc{S}$ is the
+maximal subgraph of $G$ with vertex set $V$.
+\w Thus, $(u, v) \in E(G\arc{S})$ if and only if $(u, v) \in E(G)$
+\eit
+
+\paragraph{Graph isomorphism}
+\bit
+\w Two graphs $G$ and $H$ are \bb{isomorphic}
+  if there exists a one-to-one correspondence $\theta$ 
+  between $V(G)$ and $V(H)$
+  which preserves adjacency, i.e.
+   \[ (u, v) \in E(G) \ \ \Leftrightarrow\ \ 
+   (\theta(u), \theta(v)) \in E(H).\]
+\w An \bb{invariant} of a graph $G$ is a number associated with $G$ which has
+the same value for any graph isomorphic to $G$.
+\w A \bb{complete set of invariants} determines a graph up to isomorphism.
+\eit
+
+\paragraph{Walks and connectedness}
+\bit
+\w A \bb{walk} of a graph is an alternating sequence of vertices
+of edges $\arc{v_0, e_0, v_1, \cdots, v_{n-1}, e_n, v_n}$, 
+beginning and ending with
+vertices, in which each edge is incident to the two vertices immediately
+preceding and following it.
+\w A walk is \bb{closed} if $v_0 = v_n$ and is \bb{open} otherwise.
+\w A walk is a \bb{trail} if all the edges are distinct.
+\w A walk is a \bb{path} if all the vertices (and thus necessarily all the
+edges) are distinct.
+\w If the walk is closed, then it is a \bb{cycle} if its $n$ vertices are
+distinct and $n \ge 3$.
+\w We denote by $C_n$ the graph consisting of a cycle with $n$ vertices.
+\w We denote by $P_n$ a path with $n$ vertices.
+\w {\sbf Theorem}: The edge set of a graph can be partitioned into cycles
+  if and only if every vertex has even degree.
+\w A graph is \bb{connected} if every pair of vertices are joined by a path.
+\w A maximally connected subgraph of $G$ is called a \bb{connected component}
+(or \bb{component}) of $G$. 
+\w The \bb{length} of a walk $\arc{v_0, e_0, v_1, \cdots, v_n}$ is $n$, the
+ number of edges in it.
+\w The \bb{girth} of a graph $G$, denoted $g(G)$, is the length of a shortest
+cycle in $G$.
+\w The \bb{circumference} of a graph $G$, denoted $c(G)$ is the length of any
+longest cycle.
+\w The \bb{distance} $d(u, v)$ between two vertices $u$ and $v$ in $G$ is the
+length of a shortest path joining them if any. Otherwise, $d(u, v) = \infty$.
+
+\w {\sbf Theorem}: In a connected graph, distance is a {\em
+  metric\/}; that is, for all vertices $u, v$ and $w$,
+ \ben
+ \w [(a)] $d(u, v) \ge 0$, with $d(u, v) = 0$ iff $u = v$.
+ \w [(b)] $d(u, v) = d(v, u)$.
+ \w [(c)] $d(u, v) + d(v, w) \ge d(u, w)$.
+ \een
+
+%\w A shortest $u$-$v$ path is called a \bb{geodesic}.
+\w The \bb{diameter} $d(G)$ of a connected graph $G$ is the length of any
+longest $u$-$v$ path.
+\w The \bb{square} $G^2$ of a graph $G$ has $V(G^2) =V(G)$ with $u, v$
+adjacent in $G^2$ whenever $d(u, v) \le 2$ in $G$.
+\w Adjacency matrices for powers $G^2, G^3, \cdots$ can be obtained by
+ multiplying the adjacency matrix $A$ for $G$. Actually, $A_{uv}^k$
+ contains the number of distinct paths between $u$ and $v$ whose length is
+ $\le k$.
+ Adjacency matrix $G^n$ is essentially a transitive closure.
+\eit
+\paragraph{Degrees}
+\bit
+\w The \bb{degree} of a vertex $v_i$ in graph $G$, denoted by $d_i$ or
+degree$(v_i)$, is the number of edges incident to $v_i$.
+\w {\sbf Theorem}: The sum of the degrees of the vertices of a graph $G = (V,
+E)$ is twice the number of edges,
+  \[ \sum_{v \in V} \mbox{degree}(v) = 2|E|.\]
+\w {\sbf Corollary}: In any graph, the number of vertices of
+odd degree is even.
+\w The minimum degree among the vertices of $G$ is denoted $\delta(G)$.
+\w The maximum degree among the vertices of $G$ is denoted $\Delta(G)$.
+\w If $\delta(G) = \Delta(G) = r$, then all vertices have the same degree
+ and $G$ is called \bb{regular} of degree $r$.
+\w 3-regular graphs are called \bb{cubic}.
+\w {\sbf Corollary}: Every cubic graph has an even number of vertices. 
+\eit
+
+\paragraph{Trees: Characterization}
+\bit
+\w A graph is \bb{acyclic} if it has no cycles.
+\w A \bb{tree} is a connected acyclic graph.
+\w Any graph without cycles is a \bb{forest}, where the components of a forest
+are trees.
+\w {\sbf Theorem}:
+The following statements are equivalent for a graph $G$:
+  \ben
+  \w [(a)] $G$ is a tree.
+  \w [(b)] Every two vertices of $G$ are joined by a unique path.
+  \w [(c)] $G$ is connected and $m = n - 1$.
+  \w [(d)] $G$ is acyclic and $m = n - 1$.
+  \w [(e)] $G$ is acyclic and if two nonadjacent vertices of $G$ are joined by
+  an edge $e$, then $G + e$ has exactly one cycle.
+  \w [(f)] $G$ is connected, is not $K_n$ for $n \ge 4$, and if any two
+  nonadjacent vertices of $G$ are joined by an edge $e$, then $G + e$ has
+  exactly one cycle.
+  \w [(g)] $G$ is not $K_3 \cup K_1$ or $K_3 \cup K_2$, $m = n - 1$, and if
+  any two nonadjacent vertices of $G$ are joined by an edge $e$, then $G + e$
+  has exactly one cycle.
+  \een
+
+\w {\sbf Corollary} \cite{Harary69}:
+  Every nontrivial tree has at least two endvertices.
+\eit
+
+\paragraph{Trees: Centers and centroids}
+\bit
+\w The \bb{eccentricity} $e(v)$ of a vertex $v$ in a {\em connected\/} graph
+$G$ is max$\{d(u, v)\}$ for all $u \in V$ (i.e. distance to the farthest
+vertex). 
+\w The \bb{radius} $r(G)$ is the minimum eccentricity of the vertices.
+\w The \bb{diameter} $d(G)$ is the maximum eccentricity of the vertices.
+\w A vertex $v$ is a \bb{central vertex} of $G$ if $e(v) = R(G)$, and
+ the \bb{center} of $G$ is the set of all central vertices of $G$.
+\w {\sbf Theorem}: Every tree has a center consisting of either one vertex or
+two {\em adjacent\/} vertices.
+\w A \bb{branch} at a vertex $u$ of a tree $T$ is a maximal subtree containing
+  $u$ as an {\em endvertex\/}. 
+\w The number of branches at $u$ is $\mbox{degree}(u)$.
+\w The \bb{weight} at a vertex $u$ of a tree $T$ is the maximum number of 
+  edges in any branch at $u$.
+\w A vertex $v$ is a \bb{centroid vertex} of a tree $T$ if $v$ has minimum 
+   weight, and the \bb{centroid} of $T$ consists of all such vertices.
+\w {\sbf Theorem}: Every tree has a centroid consisting of either one vertex
+of two {\em adjacent\/} vertices. 
+\eit
+
+\paragraph{Trees: Block-cutvertex trees}
+\bit
+\w For a connected graph $G$ with blocks $\{B_i\}$ and cutvertices $\{c_j\}$,
+the \bb{block-cutvertex graph}\footnote{For an application, see \cite{TV84}}
+ of $G$, denoted by $bc(G)$, is defined as the
+graph having vertex set $\{B_i\} \cup \{c_j\}$, with two vertices adjacent if
+one corresponds to a block $B_i$ and the other to a cutvertex $c_j$ and $c_j$
+is in $B_i$.
+\w A block-cutvertex graph is a bipartite graph.
+\w {\sbf Theorem}:  A graph $G$ is the block-cutvertex graph of
+some graph $H$ if and only if it is a tree in which the distance between any
+two endvertices is even.
+\eit
+
+\paragraph{Independent cycles and cocycles}
+\bit
+\w A \bb{0-chain} of $G$ is a linear combination $\sum \epsilon_i v_i$
+of vertices and a \bb{1-chain} is a sum $\sum \epsilon_i e_i$ of edges.
+\w The \bb{boundary operator} $\partial$ sends 1-chains to 0-chains according
+to the rules:
+  \ben
+  \w [(a)] $\partial$ is linear.
+  \w [(b)] if $e = (u, v)$, then $\partial x = u + v$.
+  \een
+\w The \bb{coboundary operator} $\delta$ sends 0-chains to 1-chains by the
+rules. 
+  \ben
+  \w [(a)] $\delta$ is linear.
+  \w [(b)] if $\delta v = \sum \epsilon_i e_i$, where $\epsilon_i = 1$
+  whenever $x_i$ is incident with $v$.
+  \een
+\eit
+
+
+%% section 7 of bondy/murty
+\paragraph{Independence sets}
+\bit
+\w A subset $S$ of $V$ is an \bb{independence set} of $G$ if no two
+vertices of $S$ are adjacent in $G$. 
+\w An independent set $S$ is a \bb{maximum independent set} if
+	$G$ has no independent set $S'$ with $|S'| \supseteq |S|$.
+\w A subset $V'$ of $V$ is a \bb{covering} of $G$ if every edge
+of $G$ has at least one end in $V'$.
+\w \bb{maximum independent sets VS minimum vertex covering}
+\w {\bfseries Theorem}: 
+A set $S \subseteq V$ is an independent set of $G$ if and only if $V -
+S$ is a covering of $G$.
+
+\w The size of a maximum independence set is called the
+\bb{independence number} of $G$ and is denoted by $\alpha(G)$.
+\w The size of a minimum covering of $G$ is the \bb{covering
+number} of $G$ and is denoted by $\beta(G)$.
+\w {\sbf Theorem}: For any graph $G = (V, E)$, $\ \alpha(G) + \beta(G) =
+|V|$. 
+\w An \bb{edge covering} of $G$ is a subset $E'$ of $E$ such that
+each vertex of $G$ is incident to some edge in $E'$.
+\w Edge analogue of an independent set is a set of edges which are
+pairwise non-adjacent, that is, a {\em matching\/}.
+\w \bb{maximum matching VS minimum edge covering}
+\w We denote the number of edges in a \bb{maximum matching} of $G$ by
+$\alpha'(G)$ and call it the \bb{edge independence number}.
+\w We denote the size of minimum edge cover of $G$ by $\beta'(G)$ and
+call it the \bb{edge covering number}.
+\w {\sbf Theorem}: For any graph $G = (V, E)$, if $\delta > 0$, 
+  then $\alpha'(G) + \beta'(G) = |V|$.
+\w {\sbf Theorem}: In a bipartite graph $G$ with $\delta > 0$, the number of
+vertices in a maximum independent set is equal to the number of edges
+in a minimum edge cover.
+\eit
+
+
+
+\paragraph{Depth-first search}
+\bit
+\w DFS has a nice feature that partitions the edge set into forward edges,
+backward edges, tree edges, and cross edges, which can be used for
+binconnectivity, planarity algorithms.
+\w \bb{topological sorting}: a vertex is \bb{finished} only after all vertices
+reachable from it are finished; so ordering vertices in decreasing order of
+finish time is a topological order
+\w An \bb{articulation point} (a.k.a. \bb{cut vertex}) is a vertex whose
+deletion disconnects the remaining graph into multiple components.
+\w A graph is \bb{biconnected} if there is no articulation point.
+\w A \bb{biconnected component} of a graph is a maximal subset of edges
+s.t. the corresponding induced subgraph is biconnected. Typically,
+an articulation point join different biconnected components.
+\w \bb{Hopcroft-Tarjan algorithm for biconnected components}: 
+
+   \[ low(v) = \min_{w \in V}\{D[v], D[w]\} \]
+   where $D[v]$ is the discover time of $v$, 
+    $(u, w)$ is a back edge for some descendent $u$ of $v$.
+   That is $low(v)$ of a vertex $v$ is the discovery number of the vertex
+   closest to the root that can be reached from $v$  by following zero or more
+   tree edges downward and at most one back edge upward.
+\w \bb{Theorem}: Let $T$ be a DFS tree of a connected graph $G$, and let $v$
+be a nonroot vertex of $T$. Vertex $v$ is a \bb{cut vertex} if and only if
+there is a child $w$ of $v$ in $T$ with $low(w) \ge D[v]$.
+\w \bb{strong connectivity}: can be found by two DFS over $G$: once for $G$
+and second time with $G^T$ (edges of $G$ are reversed).
+  \ben
+  \w [(a)] call \bb{DFS}($G$) to compute \bb{finish times} $F(v)$
+  \w [(b)] call \bb{DFS}($G^T$) but visit vertices in the order of decreasing $F(v)$.
+  \een
+\eit
+
+\paragraph{Minimum spanning trees}
+\bit
+\w \bb{Kruskal's algorithm}:
+
+\w \bb{Prim's algorithm}:
+\eit
+
+\paragraph{Single-source shortest paths}
+
+\paragraph{All-pairs shortest paths}
+\bit
+\w $D^k(i, j)$: distance between vertices $i$ and $j$ which goes through
+vertices $\le k$.
+\w Iterate the following for $1 \le k \le n$
+\[ D^k_{ij} = \left\{\begin{array}{ll}
+   w_{ij}  & k = 0, \\ 
+   \min\{D^{k-1}_{ij},  D^{k-1}_{ik}  + D^{k-1}_{kj}\} & k \le 1
+\end{array} \right.\]
+\eit
+
+
+\paragraph{Network flows}
+\bit
+\w A \bb{flow network} $G = (V, E)$ is a directed graph where each edge
+$\arc{u, v} \in E$ has a nonnegative \bb{capacity} $c(u, v) \ge 0$.
+There are two special vertices: a \bb{source} $s \in V$ and a \bb{sink} $t \in
+V$. 
+\w A \bb{flow} in $G$ is a function $f: V \times V \rightarrow \R$, which
+satisfies the following constraints (i.e. is a valid assignment of flow):
+  \ben
+  \w \bb{capacity constraints}: for all $u, v \in V$, $f(u, v) \le c(u, v)$.
+  \w \bb{skew symmetry}: for all $u, v \in V$, $f(u, v) = - f(v, u)$.
+  \w \bb{flow conservation}: for all $u \in V - \{s, t\}$, 
+     \[ \sum_{u \in V} f(u, v) = 0.\]
+  \een
+\w The \bb{value of a flow $f$} is defined as
+   \[ |f| = \sum_{v \in V} f(s, v).\]
+\eit
+
+
+\bibliographystyle{plain}
+\bibliography{bib/mac,bib/math,bib/algo}
+\nocite{Harary69}
+\end{document}
+
+
+% LocalWords:  Cheoljoo Jeong vertices endvertices endvertex cutvertex bc algo
+% LocalWords:  cutvertices iff uv cocycles coboundary

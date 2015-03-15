@@ -1,0 +1,19 @@
+\chapter{Memory Support}
+
+
+\section{Java Memory Model}
+The \bb{memory model}, or \bb{memory consistency model}, defines {\em the
+  set of values that a READ in a program is allowed to return\/}, thereby
+defining the basic semantics of shared variables~\cite{AB10}. This model
+answers questions such as:
+  \bit
+  \w Is there enough synchronization to ensure a thread's write will occur
+  before another's read?
+  \w Can two threads write to adjacent fields in a memory location at the same
+  time? 
+  \w Must the final value of a location always be one of those written to it?
+  \eit
+The memory model defines an {\em interface between a program and any
+  hardware or software (e.g. compiler, virtual machine, dynamic optimizer)
+  that transform that program\/}.  A memory model should not overly
+restrictive to prohibit optimizations or too weak to allow wrong compuation. 

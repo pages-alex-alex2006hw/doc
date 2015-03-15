@@ -1,0 +1,102 @@
+\documentclass{myproc}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+\begin{document}
+\small
+\noindent{\large\bf{}Notes on OpenMP}
+
+\tableofcontents
+
+\section{Basics}
+\subsection{Overview}
+\bit
+\w supports \bb{shared-memory} parallel programming
+\w \bb{goal}: easy to migrate from sequential programming
+\eit
+
+\subsection{Definitions}
+\bit
+\w \bb{thread}: runtime entity that is able to independently execute a stream
+of instructions
+\w \bb{OS}: creates a process to execute a program; allocates resources to the
+process (e.g. memory pages, registers)
+\w \bb{one-program, multiple-threads}: resources are shared (incl. address space); 
+\eit
+
+\subsection{Fork-join programming model supported by OpenMP}
+\bit
+\w Program starts as a signgle thread of execution. This thread is called
+\bb{initial thread}.
+\w Whenever an {\em OpenMP construct is encountered}: initial thread creates a
+\bb{team of threads} (i.e. \bb{FORK}) and becomes of the \bb{master} of the
+team.
+\w Initial thread (master of the team) collaborates with team members to
+execute the code dynamically enclosed by the construct.
+\w At the end of construct, nly the original master thread continues. All
+other team members terminate (this is \bb{JOIN}). 
+\eit
+
+\subsection{OpenMP API}
+\bit
+\w \bb{compiler directives}
+\w \bb{runtime library routines}
+\w \bb{environment variables}
+\eit
+
+\subsection{Work-sharing among threads}
+\bit
+\w given a \bb{loop}, a work unit is \bb{chunk of iterations}
+\w \bb{loop constraint}:
+   \bit
+   \w the number of iterations must be known upon entry
+   \w the number should not change while the loop is executing
+   \w iterations must be independent (i.e. execution order of iterations must
+   not matter)
+   \eit
+\eit
+
+\subsection{Flush: Memory fence}
+\bit
+\w Makes sure that the thread calling it has the same values for shared data
+objects as does main memory.
+\eit
+
+\subsection{Thread synchronization}
+\bit
+\w to ensure of proper ordering of accesses to shared objects
+\w \bb{barrier synchronization}: OpenMP gets threads to wait at the end of a
+work-sharing construct or parallel region until all threads in the team
+executing it have finished their portion of the work
+\eit
+
+
+\section{OpenMP Constructs}
+\subsection{Parallel construct}
+\subsection{Work-sharing constructs}
+\subsection{Data-sharing, no wait, and schedule clauses}
+\subsection{Barrier constructs}
+\subsection{Critical construct}
+\subsection{Atomic construct}
+\subsection{Locks}
+\subsection{Master construct}
+
+\section{Data dependence: Complications in Parallelization}
+\subsection{Overview}
+\bit
+\w one iteration writes, some other iteration reads
+\w we cannot guarantee the order
+\eit
+
+\subsection{Aliasing: Use restrict}
+\bit
+\w \bb{restrict keyword}: notifies the C compiler that pointers occupy
+disjoint regions in memory (i.e. \bb{no aliasing issue})
+  \begin{verbatim}
+  void foo(int m, int n, double * restrict a, double * restrict b) ...
+  \end{verbatim}
+\eit
+
+\end{document}
+
+
+% LocalWords:  GPU vertices SPMD GPUs

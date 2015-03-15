@@ -1,0 +1,370 @@
+% examples.tex
+
+\documentclass[11pt]{article}
+\usepackage{times,boxdims,pstcol,pst-grad}
+\usepackage[dvips]{lscape}
+\usepackage[dvips]{graphicx}
+
+% instead of \usepackage[cm]{fullpage} (letter size):
+  \setlength{\topmargin}{-29.59087pt}
+  \setlength{\headheight}{0pt}
+  \setlength{\headsep}{0pt}
+  \setlength{\textheight}{679.61174pt}
+  \setlength{\footskip}{30.0pt}
+  \setlength{\textwidth}{528.93675pt}
+  \setlength{\oddsidemargin}{-29.59087pt}
+  \setlength{\evensidemargin}{\oddsidemargin}
+
+% To test a new installation, all but one of the diagram inclusions
+% below might be commented out, and re-introduced one by one.
+
+% Because this file consists essentially only of diagrams, judicious
+% \clearpage statements have to be introduced to prevent TeX capacity overflow.
+
+\newcommand{\src}[1]{{\tt [#1]}}
+\newcommand{\makepic}{\box\graph} % Required only for gpic -t
+\newbox\graph
+
+\begin{document}
+  \hfill
+  {\large\bf Examples:
+    \input{Version.tex}}
+  \hfill\break
+
+  This is a collection of diagrams the author has had occasion to
+  produce using m4 circuit macros and others, and gpic or dpic.  In
+  some cases, there are other or better m4 or pic constructs for
+  producing the same drawings, but for reference the names of the
+  source files are shown.  Most of the examples can be processed using
+  either dpic -p or gpic -t, which has meant that in a few cases the
+  source is slightly more complicated than it would be if only one
+  processor had been assumed.
+
+% For some more examples in the context of a textbook, see
+% J. Dwight Aplevich, {\sl The Essentials of Linear State-Space
+% Systems,} New York, John Wiley \& Sons Inc., 2000.
+
+% To trick the html into inputting quick.m4
+% \input quick
+%\caption{The figure produced by <tt>quick.m4</tt>, as described in the manual.
+%    \src{ex01.m4}.}
+
+% \centerline works for both dpic -p and gpic -t:
+  \begin{figure}[h!t]
+    \centerline{\input CctTable \makepic}
+    \caption{Two-terminal element macros, with some variations
+    \src{CctTable.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input Diodes \makepic}
+    \caption{Diode variants
+    \src{Diodes.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input AmpTable \makepic}
+    \caption{Amplifier, delay, and integrator
+    \src{AmpTable.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    {\small\centerline{\input Misc \makepic} }
+    \caption{Miscellaneous basic elements
+    \src{Misc.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input Relay \makepic}
+    \caption{Variants of the {\tt contact} and {\tt relay} macros
+    \src{Relay.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input Bip \makepic}
+    \caption{Bipolar transistor variants (drawing direction: up)
+    \src{Bip.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input fet \makepic}
+    \caption{JFET, insulated-gate enhancement, depletion,
+     and simplified MOSFETS
+    \src{fet.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ujt \makepic}
+    \caption{UJT variants
+    \src{ujt.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input scr \makepic}
+    \caption{SCR variants
+    \src{scr.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input Liblog \makepic}
+    \caption{Basic logic gates
+    \src{Liblog.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex01 \makepic}
+    \caption{A simple labeled circuit
+    \src{ex01.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex18 \makepic}
+    \caption{Precision half-wave rectifier
+      (illustrating {\tt opamp, diode, resistor, ground,} and labels)
+    \src{ex18.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex19 \makepic}
+    \caption{ Tunnel diode circuit
+    \src{ex19.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input gpar \makepic}
+    \caption{ A skewed circuit for used to test the macro
+      {\tt gpar\_(}{\sl element}, {\sl element}, {\sl separation}{\tt )}
+    \src{gpar.m4}.}
+  \end{figure}
+
+% \vspace{1ex}
+  \begin{figure}[h!t]
+    \centerline{\input ex12 \makepic}
+    \caption{ A CMOS NAND gate and a balanced test circuit
+    \src{ex12.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex11 \makepic}
+    \caption{Transistor radio audio chain (a modest circuit with a few
+      custom elements)
+    \src{ex11.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input Variable \makepic}
+    \caption{Arrows to indicate variability
+    \src{Variable.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex02 \makepic}
+    \caption{Elements at obtuse angles
+    \src{ex02.m4}.}
+  \end{figure}
+\clearpage
+
+  \begin{figure}[h!t]
+    \centerline{\input ex04 \makepic}
+    \caption{Labels on non-manhattan elements
+    \src{ex04.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex16 \makepic}
+    \caption{A rate $1/2$ binary convolutional coder and its state diagram
+    \src{ex16.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input pwrsupply \makepic}
+    \caption{An elementary power supply circuit
+    \src{pwrsupply.m4}.}
+  \end{figure}
+%\clearpage
+
+  \begin{figure}[h!t]
+    \centerline{\input Drive \makepic}
+    \caption{Synchronous machine driven by variable-speed drive and rectifier
+    \src{Drive.m4}.}
+  \end{figure}
+\clearpage
+
+  \begin{figure}[h!t]
+    \centerline{\input sfg \makepic}
+    \caption{Signal-flow graphs
+    \src{sfg.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex03 \makepic}
+    \caption{Digital filter
+    \src{ex03.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex08 \makepic}
+    \caption{General-purpose latch: a small logic circuit
+    \src{ex08.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex10 \makepic}
+    \caption{Non-planar graph (illustrating the {\tt crossover} macro)
+    \src{ex10.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex07 \makepic}
+    \caption{A line diagram
+    \src{ex07.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex21 \makepic}
+    \caption{Some flip-flops
+    \src{ex21.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input control \makepic}
+    \caption{Control-system block diagrams that do not require m4
+    \src{control.m4}.}
+  \end{figure}
+  \clearpage
+
+  \begin{figure}[h!t]
+    \centerline{\input exp \makepic}
+    \caption{Test of {\tt project} and other {\tt lib3D}
+      macros, showing the projection of a solid onto
+      the $y_1,z_1$ plane by sighting along the $x_1$ axis.
+  \src{exp.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input graysurf \makepic}
+    \caption{Plotting a surface using a gray scale
+  \src{graysurf.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex09 \makepic}
+    \caption{Illustrating the macro
+      {\tt dimension\_(}{\sl linespec}, {\sl offset}, {\sl label},
+      {\sl blank width}, {\sl tic offset},{\tt <-|->)}.
+      A negative second argument signifies an offset to the right of the
+      direction defined by {\sl linespec.} The {\sl label} argument is
+      treated as a string, except that if its first character is a double
+      quote then the argument is copied literally
+    \src{ex09.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex05 \makepic}
+    \caption{Use of {\tt darrow}
+    \src{ex05.m4}.}
+  \end{figure}
+\clearpage
+
+  \begin{figure}[h!t]
+    \centerline{\input ex06 \makepic}
+    \caption{Crosshatching by {\tt for} loops
+    \src{ex06.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex17 \makepic}
+    \caption{Repetitive network created by Pic looping
+    \src{ex17.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex00 \makepic}
+    \caption{Magnetic field
+    \src{ex00.m4}.}
+  \end{figure}
+
+  \begin{landscape}
+  \begin{figure}[h!t]
+    \centerline{\input lcct \makepic}
+    \caption{A digital circuit of moderate size,
+      redrawn from M.~P.~Maclenan and G.~M.~Burns,
+      ``An Approach to Drawing Circuit Diagrams for Text Books,''
+      Tugboat (12)1, March 1991, pp.\ 66-69
+    \src{lcct.m4}.}
+  \end{figure}
+  \end{landscape}
+
+  \begin{figure}[h!t]
+    \centerline{\input csc \makepic}
+    \caption{Conestoga Sailing Club (illustrating the filling of arbitrary
+      shapes)
+    \src{csc.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input rose \makepic}
+    \caption{Redrawn from a detail of the set design for the musical
+      {\it Dracula,} used for testing {\bf dpic}.  This diagram consumes much
+      \LaTeX\ main memory
+    \src{rose.m4}.}
+  \end{figure}
+  \clearpage
+
+  \begin{figure}[h!t]
+    \centerline{\input diamond \makepic}
+    \caption{Variations on M.~Goossens, S.~Rahtz, and F.~Mittelbach,
+      {\em The \LaTeX\ Graphics Companion,} Addison-Wesley 1997, pp.\ 57-58
+    \src{diamond.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input worm \makepic}
+    \caption{An exercise in calculating RGB colours
+    \src{worm.m4}.}
+  \end{figure}
+  \clearpage
+
+% \begin{figure}[h!t]
+%   \centerline{\input yinyang \makepic}
+%   \caption{A partially-filled figure
+%   \src{yinyang.m4}.}
+% \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input Sierpinski \makepic}
+    \caption{The Sierpinski triangle: a test of pic macros
+    \src{Sierpinski.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input recycle \makepic}
+    \caption{Modest repetition
+    \src{recycle.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input ex15 \makepic}
+    \caption{Simple diagrams that are easily drawn by looping
+    \src{ex15.m4}.}
+   \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input Btree \makepic}
+    \caption{A binary tree
+    \src{Btree.m4}.}
+  \end{figure}
+
+  \begin{figure}[h!t]
+    \centerline{\input Flow \makepic}
+    \caption{A flowchart sampler
+    \src{Flow.m4}.}
+  \end{figure}
+
+ \begin{figure}[h!t]
+   \centerline{\input Incleps \makepic}
+   \caption{Overlaying an eps figure with line graphics
+   \src{Incleps.m4}.}
+ \end{figure}
+
+\end{document}

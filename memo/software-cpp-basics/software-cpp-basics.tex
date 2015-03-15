@@ -1,0 +1,308 @@
+\documentclass{memo}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+\usepackage[all]{xy}
+\begin{document}
+\noindent{\large\bf{}C++ Basics}
+\small
+
+\paragraph{Names}
+\bit
+\w a \bb{name} denotes an object, a (set of) function, an
+enumerator, a type, a class memory, a template, a value, or a label
+\w \bb{name} is introduced by a \bb{declaration}
+\w \bb{name} is associated with a ``region of program text'' called its
+\bb{scope}, where the name is usable
+\w \bb{name} has a type which determines its use
+\eit
+
+\paragraph{Objects}
+\bit
+\w an \bb{object} is a {\em region of storage}
+\w a \bb{named object} has a storage class (automatic, static, ...) that
+determines its lifetime
+\w \bb{meaning of values} found in an object is determined by the type of the
+expression used to access it
+\eit
+
+\paragraph{Declarations and definitions}
+\bit
+\w  a \bb{declaration} introduces one or more names into a program.
+\w a declaration is a \bb{definition} in following cases:
+  \begin{verbatim}
+  int a;
+  extern const c = 1;
+  int f(int x) { return x+a; }
+  struct S { int a; int b; };
+  enum { up, down };
+  \end{verbatim}
+\w definition must be unique while ``re''-declarations are allowed
+\eit
+
+\paragraph{Scopes}
+\bit
+\w there are four kinds of scopes: local, function, file, class
+\w \bb{local}: a name declared in a block is local to the block
+\w \bb{function}: labels can be used anywhere in the function in which they
+are declared; only labels have function scope
+\w \bb{file}: a named declared outside of blocks/classes has file scope; names
+declared with file scope are said to be \bb{global}
+\w \bb{class}: name of a class member is local to its class and can be used
+only in a member function of that class
+\eit
+
+\paragraph{Program and linkage}
+\bit
+\w a \bb{program} consists of one or more \bb{files} linked together
+\w a \bb{file} consists of sequence of (variable and function) declarations
+(\bb{note that (function) definition is always a (function) declaration})
+\w \bb{internal linkage}:
+  \bit
+  \w a name with ``file scope'' which is {\tt static} (or {\tt inline}) is
+  local to its translation unit (file) and have \bb{internal linkage} 
+  \w every other names are considered to have \bb{external linkage}
+  \eit
+\w \bb{external linkage}
+\eit
+
+
+\paragraph{Lvalues}
+\bit
+\w an \bb{object} is a region of \bb{storage}
+\w an \bb{lvalue} is an ``expression'' that refers to an object (a region of
+storage) or a function
+\w \bb{obvious example}: ``name of an object'' is an lvalue
+\w some \bb{operators} yield lvalues; e.g. given that \verb+E+ is an
+expression of pointer type, \verb+*E+ is an \bb{lvalue expression} referring
+to the object to which \verb+E+ points
+\w \bb{why it's called lvalue?}: In
+  \[ \txt{\tt E1 = E2;} \]
+\verb+E1+ must be a lvalue expression.
+\w lvalue is \bb{modifiable}| if it's not a functino name, array name or const
+  
+\eit
+
+\paragraph{Example class: {\tt Expr}}
+\bit
+\w \bb{class definition}:
+\begin{verbatim}
+  class Expr {
+    /* constructor */
+    Expr() { ... }
+
+    /* destructor */
+    virtual ~Expr();
+
+    /* copy constructor */
+    Expr(const Expr& rhs) {
+      field = rhs.field();
+    }
+
+    /* copy assignment operator */
+    Expr& operator=(const Expr& rhs) {
+      if (this == &rhs) /* check self-asgn */
+        return *this;
+      field = rhs.field();
+      return *this;
+    }
+
+    /* constant member function */
+    int foo() const { 
+      /* no object state change */ 
+    }
+  };
+\end{verbatim}
+\w \bb{object initialization}:
+\begin{verbatim}
+   Expr e1;                   /* constructor */
+   Expr e2(e1);          /* copy constructor */
+   Expr e3 = e1; /* copy assignment opreator */
+\end{verbatim}
+\eit
+
+\paragraph{Uses of constructors}
+\bit
+\w \bb{Initialization} (giving objects its first value) of objects generated
+by {\em structs} and {\em classes} is performed by
+\bb{constructors}. 
+\w \bb{default constructor}: one that can be called with without any
+arguments:
+  \begin{verbatim}
+  class A {
+    A();
+  }
+  class B {
+    explicit B(int x = 0);
+  }
+  \end{verbatim}
+\w there are multiple types of constructors:
+\w \bb{copy constructor}: used to \bb{initialize and construct} an object with
+a different object of the same type
+\w \bb{copy assignment operator}:  used to \bb{copy} the value from one object
+to another of the same type
+\eit
+
+\paragraph{Operator overloading}
+\begin{verbatim}
+  class Expr {
+    Expr* operator&();
+    Expr operator++(int);
+  };
+\end{verbatim}
+
+\paragraph{Functors}
+Functor is a special object which acts as a function.
+  \begin{verbatim}
+  struct add_x {
+    int x;
+    add_x(int x) : x(x) {}
+    int operator()(int y) { return x + y; }
+  };
+
+  add_x add42(42);
+  int i = add42(8);  // returns 42 + 8
+  \end{verbatim}
+
+
+\paragraph{Overloaded functions}
+\bit
+\w Two functions can have \bb{same function name} with different signatures. 
+\eit
+
+\paragraph{Function pointers}
+\bit
+\w \bb{function that takes a function pointer as an argument}
+  \begin{verbatim}
+  int foo(int x, int (*funarg)(int, int));
+  \end{verbatim}
+
+\w \bb{using to funptr vars}
+  \begin{verbatim}
+  int add(int a, int b) { return a + b; }
+  int (*sum)(int, int) = add;
+  ... foo(10, add) ...
+  \end{verbatim}
+\eit
+
+\paragraph{Structure definition}
+  \begin{verbatim}
+  struct tree_t { 
+    int value;
+    struct tree_t *left;
+    struct tree_t *right;
+  };
+  typedef struct tree_t bintree_t, *bintree_p;
+  \end{verbatim}
+
+\paragraph{Virtual functions}
+\bit
+\w \bb{virtual  function}: runtime automatically invokes the proper
+member function when it is overridden by a derived class
+\w \bb{pure virtual function}: \verb+virtual void foo() = 0+; derived class
+   {\em must\/} define the function.
+\w \bb{virtual destructor}: always make classes with virtual functions contain
+virtual destructor; this will ensure that correct destructor will be invoked
+  \begin{verbatim}
+  class Base { 
+    ~Base throw(); /* non-virtual */
+  };
+  class Derived : public Base {
+  };
+  void wrongFunc(Base *b) {
+    /* only fields related to base is removed */
+    delete base;
+  }
+  ...
+    Base *base = new Derived();
+    wrongFunc(base);
+  ...
+  \end{verbatim}
+\eit
+
+\paragraph{Use consts}
+\begin{verbatim}
+  /* READ BACKWARDS! */
+  /* p is a constant pointer to constant char */
+  char greeting[] = "Hello";
+  const char * const p = greeting;
+
+  /* does not modify the object */
+  char& Stream::getChar() const;
+\end{verbatim}
+
+\paragraph{References vs pointers}
+\bit
+\w reference must be initialized when it's created
+\w once a reference is initialized to an object, it cannot be changed to
+refer to another object
+\w there is no ``NULL'' reference
+\w (-) pointer arithmetic not possible
+\w (+) no dereference needed
+\eit
+
+\paragraph{Argument passing: use pass-by-const-reference}
+\bit
+\w in C where only call-by-value was available, we needed to
+pass-by-''pointer'' 
+\w now, call-by-reference in C++ is just as efficient (no copy-in, copy-out as
+in call-by-value, which involve constructor/destructor call)s and it's safer
+\eit
+
+\paragraph{Template specialization}
+  \begin{verbatim}
+  template<typename T>
+  class A {
+    T element;
+    foo(T arg) { T.inc(); }
+  }
+  /* template specialization */
+  template<>
+  class A <int> {
+    int element;
+    foo(int arg) { arg++; }
+  }
+  \end{verbatim}
+
+\paragraph{Type casting}
+\bit
+\w \bb{dynamic\_cast}: between pointers/references to objects; successfully
+only casted to its base type (\bb{upcast}); {\em runtime-checking\/}
+\w \bb{static\_cast}: between (related) pointer types  (can be used for \bb{downcast})
+\w \bb{reinterpret\_cast}: between any (possibly unrelated) pointer types
+\eit
+
+\paragraph{Smart pointers: auto\_ptr}
+\bit
+\w deprecated; use \bb{unique\_ptr} instead
+\w \verb+#include <memory>+
+\begin{verbatim}
+  template <class Y>
+  struct auto_ptr_ref {};
+
+  template<class X>
+  class auto_ptr {
+  public:
+    typedef X element_type;
+    explicit auto_ptr(X* p = 0);
+             auto_ptr(auto_ptr&);
+    template<class Y> auto_ptr(auto_ptr<Y>&);
+
+    auto_ptr& operator=(auto_ptr&);
+    template <class Y> auto_ptr& operator=(auto_ptr<Y>&);
+  };
+\end{verbatim}
+\w \bb{usage}:
+  \begin{verbatim}
+  void f() {
+    auto_ptr<int> pt(new int);
+    /* get pointer */
+    ... pt.get() ... 
+  }
+  \end{verbatim}
+\eit
+
+
+\end{document}
+
+%%  LocalWords:  Expr structs Functors funptr runtime destructor consts const
+%%  LocalWords:  dereference upcast ptr Functor

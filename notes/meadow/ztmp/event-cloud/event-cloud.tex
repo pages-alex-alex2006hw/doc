@@ -1,0 +1,277 @@
+\documentclass[10pt]{beamer}
+\usepackage[all]{xy}
+%\usepackage{mathptmx}
+\usepackage{MinionPro}
+\usefonttheme{serif}
+\usefonttheme{structurebold}
+%\usetheme{Bergen}
+
+\title{Meadowview: A Middleware for Events}
+\author{cjeongkr@gmail.com}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}{Event Cloud}
+An {\bf event cloud} is an infrastructure for distributed computing where
+computational entities can
+\begin{itemize}
+\item register new events\footnote{Should we force registration of event
+  before pub/sub?, Can we make event instances to self-contained (incl. data
+  layout) and use dumb string-matching-based event matching? Maybe more
+  convenient but systems can be vulnerable to attacks.}
+\item inject events\footnote{precisely, event instances}
+\item inject event rules
+\item subscribe to events
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Event Cloud (Cont.)}
+\begin{block}{Components of Event Cloud}
+There are a few components which consitute a event cloud. 
+\begin{itemize}
+\item An {\bf event} is a class of status change that are of interest. 
+  A particular occurrence of an event is called its {\bf event
+    instance\/}\footnote{Sometimes, we will use the word ``event'' instead of
+    ``event instances'' in case the intended meaning is obvious from the context.}.
+\item An {\bf event rule\/} specifies a predicate over events and a finite set
+  of events which will be generated as the evaluated result of the predicate.
+\item An {\bf endpoint} is a computational entity which can produce or consume
+  events.
+\end{itemize}
+\end{block}
+
+\begin{block}{Analogy to Programming Languages}
+A program written in a programming language consists of declarations of
+variables (events), which will contain values (event instances) over
+time. Event rules define the intended semantics of the event 
+cloud, just like a program has its own meaning. An interpreter (Meadow)
+executes the program (event rules).
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Event Rules}
+
+\begin{block}{Event Rules}
+
+An {\bf event rule} can be specified as follows:
+
+{\scriptsize
+\begin{verbatim}
+  process EventRule(Event e1 and Event e2) {
+    if (e1.value + e2.value > 4.0) 
+      -> LargeValueEvent(e1.value + e2.value);
+    else
+      -> SmallValueEvent(e1.value + e2.value);
+  }
+\end{verbatim}
+}
+In the event rule, only simple arithmetic and comparison operators are
+allowed. No complex computations, such as function calls, are not
+allowed. However, this would not harm expressiveness of the event rule since
+we can always let endpoints do complex computations.\footnote{Should this be
+  hidden to users? Users are allowed to functions but compiler change the
+  computation to an handshaking between event cloud and computation server.}
+\end{block}
+
+\begin{block}{End-to-end principle}
+The decision to exclude any complex computations in the event rule is to make
+the event cloud responsible for handling only very simple event rules. If, for
+any complex event predicate or processing is needed, we can always create a
+new event which will be routed to endpoint (event consumer) which will perform
+the computation and then inject the result as another event.
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]{Event Generation and Reception}
+
+\begin{block}{Event Generation}
+
+{\scriptsize
+\begin{verbatim}
+  process EventRule(Event e) {
+    fork {
+      -> LargeValueEvent(e1.value + e2.value);
+      -> SmallValueEvent(e1.value + e2.value);
+    }
+  }
+\end{verbatim}
+
+}
+
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Concurrency in Event Rules}
+\begin{block}{Event Fork}
+
+{\scriptsize
+\begin{verbatim}
+  process EventRule(Event e) {
+    fork {
+      -> LargeValueEvent(e1.value + e2.value);
+      -> SmallValueEvent(e1.value + e2.value);
+    }
+  }
+\end{verbatim}
+}
+
+\end{block}
+
+\begin{block}{Event Join}
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}{Event Graphs}
+An {\bf event graph} is defined as $G = (V, E, R)$.
+   \begin{itemize}
+   \item A vertex $v \in V$ is either an event, a source, or a sink.
+      \begin{itemize}
+      \item Source vertices are those with indegree 0. A source is an endpoint
+        in the event cloud, which generates event instances.
+      \item Sink vertices are those with outdegree 0. A source is an endpoint
+        in the event cloud, which consume event instances.
+      \item No vertex can both generate and consume event
+        instances. Therefore, any cycle in the graph does not involve any endpoint.
+      \end{itemize}
+   \item An edge $(u, v) \in E$ means that any instance of event $u$ injected 
+     into event cloud may generate an event instance of $v$.
+   \item $R: E \rightarrow P$ is a mapping from edges to event
+     predicates. This is used to determine whether or not to fire the edge.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}{Event Engine}
+
+\begin{block}{Event Engine}
+An {\bf event engine\/} is responsible for execution of event graphs, which
+represents dependencies between events and firing semsntics of the event cloud. 
+
+That is, an event engine is an {\em interpreter\/} of {\em event graphs\/}. 
+\end{block}
+
+\begin{block}{Event Graphs vs Data Flow Graphs}
+Event graphs are very different from data flow graphs. In data flow graphs, a
+vertex is an operator which performs computation and data (events) flow along
+the edges. That is, {\em data flow graph itself is an engine\/}. 
+However, In event graph, {\em event graph is a target code to be executed by
+  an engine\/}. 
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Essential Components of Event Engine}
+\begin{block}{Transport}
+Network or local; if network which protocol
+\end{block}
+
+\begin{block}{Data format}
+\end{block}
+
+\begin{block}{Invocation style}
+Synchronous or asynchronous.
+\end{block}
+
+\begin{block}{Lifecycle}
+\end{block}
+
+
+\end{frame}
+
+
+\begin{frame}{Simple PubSub Example}
+Suppose there is only one event, {\tt StockPrice}, with one producer and one
+consumer. In this case, the event graph consists of a single vertex.
+
+{\small
+\[\xymatrix {
+  SrockPriceProducer \ar[r] & \txt{\small\tt{StockPrice}} \ar[r] & StockPriceConsumer
+}
+\]
+}
+\end{frame}
+
+\begin{frame}[fragile]{Another PubSub Example}
+Now there are two events, {\tt StockPrice} and {\tt StockPriceSurge} with one
+producer and two consumers. 
+
+{\small
+\[\xymatrix {
+  StockPriceConsumer \ar[r] & \txt{\small\tt{StockPrice}} \ar[r] \ar[d] & 
+  StockPriceConsumer \\
+   & \txt{\small\tt{StockPriceSurge}} \ar[r] & StockPriceSurgeConsumer
+}
+\]
+}
+
+{\tt StockPriceSurge} is an example of an event which is generated not by
+a producer but by an event rule such as below:
+
+{\small
+\begin{verbatim}
+  process StockPriceWatch(StockPrice s) {
+    if (s.price > 4.0) 
+      -> StockPriceSurge(s.symbol, s.price)
+  }
+\end{verbatim}
+}
+\end{frame}
+
+\begin{frame}[fragile]{Usages of Event Cloud}
+
+\begin{block}{Event detector/reactor}
+Simple event tap program which attaches a UNIX program to event cloud.
+  \begin{verbatim}
+   event_gen <program> "finished"
+   event_detect <program> "finished"
+  \end{verbatim}
+\end{block}
+
+\begin{block}{Event-Driven Distributed Programming}
+Adoption of event cloud greatly simplifies the deployment of distributed
+applications. For example, consider a farm which consists of $n$
+machines. When $m$ jobs is to be distributed across these machines, all
+all necessary handshaking can be implemented with event deliveries using
+Meadoew library. 
+\end{block}
+
+\begin{block}{Workflow system}
+The event cloud can be used as an infrastructure for workflow systems. Any
+front-end GUI workflow tools can generate events and event rules and inject
+them to the event cloud. 
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Usages of Event Cloud (Cont.)}
+\begin{block}{Event Auditing through Logs}
+The event cloud itself does not store event instances. As soon as event
+instances are created, when all its consumers are notified of these instances
+(including the transfer of payload of event instances), they are destroyed.
+
+However, one can easily create a new endpoint which listens to events of
+interest and stores the events in a persistent storage system.
+\end{block}
+
+\begin{block}{Internet of Things}
+When the Internet of Things becomes a reality, devices will talk to each
+other. For this, we need a language. 
+\end{block}
+
+\begin{block}{Complex Event Processing}
+Complex event processing systems generate complex events based on a finite set
+of past occurrences of events. These events are ``value-added events'' which
+contains more useful information than mere events.
+
+Then, HOW? We want the event engine to be STATELESS!
+\end{block}
+
+\end{frame}
+
+\end{document}

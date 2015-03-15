@@ -1,0 +1,48 @@
+\section{NP-COMPLETENESS}
+\subsection{Basic definitions}
+\bit
+\w A \bb{decision problem} $\Pi$ consists of a set $D_\Pi$ of \bb{instances}
+and $Y_\Pi \subseteq D_\Pi$ of \bb{yes-instances}.
+\w The problem $\Pi$ and the {\em encoding scheme} $e$ for $\Pi$ paritions
+$\Sigma^*$ into three classes of strings:
+   \ben
+   \w [(a)] those that encode instances of $\Pi$ for which answer is ``YES'',
+   \w [(b)] those that encode instances of $\Pi$ for which answer is ``NO'',
+   and
+   \w [(c)] those that are not valid encoding of instances of $\Pi$.
+   \een
+\w For (a), we can associate a \bb{language}
+  $L[\Pi, e] = \{x \in \Sigma^*: \mbox{\ $x$ is the encoding under $e$ of an
+    instance $I \in Y_\Pi$}\}.$
+\w The class $P$ of problems are defined as follows:
+  \[ \mbox{P}\ = \{L: \mbox{there is a polynomial time DTM program $M$ for
+    which $L = L_M$}\}.\]
+\eit
+
+\subsection{Relationships between P and NP}
+\bit
+\w If $\Pi \in $NP, there exists a polynomial $p$ such that $\Pi$ can be
+solved by a determinstic algorithm having time complexity $O(2^{p(n)})$.
+\w If $L_1 \propto L_2$, $L_2 \in P$ implies $L_1 \in P$.
+\w A language is \bb{NP-complete} if $L \in $\ NP and, for any other language
+$L' \in $\ NP,\  $L' \propto L$.
+\eit
+
+\subsection{Cook's theorem: SATISFIABILITY is NP-complete}
+
+\subsection{NP-hardness}
+\bit
+\w Any decision problem $\Pi$, {\em whether a member of NP or not}, to which
+we can transform an NP-complete problem will have the property that it cannot
+be solved in polynimial time unless P = NP. These problems are \bb{NP-hard}.
+\w Formally, a string relation $R$ is \bb{NP-hard} if there is some
+NP-complete language $L$ (itself state as a string relation) such that $L
+\propto_T R$. 
+\eit
+
+\subsection{Polynomial hierarchy}
+\bit
+\w co-NP = $\{\Pi^c: \Pi \in \mbox{\ NP}\} =
+   \{\Sigma^* - L: L \mbox{\ is a language over\ } \Sigma \mbox{\ and\ }
+   L \in\ \mbox{NP}\}$.
+\eit

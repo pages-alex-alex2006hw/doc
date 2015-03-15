@@ -1,0 +1,37 @@
+\chapter{Model Checking}
+\section{Symbolic Model Checking}
+\bit
+\w uses BDD to avoid explicitly constructing state graph 
+\w \bb{representation of circuits}
+   \bit
+   \w $V$: set of variables (i.e. state elements or states)
+   \w 
+   \eit
+\eit
+
+
+\section{Binary Decision Diagram (BDD)}
+\bit
+\w canonical representation for Boolean functions
+\w {\em given a variable ordering}, every Boolean function has a canonical BDD
+\w let two BDDs, $B_1$ and $B_2$ be given two Boolean functions, $f_1$ and
+$f_2$:
+  \bit
+  \w \bb{negation}: BDD for $\neg f_1$ can be computed in time linear to $|B_1|$
+  \w \bb{disjunction}: BDD for $f_1 \vee f_2$ can be computerd in time linear
+  to $|B_1| + |B_2|$ 
+  \w \bb{restriction}: 
+  \w \bb{existential quantification}:
+  \w \bb{substitution of variable names}:
+  \eit
+\w Construction of BDDs (given a Boolean function $f$):
+   \bit
+   \w build a BDD for $f|_{v = 0}$ and $f|_{v = 1}$, respectively
+   \w 
+   \eit
+\eit
+
+
+\section{Model Checkers}
+
+\subsection{SPIN}

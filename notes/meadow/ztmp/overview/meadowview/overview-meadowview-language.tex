@@ -1,0 +1,304 @@
+\documentclass{beamer}
+\useinnertheme{rectangles}
+\usepackage{mydef}
+\usepackage{MinionPro}
+\usefonttheme{serif}
+\usepackage[all]{xy}
+
+\title{The Meadowview Language}
+\author{Cheoljoo Jeong}
+\date{}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Overview}
+
+The {\bf Meadowview} is a programming language which can be used to 
+define processes and interactions between processes.
+
+\vspace*{0.3cm}
+
+In particular, the Meadowview language
+\bit
+\w supports the notion of \bb{agents} as containers of processes,
+\w supports the \bb{global namespace} of {\em events\/} and {\em agents\/}
+\w supports the notion of \bb{(local) real time} {\em within\/} agents,
+\eit
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Elements of Meadowview}
+
+An \bb{agent}, which is unqiue in the entire runtime,  is a container of
+processes. 
+
+\vspace*{0.3cm}
+
+An \bb{event}, which is unique in the entire runtime, represents any
+``change of state'' in which some processes may be interested in.
+
+\vspace*{0.3cm}
+
+A \bb{channel}, which is unique in the entire runtime, is a special type of
+agent which acts as a ``bulletin board'' for an event.
+
+\vspace*{0.3cm}
+
+A \bb{process}, which is unique within an agent, is a reactive code which can
+perform simple testing over event instance, generation of new event instance, 
+execution of foreign program (e.g. Python script, Java program). 
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Agents}
+
+An \bb{agent} has a name which is unique in the entire Meadowview
+system. 
+
+\vspace*{0.3cm}
+
+An agent, which is a {\em container of processes\/}, can send and/or 
+receive events.
+
+\vspace*{0.3cm}
+
+Agents are the only programming element which serve as the {\em source\/} or
+the {\em destination of event delivery\/}.
+
+\vspace*{0.3cm}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Events}
+
+An \bb{event} is a ``change of state'' which might be interesting to some
+agents (or processes). 
+
+\vspace*{0.3cm}
+
+An event is unique across the entire Meadow system and events cannot be
+generated or removed from inside a Meadowview program. They are {\em given\/}
+just like IP addresses in the Internet.
+
+\vspace*{0.2cm}
+
+Though one cannot define events using the Meadowview language, the Meadow
+system provides API through which one can add/remove/update events. An event
+definition consists of a \bb{name} and \bb{datatype} definition.
+For example,
+
+{\small
+\begin{verbatim}
+  Event com.meadow.VacationApprovalRequest {
+    com.meadow.EmployeeID id;
+    Date date;
+  };
+\end{verbatim}}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Event Instances}
+
+While an event represents a {\em class\/} of related state-changes, an 
+an \bb{event instance} represents an actual instantiation of an event.
+In the runtime (which is inevitably dynamic), event instances are
+transferred between agents.
+
+
+\vspace*{0.3cm}
+
+Transfer of event instance from one device to another carries following
+information:
+
+\bit
+\w notification that the given event has occurred
+
+\vspace*{0.3cm}
+
+\w payload associated with the event instance
+
+\vspace*{0.3cm}
+
+\w additional control information such as timestamp, sender, receiver
+
+\eit
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Processes}
+
+A \bb{process} is a specification of behavior which will be \bb{deployed} in
+an agent. 
+A process consists of two parts: \ee{event list} and \ee{process body}. 
+
+\vspace*{0.4cm}
+
+The \bb{event list} is an unordered list of events to which the process is
+sensitive to.
+
+\vspace*{0.4cm}
+
+The \bb{process body} is the code which is executed when any event in the
+event list occurs. Roughly, the code can perform following activities:
+\bit
+\w \ee{Testing over event instance}
+\w \ee{Branching/looping based on the result of testing}
+\w \ee{Fork/join constructs}
+\w \ee{Terminal actions}: 
+   \bit
+   \w send a new event instance
+   \w execute foreign code
+   \w delay for real-time (e.g. sleep(2 msec))
+   \eit
+\eit
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Processes: Control Constructs}
+
+Meadowview supports the following control constructs:
+
+\bit
+\w \bb{Sequencing}: ``;'' is a sequencing operator
+\w \bb{Branching}: if-then-else
+\w \bb{Fork/join}: fork-join
+\w \bb{Loops}: for-loop, while-loop
+\eit
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Processes: Terminal Actions}
+
+There three types of \bb{terminal actions} that a process can perform in
+reaction to events.  
+\bit
+\w Generate/send a new event instance to an agent.
+\w Execute a foreign program (e.g. Python script or Java program). 
+\w Delay consumption.
+\eit
+
+\vspace*{0.4cm}
+
+Restriction on the type of terminal actions can result in a compact and
+efficient runtime.
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Processes: Example}
+
+The following shows a simple process which models an approval of a vacation
+request. 
+
+{\scriptsize
+\begin{verbatim}
+process ManagerApproval @(com.meadow.ApprovalRequestFirst R) {
+  Agent DB = Agent("com.meadow.DBEngine");
+  reqhandle = SEND(DB, new com.meadow.DBQuery(R.employee, "manager");
+  RECV(reqhandle, com.meadow.DBQueryResult mgr);
+  reqhandle = SEND(DB, new com.meadow.Query(R.employee, "vac_used");
+  RECV(reqhandle = com.meadow.DBQueryResult vacused);
+  if (vacused.value() - R.days() < 100 /* MAX_VAC */) {
+    SEND(R.request(), new ApprovalRequestGranted());
+    SEND(DB, new DBUpdate(R.employee, "vac_used", vacused.value()-R.days()));
+  }
+  else
+    SEND(R.requester(), new ApprovalRequestDenied(NO_BALANCE));
+}
+\end{verbatim}
+}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Further improvements}
+
+\bit
+\w Must be able to designate an abstract event source: e.g. any
+{\tt ApprovalRequestFirst} originated from an agent who is in ``team member''
+relation with the agent where the {\tt ManagerApproval} process is deployed.
+\eit
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Semantics of Meadowview Elements}
+
+Each (static) Meadowview element has its dynamic counterpart.
+
+\vspace*{0.3cm}
+
+\centerline{\begin{tabular}{|l|l|} \hline
+Syntax & Semantics \\ \hline
+Agent & Device handle \\
+Event & Event instance \\
+Channel & Event queue \\ 
+Process & Labeled transition system \\ \hline
+\end{tabular}}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Semantics: Events}
+
+Events exists to convey two pieces of information:
+  \bit
+  \w notification that ``something has happened''
+  \w any associated data
+  \eit
+
+An \bb{event flow} is transfer of an event instance between two devices.
+
+\vspace*{0.3cm}
+
+Event flows occur between devices not between processes. That is, the 
+runtime running on a device is responsible for routing of event instances. 
+The device runtime manages multiple processes in the given device.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Semantics: Processes}
+
+A process is compiled into a \bb{labeled transition system} (or state machine
+with propositional formulas associated with edges). 
+
+\vspace*{0.4cm}
+
+\[\xymatrix@+0.1cm{
+  & *+[F]\txt{$S_0$} \ar[d]^{\txt{\tiny{?ApprovalRequestFirst}}} &\\ 
+ & *+[F]\txt{$S_1$} \ar[dl]_{\txt{\tiny vac\_used $<$ max\_vac}}
+  \ar[dr]^{\txt{\tiny vac\_used $>=$ max\_vac}} & \\
+*+[F]\txt{$S_3$} \ar@/^12ex/[uur] & & *+[F]\txt{$S_4$}  \ar@/_12ex/[uul]
+}\]
+
+
+\vspace*{0.4cm}
+
+An engine in an agent (device) is responsible for the execution of labeled
+transition systems. 
+
+
+\end{frame}
+
+
+
+\end{document}
+
+%%  LocalWords:  RFID DSMS SQL CEP IFP Dataflow cep compsys softsys

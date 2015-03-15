@@ -1,0 +1,253 @@
+\documentclass{myproc}
+\usepackage{times,mydef,epsfig}
+\def\sbf{\sf\bfseries}
+\begin{document}
+\title{\large\bf Notes on Computer Organization and Computer Architecture \vspace*{-0.5cm}}
+\author{\normalsize Cheoljoo Jeong $\arc{\mbox{cjeong@cs.columbia.edu}}$}
+\maketitle
+\small
+
+\tableofcontents
+
+
+\section*{\large\sbf\underline{Computer Organization}}
+\section{Computer Abstractions and Technology}
+\bit
+\w five components of a computer:
+ \ben
+ \w \bb{input}: I/O, bus
+ \w \bb{output}:
+ \w \bb{memory}: cache, virtual memory, $\cdots$
+ \w \bb{datapath}: arithmetic, pipelined datapath, $\cdots$
+ \w \bb{control}: microprogramming, pipelining, $\cdots$
+ \een
+ \w datapath와 control는 합해서 \bb{processor}로 불림
+\eit
+
+\section{The Role of Performance}
+
+\section{Instructions: Language of the Machine}
+\subsection{Operations of the computer hardware}
+\bit
+\w {\sbf Design Principle 1}: {Simplicity favors regularity}.
+\eit
+\subsection{Operands of the computer hardware}
+\bit
+\w \bb{registers}:
+\w {\sbf Design Principle 2}: {Smaller is faster}.
+\w \bb{data transfer operations}: between memory and registers;
+   e.g. {\tt lw \$reg, offset(\$base-reg)}
+\w \bb{byte address vs. word address}: 대부분의 architecture는 byte 단위로
+  addressing이 가능하다. 동시에 word 단위의 computation이 이루어지는데,
+  word address space는 byte address space위에 중첩된다
+\w \bb{alignment restriction}: speedup을 위해, 1 word = 4 byte인 경우,
+  every 4th byte address가 word address가 되도록 한다
+\w \bb{big endian vs. little endian}:
+\w \bb{register spilling}: 잘 안쓰이는 variable들을 다시 memory로 옮기는것
+\eit
+
+\subsection{Representing instructions in the computer}
+\bit
+\w \bb{instruction format}: layout of the instruction
+\w \bb{MIPS fields} (R-format):
+  \bit
+  \w op: opcode (6)
+  \w rs: 1st source register (5)
+  \w rt: 2nd source register (5)
+  \w rd: destination register (5)
+  \w shamt: shift amount (5)
+  \w fnct: function code (6)
+  \eit
+\w {\sbf Design Principle 3}: Good design demands good compromises.
+\w \bb{MIPS fields} (I-format): for {\tt lw} and {\tt sw};
+  op rs, rt, address (16)
+\eit
+
+\subsection{Instructions for making decisions}
+\bit
+\w \bb{conditional branches}: {\tt beq} and {\tt bne}
+\w \bb{jump}: {\tt j} $\arc{\mbox{address}}$
+\w \bb{jump register}: {\tt jr} $\arc{\mbox{register}}$
+\eit
+\subsection{Supporting procedures in computer hardware}
+\bit
+\w six steps in the execution of a procedure:
+  \ben
+  \w procedure가 access할 수 있는 곳에 parameter들을 place한다
+  \w procedure에게 control을 tranfer한다
+  \w procedure에게 필요한 storage resource를 acquire한다
+  \w 원하는 task를 수행한다
+  \w calling program이 access할 수 있는 곳에 result value들을 place한다
+  \w point of origin에 control을 return한다
+  \een
+\w registers for procedure calling (MIPS)
+  \bit
+  \w \verb+$a0-$a3+: \bb{argument registers} to pass parameters
+  \w \verb+$v0-$v1+: \bb{value registers} to return values
+  \w \verb+$ra+: \bb{return address reigster} 
+  to return to the point of origin %$
+  \eit
+\w \bb{jump-and-link}: \verb+jal+ $\arc{\mbox{procedure address}}$; 
+  주어진 address로 jump함과 동시에 following instruction을 \verb+$ra+ %$
+  에 저장함
+  \bit
+  \w 정확하게는, PC (program counter) + 4의 값을 \verb+$ra+ %$
+  에 저장
+  \eit
+\w \bb{stack}: register spilling에 사용; stack pointer {\tt \$sp}; 
+  만약 우리가 procedure 내에서 caller에 의해 사용되고 있을지 모르는
+  어떤 register를 사용할 필요가 있다면, 이 값들을 stack에 저장한다.
+  그리고 return 직전에 register의 값들을 restore한다
+\w {\tt \$t0-\$t9}: temporary registers not preserved by callee;
+  \bb{caller-save registers}
+\w {\tt \$s0-\$s7}: saved registed preserved across procedure calls;
+  \bb{callee-save registers}
+\eit
+
+
+\section{Arithmetic for Computers}
+\subsection{Introduction}
+\bit
+\w negative number는 어떻게 표현하는가?
+\w computer word 내에서 표현되는 largest number는?
+\w operation이 represent할 수 있는 것보다 더 큰 number를 생성할 경우
+  어떤 일이 발생하는가?
+\w fraction과 real number는?
+\eit
+\subsection{Signed and Unsigned Numbers}
+\bit
+\w base $b$ number system에서 $i$th ($i \ge 0$) 
+  digit $d$의 value: $d\cdot{}b^i$
+\w \bb{sign-and-magnitude representation}의 단점:
+  \ben
+  \w 어디에 sign bit를 놓을지 (right or left) 명확치 않음
+  \w 두 개의 zero를 가진다 (negative zero \& positive zero)
+  \een
+\w \bb{two's complement representation}:
+  \bit
+ \w {\sf 장점}:
+    모든 negative number는 MSB가 1이다; 따라서 이 MSB는
+    \bb{sign bit}의 역할을 할 수 있다
+  \w 32 bit word이고, $x_{i}$가 $i$th bit라 할때,
+  \[ (x_{31}\cdot -2^{31}) + (x_{30}\cdot 2^{30}) + \cdots + 
+  (x_{0}\cdot 2^{0})\]
+  \w 16 bit word인 경우, $-2^{15}$에서 $2^{15} - 1$까지의 수를 표현
+  \w $n$-bit number와 그 negative를 더하면 $2^n$이 됨; 따라서,
+  number $x$의 negation은 $2^n - x$가 됨
+    
+  \w \bb{overflow}: leftmost retained bit이 left 측의 (가상) infinite number
+  의 bit와 다를 때; 즉, negative인데 MSB가 0이거나 positive인데 MSB가 1인 경우
+  \eit
+\eit
+\paragraph{Manipulating two's complement numbers}
+\bit
+\w \bb{negation}: $0$과 $1$을 서로 바꾼 후, $1$을 더한다
+\w \bb{sign-extension} ($n$-bit number를 $m (> n)$-bit number로 conversion):
+  sign bit를 나머지 bit들에 replicate한다.
+\eit
+
+\subsection{Addition and Subtraction}
+\subsection{Logical Operations}
+\subsection{Constructing an Arithmetic Logic Unit}
+\bit
+\w 32 bit ALU 만드는 법: 32개의  1-bit ALU를 연결
+\w \bb{1-bit full adder}: 
+  \bit
+  \w 3 inputs: $a, b, c_{in}$ (input이 $a, b$만 있을 경우, half adder)
+  \w 2 outputs: $sum, c_{out}$
+  \w $c_{out} = ab + ac_{in} + bc_{in}$: \bb{majority function}
+  \w $sum = ab'c_{in}' + a'bc_{in} + abc_{in}' + abc_{in}$: \bb{odd function}
+  \eit
+\w \bb{ripple-carry adder}: created by 
+  directly linking carries of 1-bit adders
+\w \bb{1-bit APU}:
+  \bit
+  \w MUX를 이용하여 addition과 logical operation을 선택
+  \w inputs: 가능한 operation 수가 $n$개 일때, $\floor{\lg n}$-bit의 MUX selector
+  bit와 $a, b, c_{in}$
+  \w outputs: $result, c_{out}$
+  \eit
+\w \bb{subtraction의 지원}
+  \bit
+  \w $a - b$는  $a + \underline{{b}'} + \underline{1}$과 같으므로
+  \w $b$와 $b'$을 선택하는 2:1 MUX를 추가
+  \w $c_{in} = 1$로 놓으면 자연스레 ``$+1$''을 할 수 있다.
+  \w 이제 input은 $b_{invert}, c_{in}, op, a, b$
+  \eit
+
+\eit
+\begin{figure}
+\centerline{\epsfig{figure=pics/f0417.eps,width=6.3cm}}
+\caption{ALU}
+\end{figure}
+
+\section{Carry Lookahead}
+\bit
+\w \bb{fast carry using ``infinite'' hardware}
+  \bit
+  \w $c_{in}^1 = b_1 c_{in}^0 + a_1 c_{in}^0 + a_0 b_0 = c_{out}^0$
+  \w $c_{in}^2 = b_1 c_{in}^1 + a_1 c_{in}^1 + a_1 b_1 = c_{out}^1$
+  \w $c_{in}^1$을 치환하면,
+  $c_{in}^2 = b_1\underline{c_{in}^1} + a_1 \underline{c_{in}^1}
+  + a_1 b_1 = c_{out}^1
+  = b_1 ( b_1 c_{in}^0 + \cdots ) + a_1 (b_1 c_{in}^0 + \cdots ) + a_1 b_1$
+  \w \bb{exponential growth}
+  \eit
+\w \bb{fast carry using the first level of abstraction: propagate and
+  generate}
+  \bit
+  \w $c_{in}^{i+1} = a_i c_{in}^i + b_i c_{in}^i + a_i b_i = c_{out}^i$
+  \w $c_{in}^{i+1} = (a_i + b_i) c_{in}^i +  a_i b_i$
+  \w \bb{generate}: $g_i = a_i b_i$
+  \w \bb{propagate}: $p_i = a_i + b_i$
+  \w $c_{in}^{i+1} = p_i c_{in}^i +  g_i$
+    \bit
+    \w $g_i = 1$이면, $c_{in}^i$에 상관없이 carry를 generate됨
+    \w $g_i = 0$이면, $p_i = 1$일 때, $c_{in}^i$가 propagate됨
+    \eit
+  \eit
+\eit
+
+
+
+
+\section*{\large\sbf\underline{Computer Architecture}}
+%%%
+\section{Fundamentals of Computer Design}
+
+%%%
+\section{Instruction Set Principles and Examples}
+\subsection{Classifying instruction set architectures}
+\bit
+\w classification based on the \bb{type of internal storage}:
+  {\em operand\/}를 어디에 둘 것인가?
+  \ben
+  \w \bb{stack architecture}: operand는 top of stack에 implicit하게
+  \w \bb{accumulator architecture}: operand를 accumulator에 implicit하게
+  \w \bb{general-purpose register architecture}: register나 memory location과
+  같은 explicit operaand만 허용 
+    \ben
+    \w \bb{register-memory architecture}: instruction에서 직접 memory access
+    가능 
+    \w \bb{load-store architecture} (or \bb{register-memory} architecture):
+         {\tt load}, {\tt store} instructions만이 memory access 가능
+    \w \bb{memory-memory architecture}: 
+    \een
+  \een
+\w GPR (general-purpose register) architecture의 장점
+  \ben
+  \w register가 memory보다 더 빠르다
+  \w compiler 관점에서 register가 더 쉽고 효율적으로 사용될 수 있다
+  \w {\em program의 variable\/}들을 register에 저장함으로써 memory traffic을
+  줄이고, code density\footnote{register naming이 memory location naming보다
+    더 작은 bit으로 가능하기 때문에}를 줄일수 있다
+  \een
+\eit
+
+\subsection{Memory addressing}
+
+
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/sys,00bib/pl}
+\nocite{HP96,HP97,Appel98}
+\end{document}

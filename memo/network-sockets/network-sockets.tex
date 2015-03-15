@@ -1,0 +1,200 @@
+\documentclass{memo}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+\begin{document}
+\small
+\noindent{\large\bf{}Sockets}
+
+\paragraph{Overview} Sockets are a method of {\em IPC\/} that allow data to be
+exchanged between applications, either on the same host or on different hosts
+connected by a network. 
+In a typical {\em client-server\/} scenario, applications communicate using
+sockets as follows:
+\bit
+\w both client and server applications create sockets
+\w the server binds it socket to a predefined address so that client can
+locate it
+\eit
+
+\paragraph{Socket address structures}
+Most socket functions require a {\em pointer to a socket address
+  structure\/}. Each supported protocol suite defines its own socket address
+structure and the names of these structures begin with \verb+sockaddr_+ and
+end with a unique suffix for each protocol suite.
+
+\bb{IPv4 socket address strcuture} is defined as follows:
+\begin{verbatim}
+  #include <netinet/in.h>
+  struct in_addr {
+    in_addr_t s_addr; /* 32-bit IPv4 address */
+                      /* network byte ordered */
+  };
+  struct sockaddr_in {
+    uint8_t sin_len;        /* structlen (16) */
+    sa_family_t sin_family; /* AF_INET */
+    in_port_t sin_port;     /* 16-bit portno */
+    struct in-addr sin_addr; 
+    char sin_zero[8];       /* unused */
+  };
+\end{verbatim}
+
+Four socket functions pass a socket address structure {\em from the process to
+  the kernel\/}: \verb+bind+, \verb+connect+, \verb+sendto+, and
+\verb+sendmsg+. Five socket functions that pass a socket address structure
+{\em from the kernel to the process\/} are: \verb+accept+, \verb+recvfrom+,
+\verb+recvmsg+, \verb+getpeername+, and \verb+getsockname+.  For these five
+functions, the socket length argument is used as a \bb{value-result} argument.
+
+
+
+\paragraph{Socket system call: { socket()}} Creates a new socket.
+\begin{verbatim}
+int socket(int domain, int type, int protocol);
+\end{verbatim}
+Communication domain, \bb{domain}, specifies which protocol family we will
+use:
+   \bit
+   \w \verb+AF_UNIX+, \verb+AF_LOCAL+: local communication
+   \w \verb+AF_INET+: IPv4 Internet protocol
+   \w \verb+AF_INET6+: IPv6 Internet protocol
+   \w \verb+AF_IPX+: Novell IPX  protocol
+   \w \verb+AF_NETLINK+: kernel user interface device
+   \w \verb+AF_AX25+: amateur radio AX.25 protocol, etc.
+%   \w \verb+AF_PACKET+: low level packet interface
+   \eit
+The \bb{type} parameter indicates the {\em socket type\/} which determines
+communication semantics:
+  \bit
+  \w \verb+SOCK_STREAM+: reliable, two-way connection-based
+  \w \verb+SOCK_DGRAM+: connectionless, unreliable fixed-length datagrams 
+  \w \verb+SOCK_SEQPACKET+: sequenced, reliable connection-based path for
+  fixed maximum length datagrams; a consumer is required to read an entire
+  packet with each input system call
+  \w \verb+SOCK_RAW+: raw network protocol access
+  \w \verb+SOCK_RDM+: reliable datagram layer w/o ordering
+  \w \verb+SOCK_PACKET+: obsolete
+  \eit
+From Linux 2.6.27, we can BITWISE-OR the following values with above:
+ \bit
+ \w \verb+SOCK_NONBLOCK+: set \verb+O_NONBLOCK+ file status (save calling
+ extra call to \verb+fcntl+
+ \w \verb+SOCK_CLOEXEC+: see \verb+open(2)+ for its use
+ \eit
+The following is a brief
+comparison between two most common types:
+\begin{quote}
+\begin{tabular}{r|c|c|}
+& {\bf stream} & {\bf datagram} \\ \hline
+{\em reliable delivery} & yes & no \\
+{\em message boundary preserved} & no & yes \\
+{\em connection-oriented} & yes & no  \\ \hline
+\end{tabular}
+\end{quote}
+The {\bf protocol} specifies specifies a particular protocol for the given
+protocol family. Normally a single protocol exists for a given protocol family
+and we can set this value as 0. 
+
+\paragraph{Socket system call: { bind()}} Binds a socket to an address. A
+server employs this call to bind its socket to a well-known address so that
+clients can locate the socket.
+\begin{verbatim}
+int bind(int sockfd, struct sockaddr *addr, 
+         socklen_t addrlen)
+\end{verbatim}
+The \verb+struct sockaddr+ is just for casting the actual socket address
+structure (e.g. \verb+sockaddr_in+ or \verb+sockaddr_in6+).
+\begin{verbatim}
+  struct sockaddr {
+    sa_familiy_t sa_family;
+    char sa_data[14];
+  }; 
+\end{verbatim}
+
+\paragraph{Socket system call: { listen()}}
+Allows a {\em passive stream\/} socket to accept incoming connections from other sockets.
+The \verb+sockfd+ is a descriptor to a socket of type \verb+SOCK_STREAM+ or
+\verb+SOCKSEQPACKET+. 
+\begin{verbatim}
+int listen(int sockfd, int backlog);
+\end{verbatim}
+The \verb+backlog+ is the maximum length of the queue of pending
+connections. If the queue is full, the client may receive an
+\verb+ECONNREFUSED+ error or the request will be ignored if underlying
+protocol supports retransmission.
+
+\paragraph{Socket system call: { accept()}}
+Accepts a connection from a peer application on a {\em listening stream
+  socket\/} (\verb+SOCK_STREAM+, \verb+SOCK_SEQPACKET+), and 
+optionally returns the address of the peer socket. 
+\begin{verbatim}
+int accept(int sockfd, struct sockaddr *addr,
+           socklen_t *addrlen);
+\end{verbatim}
+The \verb+sockfd+ must be a descriptor for a socket which was created with
+\verb+socket()+, bound to a local address with \verb+bind+, and is listening
+for connections after a \verb+listen()+.
+
+
+\paragraph{Socket system call: { connect()}}
+Establishes a connection with another socket. 
+\begin{verbatim}
+int connect(int sockfd, struct sockaddr *addr,
+            socklen_t addrlen);
+\end{verbatim}
+
+\paragraph{Socket I/O} Socket I/O can be performed using \verb+read()+ and
+\verb+write()+ system calls, or using a range of socket-specific system calls
+(e.g. \verb+send()+, \verb+recv()+, \verb+sendto()+, and \verb+recvfrom()+). 
+
+By default, these system calls perform {\bf blocking I/O}. {\bf Nonblocking
+  I/O} is also possible by using the \verb+fcntrl() F_SETFL+ operation to
+enable the \verb+O_NONBLOCK+ open file status flag. 
+
+\paragraph{Stream sockets}
+Operation of stream socke1ts are analogous to a \bb{telephone call}:
+\ben
+\w \bb{install telephone}: create a socket using \verb+socket()+
+\w \bb{make a phone call}: caller connect its socket to another application's
+socket for a communication; two sockets are connected as follows:
+  \ben
+  \w server calls \verb+bind()+ to a predefined address and then calls
+  \verb+listen()+ to notify the kernel of its willingness to accept incoming
+  connections.  
+  \w client establishes the connection by calling \verb+connect()+ specifying
+  the address of the socket to which the connection is to be made
+  \w server that called \verb+listen()+ then accepts the connection using
+  \verb+accept()+ 
+  \een
+\w \bb{talk}: once the connection has been established, data can be
+  transmitted (e.g. \verb+read()+ and \verb+write()+) in both directions until
+  one of the application calls \verb+close()+
+\een
+
+\paragraph{Active vs passive sockets}
+By default a socket created using \verb+socket()+ is active. \bb{Active
+  sockets} can be used in a \verb+connect()+ call to establish a connection to
+a passive socket. This is called as performing an \verb+active open+.
+
+A \bb{passive socket} (also called a \bb{listening socket}) is one which has
+been marked to allow incoming connections by calling
+\verb+listen()+. Accepting an incoming connection is referred to as performing
+a {\bb{passive open}}. 
+
+\paragraph{Datagram sockets}
+Operation of datagram sockets can be explained by analygo with the \bb{postal
+  system}: 
+\ben
+\w \bb{setup mailbox}: \verb+socket()+ system call is equivalent of setting up a mailbox
+\w \bb{setup address}: server binds its socket to a well-known address so
+client can initiate communication
+\w \bb{send a mail}: client calls \verb+sendto()+ with the address of the
+socket as its destination
+\w \bb{receive a mail}: server calls \verb+recvfrom()+ which may block if no
+datagram has not yet arrived
+\w \verb+close()+ closes the communication
+\een
+\end{document}
+
+% LocalWords:  IPC sockaddr IPv  sendto sendmsg recvfrom recvmsg getpeername
+% LocalWords:  getsockname INET DGRAM datagram recv Nonblocking fcntrl SETFL
+% LocalWords:  NONBLOCK

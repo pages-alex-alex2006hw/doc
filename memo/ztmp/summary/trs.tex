@@ -1,0 +1,27 @@
+\section{TERM REWRITING SYSTEMS}
+\subsection{Introduction}
+\bit
+\w A \bb{term rewrting system} is a pair $(\Sigma, R)$ of an \bb{signature} (or
+\bb{alphabet)} $\Sigma$ and a set of \bb{rewrite rules} (\bb{reduction
+  rules}) $R$. 
+\w A set Ter($\Sigma$) of \bb{terms} (or \bb{expressions}) over $\Sigma$ is
+defined inductively:
+  \ben
+  \w [(a)] $x, y, z, \cdots \in \mbox{\ Ter}(\Sigma)$ \ \ (variables $x, y, z,
+  \cdots$) 
+  \w [(b)] if $F$ is an $n$-ary function symbol and $t_1, \cdots, t_n) \in
+  \mbox{\ Ter}(\Sigma)$, then $F(t_1, \cdots, t_n) \in \mbox{\ Ter}(\Sigma)$.
+  \een
+\w A \bb{context}, generally denoted by $C[\ ]$, is a term containing one
+occurrence of a special symbol $\Box$, denoting empty place. 
+\w A \bb{substitution} $\sigma$ is a map from Ter$(\Sigma)$ to Ter$(\Sigma)$
+which satisfies $\sigma(F(t_1, \cdots, t_n)) = F(\sigma(t_1), \cdots,
+\sigma(t_n))$ for every $n$-ary function symbol $F$. 
+\w A \bb{rewrite rule} is a pair $(t, s)$ of terms and is written as $t
+\rightarrow s$, where
+   \ben
+   \w [(a)] LHS $t$ is not a variable;
+   \w [(b)] variables in RHS $s$ are already contained in $t$.
+   \een
+
+\eit

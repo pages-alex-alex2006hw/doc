@@ -1,0 +1,40 @@
+\contentsline {section}{\numberline {1}Topologies}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Pair}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Chain}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Ring}{2}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Clique}{2}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Tree}{2}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Systolic array}{2}{subsection.1.6}
+\contentsline {section}{\numberline {2}Classic Problems}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Producer-consumer}{2}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}One producer, one consumer}{2}{subsubsection.2.1.1}
+\contentsline {subsection}{\numberline {2.2}Readers-writers}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Dining philosopher}{2}{subsection.2.3}
+\contentsline {section}{\numberline {3}Hadoop style flow}{2}{section.3}
+\contentsline {subsection}{\numberline {3.1}Coroutine}{2}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Ping-ping}{2}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Fork-join: Divide-and-conquer}{2}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Fork-join-any}{3}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Fork-join-none}{3}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Map-reduce}{3}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}Arbitrary graph}{3}{subsection.3.7}
+\contentsline {section}{\numberline {4}Workflow patterns}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}Workflow data patterns}{3}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Workflow control patterns}{3}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Workflow resource patterns}{3}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Workflow exception handling patterns}{3}{subsection.4.4}
+\contentsline {section}{\numberline {5}Service interaction patterns}{3}{section.5}
+\contentsline {section}{\numberline {6}Device selection patterns}{3}{section.6}
+\contentsline {subsection}{\numberline {6.1}Roles: Any device in the group}{3}{subsection.6.1}
+\contentsline {paragraph}{Situation}{3}{section*.2}
+\contentsline {section}{\numberline {7}Communication patterns}{4}{section.7}
+\contentsline {subsection}{\numberline {7.1}Broadcasting}{4}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Multicasting}{4}{subsection.7.2}
+\contentsline {section}{\numberline {8}Data access/transfer patterns}{4}{section.8}
+\contentsline {subsection}{\numberline {8.1}Pipes}{4}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Blackboards}{4}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Shared variable}{4}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Streaming}{4}{subsection.8.4}
+\contentsline {section}{\numberline {9}Applications}{4}{section.9}
+\contentsline {subsection}{\numberline {9.1}Messenger}{4}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Chatting}{4}{subsection.9.2}

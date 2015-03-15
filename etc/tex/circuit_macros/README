@@ -1,0 +1,246 @@
+
+Circuit_macros
+
+* Circuit_macros Version 5.51, copyright (c) 2004 J. D. Aplevich.       *
+* The files of this distribution can be redistributed or modified,     *
+* provided that this copyright notice is included, and provided that   *
+* modifications are clearly marked to distinguish them from this       *
+* distribution.  There is no warranty whatsoever for these files.      *
+
+  This is a set of macros for drawing high-quality line diagrams to
+  include in TeX, LaTeX, or similar documents.  The macros were
+  originally intended for electric circuit diagrams containing
+  fundamental elements, amplifiers, transistors, and basic logic gates,
+  but several tools and examples for other types of diagrams are also
+  included.  The advantages and disadvantages of such a system are
+  similar to those of TeX itself, which is macro-based and non-wysiwyg,
+  with ordinary character input.
+
+  The macros are to be processed by m4, and evaluate to drawing
+  commands in the pic "little language," which is easy to read and
+  learn.  Pic is well suited to line drawings requiring parametric or
+  conditional components, fine tuning, significant geometric
+  calculations or repetition, or to drawings that are naturally block
+  structured or tree structured.  Arbitrary formatted text can be
+  included.  Free TeX- and LaTeX-compatible interpreters for m4 and pic
+  are readily available.
+
+  Some alternatives to consider, according to taste and the graphics to
+  be drawn, are wysiwyg drawing programs (but the results may be
+  difficult to tune), packages using TeX or LaTeX macros (but harder to
+  read, of limited power, or for specialized diagrams), Metafont (good
+  for diagrams up to moderate size), MetaPost (powerful but Postscript
+  or Troff output only) and specialized CAD programs (but typically the
+  graphics are not easily tuned or not of book quality).
+
+REQUIRED SOFTWARE:
+  m4, gpic, TeX or LaTeX, and a driver recognizing tpic specials
+My preferred setup:
+  m4, dpic (see below), TeX or LaTeX, PSTricks, dvips
+Also possible:
+  m4 and dpic with output in the following formats:
+    LaTeX graphics, LaTeX eepic, mfpic, xfig, MetaPost, Postscript
+
+USAGE:
+  A source file, for example cct.m4, is processed as shown:
+    m4 <path>libcct.m4 cct.m4 | gpic -t > cct.tex
+  or
+    m4 <path>pstricks.m4 <path>libcct.m4 cct.m4 | dpic -p > cct.tex
+  where <path> is the path to the specified file.
+
+  The file cct.tex is then included in the LaTeX document, and the
+  resulting dvi file is printed using dvips.
+
+  The manual includes simplified and alternative usages.
+
+INSTALLATION:
+   1.  Copy libgen.m4 and all other .m4 files in the same directory as
+       libgen.m4 into your $HOME/lib or other directory where the
+       libraries are to be installed.
+   2.  Change the definition of HOMELIB_ in each of the copied .m4 files
+       to point to the installation directory.
+   3.  This is optional.  If dpic with PSTricks will be your default processor
+       then change the string "gpic.m4" to "pstricks.m4" in the
+       statements defining the default processor near the top of the
+       libraries.  If you do not do this but are using dpic with
+       pstricks, then remember to process pstricks.m4 first as for the
+       cct.m4 example above.
+   4.  If you are going to use boxdims.sty (see Section 9 of the manual)
+       copy it to where LaTeX will find it.
+
+SOURCES:
+  M4 is widely available on Unix systems.  PC source and executables are
+  also available.  DJGPP versions are available as m4-NNb.zip (where NN
+  is the current release number) at
+  http://www.delorie.com/pub/djgpp/current/v2gnu/
+  and on web archives.
+
+  There are many sources of hints on m4 usage; two places to look are
+  http://www.gnu.org/manual/m4-1.4/html_mono/m4.html
+  and http://www.seindal.dk/rene/gnu/.
+
+  An alternative set of Windows tools is available via
+  http://www.cygwin.com/
+  or you might check out the possibilies listed in the FAQ at
+  http://www.mingw.org/
+
+  Gpic is part of the GNU groff distribution, for which the latest
+  source is available from prep.ai.mit.edu in pub/gnu, but there are
+  mirror sites that archive these sources, and others that distribute
+  executables.
+
+  For processing complex documents containing many diagrams or other
+  components, it is often convenient to use a project management
+  facility such as "make," see
+  http://www.gnu.org/manual/make/html_chapter/make_toc.html.  Otherwise
+  a scripting language can be used to automate the steps required in
+  producing a complete document.  However, the diagrams can also be put
+  into one source file to simplify processing as described in the manual.
+
+DPIC:
+  Dpic is not included here you say?  If you want to try the LaTeX
+  picture objects, mfpic, PSTricks, MetaPost, xfig, or Postscript
+  output provided by dpic, the current free source and Windows
+  executable can be obtained from
+  http://ece.uwaterloo.ca/~aplevich/dpic/
+
+MANUALS:
+  View or print man.ps or man.dvi in the doc directory.
+
+  The original pic manual can be obtained from:
+  ftp://cm.bell-labs.com/cm/cs/cstr/116.ps.gz.  A more extensive
+  version is found in the documentation that comes with GNU pic, which is
+  typically installed as gpic.  Compressed postscript versions of both
+  of these are in http://ece.uwaterloo.ca/~aplevich/dpic/
+
+EXAMPLES:
+  Read the manual man.ps and view or print the file examples.ps in the
+  examples directory, or for the possibly unstable development version, try 
+  http://ece.uwaterloo.ca/~aplevich/Circuit_macros/
+
+  A collection of examples and hints intended for his colleagues has
+  been produced by Alan Robert Clark at http://ytdp.ee.wits.ac.za/cct.html
+
+  The sources for the diagrams in examples.ps are included in this
+  distribution, but should not always be taken to represent the best
+  practice, since there are often several ways to draw the same
+  diagram.  To reproduce these examples you may have to adjust the font
+  selections for your machine.
+
+  For more examples in the context of a textbook, hava a look at
+  Aplevich, J.D., "The Essentials of Linear State-Space Systems," New
+  York: John Wiley & Sons Inc., 2000.  In Canada, look at Andrews,
+  G.C., Aplevich, J.D., Fraser, R.A., and Ratz, H.C., "Introduction to
+  Professional Engineering in Canada," Toronto: Prentice Hall, Pearson
+  Education Canada, Inc., 2003.  Some samples from these books can be
+  found at http://ece.uwaterloo.ca/~aplevich/
+
+Metafont:
+  The file examples/mf/cct.mf is a Metafont source for some variants of
+  the basic elements, produced using the mfpic output of dpic.  It may
+  be of interest to persons who cannot otherwise implement the macros.
+  To see the elements (assuming a typical installation), type "make
+  testfont.ps" in the mf directory.
+
+Fig:
+  The file examples/xfig/xfiglib.fig is a file of elements in xfig 3.2
+  format produced by dpic for importing into xfig.  Translation between
+  languages always involves a loss of information and idiom, but in
+  some contexts it is very efficient to use a programming language for
+  defining basic elements, together with interactive graphics to place
+  them in diagrams.  The elements should be custom-designed for this
+  use.  The file is a prototype because many more elements could be
+  included, and because some of the fancier possibilities such as
+  colour and fill, not traditionally used in circuit diagrams, have
+  been omitted.  Logic gates tend to have many labels, and xfig is not
+  a word processor, so some fine tuning of the labels is in order.
+
+LIBRARIES:
+  The file libgen.m4 contains basic macro definitions and is included
+  automatically by other libraries.  The file lib3D.m4 contains macros
+  useful in drawing 3D projections.  Binary logic circuit elements are
+  in liblog.m4, and some macros for drawing double-line arrows are in
+  darrow.m4.  One of gpic.m4, pstricks.m4, postscript.m4, mfpic.m4, or
+  xfig.m4 should be processed before any of the others, depending on
+  the required form of dpic output.  By default, gpic.m4 is loaded if
+  one of these is not loaded first.
+
+MODIFICATIONS:
+  Macros such as these inevitably will be modified to suit individual
+  use and taste.  They continue to evolve in my own library as I use
+  them and as others send comments.  No such collection can hope to
+  include all possible circuit-related symbols.  You will probably find
+  yourself writing your own macros or adapting some of these.  The
+  learning curve compares well to other packages, but there is no
+  trivially easy way to produce high-quality graphics.
+
+CHANGES:
+Version 5.6: Reworked diode for easier customization.  Improved
+  shade.  Better MetaPost support.
+Version 5.5: New macros potentiometer, variable, igbt, tline. Optional
+  negated logic gate inputs. Options for diode, source.
+Version 5.4: New Mux, for_, arca.  Reworked gate macros FlipFlop, AND_gate,
+  OR_gate, NOT_gate.  Improved lg_pintxt, boxdim, s_box, s_ht, s_wd,
+  s_dp, nport, resistor, opamp.  Completely reworked bi_tr, mosfet;
+  deleted smosfet.  Minor additions and changes to the manual.
+Version 5.3: New macros arcr, arcd, beginshade, endshade, larrow, rarrow,
+  s_sp, s_ht, s_wd, Max, Min, sfgself.  Improved ground, sfgnode, diode,
+  resistor.
+Version 5.2: New macros arrowline, nport, vlength, boxcoord, reversed.
+  Improved s_box, sfg_init, cross, fitcurve, sinusoid, transformer, darrow,
+  mosfet, psset_, battery, diode, capacitor.
+Version 5.1: Signal-flow graph (directed graph) macros.  More consistent
+  rot3Dz.  Work-around for a bug in some pic processors invoked by the
+  battery macro and for an arc instability invoked by the fuse macro.
+  Modified ground, dimension_, par_, label macros, b_current, diode,
+  transformer.  New macros gpar_, ujt, scr, contact, relay.
+  Document fixes and additions.  Changes to examples for portability.
+Version 5.0: Macros fuse, lpop, sinc; dpic-only sinusoid and fitcurve macros.
+  More robust mosfet, smosfet, b_current, bi_tr, j_fet, intersect_.
+  Editorial changes to the manual. Examples in Xfig version 3.2 format.
+  Web-based examples and updated links.
+Version 4.9: More robust NOT_gate.  Function pmod(), macro shade().  Tweaks
+  to diode, dend, crossover. Newer manual and web references.  Binary
+  tree and flowchart macros.
+Version 4.8: More robust ebox, source, shadebox, gap.  Modified d_fet and
+  e_fet.  Macros mosfet and smosfet.  More examples in the manual.  Bug
+  fixes in Fector, transformer, BUFFER_gate and in sum_, abs_, neg_, sign_ (!).
+Version 4.7: Fixed the excess-space bug in boxdims.sty.  Added Macros s_box,
+  s_init, scale changes to make the package more metric-friendly.  Reworked
+  amp, integrator, opamp, diode, battery and a few other macros for robustness
+  and clarity.  Minor document changes.
+Version 4.6: Percent-signs at the end of pstricks-generated lines.
+  Index in the manual.  New copyright notices.
+Version 4.5: Options for several 2-terminal macros.  Minor bug fixes and
+  better robustness.  Documents edited for friendlier PC installation and use.
+Version 4.3: Macros pt__ and boxdim.  Additions to the manual.  More robust
+  dimension_, tuned FlipFlop for xfig.  PC installation information.
+Version 4.2: Friendlier manual.  New Xfig prototype file to allow correct
+  scaling.  Cleaned up b_current, added line_leng.  Changes and additions
+  to logic gates.
+Version 4.1: Xfig prototype file included.  Minor document changes.  Fixed
+  recursive call bug and blank line bug.  Changed argument for dend
+  macro.  Better arrowheads in circuit elements.
+Version 4: Simplified library use.  Added capabilities and flexibility to
+  several devices, added _init macros, modified b_current.  Updated
+  font.m4, cosmetic changes to inductor.  Made gamp, amp, opamp,
+  integrator more robust.  Deleted edel_ macro.  Fixed elen_ bug in
+  darrow.m4.  Removed Capacitor, Inductor and others in favour of
+  parameterized macros.  Iron-core inductors.  Re-worked use of arcs in
+  basic elements for better robustness.  Edited examples document and
+  the manual.
+Version 3: Document changes, minor changes to dimension_, switch,
+  ground, battery.  Added flexibility for several elements.  New
+  diodes, Capacitor, transistors, hop, transformer.  Experimental
+  Metafont version of basic elements.
+Version 2.2: Replaced definitions of two-terminal elements
+  with current arrow by an arrow-labelling macro.
+Version 2.1: one or two examples simplified, and logic gates added.
+Version 2:  considerable added flexibility and robustness,
+  bug fixes, a few new constructs, a manual, and a complex logic-gate
+  example.
+
+Feel free to contact me with comments or questions.
+
+Dwight Aplevich
+aplevich (AT) uwaterloo.ca

@@ -1,0 +1,264 @@
+\BOOKMARK [1][-]{section.1}{COMPUTER SCIENCE IN GENERAL}{}
+\BOOKMARK [1][-]{section.2}{ALGORITHMS AND THEORY OF COMPUTATION}{}
+\BOOKMARK [2][-]{subsection.2.1}{General Textbooks}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{Complexity Theories}{section.2}
+\BOOKMARK [2][-]{subsection.2.3}{Distributed Algorithms}{section.2}
+\BOOKMARK [1][-]{section.3}{PROGRAMMING LANGUAGES AND COMPILERS}{}
+\BOOKMARK [2][-]{subsection.3.1}{General Textbooks}{section.3}
+\BOOKMARK [2][-]{subsection.3.2}{Functional Programming Languages}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Racket}{subsection.3.2}
+\BOOKMARK [2][-]{subsection.3.3}{Object-oriented Programming Languages}{section.3}
+\BOOKMARK [2][-]{subsection.3.4}{Logic Programming Languages}{section.3}
+\BOOKMARK [2][-]{subsection.3.5}{Distributed Programming Languages}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.5.1}{dRuby}{subsection.3.5}
+\BOOKMARK [3][-]{subsubsection.3.5.2}{Scala}{subsection.3.5}
+\BOOKMARK [3][-]{subsubsection.3.5.3}{Erlang}{subsection.3.5}
+\BOOKMARK [3][-]{subsubsection.3.5.4}{Groovy}{subsection.3.5}
+\BOOKMARK [3][-]{subsubsection.3.5.5}{Ambit}{subsection.3.5}
+\BOOKMARK [3][-]{subsubsection.3.5.6}{Linda}{subsection.3.5}
+\BOOKMARK [2][-]{subsection.3.6}{Formal Semantics Of Programming Languages}{section.3}
+\BOOKMARK [2][-]{subsection.3.7}{Practices in Programming Languages}{section.3}
+\BOOKMARK [1][-]{section.4}{FORMAL METHODS}{}
+\BOOKMARK [2][-]{subsection.4.1}{Process Algebras}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.1.1}{General textbooks}{subsection.4.1}
+\BOOKMARK [3][-]{subsubsection.4.1.2}{CSP \(Communicating Sequential Processes\)}{subsection.4.1}
+\BOOKMARK [3][-]{subsubsection.4.1.3}{CCS \(Calculus of Communicating Systems\)}{subsection.4.1}
+\BOOKMARK [3][-]{subsubsection.4.1.4}{-calculus}{subsection.4.1}
+\BOOKMARK [2][-]{subsection.4.2}{Petri Nets}{section.4}
+\BOOKMARK [2][-]{subsection.4.3}{Dataflow Process Networks}{section.4}
+\BOOKMARK [2][-]{subsection.4.4}{Modeling of Reactive Systems}{section.4}
+\BOOKMARK [2][-]{subsection.4.5}{Modal and Temporal Logics}{section.4}
+\BOOKMARK [2][-]{subsection.4.6}{Formal Verification}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.6.1}{Model checking}{subsection.4.6}
+\BOOKMARK [3][-]{subsubsection.4.6.2}{Theorem proving}{subsection.4.6}
+\BOOKMARK [2][-]{subsection.4.7}{Protocol Synthesis}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.7.1}{LOTOS}{subsection.4.7}
+\BOOKMARK [3][-]{subsubsection.4.7.2}{SDL}{subsection.4.7}
+\BOOKMARK [2][-]{subsection.4.8}{Protocol synthesis}{section.4}
+\BOOKMARK [1][-]{section.5}{OPERATING SYSTEMS}{}
+\BOOKMARK [2][-]{subsection.5.1}{Operating Systems Practices}{section.5}
+\BOOKMARK [1][-]{section.6}{COMPUTER NETWORKS}{}
+\BOOKMARK [2][-]{subsection.6.1}{General Textbooks}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Wireless Protocols}{section.6}
+\BOOKMARK [3][-]{subsubsection.6.2.1}{802.15.4}{subsection.6.2}
+\BOOKMARK [3][-]{subsubsection.6.2.2}{ZigBee}{subsection.6.2}
+\BOOKMARK [1][-]{section.7}{DISTRIBUTED COMPUTING}{}
+\BOOKMARK [2][-]{subsection.7.1}{General Textbooks}{section.7}
+\BOOKMARK [2][-]{subsection.7.2}{Theoretical Foundations}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Synchronization models}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.2}{Remote procedure calls}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.3}{Synchronizers}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.4}{Logical clocks and clock synchronization}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.5}{Authentication}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.6}{Scheduling}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.7}{Distributed lookup}{subsection.7.2}
+\BOOKMARK [2][-]{subsection.7.3}{Practical Issues}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.3.1}{UUID: Universally Unique ID}{subsection.7.3}
+\BOOKMARK [2][-]{subsection.7.4}{Naming and Directory Services}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.4.1}{LDAP}{subsection.7.4}
+\BOOKMARK [3][-]{subsubsection.7.4.2}{JNDI \(Java Naming \046 Directory Interface\)}{subsection.7.4}
+\BOOKMARK [2][-]{subsection.7.5}{Distributed File Systems}{section.7}
+\BOOKMARK [2][-]{subsection.7.6}{Distributed Objects}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.6.1}{CORBA}{subsection.7.6}
+\BOOKMARK [2][-]{subsection.7.7}{DCOM}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.7.1}{Java RMI}{subsection.7.7}
+\BOOKMARK [2][-]{subsection.7.8}{Cluster Systems}{section.7}
+\BOOKMARK [2][-]{subsection.7.9}{Grid Systems}{section.7}
+\BOOKMARK [2][-]{subsection.7.10}{P2P \(Peer-to-Peer\) Systems}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.10.1}{Distributed hash tables}{subsection.7.10}
+\BOOKMARK [2][-]{subsection.7.11}{Jini \205 Apache River}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.11.1}{JavaSpaces}{subsection.7.11}
+\BOOKMARK [2][-]{subsection.7.12}{Distributed System Performance}{section.7}
+\BOOKMARK [1][-]{section.8}{PARALLEL COMPUTING}{}
+\BOOKMARK [2][-]{subsection.8.1}{Parallel Programming}{section.8}
+\BOOKMARK [3][-]{subsubsection.8.1.1}{MPI}{subsection.8.1}
+\BOOKMARK [3][-]{subsubsection.8.1.2}{OpenMP}{subsection.8.1}
+\BOOKMARK [2][-]{subsection.8.2}{Memory Models}{section.8}
+\BOOKMARK [3][-]{subsubsection.8.2.1}{Java memory model}{subsection.8.2}
+\BOOKMARK [3][-]{subsubsection.8.2.2}{C++ memory model}{subsection.8.2}
+\BOOKMARK [2][-]{subsection.8.3}{Threading Models}{section.8}
+\BOOKMARK [3][-]{subsubsection.8.3.1}{Pthreads}{subsection.8.3}
+\BOOKMARK [3][-]{subsubsection.8.3.2}{Java threading model}{subsection.8.3}
+\BOOKMARK [3][-]{subsubsection.8.3.3}{C++ threading model}{subsection.8.3}
+\BOOKMARK [1][-]{section.9}{DATABASE SYSTEMS}{}
+\BOOKMARK [2][-]{subsection.9.1}{Database Systems and Transaction Processing}{section.9}
+\BOOKMARK [1][-]{section.10}{MOBILE AGENTS}{}
+\BOOKMARK [2][-]{subsection.10.1}{General Textbooks}{section.10}
+\BOOKMARK [2][-]{subsection.10.2}{Actor Model of Computation}{section.10}
+\BOOKMARK [3][-]{subsubsection.10.2.1}{Scala}{subsection.10.2}
+\BOOKMARK [3][-]{subsubsection.10.2.2}{Akka}{subsection.10.2}
+\BOOKMARK [3][-]{subsubsection.10.2.3}{Typesafe activator: Reactive platform}{subsection.10.2}
+\BOOKMARK [3][-]{subsubsection.10.2.4}{Theron: C++ concurrency library}{subsection.10.2}
+\BOOKMARK [2][-]{subsection.10.3}{Agent Communication Languages}{section.10}
+\BOOKMARK [2][-]{subsection.10.4}{Mobile Agent Coordination}{section.10}
+\BOOKMARK [3][-]{subsubsection.10.4.1}{Temporal coupling}{subsection.10.4}
+\BOOKMARK [3][-]{subsubsection.10.4.2}{Spatial coupling}{subsection.10.4}
+\BOOKMARK [3][-]{subsubsection.10.4.3}{Notion of roles}{subsection.10.4}
+\BOOKMARK [2][-]{subsection.10.5}{Resource and Service Discovery}{section.10}
+\BOOKMARK [2][-]{subsection.10.6}{Example Systems}{section.10}
+\BOOKMARK [3][-]{subsubsection.10.6.1}{IBM Aglets}{subsection.10.6}
+\BOOKMARK [3][-]{subsubsection.10.6.2}{D'Agents \(aka Agent Tcl\)}{subsection.10.6}
+\BOOKMARK [3][-]{subsubsection.10.6.3}{ObjectSpace Voyager}{subsection.10.6}
+\BOOKMARK [3][-]{subsubsection.10.6.4}{General Magic Odyssey}{subsection.10.6}
+\BOOKMARK [3][-]{subsubsection.10.6.5}{IKV Grasshopper}{subsection.10.6}
+\BOOKMARK [3][-]{subsubsection.10.6.6}{Sun JavaSpace}{subsection.10.6}
+\BOOKMARK [3][-]{subsubsection.10.6.7}{LIME \(Linda in Mobile Environment\)}{subsection.10.6}
+\BOOKMARK [3][-]{subsubsection.10.6.8}{SwarmLinda}{subsection.10.6}
+\BOOKMARK [3][-]{subsubsection.10.6.9}{TuCSoN}{subsection.10.6}
+\BOOKMARK [3][-]{subsubsection.10.6.10}{MARS}{subsection.10.6}
+\BOOKMARK [2][-]{subsection.10.7}{Process Migration}{section.10}
+\BOOKMARK [1][-]{section.11}{WEB SERVICES}{}
+\BOOKMARK [2][-]{subsection.11.1}{Orchestration of Web Services}{section.11}
+\BOOKMARK [3][-]{subsubsection.11.1.1}{WS-BPEL \(Business Process Exec Language\)}{subsection.11.1}
+\BOOKMARK [3][-]{subsubsection.11.1.2}{Apache ODE \(Orchestration Director Engine\)}{subsection.11.1}
+\BOOKMARK [3][-]{subsubsection.11.1.3}{More orchestration languages}{subsection.11.1}
+\BOOKMARK [2][-]{subsection.11.2}{Choreography of Web Services}{section.11}
+\BOOKMARK [3][-]{subsubsection.11.2.1}{WS-CDL \(WS Choreography Desc Language\)}{subsection.11.2}
+\BOOKMARK [3][-]{subsubsection.11.2.2}{Projection: Choreography synthesis}{subsection.11.2}
+\BOOKMARK [2][-]{subsection.11.3}{Large-Scale Choreography}{section.11}
+\BOOKMARK [3][-]{subsubsection.11.3.1}{CHOReOS}{subsection.11.3}
+\BOOKMARK [1][-]{section.12}{WORKFLOW SYSTEMS}{}
+\BOOKMARK [2][-]{subsection.12.1}{General Textbooks}{section.12}
+\BOOKMARK [2][-]{subsection.12.2}{Workflow Patterns}{section.12}
+\BOOKMARK [3][-]{subsubsection.12.2.1}{Control flow patterns}{subsection.12.2}
+\BOOKMARK [3][-]{subsubsection.12.2.2}{Structural patterns}{subsection.12.2}
+\BOOKMARK [3][-]{subsubsection.12.2.3}{Patterns involving multiple instances}{subsection.12.2}
+\BOOKMARK [3][-]{subsubsection.12.2.4}{State-based patterns}{subsection.12.2}
+\BOOKMARK [3][-]{subsubsection.12.2.5}{Cancellation patterns}{subsection.12.2}
+\BOOKMARK [2][-]{subsection.12.3}{Workflow Examples}{section.12}
+\BOOKMARK [2][-]{subsection.12.4}{Distributed Workflow Systems}{section.12}
+\BOOKMARK [3][-]{subsubsection.12.4.1}{MapReduce}{subsection.12.4}
+\BOOKMARK [3][-]{subsubsection.12.4.2}{Dandelion: Runtime for heterogeneous systems}{subsection.12.4}
+\BOOKMARK [3][-]{subsubsection.12.4.3}{Hadoop}{subsection.12.4}
+\BOOKMARK [3][-]{subsubsection.12.4.4}{Pig: Graph-based workflow on Hadoop}{subsection.12.4}
+\BOOKMARK [3][-]{subsubsection.12.4.5}{Cascading}{subsection.12.4}
+\BOOKMARK [2][-]{subsection.12.5}{Scientific Workflow Systems}{section.12}
+\BOOKMARK [3][-]{subsubsection.12.5.1}{Swift: Distributed parallel scripting}{subsection.12.5}
+\BOOKMARK [3][-]{subsubsection.12.5.2}{Kepler: Scientific workflow}{subsection.12.5}
+\BOOKMARK [2][-]{subsection.12.6}{Enterprise Workflow Systems}{section.12}
+\BOOKMARK [3][-]{subsubsection.12.6.1}{Activiti}{subsection.12.6}
+\BOOKMARK [3][-]{subsubsection.12.6.2}{Cascading}{subsection.12.6}
+\BOOKMARK [3][-]{subsubsection.12.6.3}{OSWorkflow}{subsection.12.6}
+\BOOKMARK [1][-]{section.13}{EVENT PROCESSING SYSTEMS}{}
+\BOOKMARK [2][-]{subsection.13.1}{Event Publish/Subscribe Systems}{section.13}
+\BOOKMARK [2][-]{subsection.13.2}{Active Databases}{section.13}
+\BOOKMARK [2][-]{subsection.13.3}{CEP \(Complex Event Processing\)}{section.13}
+\BOOKMARK [3][-]{subsubsection.13.3.1}{Esper}{subsection.13.3}
+\BOOKMARK [3][-]{subsubsection.13.3.2}{Oracle CEP}{subsection.13.3}
+\BOOKMARK [1][-]{section.14}{MESSAGING SYSTEMS}{}
+\BOOKMARK [2][-]{subsection.14.1}{Enterprise Integration Patterns}{section.14}
+\BOOKMARK [2][-]{subsection.14.2}{JMS \(Java Message Service\)}{section.14}
+\BOOKMARK [2][-]{subsection.14.3}{Messaging Protocols}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.3.1}{AMQP}{subsection.14.3}
+\BOOKMARK [3][-]{subsubsection.14.3.2}{ZMQ}{subsection.14.3}
+\BOOKMARK [3][-]{subsubsection.14.3.3}{MQTT}{subsection.14.3}
+\BOOKMARK [2][-]{subsection.14.4}{Message Queues}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.4.1}{ActiveMQ}{subsection.14.4}
+\BOOKMARK [3][-]{subsubsection.14.4.2}{RabbitMQ}{subsection.14.4}
+\BOOKMARK [3][-]{subsubsection.14.4.3}{ZeroMQ \(also, Crossroads I/O\)}{subsection.14.4}
+\BOOKMARK [3][-]{subsubsection.14.4.4}{TIBCO}{subsection.14.4}
+\BOOKMARK [3][-]{subsubsection.14.4.5}{MSMQ \(Microsoft Message Queueing\)}{subsection.14.4}
+\BOOKMARK [3][-]{subsubsection.14.4.6}{Apache Camel}{subsection.14.4}
+\BOOKMARK [2][-]{subsection.14.5}{ESB \(Enterprise Service Bus\)}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.5.1}{OpenESB}{subsection.14.5}
+\BOOKMARK [3][-]{subsubsection.14.5.2}{Mule}{subsection.14.5}
+\BOOKMARK [3][-]{subsubsection.14.5.3}{Apache ServiceMix \(incl. Apache Camel\)}{subsection.14.5}
+\BOOKMARK [3][-]{subsubsection.14.5.4}{Apache Synapse}{subsection.14.5}
+\BOOKMARK [3][-]{subsubsection.14.5.5}{D-Bus}{subsection.14.5}
+\BOOKMARK [1][-]{section.15}{ENTERPRISE COMPUTING}{}
+\BOOKMARK [2][-]{subsection.15.1}{Java EE}{section.15}
+\BOOKMARK [2][-]{subsection.15.2}{OSGI}{section.15}
+\BOOKMARK [2][-]{subsection.15.3}{SOA in General}{section.15}
+\BOOKMARK [1][-]{section.16}{PERVASIVE COMPUTING}{}
+\BOOKMARK [2][-]{subsection.16.1}{Wireless Sensor Networks}{section.16}
+\BOOKMARK [2][-]{subsection.16.2}{Operating Systems for Devices}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.2.1}{TinyOS}{subsection.16.2}
+\BOOKMARK [3][-]{subsubsection.16.2.2}{Mote}{subsection.16.2}
+\BOOKMARK [3][-]{subsubsection.16.2.3}{ArdOS for Arduino}{subsection.16.2}
+\BOOKMARK [2][-]{subsection.16.3}{Database Systems for Devices}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.3.1}{TinyDB}{subsection.16.3}
+\BOOKMARK [2][-]{subsection.16.4}{Programming Languages for Devices}{section.16}
+\BOOKMARK [3][-]{subsubsection.16.4.1}{nesC}{subsection.16.4}
+\BOOKMARK [1][-]{section.17}{ROBOTS, CARS, INDUSTRIAL AUTOMATION}{}
+\BOOKMARK [2][-]{subsection.17.1}{CAN Bus}{section.17}
+\BOOKMARK [2][-]{subsection.17.2}{V2V}{section.17}
+\BOOKMARK [2][-]{subsection.17.3}{Robot Operating Systems}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.3.1}{ROS}{subsection.17.3}
+\BOOKMARK [3][-]{subsubsection.17.3.2}{OPRoS}{subsection.17.3}
+\BOOKMARK [2][-]{subsection.17.4}{OPC \(Open Platform Communication\)}{section.17}
+\BOOKMARK [3][-]{subsubsection.17.4.1}{Overview}{subsection.17.4}
+\BOOKMARK [3][-]{subsubsection.17.4.2}{OPC UA \(Unified Architecture\)}{subsection.17.4}
+\BOOKMARK [3][-]{subsubsection.17.4.3}{OPC Classic}{subsection.17.4}
+\BOOKMARK [1][-]{section.18}{DIGITAL SYSTEMS}{}
+\BOOKMARK [2][-]{subsection.18.1}{Hardware Description Languages}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.1.1}{Verilog}{subsection.18.1}
+\BOOKMARK [3][-]{subsubsection.18.1.2}{Esterel}{subsection.18.1}
+\BOOKMARK [2][-]{subsection.18.2}{Asynchronous Circuit Synthesis}{section.18}
+\BOOKMARK [3][-]{subsubsection.18.2.1}{Phillips handshake circuits}{subsection.18.2}
+\BOOKMARK [3][-]{subsubsection.18.2.2}{BALSA}{subsection.18.2}
+\BOOKMARK [3][-]{subsubsection.18.2.3}{Petrify}{subsection.18.2}
+\BOOKMARK [1][-]{section.19}{VIRTUALIZATION}{}
+\BOOKMARK [2][-]{subsection.19.1}{Software Defined Networking \(SDN\)}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.1.1}{Summary}{subsection.19.1}
+\BOOKMARK [3][-]{subsubsection.19.1.2}{OpenFlow}{subsection.19.1}
+\BOOKMARK [2][-]{subsection.19.2}{Software Defined Storage}{section.19}
+\BOOKMARK [3][-]{subsubsection.19.2.1}{NetApp}{subsection.19.2}
+\BOOKMARK [2][-]{subsection.19.3}{Software Defined Data Center}{section.19}
+\BOOKMARK [2][-]{subsection.19.4}{Software Defined Radio}{section.19}
+\BOOKMARK [1][-]{section.20}{SOFTWARE ARCHITECTURE AND PARADIGMS}{}
+\BOOKMARK [2][-]{subsection.20.1}{Event-Based Programming Model}{section.20}
+\BOOKMARK [3][-]{subsubsection.20.1.1}{JavaScript}{subsection.20.1}
+\BOOKMARK [3][-]{subsubsection.20.1.2}{Twisted}{subsection.20.1}
+\BOOKMARK [3][-]{subsubsection.20.1.3}{X-Windows}{subsection.20.1}
+\BOOKMARK [2][-]{subsection.20.2}{Continuations}{section.20}
+\BOOKMARK [2][-]{subsection.20.3}{Coroutines}{section.20}
+\BOOKMARK [2][-]{subsection.20.4}{Reactor/Proactor Design Pattern}{section.20}
+\BOOKMARK [3][-]{subsubsection.20.4.1}{C10K problem}{subsection.20.4}
+\BOOKMARK [3][-]{subsubsection.20.4.2}{C libevent}{subsection.20.4}
+\BOOKMARK [3][-]{subsubsection.20.4.3}{Python gevent}{subsection.20.4}
+\BOOKMARK [3][-]{subsubsection.20.4.4}{Akka I/O module}{subsection.20.4}
+\BOOKMARK [3][-]{subsubsection.20.4.5}{Boost.asio}{subsection.20.4}
+\BOOKMARK [3][-]{subsubsection.20.4.6}{Akka: Reactive stream}{subsection.20.4}
+\BOOKMARK [2][-]{subsection.20.5}{Aspect-oriented Programming}{section.20}
+\BOOKMARK [2][-]{subsection.20.6}{I/O systems}{section.20}
+\BOOKMARK [3][-]{subsubsection.20.6.1}{Java IO and NIO}{subsection.20.6}
+\BOOKMARK [3][-]{subsubsection.20.6.2}{C++ Streams I/O}{subsection.20.6}
+\BOOKMARK [2][-]{subsection.20.7}{Telepathy: Instant messaging}{section.20}
+\BOOKMARK [1][-]{section.21}{EXAMPLE SYSTEMS}{}
+\BOOKMARK [2][-]{subsection.21.1}{Communication Protocols}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.1.1}{HTTP}{subsection.21.1}
+\BOOKMARK [3][-]{subsubsection.21.1.2}{RESTful HTTP}{subsection.21.1}
+\BOOKMARK [3][-]{subsubsection.21.1.3}{CoAP}{subsection.21.1}
+\BOOKMARK [3][-]{subsubsection.21.1.4}{MQTT}{subsection.21.1}
+\BOOKMARK [3][-]{subsubsection.21.1.5}{AMQP}{subsection.21.1}
+\BOOKMARK [3][-]{subsubsection.21.1.6}{AMQP-based DDS}{subsection.21.1}
+\BOOKMARK [3][-]{subsubsection.21.1.7}{SSI}{subsection.21.1}
+\BOOKMARK [3][-]{subsubsection.21.1.8}{XMPP}{subsection.21.1}
+\BOOKMARK [3][-]{subsubsection.21.1.9}{SSI}{subsection.21.1}
+\BOOKMARK [2][-]{subsection.21.2}{Protocol Standards Organization}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.2.1}{OASIS}{subsection.21.2}
+\BOOKMARK [2][-]{subsection.21.3}{Middleware}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.3.1}{Qualcomm AllJoyn}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.2}{Open Interconnect Consortium}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.3}{Thread Group}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.4}{Apple HomeKit}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.5}{Google Glass}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.6}{Google Fit}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.7}{Google Nest}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.8}{Samsung SmartThings}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.9}{Electric Imp}{subsection.21.3}
+\BOOKMARK [3][-]{subsubsection.21.3.10}{Zonoff}{subsection.21.3}
+\BOOKMARK [2][-]{subsection.21.4}{Prototyping Boards}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.4.1}{Arduino}{subsection.21.4}
+\BOOKMARK [3][-]{subsubsection.21.4.2}{Raspberry Pi}{subsection.21.4}
+\BOOKMARK [3][-]{subsubsection.21.4.3}{TI Beaglebone}{subsection.21.4}
+\BOOKMARK [3][-]{subsubsection.21.4.4}{Intel Galileo}{subsection.21.4}
+\BOOKMARK [3][-]{subsubsection.21.4.5}{Spark Core}{subsection.21.4}
+\BOOKMARK [2][-]{subsection.21.5}{Devices}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.5.1}{Beacon}{subsection.21.5}
+\BOOKMARK [3][-]{subsubsection.21.5.2}{Fitbit}{subsection.21.5}
+\BOOKMARK [3][-]{subsubsection.21.5.3}{Google Nest}{subsection.21.5}
+\BOOKMARK [3][-]{subsubsection.21.5.4}{Tagg GPS Pet Tracker}{subsection.21.5}
+\BOOKMARK [3][-]{subsubsection.21.5.5}{Aria weight scale}{subsection.21.5}
+\BOOKMARK [2][-]{subsection.21.6}{Misc systems}{section.21}
+\BOOKMARK [3][-]{subsubsection.21.6.1}{DIoTY.co}{subsection.21.6}

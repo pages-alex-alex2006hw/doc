@@ -1,0 +1,195 @@
+.PS
+linewid = linewid * 0.7
+   # gen_init: Gpic m4 macro settings used.
+   rp_ang = 0
+   rtod_ = 57.295779513082323
+   dtor_ = 0.017453292519943295
+   linethick = 0.8
+  arrowwid = 0.05*scale; arrowht = 0.1*scale
+   
+   
+   
+N1: [ [line from ((linewid/10)*(7-3)+((linewid/10)*(-3))*(-0),(linewid/10)*(-3)) to (((linewid/10)*(-3))*(-0),(linewid/10)*(-3)) \
+ then to (((linewid/10)*(3))*(-0),(linewid/10)*(3)) then to ((linewid/10)*(7-3)+((linewid/10)*(3))*(-0),(linewid/10)*(3))
+  arc cw from ((linewid/10)*(7-3)+((linewid/10)*(3))*(-0),(linewid/10)*(3)) to ((linewid/10)*(7-3)+((linewid/10)*(-3))*(-0),(linewid/10)*(-3)) \
+    with .c at ((linewid/10)*(7-3),0)
+  
+   
+Out: ((linewid/10)*(7),0)
+  ]  with .Out at ((linewid/10)*(7),0)
+  circle diam linewid/10*3/2 at ((linewid/10)*(7+3/2/2),0)
+Out: ((linewid/10)*(7+3/2),0)
+  
+   In1: (((linewid/10)*(2*3/min(2,6-1)*((2+1)/2-1)))*(-0),(linewid/10)*(2*3/min(2,6-1)*((2+1)/2-1))) 
+   In2: (((linewid/10)*(2*3/min(2,6-1)*((2+1)/2-2)))*(-0),(linewid/10)*(2*3/min(2,6-1)*((2+1)/2-2))) 
+   
+  ]
+ line   left linewid/10*8 from N1.In1; "\hbox{$\:$}$R_1$" rjust
+# to N2
+ move   right linewid/10*3 from N1.Out; [circle rad 0.02*scale \
+   fill 1-(0 )] with .c at Here
+  move to last [].c
+ line   down linewid/10*4 from Here
+ line to N1.In1+(linewid/10*-4, linewid/10*-18)
+ line   down linewid/10*4 from Here
+ line   right linewid/10*4 from Here
+# to DOWN transitors
+ move   right linewid/10*7 from N1.Out; [circle rad 0.02*scale \
+   fill 1-(0 )] with .c at Here
+  move to last [].c
+ line   down linewid/10*4 from Here
+ line to N1.In1+(linewid/10*19, linewid/10*-16)
+ line   right linewid/10*20.2 from Here
+ line   down linewid/10*1.5 from Here
+ move   up linewid/10*1.5
+ move   left linewid/10*15; [circle rad 0.02*scale \
+   fill 1-(0 )] with .c at Here
+  move to last [].c
+ line   down linewid/10*1.5
+ 
+ 
+   right
+N2: [ [line from ((linewid/10)*(7-3)+((linewid/10)*(-3))*(-0),(linewid/10)*(-3)) to (((linewid/10)*(-3))*(-0),(linewid/10)*(-3)) \
+ then to (((linewid/10)*(3))*(-0),(linewid/10)*(3)) then to ((linewid/10)*(7-3)+((linewid/10)*(3))*(-0),(linewid/10)*(3))
+  arc cw from ((linewid/10)*(7-3)+((linewid/10)*(3))*(-0),(linewid/10)*(3)) to ((linewid/10)*(7-3)+((linewid/10)*(-3))*(-0),(linewid/10)*(-3)) \
+    with .c at ((linewid/10)*(7-3),0)
+  
+   
+Out: ((linewid/10)*(7),0)
+  ]  with .Out at ((linewid/10)*(7),0)
+  circle diam linewid/10*3/2 at ((linewid/10)*(7+3/2/2),0)
+Out: ((linewid/10)*(7+3/2),0)
+  
+   In1: (((linewid/10)*(2*3/min(2,6-1)*((2+1)/2-1)))*(-0),(linewid/10)*(2*3/min(2,6-1)*((2+1)/2-1))) 
+   In2: (((linewid/10)*(2*3/min(2,6-1)*((2+1)/2-2)))*(-0),(linewid/10)*(2*3/min(2,6-1)*((2+1)/2-2))) 
+   
+  ] at N1+(0,-22*linewid/10) 
+ line   left linewid/10*8 from N2.In2; "\hbox{$\:$}$R_2$" rjust
+# to N2
+ move   right linewid/10*3 from N2.Out; [circle rad 0.02*scale \
+   fill 1-(0 )] with .c at Here
+  move to last [].c
+ line up linewid/10*4 from Here
+ line to N2.In2+(linewid/10*-4, linewid/10*18)
+ line   up linewid/10*4 from Here
+ line   right linewid/10*4 from Here
+# to UP transitors
+ move   right linewid/10*7 from N2.Out; [circle rad 0.02*scale \
+   fill 1-(0 )] with .c at Here
+  move to last [].c
+ line   up linewid/10*4 from Here
+ line to N2.In2+(linewid/10*19, linewid/10*16)
+ line   right linewid/10*20.2 from Here
+ line   up linewid/10*1.5 from Here
+ move   down linewid/10*1.5
+ move   left linewid/10*15; [circle rad 0.02*scale \
+   fill 1-(0 )] with .c at Here
+  move to last [].c
+ line   up linewid/10*1.5
+
+   left
+U1:     [ O: Here; S: O+(-((linewid/10)*(-2)),0); D: O+(-((linewid/10)*(2)),0)
+    
+         line from O+(-((linewid/10)*(2)),0) to O+(-((linewid/10)*(2))+((linewid/10)*(2.5))*(-0),-((linewid/10)*(2.5)))
+    
+         Channel: line from O+(-((linewid/10)*(-2))+((linewid/10)*(2.5))*(-0),-((linewid/10)*(2.5))) to O+(-((linewid/10)*(2))+((linewid/10)*(2.5))*(-0),-((linewid/10)*(2.5)))
+    
+    
+    
+    
+         line from O+(-((linewid/10)*(-2)),0) to O+(-((linewid/10)*(-2))+((linewid/10)*(2.5))*(-0),-((linewid/10)*(2.5)))
+    
+         line from O+(-((linewid/10)*(-2))+((linewid/10)*((2.5+1)))*(-0),-((linewid/10)*((2.5+1)))) to O+(-((linewid/10)*(2))+((linewid/10)*((2.5+1)))*(-0),-((linewid/10)*((2.5+1))))
+    circle rad linewid/10*2/3 with .c at O+(((linewid/10)*((2.5+1+2/3)))*(-0),-((linewid/10)*((2.5+1+2/3))))
+    line from O+(((linewid/10)*((2.5+1+4/3)))*(-0),-((linewid/10)*((2.5+1+4/3)))) \
+           to O+(((linewid/10)*((2.5+3.5)))*(-0),-((linewid/10)*((2.5+3.5)))); G: Here
+  
+  ]  at N1+(linewid/10*20, linewid/10*-3.2)
+ line   left linewid/10*13.8 from U1.D
+ line   right linewid/10*11 from U1.S
+   left
+U2:     [ O: Here; S: O+(-((linewid/10)*(-2)),0); D: O+(-((linewid/10)*(2)),0)
+    
+         line from O+(-((linewid/10)*(2)),0) to O+(-((linewid/10)*(2))+((linewid/10)*(2.5))*(-0),-((linewid/10)*(2.5)))
+    
+         Channel: line from O+(-((linewid/10)*(-2))+((linewid/10)*(2.5))*(-0),-((linewid/10)*(2.5))) to O+(-((linewid/10)*(2))+((linewid/10)*(2.5))*(-0),-((linewid/10)*(2.5)))
+    
+    
+    
+    
+         line from O+(-((linewid/10)*(-2)),0) to O+(-((linewid/10)*(-2))+((linewid/10)*(2.5))*(-0),-((linewid/10)*(2.5)))
+    
+         line from O+(-((linewid/10)*(-2))+((linewid/10)*((2.5+1)))*(-0),-((linewid/10)*((2.5+1)))) to O+(-((linewid/10)*(2))+((linewid/10)*((2.5+1)))*(-0),-((linewid/10)*((2.5+1))))
+    
+    line from O+(((linewid/10)*((2.5+1)))*(-0),-((linewid/10)*((2.5+1)))) \
+           to O+(((linewid/10)*((2.5+3.5)))*(-0),-((linewid/10)*((2.5+3.5)))); G: Here
+  
+  ]  at U1+(linewid/10*15, 0)
+ line   right linewid/10*11 from U2.S; box invis ht 0 wid 0 with .c at Here
+    {  down
+  line from last box.c to (Here.x,Here.y)+(0,-(linewid/4))
+  {line from (Here.x,Here.y)+(linewid/6,0) to (Here.x,Here.y)+(-linewid/6,0)}
+   {line from (Here.x,Here.y)+(linewid/9,-(linewid/16)) to (Here.x,Here.y)+(-linewid/9,-(linewid/16))}
+   line from (Here.x,Here.y)+(linewid/14,-(2*linewid/16)) to (Here.x,Here.y)+(-linewid/14,-(2*linewid/16))
+  }
+
+
+   right
+D1:     [ O: Here; S: O+((linewid/10)*(-2),0); D: O+((linewid/10)*(2),0)
+    
+         line from O+((linewid/10)*(2),0) to O+((linewid/10)*(2)+((linewid/10)*(2.5))*(-0),(linewid/10)*(2.5))
+    
+         Channel: line from O+((linewid/10)*(-2)+((linewid/10)*(2.5))*(-0),(linewid/10)*(2.5)) to O+((linewid/10)*(2)+((linewid/10)*(2.5))*(-0),(linewid/10)*(2.5))
+    
+    
+    
+    
+         line from O+((linewid/10)*(-2),0) to O+((linewid/10)*(-2)+((linewid/10)*(2.5))*(-0),(linewid/10)*(2.5))
+    
+         line from O+((linewid/10)*(-2)+((linewid/10)*((2.5+1)))*(-0),(linewid/10)*((2.5+1))) to O+((linewid/10)*(2)+((linewid/10)*((2.5+1)))*(-0),(linewid/10)*((2.5+1)))
+    circle rad linewid/10*2/3 with .c at O+(((linewid/10)*((2.5+1+2/3)))*(-0),(linewid/10)*((2.5+1+2/3)))
+    line from O+(((linewid/10)*((2.5+1+4/3)))*(-0),(linewid/10)*((2.5+1+4/3))) \
+           to O+(((linewid/10)*((2.5+3.5)))*(-0),(linewid/10)*((2.5+3.5))); G: Here
+  
+  ]  at N2+(linewid/10*20, linewid/10*3.2)
+ line   left linewid/10*13.8 from D1.S
+ line   right linewid/10*11 from D1.D
+   right
+D2:     [ O: Here; S: O+((linewid/10)*(-2),0); D: O+((linewid/10)*(2),0)
+    
+         line from O+((linewid/10)*(2),0) to O+((linewid/10)*(2)+((linewid/10)*(2.5))*(-0),(linewid/10)*(2.5))
+    
+         Channel: line from O+((linewid/10)*(-2)+((linewid/10)*(2.5))*(-0),(linewid/10)*(2.5)) to O+((linewid/10)*(2)+((linewid/10)*(2.5))*(-0),(linewid/10)*(2.5))
+    
+    
+    
+    
+         line from O+((linewid/10)*(-2),0) to O+((linewid/10)*(-2)+((linewid/10)*(2.5))*(-0),(linewid/10)*(2.5))
+    
+         line from O+((linewid/10)*(-2)+((linewid/10)*((2.5+1)))*(-0),(linewid/10)*((2.5+1))) to O+((linewid/10)*(2)+((linewid/10)*((2.5+1)))*(-0),(linewid/10)*((2.5+1)))
+    
+    line from O+(((linewid/10)*((2.5+1)))*(-0),(linewid/10)*((2.5+1))) \
+           to O+(((linewid/10)*((2.5+3.5)))*(-0),(linewid/10)*((2.5+3.5))); G: Here
+  
+  ]  at D1+(linewid/10*15, 0)
+ line   right linewid/10*11 from D2.D; box invis ht 0 wid 0 with .c at Here
+    {  down
+  line from last box.c to (Here.x,Here.y)+(0,-(linewid/4))
+  {line from (Here.x,Here.y)+(linewid/6,0) to (Here.x,Here.y)+(-linewid/6,0)}
+   {line from (Here.x,Here.y)+(linewid/9,-(linewid/16)) to (Here.x,Here.y)+(-linewid/9,-(linewid/16))}
+   line from (Here.x,Here.y)+(linewid/14,-(2*linewid/16)) to (Here.x,Here.y)+(-linewid/14,-(2*linewid/16))
+  }
+
+# me element output lines
+move   right linewid/10*5.5 from U1.S; [circle rad 0.02*scale \
+   fill 1-(0 )] with .c at Here
+  move to last [].c
+line   up linewid/10*5 then   right linewid/10*24; "\hbox{$\:$}$A_2$" ljust
+move   right linewid/10*5.5 from D1.D; [circle rad 0.02*scale \
+   fill 1-(0 )] with .c at Here
+  move to last [].c
+line   down linewid/10*5 then   right linewid/10*24; "\hbox{$\:$}$A_2$" ljust
+
+
+
+.PE

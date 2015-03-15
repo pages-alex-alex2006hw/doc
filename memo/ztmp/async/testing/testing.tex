@@ -1,0 +1,234 @@
+\documentclass{myproc}
+\usepackage{times,hfont,mydef}
+\def\sbf{\sf\bfseries}
+\begin{document}
+\title{\large\bf Notes on Logic Testing \vspace*{-0.5cm}}
+\author{\small{}정 철주 $\arc{\mbox{cjeong@cs.columbia.edu}}$}
+\maketitle
+\small
+
+\section{Faults and Fault Models}
+\bit
+\w \bb{Static (logic) fault models}: logic functionality에 영향을 미치는
+fault로서 circuit 상의 delay와 상관없이 detect 가능한 fault들을 model한다
+  \ben
+  \w {\bb{Single stuck-at fault model}}: 하나의 {\bb{wire}}가 0/1로
+  stuck되는 fault (e.g. $V_{dd}$나 GND로의 short에 의한)
+  \w {\bb{Multiple stuck-at fault model}}: 
+    $M$ 개의 가능한 fault sites에 대해, $3^M - 1$ 가지의 
+  multiple stuck-at-fault가 존재
+  \w {\bb{Bridging fault model}}: OR bridging fault, AND bridging fault;
+    wire $a$와 $b$ 사이에 OR-bridging fault가 존재하면, $a$ (or $b$)를 
+    사용하는 모든 gate는 $a$ (or $b$) 대신 $a + b$ 값을 받게 됨
+  \een
+\w \bb{Dynamic (parametric) fault models}: circuit의 static operation에는
+영향을 미치지 않으며 
+circuit 상의 delay를 measure함으로써만 detect가 가능한
+fault들을 model; 즉 delay에 의해 야기되는 fault들을 다룬다
+  \ben
+  \w {\bb{Gate delay fault model}}: input change에 대해 dynamic
+  transition을 늦게 하는 gate가 존재할 때, 이 gate는 gate delay fault를 가진다
+    \bit
+    \w static transition ($1 \rightarrow 1$, $0 \rightarrow 0$) 에는 해당하지
+    않음 
+    \w gate $v$가 delay fault를 가지면, $v$에서 primary output으로의 임의의
+    path는 delay가 발생 가능
+    \eit
+  \w {\bb{Transistor stuck-open fault model}}: transistor가
+  nonconducting이거나 high resistance에 의해 delay가 발생하는 fault를 나타냄
+   \bit
+   \w gate delay fault model보다 더 comprehensive; 왜냐하면 각 gate의 
+   개별 input이나 transitor에 대한 fault를 지정할 수 있기 때문에
+   \eit
+  \w {\bb{Path delay fault model}}: primary input에서 primary output으로의
+  임의의 path 상에 delay가 존재할 때, path delay fault가 존재한다고 정의
+   \bit
+   \w gate dealy fault model이나 transistor stuck-open fault model보다 더
+   comprehensive (즉, 두 model의 fault를 path delay fault로 표현 가능)
+   \eit
+  \een
+\eit
+
+\section{Testability Theorems}
+\bit
+\w \bb{Theorem}: {\em Single-output two-level circuit $C$가 모든 s-a fault에 대해 
+\bb{fully testable}이기 위한 필요충분 조건은 corresponding cover $E$가
+ \bb{prime}이고 \bb{irredundant}라는 것이다.\/}
+\w 위 theorem은 multiple-output circuit으로 NOT generalizable
+\w \bb{Theorem}: {\em 
+  Don't care set $D$ 하에서 
+  prime이고 irredundant한 single-output two-level circuit $C$에서
+  $D$의 어떤 minterm도 single s-a fault를 detect하는데 필요하지 않다.\/}
+\eit
+
+\section{Timing Analysis Terminology}
+\bit
+\w \bb{event}: dynamic transition at a game를 칭함
+\w \bb{event propagation}: path를 따라 event가 인과 관계에 의해 전달될 경우
+\w \bb{path is event sensitizable}: IF event propagation을 가능하게 하는 
+  delay assignment가 존재할때
+\w \bb{path is single event sensitizable}: IF 임의의 delay assignment에 대해
+  event propagation이 발생할 때
+\w \bb{controlling value at a gate input}: 다른 input에 independent하게
+  gate output을 determine하는 value
+\w $\pi = \{v_0, e_0, \cdots, v_n, e_n, v_{n+1}\}$이 path라 했을 때,
+   \bit
+   \w $e_{i-1}$을 제외한 $v_i$의 input을 \bb{side-input}이라 함
+   \w $e_{i-1}$을 $v_i$의 \bb{$\pi$-input}이라 함
+   \w $\pi$는 \bb{statically sensitizable}: IF $\pi$ 상의 ``모든''
+   side-input들을 noncontrolling value로 settle시키는 input vector가 존재할
+   경우 
+   \eit
+\w input vector $w$ \bb{sensitizes to a 1 path $\pi$ in $C$}:
+  IFF 
+   \ben
+   \w [(a)] $v_{n+1}$ = 1, 
+   \w [(b)] $v_1, \cdots, v_{n+1}$은 controlled value를 가지고,
+   \w [(c)] $e_{i-1}$은 controlling value를 가지는 경우
+   \een
+\w input vector $w$ \bb{statically sensitizes to a 1 path $\pi$ in $C$}:
+  IFF
+  \ben
+  \w [(a)] $v_{n+1} = 1$,
+  \w [(b)] $v_1, \cdots, v_{n+1}$은 controlled value를 가지고,
+  \w [(c)] $e_{i-1}$은 controlling value를 가지는 $v_i$의 유일한 input인 경우
+  \een
+\w circuit $C$의 path $\pi$가 \bb{single event sensitizable TO A 1}이기 위한
+   필요 조건은:
+   \ben
+   \w [(a)] vector pair $\arc{w_1, w_2}$가 존재,
+   \w [(b)] $w_1$은 $\pi$를 statically sensitize the path $\pi$ to a 0,
+   \w [(c)] $w_2$은 $\pi$를 statically sensitize the path $\pi$ to a 1,
+   \w [(d)] $\pi$ 상의 모든 side-input은 $w_1, w_2$ 모두에 대해 (same) 
+   noncontrolling
+   value를 가지는 것
+   \w [(e)] 또, $\pi$ 상의 $v_i$의 값이 $w_1$에서 controlled value였으면,
+   $w_2$에서는 noncontrolled value를 가지는 것 (vice versa)
+   \een
+\eit
+\section{SINGLE-STUCK-AT FAULT MODEL}
+\bit
+\w \bb{THEOREM}: {\em Two-level circuit $C$가 모든 s-a fault에 대해 
+\bb{fully testable}이기 위한 필요충분 조건은 corresponding cover $E$가
+ \bb{prime}이고 \bb{irredundant}라는 것이다.\/}
+  \bit
+  \w 이 theorem은 multlevel circuit으로는 generalize할 수 없음
+  \eit
+
+\w Let $f_1$ and $f_2$ be two faults of a circuit $C$. Let $F$ be the function
+performed by $C$ when no fault is present. Let $F_1$ and $F_2$ be functions
+performed in $C$ in the presence of $f_1$ and $f_2$, respectively.
+Then faults $f_1$ and $f_2$ are \bb{equivalent} iff $F_1 = F_2$.
+\w The process of identifying equivalent faults are called \bb{fault
+  collapsing}. 
+\w Faults on the stem of a fanout tree are not equivalent to the faults on the
+branches. Given there are $N$ gate terminals, there are $2N$ single-stuck-at
+faults. 
+\w Some fault does not alter the behavior of the circuit; these faults are
+\bb{untestable} or \bb{undetectable}.
+\w We call an untestable stuck-at-fault \bb{redundant}, because it's always
+associated with a redundancy in the circuit.
+\eit
+\subsection{Automatic test generation}
+\bit
+\w A \bb{test} for a stuck-at fault is an input vector which causes {\em
+  different outputs in the good and in the faulty circuits\/}.
+\w Or, a test must \bb{excite} the fault, i.e., must cause the value
+complementary to the faulty value to appear at the fault site.
+\w A \bb{sensitized path} is a sequence of gates such that their outputs are
+sensitized to the presence of the fault.
+\w A sensitized path is created by sensitization. A \bb{sensitization} is a set of assignments that connects the fault site
+  to the output of the circuit.
+  (즉, ``with the fault''와 ``without the fault''의 gate value를 다르게 하는
+  input을 찾는것)
+\w \bb{test generation}:
+  \ben
+  \w [(a)] excite the fault
+  \w [(b)] propagate it to the outputs by sensitizing one or more paths
+  \een
+\w The \bb{controlling value} is a value that, when present on at least one
+input, forces the output to a known value (the \bb{controlled value}.
+\w AND, OR, NAND, and NOR gates have a controlling value.
+\w The complement of the controlling value is the \bb{non-controlling value}.
+\w If we want to sensitize a path through given inputs of a three-input NAND
+gate, we must set all the other inputs (called \bb{side inputs}) to
+non-controlling values.
+\w XOR and XNOR gates do not have controlling values.
+\eit
+\subsection{A simple test generation algorithm}
+\bit
+\w The key idea is {\em to generate a difference between the good and the
+  faulty circuit and then propagate it to the primary outputs by creating one
+  or more sensetized paths}.
+\w \bb{Overview}:
+  \ben
+  \w The inputs are a {\em description of the circuit\/} and a {\em single
+    stuck-at-fault}.
+  \w The output is a test if one exists, or the indication that the fault is
+  undetectable. 
+  \w It's a \bb{backtracking} algorithm and uses the \bb{decision tree} data
+  structure. 
+  \w All the edges in the circuits are initialized to {\em unassigned\/}.
+  \w A test is built by assigning values to the lines that are required for
+  excitation and sesitization and to the lines that drive them, if they are
+  not primary inputs.
+  \een
+\w Wehn generating a test, it is important to find as many possible
+\bb{implications} of the choices made along the path leading to the current
+node. 
+\w The objective is to minimized the number of nodes in the tree that are
+actually visited, or almost equivalently, the number of \bb{backtracks}.
+\w \bb{Algorithm}:
+  \ben
+  \w Apply the fault excitation condition.
+  \w Perform the implications of the last assignment.
+  \w If the fault symptoms have reached at least one primary output, justify
+  the remaining unjustified lines. If justification fails, backtrack and go to
+  Step 2.
+  Otherwise, exit: A test has been found.
+  \w If the frontier is empty, backtrack and go to Step 2.
+  \w If the frontier consists of one gate only, perform the resulting
+  implications and go to Step 2.
+  \w Choose one signal that is not reachable fro the fault site and assign to
+  it either 1 or 0. Create a corresponding node in the decision tree. Go to
+  Step 2. 
+  \een
+\eit
+
+\section{SINGLE S-A FAULTS (MULTILEVEL)}
+\bit
+\w $\alpha$가 $x_i$가 stuck-at-0인 fault이고, 
+  $f_{\alpha}$가 function realized by the faulty circuit
+  \[ f_\alpha(x_1, \cdots, x_n) = f(x_1, \cdots, 0, \cdots, x_n) 
+  = f_{x_i'}\]
+\w $\alpha$를 detect하는 set of test는
+\begin{eqnarray*}
+T & = & f\cdot f_\alpha' + f' \cdot f_\alpha\\
+& = & f \oplus f_\alpha\\
+& = & x_i\cdot(f_{x_i} \oplus  f_{x_i'}) 
+\end{eqnarray*}
+즉, $f = 1$이 되는 경우에 대해서는 $f_{\alpha'}$의 값을 내놓고,
+$f = 0$이 되는 경우에 대해서는 $f_{\alpha}$의 값을 내놓는 input vector
+\eit
+
+\subsection{Equivalent normal form}
+\bit
+\w \bb{ENF}: 각 path에 대한 sensitization condition이 cube로 나타나며, cube의
+각 literal은  primary input에서 primary output으로의 path에 대한
+information으로 annotate되어 있는 two-level representation
+\w \bb{motivation of ENF}: single-s-a fault가 input에서 output으로
+propagate되기 위한 condition을 describe하기 위햇
+\w \bb{ENF algorithm}:
+  \ben
+  \w circuit을 leaf-DAG로 convert
+  \w 모든 complex gate는 AND/OR/inverter로 바꾼다
+  \w 모든 inverter를 primary output에서 primary input으로 push
+  \w path propagate
+  \een
+\eit
+
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/async}
+\nocite{HS96}
+\end{document}
+

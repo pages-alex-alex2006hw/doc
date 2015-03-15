@@ -1,0 +1,5 @@
+Untar the package verilog_systemverilog.tar.gz 
+Copy  verilog_systemverilog/ftdetect/verilog_systemverilog.vim to your $HOME/.vim/ftdetect directory. 
+Copy verilog_systemverilog/syntax/verilog_systemverilog.vim to your $HOME/.vim/syntax directory. 
+Copy verilog_systemverilog/indent/* to your $HOME/.vim/indent directory.
+ 

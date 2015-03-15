@@ -1,0 +1,256 @@
+\documentclass{myproc}
+\usepackage{mathptm,mydef}
+%\usepackage{MinionPro}
+\usepackage{color}
+%\usepackage[scaled]{beramono}
+%\usepackage[scaled]{ulgothic}
+%\usepackage[ocr-a]{ocr}
+%\usepackage{ocr}
+%\usepackage{courier}
+\usepackage{alltt}
+\usepackage[all,knot]{xy}
+%\renewcommand*\ttdefault{lmodern}
+\usepackage[T1]{fontenc}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black, 
+    filecolor=black, 
+    linkcolor=blue, 
+    urlcolor=black
+}
+
+%\setlength\oddsidemargin{-1.5cm}
+%\setlength\evensidemargin{-1.5cm}
+%\setlength\textwidth{19.3cm}
+%\addtolength\topmargin{-1cm}
+%\addtolength\textheight{2cm}
+%\addtolength\columnsep{0.2cm}
+%\newtheorem{theorem}{Theorem}
+%\theoremstyle{definition}
+%\newtheorem{definition}[theorem]{Definition}
+%\def\EE{\mbox{\eufm{}E}}1
+
+\begin{document}
+\small
+
+
+\title{\large\bf{}\textcolor{blue2}{Comparison of Software Platforms}}
+%\author{\normalsize Cheoljoo Jeong (cjeongkr@gmail.com)}
+\author{
+$$\xy
+%\vtop{\vbox{
+\xygraph{!{0;/r0.7pc/:} !{\vover}[u]
+  !{\hcap[-2]} [d] !{\vover-} [ruu] !{\hcap[2]}}
+%}\smallskip}
+\endxy$$
+}
+\date{\normalsize\today}
+\maketitle
+
+\tableofcontents
+
+\section{Platform}
+\subsection{Philosophy, assumptions, etc.}
+\begin{quote}
+\centerline{\begin{tabular}{|r|p{5.5cm}|}\hline
+  Meadow & Devices will get more and more capable
+  \\ \hline 
+  AllJoyn &  \\ \hline
+  SmartThings & Devices are dumb (only support simple commends like
+  open/close, etc); ``logic'' need to be added outside of devices\\ \hline
+  HomeKit & \\ \hline
+  Nest & \\ \hline
+  ROS & \\ \hline
+  MessageSight & \\ \hline
+  \end{tabular}}
+\end{quote}
+
+\subsection{Key concepts}
+\begin{quote}
+\centerline{\begin{tabular}{|r|p{5.5cm}|}\hline
+  Meadow & Flexible; can be implemented both centralized or distributed
+  \\ \hline 
+  AllJoyn &  \\ \hline
+  SmartThings & MVC framework -- 1) Device connected to Hub (Model), 2)
+  SmartApps on Cloud (Control), 3) SmartApps connected to UI (View),  \\ \hline
+  HomeKit & \\ \hline
+  Nest & \\ \hline
+  ROS & \\ \hline
+  MessageSight & \\ \hline
+  \end{tabular}}
+\end{quote}
+
+
+\subsection{Distributed vs centralized}
+Platforms allows to add new ``logic'' or ``smartness'' in the world of
+devices. 
+
+\begin{quote}
+\centerline{\begin{tabular}{|r|p{5.5cm}|}\hline
+  Meadow & Flexible; can be implemented both centralized or distributed
+  \\ \hline 
+  AllJoyn &  \\ \hline
+  SmartThings & {\em SmartApps\/} run on the Cloud for now; they plan to
+  \textcolor{red2}{let SmartApps to run also on Hubs (without internet connectino)}  \\ \hline
+  HomeKit & \\ \hline
+  Nest & \\ \hline
+  ROS & \\ \hline
+  MessageSight & \\ \hline
+  \end{tabular}}
+\end{quote}
+
+\subsection{Runtime needed on devices?}
+\begin{quote}
+\centerline{\begin{tabular}{|r|p{5.5cm}|}\hline
+  Meadow & Yes \\ \hline
+  AllJoyn & Yes \\ \hline
+  SmartThings & \\ \hline
+  HomeKit & \\ \hline
+  Nest & \\ \hline
+  ROS & \\ \hline
+  MessageSight & \\ \hline
+  \end{tabular}}
+\end{quote}
+
+\subsection{Distributed vs centralized}
+Platforms allows to add new ``logic'' or ``smartness'' in the world of
+devices. 
+
+\begin{quote}
+\centerline{\begin{tabular}{|r|p{5.5cm}|}\hline
+  Meadow & Flexible; can be implemented both centralized or distributed
+  \\ \hline 
+  AllJoyn &  \\ \hline
+  SmartThings & {\em SmartApps\/} run in the Cloud \\ \hline
+  HomeKit & \\ \hline
+  Nest & \\ \hline
+  ROS & \\ \hline
+  MessageSight & \\ \hline
+  \end{tabular}}
+\end{quote}
+
+\subsection{Runtime with varying capability}
+ Can we tweak the capability of runtime depending
+on devices? e.g. thin client vs full client. 
+   \bit
+   \w Meadowview runtime can be designed so that only partial capability
+   (e.g. only ``properties'' are handled but functions, events are not
+   supported') be served on lesser devices
+   \eit
+
+
+\section{Devices}
+\subsection{Notion of device types}
+\begin{quote}
+\centerline{\begin{tabular}{|r|p{5.5cm}|}\hline
+  Meadow & \\ \hline
+  AllJoyn & \\ \hline
+  SmartThings & \\ \hline
+  HomeKit & \\ \hline
+  Nest & \\ \hline
+  ROS & \\ \hline
+  MessageSight & \\ \hline
+  \end{tabular}}
+\end{quote}
+
+\subsection{Supported networking protocols}
+\begin{quote}
+\centerline{\begin{tabular}{|r|p{5.5cm}|}\hline
+  Meadow & \\ \hline
+  AllJoyn & \\ \hline
+  SmartThings & ZigBee, Z-Wave, WiFi, IP, UPnP\\ \hline
+  HomeKit & \\ \hline
+  Nest & \\ \hline
+  ROS & \\ \hline
+  MessageSight & \\ \hline
+  \end{tabular}}
+\end{quote}
+
+\section{Services: Adding ``Logic''}
+\subsection{What types of service abstractions}
+\subsection{Where to deploy services?}
+\subsection{When can services be deployed?}
+\subsection{How can services be deployed?}
+\subsection{Who deploys services?}
+\subsection{In which language?}
+\begin{quote}
+\centerline{\begin{tabular}{|r|p{5.5cm}|}\hline
+  Meadow & Meadowview \\ \hline
+  AllJoyn & Java, C, C++, etc. \\ \hline
+  SmartThings & Groovy \\ \hline
+  HomeKit & Object-C \\ \hline
+  Nest & \\ \hline
+  ROS & \\ \hline
+  MessageSight & \\ \hline
+  \end{tabular}}
+\end{quote}
+
+\section{Security Model}
+\subsection{Addition of services}
+
+
+\subsection{Companies}
+\begin{quote}
+\centerline{\begin{tabular}{|r|p{5.5cm}|}\hline
+  Meadow &  \\ \hline
+  AllJoyn &  \\ \hline
+  SmartThings & Samsung \\ \hline
+  HomeKit & Apple\\ \hline
+  Nest & Google \\ \hline
+  ROS &  \\ \hline
+  MessageSight & IBM \\ \hline
+  \end{tabular}}
+\end{quote}
+
+\subsection{Target domains}
+\begin{quote}
+\centerline{\begin{tabular}{|r|p{5.5cm}|}\hline
+  Meadow & Home automation, Factory automation, Health care, etc. \\ \hline
+  AllJoyn & Home automation, etc. \\ \hline
+  SmartThings & Home automation \\ \hline
+  HomeKit & Home automation\\ \hline
+  Nest & Home automation \\ \hline
+  ROS & Robot programming \\ \hline
+  MessageSight & \\ \hline
+  \end{tabular}}
+\end{quote}
+
+\subsection{How products are differentiated}
+\begin{quote}
+\centerline{\begin{tabular}{|r|p{5.5cm}|}\hline
+  Meadow &  \\ \hline
+  AllJoyn &  \\ \hline
+  SmartThings & Two types of kits (``Know your home kit'' and ``Know and
+  control your home kit'') \\ \hline
+  HomeKit & \\ \hline
+  Nest & \\ \hline
+  ROS & \\ \hline
+  MessageSight & \\ \hline
+  \end{tabular}}
+\end{quote}
+
+\end{document}
+
+%%  LocalWords:  MeadowView EPL Hadoop proc FSM API insertEvent TCP IP ev MV
+%%  LocalWords:  Runtime workflow lookup Namespace stateful Meadow Jeong VM
+%%  LocalWords:  Cheoljoo runtime HDLs Verilog VHDL HDL APIs softsys compsys
+
+%%  LocalWords:  workflows iPhone getID getOwnerName printMsg msg pairDevice
+%%  LocalWords:  resetStepCount getStepCount dev TODO isPaired deviceFound ld
+%%  LocalWords:  startButtonPressed stopButtonPressed healthcare addStepCount
+%%  LocalWords:  userid stepcount SecureID AllJoyn Qualcomm ZeroMQ Bluetooth
+%%  LocalWords:  ZigBee WiFi ethernet CoAP iOS MacOS Andriod IPC JNI OLED pre
+%%  LocalWords:  MessageQueue Meadowview loadProcess unloadProcess procid abc
+%%  LocalWords:  programmatically instid turnOn turnOff switchChannel strign
+%%  LocalWords:  turnedOn turnedOff channelSwitched oldChannel newChannel ruu
+%%  LocalWords:  saveStepCount middleware username printMessage HomeKit Scala
+%%  LocalWords:  Google Erlang dRuby uninstalling MqSQL IoT MapReduce GPS lcd
+%%  LocalWords:  dataflow remainingBattery locationChanged nonblocking MySQL
+%%  LocalWords:  addUser LedLight LedLightControl Swtich logEntry WelcomeProc
+%%  LocalWords:  VMs WelcomProc doorOpened ctor lcdDisplayed ownername func
+%%  LocalWords:  actuals getOwner fragements functionalities namespace args
+%%  LocalWords:  unregister lifecycle uninstallation unsubscribe async typeof
+% LocalWords:  CORBA Atmel AVR pragma lu ru rdd ul batteryLife evalExpr rets
+% LocalWords:  propGet builtin propGetRequest propGetResponse propGetReponse

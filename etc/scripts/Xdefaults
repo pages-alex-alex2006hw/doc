@@ -1,0 +1,24 @@
+! .Xdefaults
+
+! emacs
+emacs.title:emacs@erdos
+!emacs.geometry:=80x81+630+30
+emacs.background:white
+emacs.foreground:black
+!emacs.font: lucidasanstypewriter-12
+!emacs*font:-schumacher-clean-bold-r-normal--16-160-75-75-c-80-iso646.1991-irv
+!emacs.mode-line.attributeBackground: gray88
+!emacs.mode-line.attributeFont: lucidasanstypewriter-12
+!emacs.mode-line.attributeBold: nil
+
+! xterm
+xterm*title:xterm@erdos
+xterm.geometry:=80x20+40+30
+xterm*background:Black
+xterm*foreground:White
+xterm*font:-schumacher-clean-bold-r-normal--16-160-75-75-c-80-iso646.1991-irv
+xterm*eightBitInput:false
+xterm*scrollBar:false
+
+! mozilla
+browswer*font:lucidasanstypewriter-12

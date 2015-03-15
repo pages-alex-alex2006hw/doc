@@ -1,0 +1,291 @@
+\documentclass{memo}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+\begin{document}
+\small
+\noindent{\large\bf{}C++ Standard Template Library}
+
+\paragraph{Overview} STL contains six major kinds of components:
+{\em containers}, {\em generic algorithms}, {\em iterators}, {\em function
+  objects}, {\em adaptors}, and {\em allocators}.
+
+\paragraph{Containers}
+There are two categories of STL container types: {\em sequence containers\/}
+and {\em sorted associative containers}.
+
+\bb{Sequence containers} organize a collection of objects, all of the same
+type \verb+T+, into a strictly linear arrangement. Examples are:
+\bit
+\w \verb+vector<T>+
+\w \verb+deque<T>+
+\w \verb+list<T>+
+\eit
+
+\bb{Sorted Associative containers} provide an ability for fast retrieval of
+objects from the collection based on keys. There are four sorted associative
+container types: 
+\bit
+\w \verb+set<Key>+
+\w \verb+multiset<Key>+
+\w \verb+map<Key, T>+
+\w \verb+multimap<Key, T>+
+\eit
+
+
+\paragraph{Iterators} 
+STL generic algorithms are written in terms of iterator parameters, and STL
+containers provide iterators that can be plugged into the
+algorithms. \bb{Iterators} are pointer-like objects that STL algorithms use to
+traverse the sequence of objects stored in a container. There are five
+iterator categories: {\em random access\/}, {\em bidirectional\/}, {\em
+  forward\/}, {\em input\/} and {\em output iterators\/}.  See
+Figure~\ref{fig:iterator} to see which type of operations are supported by the iterators.
+
+\begin{figure*}[htpb]
+\scriptsize
+\centerline{\begin{tabular}{c|ccccc} \hline
+operation &  input & output & forward & bidir & random\\ \hline
+ copy/copy-constructor ({\tt{}X b(a)}, {\tt b = a}) & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ \\ \hline
+ increment ({\tt a++, *a++}) & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ \\ \hline
+ equality ({\tt ==}, {\tt !=}) & $\circ$ &  & $\circ$ & $\circ$ & $\circ$ \\ \hline
+ dereferenced as rvalue ({\tt *a}, {\tt a->m}) & $\circ$ &  & $\circ$ & $\circ$ & $\circ$ \\ \hline
+ dereferenced as lvalue ({\tt *a = t}, {\tt *a++ = t}) &  & $\circ$ & $\circ$ & $\circ$ & $\circ$ \\ \hline
+ default constructor ({\tt X a; X()}) &  & & $\circ$ & $\circ$ & $\circ$ \\ \hline
+ decrement ({\tt a--; *a--}) &  & & & $\circ$ & $\circ$ \\ \hline
+ arithmetic operators ({\tt +} , {\tt -}) &  & & & & $\circ$ \\ \hline
+ comparisons ({\tt >} , {\tt <}, {\tt >=}, {\tt{}<=}) &  & & & & $\circ$ \\ \hline
+ compound assignment ({\tt +=} , {\tt -=}) &  & & & & $\circ$ \\ \hline
+ offset dereference ({\tt a[n]}) &  & & & & $\circ$ \\ \hline
+\end{tabular}}
+\caption{Operations supported by iterators}\label{fig:iterator}
+\end{figure*}
+
+\bb{Input iterators} are used to read values from a sequence. An example is
+its use in \verb+find+ algorithm as shown below:
+
+\begin{verbatim}
+  template <typename InputIter, typename T>
+  InputIter find(InputIter first, InputIter last,
+                 const T& value) {
+    while (first != last && *first != value)
+      ++first;
+    return first;
+  }
+  
+  int main() {
+    // find the first elt equal to 7 in array
+    int a[5] = {12, 3, 25, -7, 8};
+    int *ptr = find(&a[0], &a[5], 7);
+
+    list<int> lst(&a[0], &a[10]);
+    list<int>::iterator i = find(lst.begin(), 
+                                 lst.end(), 7);
+
+    // print the first char after 'x'
+    istream_iterator<char> in(std::cin);
+    istream_iterator<char> std::eos;
+    find(std::in, eos, 'x');
+    std::cout << *(++in) << std::endl;
+  }
+\end{verbatim}
+
+
+\bb{Output iterators} allow us to write values into a sequence. An example is
+its use in \bb{copy} algorithm, which copies from one sequence to another:
+
+\begin{verbatim}
+  template <typename InIter, typename OutIter>
+  OutIter copy(InIter first, InIter last,
+               OutIter result) {
+    while (first != last) {
+      *result = *first;
+      ++first;
+      ++result;
+    }
+  }
+\end{verbatim}
+
+A \bb{forward iterator} is one that is both an input iterator and an output
+iterator, and it thus allows both reading and writing and traversal in one
+direction. 
+
+\begin{verbatim}
+  template <typename ForwardIter, typename T>
+  void replace(ForwardIter first, 
+               ForwardIter last, 
+               Const T& x, const T& y) {
+    while (first != last) {
+      if (*first = x) {
+        *first = y;
+      ++first;
+    }
+  }
+\end{verbatim}
+
+A \bb{bidirectional iterator} is similar to a forward iterator, except that it
+allows traversal in either direction. STL \bb{reverse} algorithm uses
+bidirectional iterators.
+
+While above iterators only allow sequence accesses to elements in containers, 
+a \bb{random access iterator} allows access to any position inside a sequence
+in constant time. For example, STL generic \bb{binary\_search} algorithm uses
+random access iterators. 
+
+Following is a meaning of some common iterator functions:
+\bit
+\w \bb{front()}: first element
+\w \bb{begin()}: pointer to the first element
+\w \bb{back()}: last element
+\w \bb{end()}: pointer to last-plus-one element position
+\eit
+
+\paragraph{Generic Algorithms}
+Many generic algorithms have a version which accepts a {\em function
+  parameter\/}. For example, sorting algorithms accept a binary predicate
+parameter which compares two values.
+
+
+{\bf Nonmutating sequence algorithms} are those which does not modify the
+containers which operate. Examples include: \verb+find+, \verb+adjacent_find+,
+\verb+count+, \verb+for_each+, \verb+mismatch+, \verb+equal+, and
+\verb+search+. 
+
+{\bf Mutating sequence algorithms} modify the contents of the containers on
+which they operate. For example, the \bb{unique} algorithm eliminates all
+consecutive duplicate elements from a sequence. Other algorithms are:
+\verb+copy+, \verb+fill+, \verb+generate+, \verb+shuffle+, \verb+remove+,
+\verb+replace+, \verb+reverse+, \verb+swap+, and \verb+transform+. 
+
+\bb{Sorting-related algorithms} are related to sorting. For example,
+algorithms for sorting and merging sequences and for searching and performing
+set-like operations on sorted sequences. 
+
+\paragraph{Function Objects}
+A {\em function object} is any entity  that can be applied to zero or more
+arguments to obtain a value and/or modify the state of the computation. 
+In C++, any ordinary function satisfies this definition, but so does an {\em
+  object of any class that overloads the function call operator\/},
+\verb+operator()+. 
+
+\begin{verbatim}
+  class multiply {
+  public:
+    int operator()(int x, int y) const {
+      return x*y; 
+    }
+  };
+  multiply multfuncobj;
+  int product1 = multfuncobj(3,7);
+\end{verbatim}
+
+
+Consider the STL generic function \verb+accumulate+, which adds up \verb+init+
+plus all the values between \verb+first+ and \verb+last+:
+\begin{verbatim}
+  template <typename InputIter, typename T>
+  T acculmulate(InputIter first, InputIter last, 
+                T init) {
+    while (first != last) { 
+      init = init + *first;
+      ++first;
+    }
+    return init;
+  }
+\end{verbatim}
+
+If we want to replace the ``addition'' with a new two-argument function, we
+can modify the above function template as follows:
+
+\begin{verbatim}
+  template <typename InputIter, typename T>
+  T acculmulate(InputIter first, InputIter last, 
+                T init, T (*binfunc)(T x, Ty)) {
+    while (first != last) { 
+      init = (*binfunc)(init, *first);
+      ++first;
+    }
+    return init;
+  }
+\end{verbatim}
+
+\paragraph{Adaptors}
+Adaptors are STL components which can be used to change the interface of
+another component. They are defined as template classes that take a component
+type as a parameter. There are three categories of adapters: {\em container
+  adaptors\/}, {\em iterator adaptors\/}, and {\em function adaptors\/}. 
+
+{\bf Container adaptors} are used to provide a new data structure such as
+\verb+stack+ or \verb+queue+, using existing STL containers such as
+\verb+vector+ or \verb+list+. Examples are: {\em stack container adaptor},
+     {\em queue container adaptor\/}, and {\em priority queue adaptor\/}. 
+Consider a stack container adaptor which can be
+applied to a \verb+vector+, \verb+list+, or \verb+deque+.
+The {\em stack container adaptor}, \verb+stack<T>+, is a stack of \verb+T+
+with a default implementation using a
+\verb+deque+. \verb+stack<T, vector<T> >+ is a stack of \verb+T+ with a 
+\verb+vector+ implementation. Also, \verb+stack<T, list<T> >+ can be used. 
+
+{\bf Iterator adaptors} are STL components which can be used to change the
+interface of an iterator component.  Only one kind of iterator adaptor is
+defined in STL: {\em reverse iterator adaptor\/}, which transforms a given
+bidirectional or random access iterator into one which the traversal direction
+is reversed. 
+
+{\bf Function adaptors} help us construct a wider variety of function
+objects. Using function adaptors is often easier than directly constructing a
+new function object type with a struct or class definition. There are three
+categories of function adaptors: {\em binders\/}, {\em negators\/}, and {\em
+  adaptors for pointers to functions\/}. A \bb{binder} is a function adaptor
+which converts binary function objects into unary function objects by binding
+an argument to some particular value.
+\begin{verbatim}
+  int *where = find_if(&a[0], &a[1000], 
+               bind2nd(greater<int>(), 200));
+\end{verbatim}
+A \bb{negator} is used to reverse the sense of predicate function objects.
+There are two negator adaptors: \verb+not1+ and \verb+not2+. 
+\begin{verbatim}
+  int *where = find_if(&a[0], &a[1000], 
+               not1(bind2nd(greater<int>(), 200)));
+\end{verbatim}
+An {\bf adaptor for pointers to functions} is provided to allow pointers to
+unary and binary functions to work with the other function adaptors provided
+in the library. 
+
+\paragraph{Allocators}
+C++ STL uses special objects, called {\em allocators\/} to handle the
+allocation and deallocation of memory. An allocator defines a {\em memory
+  model\/} and it is useful to enforce special memory models, such as
+such as shared memory, garbage collection, and object-oriented databases,
+without changing interfaces.  
+
+Basic allocator operations are as follows:
+\bit
+\w {\tt{}a.allocate(n)}: allocate memory for $n$ elements
+\w {\tt{}a.construct(p)}: initialize the element to which $p$ refers
+\w {\tt{}a.destroy(p)}: destroy the element to which $p$ refers
+\w {\tt{}a.deallocate(p, n)}: deallocate memory for $n$ elements to which $p$ refers
+\eit
+
+%% See default allocator below:
+%% \begin{verbatim}
+%%   template <class T>
+%%   class allocator {
+%%   public:
+%%     typedef size_t size_type;
+%%     typedef ptrdiff_t difference_type;
+%%     typedef T* pointer;
+%%     typedef const T* const_pointer;
+%%     typedef T& reference;
+%%     typedef const T& const_reference;
+%%     typedef T value_type;
+%%     ...
+%%   };
+%% \end{verbatim}
+
+
+\end{document}
+
+% LocalWords:  STL deque multiset multimap ccccc bidir dereferenced rvalue init
+% LocalWords:  lvalue dereference Nonmutating struct negators unary negator
+% LocalWords:  adaptors adaptor deallocation deallocate

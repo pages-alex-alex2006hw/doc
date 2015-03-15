@@ -1,0 +1,236 @@
+\documentclass{beamer}
+\useinnertheme{rectangles}
+\usepackage{graphicx}
+\usepackage{mydef}
+\usepackage{MinionPro}
+\usefonttheme{serif}
+\usepackage[all]{xy}
+
+\title{The Meadow System: Overview}
+\author{Cheoljoo Jeong}
+\date{}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Meadow System}
+
+The Meadow system is an infrastructure for defining and executing
+{\em workflows over devices and events\/}. 
+
+\vspace*{0.4cm}
+
+In particular,
+
+\vspace*{0.2cm}
+
+\bit
+\w Provides a \bb{namespace for devices}.
+
+\vspace*{0.2cm}
+
+\w Provides a \bb{namespace for events and evet types}.
+
+\vspace*{0.2cm}
+
+\w Provides a \bb{language} for defining workflows.
+
+\vspace*{0.2cm}
+
+\w Provides a \bb{runtime} for execution of workflow definitions.
+\eit
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Device Namespace}
+
+The device namespace of the Meadow system is an infinite space of
+\bb{hierarchical names}: e.g.   \verb+person.cj.fitbit+.
+
+\vspace*{0.5cm}
+
+The system allows \bb{registration of devices}.
+   \bit
+   \w No authorative registry that manages names. 
+   \w Only name conflict will be checked at the time of registration.
+   \eit
+
+\vspace*{0.4cm}
+
+A name can denote either a device or a {\em group\/} of devices.
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Event Namespace}
+
+The event namespace is an infinite space of \bb{hierarchical names}: e.g.
+\verb+person.cj.fitbit.RechargeNeeded+. 
+
+\vspace*{0.5cm}
+
+The system allows \bb{registration of events}.
+   \bit
+   \w No authorative registry that manages names. 
+   \w Only name conflict will be checked at the time of registration.
+   \w The namespaces of device and events must not overlap.
+   \eit
+
+\vspace*{0.4cm}
+
+qA name can denote either a event or a {\em group\/} of events.
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Workflow Definition}
+
+The \bb{Meadowview} language allows to define {\em agents\/}, {\em events\/},
+and {\em workflows}. 
+
+\vspace*{0.4cm}
+
+An \bb{agent} represents a ``device'' which can partitipate in a workflow.
+
+\vspace*{0.4cm}
+
+Through \bb{events}, agents can be correlated in a workflow.
+
+\vspace*{0.4cm}
+
+An {\bf workflow definition} is a program written in Meadowview, which defines
+how agents work together to accomplish the given task.
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Workflow Execution}
+
+The \bb{workflow runtime} can {\em instantiate\/} a workflow definition into a 
+\bb{workflow process} using actual devices.
+
+\vspace*{0.5cm}
+
+The runtime is responsible for two major activities:
+
+\vspace*{0.3cm}
+
+\bit
+
+\w \bb{dynamically scheduling} of device processes.
+
+\vspace*{0.3cm}
+
+\w \bb{routing of data} between participating devices.
+
+\eit
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example: Device Namespace}
+
+An C-API for device/group registration is provided.
+
+{\scriptsize
+\begin{verbatim}
+  int mv_add_device(char *device_name);
+  int mv_remove_device(char *device_name);
+  int mv_add_group(char *group_name);
+  int mv_remove_group(char *group_name);
+  int mv_group_add_device(char *group_name, char *device_name);
+\end{verbatim}
+}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example: Workflow Definition}
+
+An example code in Meadowview:
+
+{\scriptsize
+\begin{verbatim}
+  namespace person.cj2005.fitbit {
+    event DeviceIdRequest;
+    event DeviceIdReply { 
+      int device_id;
+    };
+    event DeviceCommand {
+      int command, data;
+    };
+
+    process P(DeviceIdRequest e) {
+      Device sender = e.sender();
+      sender.send(sender, DeviceIdReply(self.getId()));
+    }
+
+    process Q(DeviceCommand e) {
+      if (e.command == 1) 
+        self.send(cmd1.run, e.data);
+      ...
+    };
+  }
+\end{verbatim}
+}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example: Workflow Execution}
+
+{\scriptsize
+\[\xymatrix@+0.5pc{
+  & \txt{\bf\em Distributed tables} \ar@{.}[rrr]\ar@{.}[d]\ar@{.}[rrrd]
+  &&&*+[F]\txt{Device\ \#1\\ runtime} \ar[d]^{\txt{\tiny{}\tt{}DeviceCommand}}&\\ 
+ & *+[F]\txt{Device\ \#0\\ runtime}
+  \ar@/^3ex/[rrr]^{\txt{\tiny{}\tt{}DeviceIDRequest}}
+  \ar@/_3ex/@{<-}[rrr]_{\txt{\tiny{}\tt{}DeviceIDReply}}
+   && &
+  *+[F]\txt{{\scriptsize\tt{}person.cj2005.fitbit}\\ runtime} \ar@{<->}[d]
+  \ar@{<->}[dl]&\\ 
+&&  &P &Q \ar[dl]_{\txt{\tiny{}\tt{}cmd1.run}}\ar[d]^{\txt{\tiny{}\tt{}cmd2.run}}\\
+&&  &\txt{cmd1 \\ program} &\txt{cmd2\\ program} \\
+}\]
+}
+
+\end{frame}
+
+
+%
+% Implementation
+%
+%% \begin{frame}[fragile]
+%% \frametitle{Q\#1: How to Specify Process Behavior}
+
+%% \bb{\large CASE \#1: Provide a language}
+%% \bit
+%% \w Will the language be ever adopted by users at all?
+%% \eit
+
+%% \vspace*{0.3cm}
+
+%% \bb{\large CASE \#2: Provide a library}
+%% \bit
+%% \w Library which contains functions which interact with
+%%   the daemon.
+%% \w Each ``\verb+@(Event e)+'' must be implemented as an event loop. So, the
+%%    library may need to provide some thread management facility.
+%% \eit
+
+%% \vspace*{0.3cm}
+
+
+%% \end{frame}
+
+\end{document}
+
+%%  LocalWords:  RFID DSMS SQL CEP IFP Dataflow cep compsys softsys

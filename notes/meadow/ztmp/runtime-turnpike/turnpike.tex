@@ -1,0 +1,76 @@
+\documentclass{myproc}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+
+\setlength\oddsidemargin{-1.5cm}
+\setlength\evensidemargin{-1.5cm}
+\setlength\textwidth{19.3cm}
+\addtolength\topmargin{-1cm}
+\addtolength\textheight{2cm}
+\addtolength\columnsep{0.2cm}
+
+\begin{document}
+\small
+
+\title{\large\bf{}Turnpike: The Meadow Bytecode}
+\author{}
+\maketitle
+
+\section{Arithmetic and logical operations}
+\subsection{Add instructions}
+\[
+  \arc{\mbox{\em{}var0}} 
+  \mbox{\tt{} = } 
+  \mbox{\tt{} ADD(} 
+  \arc{\mbox{\em{}var1}} 
+  \mbox{\tt{},}  
+  \arc{\mbox{\em{}var2}} 
+  \mbox{\tt{}))}
+\]
+
+\section{Branching operations}
+\bit
+\w if (cond) S;
+\eit
+
+\section{Event lookup and update instructions}
+\subsection{Event attribute lookup instruction}
+\[
+  \arc{\mbox{\em{}variable}} 
+  \mbox{\tt{} = } 
+  \mbox{\tt{} EVENT\_LOOKUP(} 
+  \arc{\mbox{\em{}event}} 
+  \mbox{\tt{},}  
+  \arc{\mbox{\em{}attribute}} 
+  \mbox{\tt{}))}
+\]
+
+\subsection{Event trigger instruction}
+\[
+  \mbox{\tt{}EVENT\_TRIGGER(} \arc{\mbox{\em{}event}} 
+  \mbox{\tt{}(}  
+  \arc{\mbox{\em{}args}} 
+  \mbox{\tt{}))}
+\]
+
+
+\section{Examples}
+\subsection{Example 1}
+\begin{verbatim}
+  process p(event e) {
+    if (e.value > 10) {
+      trigger(large_event(e.value));
+    }
+  }
+
+  event(e): 
+    t0 = lookup(e, value)
+    t1 = compare(t0, 10)
+    if (t1)
+      trigger(large_event(e.evalue))
+\end{verbatim}
+
+\section{Runtime}
+
+
+\end{document}

@@ -1,0 +1,13 @@
+[user]
+	name = Cheoljoo Jeong
+	email = cjeongkr@gmail.com
+
+[diff]
+	external = git-meld
+
+[core]
+	excludesfile = /home/cjeong/.gitignore_global
+
+[pretty]
+  colorful = "%C(blue)%h %C(reset)%s %C(magenta)%aN %C(green ul)%ad%C(reset)"
+

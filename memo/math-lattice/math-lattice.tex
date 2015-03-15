@@ -1,0 +1,230 @@
+\documentclass{myproc}
+\usepackage{mydef,myenv,amssymb}
+%\usepackage{MinionPro}
+\usepackage{mathptm}
+\usepackage[all]{xy}
+\def\EE{\mbox{\eufm{}E}}
+\def\sbf{\bfseries}
+
+\begin{document}
+\small
+\pagestyle{empty}
+
+\noindent{\large\bf Notes on Lattices and Order}
+
+\section{Ordered Sets}
+\subsection{Ordered sets}
+\bit
+\w Let $P$ be a set. An \bb{order} (or \bb{partial order}) on $P$ is a binary
+relation $\le$ on $P$ such that, for all $x, y, z \in P$,
+ \ben
+ \w [(a)] $x \le x$ \hfill (reflexivity)
+ \w [(b)] $x \le y$ and $y \le x$ imply $x = y$ \hfill (antisymmetry)
+ \w [(c)] $x \le y$ and $y \le z$ imply $x \le z$ \hfill (transitivity)
+ \een
+\w A set $P$ equipped with an order relation $\le$ is said to be an 
+ \bb{ordered set} (or \bb{partially ordered set} or \bb{poset}).
+\w On any set, $=$ is an order, the \bb{discrete order}.
+\w A relation $\le$ on a set $P$ which is reflexive and transitive but not
+necessarily antisymmetric is called a \bb{quasi-order} (or \bb{pre-order}).
+\w A subset $Q$ of an ordered set $P$ inherits an order relation from $P$,
+which we say that $Q$ has the \bb{induced order}.
+\eit
+\subsection{Chains and antichains}
+\bit
+\w An ordered set $P$ is a \bb{chain} (or \bb{linearly ordered set} or
+\bb{totally ordered set}) if, for all $x, y \in P$, either $x \le
+y$ or $y \le x$.
+\w The ordered set $P$ is an \bb{antichain} if $x \le y$ in $P$ only if
+ $x = y$.
+\eit
+\subsection{Order isomorphisms}
+\bit
+\w Two ordered set $P$ and $Q$ are \bb{order-isomorphic} (or \bb{isomorphic}),
+written $P \cong Q$, if there exists a map $\varphi$ from $P$ onto $Q$
+such that 
+ \[ x \le y \mbox{\ in\ } P \ \Leftrightarrow\ \varphi(x) \le \varphi(y)
+ \mbox{\ in\ } Q.\]
+\w $\varphi: P \rightarrow Q$ is necessarily bijective and there exists a
+well-defined inverse $\varphi^{-1}: Q \rightarrow P$.
+\eit
+
+\subsection{The covering relation}
+\bit
+\w Let $P$ be an ordered set and let $x, y \in P$. We say $x$ is \bb{covered
+  by} $y$ (or $y$ \bb{covers} $x$), and write $x \prec y$, if $x < y$ and $x
+\le z < y$ implies $z = x$.
+\w Using the covering relation, we can draw the \bb{Hasse diagram} for an
+  ordered set, which is a {\em canonical\/} graphical representation of the set.
+\w {\sbf Lemma}: Let $P$ and $Q$ be finite ordered sets and let $\varphi: P
+\rightarrow Q$ be a bijective map. Then the following are equivalent:
+ \ben
+ \w [(a)] $\varphi$ is an order-isomorphism.
+ \w [(b)] $x < y$ in $P$ if and only if $\varphi(x) < \varphi(y)$ in $Q$.
+ \w [(c)] $x \prec y$ in $P$ if and only if 
+      $\varphi(x) \prec \varphi(y)$ in $Q$.
+ \een
+\eit
+\subsection{The dual of an ordered set}
+\bit
+\w Given an ordered set $P$ we can form a new ordered set $P^{\partial}$ (the
+\bb{dual} of $P$) by defining $x \le y$ to hold in $P^\partial$ if and only if
+$y \le x$ in $P$.
+\w An ordered set $P$ has a bottom element if there exists $\bot \in P$
+(called \bb{bottom}) with the property that $\bot \le x$ for all $x \in P$.
+\w An ordered set $P$ has a top element if there exists $\top \in P$
+(called \bb{top}) with the property that $x \le \top$ for all $x \in P$.
+\w A finite chain always have top and bootom elements.
+\w Top and bottom elements are unique when they exists.
+\w {\sbf The duality principle}: Given a statement $\Phi$ about ordered sets
+which is true in all ordered sets, the dual statement $\Phi^\partial$ 
+is also true in
+all ordered sets.
+\eit
+\subsection{Lifting}
+\bit
+\w When an ordered set $P$ (with or without a bottom element), 
+  we can form $P_{\bot}$ with a bottom $\bot$ by \bb{lifting} $P$, where
+  lifting is done as follows:
+  take an element \bb{0} $\in P$ and define $\le$ on $P_\bot \defeq P \cup
+  \{\mbox{\bb{0}}\}$ by
+ \[ x \le y \mbox{\ in\ } P_\bot
+  \mbox{\ \ if and only if\ \ } x = \mbox{\ \bb{0}  or\ }
+  x \le y \mbox{\ in\ } P.\]
+\w A \bb{flat} ordered set can be constructed from any {\em set\/} $S$ 
+  as follows: get an antichain $\overline{S}$, and then form
+  $\overline{S}_\bot$. 
+\eit
+\subsection{Maximal and minimal elements}
+\bit
+\w Let $P$ be an ordered set and let $Q \subseteq P$. Then $a \in Q$ is a
+\bb{maximal element} of $Q$ if 
+   \[ (\mbox{$a \le x$ and $x \in Q$})\ \Rightarrow\  a = x. \]
+\w We denote the set of maximal elements of $Q$ by max$Q$.
+\w If $Q$ has a top elment, $\top_Q$, then max$Q$ = $\{\top_Q\}$; in this case
+$\top_Q$ is called the \bb{greatest element} (or \bb{maximum}) 
+of $Q$ and we write $\top_Q =$ max$Q$. 
+\w A \bb{minimal element} of $Q \subseteq P$ and min$Q$, and the \bb{least
+  element} (or \bb{minimum}) of $Q$ (when these exists) are defined dually.
+\eit
+
+\subsection{Sum of ordered sets}
+\bit
+\w Let $P$ and $Q$ be disjoint ordered sets. The \bb{disjoint union} $P \cup
+Q$ of $P$ and $Q$ is the ordered set formed by defining $x \le y$ in $P \cup
+Q$ if and only if either $x, y \in P$ and $x \le y$ in $P$ or $x, y \in Q$ and
+$x \in y$ in $Q$.
+\w Let $P$ and $Q$ be disjoint ordered sets. The \bb{linear sum} $P \oplus Q$
+is defined by taking the following order relation on $P \cup Q$: $x \le y$ if
+and only if
+  \ben
+  \w [(a)] $x, y \in P$ and $x \in y$ in $P$, or
+  \w [(b)] $x, y \in Q$ and $x \in y$ in $Q$, or
+  \w [(c)] $x \in P$ and $y \in Q$.
+  \een
+\w The lifting construction is a special case of linear sum: $P_\bot$ is just
+\mbox{1} $\oplus\ P$.
+\eit
+
+\subsection{Products}
+\bit
+\w Let $P_1, \cdots, P_n$ be ordered sets. The Cartesian product $P_1 \times
+\cdots \times P_n$ can be made into an ordered set by imposing the
+coordinatewise order defined by
+\[ (x_1, \cdots, x_n) \le (y_1, \cdots, y_n) \ \Leftrightarrow\ 
+(\forall{i})x_i \le y_i \mbox{\ in\ } P_i.\]
+\w $P^n$ is a shorthand for an $n$-fold product $P \times \cdots \times P$.
+\w Let $P$ and $Q$ be ordered sets. A \bb{lexicographic order} is defined by
+ $(x_1, x_2) \le (y_1, y_2)$ if $x_1 < x_2$ or
+  $(x_1 = y_1 \mbox{\ and\ } x_2 \le y_2)$.
+\w {\sbf Proposition}: Let $X = \{1, 2, \cdots, n\}$ and define $\varphi:
+   {\cal{}P}(X) \rightarrow \mbox{2}^n$ by 
+$\varphi(A) = (\epsilon_1, \cdots, \epsilon_n)$
+  where
+  \[ \epsilon_1 = \left\{\begin{array}{ll}
+  1 & \mbox{if\ } i \in A,\\
+  0 & \mbox{if\ } i \not\in A,
+			 \end{array}\right.
+  \]
+ Then $\varphi$ is an order-isomorphism.
+\eit
+
+\subsection{Down-sets and up-sets}
+\bit
+\w Let $P$ be an ordered set and $Q \subseteq P$.
+  \ben
+  \w $Q$ is a \bb{down-set} (or \bb{decreasing set} or \bb{order ideal})
+  if, whenever $x \in Q, y \in P$ and $y \le x$, we have $y \in Q$.
+  \w Dually, $Q$ is an \bb{up-set} (or \bb{increasing set} or \bb{order
+    filter}) if, whenever $x \in Q, y \in P$ and $y \ge x$, we have $y \in Q$.
+  \een
+\w Loosely speaking, a down-set is one which is closed under going down and
+  up-set is one which is closed under going up.
+\w Given an arbitrary subset $Q$ of $P$ and $x \in P$, we define
+  \[\downarrow Q \defeq \{y \in P: (\exists x \in Q) y \le x\}\]
+  and
+  \[ \downarrow x \defeq \{y \in P: y \le x\}.\]
+  $\uparrow Q$ and $\uparrow x$ is defined similarly.
+\w $Q$ is a down-set if and only if $Q = \downarrow Q$.
+\w Down-sets (up-sets) of the form $\downarrow x$ ($\uparrow x$) are called
+\bb{principal}. 
+\w The  family of all down-sets of $P$
+  is denoted by ${\cal O}(P)$. 
+\w ${\cal O}(P)$ itself is an ordered set, under the inclusion order.
+\w When $P$ is finite, every non-empty down-set $Q$ of $P$ is expressible in
+the form $\bigcup_{i=1}^k \downarrow x_i$.
+% (where $\{x_1, \cdots, x_k\} = 
+%\mbox{\ max}Q$ is an antichain).
+\w {\sbf Lemma}: Let $P$ be an ordered set and $x, y \in P$. Then the
+following are equivalent.
+ \ben
+ \w [(a)] $x \le y$.
+ \w [(b)] $\downarrow x\ \subseteq\ \downarrow y$.
+ \w [(c)] $(\forall Q \in {\cal O}(P)) y \in Q \ \Rightarrow\ x \in Q$.
+ \een
+\w Besides being related by duality, down-sets and up-sets are related by
+complementation: $Q$ is a down-set of $P$ if and only if $P - Q$ is an up-set
+of $P$ (equivalently, a down-set of $P^\partial$).
+\w {\sbf Proposition}: Let $P$ be an ordered set. Then
+ \ben
+ \w [(a)] ${\cal O}(P \oplus \mbox{{1}}) \cong
+      {\cal O}(P) \oplus \mbox{{1}}$\ and\
+      ${\cal O}(\mbox{{1}} \oplus P) \cong
+      \mbox{{1}} \oplus {\cal O}(P)$.
+ \w [(b)] ${\cal O}(P_1 \cup P_2) \cong {\cal O}(P_1) \times {\cal O}(P_2)$.
+ \een
+\eit
+
+\subsection{Maps between ordered sets}
+\bit
+\w Let $P$ and $Q$ be ordered sets. A map $\varphi: P \rightarrow Q$ is said
+to be 
+ \ben
+ \w [(a)] \bb{order-preserving} (or \bb{monotone}) if $x \le y$ in $P$ implies
+ $\varphi(x) \le \varphi(y)$ in $Q$.
+ \w [(b)] an \bb{order-embedding} (written as $\varphi: P \hookrightarrow Q$)
+ if $x \le y$ in $P$ if and only if $\varphi(x) \le \varphi(y)$ in $Q$.
+ \w [(c)] an \bb{order-isomorphism} if it is an order-embedding which maps $P$
+ onto $Q$.
+ \een
+\eit
+
+
+\section{Lattices and Complete Lattices}
+\subsection{Lattices as ordered sets}
+\bit
+\w Let $P$ be an ordered set and let $S \subseteq P$. An element $x \in P$ is
+an \bb{upper bound} of $S$ if $s \le x$ for all $s \in S$.
+A \bb{lower bound} is defined dually.
+\w The set of all upper bounds of $S$ is denoted by $S^u$ (read as `S upper')
+and the set of all lower bounds by $S^l$ (read as `S lower').
+\eit
+
+\bibliographystyle{plain}
+\bibliography{bib/mac,bib/math,bib/algo}
+\nocite{DP02,Birkhoff67}
+\end{document}
+
+
+% LocalWords:  Cheoljoo Jeong vertices endvertices endvertex cutvertex bc algo
+% LocalWords:  cutvertices

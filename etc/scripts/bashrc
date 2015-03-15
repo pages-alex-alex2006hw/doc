@@ -1,0 +1,212 @@
+# @file .bashrc
+#
+
+# load default bashrc
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+#---------------------------------------------------------------
+# paths, library paths
+#---------------------------------------------------------------
+# path
+export PATH=/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/usr/bin/X11:/sbin
+export PATH=$PATH:/usr/X11R6/bin:/usr/sbin:/usr/local/sbin
+export PATH=$PATH:~/bin
+export PATH=.:$PATH
+
+# cdpath
+# export CDPATH=.:~/work/plato/trunk/src
+
+# library path
+export LD_LIBRARY_PATH=
+export LIBDIR=$HOME/lib:/usr/local/lib:/usr/lib:/lib
+export LD_LIBRARY_PATH=$LIBDIR:$LD_LIBRARY_PATH
+
+# to handle build problems in ubuntu 12.04 (due to non-standard file locs)
+export LIBRARY_PATH=/usr/lib/$(/usr/bin/gcc -print-multiarch):$LIBRARY_PATH
+export C_INCLUDE_PATH=/usr/include/$(/usr/bin/gcc -print-multiarch)
+export CPLUS_INCLUDE_PATH=/usr/include/$(/usr/bin/gcc -print-multiarch)
+
+#---------------------------------------------------------------
+# projects
+#---------------------------------------------------------------
+# MeadowView Project
+export MV_HOME=$HOME/work/mv
+export PATH=$MV_HOME/src/build/bin:$PATH
+
+#---------------------------------------------------------------
+# tools
+#---------------------------------------------------------------
+# tex 
+export TEXINPUTS=.:$HOME/doc/etc/tex:
+
+# subversion
+export SVN_EDITOR='vi'
+
+# python
+export PYTHONPATH=/home/cjeong/work/mv/src/build/tools/pyclient:$PYTHONPATH
+export PYTHONPATH=.:$PYTHONPATH
+
+# java
+export JAVA_HOME=/opt/glassfish3/jdk7
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.
+
+# scala
+export SCALA_HOME=/opt/scala/scala-2.10.3
+export PATH=$SCALA_HOME/bin:$PATH
+
+# maven
+export M2_HOME=/usr/share/maven
+export M2=$M2_HOME/bin
+export MAVEN_OPTS=
+export PATH=$M2_HOME/bin:$PATH
+
+# eclipse
+export ECLIPSE_HOME=/opt/eclipse
+export PATH=$ECLIPSE_HOME:$PATH
+
+# hadoop
+export HADOOP_INSTALL=/opt/apache/hadoop-1.0.2
+export HADOOP_LOG_DIR=$HOME/work/mv/ztmp/hadoop-work/log
+export PATH=$HADOOP_INSTALL/bin:$PATH
+export CLASSPATH=$HADOOP_INSTALL:$CLASSPATH
+
+# tomcat
+export CATALINA_HOME=/opt/apache/apache-tomcat-7.0.37
+export TOMCAT_HOME=$CATALINA_HOME
+export PATH=$CATALINA_HOME/bin:$PATH
+
+# pig
+export PIG_INSTALL=/opt/apache/pig-0.9.1
+export PATH=$PIG_INSTALL/bin:$PATH
+export CLASSPATH=$PIG_INSTALL:$CLASSPATH
+
+# log4j
+export LOG4J_HOME=/opt/apache/apache-log4j-1.2.16
+
+# llvm
+export LLVM_HOME=$HOME/work/knot
+export LLVM_GCC_HOME=$LLVM_HOME/llvm-gcc/llvm-gcc-4.2-2.9-i686-linux
+export LLVM_SRC_HOME=$LLVM_HOME/llvm-2.9
+export LLVM_LIB_SEARCH_PATH=$LLVM_SRC_HOME
+export PATH=$LLVM_GCC_HOME/bin:$PATH
+export PATH=$LLVM_SRC_HOME/Debug+Asserts/bin:$PATH
+
+# arduino
+export ARDUINO_HOME=/opt/arduino/arduino-1.0
+export PATH=$ARDUINO_HOME:$PATH
+
+# ruby, rvm, etc.
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# activemq
+export ACTIVEMQ_HOME=$HOME/ztmp/sources/workflow-tools/activemq/activemq-5.9.0
+export CLASSPATH=$ACTIVEMQ_HOME/activemq-all-5.9.0.jar:$CLASSPATH
+
+# apache camel
+export CAMEL_HOME=/opt/apache/apache-camel-2.10.3
+
+# cuda
+export CUDA_HOME=/usr/local/cuda
+export PATH=$CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$CUDA_HOME/lib:$LD_LIBRARY_PATH
+
+# boost
+export BOOST_ROOT=/usr/local/boost-1.53.0
+export LD_LIBRARY_PATH=$BOOST_ROOT/stage/lib:$LD_LIBRARY_PATH
+
+#---------------------------------------------------------------
+# ssh, keys
+#---------------------------------------------------------------
+SSH_ENV="$HOME/.ssh/environment"
+
+# start the ssh-agent
+#function start_agent {
+#    echo "Initializing new SSH agent..."
+#    # spawn ssh-agent
+#    ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
+#    echo succeeded
+#    chmod 600 "$SSH_ENV"
+#    . "$SSH_ENV" > /dev/null
+#    ssh-add
+#}
+
+# test for identities
+#function test_identities {
+#    # test whether standard identities have been added to the agent already
+#    ssh-add -l | grep "The agent has no identities" > /dev/null
+#    if [ $? -eq 0 ]; then
+#        ssh-add
+#        # $SSH_AUTH_SOCK broken so we start a new proper agent
+#        if [ $? -eq 2 ];then
+#            start_agent
+#        fi
+#    fi
+#}
+
+# check for running ssh-agent with proper $SSH_AGENT_PID
+#if [ -n "$SSH_AGENT_PID" ]; then
+#    ps -ef | grep "$SSH_AGENT_PID" | grep ssh-agent > /dev/null
+#    if [ $? -eq 0 ]; then
+#	test_identities
+#    fi
+# if $SSH_AGENT_PID is not properly set, we might be able to load one from
+# $SSH_ENV
+#else
+#    if [ -f "$SSH_ENV" ]; then
+#	. "$SSH_ENV" > /dev/null
+#    fi
+#    ps -ef | grep "$SSH_AGENT_PID" | grep -v grep | grep ssh-agent > /dev/null
+#    if [ $? -eq 0 ]; then
+#        test_identities
+#    else
+#        start_agent
+#    fi
+#fi
+
+#---------------------------------------------------------------
+# termcap settings
+#---------------------------------------------------------------
+# less colors of man pages
+export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\E[0m'           # end mode
+export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\E[32;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+export LESS_TERMCAP_us=$'\E[04;31;5;146m' # begin underline
+
+# for emacs for terminal 
+export TERM=xterm-256color
+
+#---------------------------------------------------------------
+# bash settings
+#---------------------------------------------------------------
+ulimit -S -c 0
+set -o notify
+eval "`dircolors -b ~/.dir_colors`"
+export HISTIGNORE="ls:dir:lpq:"
+
+# set prompt
+if [ $TERM == vt100_ ]; then
+    PS1='\033[1m$PS1\033[0m'
+fi
+PS1='[\u@\h \W]$ '
+
+# ignore duplicate lines in history
+export HISTCONTROL=$HISTCONTROL$?{HISTCONTROL+,}ignoredups
+export HISTIGNOER=$'[ \t]*:&:[fb]g:exit:ls'
+
+#---------------------------------------------------------------
+# aliases
+#---------------------------------------------------------------
+source ~/.aliases
+
+export PERL_LOCAL_LIB_ROOT="/home/cjeong/perl5";
+export PERL_MB_OPT="--install_base /home/cjeong/perl5";
+export PERL_MM_OPT="INSTALL_BASE=/home/cjeong/perl5";
+export PERL5LIB="/home/cjeong/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/cjeong/perl5/lib/perl5";
+export PATH="/home/cjeong/perl5/bin:$PATH";
+

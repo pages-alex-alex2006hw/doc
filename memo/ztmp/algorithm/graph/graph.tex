@@ -1,0 +1,53 @@
+\documentclass{myart}
+%\usepackage{theorem,mydef,amssymb,newalg}
+\usepackage{hfont,mydef,amssymb,newalg}
+\begin{document}
+\small
+
+\title{\large\bf{}Notes on Graph Algorithms}
+\author{\normalsize 정 철주 \vspace*{0.1cm}\\
+	\normalsize Department of Computer Science\\
+	\normalsize Columbia University}
+\date{}
+\maketitle
+
+\section{Path-Finding Problems}
+\ben
+\w \bb{Closed semiring.}\ \ 
+{\em Closed semiring}은 quintuple $(S, +, \cdot, 0, 1)$으로
+정의된다. 여기서 $S$는 set of elements이고 
+$+$와 $\cdot$은 다음의 다섯 가지 조건을 만족시키는 $S$에 대한 binary 
+operation이다. 
+\ben
+\w [(a)] $(S, +, 0)$는 {\em monoid}이다; 즉,
+	$S$는 $+$에 대해 닫혀있고, $+$는 associative이다.
+	마찬가지로, $(S, \cdot, 1)$ 또한 monoid이다.
+	또, $0$은 {\em annihilator}이다 (즉, $a \cdot 0 = 0 \cdot a = 0$).
+\w [(b)] $+$는 {\em commutative}이고 {\em idempotent}이다.
+	즉, $a + b = b + a$이고, $a + a = a$이다.
+\w [(c)] $\cdot$은 $+$에 대해 dtributive이다. 즉,
+	$a\cdot(b+c) = a \cdot b + a \cdot c$이고
+	$(b+c)\cdot{a} = b \cdot a + c \cdot a$이다.
+\w [(d)] $a_1, a_2, \cdots, a_n, \cdots$이 $S$의 countable sequence라면, 
+	유일한 $a_1 + a_2 + \cdots + a_i + \cdots$가 존재한다.
+	또, associativity, commutativity와 idempotence는
+	finite sum과 countably infinite sum 모두에 적용된다.
+\w [(e)] $\cdot$은 finite sum 뿐 아니라, countably infinite sum에
+	대해서도 distributive해야 한다.
+\een
+\w Closed semiring의 정의에 의하여\footnote{by properties (d) and (e).},
+	다음의 성질이 성립한다.
+	\[ \left(\sum_i a_i\right) \cdot \left(\sum_j b_j\right) =
+	\sum_{ij} a_i \cdot b_j = \sum_i\left(\sum_j (a_i\cdot b_j)\right).\]
+	
+
+
+\een
+
+\pagebreak
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/algo}
+\nocite{CLR90,AHU74}
+%\pagebreak
+%\tableofcontents
+\end{document}

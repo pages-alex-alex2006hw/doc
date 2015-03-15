@@ -1,0 +1,346 @@
+%% 
+%% This is file `semantic.sty', generated on <1996/9/10> 
+%% with the docstrip utility (2.2h).
+%% 
+%% The original source files were:
+%% 
+%% semantic.dtx 
+%% 
+%% IMPORTANT NOTICE:
+%% You are not allowed to distribute this file.
+%% For distribution of the original source see
+%% the copyright notice in the file semantic.dtx .
+%% 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{semantic}
+  [1996/01/31 v1.2(alpha) Symbols for semantics]
+\IfFileExists{bbold.sty}{%
+  \RequirePackage{bbold}
+  \newcommand{\@bblb}{\textbb{[}}
+  \newcommand{\@bbrb}{\textbb{]}}}
+{ \newcommand{\@bblb}{\textnormal{[\kern-.15em[}}
+  \newcommand{\@bbrb}{\textnormal{]\kern-.15em]}}}
+%%
+\newcommand{\@ifnext}[3]{}
+\def\@ifnext#1#2#3{%
+  \let\reserved@e=#1\def\reserved@a{#2}\def\reserved@b{#3}\futurelet%
+  \reserved@c\@ifn}
+\newcommand{\@ifn}{}
+\def\@ifn{%
+      \ifx \reserved@c \reserved@e\let\reserved@d\reserved@a\else%
+          \let\reserved@d\reserved@b\fi \reserved@d}
+\newcommand{\@ifNextMacro}[2]{}
+\def\@ifNextMacro#1#2{%
+  \def\reserved@a{#1}\def\reserved@b{#2}%
+    \futurelet\reserved@c\@ifnMacro}
+\newcommand{\@ifnMacro}{}
+\def\@ifnMacro{%
+  \ifcat\noexpand\reserved@c\noexpand\@ifnMacro
+    \let\reserved@d\reserved@a
+  \else \let\reserved@d\reserved@b\fi \reserved@d}
+\newcommand{\@dropnext}[2]{#1}
+\newcommand{\evalsymbol}[1][]{\ensuremath{\mathcal{E}^{#1}}}
+\newcommand{\compsymbol}[1][]{\ensuremath{\mathcal{C}^{#1}}}
+\newcommand{\eval}[3][]%
+  {\mbox{$\mathcal{E}^{#1}$\@bblb \texttt{#2}\@bbrb}\ensuremath{\mathtt{#3}}}
+\newcommand{\comp}[3][]%
+  {\mbox{$\mathcal{C}^{#1}$\@bblb \texttt{#2}\@bbrb}\ensuremath{\mathtt{#3}}}
+\newcommand{\@exe}[3]{}
+\newcommand{\exe}[1]{\@ifnextchar[{\@exe{#1}}{\@exe{#1}[]}}
+\def\@exe#1[#2]#3{%
+  \mbox{\@bblb\texttt{#1}\@bbrb$^\mathtt{#2}\mathtt{(#3)}$}}
+\newenvironment{inferencesymbols}{%
+ \let\@@streg=|%
+ \let\@@lig==%
+ \let\@@minus=-%
+ \def\@@enstreg{--}%
+ \def\@@emstreg{---}%
+ \catcode`\|=\active %
+ \catcode`==\active  %
+ \catcode`-\active%
+ \@doinferencesymbolsDef}{}
+\newcommand{\@doinferencesymbolsDef}{}
+{\catcode`\|=\active %
+ \catcode`==\active  %
+ \catcode`-\active%
+ \gdef\@doinferencesymbolsDef{%
+   \def|{\@ifnext -{\@dropnext{\ensuremath{\vdash}}}%
+        {\@ifnext ={\@dropnext{\ensuremath{\models}}}{\@@streg}}}%
+   \def={\@ifnext >{\@dropnext{\@starOrPlus{\Rightarrow}}}{\@@lig}}%
+   \def-{\@ifnext >{\@dropnext{\@starOrPlus{\rightarrow}}}%
+        {\@ifnext -{\@dropnext{\@ifnext -{\@dropnext{\@@emstreg}}%
+                                                    {\@@enstreg}}}%
+                                                    {\@@minus}}}}}
+\newcommand{\@starOrPlus}[1]{%
+  \@ifnext *{\@dropnext{\ensuremath{#1^*}}}{%
+  \@ifnext +{\@dropnext{\ensuremath{#1^+}}}{\ensuremath{#1}}}}
+\newif\if@@Nested \@@Nestedfalse
+\newif\if@@Left
+\newif\if@@Up
+\newcount\@@xShift
+\newcount\@@yShift
+\newtoks\@@symbol
+\newtoks\@@tempSymbol
+\newcommand{\compiler}[1]{\@compiler#1\end}
+\def\@compiler#1,#2,#3\end{%
+  \if@@Nested %
+    \if@@Up %
+    \@@yShift=40 \if@@Left \@@xShift=-50 \else \@@xShift=-30 \fi
+    \else%
+      \@@yShift=20 \@@xShift =0 %
+    \fi%
+  \else%
+    \@@yShift=40 \@@xShift=-40%
+    \fi
+  \hskip\@@xShift\unitlength\raise \@@yShift\unitlength\hbox{%
+    \put(0,0){\line(1,0){80}}%
+    \put(0,-20){\line(1,0){30}}%
+    \put(50,-20){\line(1,0){30}}%
+    \put(30,-40){\line(1,0){20}}%
+    \put(0,0){\line(0,-1){20}}%
+    \put(80,0){\line(0,-1){20}}%
+    \put(30,-20){\line(0,-1){20}}%
+    \put(50,-20){\line(0,-1){20}}%
+    \put(30,-20){\makebox(20,20){$\rightarrow$}} %
+   {\@@Uptrue \@@Lefttrue \@parseArg(0,-20)(5,-20)#1\end}%
+   \if@@Up \else \@@tempSymbol=\expandafter{\the\@@symbol}\fi
+   {\@@Uptrue \@@Leftfalse \@parseArg(80,-20)(55,-20)#3\end}%
+   {\@@Upfalse \@@Lefttrue \@parseArg(50,-40)(30,-40)#2\end}%
+   \if@@Up \@@tempSymbol=\expandafter{\the\@@symbol}\fi
+    \if@@Nested \global\@@symbol=\expandafter{\the\@@tempSymbol} \fi%
+  }%
+}
+\newcommand{\interpreter}[1]{\@interpreter#1\end}
+\def\@interpreter#1,#2\end{%
+  \if@@Nested %
+    \if@@Up %
+    \@@yShift=40 \if@@Left \@@xShift=0 \else \@@xShift=20 \fi
+    \else%
+      \@@yShift=0 \@@xShift =0 %
+    \fi%
+  \else%
+    \@@yShift=40 \@@xShift=10%
+    \fi
+  \hskip\@@xShift\unitlength\raise \@@yShift\unitlength\hbox{%
+    \put(0,0){\line(-1,0){20}}%
+    \put(0,-40){\line(-1,0){20}}%
+    \put(0,0){\line(0,-1){40}}%
+    \put(-20,0){\line(0,-1){40}}%
+   {\@@Uptrue \@@Lefttrue \@parseArg(0,0)(-20,-20)#1\end}%
+   \if@@Up \else \@@tempSymbol=\expandafter{\the\@@symbol}\fi
+   {\@@Upfalse \@@Lefttrue \@parseArg(0,-40)(-20,-40)#2\end}%
+   \if@@Up \@@tempSymbol=\expandafter{\the\@@symbol}\fi
+    \if@@Nested \global\@@symbol=\expandafter{\the\@@tempSymbol} \fi%
+  }%
+}
+\newcommand{\program}[1]{\@program#1\end}
+\def\@program#1,#2\end{%
+  \if@@Nested %
+    \if@@Up %
+    \@@yShift=0 \if@@Left \@@xShift=0 \else \@@xShift=20 \fi
+    \else%
+      \PackageError{semantic}{%
+        A program cannot be at the bottom}
+        {%
+          You have tried to use a \protect\program\space as the
+          bottom\MessageBreak parameter to \protect\compiler,
+          \protect\interpreter\space or \protect\program.\MessageBreak
+         Type <return> to proceed --- Output can be distorted.}%
+    \fi%
+  \else%
+    \@@yShift=0 \@@xShift=10%
+    \fi
+  \hskip\@@xShift\unitlength\raise \@@yShift\unitlength\hbox{%
+    \put(0,0){\line(-1,0){20}}%
+    \put(0,0){\line(0,1){30}}%
+    \put(-20,0){\line(0,1){30}}%
+    \put(-10,30){\oval(20,20)[t]}%
+    \@putSymbol[#1]{-20,20}%
+   {\@@Upfalse \@@Lefttrue \@parseArg(0,0)(-20,0)#2\end}%
+  }%
+}
+\newcommand{\machine}[1]{%
+  \if@@Nested %
+    \if@@Up %
+      \PackageError{semantic}{%
+        A machine cannot be at the top}
+        {%
+          You have tried to use a \protect\machine\space as a
+          top\MessageBreak parameter to \protect\compiler or
+          \protect\interpreter.\MessageBreak
+         Type <return> to proceed --- Output can be distorted.}%
+       \else \@@yShift=0 \@@xShift=0
+    \fi%
+  \else%
+    \@@yShift=20 \@@xShift=10%
+    \fi
+  \hskip\@@xShift\unitlength\raise \@@yShift\unitlength\hbox{%
+    \put(0,0){\line(-1,0){20}} \put(-20,0){\line(3,-5){10}}
+    \put(0,0){\line(-3,-5){10}}%
+   {\@@Uptrue \@@Lefttrue \@parseArg(0,0)(-20,-15)#1\end}%
+  }%
+}
+\def\@parseArg(#1)(#2){%
+  \@ifNextMacro{\@doSymbolMacro(#1)(#2)}{\@getSymbol(#2)}}
+\def\@getSymbol(#1)#2\end{\@putSymbol[#2]{#1}}
+\def\@doSymbolMacro(#1)(#2)#3{%
+  \@ifnextchar[{\@saveBeforeSymbolMacro(#1)(#2)#3}%
+               {\@symbolMacro(#1)(#2)#3}}
+\def\@saveBeforeSymbolMacro(#1)(#2)#3[#4]#5\end{%
+  \@@tempSymbol={#4}%
+  \@@Nestedtrue\put(#1){#3#5}%
+  \@putSymbol[\the\@@tempSymbol]{#2}}
+\def\@symbolMacro(#1)(#2)#3\end{%
+  \@@Nestedtrue\put(#1){#3}%
+  \@putSymbol{#2}}
+\newcommand{\@putSymbol}[2][\the\@@symbol]{%
+  \global\@@symbol=\expandafter{#1}%
+  \put(#2){\makebox(20,20){\texttt{\the\@@symbol}}}}
+\newtoks\@@tempa
+\newtoks\@@tempb
+\newcommand{\@makeLength}[4]{
+  \@@tempa=\expandafter{\csname @@#2\endcsname}
+  \@@tempb=\expandafter{\csname @set#2\endcsname} %
+  \expandafter \newlength \the\@@tempa
+  \expandafter \newcommand \the\@@tempb {}
+  \expandafter \newcommand \csname set#1\endcsname[1]{}
+  \expandafter \xdef \csname set#1\endcsname##1%
+    {{\dimen0=##1}%
+      \noexpand\renewcommand{\the\@@tempb}{%
+        \noexpand\setlength{\the \@@tempa}{##1 #4}}%
+    }%
+  \csname set#1\endcsname{#3}
+  \@@tempa=\expandafter{\@setLengths} %
+  \edef\@setLengths{\the\@@tempa \the\@@tempb} %
+  }
+
+\newcommand{\@setLengths}{%
+  \setlength{\baselineskip}{1.166em}%
+  \setlength{\lineskip}{1pt}%
+  \setlength{\lineskiplimit}{1pt}}
+\@makeLength{premisesspace}{pSpace}{1.5em}{plus 1fil}
+\@makeLength{premisesend}{pEnd}{.75em}{plus 0.5fil}
+\@makeLength{namespace}{nSpace}{.5em}{}
+\newdimen\@@maxwidth
+\newbox\@@cBox
+\newbox\@@pBox
+\newbox\@@pLineBox
+\newbox\@@aLineBox
+\newif\if@@Nested
+\newif\if@@moreLines
+\newcommand{\@@space}{}
+\def\@@space{ }
+\newcommand{\predicate}[1]{\predicatebegin #1\predicateend}
+\newcommand{\predicatebegin}{}
+\newcommand{\predicateend}{}
+\newcommand{\inference}{}
+\def\inference{\@ifnextchar[{\@inference}{\@inference[]}}
+\newcommand{\@inference}[3]{}
+\long\def\@inference[#1]#2#3{{%
+  \@setLengths%
+  \setbox\@@cBox=%
+   \hbox{\hskip\@@pEnd \predicate{\ignorespaces#3}\unskip\hskip\@@pEnd}%
+  \if@@Nested \@premises{#2}%
+  \else \@@Nestedtrue \@premises{#2}\@@Nestedfalse \fi%
+  \setbox3=\hbox{\footnotesize #1}%
+  \setbox1=\hbox{$ $}%
+  \dimen4=3\fontdimen8\textfont3% Minimum distance from the rule
+  \dimen1=\fontdimen8\textfont2\advance\dimen1 by-\fontdimen22\textfont2%
+    \advance\dimen1 by-.5\fontdimen8\textfont3%
+    \advance\dimen1 by-\dp\@@pBox%
+  \ifdim \dimen1<\dimen4 \dimen1=\dimen4\fi%
+  \dimen2=\fontdimen22\textfont2\advance\dimen2 by\fontdimen11\textfont2%
+    \advance\dimen2 by-.5\fontdimen8\textfont3%
+    \advance\dimen2 by-\ht\@@cBox%
+  \ifdim \dimen2<\dimen4\dimen2=\dimen4\fi%
+  \dimen3=-.425ex\advance\dimen3 by .5\fontdimen8\textfont3%
+    \advance\dimen3 by\ht\@@cBox\advance\dimen3 by\dimen2%
+  \dimen4=\ht\@@cBox \advance\dimen4 by\dimen2%
+    \advance\dimen4 by .5\fontdimen8\textfont3%
+    \advance \dimen4 by-\fontdimen22\textfont2%
+  \ifdim\wd\@@pBox >\wd\@@cBox%
+    \dimen0=\wd\@@pBox%
+  \else%
+    \dimen0=\wd\@@cBox%
+  \fi%
+  \setbox1=\hbox{\vbox{%
+    \unvbox\@@pBox%
+    \vskip\dimen1%
+    \hrule width\dimen0 height\fontdimen8\textfont3%
+    \vskip\dimen2%
+    \hbox to\dimen0{\unhbox\@@cBox}%
+    }}%
+  \ifdim \wd3 > 0pt%
+    \setbox1=\hbox{\unhbox1 \hskip\@@nSpace \raise\dimen3\box3}%
+  \fi%
+  \if@@Nested \box1 \else %
+    \ifvmode \hbox{\lower\dimen4\box1}%
+    \else \lower\dimen4\box1 \fi%
+  \fi%
+}}
+\newcommand{\@premises}[1]{%
+  \setbox\@@pBox=\vbox{}%
+  \dimen\@@maxwidth=\wd\@@cBox%
+  \@processPremises #1\\\end%
+  \@adjustPremises%
+}
+\newcommand{\@adjustPremises}{%
+  \setbox\@@pBox=\vbox{%
+    \@@moreLinestrue %
+    \loop %
+      \setbox\@@pBox=\vbox{%
+        \unvbox\@@pBox %
+        \global\setbox\@@aLineBox=\lastbox %
+      }%
+      \ifvoid\@@aLineBox %
+        \@@moreLinesfalse %
+      \else %
+        \hbox to \dimen\@@maxwidth{\unhbox\@@aLineBox}%
+      \fi %
+    \if@@moreLines\repeat%
+  }%
+}
+\newcommand{\@processPremises}[2]{}
+\def\@processPremises#1\\#2\end{%
+  \setbox\@@pLineBox=\hbox{}%
+  \@processPremiseLine #1&\end%
+  \setbox\@@pLineBox=\hbox{\unhbox\@@pLineBox \unskip}%
+  \ifdim \wd\@@pLineBox > 0pt %
+    \setbox\@@pLineBox=%
+      \hbox{\hskip\@@pEnd \unhbox\@@pLineBox \hskip\@@pEnd}%
+    \ifdim \wd\@@pLineBox > \dimen\@@maxwidth %
+      \dimen\@@maxwidth=\wd\@@pLineBox %
+    \fi %
+    \setbox\@@pBox=\vbox{\box\@@pLineBox\unvbox\@@pBox}%
+  \fi %
+  \def\@temp{#2}%
+  \ifx \@temp\empty \else %
+    \@processPremises #2\end %
+  \fi%
+}
+\newcommand{\@processPremiseLine}[2]{}
+\def\@processPremiseLine#1&#2\end{%
+  \def\@temp{#1}%
+  \ifx \@temp\empty \else%
+    \ifx \@temp\@@space \else%
+    \setbox\@@pLineBox=%
+      \hbox{\unhbox\@@pLineBox%
+            \@inferenceOrPremis #1\inference\end%
+            \hskip\@@pSpace}%
+    \fi%
+  \fi%
+  \def\@temp{#2}%
+  \ifx \@temp\empty \else%
+    \@processPremiseLine#2\end%
+  \fi%
+}
+
+\newcommand{\@inferenceOrPremis}[1]{}
+\def\@inferenceOrPremis#1\inference{%
+  \@ifnext \end {\@dropnext{\predicate{\ignorespaces #1}\unskip}}%
+  {\@processInference #1\inference}}
+\newcommand{\@processInference}[1]{}
+\def\@processInference#1\inference\end{\ignorespaces #1\unskip}
+\endinput
+%% 
+%% End of file `semantic.sty'.

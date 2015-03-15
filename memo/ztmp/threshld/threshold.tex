@@ -1,0 +1,132 @@
+\documentclass{myproc}
+\usepackage{minion,mydef,amssymb}
+\begin{document}
+\small
+
+\title{\large\bf Notes on Threshold Functions and Networks}
+\author{\small Cheoljoo Jeong (cjeong@cs.columbia.edu)}
+\maketitle
+
+\section{Basics}
+\bit
+\w \bb{advantages}: ability of single threshold elements to realize a larger
+class of functions than is realizable by any one conventional gate
+\w \bb{threshold identification problem}: is the given Boolean function
+realizable by a {\em single\/} threshold element? if so, what are the weights
+and the threshold?
+\w Given a $n$-variable function whose domain is representable with
+$n$-dimensional space, a linear equation
+   \[ w_1x_1 + w_2x_2 + \cdots w_nx_n = T\]
+corresponds to an \bb{$(n-1)$-dimensional hyperplane} which cuts through the
+$n$-cube. 
+\w A Boolean function whose ON-vertices in $n$-cube can be separated by a
+linear equation from its false ones is called a \bb{linear separable
+  function}. 
+\w \bb{(-1,1 configuration)}: (0,1)-valued threshold network can be changed
+to (-1,1)-valued network by changing 
+   \[ y_i = 2x_i - 1,   g = 2f - 1\]
+\eit
+
+
+\section{Theorems on Threshold Logic and Circuits}
+\begin{theorem}
+\cite[page 184]{Kohavi78} If a Boolean function is realizable
+by a single threshold element, then it is realizable by an element with only
+positive weights.
+   \bit
+   \w $f(x_1, \cdots)$ is realizable by $(w_1, \cdots; T)$
+   \w $f(x_1', \cdots)$ is realizable by
+      $(-w_1, \cdots; T - w_1)$
+   \eit
+\end{theorem}
+
+\begin{theorem}
+\cite[page 190]{Kohavi78} Every threshold function is unate. 
+\end{theorem}
+
+\begin{theorem}
+\cite{Muroga71}
+ Given a positive unate threshold function
+$f(x_1, \cdots, x_l)$, with weight-threshold vector $(w_1, \cdots, w_l; T)$,
+if $x_i$ is replaced by $x_i'$ to get $g(x_1, \cdots, x_i', \cdots, x_l)$,
+then the weigh of $x_i$ in $g$ is simply $-w_i$ and the threshold of $g$ is
+$T - w_i$.
+\end{theorem}
+
+\begin{theorem} \cite{Muroga71} Let $f(x)$ be an arbitrary $n$-variable
+  threshold function. Then, $f(x)$ can be written as
+  \[ f(x) = sign\left(w_0 + \sum_{i = 1}^nw_ix_i\right),\]
+  where, for all $i = 0, \cdots, n$, 
+ $w_i \in \Z$ and $|w_i| \le 2^{-n}(n+1)^{(n+1)/2}$.
+\end{theorem}
+
+\begin{theorem}
+\cite{ZGZJ05} Given an expression for a unate Boolean
+function, $f(x_1, \cdots, x_l)$, replace literal $x_i$ with literal $x_j'$
+with some $j \ne i$, resulting in $g(x_1, \cdots, x_k)$ where $1 \le k \ne j
+\le l$. If $g$ is not a threshold function, then $f$ is not a threshold
+function. 
+\end{theorem}
+
+\begin{theorem}
+\cite{ZGZJ05} If a Boolean function $f(x_1, \cdots, x_l)$ is
+a threshold function, then $h(x_1, \cdots, x_{l+k}) = f(x_1, \cdots, x_l) \vee
+x_{l+1} \vee \cdots \vee x_{l+k}$ is also a threshold function.
+\end{theorem}
+
+
+\section{Threshold Circuit Complexity}
+\bit
+\w \bb{Size} of a circuit is the number of non-input gates and \bb{depth} 
+is the length of the longest directed path.
+\w SIZE$_B(s)$: set of all sets $A \subseteq \{0, 1\}^*$ for which there is a
+circuit family $C$ over basis $B$ of size $O(s)$ that accepts $A$
+\w FSIZE$_B(s)$: set of functions $f: \{0, 1\}^* \rightarrow \{0, 1\}^*$ for
+which there is $C$ over $B$ of size $O(s)$ that computes $f$.
+\w A Boolean function $f$ is \bb{length-respecting} if whenever $|x| = |y|$
+then also $|f(x)| = |f(y)|$.
+\eit
+\begin{theorem}
+\mbox{\rm MAJORITY $\in$  DEPTH($\lg n$)}.
+\end{theorem}
+\begin{proof}
+BCOUNT $\in$ FDEPTH($\lg n$). Count and then compare with $n/2$. \qedb
+\end{proof}
+
+
+\section{Algorithms on Threshold Networks}
+\subsection{Aggregation of Inequalities}
+\begin{problem}
+Given a set of linear equations
+\[\sum_{j=1}^n a_{ij}x_j = b_i \qquad (i = 1, 2, \cdots, m),\]
+determine if there exists a single linear equation
+\[\sum_{j=1}^n a_{j}x_j = b\]
+such that these have precisely the same set of 0-1 solutions.
+\end{problem}
+\bit
+\w Answer to this problem is always AFFIRMATIVE.
+\eit
+
+\begin{problem}
+Given a set of linear inequalities
+\[\sum_{j=1}^n a_{ij}x_j \le b_i \qquad (i = 1, 2, \cdots, m),\]
+determine if there exists a single linear inequality
+\[\sum_{j=1}^n a_{j}x_j \le b.\]
+such that these have precisely the same set of 0-1 solutions.
+\end{problem}
+\bit
+\w Can be solved in $O(mn^2)$ steps.
+\eit
+
+
+\section{Linear Programming Principles}
+\bit
+\w \bb{Decomposition principle}
+\eit
+
+
+
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/theory,00bib/async,00bib/threshold,00bib/algo}
+
+\end{document}

@@ -1,0 +1,130 @@
+\documentclass{memo}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+\begin{document}
+\small
+\noindent{\large\bf{}Concurrent Network Servers}
+
+\paragraph{Setup: Server}
+\begin{verbatim}
+listenfd = socket(AF_INET, SOCK_STREAM, 0);
+bzero(&servaddr, sizeof(servaddr));
+servadr.sin_family = AF_INET;
+servadr.sin_addr.s_addr = htonl(INADDR_ANY);
+servadr.sin_port = htons(9876);
+bind(listenfd, (SA *)&servadr, sizeof(servadr));
+listen(listenfd, LISTENQ_SZ);
+for (;;) {
+  clen = sizeof(cliadr);
+  connfd = accept(listenfd, (SA *)&cliadr, &clen);
+  if ((childid = fork()) == 0) { /* child proc */
+    close(listenfd);
+    process_request(connfd);
+    exit(0);
+  }
+  close(connfd); /* parent closes conn sock */
+}
+\end{verbatim}
+
+
+\paragraph{Setup: Client}
+\begin{verbatim}
+sockfd = socket(AF_INET, SOCK_STREAM, 0);
+bzero(&servadr, sizeof(servadr));
+servadr.sin_familiy = AF_INET;
+servadr.sin_port = htons(SERV_PORT);
+inet_pton(AF_INET, "localhost", &servadr.sin_addr);
+
+connect(sockfd, (SA*)&servaddr, sizeof(servadr);
+send_request(sockfd);
+exit(0);
+\end{verbatim}
+
+\paragraph{Issue \#1: Server child zombie after client termination}
+Here's what happens client terminates.
+\ben
+\w CLIENT:  calls \verb+exit(0)+.
+\w CLIENT: as part of client process termination, all open descriptors are
+closed, including \bb{client socket}; the closing of client sock initiates TCP
+connection termination:
+   \ben
+   \w CLIENT: sends FIN to the server (as a result of client socket close)
+   \w SERVER: responds with ACK
+   \w first half of TCP connection termination finished
+   \w SERVER: now, server socket is in CLOSE\_WAIT state
+   \w CLIENT: now, client socket is FIN\_WAIT\_2 state
+   \een
+\w SERVER: when it receives FIN, server child is blocked in a call to
+   \verb+readline+, and this returns 0 
+\w SERVER: server child terminates by calling \verb+exit+
+\w SERVER: all open file descriptors in {\em server child\/} closes; this
+causes final two segements of TCP connection termination to take place:
+   \ben
+   \w SERVER: child server sends FIN to client
+   \w CLIENT: client sends an ACK
+   \w now, TCP connection is fully terminated
+   \w CLIENT: client socket enters TIME\_WAIT state
+   \een
+\w SERVER: \bb{SIGCHILD} signal is sent to the parent when the server child
+terminates 
+\een
+To handle this, we add a \bb{signal handler for SIGCHILD}
+\begin{verbatim}
+vid sig_child(int signo) {
+  pid_t pid;
+  int stat;
+  pid = wait(&stat);
+  printf("child %d terminated\", pid);
+  return;
+}
+\end{verbatim}
+
+\paragraph{Issue \#2: Multiple client connections terminated}
+Let 10 clients are connected to 10 server children, respectively. 
+When all 10 clients terminate, then 10 SIGCHILD signals are sent to their
+parent. However, one one signal is caught and signal handler is executed only
+once. \bb{This is because UNIX signals are not queued.} So, we now have 8 or 9
+zombies, depending on the timing.
+
+The solution is to use \verb+waitpid+ instead of \verb+wait+.
+\begin{verbatim}
+vid sig_child(int signo) {
+  pid_t pid;
+  int stat;
+  while ((pid = waitpid(-1, &stat, WNOHANG)) > 0);
+    printf("child %d terminated\", pid);
+  return;
+}
+\end{verbatim}
+
+\paragraph{Issue \#3: Connection aborts before accept returns}
+
+
+\paragraph{Server concurrency}
+There are several options for achieving concurrency in servers (also for
+clients). 
+\bit
+\w \bb{polling}
+\w \bb{threads}
+\w \bb{Unix select}
+\eit
+
+\paragraph{Server state}
+Concurrent server needs to remember server-wide and per-state information such as:
+\bit
+\w the number of clients, 
+\w the state of connection for each client, and
+\w the state of each transaction/protocol for each client
+\eit
+For example, a transaction requires reading a file and put it into a buffer to
+send it to the client. Then, each such buffer is part of the per-client state.
+So, a large number of clients implies a large state.  However, if a
+transaction can take indefinite amount of time to finish, we cannot bound the
+size of server state.
+
+\paragraph{Stateless servers}
+By maintaining a stateless server (i.e. no per-client state), we can avoid the
+potential problem of state explosion. One possibility is to make
+
+
+\end{document}

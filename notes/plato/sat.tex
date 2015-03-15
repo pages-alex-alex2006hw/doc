@@ -1,0 +1,260 @@
+\chapter{Satisfiability Checking}
+\section{Background}
+\subsection{The satisfiability problem}
+Let $U$ be a set of Boolean \bb{variables}. A \bb{truth assignment} 
+for $U$ is a function $\tau: U \rightarrow \{0, 1\}$. If $\tau(u) = 1$,
+we say that $u$ is \bb{true} under $\tau$; if $\tau(u) = 0$ we say that 
+$u$ is \bb{false}. If $u$ is a variable in $U$, then $u$ and $\bar{u}$ 
+are \bb{literals} over $U$. The literal $u$ is true under $\tau$ if and 
+only if the variable $u$ is true under $t$; the literal $\bar{u}$ is true 
+if and only if the variable $u$ is false. 
+
+A \bb{clause} over $U$ is a set of literals over $U$, such as $\{u_1,
+\bar{u}_3, u_8\}$. It represents the \bb{disjunction} of those literals
+(i.e. $u_1 + \bar{u}_3 + u_8$) and is \bb{satisfied} by a truth assignment
+if and only if at least one of its members is true under that assignment. The
+clause above will be satisfied by $\tau$ unless $\tau(u_1) = F$, $\tau(u_3) =
+T$, and $\tau(u_8) = F$. A collection $C$ of clauses over $U$, called 
+a formula in \bb{conjunctive normal form} is \bb{satisfiable} if and
+only if there exists some truth assignment for $U$ that simultaneously 
+satisfies all the clauses in $C$. Such a truth assignment is called a
+\bb{satisfying truth assignment\/} for $C$. The SAT problem is specified 
+as follows: 
+
+\begin{quote}[{\bf{}SAT}]
+Given a set $U$ of variables, collection $C$ of clauses over $U$, determine 
+if there exists a satisfying truth assignment for $C$.
+\end{quote}
+
+In this article, a formula $C$ in conjuctive normal form will be called a {\em
+  CNF formula}. 
+A truth assignment $\tau$ partitions the clauses of a CNF formula into three
+sets: \bb{satisfied clauses\/} each of which evaluates to $1$ under $\tau$,
+\bb{unsatisfied clauses\/} each of which evaluates to $0$ under $\tau$, 
+and \bb{unresolved clauses\/} for each of which we cannot determine its
+value. The unassigned literals of a clause are called its \bb{free
+literals}. A clause is said to be \bb{unit} if it is unresolved and the
+number of its free literals is one.
+
+
+\subsection{Complexity of the SAT problem}
+The SAT problem is a well-known example of NP-complete
+problems~\cite{Cook71,GJ79}. 
+It remains NP-complete even if each $c \in C$ satisfies
+$|c| = 3$ (\bb{3SAT}), or if each $c \in C$ satisfies $|c| \le 3$ and, for
+each $u \in U$, there are at most 3 clauses in $C$ that contain either $u$ or
+$\bar{u}$. 
+Also it remains NP-complete if each $c \in C$ has $|c| \le 3$ and the
+bipartite graph $G = (V, E)$, where $V = U \cup C$ and $E$ contains exactly
+those pairs $(u, c)$ such that either $u$ or $\bar{u}$ belongs to the clause
+$c$, is planar (\bb{PLANAR3SAT}). The general problem is solvable in polynomial
+time if each $c \in C$ has $|c| \le 2$. 
+
+
+\subsection{Representation of problem instances}
+A CNF formula over $n$ variables, $x_1, x_2, \cdots, x_n$ 
+denotes a Boolean function $f(x_1, x_2, \cdots, x_n)$. Note that a Boolean
+function can be represented by many different CNF formulas.
+Therefore, the input to the problem is essentially a Boolean function. 
+
+There are many different ways to represent Boolean functions: truth tables,
+CNF formulas, DNF (disjunctive normal form) formulas,  binary decision
+diagrams (BDD), and algebraic expressions (note that CNF and DNF formulas are
+special cases of algebraic expressions). Each of these methods have its
+own advantages and disadvantages.
+Given that $n$ is the number of variables in a Boolean function, 
+each method requires $O(n^2)$ space and $O(n^2)$ time. 
+However, some of the these methods support a few operations very efficiently.
+\ben
+\w building an ininitial representation
+\w evaluation of a Boolean function
+\w combining two Boolean functions (e.g. AND, OR)
+\een
+
+
+\section{Davis-Putnam Procedure}
+Davis and Putnam proposed the first satfiability solver procedure 
+based on backtracking~\cite{DP60}. Many publicly-available satisfiability 
+solvers are employing combination of Davis-Putnam backtrack search and 
+local heuristic search.  
+To determine if a given formula $C$ is satisfiable, the algorithm starts from
+an empty truth assignment. It traverses the space of truth assignments
+implicitly and organizes the search for a satisfying assignment by maintaining
+a \bb{decision tree}. 
+
+\subsection{Davis-Putnam Procedure}
+Figure~\ref{alg:davis-putnam} illustrates the Davis-Putnam backtrack search
+procedure. The procedure takes a Boolean formula $C$ in conjunctive normal
+form. It returns SATISFIABLE when there exists a satisfying truth assignment
+for $C$. Otherwise, the procedure returns UNSATISFIABLE.
+Note that a CNF formula is satisfiable if and only if every clause in the
+formula is satisfiable.
+
+In the procedure, the function {\sc PickUnassignedVar{}} selects a variable 
+which is not currently assigned, and assigns a Boolean value to the variable. 
+This variable assignment will be referred to as a {\em decision\/}. 
+As each new decision is made, a record of that decision is pushed onto the
+decision stack. 
+This function returns FALSE if no unassigned variables remain; it returns
+TRUE otherwise.
+The function {\sc BCP} performs {\em Boolean constraint propagation\/}, which
+identifies any variable assignment {\em required\/} by the current (partial)
+variable assignments to satisfy the formula $f$. 
+Recall that each clause must be satisfied to satisfy the formula.
+Therefore, each clause must contain at least one literal which evaluates to
+true. 
+
+\begin{figure}[hbt!]
+\small
+\centerline{\begin{minipage}{7cm}
+\begin{algorithm}{\sc{}DavisPutnam}{\mbox{$C$}}
+  \begin{WHILE}{(\mbox{\bf{}true})}
+    \mbox{\tt{}// initialize a (partial) truth assignment}\\
+    \tau \= \emptyset;\\
+    \mbox{\tt{}// pick a variable which is unassigned a value}\\
+    \mbox{\em{}u} \= \mbox{\sc{}PickUnassignedVar($\tau$);}\\
+    \begin{IF}{(\mbox{no such $u$ found})}
+      \mbox{\tt{}// every variable is assigned}\\
+      \RETURN{\mbox{SATISFIABLE}};
+    \end{IF}\\
+    \mbox{\tt{}// assign 0 to the picked variable and add the}\\
+    \mbox{\tt{}// assignment to the current truth assignment $\tau$;}\\
+    \mbox{\tt{}// also, add it to the assignment stack}\\
+    \tau \= \tau\ \ \cup\ \ \{(u, 0)\}; \\
+    \mbox{push assignment, ({\em{}u}, 0), to assignment stack $\Gamma$;}\\
+    \begin{WHILE}{\mbox{(\bf{}true)}}
+      (\tau', r) \= {\mbox{\sc{}BooleanConstraintPropagation($\tau$)}};\\
+      \begin{IF}{(r = \mbox{CONFLICT\_EXISTS})}
+        \begin{IF}{(\mbox{\sc{}!ResolveConflict($\tau'$,\ $\Gamma$)})}
+	  \RETURN{\mbox{UNSATISFIABLE}};
+        \end{IF}
+      \end{IF}\\
+      \begin{IF}{(\tau = \tau')}
+        \mbox{\tt{}// if no new assignment, exit loop}\\
+	\mbox{\bf break};
+      \end{IF}
+    \end{WHILE}
+  \end{WHILE}
+\end{algorithm}
+%
+\begin{algorithm}{\sc{}BooleanConstraintPropagation}{\mbox{C, $\tau$}}
+  \begin{WHILE}{(\mbox{\bf{}true})}
+    \mbox{\tt{}// pick a unit clause}\\
+    \mbox{\em{}c} \= \mbox{\sc{PickUnitClause(C, $\tau$)}};\\
+    \begin{IF}{(\mbox{no such $c$ found})}
+      \RETURN{(\tau,\ \mbox{NO\_MORE\_UNIT\_CLAUSES})};
+    \end{IF}\\
+    \mbox{\tt{}// make implication and create a partial assignment}\\
+    \{(u, v)\} \= \mbox{\sc{}MakeImplication(C, $\tau$)};\\
+    \tau \= \tau\ \ \cup\ \ \{(u, v)\};\\
+    \begin{IF}{(\mbox{\sc{}ExistsConflict($\tau$, $\{(u, v)\}$)})}
+      \RETURN{(\tau,\ \mbox{CONFLICT\_EXISTS})};
+    \end{IF}
+  \end{WHILE}
+\end{algorithm}
+%
+\begin{algorithm}{\sc{}ResolveConflict}{\tau,\ \Gamma}
+  (u, v) \= \mbox{most recent assignment to a variable not tried both ways};\\
+  \begin{IF}{\mbox{(no such $(u, v)$ found)}}
+    \RETURN{\mbox{FALSE}};
+  \end{IF}\\
+  \mbox{\tt{}// flip the value of variable $u$}\\
+  \tau \= \tau\ \ -\ \ \{u, v\}\ \ \cup\ \ \{u, \bar{v}\};\\
+  \mbox{undo any invalidated implications};\\
+  \RETURN{\mbox{TRUE}};
+\end{algorithm}
+\end{minipage}}
+
+\caption{The Davis-Putnam procedure}\label{alg:davis-putnam}
+\end{figure}
+
+\subsection{Simplification Rules}
+Three rules are used in the Davis-Putnam procedure for accelerating the
+decision procedure.
+\ben
+\w \bb{Rule for eliminating one-literal clauses:}
+  \ben
+  \w If a formula $F$ in conjunctive normal form contains an atomic 
+     formula $p$ as a one-literal clause and also contains $\bar{p}$ as a 
+     one-literal clause, then $F$ may be replaced by 0 (i.e. $F$ is
+     self-contradictory).
+  \w If case (a) does not apply, and if an atomic formula $p$ appears as 
+     a clause in a formula $F$ in conjunctive normal form, then one may 
+     modify $F$
+  \een
+\w \bb{Affirmative-negative rule:}
+  If an atomic formula $p$ occurs in a formula $F$ in conjunctive normal 
+  form only affirmatively, or if $p$ occurs only negatively, then all 
+  clauses which contain $p$ may be deleted. The resulting formula $F'$ is
+  inconsistent if and only if $F$ is.
+\w \bb{Rule for eliminating atomic formulas:}
+\een
+
+
+
+
+\section{Optimization Techniques}
+Over the years, many algorithmic solutions have been proposed for the
+satisfiability problem, the most well-known being the different variations
+of the Davis-Putnam procedure~\cite{DP60}.
+The best known version of this procedure is based on a backtracking search
+algorithm that, at each node in the search tree, eleccts an assignment and
+prunes subsequent search by iteratively applying the {\em unit clause\/} and
+the {\em pure literal rules\/}. Iterated application of the unit clause rule
+is commonly referred to as {\em Boolean constraint propagation\/} or as {\em
+derivation of implications\/}.
+
+
+Most of the recently proposed improvements to the basic Davis-Putnam procedure
+can be distinguished based on their decision making heuristics or their use of
+preprocessing or relaxation techniques. 
+Several local search procedure has been proposed in the Aritificial
+Intelligence community, which have been shown to be extremely effective on
+specific classes of {\em satisfiable\/} instances of the satisfiability
+problem. 
+
+
+\subsection{Simplification rules}
+\subsection{Efficient search procedures}
+\subsection{Efficient data structures}
+
+\section{SAT Solvers}
+\subsection{Chaff}
+
+Decision assignment consists of the determination of which new variable and
+partial assignment should be selected each time {\sc  Decide} is invoked.
+
+Possible decision strategies include:
+\bit
+\w 
+\eit
+
+
+\subsection{GRASP}
+
+GRASP intrduced a new procedure for {\em conflict analysis\/}. 
+By noting conflicts arise during search when certain clauses are missing from
+the problem instance, GASP views conflict occurrence as an opportunity to
+augment the problem instance with such {\em conflict-induced clauses\/}.
+Such clauses help to prune the search for a solution in three complementary
+ways.
+  \ben
+  \w First, annotation of literals in a conflict-induced clause by the
+  decision level at which their values were assigned enables GRASP to
+  backtrack nonchronologically to earlier levels in the search tree.
+  \w Second, by {\em recording\/} these clauses, GRASP can recognize and
+  preempt the occurrence of similar conflicts later on in the search. 
+  \w Finally, strightforward bookkeeping of the causality chains leading up 
+  to conflicts allows GRASP to identify assignments that are necessary for a
+  solution to be found.
+  \een
+
+
+
+\subsection{SATO}
+
+\subsection{POSIT}
+\subsection{WalkSAT}
+\subsection{MiniSAT}
+\subsection{rsat}
+

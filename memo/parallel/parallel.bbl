@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{BGS94}
+D.~F. Bacon, S.~L. Graham, and O.~J. Sharp.
+\newblock Compiler transformation for high-performance computing.
+\newblock {\em ACM Computing Surveys}, 26(4):345--420, December 1994.
+
+\bibitem{CS99}
+D.~E. Culler and J.~P. Singh.
+\newblock {\em Parallel Computer Architecture}.
+\newblock Morgan Kaufmann Publishers, 1999.
+
+\end{thebibliography}

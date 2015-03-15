@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{Harary69}
+F.~Harary.
+\newblock {\em Graph Theory}.
+\newblock Addison-Wesley, 1969.
+
+\bibitem{TV84}
+R.~E. Tarjan and U.~Vishkin.
+\newblock Finding biconnected components and computing tree functions in
+  logarithmic parallel time.
+\newblock In {\em Proceedings of FOCS'84, 25th Annual IEEE Symposium on
+  Foundations of Computer Science}, October 1984.
+
+\end{thebibliography}

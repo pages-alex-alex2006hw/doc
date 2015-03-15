@@ -1,0 +1,972 @@
+\documentclass{myproc}
+\usepackage{mydef,myenv,amssymb}
+\usepackage{MinionPro,MnSymbol}
+%\usepackage{mathptm}
+\usepackage[all]{xy}
+\def\EE{\mbox{\eufm{}E}}
+
+\begin{document}
+\small
+\pagestyle{empty}
+
+\noindent{\large\bf Notes on Mathematical Logic}
+
+\section{Sentential Logic}
+In order to {\em{}describe a formal language\/} we have to give
+  three pieces of information:
+  \ben
+  \w [(a)] We should specify the set of symbols (the {\em{}alphabet\/}).
+%  For example,
+%  $(, ), \rightarrow, \neg, A_1, A_2, \cdots$.
+  \w [(b)] We should specify the rules for forming the 
+     {\em{}grammatically correct\/} finite sequences of symbols, 
+     called {\bf{}well-formed formulas}
+     or {\bf{}wffs}.
+     \w [(c)] We may need to indicate the allowable translations between
+     English and the formal language. {\em{}This information is
+       dispensable for ``formal or symbolic logic''\/}\footnote{Translations 
+       between the formal language and the
+     mathematical
+     structures are studied in {\em{}Model Theory\/}.}.
+   \een
+
+\subsection{The Language of Sentential Logic}
+\bit
+\w Alphabet of sentential logic
+	\bit
+	\w {\bf{}Logical symbols}
+		\bit
+		\w {\em{}Sentential connectives}: 
+			$\neg, \vee, \wedge, \rightarrow, \leftrightarrow$
+		\w {\em{}Parentheses}:
+			$(, )$
+		\eit
+	\w {\bf{}Sentence symbols} or non-logical symbols: $A_1, A_2, \cdots$
+		\bit
+		\w Only countably many sentence symbols exist.
+		\eit
+	\eit
+\w We assume that no symbol is a finite sequence of other symbols.
+	This assumption aims to assure that finite sequences of symbols be
+	{\em{}uniquely decomposable\/}. That is, if  
+		\[ \arc{a_1, a_2, \cdots, a_m} = \arc{b_1, b_2, \cdots, b_n}\]
+	and each $a_i$ and $b_i$ is a symbol, then
+	$m = n$ and $a_i = b_i$.
+\w An {\bf{}expression} is a finite sequence of symbols.
+\w A well-formed formula for sentential logic is defined as follows:
+	\ben
+	\w [(a)] Every sentence symbol is a wff.
+	\w [(b)] If $\alpha$ and $\beta$ are wffs, then so are
+		$(\neg\alpha)$, $(\alpha\vee\beta)$, $(\alpha\wedge\beta)$,
+		$(\alpha\rightarrow\beta)$, $(\alpha\leftrightarrow\beta)$.
+	\w [(c)] No expression is a wff unless it is compelled to 
+		be one by (a) and (b).
+	\een
+\w {There are two equivalent ways to make
+	the property (c) precise.\/}
+	\ben
+	\w {\bf{}Bottom-up}: using the notion of {\em{}inductive sets\/}
+		\bit
+		\w An expression is a wff iff it is a member
+			of inductive set.
+		\eit
+	\w {\bf{}Top-down}: using the operational 
+			notion of {\em{}formula-building operations\/}
+		\bit
+		\w An expression is a wff iff it can be built up from the sentence
+			symbols by applying some finite number of times the 
+			formula-binding operations (on expressions) defined by
+			the equations
+				\begin{eqnarray*}
+				\EE_\neg(\alpha) & = & (\neg\alpha),\\				
+				\EE_\vee(\alpha, \beta) & = & (\alpha\vee\beta),\\				
+				\EE_\wedge(\alpha, \beta) & = & (\alpha\wedge\beta),\\				
+				\EE_\rightarrow(\alpha, \beta) & = & 
+						(\alpha\rightarrow\beta),\\				
+				\EE_\leftrightarrow(\alpha, \beta) & = & 
+						(\alpha\leftrightarrow\beta)
+				\end{eqnarray*}
+		\eit
+	\een
+\eit
+\subsection{Induction}
+\bit
+\w Let's consider an initial set $B \subseteq U$ and a class ${\cal{}F}$ of
+	functions containing just two members $f$ and $g$, where
+		\[ f: U \times U \rightarrow U, \quad g: U \rightarrow U.\]
+\w A set $S$ is {\bf{}inductive} iff $B \subseteq S$ and $S$ is 
+	{\em{}closed\/}
+	under $f$ and $g$.
+	\bit
+	\w A set $S \subseteq U$ is {\bf{}closed} under $f$ and $g$
+		iff 
+          \[x, y \in S \ \Rightarrow\ f(x, y),\ g(x) \in S.\]
+	\eit
+\w Let $C^*$ be the intersection of all the inductive subsets of $U$;
+	thus $x \in C^*$ iff $x$ belongs to every inductive subset of $U$.
+	\bit
+	\w $C^*$ is itself inductive.
+	\w $C^*$ is the smallest set that is included in all the other
+		inductive sets.
+	\w $C^*$ is called the {\bf{}inductive closure} w.r.t. $B, f, g$.
+	\eit
+\w Let $C_*$ be the set of things which can be obtained from $B$
+	by applying $f$ and $g$ a finite number of times.
+	\bit
+	\w A {\bf{}construction sequence} is a finite
+		sequence $\arc{x_0, \cdots, x_n}$ of elements of $U$ s.t.
+			for each $i \le n$ we have at least one of
+				\begin{eqnarray*}
+				x_i & \in & B,\\
+				x_i & = & f(x_j, x_k) \quad \mbox{\ for\ } j < i \mbox{\ and\ } k < i,\\
+				x_i & = & g(x_j) \quad \mbox{\ for\ } j < i.\\
+				\end{eqnarray*}
+	\w $C_*$ is defined as $\{x: $ some construction
+sequence that with $x\}$.
+		\bit
+		\w If $C_i$ is the set of all points $x$ s.t. some 
+			construction sequence of length $i$ ends with $x$, then 
+			\[ C_* = \bigcup_{i} C_i. \]
+		\eit
+	\eit
+\w $C^* = C_*$; this means the above two definitions are equivalent.
+\w Since $C^* = C_*$, we call the set simply $C$ and refer to it as the
+	{\bf{}set generated from $B$ by the functions in $\cal{}F$}.
+\w ({\bf{}Induction Principle}) 
+	Assume that $C$ is the set generated from $B$ 
+	by applying the functions
+	in $\cal{}F$. If $S$ satisfies $B \subseteq S \subseteq C$
+	and $S$ is closed under the functions of $\cal{}F$, then
+	$S = C$.
+\eit
+
+\subsection{Recursion}
+\bit
+\w A set $C$ is {\bf{}freely generated from $B$ by $f$ and $g$} iff
+	in addition to the requirements for being generated we have
+	\bit
+	\w [(a)] $f \upharpoonright C$ and 
+		$g \upharpoonright C$ are one-to-one (injective), and
+	\w [(b)] The range of $f \upharpoonright C$, 
+		the range of $g \upharpoonright C$, , and the set $B$ are
+		pairwise disjoint.
+	\eit
+\w ({\bf{}Recursion Theorem})
+	Assume that a subset $C$ of $U$ is freely generated from $B$
+	by $f$ and $g$, where
+		\[ f: U\times{U} \rightarrow U, \quad
+			g: U \rightarrow U.\]
+	Further assume that $V$ is a set and $F,\ G$, and $h$ functions
+		such that
+		\begin{eqnarray*}
+		h &: & B \rightarrow V, \\
+		F &: & V \times V \rightarrow V, \\
+		G &: & V \rightarrow V.
+		\end{eqnarray*}
+	Then there exists a unique function
+		\[ \bar{h}: C \rightarrow V \]
+	such that
+		\ben
+		\w [(a)] For all $x \in B$, $\bar{h}(x) = h(x)$.
+		\w [(b)] For all $x, y \in B$, 
+			\begin{eqnarray*}
+			\bar{h}(f(x, y)) & = & F(\bar{h}(x), \bar{h}(y)), \\
+			\bar{h}(g(x)) & = & G(\bar{h}(x)).
+			\end{eqnarray*}
+		\een
+	\bit
+	\w Pseudo-commutative diagram \& commutative diagram:
+			\[ \xymatrix{
+				x \in B \ar[d]_{g: U \rightarrow U} 
+				\ar[rr]^{\overline{h}: U \rightarrow V} 
+					& &  \overline{h}(x) \in V
+					\ar[d]^{G: V \rightarrow V} \\
+				g(x) \in C \ar[rr]^{\overline{h}} & &
+				\overline{h}(g(x)) = G(\overline{h}(x)) 
+			}\]
+			\[ \xymatrix{
+				B \ar[d]_{g} 
+				\ar[rr]^{\overline{h} \equiv h} 
+					& &  V
+					\ar[d]^{G} \\
+				C \ar[rr]^{\overline{h}} & & V
+			}\]
+	\w Algebraically, {\em{}recursion 
+		theorem means that any map $h$ of
+		$B$ into $V$ can be extended to a homomorphism $\bar{h}$
+		from $C$ (with operations $f$ and $g$) into $V$
+		(with operations $F$ and $G$)\/}.
+	\eit
+\w The wffs are freely generated from the sentence symbols
+	by the five formula-building operations, 
+	$\EE_\neg$, $\EE_\vee$, $\EE_\wedge$, $\EE_\rightarrow$, $\EE_\leftrightarrow$.
+\eit
+
+\subsection{Truth Assignments}
+\bit
+\w A {\bf{}truth assignment} $\nu$ for a set $\cal{}S$ of sentence
+	symbols is a function
+		\[ \nu: {\cal{}S} \rightarrow \{\mbox{T}, \mbox{F}\}. \]
+	\bit
+	\w A truth assignment is an {\bf{}interpretation}.
+	\eit
+\w Let $\overline{\cal{}S}$ be the set of wffs generated from the five
+	formula building operations.
+	We want an extension $\bar{\nu}$ of $\nu$,
+		\[ \bar{\nu}: \overline{\cal{}S} \rightarrow \{\mbox{T, F}\},\]
+	which assigns the correct truth value to each wff in $\overline{\cal{}S}$.
+	It should meet the following conditions:
+	\ben
+	\w [(a)] For any $A \in {\cal{}S}$, $\bar{\nu}(A) = \nu(A)$.
+	\w [(b)] For any $\alpha \in \overline{\cal{}S}$,
+		\ben
+		\w [(1)] $\bar{\nu}((\neg\alpha)) =
+		\left\{\begin{array}{ll}
+			\mbox{T} & \mbox{\ if $\bar{\nu}(\alpha)$ = F},\\
+			\mbox{F} & \mbox{\ otherwise}.
+			\end{array}\right.$
+		\w [(2)] $\bar{\nu}((\alpha\vee\beta)) =$\\
+		$\left\{\begin{array}{ll}
+			\mbox{T} & \mbox{\ if $\bar{\nu}(\alpha)$ = T or 
+						$\bar{\nu}(\alpha)$ = T},\\
+			\mbox{F} & \mbox{\ otherwise}.
+			\end{array}\right.$
+		\w [(3)] $\bar{\nu}((\alpha\wedge\beta)) =$\\
+		$\left\{\begin{array}{ll}
+			\mbox{T} & \mbox{\ if $\bar{\nu}(\alpha)$ = T and
+			  $\bar{\nu}(\alpha)$ = T},\\
+			\mbox{F} & \mbox{\ otherwise}.
+			\end{array}\right.$
+		\w [(4)] $\bar{\nu}((\alpha\rightarrow\beta)) =$\\
+		$\left\{\begin{array}{ll}
+			\mbox{F} & \mbox{\ if $\bar{\nu}(\alpha)$ = T and
+							$\bar{\nu}(\alpha)$ = F},\\
+			\mbox{T} & \mbox{\ otherwise}.
+			\end{array}\right.$
+		\w [(5)] $\bar{\nu}((\alpha\leftrightarrow\beta)) = \left\{\begin{array}{ll}
+			\mbox{T} & \mbox{\ if $\bar{\nu}(\alpha) = \bar{\nu}(\alpha)$},\\
+			\mbox{F} & \mbox{\ otherwise}.
+			\end{array}\right.$
+		\een
+	\een
+\w Situation explained:
+			\[ \xymatrix{
+				{\cal{}S} \ar[d]_{\{\EE_\cdot\}} 
+				\ar[rr]^{\overline{\nu} \equiv \nu}  
+					& &  \{T, F\}
+					\ar[d]^{F,G} \\
+				\overline{\cal{}S} 
+				\ar[rr]^{\overline{\nu}} & & \{T, F\}
+			}\]
+	\bit
+	\w In the diagram, the meanings of 
+		$F$ and $G$ are indicated in (b.1)--(b.5).
+	\eit
+\w For any truth assignment $\nu$ for a set $\cal{}S$ there is a unique
+	function $\bar{\nu}: \overline{\cal{}S} \rightarrow \{\mbox{T, F}\}$
+	meeting the above conditions (a) and (b.1)--(b.5) by the
+	{\em{}Recursion Theorem\/}.
+\w A truth assignment $\nu$ {\bf{}satisfies} a sentence 
+	$\varphi$ iff $\bar\nu(\varphi) = \mbox{T}$.
+	\bit
+	\w $\bar{\nu}$ is said to be a {\bf{}model} of $\varphi$.
+	\eit
+\w A set of wffs $\Sigma$ {\bf{}tautologically implies} $\tau$, written as
+	$\Sigma \models \tau$, iff every truth assignment
+	for the sentence symbols in $\Sigma$ and $\tau$ which
+	satisfies every member of $\Sigma$ also satisfies $\tau$.
+	\bit
+	\w $\Sigma$ can be thought of as hypotheses and $\tau$
+		can be thought of as a {\em{}possible\/} conclusion.
+	\w $\emptyset \models \tau$ iff every truth assignment 
+		satisfies $\tau$; in this case we call $\tau$
+		a {\bf{}tautology} and write this as $\models \tau$.
+	\eit
+\w ({\bf{}Compactness Theorem})
+	Let $\Sigma$ be an infinite set of wffs such that for any 
+	finite subset $\Sigma_0$ of $\Sigma$, there is a truth
+	assignment which satisfies every member of $\Sigma_0$.
+	Then there is a truth assignment which satisfies every
+	member of $\Sigma$.
+\w $\Sigma; \alpha \models \beta$ iff $\Sigma \models (\alpha
+	\rightarrow \beta)$.
+\eit
+
+\subsection{Unique Readability}
+\bit
+\w Every wff has the same number of left as right parentheses.
+\w Any proper initial segment of a wff contains an excess of
+	left parentheses.
+\w ({\bf{}Unique Readability Theorem})
+	The five formula-building operations, when restricted
+	to the set of wffs, 
+	\ben
+	\w [(a)] have ranges which are disjoint from each other and
+		from the set of sentence symbols, and
+	\w [(b)] are one-to-one.
+	\een
+\w {\em{}Unique readability theorem ensures that the set of
+	wffs are {\em\bfseries{}freely\/} generated from 
+	the sentence symbols by the formula-building operations\/}.
+\eit
+
+\subsection{Sentential Connectives}
+\bit
+\w A {\bf{}$k$-place Boolean function} is a function from
+	$\{\mbox{T, F}\}^k$ to $\{\mbox{T, F}\}$.
+\w Suppose that $\alpha$ is a wff whose sentence symbols are at most
+	$A_1, \cdots, A_n$. We define an $n$-place Boolean function
+	$B^n_\alpha$ (or just $B_\alpha$), the {\bf{}Boolean function realized
+	by $\alpha$}, by 
+	\[ B_\alpha(X_1, \cdots, X_n) = \bar\nu(\alpha) 
+		\mbox{\ when $\nu(A_i) = X_i$}. \]
+\w Let F $\le$ T. And let 
+	$\alpha$ and $\beta$ be wffs whose sentence symbols are among
+	$A_1, \cdots, A_n$. Then
+	\ben
+	\w [(a)] $\alpha \models \beta$ iff all $\vec{X} \in 
+			\{\mbox{T, F}\}^n$,
+			$B_\alpha(\vec{X}) \le B_\beta(\vec{X})$.
+	\w [(b)] $\alpha \models =\!\!\!|\ \beta$ iff $B_\alpha = B_\beta$.
+	\w [(c)] $\models \alpha$ iff ran$(B_\alpha) = \{\mbox{T}\}$.
+	\een
+\w Let $G$ be an $n$-place Boolean function, $n \ge 1$. We can
+	find a wff $\alpha$ such that $G = B^n_\alpha$, i.e.,
+	such that $\alpha$ realizes the function $G$.
+\w For any wff $\varphi$, we can find a tautologically equivalent
+	wff $\alpha$ in disjunctive normal form.
+\w If every function $G: \{\mbox{T, F}\}^n \rightarrow \{\mbox{T, F}\}$
+	can be realized by a wff using only the connective symbols 
+	$\{s_i\}$, we say that the set $\{s_i\}$ is {\bf{}complete}.
+	\bit
+	\w Both $\{\neg, \vee\}$ and $\{\neg, \wedge\}$ are complete.
+	\w $\{\wedge, \rightarrow\}$ is not complete.
+	\eit
+\eit
+
+\subsection{Compactness and Effectiveness}
+\bit
+\w A set $\Sigma$ of wffs is {\bf{}satisfiable} iff there is a 
+	truth assignment which satisfies every member of $\Sigma$.
+\w ({\bf{}Compactness Theorem}) A set of wffs is satisfiable 
+	iff every finite subset is satisfiable.
+\w If $\Sigma \models \tau$, then there is a finite $\Sigma_0$
+	such that $\Sigma_0 \models \tau$.
+\w A set $\Sigma$ of expressions is {\bf{}decidable} iff there
+	exists an effective procedure which, given an expression
+	$\alpha$, will decide whether or `not' $\alpha \in \Sigma$.
+	\bit
+	\w Some infinite sets are undecidable since there are 
+		$2^{\aleph_0}$, i.e. uncountably infinite, 
+		sets of expressions but only countably
+		many effective procedures.
+	\eit
+\w There is an effective procedure which, given a finite
+	set $\Sigma; \tau$ of wffs, will decide whether 
+	$\Sigma \models \tau$.
+	\bit
+	\w The truth-table method enables us the effective decision.
+	\w Note that this theorem is for ``sentential logic.''
+	\eit
+\w For a finite set $\Sigma$, the set of tautological consequences
+	of $\Sigma$ is decidable. In particular, the set of 
+	tautologies is decidable.
+\w A set $A$ of expressions is {\bf{}effectively enumerable} iff
+	there is an effective procedure which lists, in some order,
+	the members of $A$.
+	\bit
+	\w When $A$ is infinite, the procedure may not halt but {\em{}for
+		any specific member of $A$, it should eventually
+		$($in a finite length of time$)$
+		appear on the list.}
+	\eit
+\w A set $A$ of expressions is effectively enumerable iff there
+	is an effective procedure which, given any expression $\epsilon$,
+	produces the answer ``yes'' iff $\epsilon \in A$.
+	\bit
+	\w Note that this procedure may not produce an answer when 
+		$\epsilon \not\in A$.
+	\eit
+\w {\em{}A set of expressions is decidable iff both it and 
+	its complement
+	(w.r.t the set of all expressions)
+	are effectively enumerable\/}.
+\w If $\Sigma$ is a decidable set of wffs, then the set of tautological
+	consequences of $\Sigma$ is effectively enumerable.
+\eit
+
+
+\section{First-Order Logic}
+\subsection{First-Order Languages}
+\bit
+\w Alphabet of first-order logic
+	\bit
+	\w {\bf{}Logical symbols}
+		\bit
+		\w {\em{}Parentheses}: $(, ), [, ]$
+		\w {\em{}Sentential connective symbols}: $\rightarrow, \neg$
+		\w {\em{}Variables} (one for each positive integer $n$):
+			$v_1, v_2, \cdots$
+		\w {\em{}Equality symbol} (optional): $\approx$
+		\eit
+	\w {\bf{}Parameters}
+		\bit
+		\w {\em{}Quantifier symbol}: $\forall$
+		\w {\em{}Predicate symbols}: for each $n$, some set of symbols,
+				called {\bf{}$n$-place predicate symbols}
+		\w {\em{}Function symbols}: for each $n$, some set of symbols,
+				called {\bf{}$n$-place function symbols}
+		\w {\em{}Constant symbols}: some set of symbols; this can be 
+			treated as $0$-place function symbols
+		\eit
+	\eit
+\w Example: Language of elementary number theory
+	\bit
+	\w Equality: $=$
+	\w Predicate parameter: two-place predicate symbol $<$
+	\w Constant symbol: symbol $0$
+	\w One-place function symbol: $S$ for successor
+	\w Two-place function symbol: $+, \cdot$ and $E$ for exponentiation
+	\eit
+\w A {\bf{}term} is an expression that can be built up from the
+	{\em{}constant symbols\/} and the {\em{}variables\/} by prefixing the
+	{\em{}function symbols\/}. 
+		\bit
+		\w Formally, if {\eufm{}F}$_f$ is a 
+		$n$-place term-building operation for function symbol $f$ such that
+		\[ \mbox{\eufm{}F}_f(x_1, \cdots, x_n) = f(x_1, \cdots, x_n) \]
+		then the set of terms is the set of expressions generated from the
+		constant symbols and variable by the {\eufm{}F}$_f$ operations.
+		\eit
+\w An {\bf{}atomic formula} is an expression of the form
+	\[ P(t_1, \cdots, t_n) \]
+	where $P$ is an {\em{}$n$-place predicate symbol\/} and $t_1, \cdots,
+	t_n$ are {\em{}terms\/}.
+\w The set of {\bf{}well-formed formulas} is the set of expressions
+	generated from the {\em{}atomic formulas\/} by the operations
+	\EE$_\neg$, \EE$_\rightarrow$, and {\eufm{}A}$_i$ 
+	($i = 1, 2, \cdots$), 
+	where
+		\begin{eqnarray*}
+		\EE_\neg (\gamma) & = & (\neg\gamma) \\
+		\EE_\rightarrow (\gamma, \delta) & = & (\gamma \rightarrow \delta) \\
+		\mbox{\eufm{}A}_i (\gamma) & = & (\forall{v_i})[\gamma]
+		\end{eqnarray*}
+\w We define, for each wff $\alpha$, what it means a variable $x$ 
+	{\bf{}occur free} in $\alpha$ recursively:
+	\ben
+	\w [(a)] For atomic $\alpha$, $x$ occurs free in $\alpha$ iff
+		$x$ is a symbol of $\alpha$.
+	\w [(b)] $x$ occurs free in $\neg\alpha$ iff $x$ occurs free in $\alpha$.
+	\w [(c)] $x$ occurs free in $\alpha\rightarrow\beta$ 
+		iff $x$ occurs free in $\alpha$ or in $\beta$.
+	\w [(d)] $x$ occurs free in $(\forall{v_i})[\alpha]$ iff
+		$x$ occurs free in $\alpha$ and $v_i \ne x$.
+	\een
+\w If no variable occurs free in the wff $\alpha$, then $\alpha$ is 
+	a {\bf{}sentence}.
+\eit
+
+\subsection{Truths and Models}
+\bit
+\w In sentential logic, {\bf{}truth assignments} enables us to
+	answer the true/false questions and, in first-order logic,
+	{\bf{}structures} enables us to do.
+\w A {\bf{}structure} $U$ for our first-order logic is a {\em{}function\/}
+	whose domain is the set of parameters and such that
+	\ben
+	\w [(a)] $U$ assigns to the quantifier symbol $\forall$ a 
+		nonempty set $|U|$, called the {\bf{}universe} of $U$,
+	\w [(b)] $U$ assigns to each $n$-place predicate symbol $P$
+		an $n$-ary relation $P^U \subseteq |U|^n$, i.e., 
+		$P^U$ is a set of $n$-tuples of members of the universe,
+	\w [(c)] $U$ assigns to each constant symbol $c$ a member
+		$c^U$ of the universe $|U|$, and
+	\w [(d)] $U$ assigns to each $n$-place function symbol $f$ an
+		$n$-ary (total) operation $f^U$ on $|U|$, i.e.,
+			$f^U: |U|^n \rightarrow |U|$.
+	\een
+\w Setup
+	\bit
+	\w Let $\varphi$ be a wff of our language.
+	\w Let $U$ a structure for the language.
+	\w Let $s: V \rightarrow |U|$ be a {\bf{}valuation} function
+		from the set $V$ of all variables
+		into the universe $|U|$ of $U$.
+	\eit
+\w Definition for what is meant by ``{\bf{}$U$ satisfies $\varphi$ with $s$}'',
+	written as $\models_U \varphi[s]$
+	\ben
+	\w {\bf{}Terms} 
+		\bit
+		\w Extension of $s$, 
+			\[ \bar{s}: T \rightarrow |U|, \]
+			a function from the set $T$ 
+			of all terms into the universe of $U$ is defined as
+			\[ \bar{s}(x) = \left\{\begin{array}{ll}
+				s(x) & \mbox{$x$ variable},\\
+				c^U & \mbox{$x = $ constant $c$},\\
+				f^U(\bar{s}(t_1), \cdots, \bar{s}(t_n)) &
+					\mbox{$x = f(t_1, \cdots, t_n)$.}
+                                            %for $f, t_i$}.
+			\end{array}\right. \]
+		\w Commutative diagram:
+			\[ \xymatrix{
+				T \ar[d]_{\mbox{\eufm{}F}_f} 
+					\ar[r]^{\bar{s}} & |U| \ar[d]^{f^U} \\
+				T \ar[r]^{\bar{s}} & |U|
+			}\]
+		\eit
+	\w {\bf{}Atomic formulas}
+		\ben
+		\w [2.1] $\models_U (t_1\approx{t_2})[s]$ 
+			iff $\bar{s}(t_1) = \bar{s}(t_2)$.
+		\w [2.2] For an $n$-place predicate parameter $P$,
+			\[ \models_U P(t_1, \cdots, t_n)[s] \mbox{\ iff\ }
+				\arc{\bar{s}(t_1), \cdots, \bar{s}(t_n)} \in P^U.\]
+		\een
+	\w {\bf{}Other wffs}
+		\ben
+		\w [3.1] $\models_U \neg\varphi [s]$ iff $\not\models_U \varphi[s]$.
+		\w [3.2] $\models_U \varphi \rightarrow \psi [s]$
+			iff either $\not\models_U \varphi[s]$ or $\models_U \psi[s]$
+			or both.
+		\w [3.3] $\models_U (\forall{x})[\varphi][s]$ iff for every
+			$d \in |U|$, we have $\models_U \varphi [s[d/x]]$
+		\een
+	\een
+\w Let $\Gamma$ be a set of wffs, $\varphi$ a wff. Then
+	{\bf{}$\Gamma$ logically implies $\varphi$}, $\Gamma \models \varphi$,
+	iff for every structure $U$ for the language and every function
+	$s: V \rightarrow |U|$ such that $U$ satisfies every member of 
+	$\Gamma$ with $s$, $U$ also satisfies $\varphi$ with $s$.
+	\bit
+	\w We write ``$\gamma \models \varphi$'' instead of 
+		``$\{\gamma\} \models \varphi$''.
+	\w $\varphi$ and $\psi$ are {\bf{}logically equivalent}, 
+		$\varphi \models =\!\!\!|\ \psi$, iff
+		$\varphi \models \psi$ and $\psi \models \varphi$.
+	\eit
+\w A wff $\varphi$ is {\bf{}valid} iff $\emptyset \models \varphi$
+	(written just ``$\models \varphi$'').
+	\bit
+	\w Thus $\varphi$ is valid iff for every $U$ and 
+		every $s: V \rightarrow
+		|U|$, $U$ satisfies $\varphi$ with $s$.
+	\w {\em{}First-order analog of the tautologies are the valid 
+		formulas\/}.
+	\eit
+\w Assume that $s_1, s_2$ are functions from $V$ into $|U|$ which
+	agree at all variables (if any) which occur free in the wff $\varphi$.
+	Then
+		\[ \models_U \varphi [s_1] \mbox{\ iff\ } \models_U \varphi [s_2]. \]
+\w For a {\em{}sentence\/}\footnote{Note that a sentence is
+	a wff with no free variables.} $\sigma$, either
+	\ben
+	\w [(a)] $U$ satisfies $\sigma$ with {\em{}every\/}
+		valuation $s$ from $V$ into $|U|$ (in this case
+			we say that $\sigma$ is {\bf{}true} in $U$, $\models_U \sigma$,
+			or that $U$ is a {\bf{}model} of $\sigma$), or
+	\w [(b)] $U$ does not satisfy $\sigma$ with any such function.
+	\een
+\w For a set $\Sigma; \sigma$ of sentences, $\Sigma \models \tau$ iff
+	every model of $\Sigma$ is a model of $\sigma$, i.e., at a ``meta''-level
+		\[ (\forall{U})(\forall{s: V \rightarrow |U|})
+		[\models_U \Sigma[s] 
+		\Rightarrow \models_U \sigma[s]]. \]
+\w {\em{}In contrast to the sentential logic, the set of valid formulas
+	is {\bfseries{}undecidable}. But the notion of validity 
+	turns out to be equivalent to the notion of {\bfseries{}deducibility\/}
+	and using this equivalence we will be able to show that
+	the set of valid wffs is {\bfseries{}effectively enumerable}.}
+\w {\bf{}Definability of a class of structures}
+	\bit
+	\w {\bf{}Question}: {\em{}given a mathematical object, can we define it
+		in first-order logic?}
+	\w For a set $\Sigma$ of sentences, let Mod $\Sigma$ be the class 
+		of all models
+		of $\Sigma$, i.e., the class of all structures for the 
+		language in which
+		every member of $\Sigma$ is true.
+	\w A class $\cal{}K$ of structures for our language is an 
+		{\bf{}elementary
+		class} (EC) iff ${\cal{}K} = \mbox{\ Mod\ } \tau$ for some 
+		sentence $\tau$ (``elementary'' is synonymous with 
+		``first-order'').
+	\w $\cal{}K$ is an {\bf{}elementary class in the wider sense}
+		(EC$_\Delta$) iff ${\cal{}K} = \mbox{\ Mod\ } \Sigma$
+		for some set $\Sigma$ of sentences.
+	\w Example: 
+		\bit
+		\w Let's consider a language with equality and the parameters
+			$\forall$ and $P$, where $P$ is a 2-place predicate symbol.
+			A structure $(A, R)$ for the language consists of a nonempty
+			set $A$ and a binary relation $R$ on $A$.
+		\w $(A, R)$ is an {\em{}ordered set\/} iff $R$ is transitive
+			and satisfies the trichotomy condition.
+		\w Since transitivity and trichotomy conditions can be 
+			translated into a sentence of the formal language, 
+			the {\em{}class of nonempty ordered sets is an 
+			elementary class\/}.
+		\w Essentially the class of nonempty ordered sets is 
+			Mod $\tau$, where $\tau$ is the {\em{}conjunction\/} of the
+			three sentences
+			\begin{eqnarray*}
+			& & (\forall{x,y,z})[xPy \rightarrow yPz \rightarrow xPz]\\
+			& & (\forall{x, y})[xPy \vee x \approx y \vee yPx] \\
+			& & (\forall{x, y})[xPy \rightarrow \neg{y}Px]
+			\end{eqnarray*}
+		\eit
+	\eit
+\w {\bf{}Definability within a structure}
+	\bit
+	\w {\bf{}Question}: 
+		{\em{}Given a mathematical object and a relation on
+		(or other mathematical object based on) 
+		that object, can we define the relation (it) 
+		in first-order logic?}
+	\w Given a structure $U$ and a formula $\varphi$ such that 
+		all variables
+		occurring {\em{}free\/} in $\varphi$ are included among
+		$v_1, \cdots, v_k$. Then for elements $a_1, \cdots, a_k$ 
+		of $|U|$,
+			\[ \models_U \varphi \denote{a_1, \cdots, a_k} \]
+		means that $U$ satisfies $\varphi$ with some function
+		$s: V \rightarrow |U|$ for which $s(v_i) = a_i$ for $1 \leq 
+		i \le k$.
+	\w For each such $\varphi$ and $U$, the $k$-ary relation
+		\[ \{\arc{a_1, \cdots, a_k}:\ \models_U \varphi 
+			\denote{a_1, \cdots, a_k}\}\]
+		is said to be {\bf{}defined by $\varphi$ in $U$}.
+	\w A $k$-ary relation on $|U|$ is {\bf{}definable in $U$} iff there
+		a formula which defines it in $U$.
+	\w Example:
+		\bit
+		\w Given a structure ${\cal{}N} = (\N, 0, S, +, \cdot)$, 
+			some {\em{}relations on $\N$\/} are definable
+			in $\cal{}N$ and some are not; Note that there are 
+			uncountably
+			many relations on $\N$ but only $\aleph_0$ possible
+			defining formulas.
+		\w Ordering relation $\{\arc{m, n}: m < n\}$ is defined in 
+			$\cal{}N$ by the formula
+				\[ (\exists v_3) v_1 + Sv_3 \approx v_2 \]
+		\eit
+	\eit
+\w Let $U, B$ be structures for the language. A {\bf{}homomorphism
+	$h$ of $U$ into $B$} is a function $h: |U| \rightarrow |B|$ such that
+	\ben
+	\w [(a)] For each $n$-place predicate symbol $P$ and each $n$-tuple
+		$\arc{a_1, \cdots, a_n}$ of elements of $|U|$,
+			\[ \arc{a_1, \cdots, a_n} \in P^U \mbox{\ iff\ }
+				\arc{h(a_1), \cdots, h(a_n)} \in P^B,\]
+	\w [(b)] For each $n$-place function symbols $f$ and each $n$-tuple
+		\[ h(f^U(a_1, \cdots, a_n)) = f^B(h(a_1), \cdots, h(a_n)), \]
+	\w [(c)] For each constant symbol $c$,
+		\[ h(c^U) = c^B. \]
+	\een
+\w If $h$ a homomorphism of $U$ into $B$ and {\em\bfseries{}one-to-one\/}
+	then $h$ is called an {\bf{}isomorphism} of $U$ into $B$.
+	\bit
+	\w In this case, $U$ is said to be {\bf{}isomorphic to} $B$. 
+	\eit
+\w Given two structures $U$ and $B$ ($U \subseteq B$), 
+	when a homomorphism where
+	\ben
+	\w [(a)] $P^U$ is the restriction of $P^B$ to $|U|$, for each predicate
+		symbol $P$ and
+	\w [(c)] $f^U$ is the restriction of $f^U$ to $|U|$, for each function
+		symbol $f$, and $c^U = c^B$ for each constant symbol $c$
+	\een
+	exists, $U$ is said to be a {\bf{}substructure} of $B$ and
+	$B$ an {\bf{}extension} of $U$.
+
+\w ({\bf{}Homomorphism Theorem}) Let $h$ be a homomorphism of $U$ into
+	$B$, and let $s$ map the set of variables into $|U|$.
+	\ben
+	\w [(a)] For any term $t$, 
+		\[ h(\bar{s}(t)) = \overline{h\circ{s}}(t) \]
+		where $\bar{s}(t)$ is computed in $U$ and 
+		$\overline{h \circ s}(t)$ is computed in $B$.
+	\w [(b)] for any quantifier-free formula $\alpha$ not containing the
+		equality symbol,
+			\[ \models_U \alpha [s] \mbox{\ iff\ } 
+				\models_B \alpha [h\circ s]. \]
+	\w [(c)] If $h$ is an isomorphism, then we may delete the restriction
+		``not containing the equality symbol'' in (b).
+	\w [(d)] If $h$ is a homomorphism of $U$ {\em\bfseries{}onto\/} $B$,
+		then in $b$ we may delete the restriction ``quantifier-free''.
+	\een
+\w Two structures $U$ and $B$ for the language are {\bf{}elementarily
+	equivalent}, written as $U \equiv B$, iff for any sentence
+	$\sigma$, 
+		\[ \models_U \sigma \Leftrightarrow\ \models_B \sigma.\]
+\w An {\bf{}automorphism} of the structure $U$ is an isomorphism
+	of $U$ onto $U$.
+	\bit
+	\w {\em{}An automorphism preserves the definable relations\/.} Formally,
+		let $h$ be an automorphism of the structure $U$ and $R$ be
+		an $n$-ary relation on $|U|$. Then for any $a_1, \cdots, a_n$
+		in $|U|$, 
+			\[ \arc{a_1, \cdots, a_n} \in R \Leftrightarrow
+				\arc{h(a_1), \cdots, h(a_n)} \in R.\]
+	\w Above corollary is useful in showing that some relations are
+		{\em{}not definable\/}.
+
+	\eit
+\eit
+
+\subsection{Unique Readability}
+\bit
+\w In order to be able to apply Recursion Theorem, we need unique
+	readability results as in sentential logic.
+\w ({\bf{}Unique Readability Theorem for Terms}) 
+	The set of terms is freely generated from the set of variables 
+	and constant symbols by the {\eufm{}F}$_f$ operations.
+\w ({\bf{}Unique Readability Theorem for Formulas}) 
+	The set of wffs is freely generated from the set of atomic formulas
+	by the operations \EE$_\neg$, \EE$_\rightarrow$, 
+	{\eufm{}A}$_i$ ($i = 1, 2, \cdots$).
+\eit
+
+\subsection{Deductive Calculus}
+\bit
+\w Let's consider what constitutes a `{\bf{}proof}' of $\Sigma \models 
+	\tau$. A proof should satisfy at least the followings.
+	\ben
+	\w [(a)] A proof should be finitely long. 
+	\w [(b)] A person should be able to check the proof to ascertain
+		that it is correct. This checking process should be 
+		{\em{}effective\/}.
+	\een
+\w We will select an infinite set $\Lambda$ of formulas to be
+	called {\bf{}logical axioms} and a {\bf{}rule of inference} which
+	will enable us to obtain a new formula from certain others.
+\w Given $\Lambda$ and inference rules, for a set $\Gamma$ of
+	formulas, the {\bf{}theorems} of $\Gamma$ will be formulas
+	which can be obtained from $\Lambda \cup \Gamma$ by use
+	of the rule of inference (some finite number of times).
+\w If $\varphi$ is a theorem of $\Gamma$, written as 
+	$\Gamma \vdash \varphi$, then a sequence of formulas which
+	records how $\varphi$ was obtained from $\Gamma \cup \Lambda$
+	with the rule of inference will be called a {\bf{}deduction of
+	$\varphi$ from $\Gamma$}.
+	\bit
+	\w The choice of $\Lambda$ and the rule(s) of inference is not
+		unique. For example, we can let $\Lambda = \emptyset$ and
+		have many rules of inference. Or we can have infinite set
+		of logical axioms and just one rule of inference.
+	\w We will take the latter approach.
+	\eit
+\w Our one rule of inference is traditionally known as
+	{\bf{}modus ponens}.
+\w ({\bf{}Modus Ponens}) {\em{}From the formulas $\alpha$ and 
+	$\alpha \rightarrow \beta$ we may infer $\beta$}.
+		\[ \frac{\alpha,\quad \alpha \rightarrow \beta}{\beta} \]
+\w A set $\Delta$ of formulas is {\bf{}closed under modus ponens}
+	iff whenever two formulas $\alpha$ and $\alpha \rightarrow \beta$
+	is in $\Delta$, then also $\beta$ is in $\Delta$.
+\w For a fixed set $\Gamma$, $\Delta$ is {\bf{}inductive} iff
+	$\Gamma \cup \Lambda \subseteq \Delta$ and $\Delta$ is closed
+	under modus ponens.
+	\bit
+	\w Then the set of theorems of $\Gamma$ is simply the
+		{\em{}smallest inductive set\/}.
+	\w This situation is similar to the one in 
+		sentential logic but the only difference is we are
+		closing the initial set under 
+		{\em\bfseries{}partially-defined\/}
+		function (its domain consists only of pairs of the form
+		$\arc{\alpha, \alpha \rightarrow \beta}$).
+	\eit
+\w {\em{}We define $\varphi$ to be a {\bf{}theorem of $\Gamma$}, written
+	as $\Gamma \vdash \varphi$ iff $\varphi$ belongs to the set
+	generated from $\Gamma \cup \Lambda$ by modus ponens\/}.
+	\bit
+	\w The set of theorems of $\Gamma$ is not {\em\bfseries{}freely}
+		generated, which implies that a theorem {\em{}never has 
+		unique deduction\/}.
+	\eit
+\w A {\bf{}deduction of $\varphi$ from $\Gamma$} is a sequence
+	$\arc{\alpha_0, \cdots, \alpha_n}$ of formulas s.t.
+	$\alpha_n = \varphi$ and for each $i \le n$ either
+	\ben
+	\w [(a)] $\alpha_i \in \Gamma \cup \Lambda$, or
+	\w [(b)] for some $j$ and $k$ less than $i$, $\alpha_i$ is
+		obtained by modus ponens from $\alpha_j$ and
+		$\alpha_k = \alpha_j \rightarrow \alpha_i$.
+	\een
+\w {\em{}There exists a deduction of $\alpha$ from $\Gamma$
+	iff $\alpha$ is a theorem of $\Gamma$}.
+	\bit
+	\w Note that this is similar to `$C^* = C_*$' situation; 
+		inductive closure versus formula-building sequences.
+	\w We define $\varphi$ to be {\bf{}deducible from $\Gamma$}
+		iff $\Gamma \vdash \varphi$.
+	\eit
+\w Say that a wff $\varphi$ is a {\bf{}generalization} of $\psi$
+	iff for some $n \ge 0$ and some variables 
+	$x_1, \cdots, x_n$,
+		\[ \varphi = (\forall{x_1})\cdots(\forall{x_n})[\psi].\]
+\w The {\bf{}logical axioms} are all generalizations of wffs
+	of the following forms, where
+	$x, y$ are variables and $\alpha, \beta$ are wffs:
+	\ben
+	\w [(a)] Tautologies;
+	\w [(b)] $(\forall{x})[\alpha] \rightarrow \alpha_t^x$, where
+			$t$ is substitutable for $x$ in $\alpha$;
+		\bit
+		\w $\alpha_t^x$ is the expression obtained from the formula
+			$\alpha$ by replacing the variable $x$, wherever
+			it occurs free in $\alpha$, by the term $t$.
+		\eit
+	\w [(c)] $(\forall{x})[\alpha \rightarrow \beta]$ $\rightarrow$
+		$((\forall{x})[\alpha] \rightarrow (\forall{x})[\beta])$;
+	\w [(d)] $\alpha \rightarrow (\forall{x})[\alpha]$, where
+		$x$ does not occur free in $\alpha$;	
+	\een
+	And if the language includes equality, then we add
+	\ben
+	\w [(e)] $x \approx x$;
+	\w [(f)] $x \approx y \rightarrow (\alpha \rightarrow \alpha')$,
+		where $\alpha$ is atomic and $\alpha'$ is obtained from 
+		$\alpha$ by replacing $x$ in zero or more places by $y$;
+	\een
+\w $\Gamma \vdash \varphi$ iff $\Gamma \cup \Lambda$ tautologically
+	implies $\varphi$.
+\w A set of formulas $\Gamma$ is {\bf{}inconsistent} iff 
+	for some $\beta \in \Gamma$, both $\beta$ and $\neg\beta$
+	are theorems of the set.
+\w {\bf{}Deductions and metatheorems}
+	\bit
+	\w ({\bf{}Generalization Theorem}) If $\Gamma \vdash \varphi$ and
+		$x$ does not occur free in any formula in $\Gamma$, then
+		$\Gamma \vdash (\forall{x})[\varphi]$.
+		\bit
+		\w Generalization Theorem reflects our informal feeling
+			that if we can prove 
+			$\underline{\hspace{0.2cm}}x\underline{\hspace{0.2cm}}$
+			without any special assumptions about $x$, then
+			we are entitled to say that
+			``since $x$ are arbitrary, we have 
+			$(\forall{x})
+			[\underline{\hspace{0.2cm}}x\underline{\hspace{0.2cm}}]$''.
+		\eit
+	\w ({\bf{}Rule T})
+		If $\Gamma \vdash \alpha_1, \cdots, \Gamma \vdash \alpha_n$ and
+		$\{\alpha_1, \cdots, \alpha_n\}$ tautologically implies
+		$\beta$, then $\Gamma \vdash \beta$.
+	\w ({\bf{}Deduction Theorem}) If $\Gamma; \gamma \vdash \varphi$,
+		then $\Gamma \vdash (\gamma \rightarrow \varphi)$.
+	\w ({\bf{}Contraposition}) 
+		$\Gamma; \varphi \vdash \neg\psi$ iff
+		$\Gamma; \psi \vdash \neg\varphi$.
+	\w ({\bf{}Reductio Ad Absurdum}) If $\Gamma; \varphi$ is inconsistent
+		then $\Gamma \vdash \neg\varphi$.
+	\w ({\bf{}Generalization on Constants})
+		Assume that $\Gamma \vdash \varphi$ and that $c$ is a constant
+		symbol which does not occur in $\Gamma$. Then there is a variable
+		$y$ (which does not occur in $\varphi$) s.t.
+		$\Gamma \vdash (\forall{y})[\varphi^c_y]$. Furthermore,
+		there is a deduction of $(\forall{y})[\varphi_y^c]$ from
+		$\Gamma$ in which $c$ does not occur.
+		\bit
+		\w Assume that $\Gamma \vdash \varphi^x_c$, where the constant
+			$c$ does not occur in $\Gamma$ or in $\varphi$.
+			Then $\Gamma \vdash (\forall{x})[\varphi]$, and
+			there is a deduction of $(\forall{x})[\varphi]$ from
+			$\Gamma$ in which $c$ does not occur.
+		\eit
+	\w ({\bf{}Rule EI}) Assume that the constant symbol $c$
+		does not occur in $\varphi, \psi$, or
+		$\Gamma$, and that
+			\[ \Gamma; \varphi^x_c \vdash \psi. \]
+		Then
+			\[ \Gamma; (\exists{x})[\varphi \vdash \psi] \]
+		and there is a deduction of $\psi$ from $\Gamma;
+		(\exists{x})[\varphi]$ in which $c$ does not occur.
+	\eit
+\eit
+
+
+\subsection{Soundness and Completeness Theorems}
+\bit
+\w We need to prove that the information conveyed by
+	our deductive calculus is no more (soundness) and no less
+	(completeness).
+\w A set of formulas $\Gamma$ is {\bf{}satisfiable} iff there is
+	some $U$ and $s$ s.t. $U$ satisfies every member of $\Gamma$
+	with $s$.
+\w ({\bf{}Soundness Theorem}) If $\Gamma \vdash \varphi$,
+	then $\Gamma \models \varphi$.
+	\bit
+	\w This theorem can be proved using the following lemmas:
+		\ben
+		\w {\em{}Every logical axiom is valid\/}.
+		\w $\bar{s}(u^x_t) = \overline{s[\bar{s}(t)/x]}(u)$.
+		\w ({\bf{}Substitution Lemma})
+			If the term $t$ is substitutable for the 
+			variable $x$ in
+			the wff $\varphi$, then
+				\[ \models_U \varphi^x_t[x] \mbox{\ iff\ }
+				\models_U \varphi[s[\bar{s}(t)/x]].
+				\]
+		\w If $\vdash (\varphi \leftrightarrow \psi)$, then
+			$\varphi$ and $\psi$ are logically equivalent.
+		\w If $\varphi'$ is an alphabetic variant of $\varphi$,
+			then $\varphi$ and $\varphi'$ are logically equivalent.
+		\w {\em\bfseries{}If $\Gamma$ is satisfiable, 
+			then $\Gamma$ is consistent\/.} (In essence, this is
+			equivalent to the soundness theorem.)
+			
+		\een
+	\eit
+\w ({\bf{}Completeness Theorem}\footnote{By G\"{o}del (1930).})
+	\ben
+	\w [(a)] If $\Gamma \models \varphi$, then $\Gamma \vdash \varphi$.
+	\w [(b)] Any consistent set of formulas is satisfiable.
+	\een
+\w ({\bf{}Compactness Theorem})
+	\ben
+	\w [(a)] If $\Gamma \models \varphi$, then for some finite
+		$\Gamma_0 \subseteq \Gamma$ we have
+		$\Gamma_0 \models \varphi$.
+	\w [(b)] If every finite subset $\Gamma_0$ of $\Gamma$ is satisfiable,
+		then $\Gamma$ is satisfiable.
+	\een
+\w ({\bf{}Enumerability Theorem})
+	For a reasonable language, the set of valid wffs can be 
+	effectively enumerable.
+	\bit
+	\w By a {\bf{}reasonable language}, we mean one whose set of 
+		parameters can be effectively enumerated and such that
+		the two relations
+		\[ \{\arc{P, n}: \mbox{$P$ is an $n$-place predicate symbol}\} \]
+		and
+		\[ \{\arc{f, n}: \mbox{$f$ is an $n$-place function symbol}\} \]
+		are {\em{}decidable\/}.
+	\eit
+\w Let $\Gamma$ be a decidable set of formulas in a reasonable language.
+	\ben
+	\w [(a)] The set of theorems of $\Gamma$ is effectively enumerable.
+	\w [(b)] The set $\{\varphi: \Gamma \models \varphi\}$ of 
+		formulas logically implied by $\Gamma$ is effectively
+		enumerable.
+	\een
+\w Assume that $\Gamma$ is a decidable set of formulas in a 
+	reasonable language, and for any sentence $\sigma$ either
+	$\Gamma \models \sigma$ or $\Gamma \models \neg\sigma$.
+	Then the set of sentences implied by $\Gamma$ is
+	decidable.
+
+\eit
+
+\subsection{Models of Theories}
+
+\bibliographystyle{plain}
+\bibliography{bib/mac,bib/math}
+\nocite{Enderton72,Barwise77,BM96}
+\end{document}
+% LocalWords:  XYMATRIX wffs wff iff ome therwise ary ff deducibility EC od EI
+% LocalWords:  Definability ponens metatheorems Contraposition Reductio del
+% LocalWords:  Absurdum Enumerability LocalWords

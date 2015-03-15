@@ -1,0 +1,49 @@
+# @file .aliases
+#
+
+# abbreviations
+alias ..='cd ..'
+alias cls='clear'
+alias ls='ls -F -X -v --color=auto --group-directories-first'
+alias dir='ls -lF -X'
+alias pd='pushd .'
+
+# chdir shortcuts
+alias cdtex='cd $TEXMF'
+alias doc='cd ~/doc'
+alias wo='cd ~/work'
+alias go='cd ~/work/mv/src'
+alias reg='cd ~/work/mv/tests'
+alias to='cd ~/work/tools'
+alias db='cd ~/ztmp/Dropbox'
+alias box='cd ~/ztmp/Dropbox'
+alias comp='pushd ~/work/mv/src; make; popd'
+alias www='cd /var/www'
+alias co='cd ~/ztmp/code'
+
+# automatically-added options
+alias vncviewer='vncviewer -Shared'
+alias dvips='dvips -t letter'
+alias xdvi='xdvi -s 4 -expert'
+
+# misc
+alias more='less'
+alias mkbib='ln -s ~/doc/bib bib'
+alias so='source ~/.bashrc'
+alias todo='vi ~/.todo'
+alias key='xmodmap ~/.Xmodmap'
+alias xpdf='acroread'
+alias mc='make clean'
+alias mmc='make maintainer-clean'
+alias info='vi ~/.info'
+alias vs1='vncserver -geometry 1366x706'
+alias vs2='vncserver -geometry 1600x838'
+alias firefox='firefox > /dev/null 2>&1 &'
+alias chrome='google-chrome > /dev/null 2>&1 & '
+
+# git
+alias gitdiff='git difftool --tool=meld'
+
+# httpd
+alias httpd_kill='sudo kill -TERM `cat /var/run/apache2.pid`'
+alias httpd_restart='sudo /usr/sbin/apache2ctl restart'

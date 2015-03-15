@@ -1,0 +1,54 @@
+% $Id: kernel-tips.tex,v 1.1.1.1 2002/08/10 03:28:03 cjeong Exp $
+% Cheoljoo Jeong <cjeong@cs.columbia.edu>
+\documentclass{myart}
+\usepackage{charter,mydef}
+\usepackage[all]{xy}
+
+\begin{document}
+\small
+%preamble
+\hrule
+\vspace*{0.2cm}
+\noindent
+{\normalsize\bf Linux Kernel Compilation}
+\vspace*{0.1cm}\\
+{\small{}Author: Cheoljoo Jeong (\em{}cjeong@cs.columbia.edu\/)}\\
+{\small{}Date: \today} \vspace*{0.1cm}
+\hrule
+
+
+
+%body
+\paragraph{Linux Kernel 2.4.2 Compilation Procedure}
+\ben
+\w prepare \verb+/usr/src/linux+ directory
+\w generate \verb+.config+ in {\tt /usr/src/linux}
+\w {\tt make oldconfig}
+\w {\tt make dep}
+\w {\tt make clean}
+\w {\tt make bzImage}
+\w {\tt make modules}
+\w {\tt cp /usr/src/linux/arch/i386/boot/bzImage /boot/vmlinuz.new}
+\w {\tt cp /usr/src/linux/System.map /boot/System.map.new}
+\w {\tt cd boot}
+	\bit
+	\w {\tt rm /boot/vmlinuz}
+	\w {\tt rm /boot/System.map}
+	\w {\tt ln -s /boot/System.map.new /boot/System.map}
+	\w {\tt ln -s /boot/vmlinuz.new /boot/vmlinuz}
+	\eit
+\w add entry to the {\tt etc/lilo.conf}
+\w {\tt /sbin/lilo}
+\w REBOOT
+\een
+
+
+
+%toc
+%\pagebreak
+%\tableofcontents
+
+%bibliography
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/theory,00bib/math,00bib/algo,00bib/formal,00bib/se,00bib/pl,00bib/oop,00bib/sys,00bib/db,00bib/psl,00bib/misc00bib/inet}
+\end{document}

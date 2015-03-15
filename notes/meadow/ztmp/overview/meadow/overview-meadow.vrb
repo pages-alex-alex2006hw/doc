@@ -1,0 +1,17 @@
+\frametitle {Example: Workflow Execution}
+
+{\scriptsize
+\[\xymatrix@+0.5pc{
+  & \txt{\bf\em Distributed tables} \ar@{.}[rrr]\ar@{.}[d]\ar@{.}[rrrd]
+  &&&*+[F]\txt{Device\ \#1\\ runtime} \ar[d]^{\txt{\tiny{}\tt{}DeviceCommand}}&\\
+ & *+[F]\txt{Device\ \#0\\ runtime}
+  \ar@/^3ex/[rrr]^{\txt{\tiny{}\tt{}DeviceIDRequest}}
+  \ar@/_3ex/@{<-}[rrr]_{\txt{\tiny{}\tt{}DeviceIDReply}}
+   && &
+  *+[F]\txt{{\scriptsize\tt{}person.cj2005.fitbit}\\ runtime} \ar@{<->}[d]
+  \ar@{<->}[dl]&\\
+&&  &P &Q \ar[dl]_{\txt{\tiny{}\tt{}cmd1.run}}\ar[d]^{\txt{\tiny{}\tt{}cmd2.run}}\\
+&&  &\txt{cmd1 \\ program} &\txt{cmd2\\ program} \\
+}\]
+}
+

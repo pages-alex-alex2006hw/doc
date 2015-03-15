@@ -1,0 +1,60 @@
+\documentclass{myart}
+\usepackage{times,mydef,epsfig,myenv}
+\def\sbf{\sf\bfseries}
+\def\Q{{\sf{}Q}}
+\def\A{{\sf{}A}}
+\begin{document}
+\title{\large\bf Computer Organization and Design, 3rd Ed: Solutions
+  \vspace*{-0.5cm}} 
+\author{\normalsize Cheoljoo Jeong $\arc{\mbox{cjeong@cs.columbia.edu}}$}
+\date{}
+\maketitle
+\small
+
+\section{Computer Abstractions and Technology}
+\bit
+\w \bb{Problem 1.50.}
+  \bit
+  \w [a.] For a single bit to propagate to the A--B link, it takes $m/s$
+  seconds. Since $R$ bits are available per second, the time between the
+  beginning and end of sending a file of size $L$ bits is 
+   $L/R$ seconds. 
+   Therefore, end-to-end delay is $L/R + m/s$ seconds.
+  \w [b.] Since single burst of $R$ bits takes $m/s + t$ seconds to travel
+  over the links and the router, it requires $L/R + (m/s + t)$ seconds in
+  total. 
+  \w [c.] $L/R + (m/s + t/2)$ seconds.
+  \eit
+  
+\w \bb{Problem 1.51.}
+   From a single wafer, we can get 750 dies since the die yield is 50\%.
+   A single wafer costs \$6000 and the cost for a single die is
+   6000/750 = 8\$.
+   For a single die, we need \$10 for packaging and testing with a test yield
+   of 90\%, resulting in 7500\$ with a 675 functional chips.
+
+   Thus, to get 750*0.9 = 675 dies from a single wafer, there is a cost
+   6000 + 7500 = 13500\$.
+   The cost for a single functional chip is 13500/657=20\$.
+
+   Also, we have a fixed cost of \$500,000, which can be divived into the
+   number of chips produced. 
+   Therefore, if we produce $x$ functional chips, the cost for a single chip
+   is $20$.
+
+   Since the retail price for the chips is 40\% more than the cost, we can 
+   earn $20\times 0.4 = 8$\$ by selling a single chip.
+   If we want to break even by selling $x$ chips, $8\times x$ should equal
+   the fixed cost \$500,000. 
+   Therefore, we have to sell
+      \[ x = 500,000/8 = 62,500\]
+   chips.
+\eit
+
+
+\section{Instructions: Language of the Computer}
+\bit
+\w 
+
+\eit
+\end{document}

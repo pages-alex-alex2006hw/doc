@@ -1,0 +1,39 @@
+#!/bin/sh
+# mftest -- script to test the mf version of a single picture file
+#
+# Usage: mftest file
+#
+# e.g. copy ex01.m4 here and type ./mftest ex01
+# Invokes m4 on file.m4, and builds the resulting picture in file.ps
+
+LIBS="$HOME/lib/mfpic.m4 $HOME/lib/libcct.m4 $HOME/lib/liblog.m4"
+# PRINTER=-Pljfour
+
+echo "\documentclass{article}
+   \usepackage{mfpic}
+   \makeatletter
+   \def&bfig{\@ifnextchar[{\@bfig}{\@bfig[t]}}
+      \def\@bfig[#1]{ &begin{figure}[#1] &begin{center} }
+   \makeatother
+   &newcommand{\efig}[2]{ &caption{#1} \label{#2} \end{figure} }
+
+&begin{document}
+\opengraphsfile{"$1"mfpic}
+
+%{This is a test of the -m option of dpic (mfpic output).}" \
+| tr '\046' '\134' > $1.tex
+# &bfig&begin{minipage}{&textwidth}" | tr '\046' '\134' > $1.tex
+
+m4 -B16000 $LIBS $1.m4 | dpic -m >> $1.tex
+
+# echo "\end{minipage}\efig{}{1}
+echo "
+&closegraphsfile
+\end{document}" | tr '\046' '\134' >> $1.tex
+
+latex $1
+MFINPUTS=.:/usr2/local/lib/mf/inputs: \
+  mf "\mode:=localfont; scrollmode; input "$1mfpic < /dev/null
+gftopk $1mfpic.*gf $1mfpic.pk
+TEXFORMATS=.: TEXFONTS=.: latex $1
+TEXPKS=.: dvips $PRINTER $1 -o

@@ -1,0 +1,20 @@
+%\documentclass{article}
+\documentclass[11pt]{article}
+\usepackage[dvips]{graphicx}
+\usepackage{amssymb,pstcol,jda,bold,boxdims,Units,pst-grad}
+\addtolength{\textwidth}{2cm}
+\addtolength{\textheight}{3cm}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\hoffset}{-0.5in}
+
+\newbox\graph
+\pagestyle{empty}
+\thispagestyle{empty}
+%
+\begin{document}
+  \noindent{\vspace{2ex}\input{test.tex}
+  \noindent\box\graph
+  }
+
+\end{document}

@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{CV86b}
+R.~Cole and U.~Vishkin.
+\newblock Approximate and exact parallel scheduling with applications to list,
+  tree and graph problems.
+\newblock In {\em Proceedings of FOCS'86, 27th Annual IEEE Symposium on
+  Foundations of Computer Science}, pages 478--491, 1986.
+
+\bibitem{KR90}
+R.~M. Karp and V.~Ramachandran.
+\newblock Parallel algorithms for shared-memory machines.
+\newblock In J.~van Leeuwen, editor, {\em Algorithms and Complexity}, volume~A
+  of {\em Handbook of Theoretical Computer Science}, pages 869--932. MIT Press,
+  Cambridge, MA, 1990.
+
+\bibitem{Leighton92}
+F.~T. Leighton.
+\newblock {\em Introduction to Parallel Algorithms and Architectures: Arrays,
+  Trees, Hypercubes}.
+\newblock Morgan Kauffman, San Mateo, CA, 1992.
+
+\bibitem{Reif92}
+J.~H. Reif, editor.
+\newblock {\em Synthesis of Parallel Algorithms}.
+\newblock Morgan Kaufmann, San Mateo, CA, 1992.
+
+\end{thebibliography}

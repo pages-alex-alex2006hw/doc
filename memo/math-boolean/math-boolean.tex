@@ -1,0 +1,411 @@
+\documentclass{myproc}
+\usepackage{mydef,myenv}
+\usepackage{mathptm}
+\usepackage[all]{xy}
+\def\B{\mbox{\sf{}B}}
+\begin{document}
+
+\small
+
+\noindent{\large\bf Notes on Boolean Algebra}
+
+\section{Boolean algebra}
+\begin{definition}
+A \bb{Boolean lattice} or \bb{Boolean algebra} is a complemented,
+distributive lattice. 
+\end{definition}
+A Boolean algebra has the following properties:
+\bde
+\w [(P1) Idempotent]  $x + x = x, \quad x\cdot{x} = x$
+\w [(P2) Commutative] $x + y = y + x, \quad x\cdot{y} = y\cdot{x}$
+\w [(P3) Associative] $x + (y + z) = (x + y) + z, \quad
+			x\cdot(y\cdot{}z) = (x\cdot{}y)\cdot{}z$
+\w [(P4) Absortive] $x\cdot(x+y) = x, \quad x + x\cdot{}y = x$
+\w [(P5) Distributive] 
+	$x + y\cdot{}z = (x+y)\cdot(x + z), \quad
+	x\cdot(y + z) = x\cdot{}y + x\cdot{}z$
+\w [(P6) Existence of the complement]
+\ede
+It is possible to prove that an algebraic system $(B, +, \cdot)$
+with the above properties is a Boolean algebra\footnote{We can also
+define a Boolean algebra as an algebraic system $(B, +, \cdot)$ which
+satisfies the following properties:
+\bde
+\w [(P1$'$) Commutative] $x + y = y + x, \quad x\cdot{y} = y\cdot{x}$
+\w [(P2$'$) Distributive] 
+	$x + y\cdot{}z = (x+y)\cdot(x + z), \quad
+	x\cdot(y + z) = x\cdot{}y + x\cdot{}z$
+\w [(P3$'$) Identities]
+	$x + 0 = x, \quad x\cdot{}1 = x$
+\w [(P4$'$) Existence of the complement]
+	$x + x' = 1, \quad  x\cdot{}x' = 0$
+\ede}.
+
+\begin{theorem}
+Complementation in a Boolean algebra is unique.
+\end{theorem}
+
+\begin{theorem}[Involution]
+In a Boolean algebra, $(x')' = x$.
+\end{theorem}
+
+\begin{theorem}
+In a Boolean algebra,
+\begin{eqnarray*}
+	x + x'y & = & x + y,\\
+	x(x'+y) & = & xy.
+\end{eqnarray*}
+\end{theorem}
+
+\begin{theorem}
+In a Boolean algebra,
+\begin{eqnarray*}
+	x \le y & \Leftrightarrow & xy' = 0\\
+		& \Leftrightarrow & x' + y = 1.
+\end{eqnarray*}
+\end{theorem}
+
+
+\begin{theorem}[DeMorgan's Laws]
+In a Boolean algebra,
+\begin{eqnarray*}
+	(x+y)' & = & x'y',\\
+	(xy)' & = & x' + y'.
+\end{eqnarray*}
+\end{theorem}
+
+
+\begin{theorem}[Consensus]
+In a Boolean algebra,
+\begin{eqnarray*}
+	xy + x'z + yz & = & xy + x'z,\\
+	(x + y)(x' + z)(y+z) & = & (x+y)(x'+z).
+\end{eqnarray*}
+\end{theorem}
+
+\section{Boolean functions}
+\begin{definition}
+Given a Boolean Algebra $B$, we can define \bb{Boolean formula} 
+inductively.
+\ben
+\w [(1)] an element of $B$ is a Boolean formula,
+\w [(2)] if $g$ and $h$ are Boolean formulas, then so are
+	$(g) + (h)$, $(g)\cdot(h)$, and $(g)'$,
+\w [(3)] no other expression is a Boolean formula unless it is
+	compelled to be one by (1) and (2),
+\een
+where an \bb{expression} is a finite sequence of symbols.
+\end{definition}
+A \bb{symbol} is either a \bb{logical symbol}, $+, \cdot, '$ or 
+a \bb{Boolean symbol}
+which is denoted by $x_1, \cdots, x_n$.
+
+\begin{definition}
+A \bb{Boolean function} of $n$ variables is also defined inductively:
+\ben
+\w [(1)] for any element $b \in B$, the \bb{constant function}, defined by
+	\[f(x_1, \cdots, x_n) = b  \quad \mbox{for all\ \  $(x_1, \cdots,
+x_n) \in B^n$} \]
+	is an $n$-variable Boolean function,
+\w [(2)] for any $x_i$, the \bb{projection function}, defined by
+	\[f(x_1, \cdots, x_n) = x_i \quad \mbox{for all\ \  $(x_1, \cdots,
+x_n) \in B^n$} \]
+	is an $n$-variable Boolean function,
+\w [(3)] if $g$ and $h$ are $n$-variable Boolean functions,
+	then the functions $g+h, g\cdot{}h$ and $g'$ defined by
+\begin{eqnarray*}
+(g+h)(x_1, \cdots, x_n) & = & g(x_1,\cdots,x_n) + h(x_1,\cdots,x_n),\\
+(g\cdot{}h)(x_1, \cdots, x_n) & = & g(x_1,\cdots,x_n) \cdot 
+	h(x_1,\cdots,x_n),\\
+(g')(x_1, \cdots, x_n) & = & (g(x_1,\cdots,x_n))',
+\end{eqnarray*}
+for all $(x_1,\cdots, x_n) \in B^n$ are $n$-variable Boolean
+functions,
+\w [(4)] Only the functions that can be derived by above (1)--(3) are
+	$n$-variable Boolean functions.
+\een
+\end{definition}
+The functions defined as above are said to have \bb{domain} $B^n$
+and \bb{codomain} $B$ and denoted by $f(x): B^n \mapsto B$ where
+$x = \vec{x} = (x_1, \cdots, x_n)$.
+
+\begin{definition}
+The \bb{cofactor} of $f(x_1, \cdots, x_i, \cdots, x_n)$ with respect to
+$x_i$ is defined to be $f_{x_i} = f(x_1, \cdots, 1, \cdots, x_n)$.
+The \bb{cofactor} of $f(x_1, \cdots, x_i, \cdots, x_n)$ with respect to
+$x_i'$ is defined to be $f_{x_i'} = f(x_1, \cdots, 0, \cdots, x_n)$.
+\end{definition}
+
+\begin{theorem}[Boole's Expansion Theorem]
+If $f: B^n \rightarrow B$ is a Boolean function, then
+\begin{eqnarray*}
+f(x_1,\cdots, x_n) & = &
+	x_1'\cdot{}f(0, x_2, \cdots, x_n) +
+	x_1\cdot{}f(1,x_2,\cdots,x_n) \\
+	& = &
+	(x_1' + f(1, x_2, \cdots, x_n))\cdot(x_1 + f(0, x_2, \cdots, x_n)),
+\end{eqnarray*}
+for all $(x_1, \cdots, x_n) \in B^n$.
+\end{theorem}
+If we recursively apply the Expansion Theorem to a $n$-variable
+Boolean function, we eventually get
+\begin{eqnarray*}
+f(x_1, \cdots, x_{n-1}, x_n) = &  &
+	f(0, \cdots, 0, 0)\cdot{}x_1'\cdots{}x_{n-1}'x_n' \\
+	&+&  f(0, \cdots, 0, 1)\cdot{}x_1'\cdots{}x_{n-1}'x_n \\
+	&+&  f(0, \cdots, 1, 0)\cdot{}x_1'\cdots{}x_{n-1}x_n' \\
+	&+& \vdots \\
+	&+&  f(1, \cdots, 1, 1)\cdot{}x_1\cdots{}x_{n-1}x_n.
+\end{eqnarray*}
+\begin{definition}
+The values $f(0, \cdots, 0, 0)$ through $f(1, \cdots, 1, 1)$
+are elements of $B$ called the \bb{discriminants} of the function $f$
+and the elementary products $x_1'\cdots{}x_{n-1}'x_n'$ through
+$x_1\cdots{}x_{n-1}x_n$ are called \bb{minterms}.
+\end{definition}
+Equivalently, a minterm is a cube in which every variable in the
+Boolean functions appear.
+A minterm $m_1$ is said to \bb{dominate} $m_2$, denoted by
+$m_1 \succ m_2$, if for each position that $m_2$ has a $1$, $m_1$ also
+has a $1$.
+For example, $abc$ dominates $ab$.
+
+The Boolean functions of $n$ variables form a Boolean algebra
+$(B, +, \cdot)$ where $B$ is the set of Boolean functions,
+$+$ and $\cdot$ are functionals as previoiusly defined and 
+$0$ and $1$ are adequately defined constant functions.
+
+\begin{definition}
+For single-output functions, the \bb{distance} $\delta$
+between a cube $q$ and a cube $r$ is defined as the cardinality
+of the set $\{l : (l \in q) \wedge (l' \in r)\}$, where $l$
+is a Boolean variable used in the given Boolean function.
+\end{definition}
+For example, the distance between $abc$ and $abc'$ is 1 and the
+distance between $ab$ and $abc$ is $0$.
+
+
+
+\begin{definition}
+A function $f(x_1, \cdots, x_i, \cdots, x_n)$ is (positive/negative)
+\bb{unate in variable} $x_i$ if $f_{x_i} \ge f_{x_i'} 
+\ \ (f_{x_i} \le f_{x_i'})$. Otherwise it is \bb{binate} (or mixed)
+in that variable.
+A function is (positive/negative) \bb{unate} if it is
+(positive/negtive) unate in all support variables. Otherwise it is 
+\bb{binate} (or mixed).
+\end{definition}
+
+\subsection{Unateness of Boolean functions}
+\paragraph{Unateness of Boolean functions w.r.t variables}
+A function $f$ is unate in variable $x$ iff $f_{x'} \le f_x$.
+Consider the following Boolean function $f$ with three variables, which is
+unate in $x$.
+\[\xymatrix@!@-1.5pc{
+& \bullet \ar@{.>}[rr]\ar@{-}'[d][dd]
+	& & \bullet \ar@{-}[dd] \\
+\circ \ar@{-}[ur]\ar@{.>}[rr]\ar@{-}[dd]
+	& & \circ \ar@{-}[ur]\ar@{-}[dd] \\
+& \circ \ar@{-} \ar@{.>}'[r][rr]
+	& &  \bullet \\
+\bullet \ar@{.>}[rr]\ar@{-}[ur]
+& & \bullet \ar@{-}[ur] & 
+}
+\]
+Note, for any ON-vertex 
+in the $x = 0$ plane (the rectangle at the
+left side), the corresponding vertex in the $x = 1$ plane is ON.
+
+We can generalize this intuition to the multi-dimensional case.
+
+
+
+\paragraph{Unateness of Boolean functions}
+For example, consider a path from the min-vertex (000) to the
+max-vertex (111).
+Intuitively, when $f$ is monotonic increasing, $f$ 
+values along this path never decrease.
+{\tiny
+\[\xymatrix@!@-1.8pc{
+& 011 \ar@{-}[rr]\ar@{-}'[d][dd]
+	& & 111 \ar@{-}[dd] \\
+001 \ar@{-}[ur]\ar@{-}[rr]\ar@{-}[dd]
+	& & 101 \ar@{.>}[ur]\ar@{<.}[dd] \\
+& 010 \ar@{-} \ar@{-}'[r][rr]
+	& & 110\\
+000\ar@{.>}[rr]\ar@{-}[ur]
+& & 100 \ar@{-}[ur]
+}\]}
+In a three-dimensional hypercube, any path from the
+min-vertex to the max-vertex has length $3$ and is a permutation of
+three length-$1$ move along the $x$, $y$, and $z$ axis.
+Since unate function is unate in {\em every\/} variable, 
+each of these three walks should be a ``monotonically increasing'' move.
+
+
+
+\paragraph{Unateness of covers}
+A cover $F$ is unate in variable $x$ if and only if 
+$x$ never appears complemented in the products of $F$.
+Thinking this pictorially, the fact that $x'$ appears
+in a product of $F$ means that the literal $x'$ have not been removed
+through consensus. For example, if $F$ contains $x'yz$, 
+$F$ must not have contained $xyz$ as in the following figure:
+
+{\tiny
+\[\xymatrix@!@-1.8pc{
+& \mbox{\normalsize $\bullet$} \ar@{.>}[rr]\ar@{-}'[d][dd]
+	& & \mbox{\normalsize $\circ$} \ar@{-}[dd] \\
+001 \ar@{-}[ur]\ar@{-}[rr]\ar@{-}[dd]
+	& & 101 \ar@{-}[ur]\ar@{-}[dd] \\
+& 010 \ar@{-} \ar@{-}'[r][rr]
+	& & 110\\
+000\ar@{-}[rr]\ar@{-}[ur]
+& & 100 \ar@{-}[ur]
+}\]}
+
+
+%\pagebreak
+\begin{lemma}\label{lemma:function}
+{\rm If a function $f$ is unate in variable $x$, then there exists a cover
+$F$ of $f$ unate in $x_1$.}
+\end{lemma}
+
+%% \begin{proof}
+%% Let $F$ be an optimal cover of $f$.
+%% If we can show that no cube of $F$ contains a
+%% literal $x'$, we can prove the lemma.
+%% To the contrary, suppose that a cube $c$ of $F$ contains the literal $x'$.
+%% If we let $F = \{c, c_1, c_2, \cdots, c_k\}$, there's
+%% a set of input values, $I$, where $c = 1$ and $c_i = 0$ for all $i$,
+%% since otherwise $c$ must be contained in some $c_i$ and 
+%% $F$ cannot be optimal.
+
+%% Let's denote the algebraic expression of $c$ by $C$. Then, 
+%% for every input values in $I$,
+%% \[ C_{x'}\ >\ C_x. \]
+%% since $C_x = 0$ and $C_{x'} = 1$.
+%% But this contradicts to the assumption that $f$ is unate in $x$, and
+%% we can conclude that $c$ does not contain $x'$.
+%% \qedb\end{proof}
+
+%% Lemma
+\begin{theorem}
+{\rm If a function $f$ is unate, then there exists a  cover $F$ of
+$f$ which is unate.}
+\end{theorem}
+
+
+
+\begin{lemma}\label{lemma:cover}
+{\rm If a cover $F$ is unate in variable $x$, 
+then the function represented by $F$ is also unate in $x$.}
+\end{lemma}
+%% \begin{proof}
+%% Let $c$ be a cube in $F$. Since $F$ is unate in variable $x$,
+%% neither $c$ includes $x$-literal nor $c$ includes complemented $x$.
+%% If $C$ is an algebraic expression of $c$,
+%% \[ C_{x'}\ \le\ C_{x}\]
+%% for the two possible cases.
+%% Since
+%% \[ C_1 \le C_2 \mbox{\ and\ } D_1 \le D_2 \ \Rightarrow
+%% C_1 + D_1 \le D_2 + D_2 \]
+%% we can prove the assertion.
+%% \qedb\end{proof}
+
+
+\begin{theorem}
+{\rm If a cover $F$ is unate, then the function represented by $F$ is 
+also unate.}
+\end{theorem}
+
+\subsection{Semantics of Boolean functions}
+Given a boolean function $f$ and its corresponding Boolean expression
+$e$, the meaning of $e$ is the set of minterms for which $f$
+
+\subsection{Multiple-valued functions}
+\begin{definition}[Multiple-valued function]
+Let $p_i$, $i = 1, \cdots, n$ be positive integers.
+Define $P_i = \{0, \cdots, p_i - 1\}$ for $i = 1, \cdots, n$,
+and $B = \{0, 1, *\}$.
+A multiple-valued Boolean function, $f$, is a mapping
+\[ f: P_1 \times P_2 \times \cdots \times P_n \rightarrow B.\]
+\end{definition}
+
+\begin{definition}[Minterms]
+Each element in the domain of a Boolean function is called
+a \bb{minterm} of the function.
+\end{definition}
+An $n$-input, $m$-output switching function can be represented by a
+multiple-valued function of $n+1$ variables where $p_i = 2$ for
+$i = 1, \cdots, n$, and $p_{n+1} = m$.
+Suppose that $\{f_i: i = 0, \cdots, m-1\}$ is the set of output functions.
+Then we can have 
+\[f_i(x_1, \cdots, x_n) \equiv f(x_1, \cdots, x_n, i).\]
+This special case is called a \bb{multiple-output function}.
+
+\begin{definition}[ON-sets, OFF-sets, DC-sets]
+The \bb{ON-set} of a function is the set of minterms for which the function
+value is $1$. Likewise, the \bb{OFF-set} of a function is 
+the set of minterms for which the function value is $0$ and
+the \bb{OFF-set} of a function is the set of minterms for which the function
+value is unspecified.
+\end{definition}
+In the case of multiple-output function $f$, the {ON-set} of $f_i$ 
+in $f$ is defined to be the set of minterms for which $f_i(x) = 1$.
+OFF-set and DC-set are defined likewise.
+
+\begin{definition}[Literals]
+Let $X_i$ be a variable taking a value from $P_i$ and let $S_i$ be a subset of
+$P_i$. $X_i^{S_i}$ represents the Boolean function
+\[X_i^{S_i} = \left\{\begin{array}{ll}
+  0 & \mbox{if\ } X_i \not\in S_i\\
+  1 & \mbox{if\ } X_i \in S_i\\
+		     \end{array}\right.
+\]
+$x_i^{S_i}$ is called a literal of variable $X_i$.
+\end{definition}
+Formally, the meaning of $x_i^{S_i}$ is defined as follows:
+\[ \denote{X_i^{S_i}} = \{[x_1, \cdots, x_n]:
+  x_1\!\in\!P_1, \cdots, x_i \in S_i, \cdots, x_n \in P_n\}.\]
+
+
+
+
+\section{Boolean Algebra}
+\begin{definition}
+An algebra, denoted by a quintuple $(\B, +, \cdot, 0, 1)$ where
+$\B$ is a set, $+, -: \B \times \B \rightarrow \B$ 
+are binary operations on $\B$, and 
+$0$ and $1$ are distinct members of \B, is a \bb{Boolean algebra}
+if the following postulates are satisfied.
+\ben
+\w [(a)] {Commutative laws}
+\w [(b)] {Distributive laws}
+\w [(c)] {Identities}
+\w [(d)] {Complements}
+\een
+\end{definition}
+
+\begin{definition}
+A \bb{switching algebra} is a Boolean algebra $(\B, +, \cdot, 0, 1)$ 
+with $|\B| = 2$. That is, $\B = \{0, 1\}$.
+\end{definition}
+
+\begin{theorem}[Stone's representation theorem]
+Every finite Boolean algebra is isomorphic to the Boolean algebra of subsets
+of some finite set $S$.
+\end{theorem}
+
+\begin{theorem}
+The number of prime implicants of a Boolean function with $n$ input variables
+is at most $3^n/n$.
+\end{theorem}
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{bib/mac,bib/digital,bib/math}
+\nocite{Brown03}
+\end{document}

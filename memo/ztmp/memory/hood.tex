@@ -1,0 +1,52 @@
+\chapter{Caches}
+
+\chapter{DRAM}
+An individual DRAM device typically connects to a CPU {\em indirectly\/}
+through a memory controller. In PC systems, the memory controller is part of
+the {\bf northbridge} chipset that handles potentially multiple processors,
+the graphics co-processor, communication to the {\bf southbridge} chipset
+(which handles all of system's I/O functions), as well as the interface to the
+DRAM system.  
+
+\section{DRAM Basics}
+Each DRAM die contains one or more {\bf memory arrays}, rectangular grids of
+storage cells with each cell holding one bit of data. Memory arrays are
+organized into \bb{rows} and \bb{columns}. By specifying the {\em row
+  address\/} and {\em column address\/}, a {\bf memory controller} can access
+an individual storage cell inside a DRAM chip to read or write the data. 
+
+One way of characterizing DRAMs is by the {\em number of memory arrays inside
+  them\/}. The memory arrays can be either work in unison (for the given row
+and column addresses), they can act completely independently, or they can
+  act in a manner somewhere in between. For example, \bb{x4 (``by four'')
+    DRAM} has at least four memory arrays and the column width is 4. 
+
+\subsection{Banks}
+Each set of memory arrays that operates indenpendently of other sets is called
+a \bb{bank}, not an array. Each bank is independent in that, with a few
+restrictions, it can be activated, precharged, read out, etc. at the same time
+that other banks (on the same or other DRAM devices) are being activated,
+precharged, etc. 
+
+\subsection{Interleaved banks}
+Typically, multiple memory banks are {\bf interleaved}  to
+achieve a high-bandwidth memory busses using low-bandwidth devices. 
+In an interleaved memory system, the data bus uses a frequency that is faster
+than any one DRAM bank can support. The control circuitry toggles back and
+forth between multiple banks to achieve the bus data rate. This technique is
+dated back to mid-1960s, where it was used in IBM/360 an Cray Control Data
+6600.  
+
+\subsection{Ranks}
+In a memory system, a \bb{DIMM} can be thought of a set of independent
+banks. Also, the DRAM devices inside each DIMM can implement internally
+multiple independent banks. To distinguish these two types of banks, we call
+DIMM-level indenpendent operations as \bb{ranks}. A rank represents a DIMM-level independent operation
+while a bank represents a internal DRAM-device-level independent operation. 
+
+\subsection{DIMMs, ranks, banks, and arrays}
+In summary, a memory system consists of potentially many \bb{DIMMs}. 
+Each DIMM may contain one or more independent \bb{ranks}. 
+Each rank is a set of \bb{DRAM devices} that operate in unison. 
+Internally, each DRAM device implements one or more independent \bb{banks}. 
+Finally, each bank is composed of slaved \bb{memory arrays}.

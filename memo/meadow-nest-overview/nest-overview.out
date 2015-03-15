@@ -1,0 +1,21 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}
+\BOOKMARK [2][-]{subsection.1.1}{High-level summary}{section.1}
+\BOOKMARK [2][-]{subsection.1.2}{Using Nest API}{section.1}
+\BOOKMARK [2][-]{subsection.1.3}{Firebase client libraries}{section.1}
+\BOOKMARK [2][-]{subsection.1.4}{Data model}{section.1}
+\BOOKMARK [1][-]{section.2}{Architecture}{}
+\BOOKMARK [2][-]{subsection.2.1}{Firebase}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{Data model}{section.2}
+\BOOKMARK [2][-]{subsection.2.3}{Structures object}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Data values}{subsection.2.3}
+\BOOKMARK [2][-]{subsection.2.4}{Thermostats object}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Data values}{subsection.2.4}
+\BOOKMARK [2][-]{subsection.2.5}{User reports and oversight}{section.2}
+\BOOKMARK [1][-]{section.3}{Nest API}{}
+\BOOKMARK [2][-]{subsection.3.1}{How Nest API works}{section.3}
+\BOOKMARK [2][-]{subsection.3.2}{Example}{section.3}
+\BOOKMARK [1][-]{section.4}{Authentication and authorization}{}
+\BOOKMARK [2][-]{subsection.4.1}{Three per-structure permissions}{section.4}
+\BOOKMARK [2][-]{subsection.4.2}{Two per-thermostat permissions}{section.4}
+\BOOKMARK [1][-]{section.5}{REST and REST Streaming Interfaces}{}
+\BOOKMARK [2][-]{subsection.5.1}{REST Streaming}{section.5}

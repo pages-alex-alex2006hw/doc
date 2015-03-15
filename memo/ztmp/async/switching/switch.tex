@@ -1,0 +1,233 @@
+\documentclass{myproc}
+\usepackage{mydef}
+\def\sbf{\sf\bfseries}
+\begin{document}
+\title{\large\bf Notes on Switching Algebra \vspace*{-0.5cm}}
+\author{\small{}Cheoljoo Jeong $\arc{\mbox{cjeong@cs.columbia.edu}}$}
+\maketitle
+\small
+
+\section{Boolean Expressions and Boolean Functions}
+\bit
+\w The abstract syntax of Boolean expressions is as follows:
+  \[ t ::= x \mid 0 \mid 1 \mid  t' \mid  t\cdot{t} \mid t + t \mid t
+  \rightarrow t \mid t \leftrightarrow t,\]
+  where $x$ ranges over a set of Boolean variables.
+  A Boolean variable or a negated Boolean variable is called a \bb{literal}.
+\w A \bb{truth assignment} or \bb{valuation} 
+  is a sequence of assignments of values to variables.
+\w A \bb{Boolean function} is a mapping ${\cal B}^n \rightarrow {\cal B}$
+   where ${\cal B} = \{0, 1\}$.
+\w The meaning of a Boolean expression is a Boolean function. We can define a
+  denotational semantics for this.
+\w A Boolean expression is a \bb{tautology} if it yields true for {\em all\/}
+   truth
+  assignments. 
+\w A Boolean expression is \bb{satisfiable} if there {\em exists\/} a truth
+  assignment under which the expression evaluates to true.
+\w A Boolean expression is in \bb{disjunctive normal form} or \bb{DNF} if
+   it consists of a disjunction of conjunctions of literals. E.g.
+   $x_1x_2x_3' + x_2x_3' + x_1'x_2'x_3$.
+\w A Boolean expression is in \bb{conjunctive normal form} or \bb{CNF} if
+   it consists of a conjunction of disjunctions of literals. E.g.
+   $(x_1 + x_2 + x_3')(x_2 + x_3')(x_1' + x_2' + x_3)$.
+\eit
+
+\section{Boolean Algebra}
+\bit
+\w A \bb{Boolean algebra} is $(B \supseteq {\cal B} \equiv \{0, 1\}, +,
+\cdot)$ where
+  \ben
+  \w [(a)] $+$ and $\cdot$ are {\em commutative\/},
+  \w [(b)] $+$ and $\cdot$ are {\em distributive\/}, and
+  \w [(c)] there exist identity elements; $0$ and $1$
+  \een
+\w The \bb{switching algebra} is a 
+   Boolean algebra with $B = {\cal B}$\footnote{
+   From now on, we will use Boolean algebra and switching algebra
+   interchangeably.}.
+\w {\sbf Properties}:
+  \ben
+  \w [(a)] $a + (b + c) = (a + b) + c, \quad a\cdot(b\cdot{}c) = (a\cdot{}b)\cdot{}c$
+  \w [(b)] $a + a = a, \quad a\cdot{}a = a$
+  \w [(c)] $a + ab = a, \quad a\cdot(a + b) = a$ (\bb{absorption})
+  \w [(d)] $(a + b)' = a'\cdot{}b', \quad (a\cdot{}b)' = a' + b'$
+  \w [(e)] $(a')' = a$ (\bb{involution})
+  \w [(f)] $a\cdot{}a' = 0, \quad a + a' = 1$ (\bb{complements})
+  \een
+\w \bb{Duality Theorem}: Given an valid Boolean {\em expression\/} 
+   (not a function!), we can change $(0 \leftrightarrow 1)$ and
+   $(+ \leftrightarrow \cdot)$ to obtain a new valid Boolean expression.
+   \bit
+   \w Note that a ``algebra'' is represented by ``algebraic expression,''
+   which is essentially a language.
+   \eit
+\eit
+
+\section{Symmetric Functions}
+\bit
+\w A \bb{symmetric function} is one in which each of the input variables plays
+the same role in determining the value of the function.
+\w {\sbf Examples}: {\em majority\/} function (carry in binary addition,
+``voter'' in fault-tolerant computers), {\em parity\/} function
+\w A function $f(x_1, \cdots, x_n)$ is \bb{totally symmetric} iff it is
+unchanged by any permutation of its variables.
+\w {\sbf Theorem}: {\em 
+A function $f(x_1, \cdots, x_n)$ is totally symmetric iff
+it can be specified by stating a list of integers $A = \{a_1, \cdots, a_m\}$,
+$0 \le a_j \le n$ so that $f = 1$ iff exactly $a_j$ of the variables are 1.\/}
+\w {\sbf Example}: for 3-variable majority functions, $\{2, 3\}$ is enough to
+specify the function.
+\w A function is \bb{mixed symmetric} iff it is not totally symmetric but it
+can be changed into one by replacing some of its variables by its
+complements. 
+\w A function is \bb{partially symmetric in} $x_{i_1}, \cdots, x_{i_m}$ iff it
+is unchanged by any permutation of the variables $x_{i_1}, \cdots, x_{i_m}$.
+\eit
+
+\section{Unate Functions}
+\bit
+\w A function $f(x_1, \cdots, x_n)$ is \bb{positive in} $x_i$ iff it is
+possible to write a SOP expression for $f$ in which $x_i'$ does not appear.
+\w A function $f(x_1, \cdots, x_n)$ is \bb{positive in} $x_i$ iff it is
+possible to write a SOP expression for $f$ in which $x_i$ does not appear.
+\w A function $f(x_1, x_2, \cdots, x_n)$ is \bb{vacuous in} $x_i$ iff it is
+possible to write a SOP expression in which neither $x_i$ nor $x_i'$ appear.
+\w A function $f(x_1, x_2, \cdots, x_n)$ is \bb{essential} $x_i$ iff it is
+impossible to write a SOP expression in which neither $x_i$ nor $x_i'$ appear.
+\w $f$ \bb{implies} $g$, written as $f \le g$, iff
+  $f({x}_1, \cdots, {x}_n) = 1$ implies
+  $g({x}_1, \cdots, {x}_n) = 1$.
+  \bit
+  \w In terms of minterm-semantics, $\denote{f} \subseteq \denote{g}$.
+  \eit
+\w $f = g$ iff $f \le g$ and $g \le f$.
+\w $f$ is not compatible with $g$ iff 
+$f_{x_i} \not\le f_{x_i'}$ and $f_{x_i'} \not\le f_{x_i}$.
+\w A \bb{cofactor} of $f(x_1, \cdots, x_n)$ w.r.t. $x_i$ is
+ \[ f_{x_i}(x_1, \cdots, x_n) = f(x_1, \cdots, x_{i-1}, 1, x_{i}, \cdots,
+ x_n). \]
+\w {\sbf Shannon's Expansion Theorem}: \begin{eqnarray*}
+ f(x_1, \cdots, x_i, \cdots, x_n) &=&
+  x_i\cdot{}f_{x_i} + f_i'\cdot{}f_{x_i'}\\
+ & = & (x_i + f_{x_i'})\cdot(f_i' +f_{x_i}).
+\end{eqnarray*}
+\w {\sbf Theorem}: 
+  \ben
+  \w [(a)] $f_{x_i} = f_{x_i'}$ iff $f$ is vacuous in $x_i$.
+  \w [(b)] $f_{x_i} \le f_{x_i'}$ iff $f$ is negative unate in $x_i$.
+  \w [(c)] $f_{x_i'} \le f_{x_i}$ iff $f$ is positive unate in $x_i$.
+  \w [(d)] $f_{x_i}$ and $f_{x_i'}$ is not compatible 
+iff $f$ is mixed in $x_i$.
+  \een 
+
+\w A function is \bb{unate} iff it is positive or negative in each of its
+variables. 
+\w {\sbf Corollary}: A unate function can be implemented using only AND gates
+and OR gates.
+\eit
+
+\section{Threshold Functions}
+\bit
+\w A \bb{threshold function} is one that can be defined by a system of
+inequalities 
+\[ f(X) = 1 \mbox{\ iff\ } a_1x_1 + a_2x_2 + \cdots + a_nx_n \ge T.\]
+\w Because the definition is in terms of inequalities, threshold functions are
+often called \bb{linearly separable functions}. 
+\w \bb{Example}: 
+  \ben
+  \w $f = x_1x_2$: $x_1 + x_2 \ge 2$.
+  \w $f = x_1 + x_2$: $x_1 + x_2 \ge 1$.
+  \w $f = x_1x_2 + x_2x_3 + x_3x_1$: $x_1 + x_2 + x_3\ge 2$;
+  {\em majority\/} function, 
+    whose value depends on whether the sum of
+   the values of its inputs exceeds a ``threshold''
+  \een
+\w {\sbf Properties}:
+  \ben
+  \w [(a)] All threshold functions are unate.
+  \w [(b)] Not all unate functions are threshold functions.
+  \w [(c)] Threshold functions don't have unique weights. Any
+  threshold function can be expressed with integer weights and threshold.
+  \w [(d)] All members of the same symmetry class as a threshold
+  function are threshold functions. Both the complement and the dual of a
+  threshold function are threshold functions.\
+  \w [(e)] If $a_i = a_j$, then $f$ is partially symmetric i
+   n $x_i$ and $x_j$.
+   \een
+\eit
+
+\section{Boolean Difference}
+\bit
+\w The \bb{Boolean difference}, or \bb{Boolean derivative}, of
+  $f(x_1, \cdots, x_i, \cdots, x_n)$ w.r.t. $x_i$ is
+  $\partial{f}/\partial{}x_i = f_{x_i} \oplus f_{x_i'}$.
+\w Boolean difference w.r.t. $x_i$ indicates whether $f$ is {\em sensitive\/}
+to changes in input $x_i$.
+\w {\sbf Properties}:
+  \ben
+  \w [(a)] If $\partial f/\partial x = 0$, $f$ is independent of $x_i$.
+  \w [(b)] If $\partial f/\partial x = 1$, $f$ depends on $x_i$, for all other
+  values of $x_j$, $i \ne j$.
+  \w [(c)] $\partial f/\partial x  = \partial f'/\partial x$ (\bb{complements})
+  \w [(c')] $\partial f/\partial x  = \partial f/\partial x'$ 
+  (\bb{complements})
+  \een
+\eit
+
+\section{Consensus; Universal Quantifier}
+\bit
+\w The \bb{consensus} of $f(x_1, \cdots, x_i, \cdots, x_n)$ w.r.t. $x_i$ is 
+  ${\cal{}C}_{x_i}(f) = f_{x_i}\cdot f_{x_i'}$.
+\w The consensus of a function w.r.t. a variable represents the {\em component
+  that is independent of that variable\/}.
+\w That is, this operation finds the portion on which 
+$x_i = 0$ halfplane and $x_i = 1$ halfplane {\em agree\/}.
+\eit
+
+\section{Smoothing; Existential Quantifier}
+\bit
+\w The \bb{smoothing} of $f(x_1, \cdots, x_i, \cdots, x_n)$ w.r.t. $x_i$ is 
+${\cal S}_{x_i}= f_{x_i} + f_{x_i'}$.
+\w The smoothing of a function w.r.t. a variable corresponds to {\em deleting
+all appearances of that variable\/}.
+\w That is, this operation smooths out the {\em differences\/} between the
+$x_i = 0$ halfplane and $x_i = 1$ halfplane.
+\eit
+
+\section{Minimal Functions and Their Properties}
+\bit
+\w {\sbf Theorem}: Eevry irredundant sum-of-products that realizes a Boolean
+  function $f$ is a union of prime implicants of $f$.
+\w {\sbf Unate Prime Theorem}: Let $f$ be a Boolean function, with cover $F$
+(which covers the entire ON-set and DC-set). If $F$ is a unate cover, then
+cover $F$ contains {\em all\/} of its prime implicants. In addition, $F$ may
+contain some non-primes, which can be deleted. That is,
+  \[ \mbox{Primes}(f) = \mbox{\ SCC}(F). \]
+\eit
+
+\section{Complexity of Boolean Functions}
+\bit
+\w {\sbf Cook's Theorem}: Satisfiability of CNF expressions is NP-complete.
+\w For DNFs, satisfiability is decidable in polynomial time\footnote{A DNF is
+  satisfiable if and only if it has at least one term. Since $'+'$ always
+  increases ON-set and each term has at least one ON-set minterm.} 
+  but tautology checking is hard (co-NP-complete).
+\w For CNFs, satisfiability is hard but tautology
+checking is decidable in polynomial time\footnote{A CNF is a tautology if and
+  only if all of the clauses is a tautology. Note that $'\cdot'$ always
+  decreases ON-set.}.
+\w Conversion between CNFs and DNFs takes exponential time in the worst case.
+\w {\sbf{}Theorem}: Checking equivalence between two Boolean expressions is
+  NP-hard\footnote{$\mbox{\bb{CNF-SAT}}(\phi) \propto 
+      \mbox{\bb{CNF-Inequiv}}(\phi,
+      \emptyset)$. Thus, if \bb{CNF-Inequiv} problem is decidable in polynomial
+      time, 
+      \bb{CNF-SAT} also should be decidable in polynomial time.}.
+\eit
+
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/async}
+\nocite{McCluskey86}
+\end{document}
+

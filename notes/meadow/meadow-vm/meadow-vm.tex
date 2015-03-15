@@ -1,0 +1,479 @@
+%\documentclass{pamsbook}
+\documentclass{note}
+\usepackage{mathptm,mydef-ams,amsfonts}
+\usepackage{alltt}
+\usepackage[T1]{fontenc}
+\usepackage[all,knot]{xy}
+%\renewcommand{\ttdefault}{txtt}
+%\usepackage{MinionPro}
+\newcommand{\rtt}[1]{\textcolor{red2}{\texttt{#1}}}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks ,
+    citecolor=black, 
+    filecolor=black,
+    linkcolor=blue, 
+    urlcolor=black
+}
+
+%\setlength\oddsidemargin{-1.5cm}
+%\setlength\evensidemargin{-1.5cm}
+%\setlength\textwidth{19.3cm}
+%\addtolength\topmargin{-1cm}
+%\addtolength\textheight{2cm}
+%\addtolength\columnsep{0.2cm}
+%\newtheorem{theorem}{Theorem}
+%\theoremstyle{definition}
+%\newtheorem{definition}[theorem]{Definition}
+%\def\EE{\mbox{\eufm{}E}}1
+
+\begin{document}
+
+\small
+
+\vspace*{0.5cm}
+
+\begin{center}
+\textcolor{blue2}{\large\bf Meadow VM:  Runtime for Meadow Devices}
+\\
+$$\xy
+%\vtop{\vbox{
+\xygraph{!{0;/r0.7pc/:} !{\vover}[u]
+  !{\hcap[-2]} [d] !{\vover-} [ruu] !{\hcap[2]}}
+%}\smallskip}
+\endxy$$
+
+\vspace*{0.8cm}
+
+{\small\today}
+
+\vspace*{0.8cm}
+
+\end{center}
+
+
+\tableofcontents
+
+\section{Introduction}
+\noindent{}The \textcolor{blue2}{\bf{}Meadow VM} is a virtual machine
+which comprises the backbone of the \textcolor{blue2}{\bf{}the Meadow
+  system}.
+A Meadow device contains at least one Meadow VM running inside. Each VM is
+unique in the entire Meadow system, which means that each device has a
+globally-unqiue name. 
+
+\begin{figure*}[hbt]
+\centerline{
+\xy
+\xymatrix"*"@-0.5pc{
+  \txt{Device $A$} \\ 
+  *+[F]\txt{\bf{}VM} \\
+  \txt{ } 
+}
+\POS*\frm{-}
+\POS+(50,0)
+\xymatrix{
+  \txt{Device $B$} \\ 
+  *+[F]\txt{\bf{}VM} \ar@/_3ex/@{<-}["*"]_{funccall}\ar@{<-}["*"]_{get\_property}\ar@/^3ex/@{<-}["*"]_{subscribe\_event}
+\\
+  \txt{ } 
+}
+\POS*\frm{-}
+\endxy
+}
+\end{figure*}
+
+
+\subsection{Basic functionality}
+A Meadow VM in a Meadow device is responsible for maintenance of four types
+of values: 
+\bit
+\w \textcolor{red2}{\bb{properties}}, which are {\em pull-based data items\/}
+\w \textcolor{red2}{\bb{events}}, which are {\em push-based data items\/}
+\w \textcolor{red2}{\bb{functions}}, which are {\em pull-based computation\/}
+\w \textcolor{red2}{\bb{reactors}}, which are {\em push-based computation\/}
+\eit
+These values can be used locally by another value in the same VM or
+remotely from a different VM.
+
+\subsection{Meadow VM as Meadowview interpreter}
+A Meadow VM is capable of evaluating Meadowview definitions -- i.e. Meadow
+code. Basically, a Mewdowview allows to \textcolor{red2}{\em define\/}
+properties, events, functions, and reactors.
+A Meadow VM evaluates such definitions. 
+
+\subsection{Meadow VM as special form handler}
+
+
+\subsection{Lightweight vs Full-fledged VM}
+For some resource-limited devices, we could consider building a simplified
+device which only supports properties, etc.
+
+
+\subsection{Virtue of Meadow VM}
+Meadow VMs are useful in the sense that it hides all lower-level details in
+providing/using services from other devices.
+
+
+
+\section{Virtual Machines in the Meadow System}
+\subsection{Meadow system as collection of VMs}
+The meadow system is a collection of VMs, which cooperate to perform tasks. 
+
+\subsection{Hierarchy of VMs}
+VMs are organized in a hierarchy of VMs.
+VMs can join and leave the system and the hierarchy can change dynamically.
+
+\subsection{Name of VMs}
+The name of a VM is globally-unique in the entire Meadow System in any time.
+The VM namespace is persistent in the sense that the name of a VM will be
+always the same across the lifetime of a VM -- creation and removal.
+
+\subsection{Namespaces of the Meadow system}
+There are two types of namespaces in the Meadow system: {\em transient\/} and
+{\em persistent\/}. A name inside a transient namespace disappears when its
+supervising VM is not active. 
+A namespace of a Meadow system is implemented by one or more VMs.
+
+\subsection{Persistent namespace}
+A name inside a persistent namespace exists regardless of its
+supervising VM is active or not.
+
+\subsection{Transient namespace}
+
+
+\section{Meadow VM Architecture}
+\subsection{Task Execution Unit}
+Meadow VM contains a \textcolor{red2}{\bf{}task execution unit} which
+continuously fetches a task from the \textcolor{red2}{\bf{}task queue}
+and executes it, where a \textcolor{red2}{\bf{}task} is a named sequence of VM
+instructions.  
+
+
+\section{VM Instruction Set: Basic instructions}
+
+\subsection{Arithmetic and logic operations}
+\subsubsection{ADD}
+\subsubsection{SUB}
+\subsubsection{MUL}
+\subsubsection{DIV}
+\subsubsection{AND}
+\subsubsection{OR}
+\subsubsection{NOT}
+
+\begin{alltt}
+  RATOR DEST RAND1 RAND2
+\end{alltt}
+where {\tt DEST}, {\tt RAND1}, and {\tt RAND2} are symbols which can be found
+in the environment.
+If any of these three symbols are not in the environment, lookup failure 
+exception is raised.
+
+\subsection{Comparison}
+\subsubsection{EQ}
+\begin{alltt}
+  EQ DEST RAND1 RAND2
+\end{alltt}
+\subsubsection{NEQ}
+
+\subsection{Branching}
+\begin{alltt}
+  IF COND B1 B2
+\end{alltt}
+where {\tt COND} is a symbol. {\tt{}B1} and {\tt{}B2} are names of blocks.
+
+\subsection{Jumping}
+\begin{alltt}
+  JMP L1
+\end{alltt}
+where {\tt BLOCK} is a block name.
+
+\subsection{Block definition}
+\begin{alltt}
+  BLOCK_BEGIN BLOCKNAME
+  BLOCK_END BLOCKNAME
+\end{alltt}
+Indicates the beginning and end of a block. A block is a named sequence of VM
+instructions which can be executed without any nonblocking events.
+Also, it is a basic block.
+
+
+\subsection{Reactor definition}
+
+\subsection{Comparision}
+\subsubsection{CMP}
+
+\subsection{Branching}
+\subsubsection{BR}
+\begin{alltt}
+  BR $\arc{cond}$ L1 L2
+\end{alltt}
+\subsubsection{RET}
+
+\section{VM Instruction Set: Special instructions}
+
+\subsection{Instruction for events}
+\subsubsection{\rtt{ADD\_EVENT}}
+\subsubsection{\rtt{DEL\_EVENT}}
+\subsubsection{\rtt{SUB\_EVENT}}
+\subsubsection{\rtt{UNSUB\_EVENT}}
+\subsubsection{\rtt{GEN\_EVENT}}
+
+\subsection{Instruction for properties}
+\subsubsection{\rtt{ADD\_PROP}}
+\subsubsection{\rtt{DEL\_PROP}}
+
+\subsection{Instructions for functions}
+\subsubsection{\rtt{ADD\_FUN}}
+\subsubsection{\rtt{REM\_FUN}}
+\subsubsection{\rtt{SCHED\_FUN}}
+\subsubsection{\rtt{EVAL\_TASK}}
+
+
+
+\section{VM API}
+\noindent{}Each of the VM supports the APIs for handling properties, events,
+functions, and reactors.
+
+\subsection{API for VM}
+\subsubsection{\textcolor{red2}{\texttt{get\_vm\_id()}}}
+\subsubsection{\textcolor{red2}{\texttt{get\_vm\_name()}}}
+
+\subsection{API for properties}
+\subsubsection{\textcolor{red2}{\texttt{add\_property(name)}}}
+Adds the property with the given name. After its execution, the given property
+can be manipulated locally from within this VM or remotely from a different VM.
+
+\subsubsection{\textcolor{red2}{\texttt{remove\_property(name)}}}
+Remove the property with the given name from the VM.
+
+\subsubsection{\textcolor{red2}{\texttt{add\_native\_property(name, tag, \textrm{\arc{tag\_specific\_uri}})}}}
+Adds a native property service which is already provided through a distributed
+communication framework, such as AllJoyn. Each such communication framework
+should have some unique property name in its own framework. 
+\begin{alltt}
+  \textcolor{blue2}{add_native_property(batterylife, AllJoyn, "com.fitbit.sn002839.battlife");}
+\end{alltt}
+After its execution, this AllJoyn property of the given URI can be accessed
+from the Meadow system.
+
+\subsubsection{\textcolor{red2}{\texttt{remove\_native\_property(name, tag, \textrm{\arc{tag\_specific\_uri}})}}}
+\subsubsection{\textcolor{red2}{\texttt{get\_property(name)}}}
+This allows to obtain the value of the property with the given name.
+
+\subsubsection{\textcolor{red2}{\texttt{set\_property(name, value)}}}
+This allows to set the value of the property with the given name.
+
+\subsubsection{\textcolor{red2}{\texttt{list\_properties()}}}
+\subsubsection{\textcolor{red2}{\texttt{list\_native\_properties()}}}
+
+
+\subsection{API for events}
+
+\subsubsection{\textcolor{red2}{\texttt{add\_event(name)}}}
+\subsubsection{\textcolor{red2}{\texttt{remove\_event(name)}}}
+\subsubsection{\textcolor{red2}{\texttt{add\_native\_event(name, tag, \textrm{\arc{tag\_specific\_uri}})}}}
+\subsubsection{\textcolor{red2}{\texttt{remove\_native\_event(name, tag, \textrm{\arc{tag\_specific\_uri}}})}}
+\subsubsection{\textcolor{red2}{\texttt{subscribe\_events(name)}}}
+\subsubsection{\textcolor{red2}{\texttt{unsubscribe\_events(name)}}}
+\subsubsection{\textcolor{red2}{\texttt{list\_events()}}}
+\subsubsection{\textcolor{red2}{\texttt{list\_native\_events()}}}
+
+
+\subsection{API for functions}
+
+\subsubsection{\textcolor{red2}{\texttt{add\_function(name, \textrm{\arc{function\_def}})}}}
+\subsubsection{\textcolor{red2}{\texttt{remove\_function(name)}}}
+\subsubsection{\textcolor{red2}{\texttt{add\_native\_function(name, tag, \textrm{\arc{tag\_specific\_uri}})}}}
+\subsubsection{\textcolor{red2}{\texttt{remove\_native\_function(name, tag, \textrm{\arc{tag\_specific\_uri}})}}}
+\subsubsection{\textcolor{red2}{\texttt{list\_functions()}}}
+\subsubsection{\textcolor{red2}{\texttt{list\_native\_functions()}}}
+
+
+\subsection{API for reactors}
+\subsubsection{\textcolor{red2}{\texttt{add\_reactor(name, \textrm{\arc{reactor\_def}})}}}
+\subsubsection{\textcolor{red2}{\texttt{remove\_reactor(name)}}}
+\subsubsection{\textcolor{red2}{\texttt{add\_native\_reactor(name, tag, \textrm{\arc{tag\_specific\_uri}})}}}
+\subsubsection{\textcolor{red2}{\texttt{remove\_native\_reactor(name, tag, \textrm{\arc{tag\_specific\_uri}})}}}
+\subsubsection{\textcolor{red2}{\texttt{list\_reactors()}}}
+\subsubsection{\textcolor{red2}{\texttt{list\_native\_reactors()}}}
+
+
+\section{Builtin values}
+\subsection{Builtin per-VM properties}
+\subsubsection{\textcolor{red2}{\texttt{vm\_status}}}
+
+1\subsubsection{\textcolor{red2}{\texttt{vm\_uptime}}}
+
+
+\subsection{Builtin per-VM events}
+\subsubsection{\textcolor{red2}{\texttt{vm\_started\_event}}}
+The event generated when VM starts execution.
+This event is an aggregate value, which consists of the unique ID
+of this VM, timestamp, etc.
+
+
+\subsection{Builtin per-VM functions}
+
+\subsection{Builtin per-VM reactors}
+
+
+
+\section{Virtual Machine Group}
+\subsection{Rationale}
+A group of VMs can form a VM group. 
+This can be either a proximity-based group of VMs or a ad-hoc,
+security-enforced group of VMs.
+A group of VMs provids additional capabilities which can be described as a 
+``group capability.''
+
+\subsection{Formation of a VM group}
+\subsection{Dismissal of a VM group}
+A VM group is dismissed based on group context -- dismissWhenOneLeft,
+neverDismiss, etc.
+
+\subsection{Lifetime of a VM group}
+
+\subsection{VM vs VM group}
+A single VM itself is an interpreter. However, a group of VM could be
+dynamically combined into a larger interpreter. Since an interpreter is just
+a maintainer of name--value tables, this larger interpreter just additionally
+maintains larger-scale name--value tables of events, properties, functions,
+and reactors. 
+This group table is maintained by a group of VMs -- REAL CHALLENGE!!
+
+\subsection{Builtin per-VM-group properties}
+\subsubsection{\textcolor{red2}{\texttt{num\_vms}}}
+
+
+\subsection{Builtin per-VM-group events}
+\subsubsection{\textcolor{red2}{\texttt{vm\_joined\_event}}}
+\subsubsection{\textcolor{red2}{\texttt{vm\_left\_event}}}
+
+\subsection{Builtin per-VM-group functions}
+\subsubsection{\textcolor{red2}{\texttt{list\_of\_vms}}}
+
+\subsection{Builtin per-VM-group reactors}
+\subsubsection{\textcolor{red2}{\texttt{vm\_joined\_reactor}}}
+Executed when a new VM joins the given VM group.
+Updates \textcolor{red2}{\texttt{num\_vms}} property, etc. (customizable)
+
+\section{Implemenation of Virtual Machine}
+\subsection{Protocol synthesis}
+Need protocols between VMs for:
+   \bit
+   \w msg format
+   \w msg types
+   \w distributed environment (symtab)
+   \w calling convention
+   \w process deployment protocol 
+   \w device join/leave 
+   \w port usages
+   \eit
+\subsection{Name--value maps}
+Basically, a virtual machine is an interpreter which maintains maps between
+names and values. For VM group maps, we could use distributed hash table (DHT).
+
+\subsection{Overlay networks for VM groups}
+We could use overlay networks for implementing VM groups.
+For each VM group of which a VM is a member, the VM can be assigned a
+temporary name through which the members of the group can refer to the VM.
+This temporary name is effective only during the time while the VM group is
+alive.
+
+
+\section{Meadow Messages}
+All meadow communications takes place in the form of message passing.
+Messages can contain control information and/or payload.
+
+\subsection{Representing values}
+Values can be represented using multiple methods but string-encoded
+representation would be reasonable -- e.g. AllJoyn method.
+
+\subsection{Default Message fields}
+\bit
+\w \bb{source}
+\w \bb{destination}
+\w \bb{timeout}
+\w \bb{timestamp}
+\eit
+
+
+\subsection{Message types}
+
+\subsubsection{Events}
+\bit
+\w {\sf EventOccurred}:
+   \bit
+   \w device name
+   \w event name
+   \w field values
+   \eit
+\w {\sf EventSubscriptionRequest}
+   \bit
+   \w subscriber device name
+   \w event name
+   \eit
+\w {\sf EventPublishRequest}: actually, this is ``external'' request for
+   generating internal events (e.g. PropGetRequest)
+   \bit
+   \w publisher device name
+   \w event name
+   \w field values
+   \eit
+\eit
+
+\subsection{Functions}
+\bit
+\w {\sf AddFunction}: 
+   \bit
+   \w function name
+   \w parameters
+   \w function body type (raw code, compiled-IR, external-ref (alljoyn ref), etc.)
+   \w function body (optional?)
+   \eit
+\w {\sf RemoveFunction}:
+   \bit
+   \w function name
+   \w function body type
+   \eit
+\w {\sf FuncCallRequest}: 
+   \bit
+   \w function name
+   \w zero or more argument values
+   \w token
+   \eit
+\w {\sf FuncCallResponse}:
+   \bit
+   \w function name
+   \w zero or more argument values
+   \w token
+   \eit
+\eit
+
+
+%% $$\xy
+%% %\vtop{\vbox{
+%% \xygraph{!{0;/r1.5pc/:} !{\vover}[u]
+%%   !{\hcap[-2]<<} [d] !{\vover-} [ruu] !{\hcap[2]><}}
+%% %}\smallskip}
+%% \endxy$$
+
+
+%\tableofcontents
+
+%\bibliographystyle{plain}
+%\bibliography{bib/mac,bib/softsys,bib/compsys,bib/digital,bib/pl}
+%\nocite{EN11,Agha86,Hewitt76,Verilog2005,JK13,SK09}
+%\nocite{LABHJJLTZ05,VD10}
+
+
+
+\end{document}
+
+%%  LocalWords:  MeadowView EPL Hadoop proc FSM API insertEvent TCP IP ev MV
+%%  LocalWords:  Runtime workflow lookup Namespace stateful Meadow Jeong VM
+%%  LocalWords:  Cheoljoo runtime HDLs Verilog VHDL HDL APIs softsys compsys
+%%  LocalWords:  worklets worklet callee Namespaces FUNC aggregators pamsbook
+%%  LocalWords:  Meadowview servicee halfEnabledA halfEnabledB

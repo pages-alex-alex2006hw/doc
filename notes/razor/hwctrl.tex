@@ -1,0 +1,82 @@
+\chapter{Hardware Implementation of Control Constructs}
+
+\section{Loops}
+Most programs spend most of its execution time in loops. Therfore, it is
+critical to efficiently map loops to hardware.
+
+\subsection{Types of loops}
+There are five different types of loops commonly supported in programming
+languages: for, while, do-while, and repeat.
+
+\subsection{Loop unrolling}
+
+\subsection{Handling dynamic loops}
+
+\subsection{Loop parallelization}
+
+
+
+\section{Recursions}
+One of the most difficult aspects of computer programs to be implemented in
+hardware is recursive function calls. Since recursive function call can
+invoke itself an indefinite number of times, it is not obvious how we can
+represent this indefiniteness using a finite number of hardware
+resources. 
+
+In most acceleration systems, a function which is refined recursively is not
+synthesized and run in the software space. Note that a function defined
+recursively does not necessarily require indefinite stack space to execute
+this function~\cite{ASS96}. Another simple approach may be unfolding recursive
+function calls predefined number of times. This involves procedure inlining
+and other optimization such as constant propagation to determine if the
+function call can be reduced to a straight-line code within the given number
+of unfolding. However, neither of these approaches is acceptable. Recursions
+are so common in programming and thus, we need a complete solution for these. 
+
+\subsection{Previous work}
+There have been a limited number of approaches to handle recursions inside the
+hardware. In his thesis, Budiu~\cite{Budiu03} suggested using {\em hardware
+  stacks\/} to implement recursive function calls. 
+
+
+\subsection{Tail recursions}
+A function which is defined in a tail-recursive way can be implemented in
+hardware with a fixed amount of resources. 
+
+\subsection{Continuation-passing style}\label{hwctrl:cps}
+Continuation-passing style is a program notation that makes every aspect of
+control flow and data flow explicit~\cite{Appel92}. 
+
+Consider the following C program which computes the product of prime numbers
+which are less than or equal to a positive integer $n$. 
+
+\begin{verbatim}
+  int prod_primes(int n) 
+  {
+    if (n == 1) 
+      return 1;
+    else if (is_prime(n))
+      return n * prod_primes(n-1);
+    else
+      return prod_primes(n);
+  }
+\end{verbatim}
+In this program, there are several points of interest in the control flow of
+the program. When the function \verb+is_prime+ is called, it will be passed a
+{\em return address\/}, say $k$. Also, it will return a value, say $b$. 
+Also, each of the two recursive calls to the function \verb+prod_primes+, can
+be assigned the return address and the return value. 
+
+
+\begin{verbatim}
+  int prod_primes(int n, continuation k) {
+    if (n == 1)
+      k(1);
+    else {
+      int j(int b) {
+        if (b == 1) {
+        }
+      }
+    }
+  }
+\end{verbatim}

@@ -1,0 +1,469 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                           SIAMCBMS.STY
+%
+%                         created jan-1990
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% the following is the list of specifications for SIAM's CBMS series:
+%
+% Type page:    29 X 47 picas (includes running heads)
+% 
+% Text page:    29 X 45 picas b/b.  First line drops 2 picas b/b from
+%               running head.
+%
+% Typeface:     Text is 10/12 Computer Modern 
+%               with 8/10 footnotes, legends, references.  Display type is
+%               Helvetica Light.
+%
+% Paragraph indent:     1 em (2 em OK)  *1.5 em is used in this style file
+%
+% Running Head: 10 pt. Computer Modern small caps centerd on page
+%               left: "Chapter" and number
+%               right: chapter title
+%
+% Folios:       Flush outside, 10 pt Computer Modern; drop folio, 8 pt.
+%               centered on opening page, 6 pts. below last line of page.
+%
+% Pagination:   Text of chapter 1 starts page 1.  Begin new right hand page
+%               for each chapter opening.
+%
+% Chapter Heads:  CHAPTER set in 12 pt Helv Light caps, indented 2 picas from
+%               left margin.  Letter space to chapter number.
+%               Chapter number set 24 pt. Helv light. 4 pts from base of number
+%               to rule below.  Rule is .5 pt. X 27 picas, indented 2 picas
+%               from left margin; sits 9.5 picas from top trim, 1pica from base
+%               of rule to cap height of title.
+%               Chapter Title set 20/22 Helv light c/lc, indented 2 picas from
+%               left margin
+%
+% Footnotes:    8/10; paragraph indent first line; superior number precedes
+%               each; 12-24 pts. space between text and start of footnote;
+%               first footnote each page is preceded by a 3 em rule (flush
+%               left) 3 pts. above; no extra space between footnotes on same
+%               page.
+%
+% Text:         11 picas b/b from Chapter Rule to first line of text.
+%
+% Body:         10/12 Computer Modern X 29 picas flush left and right
+%
+% Sections:
+%               section (A-Head):       regular size type, bold face,
+%                                       flush left, not run-in to text
+%
+%               subsection(B-Head):     same as section, but run-in
+%
+%               subsubsection(C-Head):  same as subsection
+%
+%
+
+% Theorem, lemma, etc:  10/12; paragraph indent first line; heading is
+%               caps/small caps, followed by period; text is italic; no extra
+%               space above or below section.
+%
+% Proof, example, etc.: 10/12; paragraph indent; heading is italic, followed by
+%               period; text is roman; no extra space above or below section.
+%
+% Algorithm:    Same as theorem but text is roman instead of italic, and 18pts.
+%               b/b above and below.
+%
+% References/Bibliography:  8/10; reference initials flush left and bracketed;
+%               author's names caps/small caps; 3em dash used to replace
+%               repeated author's names; titles of books, articles are italic;
+%               no extra space between references.
+%
+% Legends:      8/10; work "fig" caps/small caps, followed by period and
+%               number; word space to text; text is italic; one-line legend
+%               centers on page width; if more than one line, paragraph indent
+%               first line; min 1 pica space between art and legend; min 18pt
+%               space (b/b) between legend and text.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\sloppy
+
+
+\footskip=18pt
+\topmargin 24pt 
+\headheight 12pt 
+\headsep 12pt 
+\textheight = 45\baselineskip  \advance\textheight by \topskip
+\textwidth 29pc 
+
+
+%% footnotes and references to be set 8/10 (normal footnote size is 8/9.5
+\def\footnotesize{\@setsize\footnotesize{10pt}\viiipt\@viiipt
+        \indent
+        \abovedisplayskip \z@
+        \belowdisplayskip\z@
+        \abovedisplayshortskip\abovedisplayskip
+        \belowdisplayshortskip\belowdisplayshortskip
+  \def\@listi{\leftmargin\leftmargini \topsep 3pt plus 1pt minus 1pt
+        \parsep 2pt plus 1pt minus 1pt
+        \itemsep \parsep}}
+
+\let\referencesize\footnotesize
+
+
+
+
+%% specs call for no extra space between footnotes
+\footnotesep 0pt 
+
+%% specs 12-24 pts between text and footnotes
+\skip\footins 12pt plus 12pt 
+
+%% specs call for 3em rule above footnotes
+\def\footnoterule{\kern3\p@  \hrule width 3em} % the \hrule is .4pt high
+
+%% specs call for 1em-2em parindent
+\parskip 0pt
+\parindent 15pt %1.5em in 10pt
+
+%% fonts for display type
+\font\aheltwelv=cmss10 scaled \magstep1
+\font\aheltwentyfour= cmss10 scaled \magstep5
+\font\aheltwenty= cmss10 scaled \magstep4
+
+
+
+
+%% drop folio on chapter openers is 8pt
+%% running heads and feet defined in \makechapterhead & \makeschapterhead
+%% \oddfoot is redefined to be nothing on subsequent odd pages
+
+\def\ps@plain{\let\@mkboth\@gobbletwo
+     \def\@oddfoot{{\hfil\footnotesize\thepage\hfil}}%
+     \def\@oddhead{}
+      \def\@evenhead{}\def\@evenfoot{}}
+
+
+
+\def\ps@headings{\let\@mkboth\markboth
+        \def\@oddfoot{}\def\@evenfoot{}%
+        \def\@oddhead{\rlap{\rm\thepage}\hfil{\footnotesize\rightmark}\hfil}%
+        \def\@evenhead{\hfil{\footnotesize\leftmark}\hfil\llap{\rm\thepage}}%
+        \def\chaptermark##1{\markboth{\uppercase{%
+          {\protect\footnotesize\@chapapp}\ {\protect\normalsize\thechapter}}}%
+          {\uppercase{##1}}}%
+            }
+
+
+\def\ps@myheadings{\let\@mkboth\@gobbletwo
+ \def\@oddfoot{}\def\@evenfoot{}%
+ \def\@oddhead{\rlap{\rm\thepage}\hfil{\footnotesize\rightmark}\hfil}%
+ \def\@evenhead{\hfil{\footnotesize\@chapapp}\ 
+         {\normalsize\thechapter}\hfil\llap{\normalsize\rm\thepage}}%
+        \def\chaptermark##1{}%
+        \def\sectionmark##1{}\def\subsectionmark##1{}}
+
+
+
+
+\def\theequation{\arabic{chapter}.\arabic{section}.\arabic{equation}}
+
+ \@addtoreset{equation}{section}   % Makes \section reset 'equation' counter.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                         %
+%     THEOREMS, PROOFS, ALGORITHMS        %
+%                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Example: \newalgorithm{algorithm}{Algorithm}[section]
+%% This would make the algorithms be numbered within sections
+
+%% Example: \newalgorithm{algorithm}[theorem]{Algorithm}
+%% This would make the algorithms and theorems share the same numbering
+
+\def\newtheorem{\@@nthm\theoremtype}
+\def\newalgorithm{\@@nthm\algorithmtype}
+\def\newproof{\@@nthm\prooftype}
+
+\chardef\prooftype=3
+\chardef\algorithmtype=2
+\chardef\theoremtype=1
+
+%% #1 = a number, the `theorem type'.  #2 = the name of the new
+%% theorem or whatever, something such as `theorem' or `case' or
+%% whatever.
+
+\def\@@nthm#1#2{\@ifnextchar[{\@othm#1{#2}}{\@nthm#1{#2}}}
+
+%% #1 = theorem type, #2 = name, #3 = text of label
+
+\def\@nthm#1#2#3{%
+\@ifnextchar[{\@xnthm#1{#2}{#3}}{\@ynthm#1{#2}{#3}}}
+
+%% #1 = `theorem' type, #2 = environment name, #3 = text of label,
+%% #4 = counter that the numbering is associated with (if #4 = "section",
+%% then this environment will be numbered within sections)
+
+\def\@xnthm#1#2#3[#4]{\expandafter\@ifdefinable\csname #2\endcsname
+{\ifnum#1<\prooftype % if the `theorem' type is not a proof
+ \@definecounter{#2}\@addtoreset{#2}{#4}%
+ \expandafter\xdef\csname the#2\endcsname{\expandafter\noexpand
+   \csname the#4\endcsname \@thmcountersep \@thmcounter{#2}}%
+\fi
+\global\@namedef{#2}{\@thm#1{#2}{#3}}\global\@namedef{end#2}{\@endtheorem}}}
+
+\def\@ynthm#1#2#3{\expandafter\@ifdefinable\csname #2\endcsname
+  {\ifnum#1<\prooftype % if the `theorem' type is not a proof
+   \@definecounter{#2}%
+   \expandafter\xdef\csname the#2\endcsname{\@thmcounter{#2}}%
+  \fi
+  \global\@namedef{#2}{\@thm#1{#2}{#3}}\global\@namedef{end#2}{\@endtheorem}}}
+
+%% #1 = theorem type, #2 = name, #3 = counter that should be used, #4
+%% = text of label
+
+\def\@othm#1#2[#3]#4{\expandafter\@ifdefinable\csname #2\endcsname
+  {\global\@namedef{the#2}{\@nameuse{the#3}}%
+\global\@namedef{#2}{\@thm#1{#3}{#4}}%
+\global\@namedef{end#2}{\@endtheorem}}}
+
+%% For theorems:
+
+%% #1 = `theorem' type, 
+\def\@thm#1#2#3{\ifnum#1<\prooftype % if the `theorem' type is not `proof', then we want a
+%number
+  \refstepcounter{#2}\fi
+  \@ifnextchar[{\@ythm#1{#2}{#3}}{\@xthm#1{#2}{#3}}}
+
+%% #1 = `theorem' type, #2 = name, #3 = text of label
+\def\@xthm#1#2#3{\@begintheorem#1{#3}{\csname the#2\endcsname}\ignorespaces}
+
+%% #1 = `theorem' type, #2 = name, #3 = text of label, #4 = extra text
+\def\@ythm#1#2#3[#4]{\@opargbegintheorem#1{#3}{\csname the#2\endcsname}{#4}%
+        \ignorespaces}
+
+%DEFAULT VALUES
+\def\@thmcounter#1{\noexpand\arabic{#1}}
+\def\@thmcountersep{.}
+
+\def\@begintheorem#1#2#3{\ifcase#1\relax % case 0 do nothing
+   \or\topsep\z@\it % theorem
+   \or\topsep6pt\rm % algorithm
+   \else\topsep\z@\rm % proof or anything else
+\fi \trivlist \itemindent=\parindent\item[\hskip \labelsep
+  {\ifnum#1=\prooftype \it #2.\else 
+        \sc#2\ #3.\fi}]}
+
+%% #1 = `theorem' type, #2 =
+\def\@opargbegintheorem#1#2#3#4{\ifcase#1\relax % case 0 do nothing
+   \or\topsep\z@\it % theorem
+   \or\topsep6pt\rm % algorithm
+   \else\topsep\z@\rm % proof or anything else
+\fi \trivlist \itemindent=\parindent\item[\hskip \labelsep
+  {\ifnum#1=\prooftype \it #2\ #4.\else 
+        \sc#2\ #3\ (#4).\fi }]}
+
+\def\@endtheorem{\endtrivlist}
+
+
+
+
+
+
+
+\newproof{proof}{Proof}
+\newtheorem{theorem}{Theorem}[section]
+\newalgorithm{algorithm}{Algorithm}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                         %
+%        TABLE AND FIGURE CAPTIONS        %
+%                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% cbms wants \caption to typeset on 2 separate lines in table environment
+
+\newif\iftable  \global\tablefalse
+
+
+\long\def\@makecaption#1#2{%
+ \vskip 12pt 
+    \iftable
+               \hbox to \hsize{\hfil\sc #1\hfil}
+               \hbox to \hsize{\hfil\it #2\hfil}
+               \global\tablefalse
+     \else
+       \setbox\@tempboxa\hbox{{\footnotesize\sc#1} {\footnotesize\it#2}}
+         \ifdim \wd\@tempboxa >\hsize 
+            \null\hskip1.5em{\footnotesize\sc#1}{\footnotesize\it#2}\par 
+                \else 
+                  \hbox to\hsize{\hfil\box\@tempboxa\hfil}\fi
+  \fi
+ \vskip 6pt}
+
+
+
+\def\figure{\global\tablefalse\@float{figure}}
+\def\fnum@figure{\footnotesize\sc Fig. \thefigure.\ }
+
+\def\table{\global\tabletrue\@float{table}}
+\def\fnum@table{\footnotesize\sc Table \thetable}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                         %
+%              CHAPTER                    %
+%                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\@chapapp{\uppercase{Chapter}}
+
+\def\@makechapterhead#1{%
+        \vspace*{8pt}
+        \vtop to 11pc{\leftskip=2pc \parindent 0pt 
+         {\aheltwelv  \@chapapp}%%%
+         {\aheltwentyfour\baselineskip=26pt\ \thechapter}\vskip-8pt 
+         \vrule width 27pc height .5pt\par %
+         \vspace*{9pt}%
+         {\rightskip=0pt plus 1 fill\aheltwenty #1\par} 
+         \vfil}}
+
+
+\def\@makeschapterhead#1{%
+        \vspace*{8pt}
+        \vtop to 11pc{\leftskip=2pc \parindent 0pt 
+        \vtop to 26pt{\vfill}\vskip-8pt 
+        \vrule width 27pc height .5pt\par %
+        \vspace*{9pt}%
+        {\rightskip=0pt plus 1 fill\aheltwenty #1\par} 
+        \vfil}}
+
+
+\def\chapter{\cleardoublepage \thispagestyle{plain} \global\@topnum\z@
+        \@afterindentfalse \secdef\@chapter\@schapter} 
+
+
+
+\def\@chapter[#1]#2{%
+         \refstepcounter{chapter}
+         \typeout{Chapter\space\thechapter.}
+         \addcontentsline{toc}{chapter}{CHAPTER\ \thechapter. #1}
+         \protect\addtocontents{lof}{\protect\addvspace{10pt}}
+         \protect\addtocontents{lot}{\protect\addvspace{10pt}} 
+         \chaptermark{#1}
+         \@makechapterhead{#2}
+         \@afterheading}
+        
+
+
+\def\@schapter#1{\@makeschapterhead{#1}
+       \markboth{\uppercase{#1}}{\uppercase{#1}}
+       \@afterheading}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                         %
+%             SECTIONS                    %
+%                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \@startsection {NAME}{LEVEL}{INDENT}{BEFORESKIP}{AFTERSKIP}{STYLE} 
+\def\section{\@startsection
+  {section}{1}{0pt}{-12pt}{6pt}{\hyphenpenalty=\@M\exhyphenpenalty=\@M\normalsize\bf}}
+\def\subsection{\@startsection{subsection}{2}{0pt}{-12pt}{-1em}{\normalsize\bf}}
+\def\subsubsection{\@startsection
+ {subsubsection}{3}{0pt}{-12pt}{-1em}{\normalsize\bf}}
+\def\paragraph{\@startsection 
+ {paragraph}{4}{\parindent}{0pt}{0pt}{\normalsize\bf}}
+\def\subparagraph{\@startsection
+ {subparagraph}{4}{\parindent}{0pt}{0pt}{\normalsize\bf}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                         %
+%                  TOC                    %
+%                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\def\tableofcontents{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \fi
+\chapter*{Contents\@mkboth{CONTENTS}{CONTENTS}}
+\thispagestyle{empty}%
+ \@starttoc{toc}\if@restonecol\twocolumn\fi}
+
+
+\newdimen\TOCindent@
+ \def\findchaptertocwid#1. #2\endx{%
+  \setbox0=\hbox{#1. }\TOCindent@=\wd0}
+
+
+%% sets chapter in toc
+\def\l@chapter#1#2{\pagebreak[3]
+	\findchaptertocwid#1. \endx
+        \advance\TOCindent@ by 2.65pc
+	\hangindent=\TOCindent@
+        \noindent\hskip1pc
+        \llap{\hbox to 1pc{\hss#2}}%
+        \hskip1.5pc #1\vskip1pc}
+
+
+%%% set so only chapters print in TOC
+\def\@dottedtocline#1#2#3#4#5{\relax}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%%            BIBLIOGRAPHY                  %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% USE IN CONJUNCTION WITH SIAMCBMS.BST
+
+\def\thebibliography#1{%
+\chapter*{Bibliography}
+ \addcontentsline{toc}{chapter}{BIBLIOGRAPHY}
+\list
+ %% default is no labels, for those not using \cite or BibTeX
+%% {}{\settowidth\labelwidth{[#1]}
+{}{\settowidth\labelwidth{m}
+\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}\@bibsetup}
+\def\newblock{\hskip .11em plus .33em minus -.07em}
+ \sloppy\clubpenalty4000\widowpenalty4000
+ \sfcode`\.=1000\relax}
+
+%% setup 8/10 type
+\def\@bibsetup{\itemsep=0pt \parsep=0pt \referencesize}
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                         %
+%                INDEX                    %
+%                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\theindex{\@restonecoltrue\if@twocolumn\@restonecolfalse\fi
+\columnseprule \z@
+\columnsep 35pt\twocolumn[\chapter*{Index}]
+ \parskip\z@ plus .3pt\relax\let\item\@idxitem}
+
+
+\def\printindex{\addcontentsline{toc}{chapter}{INDEX}
+\@input{\jobname.ind}}
+
+\ps@headings 
+
+

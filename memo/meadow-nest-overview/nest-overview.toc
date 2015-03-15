@@ -1,0 +1,23 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}High-level summary}{1}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Using Nest API}{1}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Firebase client libraries}{1}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Data model}{1}{subsection.1.4}
+\contentsline {section}{\numberline {2}Architecture}{1}{section.2}
+\contentsline {subsection}{\numberline {2.1}Firebase}{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Data model}{1}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Structures object}{2}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Data values}{2}{subsubsection.2.3.1}
+\contentsline {subsection}{\numberline {2.4}Thermostats object}{2}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Data values}{2}{subsubsection.2.4.1}
+\contentsline {subsection}{\numberline {2.5}User reports and oversight}{3}{subsection.2.5}
+\contentsline {section}{\numberline {3}Nest API}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}How Nest API works}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Example}{3}{subsection.3.2}
+\contentsline {section}{\numberline {4}Authentication and authorization}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}Three per-structure permissions}{3}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Two per-thermostat permissions}{3}{subsection.4.2}
+\contentsline {section}{\numberline {5}REST and REST Streaming Interfaces}{3}{section.5}
+\contentsline {subsection}{\numberline {5.1}REST Streaming}{3}{subsection.5.1}
+\contentsline {paragraph}{REST Streaming and rate limits}{3}{section*.2}
+\contentsline {paragraph}{REST Streaming and redirects}{3}{section*.3}

@@ -1,0 +1,204 @@
+%%  
+%% icse99.sty:  Sty file for ICSE 99 conference proceedings
+%% Shamelessly borrowed from ICSE 97 template
+%%
+\typeout{Document Style 'ICSE 99 special version 1.0'}
+	
+
+%%
+%%  Define special fonts for ICSE 99 format
+%%
+
+% hard code the fonts in only if necessary
+%\newfont{\titlefont}{cmbx12 at 18pt}
+%\newfont{\authornamefont}{cmbx12}
+%\newfont{\authorfont}{cmr12}
+%\newfont{\sectionfont}{cmr10}
+%\newfont{\subsectionfont}{cmr10}
+%\newfont{\subsubsectionfont}{cmr10}
+%\newfont{\icsefont}{cmr10}
+
+%% normalsize should be a 10pt roman font
+\newcommand{\titlefont}{\LARGE\bf}
+\newcommand{\authornamefont}{\large\bf}
+\newcommand{\authorfont}{\large}
+\newcommand{\sectionfont}{\normalsize\bf}
+\newcommand{\subsectionfont}{\normalsize\bf}
+\newcommand{\subsubsectionfont}{\normalsize\it}
+\newcommand{\icsefont}{\normalsize}
+
+%%
+%% define new section commands to use ICSE fonts and to remove extra spacing
+%%
+
+\def\@ssect#1#2#3#4#5{\@tempskipa #3\relax
+    \begingroup #4\@hangfrom{\hskip #1}{\interlinepenalty \@M#5\par}\endgroup
+    \vspace*{-1.5ex}
+}
+
+\def\@sect#1#2#3#4#5#6[#7]#8{\ifnum #2>\c@secnumdepth
+     \let\@svsec\@empty\else
+     \refstepcounter{#1}\edef\@svsec{\csname the#1\endcsname\hskip 1em}\fi
+     \@tempskipa #5\relax
+      \ifdim \@tempskipa>\z@
+        \begingroup #6\relax
+          \@hangfrom{\hskip #3\relax\@svsec}{\interlinepenalty \@M #8\par}%
+        \endgroup
+        \vspace*{-1.5ex}
+       \csname #1mark\endcsname{#7}\addcontentsline
+         {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+                      \protect\numberline{\csname the#1\endcsname}\fi
+                    #7}\else
+        \def\@svsechd{#6\hskip #3\relax  %% \relax added 2 May 90
+                   \@svsec #8\csname #1mark\endcsname
+                      {#7}\addcontentsline
+                           {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+                             \protect\numberline{\csname the#1\endcsname}\fi
+                       #7}} \xsect{#5} \fi
+    }
+
+%
+% In ICSE style, sections have section numbers; other levels don't
+%
+
+\renewcommand\section{\@startsection{section}{1}{\z@}{0pt}{1pt}
+                  {\sectionfont}}
+\renewcommand\subsection{\@startsection{subsection}{1}{\z@}{0pt}{0pt}
+                    {\subsectionfont}*}
+\renewcommand\subsubsection{\@startsection{subsubsection}{1}{0pt}{0pt}{0pt}
+                    {\subsubsectionfont}*}
+
+%%
+%% define new bibliography command to print references in upper case
+%%
+\def\thebibliography#1{\section*{REFERENCES\@mkboth
+ {REFERENCES}{REFERENCES}}\list
+ {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy\clubpenalty4000\widowpenalty4000
+ \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+
+
+
+%%%%%
+%
+%  Footnotes:  Allow more control of numbering
+%
+%%%%%
+
+\long\def\@makefntext#1{\parindent 1em\noindent
+            \hbox to 1.8em{\hss\@makefnmark}#1}
+
+%% \@makefntext is *supposed* to use \@makefnmark, but article.sty
+%%      copies the definition of \@makefnmark instead of using it.
+%%      This defeats the possibility of customization of mark separate
+%%      from customization of text.  Thus the following small
+%%      on the definition in article.sty:
+%%
+% \@makefnmark : A macro to generate the footnote marker that goes
+%                in the text.  Default definition used.
+
+%%
+%%  \nofootnotemark, placed before \footnotetext[1]{text}, causes
+%%  the footnote to be set without a mark (even at the bottom of the
+%%  page).  Should be enclosed in a group, so it doesn't affect later
+%%  footnotes.
+%%
+\newcommand{\nofootnotemark}{\let\@makefnmark\relax}
+
+%% \nothanks{text} creates a footnote like \thanks, but without
+%%  a footnote mark of any kind (either here or at the bottom of
+%%  the page).
+%%
+\newcommand{\nothanks}[1]{{\nofootnotemark\footnotetext[1]{#1}}}
+
+%% get rid of separator line for footnotes
+\renewcommand{\footnoterule}{}
+
+
+
+%%
+%% copyrightspace reserves a 1" space for a copyright notice
+%%
+\newlength{\copyrightheight}
+\copyrightheight  2.5cm 
+\def\copyrightspace{{\nofootnotemark\footnotetext[0]{\mbox{}%
+\vrule height \copyrightheight width 0pt}}}
+
+\newlength{\copyrightdrop}
+\copyrightdrop  -1.25cm 
+\newcommand{\submitspace}[1]{{\nofootnotemark\footnotetext[0]{
+{\rule[\copyrightdrop]{0pt}{\copyrightheight}{\parbox{3in}{{\em #1}}}}}}
+}
+
+
+%%
+%%  modify title placement and user icse fonts
+%%
+\def\@maketitle{\vbox to 2in{\hsize\textwidth 
+			\linewidth\hsize \vfil \centering
+			{\bf\titlefont \vspace*{-1em}\@title \par} 
+			\vskip 1em 
+			{\authorfont 
+				\begin{tabular}[t]{c}\@author
+				\end{tabular}\par}
+		        \vfil}}
+
+%%
+%%  alternative to \itemize with smaller spacing
+%%
+\newenvironment{smallitem}{
+   \setlength{\topsep}{0pt}
+   \setlength{\partopsep}{0pt}
+   \setlength{\parskip}{0pt}
+   \begin{itemize}
+   \setlength{\leftmargin}{.2in}
+   \setlength{\parsep}{0pt}
+   \setlength{\parskip}{0pt}
+   \setlength{\itemsep}{0pt}}{\end{itemize}}
+
+
+
+
+
+%%
+%%  Small (8.5x11) model pages, for ACM conferences
+%%
+% Page dimensions.  
+%
+\oddsidemargin  -.25in  % (subtracted 1inch bias)
+\evensidemargin -.25in  %
+\topmargin  	-.75in  % (adjusted for printer bias)
+\headheight 	 .00in  % (no headers)
+\headsep 	 .5in   % (top margin + headers + skip)
+\footheight     12.0pt  
+
+% The 75pt setting effectively hides all footers
+% \footskip       75.0pt  
+\footskip       24.0pt
+
+\textheight     23.5cm  % (instructions: 9 1/8" min, 9 7/16" max)
+\columnwidth    3.32in  
+\textwidth      7.00in  % 2*3.33 + .33 = 6.99
+\columnsep       .33in  % (gutters, from instructions)
+\columnseprule  0.00pt  %  no visible line in alley
+
+
+
+\icsefont
+\pagestyle{empty}
+\twocolumn
+\sloppy		% Important! Prevents big overhangs.
+\flushbottom
+\parindent 0pt
+\parskip 1.5ex 
+\leftmargini 2em
+\leftmargin\leftmargini 
+\leftmarginv .5em
+\leftmarginvi .5em
+
+

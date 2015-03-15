@@ -1,0 +1,268 @@
+\contentsline {section}{\numberline {1}COMPUTER SCIENCE IN GENERAL}{3}{section.1}
+\contentsline {section}{\numberline {2}ALGORITHMS AND THEORY OF COMPUTATION}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}General Textbooks}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Complexity Theories}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Distributed Algorithms}{3}{subsection.2.3}
+\contentsline {section}{\numberline {3}PROGRAMMING LANGUAGES AND COMPILERS}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}General Textbooks}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Functional Programming Languages}{4}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Racket}{4}{subsubsection.3.2.1}
+\contentsline {subsection}{\numberline {3.3}Object-oriented Programming Languages}{4}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Logic Programming Languages}{4}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Distributed Programming Languages}{4}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}dRuby}{4}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Scala}{4}{subsubsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.3}Erlang}{4}{subsubsection.3.5.3}
+\contentsline {subsubsection}{\numberline {3.5.4}Groovy}{5}{subsubsection.3.5.4}
+\contentsline {subsubsection}{\numberline {3.5.5}Ambit}{5}{subsubsection.3.5.5}
+\contentsline {subsubsection}{\numberline {3.5.6}Linda}{5}{subsubsection.3.5.6}
+\contentsline {subsection}{\numberline {3.6}Formal Semantics Of Programming Languages}{5}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}Practices in Programming Languages}{5}{subsection.3.7}
+\contentsline {section}{\numberline {4}FORMAL METHODS}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}Process Algebras}{5}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}General textbooks}{5}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}CSP (Communicating Sequential Processes)}{5}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}CCS (Calculus of Communicating Systems)}{5}{subsubsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.4}$\pi $-calculus}{5}{subsubsection.4.1.4}
+\contentsline {subsection}{\numberline {4.2}Petri Nets}{5}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Dataflow Process Networks}{6}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}\leavevmode {\color {red2}\bf {}Modeling of Reactive Systems}}{6}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Modal and Temporal Logics}{6}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Formal Verification}{6}{subsection.4.6}
+\contentsline {subsubsection}{\numberline {4.6.1}Model checking}{6}{subsubsection.4.6.1}
+\contentsline {subsubsection}{\numberline {4.6.2}Theorem proving}{6}{subsubsection.4.6.2}
+\contentsline {subsection}{\numberline {4.7}\leavevmode {\color {red2}\bf {}Protocol Synthesis}}{6}{subsection.4.7}
+\contentsline {subsubsection}{\numberline {4.7.1}LOTOS}{6}{subsubsection.4.7.1}
+\contentsline {subsubsection}{\numberline {4.7.2}SDL}{6}{subsubsection.4.7.2}
+\contentsline {subsection}{\numberline {4.8}Protocol synthesis}{6}{subsection.4.8}
+\contentsline {section}{\numberline {5}OPERATING SYSTEMS}{6}{section.5}
+\contentsline {subsection}{\numberline {5.1}Operating Systems Practices}{6}{subsection.5.1}
+\contentsline {section}{\numberline {6}COMPUTER NETWORKS}{6}{section.6}
+\contentsline {subsection}{\numberline {6.1}General Textbooks}{6}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Wireless Protocols}{6}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}802.15.4}{6}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}ZigBee}{6}{subsubsection.6.2.2}
+\contentsline {section}{\numberline {7}DISTRIBUTED COMPUTING}{6}{section.7}
+\contentsline {subsection}{\numberline {7.1}General Textbooks}{6}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Theoretical Foundations}{6}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Synchronization models}{6}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.2}Remote procedure calls}{6}{subsubsection.7.2.2}
+\contentsline {subsubsection}{\numberline {7.2.3}Synchronizers}{6}{subsubsection.7.2.3}
+\contentsline {subsubsection}{\numberline {7.2.4}Logical clocks and clock synchronization}{6}{subsubsection.7.2.4}
+\contentsline {subsubsection}{\numberline {7.2.5}Authentication}{7}{subsubsection.7.2.5}
+\contentsline {subsubsection}{\numberline {7.2.6}Scheduling}{7}{subsubsection.7.2.6}
+\contentsline {subsubsection}{\numberline {7.2.7}Distributed lookup}{7}{subsubsection.7.2.7}
+\contentsline {subsection}{\numberline {7.3}Practical Issues}{7}{subsection.7.3}
+\contentsline {subsubsection}{\numberline {7.3.1}\leavevmode {\color {red2}\bf {}UUID: Universally Unique ID}}{7}{subsubsection.7.3.1}
+\contentsline {subsection}{\numberline {7.4}Naming and Directory Services}{7}{subsection.7.4}
+\contentsline {subsubsection}{\numberline {7.4.1}LDAP}{7}{subsubsection.7.4.1}
+\contentsline {subsubsection}{\numberline {7.4.2}JNDI (Java Naming \& Directory Interface)}{7}{subsubsection.7.4.2}
+\contentsline {subsection}{\numberline {7.5}Distributed File Systems}{7}{subsection.7.5}
+\contentsline {subsection}{\numberline {7.6}Distributed Objects}{7}{subsection.7.6}
+\contentsline {subsubsection}{\numberline {7.6.1}CORBA}{7}{subsubsection.7.6.1}
+\contentsline {subsection}{\numberline {7.7}DCOM}{9}{subsection.7.7}
+\contentsline {subsubsection}{\numberline {7.7.1}Java RMI}{9}{subsubsection.7.7.1}
+\contentsline {subsection}{\numberline {7.8}Cluster Systems}{9}{subsection.7.8}
+\contentsline {subsection}{\numberline {7.9}Grid Systems}{9}{subsection.7.9}
+\contentsline {subsection}{\numberline {7.10}P2P (Peer-to-Peer) Systems}{9}{subsection.7.10}
+\contentsline {subsubsection}{\numberline {7.10.1}Distributed hash tables}{9}{subsubsection.7.10.1}
+\contentsline {subsection}{\numberline {7.11}Jini -- Apache River}{9}{subsection.7.11}
+\contentsline {subsubsection}{\numberline {7.11.1}JavaSpaces}{9}{subsubsection.7.11.1}
+\contentsline {subsection}{\numberline {7.12}\leavevmode {\color {red2}\bf {}Distributed System Performance}}{9}{subsection.7.12}
+\contentsline {section}{\numberline {8}PARALLEL COMPUTING}{9}{section.8}
+\contentsline {subsection}{\numberline {8.1}Parallel Programming}{9}{subsection.8.1}
+\contentsline {subsubsection}{\numberline {8.1.1}\leavevmode {\color {red2}\bf {}MPI}}{9}{subsubsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.2}OpenMP}{9}{subsubsection.8.1.2}
+\contentsline {subsection}{\numberline {8.2}Memory Models}{9}{subsection.8.2}
+\contentsline {subsubsection}{\numberline {8.2.1}Java memory model}{9}{subsubsection.8.2.1}
+\contentsline {subsubsection}{\numberline {8.2.2}C++ memory model}{9}{subsubsection.8.2.2}
+\contentsline {subsection}{\numberline {8.3}Threading Models}{9}{subsection.8.3}
+\contentsline {subsubsection}{\numberline {8.3.1}Pthreads}{9}{subsubsection.8.3.1}
+\contentsline {subsubsection}{\numberline {8.3.2}Java threading model}{9}{subsubsection.8.3.2}
+\contentsline {subsubsection}{\numberline {8.3.3}C++ threading model}{10}{subsubsection.8.3.3}
+\contentsline {section}{\numberline {9}DATABASE SYSTEMS}{10}{section.9}
+\contentsline {subsection}{\numberline {9.1}Database Systems and Transaction Processing}{10}{subsection.9.1}
+\contentsline {section}{\numberline {10}MOBILE AGENTS}{10}{section.10}
+\contentsline {subsection}{\numberline {10.1}General Textbooks}{10}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}\leavevmode {\color {red2}\bf {}Actor Model of Computation}}{10}{subsection.10.2}
+\contentsline {subsubsection}{\numberline {10.2.1}Scala}{10}{subsubsection.10.2.1}
+\contentsline {subsubsection}{\numberline {10.2.2}Akka}{10}{subsubsection.10.2.2}
+\contentsline {subsubsection}{\numberline {10.2.3}Typesafe activator: Reactive platform}{11}{subsubsection.10.2.3}
+\contentsline {subsubsection}{\numberline {10.2.4}Theron: C++ concurrency library}{11}{subsubsection.10.2.4}
+\contentsline {subsection}{\numberline {10.3}\leavevmode {\color {red2}\bf {}Agent Communication Languages}}{11}{subsection.10.3}
+\contentsline {subsection}{\numberline {10.4}\leavevmode {\color {red2}\bf {}Mobile Agent Coordination}}{11}{subsection.10.4}
+\contentsline {subsubsection}{\numberline {10.4.1}Temporal coupling}{11}{subsubsection.10.4.1}
+\contentsline {subsubsection}{\numberline {10.4.2}Spatial coupling}{11}{subsubsection.10.4.2}
+\contentsline {subsubsection}{\numberline {10.4.3}Notion of roles}{11}{subsubsection.10.4.3}
+\contentsline {subsection}{\numberline {10.5}Resource and Service Discovery}{11}{subsection.10.5}
+\contentsline {subsection}{\numberline {10.6}Example Systems}{11}{subsection.10.6}
+\contentsline {subsubsection}{\numberline {10.6.1}IBM Aglets}{11}{subsubsection.10.6.1}
+\contentsline {subsubsection}{\numberline {10.6.2}D'Agents (aka Agent Tcl)}{11}{subsubsection.10.6.2}
+\contentsline {subsubsection}{\numberline {10.6.3}ObjectSpace Voyager}{11}{subsubsection.10.6.3}
+\contentsline {subsubsection}{\numberline {10.6.4}General Magic Odyssey}{11}{subsubsection.10.6.4}
+\contentsline {subsubsection}{\numberline {10.6.5}IKV Grasshopper}{11}{subsubsection.10.6.5}
+\contentsline {subsubsection}{\numberline {10.6.6}Sun JavaSpace}{11}{subsubsection.10.6.6}
+\contentsline {subsubsection}{\numberline {10.6.7}LIME (Linda in Mobile Environment)}{11}{subsubsection.10.6.7}
+\contentsline {subsubsection}{\numberline {10.6.8}SwarmLinda}{11}{subsubsection.10.6.8}
+\contentsline {subsubsection}{\numberline {10.6.9}TuCSoN}{11}{subsubsection.10.6.9}
+\contentsline {subsubsection}{\numberline {10.6.10}MARS}{11}{subsubsection.10.6.10}
+\contentsline {subsection}{\numberline {10.7}Process Migration}{11}{subsection.10.7}
+\contentsline {section}{\numberline {11}WEB SERVICES}{11}{section.11}
+\contentsline {subsection}{\numberline {11.1}\leavevmode {\color {red2}\bf {}Orchestration of Web Services}}{11}{subsection.11.1}
+\contentsline {subsubsection}{\numberline {11.1.1}WS-BPEL (Business Process Exec Language)}{11}{subsubsection.11.1.1}
+\contentsline {subsubsection}{\numberline {11.1.2}Apache ODE (Orchestration Director Engine)}{12}{subsubsection.11.1.2}
+\contentsline {subsubsection}{\numberline {11.1.3}More orchestration languages}{12}{subsubsection.11.1.3}
+\contentsline {subsection}{\numberline {11.2}\leavevmode {\color {red2}\bf {}Choreography of Web Services}}{12}{subsection.11.2}
+\contentsline {subsubsection}{\numberline {11.2.1}WS-CDL (WS Choreography Desc Language)}{12}{subsubsection.11.2.1}
+\contentsline {subsubsection}{\numberline {11.2.2}\leavevmode {\color {red2}\bf {}Projection: Choreography synthesis}}{12}{subsubsection.11.2.2}
+\contentsline {subsection}{\numberline {11.3}Large-Scale Choreography}{12}{subsection.11.3}
+\contentsline {subsubsection}{\numberline {11.3.1}CHOReOS}{12}{subsubsection.11.3.1}
+\contentsline {section}{\numberline {12}WORKFLOW SYSTEMS}{12}{section.12}
+\contentsline {subsection}{\numberline {12.1}General Textbooks}{12}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.2}Workflow Patterns}{12}{subsection.12.2}
+\contentsline {subsubsection}{\numberline {12.2.1}Control flow patterns}{12}{subsubsection.12.2.1}
+\contentsline {subsubsection}{\numberline {12.2.2}Structural patterns}{13}{subsubsection.12.2.2}
+\contentsline {subsubsection}{\numberline {12.2.3}Patterns involving multiple instances}{13}{subsubsection.12.2.3}
+\contentsline {subsubsection}{\numberline {12.2.4}State-based patterns}{13}{subsubsection.12.2.4}
+\contentsline {subsubsection}{\numberline {12.2.5}Cancellation patterns}{13}{subsubsection.12.2.5}
+\contentsline {subsection}{\numberline {12.3}Workflow Examples}{13}{subsection.12.3}
+\contentsline {subsection}{\numberline {12.4}Distributed Workflow Systems}{13}{subsection.12.4}
+\contentsline {subsubsection}{\numberline {12.4.1}MapReduce}{13}{subsubsection.12.4.1}
+\contentsline {subsubsection}{\numberline {12.4.2}\leavevmode {\color {red2}\bf {}Dandelion: Runtime for heterogeneous systems}}{13}{subsubsection.12.4.2}
+\contentsline {subsubsection}{\numberline {12.4.3}Hadoop}{13}{subsubsection.12.4.3}
+\contentsline {subsubsection}{\numberline {12.4.4}Pig: Graph-based workflow on Hadoop}{13}{subsubsection.12.4.4}
+\contentsline {subsubsection}{\numberline {12.4.5}Cascading}{13}{subsubsection.12.4.5}
+\contentsline {subsection}{\numberline {12.5}Scientific Workflow Systems}{13}{subsection.12.5}
+\contentsline {subsubsection}{\numberline {12.5.1}\leavevmode {\color {red2}\bf {}Swift: Distributed parallel scripting}}{13}{subsubsection.12.5.1}
+\contentsline {subsubsection}{\numberline {12.5.2}Kepler: Scientific workflow}{14}{subsubsection.12.5.2}
+\contentsline {subsection}{\numberline {12.6}Enterprise Workflow Systems}{14}{subsection.12.6}
+\contentsline {subsubsection}{\numberline {12.6.1}Activiti}{14}{subsubsection.12.6.1}
+\contentsline {subsubsection}{\numberline {12.6.2}Cascading}{14}{subsubsection.12.6.2}
+\contentsline {subsubsection}{\numberline {12.6.3}OSWorkflow}{14}{subsubsection.12.6.3}
+\contentsline {section}{\numberline {13}EVENT PROCESSING SYSTEMS}{14}{section.13}
+\contentsline {subsection}{\numberline {13.1}Event Publish/Subscribe Systems}{14}{subsection.13.1}
+\contentsline {subsection}{\numberline {13.2}Active Databases}{14}{subsection.13.2}
+\contentsline {subsection}{\numberline {13.3}CEP (Complex Event Processing)}{14}{subsection.13.3}
+\contentsline {subsubsection}{\numberline {13.3.1}Esper}{14}{subsubsection.13.3.1}
+\contentsline {subsubsection}{\numberline {13.3.2}Oracle CEP}{14}{subsubsection.13.3.2}
+\contentsline {section}{\numberline {14}MESSAGING SYSTEMS}{14}{section.14}
+\contentsline {subsection}{\numberline {14.1}Enterprise Integration Patterns}{14}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}JMS (Java Message Service)}{14}{subsection.14.2}
+\contentsline {subsection}{\numberline {14.3}Messaging Protocols}{14}{subsection.14.3}
+\contentsline {subsubsection}{\numberline {14.3.1}AMQP}{14}{subsubsection.14.3.1}
+\contentsline {subsubsection}{\numberline {14.3.2}\leavevmode {\color {red2}\bf {}ZMQ}}{14}{subsubsection.14.3.2}
+\contentsline {subsubsection}{\numberline {14.3.3}\leavevmode {\color {red2}\bf {}MQTT}}{14}{subsubsection.14.3.3}
+\contentsline {subsection}{\numberline {14.4}Message Queues}{14}{subsection.14.4}
+\contentsline {subsubsection}{\numberline {14.4.1}ActiveMQ}{14}{subsubsection.14.4.1}
+\contentsline {subsubsection}{\numberline {14.4.2}RabbitMQ}{14}{subsubsection.14.4.2}
+\contentsline {subsubsection}{\numberline {14.4.3}\leavevmode {\color {red2}\bf {}ZeroMQ (also, Crossroads I/O)}}{14}{subsubsection.14.4.3}
+\contentsline {subsubsection}{\numberline {14.4.4}TIBCO}{14}{subsubsection.14.4.4}
+\contentsline {subsubsection}{\numberline {14.4.5}MSMQ (Microsoft Message Queueing)}{14}{subsubsection.14.4.5}
+\contentsline {subsubsection}{\numberline {14.4.6}Apache Camel}{14}{subsubsection.14.4.6}
+\contentsline {subsection}{\numberline {14.5}ESB (Enterprise Service Bus)}{14}{subsection.14.5}
+\contentsline {subsubsection}{\numberline {14.5.1}OpenESB}{15}{subsubsection.14.5.1}
+\contentsline {subsubsection}{\numberline {14.5.2}Mule}{15}{subsubsection.14.5.2}
+\contentsline {subsubsection}{\numberline {14.5.3}Apache ServiceMix (incl. Apache Camel)}{15}{subsubsection.14.5.3}
+\contentsline {subsubsection}{\numberline {14.5.4}Apache Synapse}{15}{subsubsection.14.5.4}
+\contentsline {subsubsection}{\numberline {14.5.5}D-Bus}{15}{subsubsection.14.5.5}
+\contentsline {section}{\numberline {15}ENTERPRISE COMPUTING}{15}{section.15}
+\contentsline {subsection}{\numberline {15.1}Java EE}{15}{subsection.15.1}
+\contentsline {subsection}{\numberline {15.2}OSGI}{15}{subsection.15.2}
+\contentsline {subsection}{\numberline {15.3}SOA in General}{16}{subsection.15.3}
+\contentsline {section}{\numberline {16}PERVASIVE COMPUTING}{16}{section.16}
+\contentsline {subsection}{\numberline {16.1}Wireless Sensor Networks}{16}{subsection.16.1}
+\contentsline {subsection}{\numberline {16.2}Operating Systems for Devices}{16}{subsection.16.2}
+\contentsline {subsubsection}{\numberline {16.2.1}TinyOS}{16}{subsubsection.16.2.1}
+\contentsline {subsubsection}{\numberline {16.2.2}Mote}{17}{subsubsection.16.2.2}
+\contentsline {subsubsection}{\numberline {16.2.3}ArdOS for Arduino}{17}{subsubsection.16.2.3}
+\contentsline {subsection}{\numberline {16.3}Database Systems for Devices}{17}{subsection.16.3}
+\contentsline {subsubsection}{\numberline {16.3.1}TinyDB}{17}{subsubsection.16.3.1}
+\contentsline {subsection}{\numberline {16.4}Programming Languages for Devices}{17}{subsection.16.4}
+\contentsline {subsubsection}{\numberline {16.4.1}nesC}{17}{subsubsection.16.4.1}
+\contentsline {section}{\numberline {17}ROBOTS, CARS, INDUSTRIAL AUTOMATION}{17}{section.17}
+\contentsline {subsection}{\numberline {17.1}CAN Bus}{17}{subsection.17.1}
+\contentsline {subsection}{\numberline {17.2}V2V}{17}{subsection.17.2}
+\contentsline {subsection}{\numberline {17.3}Robot Operating Systems}{17}{subsection.17.3}
+\contentsline {subsubsection}{\numberline {17.3.1}ROS}{17}{subsubsection.17.3.1}
+\contentsline {subsubsection}{\numberline {17.3.2}OPRoS}{17}{subsubsection.17.3.2}
+\contentsline {subsection}{\numberline {17.4}\leavevmode {\color {red2}\bf {}OPC (Open Platform Communication)}}{17}{subsection.17.4}
+\contentsline {subsubsection}{\numberline {17.4.1}Overview}{17}{subsubsection.17.4.1}
+\contentsline {subsubsection}{\numberline {17.4.2}OPC UA (Unified Architecture)}{17}{subsubsection.17.4.2}
+\contentsline {paragraph}{Functional Equivalence}{17}{section*.2}
+\contentsline {paragraph}{Platform Independence}{17}{section*.3}
+\contentsline {paragraph}{Security}{18}{section*.4}
+\contentsline {paragraph}{Extensible}{18}{section*.5}
+\contentsline {subsubsection}{\numberline {17.4.3}OPC Classic}{18}{subsubsection.17.4.3}
+\contentsline {section}{\numberline {18}DIGITAL SYSTEMS}{18}{section.18}
+\contentsline {subsection}{\numberline {18.1}Hardware Description Languages}{18}{subsection.18.1}
+\contentsline {subsubsection}{\numberline {18.1.1}Verilog}{18}{subsubsection.18.1.1}
+\contentsline {subsubsection}{\numberline {18.1.2}Esterel}{18}{subsubsection.18.1.2}
+\contentsline {subsection}{\numberline {18.2}\leavevmode {\color {red2}\bf {}Asynchronous Circuit Synthesis}}{18}{subsection.18.2}
+\contentsline {subsubsection}{\numberline {18.2.1}Phillips handshake circuits}{18}{subsubsection.18.2.1}
+\contentsline {subsubsection}{\numberline {18.2.2}BALSA}{18}{subsubsection.18.2.2}
+\contentsline {subsubsection}{\numberline {18.2.3}Petrify}{18}{subsubsection.18.2.3}
+\contentsline {section}{\numberline {19}VIRTUALIZATION}{18}{section.19}
+\contentsline {subsection}{\numberline {19.1}Software Defined Networking (SDN)}{18}{subsection.19.1}
+\contentsline {subsubsection}{\numberline {19.1.1}Summary}{18}{subsubsection.19.1.1}
+\contentsline {subsubsection}{\numberline {19.1.2}\leavevmode {\color {red2}\bf {}OpenFlow}}{18}{subsubsection.19.1.2}
+\contentsline {subsection}{\numberline {19.2}Software Defined Storage}{18}{subsection.19.2}
+\contentsline {subsubsection}{\numberline {19.2.1}NetApp}{18}{subsubsection.19.2.1}
+\contentsline {subsection}{\numberline {19.3}Software Defined Data Center}{18}{subsection.19.3}
+\contentsline {subsection}{\numberline {19.4}Software Defined Radio}{18}{subsection.19.4}
+\contentsline {section}{\numberline {20}SOFTWARE ARCHITECTURE AND PARADIGMS}{18}{section.20}
+\contentsline {subsection}{\numberline {20.1}Event-Based Programming Model}{18}{subsection.20.1}
+\contentsline {subsubsection}{\numberline {20.1.1}JavaScript}{18}{subsubsection.20.1.1}
+\contentsline {subsubsection}{\numberline {20.1.2}Twisted}{18}{subsubsection.20.1.2}
+\contentsline {subsubsection}{\numberline {20.1.3}X-Windows}{18}{subsubsection.20.1.3}
+\contentsline {subsection}{\numberline {20.2}\leavevmode {\color {red2}\bf {}Continuations}}{18}{subsection.20.2}
+\contentsline {subsection}{\numberline {20.3}\leavevmode {\color {red2}\bf {}Coroutines}}{18}{subsection.20.3}
+\contentsline {subsection}{\numberline {20.4}\leavevmode {\color {red2}\bf {}Reactor/Proactor Design Pattern}}{18}{subsection.20.4}
+\contentsline {subsubsection}{\numberline {20.4.1}C10K problem}{18}{subsubsection.20.4.1}
+\contentsline {subsubsection}{\numberline {20.4.2}C libevent}{19}{subsubsection.20.4.2}
+\contentsline {subsubsection}{\numberline {20.4.3}Python gevent}{19}{subsubsection.20.4.3}
+\contentsline {subsubsection}{\numberline {20.4.4}Akka I/O module}{19}{subsubsection.20.4.4}
+\contentsline {subsubsection}{\numberline {20.4.5}Boost.asio}{19}{subsubsection.20.4.5}
+\contentsline {subsubsection}{\numberline {20.4.6}Akka: Reactive stream}{19}{subsubsection.20.4.6}
+\contentsline {subsection}{\numberline {20.5}Aspect-oriented Programming}{19}{subsection.20.5}
+\contentsline {subsection}{\numberline {20.6}I/O systems}{19}{subsection.20.6}
+\contentsline {subsubsection}{\numberline {20.6.1}Java IO and NIO}{19}{subsubsection.20.6.1}
+\contentsline {subsubsection}{\numberline {20.6.2}C++ Streams I/O}{19}{subsubsection.20.6.2}
+\contentsline {subsection}{\numberline {20.7}Telepathy: Instant messaging}{19}{subsection.20.7}
+\contentsline {section}{\numberline {21}EXAMPLE SYSTEMS}{20}{section.21}
+\contentsline {subsection}{\numberline {21.1}Communication Protocols}{20}{subsection.21.1}
+\contentsline {subsubsection}{\numberline {21.1.1}HTTP}{20}{subsubsection.21.1.1}
+\contentsline {subsubsection}{\numberline {21.1.2}RESTful HTTP}{20}{subsubsection.21.1.2}
+\contentsline {subsubsection}{\numberline {21.1.3}CoAP}{20}{subsubsection.21.1.3}
+\contentsline {subsubsection}{\numberline {21.1.4}MQTT}{20}{subsubsection.21.1.4}
+\contentsline {subsubsection}{\numberline {21.1.5}AMQP}{20}{subsubsection.21.1.5}
+\contentsline {subsubsection}{\numberline {21.1.6}AMQP-based DDS}{20}{subsubsection.21.1.6}
+\contentsline {subsubsection}{\numberline {21.1.7}SSI}{20}{subsubsection.21.1.7}
+\contentsline {subsubsection}{\numberline {21.1.8}XMPP}{20}{subsubsection.21.1.8}
+\contentsline {subsubsection}{\numberline {21.1.9}SSI}{20}{subsubsection.21.1.9}
+\contentsline {subsection}{\numberline {21.2}Protocol Standards Organization}{20}{subsection.21.2}
+\contentsline {subsubsection}{\numberline {21.2.1}\leavevmode {\color {red2}OASIS}}{20}{subsubsection.21.2.1}
+\contentsline {subsection}{\numberline {21.3}Middleware}{20}{subsection.21.3}
+\contentsline {subsubsection}{\numberline {21.3.1}\leavevmode {\color {red2}\textbf {}Qualcomm AllJoyn}}{20}{subsubsection.21.3.1}
+\contentsline {subsubsection}{\numberline {21.3.2}\leavevmode {\color {red2}\textbf {}Open Interconnect Consortium}}{20}{subsubsection.21.3.2}
+\contentsline {subsubsection}{\numberline {21.3.3}\leavevmode {\color {red2}\textbf {}Thread Group}}{20}{subsubsection.21.3.3}
+\contentsline {subsubsection}{\numberline {21.3.4}Apple HomeKit}{20}{subsubsection.21.3.4}
+\contentsline {subsubsection}{\numberline {21.3.5}Google Glass}{20}{subsubsection.21.3.5}
+\contentsline {subsubsection}{\numberline {21.3.6}Google Fit}{20}{subsubsection.21.3.6}
+\contentsline {subsubsection}{\numberline {21.3.7}Google Nest}{20}{subsubsection.21.3.7}
+\contentsline {subsubsection}{\numberline {21.3.8}\leavevmode {\color {red2}\bf {}Samsung SmartThings}}{20}{subsubsection.21.3.8}
+\contentsline {subsubsection}{\numberline {21.3.9}\leavevmode {\color {red2}\bf {}Electric Imp}}{20}{subsubsection.21.3.9}
+\contentsline {subsubsection}{\numberline {21.3.10}\leavevmode {\color {red2}\bf {}Zonoff}}{20}{subsubsection.21.3.10}
+\contentsline {subsection}{\numberline {21.4}Prototyping Boards}{20}{subsection.21.4}
+\contentsline {subsubsection}{\numberline {21.4.1}Arduino}{20}{subsubsection.21.4.1}
+\contentsline {subsubsection}{\numberline {21.4.2}Raspberry Pi}{21}{subsubsection.21.4.2}
+\contentsline {subsubsection}{\numberline {21.4.3}TI Beaglebone}{21}{subsubsection.21.4.3}
+\contentsline {subsubsection}{\numberline {21.4.4}Intel Galileo}{21}{subsubsection.21.4.4}
+\contentsline {subsubsection}{\numberline {21.4.5}Spark Core}{21}{subsubsection.21.4.5}
+\contentsline {subsection}{\numberline {21.5}Devices}{21}{subsection.21.5}
+\contentsline {subsubsection}{\numberline {21.5.1}\leavevmode {\color {red2}\bf {}Beacon}}{21}{subsubsection.21.5.1}
+\contentsline {subsubsection}{\numberline {21.5.2}Fitbit}{21}{subsubsection.21.5.2}
+\contentsline {subsubsection}{\numberline {21.5.3}Google Nest}{21}{subsubsection.21.5.3}
+\contentsline {subsubsection}{\numberline {21.5.4}Tagg GPS Pet Tracker}{21}{subsubsection.21.5.4}
+\contentsline {subsubsection}{\numberline {21.5.5}Aria weight scale}{21}{subsubsection.21.5.5}
+\contentsline {subsection}{\numberline {21.6}Misc systems}{21}{subsection.21.6}
+\contentsline {subsubsection}{\numberline {21.6.1}DIoTY.co}{21}{subsubsection.21.6.1}

@@ -1,0 +1,192 @@
+% $Id: mydef.sty,v 1.25 2005/11/22 03:17:25 cjeong Exp $
+% @file mydef.sty
+% @author Cheoljoo Jeong <cjeong@cs.columbia.edu>
+%
+\NeedsTeXFormat{LaTeX2e}[1997/10/10]
+\ProvidesPackage{mydef}
+\usepackage{theorem}
+
+% colors
+% see 
+\usepackage{color}
+\definecolor{navy}{RGB}{0,0,128}
+\definecolor{darkslategray}{RGB}{49,79,79}
+\definecolor{brown}{RGB}{165,42,42}
+\definecolor{red2}{RGB}{160,0,0}
+\definecolor{blue2}{RGB}{0, 76, 153}
+\definecolor{blue3}{RGB}{0, 51, 105}
+\definecolor{forestbrown}{RGB}{34,139,34}
+\definecolor{green2}{RGB}{0,102,0}
+
+
+% misc definitions
+\def\putspace{\mbox{ }\vspace*{0.2cm}\\}
+
+% font definitions
+\def\sbf{\sf\bfseries}
+
+% commands
+\newcommand{\w}{\item}
+\newcommand{\bit}{\begin{itemize}}
+\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+\newcommand{\bde}{\begin{description}}
+\newcommand{\ede}{\end{description}}
+\newcommand{\bb}[1]{{\bf{#1}}}
+\newcommand{\ee}[1]{{\em{#1}\/}}
+\newcommand{\ssl}[1]{{\sl{#1}\/}}
+\newcommand{\tf}[1]{{\sf{#1}\/}}
+\newcommand{\uu}[1]{{\underline{#1}}}
+
+% mathematical commands
+\newcommand{\absol}[1]{\mbox{$\mid{#1}\mid$}}
+\newcommand{\combi}[2]{\mbox{$\left(  \begin{array}{c} #1 \\ 
+	#2 \end{array} \right)$}}
+\newcommand{\comb}[2]{\mbox{${#1}\choose{#2}$}}
+\newcommand{\pare}[1]{\mbox{$\left({#1}\right)$}}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+%\newcommand{\mod}{\mbox{\rm\ mod\ }}
+\newcommand{\arc}[1]{\mbox{$\langle{\textit{#1}}\rangle$}}
+\newcommand{\pair}[1]{\mbox{$\langle{#1}\rangle$}}
+\newcommand{\ra}{\mbox{$\rightarrow$}}
+\newcommand{\la}{\mbox{$\leftarrow$}}
+\newcommand{\Ra}{\mbox{$\Rightarrow$}}
+\newcommand{\RA}{\mbox{$\Leftrightarrow$}}
+%% to use \rra you should include package 'amssymb'
+\newcommand{\rra}{\mbox{$\twoheadrightarrow$}}
+\def\for{\mbox{\ \ for\ }}
+\def\AND{\mbox{\ and\ }}
+%\def\max{\mbox{max}}
+%\def\min{\mbox{min}}
+\def\lead{\mbox{$\stackrel{*}{\rightarrow}$}}
+\def\defin{\mbox{$\ \stackrel{\mbox{\scriptsize{}def}}{=}\ $}}
+\def\defeq{\triangleq}
+\def\ol{\overline}
+\newcommand{\stir}[2]{{{#1} \brack {#2}}}
+\newcommand{\stirr}[2]{{{#1} \brace {#2}}}
+
+
+% theorems and ...
+\ifdefined\qed
+\else
+\newcommand{\qed}{\hfill $\square$}
+\fi
+\newcommand{\qeda}{\hfill {\bf{}Q.E.D.}}
+\newcommand{\qedb}{\rule{2pt}{6pt}}
+\ifdefined\proof
+\else
+\newcommand{\proof}{\noindent{\bf Proof\ \ }}
+\fi
+%\newenvironment{problem}[1]{\begin{quote} 
+%	\noindent {\bf Problem\ }$[$#1$]$\ }{\end{quote}}
+%\newenvironment{example}{\vspace{0.4cm}{{\bf Example}}\ 
+%	\begin{quote}\small}{\end{quote}}
+\newenvironment{prove}{\begin{quote}\small{\bf{}Proof\ }}{\end{quote}}
+\ifdefined\solution
+\else
+\newenvironment{solution}{\begin{quote}
+	\footnotesize{Solution:}\ }{\end{quote}}
+\fi
+
+%\theoremstyle{plain}{\theorembodyfont{\em} 
+%	\newtheorem{theorem}{Theorem}}
+%\theoremstyle{plain}{\theorembodyfont{\em} 
+%	\newtheorem{problem}{Problem}}
+%\theoremstyle{plain}{\theorembodyfont{\rm} 
+%	\newtheorem{example}{Example}}
+%\theoremstyle{plain}{\theorembodyfont{\em} 
+%	\newtheorem{corollary}{Corollary}}
+%\theoremstyle{plain}{\theorembodyfont{\em} 
+%	\newtheorem{lemma}{Lemma}}
+%\theoremstyle{plain}{\theorembodyfont{\rm} 
+%	\newtheorem{proposition}{Proposition}}
+%\theoremstyle{plain}{\theorembodyfont{\rm} 
+%	\newtheorem{note}{Note}}
+%\theoremstyle{plain}{\theorembodyfont{\rm} 
+%	\newtheorem{observation}{Observation}}
+%\theoremstyle{plain}{\theorembodyfont{\rm} 
+%	\newtheorem{assumption}{Assumptions}}
+%\theoremstyle{plain}{\theorembodyfont{\sf} 
+%	\newtheorem{question}{Question}}
+%\theoremstyle{plain}{\theorembodyfont{\rm}
+%	\newtheorem{definition}{Definition}}
+%\theoremstyle{plain}{\theorembodyfont{\em}
+%	\newtheorem{conjecture}{Conjecture}}
+
+
+% miscellaneous
+\def\boxit#1{\vbox{\hrule\hbox{\vrule\kern3pt
+	\vbox{\kern3pt#1\kern3pt}\kern3pt\vrule}\hrule}}
+\def\uuu{\accent'27u}
+\def\G{\mbox{$\cal{G}$}}
+\def\R{\mbox{$\cal{R}$}}
+\def\M{\mbox{$\cal{M}$}}
+\def\N{\mbox{$\cal{N}$}}
+
+% for set theory (requires amssymb)
+\def\injection{\mbox{$\rightrightarrows$}}
+\def\surjection{\mbox{$\twoheadrightarrow$}}
+\def\bijection{\mbox{$\leftrightharpoons$}}
+
+% for combinatory logic
+\def\A{\mbox{\bf{A}}}
+%\def\B{\mbox{\bf{B}}}
+\def\KK{\mbox{\bf{K}}}
+\def\I{\mbox{\bf{I}}}
+\def\SS{\mbox{\bf{S}}}
+\def\SUCC{\mbox{\bf{SUCC}}}
+\def\PLUS{\mbox{\bf{PLUS}}}
+\def\ZERO{\mbox{\bf{ZERO}}}
+\def\T{\mbox{$\cal{}T$}}
+
+\def\NP{\mbox{\bf{}NP}}
+\def\Pee{\mbox{\bf{}P}}
+\def\coNP{\mbox{\bf{}co-NP}}
+\def\RP{\mbox{\bf{}RP}}
+\def\RNC{\mbox{\bf{}RNC}}
+
+
+% for pl
+\def\denote#1{\mbox{$[\![#1]\!]$}}
+\def\qubit#1{\mbox{$|#1\rangle$}}
+\def\C{\mbox{$\cal{C}$}}
+\def\Pee{\mbox{$\cal{P}$}}
+\def\D{\mbox{$\cal{D}$}}
+\def\deneq{=_{\mbox{den}}}
+\def\opeq{=_{\mbox{op}}}
+\def\axeq{=_{\mbox{ax}}}
+
+
+% for math
+% cardinality of the $2^{\aleph_0}$
+\font\eufm=eufm10
+\font\eurm=eurm10
+\def\B{\mbox{\eufm{}B}}
+\def\c{\mbox{\eufm{}c}}
+\def\N{\mbox{\eurm{}N}}
+\def\Q{\mbox{\eurm{}Q}}
+\def\R{\mbox{\eurm{}R}}
+\def\Z{\mbox{\eurm{}Z}}
+\def\surj{\ra_{\mbox{\scriptsize{}surj}}}
+\def\inj{\ra_{\mbox{\scriptsize{}inj}}}
+\def\bij{\ra_{\mbox{\scriptsize{}bij}}}
+
+% for logic minimization
+\def\fon{$F^{\mbox{\scriptsize{}ON}}$}
+\def\fdc{$F^{\mbox{\scriptsize{}DC}}$}
+\def\foff{$F^{\mbox{\scriptsize{}OFF}}$}
+\def\mfon{F^{\mbox{\scriptsize{}ON}}}
+\def\mfdc{F^{\mbox{\scriptsize{}DC}}}
+\def\mfoff{F^{\mbox{\scriptsize{}OFF}}}
+\newcommand{\on}[1]{{#1}^{\mbox{\scriptsize{}ON}}}
+\newcommand{\off}[1]{{#1^{\mbox{\scriptsize{}OFF}}}}
+\newcommand{\dc}[1]{{#1^{\mbox{\scriptsize{}DC}}}}
+
+% for xypic
+\def\xycirca#1{**{=<1.2pc>[o][F]}{#1}}
+\def\xyccirc#1{**{=<1.8pc>[o][F]}{#1}}
+\def\xycccirc#1{**{=<2.2pc>[o][F]}{#1}}
+\def\xybbox#1{**{=<1.8pc>[F]}{#1}}
+\def\xybbbox#1{**{=<2.2pc>[F]}{#1}}

@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{mydef,myenv}
+\usepackage{newalg,timing}
+\usepackage{MinionPro}
+\begin{document}
+
+\title{\Huge\bf Razor: An Accelerated Java Architecture}
+\author{\Large Cheoljoo Jeong}
+\date{\Large \today}
+\maketitle
+
+\tableofcontents
+
+\part{INTRODUCTION}
+\include{intro}
+
+
+\part{BACKGROUND}
+\include{parallel}
+\include{reconfig}
+\include{transactmem}
+
+%\part{JAVA ACCELERATION}
+\include{jaccel}
+
+% I. DATA
+\part{DATA: Objects, Memory, Files}
+\include{hwvalues}
+\include{hwtypes}
+\include{hwobj}
+\include{memory}
+
+
+% II. COMPUTATION
+\part{COMPUTATION: Methods, Processes, Concurrency}
+\include{hwctrl}
+
+% III. COMMUNICATION
+\part{COMMUNICATION: Messages, Queues}
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{bib/mac,bib/math,bib/theory,bib/digital,bib/compsys,bib/softsys,bib/pl}
+\nocite{LY99,SM01,AGH06}
+\end{document}

@@ -1,0 +1,128 @@
+\section{GRAPH THEORY}
+\subsection{Trees}
+\bit
+\w An edge $e$ of $G$ is a \bb{cut edge} iff $e$ is contained in {\em no
+  cycle\/} of $G$. 
+\w Let $T$ be a spanning tree of a connected graph $G$ and let $e$ be an edge
+of $G$ not in $T$. Then $T + e$ contains a {\em unique\/} cycle.
+\eit
+
+\subsection{Connectivity}
+\bit
+\w The \bb{connectivity} $\kappa(G)$ of 
+\eit
+
+
+\subsection{Independent cycles and cocycles}
+\bit
+\w A \bb{0-chain} of $G$ is a linear combination $\sum \epsilon_i v_i$
+of vertices and a \bb{1-chain} is a sum $\sum \epsilon_i e_i$ of edges,
+where $\epsilon_i = 0$ or $1$. 
+\w The \bb{boundary operator} $\partial$ sends 1-chains to 0-chains according
+to the rules:
+  \ben
+  \w [(a)] $\partial$ is linear.
+  \w [(b)] if $e = (u, v)$, then $\partial x = u + v$.
+  \een
+\w The \bb{coboundary operator} $\delta$ sends 0-chains to 1-chains by the
+rules. 
+  \ben
+  \w [(a)] $\delta$ is linear.
+  \w [(b)] if $\delta v = \sum \epsilon_i e_i$, where $\epsilon_i = 1$
+  whenever $x_i$ is incident with $v$.
+  \een
+\eit
+
+
+\subsection{Maximum matching}
+\bit
+\w A subset $M$ of $E$ is a \bb{matching} in $G$ if {\em no two edges in $M$
+  are adjacent in $G$\/}.  A matching $M$ is said to \bb{saturate} a vertex
+$v$ if some edge of $M$ is incident to $v$. 
+\w $M$ is a \bb{maximum matching} if $G$ has no matching $M'$ with $|M'| >
+|M|$. A \bb{maximal matching} is one which fails to be so when we add any new
+edge. 
+\w An \bb{$M$-alternating path} in $G$ is a path whose edges are alternately 
+in $E - M$ and $M$. An \bb{$M$-augmenting path} is an $M$-alternating path
+whose starting and ending vertices are {\em not $M$-saturated\/}.
+
+\w \bb{Berge's Theorem}: A matching $M$ is a maximum matching iff
+$G$ contains no $M$-augmenting path.
+
+\eit
+
+\subsection{Bipartite matching}
+\bit
+\w \bb{Hall's Theorem for bipartite matching}: 
+   Let $G$ be a bipartite graph with bipartition $(X, Y)$. Then
+$G$ contains a matching that saturates every vertex in $X$ iff
+   $|\Gamma(S)| \ge |S|$ for all $S \subseteq X$, where $\Gamma(S)$ is the
+   neighbor 
+   set of $S$. 
+
+\w \bb{Matching-covering lemma}: Let $M$ be a matching and $K$ be a covering
+   s.t. $|M| = |K|$.  
+   Then $M$ is a maximum matching and $K$ is a minimum covering.  
+\w \bb{Theorem}: In a bipartite graph, the number of edges in a maximum
+   matching is equal to the number of vertices in a minimum covering.
+\eit
+
+\subsection{Perfect matching}
+\bit
+\w \bb{Tutte's theorem}: $G$ has a perfect matching iff
+  $o(G - S) \le |S|$ for all $S \subset V$, where $o(G)$ is the number of odd
+  components of $G$. 
+\eit
+
+\subsection{Independence sets}
+\bit
+\w A subset $S$ of $V$ is an \bb{independence set} of $G$ if no two
+vertices of $S$ are adjacent in $G$. 
+An independent set $S$ is a \bb{maximum independent set} if
+	$G$ has no independent set $S'$ with $|S'| \supseteq |S|$.
+\w A subset $V'$ of $V$ is a \bb{covering} of $G$ if every edge
+of $G$ has at least one end in $V'$.
+\w {\bf Independent-set-covering Theorem}: 
+A set $S \subseteq V$ is an independent set of $G$ iff $V -
+S$ is a covering of $G$.
+
+%% \w The size of a maximum independence set is called the
+%% \bb{independence number} of $G$ and is denoted by $\alpha(G)$.
+%% \w The size of a minimum covering of $G$ is the \bb{covering
+%% number} of $G$ and is denoted by $\beta(G)$.
+%% \w {\sbf Theorem}: {\sf
+%% For any graph $G = (V, E)$, $\ \alpha(G) + \beta(G) = |V|$.
+%% }
+\w An \bb{edge covering} of $G$ is a subset $E'$ of $E$ such that
+each vertex of $G$ is incident to some edge in $E'$.
+\w Edge analogue of an independent set is a set of edges which are
+pairwise non-adjacent, that is, a {\em matching\/}.
+%% \w We denote the number of edges in a \bb{maximum matching} of $G$ by
+%% $\alpha'(G)$ and call it the \bb{edge independence number}.
+%% \w We denote the size of minimum edge cover of $G$ by $\beta'(G)$ and
+%% call it the \bb{edge covering number}.
+%% \w {\sbf Theorem}: {\sf
+%%   For any graph $G = (V, E)$, if $\delta > 0$, 
+%%   then $\alpha'(G) + \beta'(G) = |V|$.}
+%% \w {\sbf Theorem}: {\sf
+%%   In a bipartite graph $G$ with $\delta > 0$, the number of
+%% vertices in a maximum independent set is equal to the number of edges
+%% in a minimum edge cover.}
+\eit
+
+\subsection{Ramsey numbers}
+\bit
+\w Given any positive integers $k$ and $l$, there exists a smallest integer
+$R(k, l)$ s.t. every graph on $R(k, l)$ vertices contains either a clique of
+$k$ vertices or an independent set of $l$ vertices. $R(k, l)$ is called a
+\bb{Ramsey number}. 
+\w \bb{Erd\"{o}s-Szekeres theorem on Ramsey numbers}: 
+   For any two integers $k \ge 2$ and $l \ge 2$,
+   \[ R(k, l) \le r(k, l-1) + r(k-1, l).\]
+
+\w \bb{Tur\'{a}n's theorem}: If $G$ is simple and contains no $K_{m+1}$, then
+$\epsilon(G) \le \epsilon(T_{m,\nu})$. Moreover, $\epsilon(G) =
+  \epsilon(T_{m, \nu})$ only if $G \cong T_{m, \nu}$. 
+\eit
+
+

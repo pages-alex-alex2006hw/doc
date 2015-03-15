@@ -1,0 +1,71 @@
+\section{ALGEBRAIC SPECIFICATION}
+\subsection{Basic definitions}
+\bit
+\w A \bb{signature} $SIG = (S, OP)$ consists of a set $S$ of \bb{sorts} and a
+set $OP$ of \bb{constant and operation symbols}.
+The set $OP$ is the pairwise-disjoint union of the set $K_s$ of constant
+symbols and $OP_{w, s}$ of operation symbols, where $w \in S^+$.
+\w An \bb{algebra} $A = (S_A, OP_A)$ of a signature $SIG = (S, OP)$, also
+called \bb{$SIG$-algebra}, is given by two families $S_A = (A_s)_{s \in S}$
+and 
+$OP_A = (N_A)_{N \in OP}$ where
+  \ben
+  \w [(a)] $A_s$ are sets for all $s \in S$, called \bb{base sets} or
+  \bb{domains} of $A$
+  \w [(b)] $N_A$ are elements $N_A \in A_s$ for all contant symbols $N \in
+  K_s$ i.e. $N: \rightarrow s$ and $s \in S$, called \bb{constant} of $A$.
+  \w [(c)] $N_A: A_{s_1} \times \cdots \times A_{s_n} \rightarrow A_s$ are
+  functions for all operation symbols $N \in OP_{s_1\cdots{s_n},s}$ (i.e. $N:
+  s_1\cdots s_n \rightarrow s$) and $s_1\cdots s_n \in S^+$, $s \in S$ called
+  \bb{operations} of $A$.
+  \een
+
+\w Let $T_{OP}$ be the set of terms of a signature $SIG = (S, OP)$ and $A$ a
+$SIG$-algebra. The \bb{evaluation} $eval: T_{OP} \rightarrow A$ is recursively
+defined by 
+  \ben
+  \w [(a)] $eval(N) = N_A$, \ \ for all constant symbols $N \in K$.
+  \w [(b)] $eval(N(t_1, \cdots, t_n)) = N_A(eval(t_1), \cdots, eval(t_n))$ for
+  all $N(t_1, \cdots, t_n) \in T_{OP}$. 
+  \een
+\w Given a set of variables $X$ for $SIG = (S, OP)$ and an \bb{assignment}
+$\sigma: X \rightarrow A$ with $\sigma(x) \in A_s$ for $x \in X_s$ and $s \in
+S$. The \bb{extended assignment}, or simply \bb{extension} 
+$\overline{\sigma}: T_{OP}(X) \rightarrow A$ of the assignment $\sigma: X
+\rightarrow A$ is recursively defined by 
+  \ben
+  \w [(a)] $\overline{\sigma}(x) = \sigma(x)$ for all variables $x \in X$;
+     $\overline{\sigma}(N) = N_A$ for all constant symbols $N \in K$. 
+  \w [(b)] $\overline{\sigma}(N(t_1, \cdots, t_n)) = 
+      N(\overline{\sigma}(t_1), \cdots, \overline{\sigma}(t_2))$ for all $N(t_1,
+      \cdots, t_n) \in T_{OP}(X)$. 
+  \een
+\eit
+
+\subsection{Equational specifications and derivations}
+\bit
+\w Given a signature $SIG = (S, OP)$ and variables $X$ w.r.t. $SIG$,
+a triple $e = (X, L, R)$ with $L, R \in T_{OP, s}(X)$ for some $s \in S$
+is called an \bb{equation} of sort $s$ w.r.t. $SIG$.
+\w The equation $e = (X, L, R)$ is called \bb{valid} in a $SIG$-algebra
+ $A$ if for all assignments $\sigma: X \rightarrow A$ we have
+$\overline{\sigma}(L) = \overline{\sigma}(R)$ where $\overline{\sigma}$
+is the extended assignment of $\sigma$. 
+\w If $e$ is \bb{valid} in $A$, we also say that $A$ \bb{satisfies} $e$.
+\w \bb{Ground equations} are equations $e = (X, L, R)$ with $X =
+\emptyset$. In this case $L$ and $R$ are \bb{ground terms}.
+\eit
+
+\subsection{Specification and $SPEC$-algebra}
+\bit
+\w A \bb{specification} $SPEC = (S, OP, E)$ consists of a \bb{signature} $SIG
+= (S, OP)$ and a set $E$ of \bb{equations} $e$ w.r.t. $SIG$.
+\w An \bb{algebra} of the specification $SPEC$, \bb{$SPEC$-algebra}, is an
+algebra $A$ of the signature $SIG$ which satisfies all equations in $E$.
+\eit
+
+
+\subsection{Initial semantics of specifications}
+
+
+

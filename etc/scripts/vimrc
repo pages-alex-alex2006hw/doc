@@ -1,0 +1,13 @@
+" ignore case when searching
+set ic 
+
+" turn on syntax highlighting
+syntax on
+
+" tab 
+set tabstop=2 noexpandtab
+
+" syntax highlighting
+au BufRead,BufNewFile *.svh,*.sv,*.vh,*.v set filetype=verilog_systemverilog
+au BufRead,BufNewFile *.scala set filetype=java
+

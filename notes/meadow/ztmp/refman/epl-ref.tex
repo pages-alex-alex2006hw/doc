@@ -1,0 +1,97 @@
+\documentclass[twocolumn]{report}
+\usepackage{mathptm,mydef,myenv}
+\usepackage{MinionPro}
+\usepackage[Lenny]{fncychap}
+\begin{document}
+
+\small
+
+\title{\huge\bf Meadow EPL: Language Reference}
+\author{}
+\date{\Large\today}
+\maketitle
+
+%%
+\tableofcontents
+
+%%
+\chapter{Introduction}
+
+\section{Events}
+By ``events'', we need to distinguish between two possible interpretations.
+One refers to something that has happened (the {\em event occurrence}) and
+the other refers to an actual and {\em event object\/}. 
+
+\section{Semantics}
+\section{Syntax}
+\section{Notation and terminology}
+
+%%
+\chapter{Lexical Conventions}
+  
+%%
+\chapter{Basic Concepts}
+\section{Event Types}
+An event type defines a set of values that an event can assume. An event type
+is either a primitive type or a complex type.
+
+\subsection{Primitive types}
+A primitive event type is one of bool, char, short, integer, long, float,
+double, and string. 
+
+\subsection{Complex types}
+A complex type is either an array or a structure of event types.
+
+\subsection{Array type}
+
+\begin{verbatim}
+  type int_array = int[10];
+\end{verbatim}
+
+\subsection{Structure type}
+
+\begin{verbatim}
+  type bid_type = struct {
+    string symbol;
+    float price;
+    int quantity;
+  };
+\end{verbatim}
+
+\section{Events}
+An event 
+
+\section{Event Contexts}
+
+\section{Event Streams}
+A \bb{stream} is an open-ended set of event objects, ordered by time.
+
+\section{Aggregates}
+
+\section{Event Patterns}
+An \bb{event patterns} is a predicate over events which evaluates to a Boolean
+value. 
+
+\section{Event Windows}
+An \bb{event window} over sequences of events is used to create a finite
+ordered sewquence of event instances to be consumed by processes.
+
+\section{Processes}
+A process is a piece of code which is invoked when some condition is
+satisifed. 
+
+\subsection{conditions}
+
+
+\chapter{Aggregates}
+
+\chapter{Event Patterns}
+\chapter{Event Windows}
+
+\chapter{Processes}
+
+
+\bibliographystyle{plain}
+\bibliography{bib/mac,bib/softsys}
+\nocite{EN11}
+\end{document}

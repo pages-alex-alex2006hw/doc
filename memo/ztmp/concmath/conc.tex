@@ -1,0 +1,176 @@
+\documentclass{note}
+\usepackage{theorem,mydef,concmath}
+\begin{document}
+\small
+\title{\Large\bf{}Notes on Concrete Mathematics}
+%\author{¡§ √∂¡÷}
+\maketitle
+\section{Mathematical Induction and Recurrences}
+\subsection{Fibonacci Sequence}
+	\begin{eqnarray*}
+	F_0 & = & 0,\\
+	F_1 & = & 1,\\
+	F_n & = & F_{n-2} + F_{n-1}, \quad n \ge 2
+	\end{eqnarray*}
+\bit
+\w $\phi = (1 + \sqrt{5})/2$.
+\w $\phi^2 = \phi + 1$.
+\w $\phi^{n-2} \le F_n \le \phi^{n-1}$.
+\eit
+
+	
+
+\subsection{First-order linear recurrences}
+\paragraph{General solution to the first-order linear recurrences}
+Let a recurrence of the form
+	\[ a_nT_n = b_nT_{n-1} + c_n \]
+be given.
+\ben
+\w Multiply both sides by a {\bf{}summation factor} $s_n$:
+	\[ s_na_nT_n = s_nb_nT_{n-1} + s_nc_n\]
+	where \underline{$s_nb_n = s_{n-1}a_{n-1}$}.
+\w Substitute $S_n = s_na_nT_n$, which renders
+	\[ S_n = S_{n-1} + s_nc_n, \]
+	which is easy to solve.
+\een
+{\sl\bfseries{}The crucial point is how we can choose $s_n$!}\ 
+	Don't worry (be happy). Since $s_nb_n = s_{n-1}a_{n-1}$ should
+	be satisfied,
+	\begin{eqnarray*}
+	s_n & = & s_{n-1}\frac{a_{n-1}}{b_n} \\
+	& = & s_{n-2}\frac{a_{n-2}}{b_{n-1}}\frac{a_{n-1}}{b_n} \\
+	& = & \frac{a_{n-1}a_{n-2}\cdots{a_1}}{b_nb_{n-1}\cdots{b_2}}.
+	\end{eqnarray*}
+
+\section{Sums}
+\subsection{Perturbation method}
+\paragraph{Perturbation method}
+Let $S_n$ be a unknown sum,
+	\[ S_n = \sum_{0\le{k}\le n} a_k,\]
+which we want to evaluate.
+\ben
+\w \underline{Rewrite `$S_{n+1}$' in two ways} ({\bf{}name and conquer}),
+by splitting off both its last term and and its first term.
+\begin{eqnarray*}
+S_n + a_{n+1} = \sum_{0\le{k}\le n+1}a_k & = &
+	a_0 + \sum_{1\le{k}\le{n+1}}a_k \\
+	& = & a_0 + \sum_{1\le{k+1}\le n+1} a_{k+1} \\
+	& = & a_0 + \sum_{0\le k\le n} a_{k+1}.
+\end{eqnarray*}
+\w Now express the last sum in terms of $S_n$.
+\w Solve the equation.
+\een
+\paragraph{Example of perturbation method} Find the sum of 
+{\em{}geometric progression\/},
+	\[ S_n = \sum_{0\le{k}\le n} ax^k.\]
+\ben
+\w Rewrite:
+	\begin{eqnarray*}
+	S_n + ax^{n+1} & = & ax^0 + \sum_{1\le{k}\le n+1}ax^k \\
+		& = & a + \sum_{0\le k \le n} ax^{k+1}
+	\end{eqnarray*}
+\w Express:
+	\begin{eqnarray*}
+	\sum_{0\le k \le n} ax^{k+1} & = & \sum_{0\le k \le n}ax^k x\\
+		& = & xS_n
+	\end{eqnarray*}
+\w Solve:
+	\begin{eqnarray*}
+	S_n + ax^{n+1} & = & a + xS_n \\
+	(1-x)S_n & = & a(1 - x^{n+1}) \\
+	S_n & = & \frac{a(1-x^{n+1})}{1-x}, \quad x \ne 1.
+	\end{eqnarray*}
+\een
+
+\subsection{Multiple sums}
+\paragraph{Interchanging the order of summation (I)}
+\[ \sum_j\sum_k a_{j,k} [P(j, k)] = \sum_{P(j, k)}a_{j,k}
+	= \sum_k\sum_j a_{j,k} [P(j,k)] \]
+
+\paragraph{Interchanging the order of summation (II)}
+\[ \sum_{j\in J}\sum_{k\in K} a_{j,k} = \sum_{j \in J, k \in K}a_{j,k}
+	= \sum_{k \in K}\sum_{j\in J} a_{j,k} \]
+Note that this law applies only when {\em{}the ranges of $j$ and $k$
+are independent of each other\/}.
+
+\paragraph{Interchanging the order of summation (III)}
+Let's tackle the case when the index of the inner sum is dependent
+on the outer index!
+	\[ \sum_{j \in J}\sum_{\underline{k} \in K(j)} a_{j, k} = 
+	\sum_{\underline{k} \in K'}\sum_{j \in J'(k)}a_{j, k}\]
+This laws applies only when $[j \in J][k \in K(j)] = [k \in K'][j \in J'(k)]$.
+Obvious?
+\bit
+\w {\bf{}Useful example:}
+\[ [1\le j \le n][j \le k \le n] 
+	= \underline{[1 \le j \le k \le n]}
+	= [1 \le k \le n][1 \le j \le k]\]
+\eit
+
+\paragraph{Basic distributive law}
+\[ \sum_{j \in J, k \in K}a_jb_k = \left(\sum_{j\in J}a_j\right)
+	\left(\sum_{k\in K}b_k\right).\]
+For example,
+\begin{eqnarray*}
+\sum_{1\le j,k \le 3}a_jb_k & = & \underline{\sum_{j,k}a_jb_k[1 \le j, k \le 3]}
+	= \sum_{j,k}a_jb_k[1 \le j \le 3][1 \le k \le 3] \\
+	& = & \underline{\sum_j\sum_{k}a_j[1\le j \le 3]b_k[1\le k \le 3]}\\
+	& = & \sum_j\left(a_j[1\le j \le 3]\sum_kb_k[1 \le k \le 3]\right)\\
+	& = & \sum_j\left(a_j[1\le j \le 3]\left(\sum_kb_k[1 \le k \le 3]\right)\right)\\
+	& = & \left(\sum_ja_j[1\le j \le 3]\right)\left(\sum_kb_k[1 \le k \le 3]\right)\\
+	& = & \left(\sum_{1\le j\le 3}a_j\right)\left(\sum_{1 \le k \le 3}b_k\right)
+\end{eqnarray*}
+
+
+
+\section{Principle of Inclusion and Exclusion}
+\paragraph{PIE}
+\bit
+\w We have a set of $N$ objects that have various properties
+	$\alpha$, $\beta$, $\cdots$, $\lambda$. Each of the objects have
+	any or none of the properties.
+	\bit
+	\w $N_{\alpha}$: the number of objects that have property $\alpha$.
+	\w $N_{\alpha\gamma}$: the number of objects that have both the
+		properties $\alpha$ and $\gamma$.
+	\w $N_0$: the objects with no properties.
+	\w Then,
+	\begin{eqnarray*}
+	N_0 & = & N - N_{\alpha} - N_{\beta} - \cdots - N_{\lambda}\\
+	& &  +	N_{\alpha\beta} + N_{\alpha\gamma} + \cdots + 
+		N_{\kappa\lambda}\\
+	& & - N_{\alpha\beta\gamma} + \cdots \\
+	& & \vdots \\
+	& & \pm N_{\alpha\beta\cdots\lambda}
+	\end{eqnarray*}
+	\eit
+\eit
+\paragraph{Example}
+\bit
+\w {\em{}We take the numbers $1, 2, \cdots, n$, and look at the
+	permutation $i_1, i_2, \cdots, i_n$.
+	How many such permutations have $i_k \ne k$ for all $k$?}
+	\bit
+	\w Let $\alpha \defin [i_1 = 1]$ \ ([] is Iverson's bracket)
+	\w Let $\lambda \defin [i_n = n]$
+	\w The solution we seek is $N_0$!
+	\begin{eqnarray*}
+	N_0 & = & N - N_{[i_1 = 1]} - \cdots - N_{[i_n = n]} + \cdots \pm
+		N_{[i_1=1,\cdots,i_n = n]}\\
+	& = & n! - {n\choose{}1}(n-1)! + {n\choose{}2}(n-2)! - \cdots
+		+ (-1)^n{n\choose{n}}1!\\
+	& = & n! - \frac{n!}{1!(n-1)!}(n-1)! + 
+		\frac{n!}{2!(n-2)!}(n-2)! + \cdots + (-1)^n\\
+	& = & n!\left(1 - \frac{1}{1!} + \frac{1}{2!} - \cdots +
+		\frac{(-1)^n}{n!}\right)
+	\end{eqnarray*}
+	\eit
+\eit
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{bib/mac,bib/math,bib/algo}
+\nocite{GKP92}
+\end{document}

@@ -1,0 +1,145 @@
+% $Id: kiss96.sty,v 1.1.1.1 2002/08/13 10:06:01 cjeong Exp $
+%
+% 정보과학회(KISS) 학술대회 논문 제출용 LaTeX 스타일 입니다. 
+%  A4 용지를 사용하고 1996년 춘계학술대회용으로 만들었습니다.
+%
+% 사용방법은 아래와 같다.
+% \documentclass{article}
+% \usepackage{hangul,kiss96}
+%      \begin{document}
+%      \title{한글 제목}
+%      \author{(한글)저자1\Up{*} \and 저자2\Up{*} \and 저자3\Up{**}\\
+%              \Up{*} 저자1,2의 주소\\
+%              \Up{**} 저자 3의 주소 }
+%      \etitle{영문 제목}
+%      \eauthor{(영문)저자1\Up{*} \and 저자2\Up{*} \and 저자3\Up{**}\\
+%              \Up{*} 저자1,2의 주소\\
+%              \Up{**} 저자 3의 주소 }
+%      \begin{abstract} 
+%         본 논문에서는 ...
+%                 .......
+%      \end{abstract}
+%      \maketitle
+%      % 본문
+%      객체지향 시스템은 ...
+%      .. .......
+%      \end{document}
+% 
+
+% Physical page layout for A4 page output
+%
+% 종이 크기
+\setlength\textheight{25cm} \setlength\textwidth{18.5cm}
+\setlength\topmargin{.46cm} % 3cm - 1in
+\setlength\oddsidemargin{-1.24cm} % 0.8cm - 1in -1.74cm
+\setlength\evensidemargin{-1.24cm}% 0.8cm - 1in
+% 단 간격
+\setlength\columnsep{5mm}  
+% 위아래 군더더기 간격 없애기
+\setlength\headheight{0pt}   \setlength\headsep{0pt}
+%\setlength\footheight{0pt}   \setlength\footskip{0pt}
+\thispagestyle{empty}	     \pagestyle{empty}
+%  크기 parameter들
+\newlength\titleheight \setlength\titleheight{1.5cm}
+\newlength\otherheight \setlength\otherheight{1cm}
+\newlength\titlewidth \setlength\titlewidth{12.5cm} 
+\newlength\titleskip \setlength\titleskip{0.5cm} 
+\newlength\abstractskip \setlength\abstractskip{1cm} 
+\newlength\authorbox \setlength\authorbox{1.0cm}
+\newlength\authorwidth \setlength\authorwidth{\titlewidth}
+\newlength\abstractmargin \setlength\abstractmargin{2cm}
+\newlength\abstractheight \setlength\abstractheight{6cm}
+\newlength\abstractwidth \setlength\abstractwidth{14.5cm}
+
+\def\addcontentsline#1#2#3{}
+
+% 타이틀 만들기
+
+\def\maketitle{\begingroup        % Initialize generation of front-matter
+%   \let\thanks\@gobble
+    \def\thefootnote{\fnsymbol{footnote}}%
+    \newpage \global\@topnum\z@ 
+    \@maketitle \thispagestyle{empty}\@thanks
+ \setcounter{footnote}{0}
+ \let\maketitle\relax \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax
+ \gdef\@eauthor{}\gdef\@etitle{}\relax}
+
+%
+\newbox\title@box
+\newbox\author@box
+\newbox\etitle@box
+\newbox\eauthor@box
+
+% title 그리기
+%
+\def\@maketitle{%
+ \def\and{\unskip\enspace\quad}%
+ \global\setbox\title@box=\vbox to \titleheight\bgroup%   한글 title
+    \hsize\titlewidth\centering\LARGE \@title \par%
+  \egroup
+ \global\setbox\author@box=\vbox to \otherheight\bgroup%   한글 저자
+  \hsize\titlewidth\large\mj \hfil\hfil 
+    \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\@author
+	    \end{tabular}\hss\egroup
+    \hfil\hfil
+  \egroup
+ \global\setbox\etitle@box=\vbox to \otherheight\bgroup%  영문 title
+  \hsize\titlewidth\centering\Large\rm \@etitle \par
+  \egroup
+ \global\setbox\eauthor@box=\vbox to \otherheight\bgroup%   영문 저자
+  \hsize\titlewidth\large\rm \hfil\hfil
+    \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\@eauthor 
+	    \end{tabular}\hss\egroup
+    \hfil\hfil
+  \egroup 
+  \twocolumn[%
+  \offinterlineskip
+  \hbox{\hskip 3cm \vbox{
+   \unvbox\title@box     \vskip 5mm
+   \unvbox\author@box    \vskip 5mm
+   \unvbox\etitle@box    \vskip 5mm
+   \unvbox\eauthor@box   \vskip 1cm}}
+  \hbox{\hskip 2cm \vbox{
+   \unvbox\abstract@box  \vskip 1cm}}]%
+}
+
+% ABSTRACT:
+\newbox\abstract@box              % Box to capture abstract in
+
+\def\abstract{%
+  \global\setbox\abstract@box=\vbox to \abstractheight\bgroup
+  \hsize\abstractwidth
+  \centerline{\bf\abstractname}\par% 요약
+  \vskip 1ex
+  \normalsize\rm
+  \ignorespaces}
+\def\endabstract{\par \egroup}
+
+\def\Up#1{\raise 1ex\hbox{#1}}  % 이름\Up{$circ$} 방식
+\def\Speaker{$^\bigcirc$}  % 발표자 동그라미표시
+
+% 변수 초기화
+\gdef\@author{}
+\gdef\@title{}
+\gdef\@eauthor{}
+\gdef\@etitle{}
+\def\etitle#1{\gdef\@etitle{#1}}
+\def\eauthor#1{\gdef\@eauthor{#1}}
+\def\Abstract#1{\gdef\@abstract{#1}}
+
+% 기타
+\parindent 1em
+\parskip 0pt
+\floatsep 2mm plus 4pt minus 4pt
+\textfloatsep=\floatsep
+\intextsep=\floatsep
+\pagenumbering{arabic}
+\sloppy
+\emergencystretch=1pc
+\flushbottom         
+\raggedbottom
+\normalsize 
+
+%%
+%% End of file `kiss96.sty'.

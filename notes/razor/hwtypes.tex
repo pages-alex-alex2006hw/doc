@@ -1,0 +1,55 @@
+\chapter{Hardware Implementation of Types}
+The value of a variable is represented using bits inside the
+computer. The type of a variable provides a context which indicates how these
+bit sequences should be interpreted.
+
+\section{Data Types}
+A \bb{data type} is either a null type, a primitve type or a reference type. 
+
+
+\section{Flattening of data types}
+\subsection{Primitive types}
+A primitive type is either the {\em boolean type\/} or a {\em numeric
+  type\/}. A numeric type is either an integral type or a floating-point
+type. The value of a primitive type variable is represented usign a sequence
+of bits inside the hardware. 
+
+\begin{table}[h]
+\centerline{\begin{tabular}{|c|c|c|c|}\hline
+category & type & number of bits & \\ \hline
+boolean & boolean & 1 & \\ \hline
+integral &byte & 8 & \\ \cline{2-4}
+& short & 16 & \\ \cline{2-4}
+& int & 32 & \\ \cline{2-4}
+& long & 64 & \\ \hline
+floating-point & float & 32 & \\ \hline
+  & double & 64 & \\ \hline
+\end{tabular}}
+\caption{Representation of primitive types}
+\end{table}
+
+\subsection{Reference types}
+A reference type is either a {\em class type\/}, {\em interface type\/}, or an
+{\em array type\/}. Since a variable of a reference type has a structure so we
+need a systematic way to represent the value of such a variable using a
+sequence of bits. 
+
+
+\section{Mapping variables to hardware}
+
+Let a variable $v$ with a type $T$ be given, which is implemented using a bit
+sequence $\arc{b_0, b_1, \cdots, b_{n-1}}$ inside the hardware. During
+runtime, we need to read or write elements of the variable.
+
+A function $\phi: {\cal T} \rightarrow  {\cal S}$ determines the starting
+position of the bit within the given  ...
+
+\[ \phi(S, T) = \left\{
+    \begin{array}{ll}
+      -1 & \mbox{if $S \not\in T$} \\
+      0 & \mbox{if } \\
+    \end{array}
+ \right. \]
+
+
+

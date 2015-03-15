@@ -1,0 +1,14 @@
+\frametitle {Semantics of Meadowview Elements}
+
+Each (static) Meadowview element has its dynamic counterpart.
+
+\vspace*{0.3cm}
+
+\centerline{\begin{tabular}{|l|l|} \hline
+Syntax & Semantics \\ \hline
+Agent & Device handle \\
+Event & Event instance \\
+Channel & Event queue \\
+Process & Labeled transition system \\ \hline
+\end{tabular}}
+

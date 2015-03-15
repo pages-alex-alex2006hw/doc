@@ -1,0 +1,305 @@
+% IEEEmagn.STY
+% Document Style Option `IEEEmagn'
+% Version 18 April 1996
+
+% This LATEX document style, IEEEmagn.STY, may be used to prepare 
+% conference-related papers for the ``IEEE Transactions on Magnetics''
+% Usage is \documentstyle[IEEEmagn]{article}
+% IEEEmagn.STY is a style option, along with ART10.STY, for ARTICLE.STY
+
+% This file may be freely distributed.
+% A companion sample file that may be used as a template is PREPGUID.TEX
+
+% Developed by:  L. D. Cooley
+% National Institute of Standards and Technology
+% 325 Broadway
+% Boulder, Colorado 80303, USA
+
+% Please suggest changes to:
+% goldfarb@bldrdoc.gov
+
+% ***********************************************************
+
+\typeout{Document Style Option `IEEEmagn' -- Ver. 18 April 1996}
+
+% Type sizes as defined in ART10.STY:
+% \normal = 10pt
+% \small = 9pt
+% \footnotesize = 8pt
+% \scriptsize = 7pt
+% \tiny = 5pt
+
+% Redefine \tiny to 6pt on 7pt spacing:
+\def\tiny{\@setsize\tiny{7pt}\vipt\@vipt\let\@listi\@listI}
+
+\oddsidemargin -0.6in
+\evensidemargin \oddsidemargin
+\topmargin -0.25in
+\headheight 0pt
+\headsep 0pt
+\footheight 0pt
+\footskip 0pt
+
+\textheight 9.5in
+\textwidth 7.1in
+\columnsep 0.2in
+\columnseprule 0pt
+
+\pagestyle{empty}
+
+\def\@titlefntext#1{\vskip 1em \parindent 1em #1}
+\def\thanks#1{\def\@thanks{\footnotetext[0]{#1}}}
+
+\def\maketitle{\par
+ \begingroup
+ \let\@makefntext\@titlefntext
+ \twocolumn[\@maketitle]
+ \@thanks
+ \endgroup
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \let\thanks\relax
+ \gdef\@title{}
+ \gdef\@author{}
+ \gdef\@thanks{}
+}
+
+\def\@maketitle{
+ \vbox to 1.75in{%
+  \hsize\textwidth
+  \linewidth\hsize
+  %Adjust spacing between lines in title:
+  \baselineskip 16 pt
+  \vfil
+  \centering
+  {\Large\bf \@title}\par
+  \vskip 1em
+  {\normalsize \begin{tabular}[t]{c}
+   \@author
+  \end{tabular}} \par
+  \vfil
+ }
+}
+
+\def\and{\end{tabular}\par\vskip 1em\begin{tabular}[t]{c}
+}
+
+\def\abstract#1{{\small \boldmath \indent $Abstract$\/}---\ignorespaces 
+{\small \bf #1}}
+
+%  Redefinition of \@sect to give .5em instead of 1em spacing between
+%  section number and section heading.
+\def\@sect#1#2#3#4#5#6[#7]#8{\ifnum #2>\c@secnumdepth
+     \def\@svsec{}\else
+     \refstepcounter{#1}\edef\@svsec{\csname the#1\endcsname\hskip .5em }\fi
+     \@tempskipa #5\relax
+      \ifdim \@tempskipa>\z@
+        \begingroup #6\relax
+          \@hangfrom{\hskip #3\relax\@svsec}{\interlinepenalty \@M #8\par}%
+        \endgroup
+       \csname #1mark\endcsname{#7}\addcontentsline
+         {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+                      \protect\numberline{\csname the#1\endcsname}\fi
+                    #7}\else
+        \def\@svsechd{#6\hskip #3\@svsec #8\csname #1mark\endcsname
+                      {#7}\addcontentsline
+                           {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+                             \protect\numberline{\csname the#1\endcsname}\fi
+                       #7}}\fi
+     \@xsect{#5}}
+
+\def\section{\@startsection {section}{1}{\z@}{3.5ex plus 1ex minus
+ 0.2ex}{2.3ex plus 0.2ex}{\centering \normalsize \sc }}
+\def\subsection{\@startsection{subsection}{2}{\z@}{3.25ex plus 1ex
+ minus 0.2ex}{1.5ex plus .2ex}{\normalsize \it }}
+\def\subsubsection#1{\@startsection{subsubsection}{3}
+ {\parindent}{0ex}{0ex}{\normalsize \it }{#1:\ }}
+
+\def\thesection{\Roman{section}.}
+\def\thesubsection{\Alph{subsection}.}
+\def\thesubsubsection{\arabic{subsubsection})}
+
+
+% default settings for figure and table set in article.sty
+\def\thefigure{\arabic{figure}}
+\def\fnum@figure{Fig.\ \thefigure.}
+
+\def\thetable{\Roman{table}}
+\def\fnum@table{TABLE \thetable}
+
+% change rubber space between figures/tables and text from 20pt to 10pt
+\textfloatsep 10pt plus 2pt minus 4pt
+
+% tables need special treatment
+
+\newif\iffloatistable
+\floatistablefalse
+
+\def\table{\floatistabletrue\footnotesize\@float{table}}
+\def\endtable{\floatistablefalse\end@float\normalsize}
+
+\long\def\@caption#1[#2]#3{\par\begingroup
+    \@parboxrestore
+    \iffloatistable
+    \@maketablecaption{\csname fnum@#1\endcsname}{\ignorespaces #2}\par
+    \else % usual float
+    \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #2}\par
+    \fi
+  \endgroup}
+
+% default captions are footnotesize
+\long\def\@makecaption#1#2{
+ \vskip 10pt
+ \footnotesize
+ \setbox\@tempboxa\hbox{#1 #2}
+ \ifdim \wd\@tempboxa >\hsize #1 #2\par \else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil}
+ \fi}
+
+% special table captions
+
+\long\def\@maketablecaption#1#2{
+ \vskip 5pt
+ \parbox{\columnwidth}{
+ \centering
+  {\footnotesize #1} \\
+  {\tiny #2}
+ }
+ \vspace{\parskip}
+}
+
+% References, much help from APS' RevTex.sty, American Physical
+% Society, 1991
+
+\def\@cite#1#2{#1\if@tempswa, #2\fi}
+
+\def\cite{%
+ \@ifnextchar[{\@tempswatrue\@xcite}{\@tempswafalse\@xcite[]}
+}
+
+\def\@xcite[#1]#2{%
+ \if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+ [\@cite{\@collapse{#2}}{#1}]%
+}%
+
+\def\@stripdollars#1{%
+ {% we use latex temps, therefore we group
+ \edef\@tempd{#1}%
+ \def\@tempa##1##2+@?{\def\@tempb{##1}\def\@tempc{##2}}%
+  \expandafter\@tempa\@tempd+@?% tempb is first tok, tempc rest.
+  \if$\@tempb%
+   \def\@tempb##1${\def\@tempa{##1}}%
+   \expandafter\@tempb\@tempc % now temp b is stripped stuff
+   \@tempa%
+  \else
+   \@tempd%
+  \fi
+ }% end of grouping
+}% end of def
+
+\def\@collapse#1{%
+ {% grouping to allow use of latex temps
+ \sfcode`,=2000\relax
+ \dimen0=\the\fontdimen2\textfont0\relax
+ \xspaceskip = .6\dimen0 plus.3\dimen0 minus.3\dimen0\relax
+ \let\@temp\relax
+ \@tempcntb\@MM
+ \def\@citea{}%
+ \@for \@citeb:=#1\do{%
+  \@ifundefined{b@\@citeb}%
+   {\@temp\@citea{\bf ?}%
+    \@tempcntb\@MM\def\@citea{,}\let\@temp\relax%
+    \@warning{Citation `\@citeb ' on page \thepage\space undefined}%
+   }% end of \@ifundefined #1 arg
+   {\@tempcnta\@tempcntb \advance\@tempcnta\@ne
+    \edef\MyTemp{\csname b@\@citeb\endcsname}%
+    \def\@tempa{\@temptokena=\bgroup}% toss rest (non#) of footmark
+    \if0A{\fi% hack to match brackets in \@collapse def
+    \afterassignment\@tempa % non# part of cite goes into temp toks
+    % NEXT LINE: curly opens in \@tempa, 0 default if non#
+    \@tempcntb=0\MyTemp\relax}%
+    \ifnum\@tempcntb=0\relax% non-# cite mark SHOULD NOT OCCUR-LDC
+     \@tempcntb=\@MM
+     \@citea\@stripdollars{\MyTemp}%
+     \let\@temp = \relax
+     \def\@citea{,}%
+    \else % treating cite mark as #
+     \edef\@tempd{\number\@tempcntb}%
+     \ifnum\@tempcnta=\@tempcntb%
+      \ifx\@temp\relax
+       \edef\@temp{\@citea\@tempd}%
+      \else%
+       \edef\@temp{\hbox{]--[}\@tempd}%
+      \fi%
+     \else%
+      \@temp\@citea\@tempd
+      \let\@temp\relax
+     \fi
+    \def\@citea{], [}%
+    \fi%
+   }% end of @ifundefined #2 arg
+  }% end of do loop
+  \@temp % drop in last bit saved
+ }% end of grouping to allow use of latex temps
+}% end of \@collapse def
+
+
+\def\thebibliography#1{
+ \section*{References}
+ \list{{\footnotesize[\arabic{enumi}]}}
+      {\settowidth\labelwidth{[#1]}
+       \leftmargin\labelwidth
+       \advance\leftmargin\labelsep
+       \usecounter{enumi}
+       \partopsep 0pt
+       \parsep 0pt
+       \itemsep 0pt
+      }
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy
+ \clubpenalty 4000
+ \widowpenalty 4000
+ \sfcode`\.=1000\relax
+ \footnotesize
+ }
+
+\def\endthebibliography{\normalsize\endlist}
+
+
+
+\let\footnoterule\relax
+\skip\@mpfootins 2pt
+
+\def\@makefnmark{\hbox{$^{{\rm \@thefnmark}}$}}
+
+\long\def\@makefntext#1{\parindent 1em\noindent
+ \hbox to 1.8em{\hss$^{\rm \@thefnmark}$}#1}
+
+% bug fixes: \footnotemark does not use the minipage footnote
+
+\def\footnotemark{%
+ \@ifnextchar[{\@xfootnotemark}%
+              {\stepcounter{\@mpfn}
+               \xdef\@thefnmark{\thempfn}
+               \@footnotemark
+              }
+}
+
+\def\@xfootnotemark[#1]{%
+ \begingroup
+  \csname c@\@mpfn\endcsname #1\relax
+  \xdef\@thefnmark{\thempfn}
+ \endgroup
+ \@footnotemark
+}
+
+% initializations
+
+\sloppy
+\parindent 1em
+\leftmargini 2em
+\leftmargin\leftmargini
+\leftmarginv 0.5em
+\leftmarginvi 0.5em
+\flushbottom
+

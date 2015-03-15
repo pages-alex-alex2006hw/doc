@@ -1,0 +1,69 @@
+\begin{thebibliography}{10}
+
+\bibitem{Barwise77}
+J.~Barwise, editor.
+\newblock {\em Handbook of Mathematical Logic}.
+\newblock North Holland, 1977.
+
+\bibitem{Birkhoff67}
+G.~Birkhoff.
+\newblock {\em Lattice Theory}.
+\newblock American Mathematical Society, third edition, 1948.
+
+\bibitem{Brown03}
+F.~M. Brown.
+\newblock {\em Boolean Reasoning: The Logic of Boolean Equations}.
+\newblock Dover Publications, Inc., second edition, 2003.
+
+\bibitem{CK90}
+C.~C. Chang and H.~J. Keisler.
+\newblock {\em Model Theory}.
+\newblock Number~73 in Studies in Logic and The Foundations of Mathematics.
+  North Holland, third edition, 1990.
+
+\bibitem{Cook71}
+S.~A. Cook.
+\newblock The complexity of theorem-proving procedures.
+\newblock In {\em Proceedings of the 3rd Annual ACM Symposium on Theory of
+  Computing}, pages 151--158, 1971.
+
+\bibitem{DP02}
+B.~A. Davey and H.~A. Priestley.
+\newblock {\em Introduction to Lattices and Order}.
+\newblock Cambridge University Press, 2002.
+
+\bibitem{DP60}
+M.~Davis and H.~Putnam.
+\newblock A computing procedure for quantification theory.
+\newblock {\em Journal of the ACM}, 7(3):201--215, 1960.
+
+\bibitem{GJ79}
+M.~R. Garey and M.~S. Johnson.
+\newblock {\em Computers and Intractability: A Guide to the Theory of
+  {NP}-Completeness}.
+\newblock W. H. Freeman, 1979.
+
+\bibitem{Hoare85}
+C.~A.~R. Hoare.
+\newblock {\em Communicating Sequential Processes}.
+\newblock Prentice-Hall International, 1985.
+
+\bibitem{Moschovakis94}
+Y.~N. Moschovakis.
+\newblock {\em Notes on Set Theory}.
+\newblock Springer Verlag, 1994.
+
+\bibitem{Glabbeek90}
+R.~J. van Glabbeek.
+\newblock The linear time -- branching time spectrum.
+\newblock In {\em Proceedings of CONCUR '90}, number 458 in Lecture Notes in
+  Computer Science, pages 278--297. Springer Verlag, 1990.
+
+\bibitem{WN93}
+G.~Winskel and M.~Nielsen.
+\newblock Models for concurrency.
+\newblock In S.~Abramskey, D.~M. Gabby, and T.~S.~E. Maibaum, editors, {\em
+  Handbook of Logic in Computer Science}, volume 4: Semantic Modelling,
+  chapter~1. Oxford University Press, 1993.
+
+\end{thebibliography}

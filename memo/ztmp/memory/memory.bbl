@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{BC06}
+D.~P. Bovet and M.~Cesati.
+\newblock {\em Understanding the Linux Kernel}.
+\newblock O'Reilly, third edition, 2006.
+
+\bibitem{ia32sw-1}
+Intel.
+\newblock {\em Intel 64 and IA-32 Architecture Software Developer's Manual --
+  Volume 1: Basic Architecture}, September 2009.
+
+\end{thebibliography}

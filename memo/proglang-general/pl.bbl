@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{ASS85}
+H.~Abelson, G.~J. Sussman, and J.~Sussman.
+\newblock {\em Structure and Interpretation of Computer Programs}.
+\newblock MIT Press, Cambridge, MA, 1985.
+
+\bibitem{CW85}
+L.~Cardelli and P.~Wegner.
+\newblock On understanding types, data abstraction, and polymorphism.
+\newblock {\em ACM Computing Surveys}, 17(4):471--522, December 1985.
+
+\bibitem{FWH92}
+D.~P. Friedman, M.~Wand, and C.~T. Haynes.
+\newblock {\em Essentials of Programming Languages}.
+\newblock MIT Press, Cambridge, Massachusetts, 1992.
+
+\bibitem{Scott00}
+M.~L. Scott.
+\newblock {\em Programming Language Pragmatics}.
+\newblock Morgan Kaufmann Publishers, San Francisco, CA, 2000.
+
+\bibitem{Sethi89}
+R.~Sethi.
+\newblock {\em Programming Languages: Concepts and Constructs}.
+\newblock Addison-Wesley, Reading, MA, 1989.
+
+\end{thebibliography}

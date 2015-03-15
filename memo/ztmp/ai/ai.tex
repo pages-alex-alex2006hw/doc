@@ -1,0 +1,228 @@
+\documentclass{note}
+\usepackage{hfont,mathptm,theorem,mydef}
+\begin{document}
+\title{Notes on Artificial Intelligence}
+\author{Cheoljoo Jeong}
+\maketitle
+
+\section{Problem Solving}
+\subsection{State spaces}
+\bit
+\w \bb{state space graph}: graph of world models and actions
+	\bit
+	\w advantage: any of the nodes in the graph can be 
+		taken to represent a {\em goal\/} situation
+	\w to find a sets of actions to achieve a goal, 
+		we need to find a {\em path\/} from the start
+		node to the goal node
+	\w \bb{plan}: the sequence of {\em operators\/} 
+		labeling the ars along a path
+		to a goal 
+	\w \bb{planning}: searching for the plan
+	\w \bb{projecting}: process of {\em predicting\/} a sequence
+		of world states resulting from a sequence of actions
+	\eit
+\eit
+
+\subsection{Uninformed search}
+\bit
+\w \bb{implicit state space graphs}
+	\bit
+	\w e.g. Fifteen puzzles problem: state graph is not explicit
+	\w three component of implicit graphs
+		\ben
+		\w a description with which to label the {\em start node\/};
+		some data structure modeling the initial state
+		\w {\em functions\/} (or \bb{operators})
+			that transform a state description for a state
+			into one that represents the state resulting
+			after an {\em action\/}
+		\w {\em goal condition\/}, or a boolean function 
+			on state descriptors that tells whether the
+			state is goal
+		\een
+	\eit
+\w \bb{breadth-first search}
+	\bit
+	\w advantage: finds a shortest path to the goal
+	\w disadvantage: requries space exponential in the depth of the 
+		shallowest goal node
+	\w \bb{uniform cost search}: variant of breadth-first search
+		where nodes are expanded along {\em contours\/} of
+		{\em equal costs\/} instead of {\em equal depths\/}
+	\eit
+\w \bb{depth-first search} or \bb{backtracking search}
+	\bit
+	\w a trace is left at each node to indicate
+		that additional operators can be applied here later
+		if needed
+	\w \bb{depth bound\/} is used to prevent unbounded depth from
+		the start node
+	\w \bb{chronological backtracking}
+	\w advantage: space requirement is linear to the depth bound
+	\w disadvantage: may {\em not\/} find a shortest path
+	\eit
+\w \bb{iterative deepening}
+	\bit
+	\w advantage: shortest path + linear space
+	\w successive depth bound search is used, {\em increasing
+		each depth bound with 1}
+	\w 
+	\eit
+\eit
+
+\subsection{Heuristic search}
+\bit
+\w \bb{evaulation function,  $\hat{f}$}: used to decide
+	which node is the best one to expand next
+	\bit
+	\w E.g. in 8-puzzle, 
+		\[ \hat{f}(n) = \hat{g}(n) + \hat{h}(n) \]
+	where $\hat{g}(n)$ is an estimate of the \bb{depth} in the graph
+	and $\hat{h}(n)$ is the ``number of tiles out of place''
+	\eit
+\w \bb{general graph-searching algorithm}
+	\bit
+	\w Algorithm:
+		\ben
+		\w Create a search tree, $T$, consisting of soley of the 
+			start node, $n_0$. Put $n_0$ on an {\em ordered\/}
+			list called {\sl OPEN\/}.
+		\w Create a list, {\sl CLOSED\/} that is initially empty.
+		\w If {\sl OPEN\/} is empty, exit with failure.
+		\w Select the first node on {\sl OPEN\/}, remove it from
+			{\sl OPEN\/}, and put it on {\sl CLOSED\/}.
+		\w If $n$ is a goal node, exit successfully with
+			the solution obtained by tracing a path 
+			backward along the arcs in $T$ from $n$ to $n_0$.
+		\w Expand node $n$, generating a set, $M$ of successors.
+			Install $M$ as successors of $n$ in $T$ by creating
+			arcs from $n$ to each member of $M$. Put these
+			members of $M$ on {\sl OPEN\/}.
+		\w Reorder the list {\sl OPEN\/}, according to the
+			arbitrary scheme or heuristic merit.
+		\w Go to step~3.
+		\een
+	\w can be used for best-first search, breadth-first search, or
+		depth-first search
+	\eit
+\w \bb{$A^*$ algorithm}
+	\bit
+	\w $h(n)$: actual cost of the minimal cost path between node $n$ 
+		and the goal node (over all set of goal nodes)
+	\w $g(n)$: the cost of a minimal cost path from the start node $n_0$
+		to $n$.
+	\w $f(n) = g(n) + h(n)$ is the cost of a minimal cost path
+		from $n_0$ to a goal node that {\em goes through $n$\/}.
+	\w Now, 
+		\bit
+		\w $\hat{h}(n)$ is an estimate of $h(n)$
+		\w $\hat{g}(n)$ is an estimate of $g(n)$, i.e. the lowest
+			cost path from $n_0$ to $n$ found so far
+		\eit
+	\eit
+\w \bb{admissibility of $A^*$}
+\eit
+
+\section{Knowledge Representation}
+\subsection{Propositional calculus}
+\bit
+\w \bb{logic}: language syntax + inference rules + semantics
+\w \bb{language}
+	\bit
+	\w \bb{atoms}: \verb+T+, \verb+F+, propositions
+	\w \bb{connectives}: $\vee, \wedge, \neg, \supset$
+	\eit
+\w \bb{rules of inference}
+	\bit
+	\w \bb{modus ponens}: $\omega_1, \omega_1 \supset \omega_2$ 
+		infers $\omega_2$
+	\w  $\omega_1, \omega_2$ 
+		infers $\omega_1 \wedge \omega_2$
+	\eit
+\w \bb{proof}: a sequence of wffs
+	\bit
+	\w $\Delta \vdash \omega_n$: \bb{theorem} $\omega_n$ can be
+		proved from $\Delta$
+	\eit
+\w \bb{semantics}: interpretations; associations with atoms
+	with values ({\em true\/} or {\em false\/}); truth assignments
+\w an interpretation \bb{satisfies} a wff if the wff is assigned
+	\ee{true} under that interpretation
+	\bit
+	\w an interpretation that satisfies a wff is called 
+		a \bb{model} of that wff
+	\eit
+\w if \ee{no} interpretation satisfies a wff, this wff is 
+	\bb{unsatisfiable} or \bb{inconsistent}
+\w a wff is \bb{valid} if it's \ee{true} under \ee{all} interpretations
+\w two wffs are \bb{equivalent} iff their truth values are identical
+	under all interpretations
+\w $\Delta \models \omega$: 
+	if a wff $\omega$ has value \ee{true} under all those interpretations
+	for which every wff in $\Delta$ is valuated to \ee{true},
+	we say $\Delta$ \bb{logically entails} $\omega$
+\w \bb{soundness}: 
+	$\Delta \vdash \omega$ implies  $\Delta \models \omega$
+\w \bb{completeness}: 
+	$\Delta \models \omega$ implies $\Delta \vdash \omega$
+\eit
+
+\subsection{Resolution in propositional calculus}
+\bit
+\w \bb{resolution} inference rule:
+	from $\{\lambda\} \cup \Sigma_1$ and $\{\neg\lambda\} \cup \Sigma_2$,
+	we can induce $\Sigma_1 \cup \Sigma_2$
+	\bit
+	\w resolution should e applied \ee{one at a time} not in parallel!
+	\w resolution is a \ee{sound} inference rule
+	\w resolution is NOT a \ee{complete} inference rule
+	\eit
+\w \bb{CNF}: conjunctive normal form
+	\bit
+	\w \bb{subsumption}: if liteal set of $\omega_1$ is a subset of
+		literal set of $\omega_2$, $\omega_1$ \bb{subsumes} 
+		$\omega_2$, and $\omega_1$ can be eliminated
+	\eit
+\w \bb{resolution refutation}
+	\bit
+	\w resolution refutation is \bb{complete}:
+		if $\Delta \models \omega$, the resolution refutation
+		can prove it
+	\w for this,
+		we say that propositional resolution is 
+		\bb{refutation complete}
+	\w decidability of propositional caclulus by 
+		resolution refutation
+	\eit
+\w \bb{resolution refinements}
+	\bit
+	\w \bb{set of support}: set of support consists of clauses
+		that are derived from the refuted clause (that is to be
+		proved); resolution complete
+	\w \bb{linear input}: at least one of the clauses that are to be
+		resolved is coming from $\Delta$; not resolution complete!
+	\w \bb{ancestry filtering}: resolutin complete
+		
+	\eit
+\w \bb{Horn clause}: a clause with at most one positive literal
+	\bit
+	\w \bb{single atom}: fact
+	\w \bb{implication}: rule
+	\w \bb{a set of negative literals}: goal
+	\eit
+\eit
+
+\subsection{Resolution in the predicate calculus}
+\bit
+\w \bb{unification}
+\eit
+\subsection{Knowledge-based systems}
+\bit
+\w predicate calculus is \bb{semi-decidable} since there exists no
+	method that can tell if a wff $\omega$ does not logically follow
+	fro a set of wffs $\Delta$ {\em when it doesn't}
+\w even when resolution refutation terminates, the procedure is NP-hard
+\eit
+\subsection{Semantic nets}
+\end{document}

@@ -1,0 +1,146 @@
+\documentclass{memo}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+\begin{document}
+\small
+\noindent{\large\bf{}x86 Calling Conventions on 32bit Linux}
+
+\paragraph{Overview} 
+Calling conventions describe the interface of the called code:
+\bit
+\w the order in which atomic (scalar) parameters, or individual parts of a
+complex parameter, are allocated
+\w how parameters are passed (pushed on the stack, placed in registers, or mix
+of both)
+\w which registers may be used by the callee without first being saved
+(i.e. pushed)
+\w how the task of setting up for and restoring the stack after a function
+call is divided between the caller and the callee
+\eit
+
+\paragraph{Register usage}  The following is a summary of x86 registers.
+
+\vspace*{0.3cm}
+
+\centerline{\begin{tabular}{r|l|l} \hline
+   type & name & usage \\ \hline
+general & {\tt\%eax} & return value \\
+ & {\tt\%edx} & dividened register \\
+ & {\tt\%ecx} & counter register value \\
+ & {\tt\%ebx}, {\tt\%esi}, {\tt\%edi} & local register variable \\
+ & {\tt\%esp} & stack pointer \\
+ & {\tt\%ebp} & frame pointer (optional) \\ \hline
+FP & {\tt\%sp(0)} & FP stack top, return value \\ \hline
+  & {\tt\%sp(0)} & FP next to stack top \\ 
+  & $\cdots$ & \\  
+  & {\tt\%sp(7)} & FP stack bottom \\  \hline
+  \end{tabular}}
+
+\vspace*{0.3cm}
+
+\noindent{}The following are 32-bit Linux register usage. Note
+that this is different from that of 32-bit Windows.
+
+\vspace*{0.3cm}
+
+\centerline{\begin{tabular}{r|p{4.0cm}}\hline
+\bb{scratch registers} & {\tt\%eax}, {\tt{}\%ecx}, {\tt\%edx}, {\tt
+  \%st(0)}--{\tt{}\%st(7)}, {\tt \%xmm(0)}--{\tt{}\%xmm(7)}, {\tt{}\%ymm(0)}--{\tt{}\%ymm(7)}\\ \hline 
+\bb{callee-save registers} & {\tt\%ebx}, {\tt\%esi}, {\tt\%edi}, {\tt\%ebp}\\ \hline
+\bb{argument registers} & none \\ \hline
+\bb{registers for return} & {\tt\%eax}, {\tt\%st(0)}, {\tt\%xmm(0)}, {\tt\%ymm(0)}
+\\ \hline 
+\end{tabular}}
+
+
+\paragraph{cdecl calling convention}
+The \bb{cdecl} calling convention is used by many C systems (incl. GCC) for
+the x86 architecture. 
+\bit
+\w Function \bb{arguments} are passed on the stack in a right-to-left order.
+\w Function \bb{return values} are returned in the \verb+%eax+ register
+(except for floating point values, which are returned in the x87 register
+\verb+%st(0)+) 
+\w The registers, \verb+%eax+, \verb+%ecx+, and \verb+%edx+ do not need to be
+preserved, while others do.
+\w \bb{caller} is responsible for \bb{stack cleanup}
+\eit
+
+\begin{verbatim}
+  int foo(int, int, int);
+  int a, b, c, x;
+  x = foo(a, b, c);
+\end{verbatim}
+
+\begin{verbatim}
+  push c;      ; arg3
+  push b;      ; arg2
+  push a;      ; arg1
+  call foo;
+  add esp, 12  ; pop funargs (a, b, c) from stack
+  mov x, eax   ; fetch return value
+\end{verbatim}
+
+\centerline{\begin{tabular}{r|l|l} \hline
+position & contents & frame \\ \hline
+{\tt{}4n+8(\%ebp)} & argument $n$  & \\ 
+& $\cdots$ &  previous \\ 
+{\tt{}8(\%ebp)} & argument $0$ &  \\ \hline
+{\tt{}4(\%ebp)} & return address &   \\ 
+{\tt{}0(\%ebp)} & previous {\tt{}\%ebp} (optional) $0$ & current \\ \cline{1-2}
+{\tt{}-4(\%ebp)} & unspecified &  \\ 
+ & $\cdots$ &  \\ 
+{\tt{}0(\%esp)} &  &  \\  \hline
+\end{tabular}}
+
+\vspace*{0.3cm}
+
+In case, to force cdecl calling convention, we can add \verb+_cdecl+ modifier:
+\begin{verbatim}
+  void _cdecl foo(int, int);
+\end{verbatim}
+
+\paragraph{Functions returning scalars or no value}
+A function that returns an integral or pointer value places its result in
+register \verb+%eax+. A floating-point return value appears on the top of the
+x87 register stack. {\em The caller is responsible for removing the value from
+  the x87 stack, even if it does not use it\/}. 
+
+\bit
+\w \bb{function prologue}:
+\begin{verbatim}
+prologue:
+  pushl %ebp       ; save frame pointer
+  movl  %esp, %ebp ; set new frame pointer
+  subl  $80, %esp  ; allocate stack space
+  pushl %edi       ; save local register
+  pushl %esi       ; save local register
+  pushl %ebx       ; save local register
+\end{verbatim}
+
+\w \bb{call} instruction: {\em pushes the address of the next instruction
+  ({\bfseries the return address}) onto the stack\/}. 
+
+\w  \bb{function epilogue}: restores the state for the caller
+\begin{verbatim}
+  movl  %edi, %eax ; set up return value
+epilogue:
+  popl  %ebx       ; restore local register
+  popl  %esi       ; restore local register
+  popl  %edi       ; restore local register
+  leave            ; restore frame pointer
+  ret              ; pop return address
+\end{verbatim}
+\w \bb{ret} instruction: {\em pops the address off the stack and effectively
+    continues execution at the next instruction after the {\bfseries call\/}
+    instruction} 
+
+
+\eit
+
+\end{document}
+
+% LocalWords:  Pthreads interprocess multithreaded sigaltstack errno realtime
+% LocalWords:  datatypes pthreads pthread mutex pthrad mutexattr cond condattr
+% LocalWords:  attr retval struct thr joinable mutexes reentrancy strtok callee
+% LocalWords:  reentrant eax ecx edx xmm ymm ebx esi edi ebp cdecl GCC
