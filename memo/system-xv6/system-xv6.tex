@@ -467,6 +467,15 @@ found:
      \eit
   \een
 
+\paragraph{First process vs. oridinary {\bf \texttt{fork}}}
+\bit
+\w When setting trapframe in kernel stack,
+  \bit
+  \w first process: set EIP to user-space location 0
+  \w oridinary stack: set EIP to the instruction right after fork
+  \eit
+\eit
+
 \subsection{Running the first process}
 \xymatrix@-0.5pc{
 *+[F]\txt<3cm>{\bb{main}} \ar[r]& 
