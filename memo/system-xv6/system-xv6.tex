@@ -1171,7 +1171,7 @@ The implementation uses three state flags internally:
     \}
   \}
   \end{alltt}
-\w \bb{FS.C}:\ \texttt{readi()} is executed
+\w \bb{FS.C}:\ Read from the file system with \texttt{readi()}. 
   \begin{alltt}
   \textbf{int readi(struct inode *ip, char *dst, uint off, uint n)} 
   \{
@@ -1198,8 +1198,19 @@ The implementation uses three state flags internally:
     return n;
   \}
   \end{alltt}
-\w \bb{BIO.C}:\ \texttt{bread}
-  
+\w \bb{BIO.C}:\ Read from buffer cache with \texttt{bread}
+  \begin{alltt}
+  \textbf{struct buf *bread(uint dev, uint sector)}
+  \{
+    struct buf *b;
+
+    b = bget(dev, sector);
+    if(!(b->flags & B_VALID))
+      \textcolor{red2}{\textbf{iderw(b)}};
+    return b;
+  \}
+  \end{alltt}
+
 \w \bb{IDE.C}:\ \texttt{iderw}
 \eit
 
