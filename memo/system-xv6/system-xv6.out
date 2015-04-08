@@ -33,6 +33,7 @@
 \BOOKMARK [2][-]{subsection.4.9}{trap: Execution of trap}{section.4}
 \BOOKMARK [1][-]{section.5}{File Systems}{}
 \BOOKMARK [2][-]{subsection.5.1}{Buffer cache}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{What happens when fread is executed?}{section.5}
 \BOOKMARK [1][-]{section.6}{X86 Assembly Tutorial}{}
 \BOOKMARK [2][-]{subsection.6.1}{80386+ Register Set}{section.6}
 \BOOKMARK [2][-]{subsection.6.2}{Segmentation}{section.6}

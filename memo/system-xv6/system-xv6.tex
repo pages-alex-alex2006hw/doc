@@ -332,12 +332,12 @@ program. Just like an interpreter is yet another program.
   \\
   &&
     *+[F]\txt<5cm>{// allocate trapframe in stack\\
-            sp =- sizeof(trapframe); \\\bb{p.tf} = (trapframe *) sp}
+            sp -= sizeof(trapframe); \\\bb{p.tf} = (trapframe *) sp}
     \ar[d] 
   \\
   &&
     *+[F]\txt<5cm>{// allocate context in stack\\
-      sp =- sizeof(context); \\\bb{p.context} = (context *) sp}
+      sp -= sizeof(context); \\\bb{p.context} = (context *) sp}
     \ar[d] 
   \\
   &&
@@ -1113,6 +1113,95 @@ The implementation uses three state flags internally:
      and needs to be written to disk.
 \eit
 
+
+\subsection{What happens when \texttt{fread} is executed?}
+\bit
+\w User calls \texttt{fread} in user space.
+\begin{alltt}
+  size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
+\end{alltt}
+\w Implementation of \texttt{fread} in LIBC calls read system call
+\begin{alltt}
+  ssize_t read(int fd, void *buf, size_t count);
+\end{alltt}
+\w Now, we're in kernel space.
+\w \bb{SYSCALL.C}:\  \texttt{syscall()} is executed
+  \begin{alltt}
+  void \textbf{syscall}(void)
+  \{
+    int num;
+
+    num = proc->tf->eax;
+    if (num > 0 && num < NELEM(syscalls) && syscalls[num]) \{
+      proc->tf->eax = \textbf{syscalls[num]()};
+    \} else \{
+      ERROR(unknown\_syscall);
+      proc->tf->eax = -1;
+    \}
+  \}
+  \end{alltt}
+\w \bb{SYSFILE.C}:\  \texttt{sys\_read()} is executed
+\begin{alltt}
+  \textbf{int sys_read(void)}
+  \{
+    struct file *f;
+    int n;
+    char *p;
+
+    if (argfd(0, 0, &f) < 0 || argint(2, &n) < 0 || argptr(1, &p, n) < 0)
+      return -1;
+    return \textcolor{red2}{\textbf{fileread(f, p, n)}};
+  \}
+\end{alltt}
+
+\w \bb{FILE.C}:\ \texttt{fileread()} is executed
+  \begin{alltt}
+  \textbf{int fileread(struct file *f, char *addr, int n)} 
+  \{
+    if (f->type == FD_PIPE) \{
+      return piperead(f->pipe, addr, n);
+    \}
+
+    if (f->type == FD_INODE) \{
+      \textcolor{red2}{\textbf{ilock(f->ip)}};
+      if ((r = \textcolor{red2}{\textbf{readi(fp->ip, addr, f->off, n)}}) > 0)
+        f->off += r;
+      \textcolor{red2}{\textbf{iunlock(f->ip)}};
+      return r;
+    \}
+  \}
+  \end{alltt}
+\w \bb{FS.C}:\ \texttt{readi()} is executed
+  \begin{alltt}
+  \textbf{int readi(struct inode *ip, char *dst, uint off, uint n)} 
+  \{
+    uint tot, m;
+    struct buf *bp;
+
+    if(ip->type == T_DEV) \{
+      if(ip->major < 0 || ip->major >= NDEV || !devsw[ip->major].read)
+        return -1;
+      return \textcolor{red2}{\textbf{devsw[ip->major].read(ip, dst, n)}};
+    \}
+
+    if(off > ip->size || off + n < off)
+      return -1;
+    if(off + n > ip->size)
+      n = ip->size - off;
+
+    for (tot=0; tot<n; tot+=m, off+=m, dst+=m) \{
+      bp = \textcolor{red2}{\textbf{bread(ip->dev, bmap(ip, off/BSIZE))}};
+      m = min(n - tot, BSIZE - off%BSIZE);
+      memmove(dst, bp->data + off%BSIZE, m);
+      \textcolor{red2}{\textbf{brelse(bp)}};
+    \}
+    return n;
+  \}
+  \end{alltt}
+\w \bb{BIO.C}:\ \texttt{bread}
+  
+\w \bb{IDE.C}:\ \texttt{iderw}
+\eit
 
 
 \pagebreak
