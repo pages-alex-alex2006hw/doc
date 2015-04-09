@@ -1083,11 +1083,9 @@ such situation.}
 
 \pagebreak
 \section{File Systems}
-\bit
-\w Unix file sytem provides \bb{data files}, which are {\em uninterpreted byte
-  arrays\/} and \bb{directories}, which contain named references to data files
+Unix file sytem provides \bb{data files}, which are {\em uninterpreted byte
+arrays\/} and \bb{directories}, which contain named references to data files
 and other directories.
-\eit
 
 \subsection{Buffer cache}
  The buffer cache is a linked list of buf structures holding
@@ -1120,11 +1118,14 @@ The implementation uses three state flags internally:
 \begin{alltt}
   size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
 \end{alltt}
+
 \w Implementation of \texttt{fread} in LIBC calls read system call
 \begin{alltt}
   ssize_t read(int fd, void *buf, size_t count);
 \end{alltt}
+
 \w Now, we're in kernel space.
+
 \w \bb{SYSCALL.C}:\  \texttt{syscall()} is executed
   \begin{alltt}
   void \textbf{syscall}(void)
@@ -1133,13 +1134,14 @@ The implementation uses three state flags internally:
 
     num = proc->tf->eax;
     if (num > 0 && num < NELEM(syscalls) && syscalls[num]) \{
-      proc->tf->eax = \textbf{syscalls[num]()};
+      proc->tf->eax = \textcolor{red2}{\textbf{syscalls[num]()}};
     \} else \{
       ERROR(unknown\_syscall);
       proc->tf->eax = -1;
     \}
   \}
   \end{alltt}
+
 \w \bb{SYSFILE.C}:\  \texttt{sys\_read()} is executed
 \begin{alltt}
   \textbf{int sys_read(void)}
@@ -1171,6 +1173,7 @@ The implementation uses three state flags internally:
     \}
   \}
   \end{alltt}
+
 \w \bb{FS.C}:\ Read from the file system with \texttt{readi()}. 
   \begin{alltt}
   \textbf{int readi(struct inode *ip, char *dst, uint off, uint n)} 
@@ -1198,20 +1201,53 @@ The implementation uses three state flags internally:
     return n;
   \}
   \end{alltt}
+
 \w \bb{BIO.C}:\ Read from buffer cache with \texttt{bread}
   \begin{alltt}
   \textbf{struct buf *bread(uint dev, uint sector)}
   \{
     struct buf *b;
 
-    b = bget(dev, sector);
+    b = \textcolor{red2}{\textbf{bget(dev, sector)}};
     if(!(b->flags & B_VALID))
       \textcolor{red2}{\textbf{iderw(b)}};
     return b;
   \}
   \end{alltt}
 
-\w \bb{IDE.C}:\ \texttt{iderw}
+\w \bb{IDE.C}:\ Simple PIO-based (non-DMA) IDE driver
+
+  \begin{alltt}
+  \textbf{void iderw(struct buf *b)}
+  \{
+    struct buf **pp;
+
+    if (!(b->flags & B_BUSY))
+      panic("iderw: buf not busy");
+    if ((b->flags & (B_VALID|B_DIRTY)) == B_VALID)
+      panic("iderw: nothing to do");
+    if (b->dev != 0 && !havedisk1)
+      panic("iderw: ide disk 1 not present");
+
+    \textbf{acquire(&idelock)};
+
+    // Append b to idequeue.
+    b->qnext = 0;
+    for (pp=&idequeue; *pp; pp=&(*pp)->qnext)
+      ;
+    *pp = b;
+  
+    // Start disk if necessary.
+    if(idequeue == b)
+      \textcolor{red2}{\textbf{idestart(b)}};
+  
+    // Wait for request to finish.
+    while((b->flags & (B_VALID|B_DIRTY)) != B_VALID) \{
+      sleep(b, &idelock);
+    \}
+    \textbf{release(&idelock)};
+  \}
+  \end{alltt}
 \eit
 
 
