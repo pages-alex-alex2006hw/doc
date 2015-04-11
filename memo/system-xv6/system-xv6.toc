@@ -33,13 +33,16 @@
 \contentsline {subsection}{\numberline {4.7}trapasm.S}{18}{subsection.4.7}
 \contentsline {subsection}{\numberline {4.8}Trapframes}{19}{subsection.4.8}
 \contentsline {subsection}{\numberline {4.9}trap: Execution of trap}{20}{subsection.4.9}
-\contentsline {section}{\numberline {5}File Systems}{21}{section.5}
-\contentsline {subsection}{\numberline {5.1}Buffer cache}{21}{subsection.5.1}
-\contentsline {paragraph}{Interface}{21}{section*.4}
-\contentsline {subsection}{\numberline {5.2}What happens when \texttt {fread} is executed?}{21}{subsection.5.2}
-\contentsline {section}{\numberline {6}X86 Assembly Tutorial}{24}{section.6}
-\contentsline {subsection}{\numberline {6.1}80386+ Register Set}{24}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Segmentation}{24}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Common/Useful Instructions}{25}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}A simple example}{25}{subsection.6.4}
-\contentsline {subsection}{\numberline {6.5}Mixing C and Assembly Language}{26}{subsection.6.5}
+\contentsline {subsection}{\numberline {4.10}System calls in Linux}{20}{subsection.4.10}
+\contentsline {paragraph}{General points}{20}{section*.4}
+\contentsline {paragraph}{What happens on a system call}{20}{section*.5}
+\contentsline {section}{\numberline {5}File Systems}{22}{section.5}
+\contentsline {subsection}{\numberline {5.1}Buffer cache}{22}{subsection.5.1}
+\contentsline {paragraph}{Interface}{22}{section*.6}
+\contentsline {subsection}{\numberline {5.2}What happens when \texttt {fread} is executed?}{22}{subsection.5.2}
+\contentsline {section}{\numberline {6}X86 Assembly Tutorial}{25}{section.6}
+\contentsline {subsection}{\numberline {6.1}80386+ Register Set}{25}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Segmentation}{25}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Common/Useful Instructions}{26}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}A simple example}{26}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Mixing C and Assembly Language}{27}{subsection.6.5}
