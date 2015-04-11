@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2015.1.23)  11 APR 2015 01:05
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2015.1.23)  11 APR 2015 01:28
 entering extended mode
  %&-line parsing enabled.
 **\nonstopmode\input system-xv6.tex
@@ -491,7 +491,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1165 ...cludegraphics[width=13cm]{pics/syscall}}
+l.1168 ...cludegraphics[width=13cm]{pics/syscall}}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.

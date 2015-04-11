@@ -1146,11 +1146,12 @@ value. The wrapper function then returns to the caller, providing an integer
 return value indicating the success or failure of the system call.
 \begin{quote}
 On Linux, system call service routines follow a convention of returning a
-nonnegative value to indicate success. In case of an error, the routine returns a
-negative number, which is the negated value of one of the errno constants.
+nonnegative value to indicate success. In case of an error, the routine
+returns a negative number, which is the negated value of one of the errno
+constants. 
 When a negative value is returned, the C library wrapper function negates it
-(to make it positive), copies the result into errno, and returns –1 as the function
-result of the wrapper to indicate an error to the calling program.
+(to make it positive), copies the result into errno, and returns -1 as the
+function result of the wrapper to indicate an error to the calling program.
 This convention relies on the assumption that system call service routines
 don't return negative values on success. However, for a few of these routines,
 this assumption doesn't hold. Normally, this is not a problem, since the range
@@ -1161,6 +1162,8 @@ operation of the \texttt{fcntl()} system call.
 
 \end{quote}
 \een
+
+\vspace*{0.4cm}
 
 \centerline{\includegraphics[width=13cm]{pics/syscall}}
 
