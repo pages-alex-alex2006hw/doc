@@ -41,8 +41,8 @@
 %Cheoljoo Jeong (cjeongkr@gmail.com)
 %\end{center}
 
-\title{\large\bf{}\textcolor{blue2}{Meadow:  A Software System for Cooperating
-    Devices}}
+\title{\large\bf{}\textcolor{blue2}{MeadowView:  A Software Platform for
+    Cooperating Devices}}
 %\author{\normalsize Cheoljoo Jeong (cjeongkr@gmail.com)}
 \author{
 $$\xy
@@ -59,8 +59,23 @@ $$\xy
 \tableofcontents
 
 \section{Introduction}
-Programming multiple, autonomous devices to accomplish a task
-is not easy. Consider programming $n$ devices to 
+Programming autonomous devices to accomplish a cooperative task is not easy.
+Unlike processes within a single system, where 
+
+
+Let a group of $n$ devices be given where each device maintains a positive
+counter value. The problem of computing the sum of all 
+
+
+Let $n > 1$ devices be given where each device contains
+a positive number. Consider the problem of computing the sum of the 
+numbers in all devices is not trivial. 
+
+In particular, given that devices are distributed across the network, 
+a failure is no longer an exception. 
+
+
+that programming $n$ devices to 
 perform a task which requires interaction of these devices.
 Assuming that they depend on {\em message passing\/} for interaction,
 which is the norm in distributed computing, 
@@ -89,6 +104,11 @@ Later, the defined process can be installed in actual devices and then,
 executed. 
  
 \subsection{Benefits}
+\paragraph{Distributed namespace}
+A distributed namespace is provided by the platform.
+
+
+
 \paragraph{Device choreography}
 When a task involves multiple devices, adding behaviors to devices
   which collectively perform a single task is not easy. The Meadow system
