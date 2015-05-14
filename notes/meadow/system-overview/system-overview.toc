@@ -5,7 +5,7 @@
 \contentsline {paragraph}{Workflows over devices}{2}{section*.4}
 \contentsline {paragraph}{Deployment of reactive code to devices}{2}{section*.5}
 \contentsline {paragraph}{Dynamically typed language}{2}{section*.6}
-\contentsline {paragraph}{Dynamic device interface}{3}{section*.7}
+\contentsline {paragraph}{Dynamic device interface}{2}{section*.7}
 \contentsline {paragraph}{Scalable event processing}{3}{section*.8}
 \contentsline {paragraph}{Runtime type checking}{3}{section*.9}
 \contentsline {paragraph}{Interoperable with multiple standards}{3}{section*.10}
@@ -20,7 +20,7 @@
 \contentsline {subsection}{\numberline {1.4}Coordinating device interaction}{5}{subsection.1.4}
 \contentsline {paragraph}{Reactors}{5}{section*.17}
 \contentsline {subsection}{\numberline {1.5}Meadow processes}{5}{subsection.1.5}
-\contentsline {section}{\numberline {2}The Meadowview Language}{6}{section.2}
+\contentsline {section}{\numberline {2}The MV Language}{6}{section.2}
 \contentsline {subsection}{\numberline {2.1}Core language}{6}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Process language}{6}{subsection.2.2}
 \contentsline {paragraph}{\leavevmode {\color {red2}\texttt {WelcomeProc}} revisited}{6}{section*.18}
@@ -39,7 +39,7 @@
 \contentsline {paragraph}{\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \leavevmode {\color {red2}\tt {}int proc\_register(char *proc\_name, char *proc\_def)}}{11}{section*.23}
 \contentsline {paragraph}{\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \leavevmode {\color {red2}\tt {}int proc\_unregister(char *proc\_name)}}{11}{section*.24}
 \contentsline {paragraph}{\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8.5\p@ plus3\p@ minus4\p@ \abovedisplayshortskip \z@ plus2\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \leavevmode {\color {red2}\tt {}PROC\_HANDLE\_t proc\_lookup(char *proc\_name)}}{11}{section*.25}
-\contentsline {paragraph}{Meadowview process compiler}{11}{section*.26}
+\contentsline {paragraph}{MV process compiler}{11}{section*.26}
 \contentsline {subsection}{\numberline {4.3}Meadow device group service}{11}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Meadow security service}{11}{subsection.4.4}
 \contentsline {paragraph}{Authorization model}{11}{section*.27}

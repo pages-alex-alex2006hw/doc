@@ -21,7 +21,6 @@
     urlcolor=black
 }
 
-
 %\setlength\oddsidemargin{-1.5cm}
 %\setlength\evensidemargin{-1.5cm}
 %\setlength\textwidth{19.3cm}
@@ -59,32 +58,15 @@ $$\xy
 \tableofcontents
 
 \section{Introduction}
-Programming autonomous devices to accomplish a cooperative task is not easy.
-Unlike processes within a single system, where 
-
-
-Let a group of $n$ devices be given where each device maintains a positive
-counter value. The problem of computing the sum of all 
-
-
-Let $n > 1$ devices be given where each device contains
-a positive number. Consider the problem of computing the sum of the 
-numbers in all devices is not trivial. 
-
-In particular, given that devices are distributed across the network, 
-a failure is no longer an exception. 
-
-
-that programming $n$ devices to 
-perform a task which requires interaction of these devices.
-Assuming that they depend on {\em message passing\/} for interaction,
+Programming distributed devices to accomplish a cooperative task is not easy.
+Given that they depend on {\em message passing\/} for interaction,
 which is the norm in distributed computing, 
 guaranteeing that the system works correctly under any order of
 interactions is not trivial. Though huge amount of research efforts
 have been devoted to the study of behavior of concurrent systems, 
 most efforts have been focused on
 {\em specification\/} and {\em verification\/} of systems, rather than 
-``programming'' such systems.%~\cite{Hoare85,MP91,Milner89,Murata89}. 
+``programming'' such systems~\cite{Hoare85,MP91,Milner89,Murata89}. 
 
 As more programmable devices are connected, coordinating them
 to perform tasks is becoming common activities. Many new 
@@ -97,15 +79,30 @@ interaction of devices from a single viewpoint, rather than from multiple,
 different viewpoints (i.e. one per each participating device).
 Devices are viewed as ``programmable objects'' in the Meadow system, 
 which provide \textcolor{blue2}{services} to other devices.
-Using the \textcolor{blue2}{\textbf{Meadowview scripting language}}, users 
+Using the \textcolor{blue2}{\textbf{MV scripting language}}, users 
 can define a process over a set of devices, by composing existing device
 services to accomplish a task.  
 Later, the defined process can be installed in actual devices and then,
 executed. 
  
 \subsection{Benefits}
-\paragraph{Distributed namespace}
-A distributed namespace is provided by the platform.
+
+\paragraph{Device services}
+Allows three different types of services in a device.
+
+
+\paragraph{Device namespace}
+The Meadow system provides a namespace. 
+
+
+A namespace is provided by the Meadow runtime. 
+A namespace, which itself has a name, is a map from name or namespace
+to devices. 
+Rather than assuming a global namespace such as DNS, where a domain name is 
+unqiue across the entire namespace, Meadow namespace does not ensure that.
+Two namespaces may have the same name 
+
+
 
 
 
@@ -179,7 +176,7 @@ Unlike distributed languages (like Scala, Erlang, dRuby), properties,
    runtime) will restore the device to some previous checkpoint.
 
 \paragraph{Both interpreted and compiled}
-Users can add interpreted Meadowview script
+Users can add interpreted MV script
 but, for performance, users can opt to compile the code into native code and 
 deploy the native code.
 
@@ -230,7 +227,7 @@ For example, a device can have a property,
 \textcolor{red2}{\texttt{remainingBattery}}, which is a real number
 between 0 and 1. Consider a factory which has multiple battery-operated
 devices. Then, one may want to check if all devices have enough battery life. 
-Users can add a Meadowview script which monitors the battery life of devices
+Users can add a MV script which monitors the battery life of devices
 periodically (and do some action, such as sending an email, when the
 battery life is low)  
 or create a program which grabs and displays these properties
@@ -287,7 +284,7 @@ external services\/} such as AllJoyn services.}
 
 
 In addition to imported services, \textcolor{blue2}{\bb{user-defined
-    services}} can be described using the {Meadowview  language} and {\em
+    services}} can be described using the {MV  language} and {\em
   installed\/} (or deployed) to the device. After being installed, the
 function can be used locally or remotely.
 
@@ -300,7 +297,7 @@ between devices to perform tasks.
 %% one device can query the value of a property of another
 %% device. 
 For pull-based services, such as properties or functions, we can 
-directly use such services inside the Meadowview code. To use events, which 
+directly use such services inside the MV code. To use events, which 
 is a push-based service, we need to add some code which represents the
 behavior that we want when the given event occurs.
 For this purpose, the Meadow system allows to define and install {\em
@@ -319,7 +316,7 @@ and the latter provides functions,
 \textcolor{red2}{\texttt{turnOn}} and 
 \textcolor{red2}{\texttt{turnOff}}.
 We want the toggle switch device to control the LED light device.
-Consider the following Meadowview code as an example.
+Consider the following MV code as an example.
 \begin{alltt}
   \textcolor{red2}{reactor LedLightControl(Swtich:changed ev) \{
     if (ev.value == 1)
@@ -410,7 +407,7 @@ Finally, the \textcolor{red2}{\texttt{logger}} device provides the function
 %% which has the same set of properties, events, and native functions.
 %% Differences include that devices support``events'' which facilitate
 %% {\em asynchronous programming\/} through event-based, reactive programming
-%% model of the Meadowview language.
+%% model of the MV language.
 %% \footnote{The event-based programming model is
 %%   arguably the most scalable approach to build large, complicated, distributed
 %%   systems. The Verilog hardware description language~\cite{Verilog2001} is based on event-based
@@ -449,12 +446,12 @@ Finally, the \textcolor{red2}{\texttt{logger}} device provides the function
 %% {\em devices\/}. A workflow can be instantiated with actual device instances.  
 
 %% For further details about the concepts discussed in this section, see the
-%% companion document, ``\textcolor{blue2}{Meadowview: A Language for Device
+%% companion document, ``\textcolor{blue2}{MV: A Language for Device
 %%   Orchestration}''.
 
 
-\section{The Meadowview Language}
-The Meadowview is a language for describing behavior of individual devices
+\section{The MV Language}
+The MV is a language for describing behavior of individual devices
 or collective behavior of multiple devices.
 The language consists of two parts: \textcolor{blue2}{\bb{the core language}}
 for describing individual device behavior
@@ -462,17 +459,17 @@ and  \textcolor{blue2}{\bb{the process language}} for describing
 collective behavior of devices.
 
 %% \subsection{Elements of the language}
-%% The Meadowview language allows to manipulate the following concepts:
+%% The MV language allows to manipulate the following concepts:
 %% \bb{properties},
 %% \bb{events},
 %% \bb{functions},
 %% \bb{reactors}, and
 %% \bb{processes}.
-%% Actually, each of these are first-class values in Meadowview. 
+%% Actually, each of these are first-class values in MV. 
 
 %% The behavior of a ``Meadow device'' is initially defined by its native
 %% services -- native properties, native events, and native functions. Using
-%% the Meadowview language, uses can define user-defined capabilities
+%% the MV language, uses can define user-defined capabilities
 %% on top of these native capabilities. 
 
 %% \paragraph{Properties}
@@ -512,7 +509,7 @@ The core language allows to define
 \textcolor{blue2}{\bf functions} and 
 \textcolor{blue2}{\bf reactors}. 
 The core language is a \textcolor{green2}{\em native language of Meadow VM\/},
-meaning that Meadowview code in core language can be directly interpreted by a
+meaning that MV code in core language can be directly interpreted by a
 Meadow VM. 
 
 
@@ -762,7 +759,7 @@ provided as paid services.
 Services can be implemented in different forms depending on the service.
 For example, device registry service  is most likely implemented as functions
 in a libray. However, logging service can be implemented a Meadow device which
-uses a predefined Meadowview library.
+uses a predefined MV library.
 
 
 \bit
@@ -838,10 +835,10 @@ In particular,
 \paragraph{\small\textcolor{red2}{\tt{}int proc\_unregister(char *proc\_name)}}
 \paragraph{\small\textcolor{red2}{\tt{}PROC\_HANDLE\_t proc\_lookup(char *proc\_name)}}
 
-\paragraph{Meadowview process compiler}
-A Meadowview process compiler takes programs written in \textcolor{red2}{\em
-  Meadowview process definition language\/} as its input and produces  
-programs in {\em Meadowview core language}. 
+\paragraph{MV process compiler}
+A MV process compiler takes programs written in \textcolor{red2}{\em
+  MV process definition language\/} as its input and produces  
+programs in {\em MV core language}. 
 
 Let a process definition involve $n$ devices. 
 Then, the compilation result is $n$ code fragment, each of which will be
@@ -875,7 +872,7 @@ In the Meadow system, authorization is performed at the following level:
 %% \def\g#1{\save
 %%   [].[ddrr]!C="g#1" \POS*\frm{.} \restore}
 %% \xymatrix@-0.5pc{
-%% \g1 \txt{VM$_0$}  & *+[F]\txt<1.8cm>{Meadowview Evaluator} \ar@{<->}[d]\\
+%% \g1 \txt{VM$_0$}  & *+[F]\txt<1.8cm>{MV Evaluator} \ar@{<->}[d]\\
 %%   *+[F]\txt<0.9cm>{Service Tables} \ar@{<->}[r]\ar@{<->}[ru]&*+[F]\txt<1.8cm>{VM Controller} \ar@{<->}[r]\ar[d]&  *+[F]\txt<1cm>{Message
 %%     Bus}\\
 %%   &*+[F]\txt<1.8cm>{Global Tables}  &
@@ -1012,11 +1009,11 @@ Also, function signature checking can be done for ``arities'' not
 %%   \w install the Meadow VM (runtime) on top of the AllJoyn framework
 %%   \eit
 %% First, to register this app as a device, interface of the device must be
-%% defined using the \textcolor{blue2}{\textbf{Meadowview Interface Definition
+%% defined using the \textcolor{blue2}{\textbf{MV Interface Definition
 %%     Language (IDL)}}.\footnote{Typically, an IDL description is mandatory in
 %%   binding statically compiled languages since it allows to generate stubs
 %%   against which the callers can be compiled. However, in dynamically-typed
-%%   languages, these are not mandatory. Meadowview is a dynamically-typed
+%%   languages, these are not mandatory. MV is a dynamically-typed
 %%   language but we still optionally allow MIDL descriptions to facilitate early
 %%   error checking instead of runtime error.}
 %% \begin{alltt}
@@ -1217,7 +1214,7 @@ Also, function signature checking can be done for ``arities'' not
 %% DB server. 
 
 %% \subsection{Static workflow}
-%% One way to program the flow in the Meadowview language is given below.
+%% One way to program the flow in the MV language is given below.
 %% \begin{alltt}
 %%   \textcolor{black}{workflow StepCountFlow(com.24.app.iphone app,
 %%                          com.24.sj.treadmill tms[],
@@ -1386,7 +1383,7 @@ Also, function signature checking can be done for ``arities'' not
 
 %% When two AllJoyn-compatible devices, say A and B, are given, we can use AllJoyn API to
 %% develop a code which make A and B interact with each other by manually
-%% deploying the code. The Meadowview system tries to avoid this hard-coding. We
+%% deploying the code. The MV system tries to avoid this hard-coding. We
 %% want to control the interaction of devices from a higher-level than than going
 %% down to AllJoyn-level. 
 
@@ -1432,10 +1429,10 @@ Also, function signature checking can be done for ``arities'' not
 %%        instrumentation purpose.
 %%        \eit
 %%    \w Waits for the lower-level framework (e.g. AllJoyn Bus or 
-%%       ZeroMQ message queue) on Meadowview events.
+%%       ZeroMQ message queue) on MV events.
 %%       \bit
 %%       \w Though the device reacts to all three different types of events ,
-%%        at Meadow runtime level, only Meadowview events are relevant.
+%%        at Meadow runtime level, only MV events are relevant.
 %%        Built-in events and manufacturer's events should have been already
 %%        registered to infrastructure (infrastructure does not know anything
 %%        about Meadow 
@@ -1447,7 +1444,7 @@ Also, function signature checking can be done for ``arities'' not
 
 %% \subsection{Two languages}
 %% \bit
-%% \w \bb{Meadowview: A workflow definition language}: 
+%% \w \bb{MV: A workflow definition language}: 
 %%    Users define workflows over some devices using a language, to
 %%    \bb{orchestrate} or \bb{compose device services}.
 %%    \bit
@@ -1463,7 +1460,7 @@ Also, function signature checking can be done for ``arities'' not
 %%    A device involved in the workflow doesn't need to know the entire picture
 %%    of the workflow. All it needs to know is ``under this circumstance, do this
 %%    or do that, etc.'' 
-%%    \w So, from a Meadowview workflow definition, we need to derive VM code for
+%%    \w So, from a MV workflow definition, we need to derive VM code for
 %%    each devices involved. This code will be have the form of ``a set of
 %%    Verilog process-like code fragments''. However, the syntax of such a
 %%    process must be limited to very simple constructs for efficient VM
@@ -1479,7 +1476,7 @@ Also, function signature checking can be done for ``arities'' not
 %% \eit
 
 %% \subsection{Synthesis Tool}
-%% Given a workflow definition written in Meadowview, this needs to be
+%% Given a workflow definition written in MV, this needs to be
 %% synthesized to VM processes for execution. There may be multiple ways to
 %% synthesize a single workflow definition (just like there are multiple ways to
 %% synthesize an Verilog design using AND/OR gates) and synthesizing efficient
@@ -1556,7 +1553,7 @@ Also, function signature checking can be done for ``arities'' not
 
 %% \subsection{Deployment of VM processes}
 %% Let's say that a developer employed by 24hour fitness has created a workflow
-%% and used a Meadowview compiler to get the synthesized VM code. 
+%% and used a MV compiler to get the synthesized VM code. 
 %% Then, the problem is how to deploy this code to the treadmills in the San Jose
 %% site. 
 %% For this, several things might be needed. First, two built-in VM processes
@@ -1695,10 +1692,10 @@ Also, function signature checking can be done for ``arities'' not
 
 
 
-%\bibliographystyle{plain}
-%\bibliography{bib/mac,bib/softsys,bib/compsys,bib/digital,bib/pl,bib/theory,bib/formal}
-%\nocite{EN11,Agha86,Hewitt76,Verilog2005,JK13,SK09}
-%\nocite{LABHJJLTZ05,VD10}
+\bibliographystyle{plain}
+\bibliography{bib/mac,bib/softsys,bib/compsys,bib/digital,bib/pl,bib/theory,bib/formal}
+\nocite{EN11,Agha86,Hewitt76,Verilog2005,JK13,SK09}
+\nocite{LABHJJLTZ05,VD10}
 \end{document}
 
 %%  LocalWords:  MeadowView EPL Hadoop proc FSM API insertEvent TCP IP ev MV
@@ -1710,7 +1707,7 @@ x
 %%  LocalWords:  startButtonPressed stopButtonPressed healthcare addStepCount
 %%  LocalWords:  userid stepcount SecureID AllJoyn Qualcomm ZeroMQ Bluetooth
 %%  LocalWords:  ZigBee WiFi ethernet CoAP iOS MacOS Andriod IPC JNI OLED pre
-%%  LocalWords:  MessageQueue Meadowview loadProcess unloadProcess procid abc
+%%  LocalWords:  MessageQueue MV loadProcess unloadProcess procid abc
 %%  LocalWords:  programmatically instid turnOn turnOff switchChannel strign
 %%  LocalWords:  turnedOn turnedOff channelSwitched oldChannel newChannel ruu
 %%  LocalWords:  saveStepCount middleware username printMessage HomeKit Scala

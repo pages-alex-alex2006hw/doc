@@ -11,7 +11,10 @@ all: $(BENCHMARKS)
 
 table: $(BENCHMARKS)
 	@echo 'subrout direct indirect switch    call  repl-sw'
-	@for i in $(BENCHMARKS); do echo -n '  '`\time -f "%U" ./$$i 2>&1`'  '; done
+	@for i in $(BENCHMARKS); do 
+		echo -n '  '`\time -f "%U" ./$$i 2>&1`'  '; 
+	  echo ""
+	done
 	@echo
 
 clean:
