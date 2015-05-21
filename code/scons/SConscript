@@ -1,0 +1,7 @@
+Import('env')
+
+env = env.Clone()
+
+conf = env.Configure()
+if conf.CheckLib('boost_thread'):
+  pass
