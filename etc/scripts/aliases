@@ -47,3 +47,5 @@ alias gitdiff='git difftool --tool=meld'
 # httpd
 alias httpd_kill='sudo kill -TERM `cat /var/run/apache2.pid`'
 alias httpd_restart='sudo /usr/sbin/apache2ctl restart'
+
+alias vnc='vncserver -compatiblekbd'
