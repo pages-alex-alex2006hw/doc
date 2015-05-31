@@ -1,0 +1,2 @@
+env = Environment()
+env.SConscript('SConscript', exports='env', duplicate=0)
