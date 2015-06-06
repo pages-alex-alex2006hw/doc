@@ -1,4 +1,5 @@
 co = coroutine.create(function () print("hi") end)
-print (co)
-print (coroutine.status(co())
+val = 1 + 2
+print (val)
 coroutine.resume(co)
+print (co)
