@@ -1,3 +1,2 @@
 all:
-	gcc -o interp main.c -llua -lm
-	 
+	gcc -g -o interp main.c -llua -lm -ldl
