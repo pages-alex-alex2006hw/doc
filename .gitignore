@@ -1,4 +1,6 @@
 /work
+/memo
+/notes
 *.aux
 *.dvi
 *.log
