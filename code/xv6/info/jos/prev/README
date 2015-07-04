@@ -1,0 +1,23 @@
+[kernel image]
++ as kern/entry.S     (kernel entry point; calls init.c funcs)
++ cc kern/init.c      (kernel initialization)
++ cc kern/console.c
++ cc kern/monitor.c
++ cc lib/readline.c
++ cc kern/printf.c
++ cc lib/string.c
++ cc lib/printfmt.c
++ cc kern/pmap.c
++ cc kern/kclock.c
++ cc kern/kdebug.c
++ ld /home/cjeong/work/jake/build/kern/kernel
+
+[boot image]
++ as boot/bootasm.S
++ cc -Os boot/bootmain.c
++ ld boot/boot
++ objdump/copy boot/boot
+boot block is 406 bytes (max 510)
+
+
++ mk /home/cjeong/work/jake/build/kern/kernel.img
