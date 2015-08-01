@@ -289,5 +289,8 @@ $(OBJDIR)/.deps: $(foreach dir, $(OBJDIRS), $(wildcard $(OBJDIR)/$(dir)/*.d))
 always:
 	@:
 
+tags:
+	etags -a -o TAGS boot/*[ch] fs/*[ch] kern/*[ch] inc/*h lib/*[ch] user/*[ch]
+
 .PHONY: all always \
 	handin git-handin tarball tarball-pref clean realclean distclean grade handin-prep handin-check
