@@ -1,0 +1,260 @@
+\documentclass{note}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+\usepackage{alltt}
+\usepackage[T1]{fontenc}
+\usepackage[all,knot]{xy}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks ,
+    citecolor=black, 
+    filecolor=black,
+    linkcolor=blue, 
+    urlcolor=black
+}
+
+\begin{document}
+\noindent{\textcolor{blue2}{\large\bf{}Notes on UVM}}
+\small
+
+%\tableofcontents
+
+\paragraph{Overview}
+\bit
+\w  UVM consits of two parts: 
+  \bit
+  \w domain-independent class library which implements ``component
+  technology'' (how to build systems by ``composing'' components like lego
+  blocks) 
+  \w domain-specific components used for EDA verification domain
+  \eit
+\w \bb{software reuse}
+  \bit
+  \w how to reuse code with minimal modification
+  \w how to extract commonalities into ``fixed framework'' (which does not
+  need to be changed) and put hotspots (customization points) outside
+  \w or we want to change just to part we want, without changing the rest
+  \w key to reuse is ``late binding'' 
+     \bit
+     \w hard coding is worst -- we need to update the ``hard coded caller''
+     \w OOPL allowed late binding by dynamic method lookup
+     \w only compile the subclass again, rest is ok. only revise/compile the
+         callee not the caller
+         \bit
+         \w for this, \bb{Hollywood principle}: ``don't call us, we'll call you''
+         \eit
+     \eit
+  \eit
+
+\w \bb{component technology}
+  \bit
+  \w mostly about connecting ``resusable components''
+  \w ``components'' an abstraction layer over ``classes''
+  \eit
+
+\w \bb{software framework}
+  \bit
+  \w no notion of components; just plain classes
+  \w 
+  \eit
+\eit
+
+\section{UVM Configuration}
+
+\begin{verbatim}
+class mycomp extends uvm_component;
+
+  mysubcomp subcomp0;
+
+  // `uvm_component_utils(mycomp)
+  `typedef uvm_component_registry #(mycomp, "mycomp") type_id;
+  static function type_id get_type(); 
+    return type_id::get();
+  endfunction
+  virtual function uvm_object_wrapper get_object_type(); 
+    return type_id::get();
+  endfunction
+
+  virtual function build_phase();
+    // instead of just doing
+    //   subcomp0 = new
+    // 
+    // uvm_component_registry#(mycomop, "mycomp")::create("mycomp", this) {
+    //   uvm_factory f = uvm_factory::get();
+    //   f.create_component_by_type(get(), // type-specific registry
+    //                              ctx, name, parent);
+    //   $cast(create, obj))
+    subcomp0 = mysubcomp::type_id::create("mycomp", this);
+  endfunction
+endclass
+\end{verbatim}
+
+
+\subsection{Component instance pool}
+\bit
+\w maintains a ``component (object) system''
+\w hierachy of component instances is explicitly maintainted through the help
+of ``factory method'' -- \verb+create()+
+  \bit
+  \w \verb+new+ is a system function so, if we let ``component system users''
+      to use ``new'' directly, we as component system developers cannot do
+      anything
+  \w \verb+create()+ actually adds some ``room'' around the actual call to
+  ``new'' 
+  \w 
+  \eit
+\w that's how \verb+config_db::get/set+ works
+\eit
+
+
+\section{Overview}
+\bit
+\w UVM consists of two parts:
+  \bit
+  \w domain-independent class library which implements ``component
+  framework'', which is about how to building systems by ``composing''
+  components (like composing lego 
+    \bit
+    \w to use these components, need to subclass their ``component'' class
+      and follow some guidelines (guidelines to overcome that this is
+      user-space library not system library)
+    \w component framework is ``one'' \bb{software reuse} technology
+    \eit
+  \w domain-specific components used for EDA verification domain
+  \eit
+\w \bb{software reuse}
+  \bit
+  \w good reuse technology allows to reuse code with minimal modification:
+     ``reused library'' and ``reuser's code'' must independently developed
+    \bit
+    \w if change in one causes change in the other; it's not a good reuse
+    technology 
+    \eit
+  \w extract ``commonalities'' into ``fixed framework''  and
+   put ``hot spots'' (customization points) outside
+
+  \w \bb{late binding}
+  \eit
+\eit
+
+
+
+\section{UVM Configuration}
+\begin{verbatim}
+  class my_uvc extends uvc_component;
+    my_subuvc c0;
+    my_subuvc c1;
+
+    // `uvm_component_utils(mycomp)
+    `typedef uvm_component_registry #(my_uvc, "my_uvc") type_id;
+    static functino type_id get_type();
+      return type_id::get();
+    endfunction
+    virtual function uvm_object_wrapper get_object_type();
+      return type_id::get();
+    endfunction
+    
+    virtual function build_phase();
+      // instead of just doing
+      //  c0 = new
+      // uvm_component_registry#(my_uvc, "my_uvc")::create("my_uvc", this) {
+      //   uvm_factory f = uvm_factory::get();
+      //   f.create_component_by_type(get(), 
+      //                              ctx, name, parent);
+      //   $cast(create, obj);
+      c0 = my_uvc::type_id::create("my_uvc", this);
+    endfunction
+  endclass  
+\end{verbatim}
+
+\section{UVM Factory}
+Using the factory involves three basic operations
+\bit
+\w registering objects and components types with the factory
+\w designing components to use the factory to create objects or components
+\w configuring the factory with type and  instance override, both within and
+  outside components 
+\eit
+
+\subsection{Registering objects and components types with the factory}
+\begin{verbatim}
+  class comp extends uvm_component;
+    `uvm_component_utils(comp)
+  endclass
+
+  class comp #(type T=int, int WIDTH=32) extends uvm_component;
+    `uvm_component_param_utils(comp #(T,WIDTH))
+  endclass
+\end{verbatim}
+\bit
+\w register the type with the factory 
+\w define the \verb+get_type+, \verb+get_type_name+
+\w create virtual methods inherited from \verb+uvm_object+
+\w define static \verb+type_name+ variable in the class, which will allow to
+   determine the type without having to allocate an instance
+\eit
+
+\subsection{Designing components that defer creation to factory}
+\bit
+\w 
+\eit
+
+
+
+
+\section{UVC Overview}
+\bit
+\w UVM \textcolor{red2}{testbench} consists of reusable verification
+environments called \textcolor{red2}{verification components}.
+\eit
+
+\subsection{Verification components}
+\subsubsection{Transaction (Data item)}
+\bit
+\w a structure of related data
+\eit
+\subsubsection{Driver (BFM)}
+\bit
+\w \bb{active} component, which drives DUT
+\w receives a data from seqeucence and sends the data to DUT at signal-level
+\w acts as proxy between transaction-level TB and signal-level DUT
+\eit
+
+\subsubsection{Sequencer}
+\bit
+\w 
+\eit
+
+\subsubsection{Monitor}
+\bit
+\w \bb{passive} entity
+\eit
+
+\subsubsection{Agent}
+\bit
+\w \bb{container} which integrates sequencer, monitor, driver into one
+\w hooks up, configures, assign roles to each of these entities
+\eit
+
+\subsubsection{Environment}
+\bit
+\w has configuration capability
+\w contains multiple agents
+\eit
+
+\subsection{UVM facilities}
+\subsubsection{Factory}
+\bit
+\w 
+\eit
+
+\section{UVM Configuration Mechanism}
+\begin{verbatim}
+  class uvm_config_db#(type T=int) extends uvm_resource_db#(T);
+\end{verbatim}
+
+
+\end{document}
+
+%%  LocalWords:  Expr structs Functors funptr runtime destructor consts const
+%%  LocalWords:  dereference upcast ptr Functor

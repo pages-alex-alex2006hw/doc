@@ -1,0 +1,252 @@
+\documentclass{myproc}
+\usepackage{minion,hfont,mydef,amssymb,epsfig}
+
+\def\A{\mbox{\eurm{}A}}
+\def\E{\mbox{\eurm{}E}}
+\def\G{\mbox{\eurm{}G}}
+\def\F{\mbox{\eurm{}F}}
+\def\X{\mbox{\eurm{}X}}
+\def\U{\mbox{\eurm{}U}}
+
+
+\begin{document}
+\small
+\title{\large\bf Notes on Theories of Concurrency}
+\author{\normalsize ¡§√∂¡÷ $\arc{\mbox{cjeong@cs.columbia.edu}}$}
+\maketitle
+
+\section{BACKGROUNDS}
+\subsection{Non-determinism and non-determinacy}
+\bit
+\w \bb{Why non-deterministic?}
+   \bit
+   \w Real world is non-deterministic (unpredictable). We want to model this
+   phenomenon. 
+   \w Non-deterministic specification allows a degree of freedom in
+   implementing  the specification.  
+   \eit
+\w \bb{non-determinism}: For a given input, if a system has multiple possible,
+and unpredictable,
+external behaviors (outputs), the system is said to be \bb{non-deterministic}.
+\w \bb{Determinacy}: For a given input, if a system has a deterministic
+external behavior(output), the system is said to be \bb{determinate}.
+The system may have internal non-deterministic behavior.
+\eit
+
+\section{TEMPORAL LOGIC}
+\subsection{Kripke structure}
+\bit
+\w Given a set $\Sigma$ of atomic proposition constants 
+   and a set $\Gamma$ of atomic variables, let $A = \Sigma \cup \Gamma$.
+   $A$ is a set of atomic propositions.
+\w A {\em Kripke structure\/} is a triple $M = (S, R, L)$, where $S$ is a
+finite set of {\em states\/}, $R \subseteq S \times S$ is a total relation, 
+and $L: S \rightarrow 2^{A}$. 
+\eit
+\subsection{LTL}
+\subsection{CTL}
+\bit
+\w Given that $A$ is a set of {\em atomic propositions\/}, 
+  the syntax of CTL formulas are defined as follows:
+\begin{eqnarray*}
+P & ::= & a \in A\ \mid\ \neg{P} \ \mid\ P \vee P \ \mid\ 
+   \A{P} \ \mid\ \E{P} \ \mid\ \\
+  & &  \A[P\ \U\ P]\ \mid\ \E[P\ \U\ P]
+\end{eqnarray*}
+\eit
+\subsection{CTL*}
+\bit
+\w Given that $A$ is a set of {\em atomic propositions\/}, 
+  the syntax of CTL* formulas are defined as follows:
+\begin{eqnarray*}
+S & ::= & a \in A\ \mid\ \neg{S} \ \mid\ S \vee S \ \mid\ 
+   \A{P} \ \mid\ \E{P} \\
+P & ::= & s \in S\ \mid\ \neg{P} \ \mid\ P \vee P \ \mid\ 
+   \X{P} \ \mid\ \F{P} \ \mid\\
+ & &  \G{P}\ \mid\ P\ \U\ P
+\end{eqnarray*}
+  $s \in S$ is called a {\em state formula\/} and $p \in P$ is called a {\em
+  path formula}
+\eit
+
+
+\subsection{Fixpoint characterization}
+\bit
+\w Let $M = (S, R, L)$ be a finite Kripke structure.
+\w $Pred(S)$ denotes the lattice $\arc{P, <_P}$ of predicates over $S$
+   \bit
+   \w $p \in P$: a predicate over $S$
+   \w $\denote{p}$: set of states in $S$ that satisfies $p$, i.e.
+       the set of states in which $p$ evaluates to true
+   \w $p_1 <_P p_2$ iff $\denote{p_1}_M \subseteq \denote{p_2}_M$
+   \eit
+\w A functional $\tau: Pred(S) \rightarrow
+Pred(S)$, that maps $Pred(S)$ to $Pred(S)$ is called a {\em predicate
+  transformer}. 
+\w A predicate transformer $\tau: Pred(S) \rightarrow Pred(S)$ is 
+  {\em monotonic\/} if
+ $P \subseteq Q$ implies $\tau[P] \subseteq \tau[Q]$. 
+\w  A predicate transformer $\tau$ is 
+  {\em $\bigcup$-continuous} if 
+  $P_1 \subseteq P_2 \subseteq \cdots \mbox{\ implies\ } 
+  \tau[\bigcup_iP_i] = \bigcup_i\tau[P_i]$. 
+\w A predicate transformer $\tau$ is 
+  {\em $\bigcap$-continuous} if 
+  $P_1 \supseteq P_2 \supseteq \cdots \mbox{\ implies\ } 
+  \tau[\bigcap_iP_i] = \bigcap_i\tau[P_i]$. 
+\w \bb{Tarski's theorem}: A monotonic predicate transformer $\tau$ on
+$Pred(S)$ always has a least fixpoint and a greatest fixpoint.
+
+
+\w A temporal logic formula $p$ with free variables $x_1, \cdots, x_n$ can be
+interpreted as a mapping $p^{M}: (Pred(S))^n \rightarrow Pred(S)$. 
+\eit
+
+\section{HOARE'S CSP}
+\subsection{Introduction}
+\bit
+\w There are three usages of CSP:
+  \ben
+  \w [(a)] as a notation for writing {\em programs\/} which are close to
+  implementations,
+  \w [(b)] a way of constructing {\em specifications\/} 
+  which may be remote from
+  implementation, and
+  \w [(c)] as a {\em calculus for reasoning\/} about both of the above things.
+  \een
+\w Fundamental assumptions about {\em communications\/} in CSP are:
+  (a) They are {\em instantaneous} and (b) They occur {\em if and only if\/} 
+  both the process and the environment allow them.
+\eit
+
+\subsection{CSP operators}
+\bit
+\w \bb{prefixing}: given an event $a \in \Sigma$ and a process $P$, 
+  $a \rightarrow P$; {\em indefinitely waits for $a$ to happen, and after 
+  $a$ happens, behaves like $P$}
+\w \bb{recursion}: given a process $P$, 
+$\mu P.F(P)$ denotes the fixed point of $P = F(P)$, i.e. 
+`the' $P$ that satisfies $P = F(P)$.
+\w \bb{guarded alternative}: $(a_1 \rightarrow P_1\ |\ \cdots\ |\ 
+a_n \rightarrow P_n)$ gives a \bb{choice} of actions to their environment;
+{\em it can do any of the events $a_1, \cdots, a_n$ on its first step, and
+subsequently behaves like $P_r$, if $a_r$ was chosen} 
+\w \bb{prefix choice}: $?x:A \rightarrow P(x), A \subseteq \Sigma$ 
+is a process which accepts any element $a \in A$ and then behaves like
+$P(a)$
+  \bit
+  \w $?x:\{\} \rightarrow P(x) \equiv STOP$
+  \w $?x:\{a\} \rightarrow P(x) \equiv a \rightarrow P(a)$
+  \w $c?x: T \rightarrow P(x)$: wait for $x$ on \bb{channel} $c$
+  \eit
+\w \bb{external choice}: $P\ \square\ Q$ is a process which offers the
+environment the choice of the first events of $P$ and $Q$ and then behaves
+accordingly
+   \bit
+   \w $(a \rightarrow P\ |\ b \rightarrow Q) \equiv
+       (a \rightarrow P\ \square\ b \rightarrow Q)$
+   \eit
+\w \bb{nondeterministic choice}: $P \sqcap Q$ {\em can\/} behave like either $P$ or $Q$
+  and $\sqcap S$ can behave like any member of $S$
+\eit
+\subsection{More on CSP}
+\bit
+\w If $R$ is such that $R = R \sqcap P$ we say that $P$ is more deterministic
+than $R$, or that $P$ \bb{refines} $R$. 
+ When $R = R \cap P$, we write $R \sqsubseteq P$.
+\eit
+
+\subsection{Denotational semantics: The traces model}
+\bit
+\w 
+\eit
+\section{MILNER'S CCS}
+\bit
+\w 
+\eit
+\section{PETRI NETS}
+\subsection{Definitions}
+\bit
+\w A {\em Petri net} is a $5$-tuple $PN = (P, T, F, W, M_0)$ where
+  \bit
+  \w $P = \{p_1, \cdots, p_m\}$ is a finite set of {\bf places},
+  \w $T = \{t_1, \cdots, t_n\}$ is a finite set of {\bf transitions},
+  \w $F \subseteq (P\times{T}) \cup (T\times{P})$ is a set of {\bf arcs} (flow
+  relation),
+  \w $W: F \rightarrow \Z^+$ is a {\bf weight function}, and
+  \w $M_0: P \rightarrow \N$ is a the {\bf initial marking}, where
+   $P \cap T = \emptyset$ and $P \cup T \not= \emptyset$.
+  \eit
+\w Each place represents a kind of a \bb{condition}.
+\w Each transition represents a kind of a \bb{action}.
+\w If all \bb{input places} of a transition have appropriate number (weight)
+of tokens (if all \bb{preconditions} are satisfied), the transition is
+\bb{fired} (action activated), and then \bb{output places} get the tokens
+(\bb{postconditions} are satisfied).
+\w A marking of a Petri net represents a \bb{state} of the system being
+modeled. Or, {\em the state of a system is a set of conditions (places) which
+  are true!} 
+\w Two transitions are \bb{persistent w.r.t each other} if when both are
+\bb{enabled}, the {\em firing of one does not disable the other\/}.
+\eit
+
+\subsection{Modeling idioms}
+\bit
+\w \bb{Sequencing}: trivial
+\w \bb{Parallel composition}: just place them side by side
+\w \bb{Fork/Join}: concurrency; JOIN=SYNCHRONIZATION
+\w \bb{Choice/Merge}: non-determinism
+
+ \vspace*{0.3cm}
+
+  \centerline{\epsfig{figure=pics/petri-fork.eps,width=5cm}}
+\eit
+\subsection{Variants of Petri nets}
+\bit
+\w \bb{Timed Petri nets}: times (delays OR lower/upper bounds of delays) are
+associated with places/transitions/arcs
+\w \bb{Colored Petri nets (= typed Petri nets)}: places can have \bb{types}
+and tokens are \bb{types}; type checking is done
+\w Extension of Petri nets allows more expressive power but makes interesting
+problems undecidable.
+\w \bb{State machines}: each transition has exactly 1 input and 1 output
+places; preserves the \# of tokens
+  \bit
+  \w supports choice/merge, does NOT support fork/join
+  \w only for \bb{non-deterministic, sequential} systems (single thread of
+  control) 
+  \eit
+\w \bb{Marked graphs}: each place has exactly 1 input and 1 output (so, we can
+OMIT transitions)
+  \bit
+  \w supports fork/join, does NOT support choice/merge
+  \w only for \bb{deterministic, concurrent} systems (multiple thread of
+  control) 
+  \eit
+\w \bb{Free-choice Petri nets}:
+\w \bb{STG (signal transition graphs)}: 
+   \bit
+   \w \bb{input-free choice}: selection among alternatives must only be
+   controlled by mutually exclusive inputs (\bb{NO non-determinism})
+   \w \bb{1-bounded}: at most one token in each place
+   \w \bb{liveness}: no deadlock
+   \eit
+\eit
+\subsection{Properties of Petri nets}
+\bit
+\w \bb{Safeness}: A net with initial marking $M_0$ is \bb{safe} IFF,
+   in any marking reachable from $M_0$, every place contains no more than one
+   token. 
+\w \bb{Liveness}: A {\em finite safe\/} net is \bb{live} IFF its reachability
+graph is strongly conntecd and each transition in $T$ is enabled in some
+marking of the reachability grapyh. 
+\eit
+
+\section{Kahn Network}
+
+
+
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/theory,00bib/formal,00bib/pl,00bib/async}
+\nocite{Reynolds98,Murata89,Roscoe98,CGP99,Kahn74}
+\end{document}

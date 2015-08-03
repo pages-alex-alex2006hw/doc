@@ -1,0 +1,859 @@
+\documentclass{myproc}
+\usepackage{mydef,myenv,amssymb}
+\usepackage{MinionPro}
+%\usepackage{mathptm}
+\usepackage[all]{xy}
+\def\EE{\mbox{\eufm{}E}}
+
+\begin{document}
+\small
+\pagestyle{empty}
+
+\noindent{\large\bf Notes on Set Theory}
+
+\section{Introduction}
+\begin{itemize}
+\item {\bf{}Extensionality Property}: A set is determined by its members
+	\[ A = B\ \Leftrightarrow\ (\forall{x})[x \in A 
+		\Leftrightarrow x \in B] \]
+\item A {\bf{}function} $f: X \rightarrow Y$ associates with each member $x$
+	of the set $X$ some member $f(x)$ of $Y$. $(x \mapsto f(x))$ is
+	a name-free notation for functions.
+	\begin{itemize}
+	\item $f$ is an {\bf{}injection} (one-to-one) if 
+		\[ (\forall{x, y \in X})[f(x) = f(y) \Rightarrow x = y] \]
+	\item $f$ is a {\bf{}surjection} (onto) if 
+		\[ (\forall{y \in Y})(\exists{x \in X})[f(x) = y] \]
+	\item $f$ is a {\bf{}bijection} (correspondence) if
+		\[ (\forall{y \in Y})(\exists!{x \in X})[f(x) = y] \]
+	\end{itemize}
+\w Given a set $A$, the {\bf{}identity function} on $A$, $I_A$, is
+	the total function $(x \mapsto x)$.
+\w A function $f: A \rightarrow B$ is {\em{}surjective\/} iff there exists a 
+	(total) function $g: B \rightarrow A$ s.t.
+	$g\circ{f} = I_B$.
+\w If there exists a (total) function $g: B \rightarrow A$ s.t. 
+	$f\circ{g} = I_A$
+	then $f: A \rightarrow B$ is {\em{}injective\/}.
+\w If $f: A \rightarrow B$ is injective and $A \ne \emptyset$ then
+	there exists a function $g: B \rightarrow A$ s.t. $f\circ{g} = I_A$.
+\w A function $f: A \rightarrow B$ is {\em{}bijective\/} iff 
+	there exists a unique function $f^{-1}$ s.t. 
+	$f\circ{f^{-1}} = I_A$ and $f^{-1}\circ{f} = I_B$; $f^{-1}$ is
+	called the {\bf{}inverse} of $f$.
+\w For every $f: X \rightarrow Y$ and $A \subseteq X$, the set
+	\[f[A] = \{f(x): x \in A\}\]
+	is the {\bf{}image of $A$ under $f$}, and if $B \subseteq Y$, then
+	\[f^{-1}[B] = \{x \in X: f(x) \in B\}\]
+	is the {\bf{}pre-image of $B$ by $f$}.
+	
+\end{itemize}
+
+\section{Equinumerosity}
+\begin{itemize}
+\item Two sets $A, B$ are {\bf{}equinumerous} if there exists a
+	(one-to-one) 
+	{\em{}correspondence} between their elements, i.e.,
+	\[ A =_c B 
+		\ \triangleq\ 
+		(\exists{f})[f: A \rightarrow_{\mbox{\scriptsize{}bij}} B] \]
+\item The set $A$ is {\bf{}less than or equal to $B$ in size} if
+	it is equinumerous with some subset of $B$, i.e.,
+	\[ A \le_c B 
+		\ \triangleq\ 
+		(\exists{C \subseteq B})[A =_c C] \]
+		\begin{itemize}
+		\item $A \le_c B \Leftrightarrow (\exists{f})[f: A 
+			\rightarrow_{\mbox{\scriptsize{}inj}} B]$
+		\end{itemize}
+\item A set $A$ is {\bf{}finite} if there exists some natural number 
+	$n \in \N1$
+	such that
+		\[ A =_c \{i : i < n\} = \{0, 1, \cdots, n-1\}, \]
+	otherwise, $A$ is {\bf{}infinite}.
+	\bit
+	\w A set $A$ is {\bf{}Dedekind-infinite} if there exists an injection
+		\[ f: A \inj\ B \subsetneq A \]
+		from $A$ into a proper subset $B \subsetneq A$. 
+		
+	\eit
+\item A set $A$ is {\bf{}countable} if it is {\em{}finite\/} or 
+	{\em{}equinumerous with the set of natural numbers $\N$},
+	otherwise {\bf{}uncountable}.
+	\bit
+	\item A set $A$ is {\em{}countable\/} iff $A = \emptyset$ or
+		$A$ has an {\em{}enumeration\/}, where
+		an {\bf{}enumeration} is a surjection $\pi: {\N} 
+		\rightarrow_{\mbox{\scriptsize{}surj}} A$.
+	\w If $A$ is countable and there exists an injection
+		$f: B\ \inj\ A$, then $B$ is also countable.
+	\end{itemize}
+
+\item ({\bf{}Cantor's first diagonal method})
+	For each sequence\footnote{this implies an `enumeration', which,
+	in turn, implies the countability of the sequence} 
+	$A_0, A_1, \cdots$ of {\em{}countable\/} sets,
+	the {\em{}union\/}
+		\[ A = \bigcup_{i = 0}^\infty{A_i} = A_0 \cup A_1 \cup \cdots \]
+	is also a {\em{}countable\/} set.
+	\begin{itemize}
+	\w This technique is also called {\em{}dovetailing\/}, which
+		is heavily used in computability proofs.
+	\item The set ${\Z}$ of integers is countable.
+	\item The set ${\Q}$ of rational numbers is countable. 
+		\bit
+		\w Since 
+			\[ \Q^+ = \bigcup_{n=1}^\infty\left\{\frac{m}{n}: 
+		m \in \N\right\},\]
+		and each $\{m/n: m \in \N\}$ for fixed $n$ is countable,
+		$\Q^+$ is countable. $\Q^-$ is countable similarly.
+		\eit
+	\end{itemize}
+\item ({\bf{}Cantor's second diagonal method}) 
+	The set of {\em{}infinite\/}, binary sequences
+	\[ \Delta = \{(a_0, a_1, \cdots) : (\forall{i})[a_i = 0 \vee a_i = 1] \}\]
+	is uncountable.
+		\begin{itemize}
+		\item The set $\R$ of real numbers is uncountable.
+		\w The set of total functions on $\N$ is uncountable.
+		\end{itemize}
+\item If $A_1, \cdots, A_n$ are all countable, so is their Cartesian
+	product $A_1 \times \cdots \times A_n$.
+	\begin{itemize}
+	\item For every countable set $A$, each $A^i$ ($i \ge 2$) and the
+		union 
+			$\bigcup_{i = 2}^\infty A^i$
+		is countable.
+	\end{itemize}
+\item The set $\cal{}K$ of {\em{}algebraic real numbers\/} is countable
+	(Cantor), and hence there exists a real number that is not
+		 algebraic (Liouville).
+\item (Cantor) For every set $A$,
+	\[ A <_c {\cal{}P}(A), \] i.e.,
+	$A \le_c {\cal{}P}(A)$ but not $A \ne_c {\cal{}P}(A)$,
+	where ${\cal{}P}(A)$ is the 
+	{\bf{}powerset} of $A$.
+	\begin{itemize}
+	\w Proof of $A \le_c {\cal{}P}(A)$:
+	$(x \mapsto \{x\})$ is an injection from $A$ to ${\cal{}P}(A)$.
+	\w Proof of $A \ne_c {\cal{}P}(A)$:
+	To the contrary, 
+	let $\pi$ be a correspondence between $A$ and ${\cal{}P}(A)$
+	and let 
+		\[ B = \{x \in A: x \not\in \pi(x)\}.\]
+	Since $B \subseteq A$ (i.e., $B \in {\cal{}P}(A)$), 
+	there should exist $b \in A$ such that
+	$B = \pi(b)$, and either $b \in B$ or $b \not\in B$.
+	Both cases lead to contradiction (Russell phenomenon!).
+	\bit
+	\w {\em{}This proof is a fairly straightforward generalization
+	of Cantor's second diagonal method.\/} 
+	\w (cont.) Why? {\em{}We constructed $B \in {\cal{}P}(A)$ so that 
+		$B$ is not equal to any element of ${\cal{}P}(A)$
+		using self-reference.\/}
+	\eit
+	\end{itemize}
+\item ({\bf{}Schr\"{o}der-Bernstein Theorem})
+	For any two sets $A, B$, 
+	\[ (A \le_c B\ \wedge\ B \le_c A) \Rightarrow A =_c B \]
+	\bit
+	\item ${\cal{}P}({\N}) \le_c {\R}$ and
+		${\R} \le_c {\cal{}P}({\N})$
+	\w ${\cal{}P}(\N) = \R$.
+	\eit
+\w A set $A$ is {\bf{}transitive} if every set $B$ which is an
+	element of $A$ has the property that all of {\em{}its\/}
+	elements also belong to $A$.
+	\bit
+	\w For every set $B \in A$, $B \in {\cal{}P}(A)$.
+	\w For every set $B \in A$, $B \subseteq A$.
+	\w $\bigcup{A} \subseteq A$.
+	\w For any set $A$, $TC(A)$ is the smallest transitive set including
+		$A$; it is called the {\bf{}transitive closure} of $A$: e.g.,
+		\[ TC(A) = \bigcup\left\{A, \bigcup{A}, \bigcup\bigcup{A}, 
+		\cdots\right\}.\]
+	\eit
+\end{itemize}
+
+
+\section{Paradoxes and Axioms}
+\begin{itemize}
+\item ({\bf{}Hypothesis of Cardinal Comparability})
+	For any two sets $A, B$, either $A \le_c B$ or $B \le_c A$.
+\item ({\bf{}Continuum Hypothesis; CH})
+	There is no set of real numbers $X$ with cardinality
+	intermediate between those of $\N$ and $\R$, i.e.,
+	\[ (\forall{X} \subseteq {\R})[X \le_c {\N} \ \vee\ X =_c \R] \]
+\item ({\bf{}Generalized Continuum Hypothesis; GCH})
+		For every infinite set $A$,
+		\[ (\forall{X} \subseteq {\cal{}P}(A))[X \le_c A\ \vee\ X =_c {\cal{}P}(A)]\]
+\item ({\bf{}General Comprehension Principle}) For each $n$-ary
+	{\em{}definite condition\/} $P$, 
+		there is a set 
+			\[A = \{\vec{x}: P(\vec{x})\} \]
+		whose members are precisely all the $n$-tuples of objects
+		which satisfy $P(\vec{x})$, such that for all $\vec{x}$,
+			\[ \vec{x} \in A \Leftrightarrow P(\vec{x})\]
+
+		\begin{itemize}
+		\item By {\em{}extensionality principle}, only {\bf{}one} 
+			set $A$	can satisfy the above equivalence, we call 
+			this $A$ the {\bf{}extension} of 
+			the {\em{}condition\/} $P$.
+		\item A $n$-ary {\bf{}condition} $P$ is {\bf{}definite}  if 
+			for each
+			$n$-tuple of objects $\vec{x} = (x_1, \cdots, x_n)$, 
+			it is
+			determined `unambiguously' whether 
+			$P(\vec{x})$ is
+			true or false.
+		\item {\em{}Note that we do not demand of a definite 
+			condition that its 
+			truth value be {\em{}effectively decidable\/}}
+			(Turing-decidable or recursive).
+		\item A $n$-ary {\bf{}operation} $F$ is {\bf{}definite}, if it
+			assigns to each $n$-tuple of objects $\vec{x}$ a
+				unique, unambiguously determined object
+				$w = F(\vec{x})$.
+		\item {\em{}Note again that we don't demand of a definite 
+			operation
+			be {\em{}effectively computable\/}}.
+		\end{itemize}
+\item ({\bf{}Russell's Paradox}) {\em{}The 
+	General Comprehension Principle is not valid\/}.
+		\begin{itemize}
+		\item Russell's normal set
+			\[ R = \{x : \mbox{$x$ is a set and\ } x \not\in x\}\]
+		\item Is $R \in R$ or $R \not\in R$?
+		\end{itemize}
+\end{itemize}
+\paragraph{Axiomatic set theory}
+\begin{itemize}
+\item Zermelo's {\bf{}axiomatic set theory} saved the Cantor's paradise.
+\item {\bf{}Axiomatic setup}
+	\begin{itemize}
+	\item assumption of a {\bf{}domain} or {\bf{}universe $\cal{}W$ of
+	objects}, {\em{}including} {\bf{}sets}
+	\item {\bf{}definite conditions} and {\bf{}definite operations on 
+		$\cal{}W$} {\em{}including} 
+		{\em{}\bfseries{}identity},
+		{\em{}\bfseries{}sethood}, and
+		{\em{}\bfseries{}memebersip}
+	\item We call the objects that are not sets {\bf{}atoms}; but we 
+		do not require that any atoms exist.
+	\end{itemize}
+\item ({\bf{}I: Axiom of Extensionality}) For any two sets
+	$A, B$,
+		\[ A = B \ \Leftrightarrow\ (\forall{x})[x \in A \ \Leftrightarrow\ 
+			x \in B] \]
+
+\item ({\bf{}II: Emptyset and Pairset Axioms}) 
+	\begin{enumerate}
+	\item [(a)] There is a special object $\emptyset$, which is a set with
+		no members.
+	\item [(b)] For any two objects $x, y$, there is a set $A$ whose only
+		members are $x$ and $y$, i.e.,
+			\[ t \in A \ \Leftrightarrow\ t = x \mbox{\ or\ } t = y\]
+	\end{enumerate}
+\item ({\bf{}III: Separation Axiom; Axiom of Subsets})
+	For each set $A$ and each unary, definite condition $P$, there
+		exists a set $B$ which satisfies the equivalence
+		\[ x \in B \ \Leftrightarrow\ x \in A \mbox{\ and\ } P(x)\]
+		\begin{itemize}
+		\item From the Extensionality Axiom, only one $B$ satisfies the
+			above equivalence, which we will denote by
+				$B = \{x \in A: P(x)\}$.
+		\item {\em{}This axiom restricts 
+			the General Comprehension
+			Principle and frees us from the Russell's Paradox.\/}
+		\end{itemize}
+\item ({\bf{}IV: Powerset Axiom})
+	For each object $A$, there exists a set $B$ whose members are
+	the subsets of $A$, i.e.,
+	\[ X \in B\ \Leftrightarrow\ Set(X) \mbox{\ and\ } X \subseteq A\]
+		\begin{itemize}
+		\item $X \subseteq A \triangleq (\forall{t})[t \in X \Rightarrow t \in A]$
+		\item ${\cal{}P}(A) \triangleq \{X: Set(X) \mbox{\ and\ } X \subseteq A\}$
+		\end{itemize}
+\item ({\bf{}V: Unionset Axiom})
+	For every object $\cal{}E$, there exists a set $B$ whose members
+		are the members of the members of $\cal{}E$, i.e., it satisfies
+		the equivalence,
+		\[ t \in B\ \Leftrightarrow\ (\exists{X}\in {\cal{}E})[t \in X] \]
+\item ({\bf{}VI: Axiom of Infinity})
+	There exists a set $I$ which contains the empty set $\emptyset$
+	and the singleton of each of its members, i.e.,
+	\[ \emptyset \in I \mbox{\ and\ } (\forall{x})[x \in I \Rightarrow
+	\{x\} \in I]\]
+	\begin{itemize}
+	\item In the 19th century, there was a belief that the existence of
+		natural numbers could be proved. But now we know better:
+		{\em{}Logic 
+		can codify the valid forms of reasoning but it
+		cannot prove the existence of anything, let alone infinite
+		sets\/}.
+	\end{itemize}
+\item For every unary, definite condition $P$ there
+	exists a {\bf{}class} 
+		\[ A = \{x : P(x)\} \]
+	such that for every object $x$,
+		\[ x \in A \ \Leftrightarrow\ P(x)\]
+		\begin{itemize}
+		\item Every set will be a class; but because of the Russell Paradox,
+			{\em{}there must be more classes than sets\/}.
+		\item A unary definite condition $P$ is {\bf{}coextensive} with
+			a set $A$ if the objects which satisfy it are
+			precisely the members of $A$.
+			\[ P =_e A \ \triangleq\ 
+			(\forall{x})[P(x) \Leftrightarrow x \in A] \]
+		\item By Russell Paradox we know that {\em{}not every $P$ is
+			coextensive with a set\/}.
+		\item A class is either a set or a unary definite condition
+			which is not coextensive with a set.
+		\end{itemize}
+\item ({\bf{}VII: Axiom of Choice})
+\item ({\bf{}VIII: Axiom of Replacement})
+\item {\bf{}Principle of Purity}: ``Every object is a set; there are no
+	atoms.''
+	
+\end{itemize}
+
+\section{Are Sets All There Is?}
+\begin{itemize}
+\item In analytic geometry the geometric line $\Pi$ is 
+	``identified'' with real numbers $\R$. The correspondence
+	$P \mapsto x(P)$ gives a {\bf{}faithful representation} of $\Pi$
+	in $\R$.
+\item {\em{}``Now let's codify ordered pairs, relations, 
+	functions, equinumerosity,
+	$\cdots$ in the framework of set theory.''}
+\item Representation of {\bf{}ordered pair} in {\bf{}sets}
+	\begin{itemize}
+	\item Characteristic properties of ordered pairs
+		\begin{enumerate}
+		\item [(a)] $(x, y) = (x', y') \ \Leftrightarrow\ 
+			x = x' \mbox{\ and\ } y = y'$
+		\item [(b)] $A\times B \triangleq 
+			\{(x, y) : x \in A \mbox{\ and\ }
+				y \in B\}$ is a set.
+		\end{enumerate}
+	\end{itemize}
+
+	\item The {\bf{}Kuratowski pair} operation
+		\[ (x, y)\ \triangleq\ \{\{x\}, \{x, y\}\} \]
+		satisfies above two properties.
+		\bit	
+		\w {\em{}Proof of \/}(b): The condition
+		\[ \mbox{\em{}OrdPair}_{A, B}(z) \triangleq
+			(\exists{x}\in A)(\exists{y}\in B)[z = (x, y)] \]
+		is evidently {\em{}definite\/}.
+		Now if we can find for each $A, B$ some set $C$ such that
+		\[ x \in A \mbox{\ and\ } y \in B \Rightarrow
+			(x, y) \in C, 
+		\]
+		then, using $C$, we can construct a Cartesian set
+		\[ A \times B \triangleq \{z \in C: 
+			\mbox{\ \em{}OrdPair}_{A, B}(z)\}\]
+		as a set by the {\em{}Separation Axiom\/}.
+		We let $C = {\cal{}P}({\cal{}P}(A \cup B))$ since
+		\begin{eqnarray*}
+		x \in A, y \in B & \Rightarrow & \{x\}, \{x, y\} 
+			\subseteq (A \cup B) \\
+		& \Rightarrow & \{x\}, \{x, y\} \in {\cal{}P}(A \cup B)\\
+		& \Rightarrow & \{\{x\}, \{x, y\}\} 
+			\subseteq {\cal{}P}(A \cup B)\\
+		& \Rightarrow & \{\{x\}, \{x, y\}\} 
+			\in {\cal{}P}({\cal{}P}(A \cup B))
+		\end{eqnarray*}
+		\eit
+
+\w Representation of {\bf{}disjoint union} in sets:
+	\[ A \uplus B \ \triangleq\  (\mbox{\em{}blue\ } \times A) \cup
+		(\mbox{\em{}red\ } \times B), \]
+	where
+	\[ \mbox{\em{}blue\ } \triangleq \emptyset \mbox{\ \ and\ \ }
+		\mbox{\em{}red\ } \triangleq \{\emptyset\}.\]
+\item A {\bf{}binary relation} on the sets $A, B$ is any subset of
+	the Cartesian product $A \times B$. 
+	\[ xRy \ \triangleq\ (x, y) \in R. \]
+	\bit
+	\w The obvious way to represent binary relations in sets is
+	to {\em{}identify it with its {\em{}extension\/},
+	te set of pairs which satisfy it.\/}
+	\eit
+\item {\em{}Every relation determines a definite condition but 
+	the converse is not true.\/}
+	\begin{itemize}
+	\item Definite conditions $x = y$, $x \in y$, and $X \subseteq Y$ are
+		not binary relations according to the above definition.
+	\item Instead, {\em when restricted to some set $A$}, 
+		{\em{}identity, membership\/}, and {\em{}subsethood\/} are indeed
+		binary relations.
+		\begin{eqnarray*}
+		x =_A y & \triangleq & x \in A \mbox{\ and\ } y \in A \mbox{\ and\ }
+			x = y\\
+		x \in_A y & \triangleq & x \in A \mbox{\ and\ } y \in A \mbox{\ and\ }
+			x \in y\\
+		X \subseteq_A Y & \triangleq & X \subseteq Y \subseteq A
+		\end{eqnarray*}
+	\end{itemize}
+\item A {\bf{}function} (or {\bf{}mapping} or {\bf{}transformation})
+	$f: A \rightarrow B$ with {\em{}domain\/} the set $A$ and 
+	{\em{}range\/}
+	the set $B$ is any subset $f \subseteq (A \times B)$ which satisfies
+	the condition
+		\[ (\forall{x}\in A)(\exists{!y \in B})[(x, y) \in f]. \]
+		\begin{itemize}
+		\item $(A \rightarrow B) \triangleq \{f \subseteq A \times B: 
+			f: A \rightarrow B\}$: a set of all functions 
+			from $A$ to
+			$B$.
+		\item When $A$ and $B$ are sets, the set
+	of {\em{}total\/} functions from $A$ to $B$ is sometimes denoted by
+	\[ B^A = \{f: f \mbox{\ is a total function from $A$ to $B$}\}\]
+	where $|B^A| = |B|^{|A|}$.
+	An interesting isomorphic interpretation of $B^A$ is the set of 
+	$|A|$-ary number with $|B|$ digits.
+	For example, let $A = \{1, 2, \cdots, n\}$. Then
+	\[ B^{\{1, 2, \cdots, n\}} = \{(b_1, \cdots, b_n): b_i \in B\}.\]
+	That is, $B^{\{1, 2, \cdots, n\}}$ can be thought of as a set of 
+	{\em{}strings over $A$ whose length is $n$\/}.
+	Note that $(b_1, \cdots, b_n) \in B^{\{1, 2, \cdots, n\}}$ denotes `a'
+	function $f$ such that
+	\begin{eqnarray*}
+	f(1) & = & b_1,\\
+	f(2) & = & b_2,\\
+	& \cdots & \\
+	f(n) & = & b_n.
+	\end{eqnarray*}
+		\end{itemize}
+\item An {\bf{}indexed family of sets} is a function
+	\[ A = (i \mapsto A_i)_{i\in I}: I \rightarrow E\]
+	for some $I \ne \emptyset$ and some $E$, where each $A_i$ is a
+	set.
+	\bit
+	\w {\bf{}union} and {\bf{}intersection} of an indexed family of sets
+		\begin{eqnarray*}
+		\bigcup_{i \in I}A_i & \triangleq &
+			\{x \in \bigcup E: (\exists{i \in I})[x \in A_i]\}\\
+		\bigcap_{i \in I}A_i & \triangleq &
+			\{x \in \bigcup E: (\forall{i \in I})[x \in A_i]\}\\
+		\end{eqnarray*}
+	\w {\bf{}product} of an indexed family
+		\[ \prod_{i \in I}A_i \triangleq
+		\{f: I \rightarrow \bigcup_{i\in{I}}A_i: 
+		(\forall{i \in I})[f(i) \in A_i] \]
+	\w brand-new definition of {\bf{}equinumerosity} and 
+		{\bf{}size comparison}
+		\begin{eqnarray*}
+		A =_c B & \triangleq & (\exists{f})[f: A 
+			\rightarrow_{\mbox{\scriptsize{}bij}}
+			B]\\
+		&  \Leftrightarrow & (A 
+			\rightarrow_{\mbox{\scriptsize{}bij}} B) \ne 
+			\emptyset\\
+		A <_c B & \triangleq & (\exists{f})[f: A 
+			\rightarrow_{\mbox{\scriptsize{}inj}}
+			B]\\
+		& \Leftrightarrow & (A 
+			\rightarrow_{\mbox{\scriptsize{}inj}} B) \ne \emptyset
+		\end{eqnarray*}
+	\eit
+\w For each $X \subseteq A$, the {\bf{}restriction} $f \upharpoonright X$ of
+	a  function $f: A \rightarrow B$ is
+	obtained by cutting $f$ down so it is
+		defined only on $X$,
+		\[ f\upharpoonright X \triangleq \{(x, y) \in f: x \in X\} \]
+\w The basic condition of {\bf{}functionhood}
+	\[ \mbox{\em{}Function}(f) \triangleq (\exists{A})(\exists{B})[f \in (A
+		\rightarrow B)] \]
+	is a definite condition.
+\end{itemize}
+\paragraph{Cantor's Notion of Cardinal Numbers}
+\bit
+\w ({\bf{}Problem of Cardinal Assignment})
+	Define an operation $|{\cdot}|$ on the class of sets which satisfies
+		\bit
+		\w [(a)] $A =_c |A|$
+		\w [(b)] $A =_c B \Leftrightarrow |A| = |B|$
+		\w [(c)] $\mbox{for each ${\cal{}E}, 
+			\{|X|: X \in {\cal{}E}\}$ is a set}$
+		\eit
+\w A {\bf{}$($weak$)$ cardinal assignment} is any definite operation
+	$|{\cdot}|$ which satisfies the conditions (a) and (c) given above.
+	The {\bf{}cardinal numbers} (relative to $|{\cdot}|$) are its values,
+		\[ \mbox{\em{}Card}(\kappa)\ \Leftrightarrow\ 
+			\kappa \in \mbox{\ \em{}Card}\
+			\ \triangleq\ (\exists{A})[\kappa = |A|]. \]
+	A cardinal assignment $|A|$ is {\bf{}strong}, if in addition, 
+		for any two cardinal numbers $\kappa, \lambda$,
+			\[ \kappa =_c \lambda \ \Leftrightarrow\ \kappa = \lambda\]
+		which is equivalent to the condition (b) above.
+\w Arithmetic operations on cardinal numbers
+	\begin{eqnarray*}
+	\kappa + \lambda & \triangleq & |\kappa \uplus \lambda| =_c 
+		\kappa \uplus \lambda\\
+	\kappa \cdot \lambda & \triangleq & |\kappa \times \lambda| =_c 
+		\kappa \times \lambda\\
+	\kappa^\lambda & \triangleq & |(\kappa \rightarrow \lambda)| =_c 
+		(\kappa \rightarrow \lambda)
+	\end{eqnarray*}
+	\bit
+	\w Infinitary operations may be defined similarly:
+	\[\sum_{i \in I}\kappa_i  \triangleq 
+		\left|\left\{(i, x) \in I \times\bigcup_{i \in I}\kappa_i: x 
+			\in \kappa_i\right\}\right|\]
+			and
+			\[
+		\prod_{i \in I}\kappa_i  \triangleq 
+			\left|\prod_{i\in I}\kappa_i\right|\]
+	\eit
+%\w {\bf{}Cardinal arithmetic}
+\w For every indexed family of sets $A = (i \mapsto A_i)_{i \in I}$,
+	there exists a function $f: I \rightarrow f[I]$ s.t.
+		\[ f(i) = |A_i| \quad (i \in I)\]
+\eit
+
+\paragraph{Structured Sets}
+\bit
+\w A {\bf{}topological space} is a set $X$ of points endowed with a
+	{\bf{}topological structure}, which is determined by a collection
+	$\cal{}T$ of subsets of $X$ satisfying the following three
+	properties:
+	\bit
+	\w [(a)] $\emptyset \in \cal{}T$ and $X \in \cal{}T$
+	\w [(b)] $A, B \in \cal{}T$ $\Rightarrow$ $A \cap B \in \cal{}T$
+	\w [(c)] For every family $\cal{}E \in T$ of sets in
+		$\cal{}T$, the unionset $\bigcup\cal{}E$ is also in $\cal{}T$.
+	\eit
+\w A family of sets $\cal{}T$ with the three properties is called a
+	{\bf{}topology} on $X$, with {\bf{}open sets} its members and
+	{\bf{}closed sets} the complements of open sets relative to $X$, 
+	i.e., all $X \setminus G$ with $G$ open.
+\w A {\bf{}structured set} is a pair $U = (A, \cal{}S)$
+	where $A = \mbox{\ \em{}Field}(U)$ is a set, the {\bf{}field} or {\bf{}space} of $U$, 
+	and $\cal{}S$ is an arbitrary object, the {\bf{}frame} of $U$.
+		\bit
+		\w A {\em{}topological space\/} is a structured set $(X, \cal{}T)$.
+		\w A {\em{}group\/} is a structured set $U = (G, (e, \cdot)) 
+			= (G, e, \cdot)$ where
+			$e \in G$ and $\cdot:G\times{G} \rightarrow G$ is a binary function
+			satisfying the group axioms. 
+		\eit
+
+\eit
+
+
+
+\section{The Natural Numbers}
+\bit
+\w A {\bf{}system of natural numbers} is any structured set
+	$({\N}, 0, S) = ({\N}, (0, S))$ which satisfies the
+	following conditions (or {\bf{}axioms of Peano}):
+	\bit
+	\w [(a)] $0 \in \N$
+	\w [(b)] $S: \N \rightarrow \N$
+	\w [(c)] $S$ is an injection, i.e., $Sn = Sm \Rightarrow n = m$
+	\w [(d)] $(\forall{}n \in \N)[Sn \ne 0]$
+	\w [(e)] ({\bf{}Induction principle}) for each $X \subseteq \N$,
+		\[ [0 \in X \mbox{\ and\ } 
+			(\forall{n \in {\N}})[x \in X \Rightarrow Sn \in X]]
+			\Rightarrow X = {\N} \]
+	\eit
+\w In a system of natural numbers $({\N}, 0, S)$, every
+	element $n \ne 0$ is a successor, 
+		\[ n \ne 0 \Rightarrow (\exists{m \in {\N}})[Sm = n] \]
+	and for each $n$, $Sn \ne n$.
+\w ({\bf{}Existence Theorem for the Natural Numbers})
+	There exists at least one system of natural numbers
+	$({\N}, 0, S)$.
+	\bit
+	\w Can be proved using the {\em{}Axiom of Infinity\/}.
+	\eit
+\w ({\bf{}Uniqueness Theorem for the Natural Numbers})
+	For any two systems of natural numbers
+	$({\N}_1, 0_1, S_1)$ and
+	$({\N}_2, 0_2, S_2)$, there exists exactly one
+	bijection (or {\bf{}isomorphism}) 
+	$\pi: {\N}_1\ \bij \ \N_2$ s.t.
+		\begin{eqnarray*}
+		\pi(0_1) & = & 0_2 \\
+		\pi(S_1n) & = & S_2\pi(n) \quad (n \in {\N}_1)
+		\end{eqnarray*}
+\w ({\bf{}Recursion Theorem}) 
+	Assume that $({\N}, 0, S)$ is a system of natural numbers,
+	$E$ is some set, $a \in E$, and $h: E \rightarrow E$ is some function.
+	It follows that there exists exactly one function 
+	$f: {\N} \rightarrow E$ which satisfies the identities
+	\begin{eqnarray*}
+	f(0) & = & a,\\
+	f(Sn) & = & h(f(n)), \quad  (n \in {\N})
+	\end{eqnarray*}
+	\bit
+	\w {\em{}The Recursion Theorem justifies the usual way by which
+		we can define functions on the natural numbers by recursion
+		$($or induction$)$\/}
+	\w From a purely mathematical view, Recursion Theorem can be viewed
+		as a theorem of 
+		{\em{}existence and uniqueness of solutions of the system
+		of the identities where $f$ is the unknown\/}.
+	\w Recursion Theorem is a special case of {\bf{}Continuous
+		Least Fixed Point Theorem}, which, in turn, is a special
+		case of {\bf{}Fixed Point Theorem} of Zermelo.
+	\eit
+\w ({\bf{}Recursion with parameters}) For any two sets $Y, E$ and
+	functions
+		\[g: Y \rightarrow E, \quad h: E\times{Y} \rightarrow E,\]
+	there exists exactly one function $f: {\N}\times{Y} \rightarrow E$
+	which satisfies the identities
+	\begin{eqnarray*}
+	f(0, y) & = & g(y) \quad (y \in Y),\\
+	f(n+1, y) & = & h(f(n, y), y) \quad (y \in Y, n \in {\N})
+	\end{eqnarray*}
+\eit
+\paragraph{The Natural Numbers}
+\bit
+\w We denote the {\bb{}cardinal number of $\N$\/} by the first
+	Hebrew letter,
+		\[ \aleph_0 \triangleq |{\N}| \]
+\w Functions $a: {\N} \rightarrow A$ with the domain $\N$ are
+	called (infinite) {\bf{}sequences} and we often write their
+	argument as a subscript,
+		\[ a_n = a(n) \quad (n \in {\N}, a: {\N} \rightarrow A)\]
+\w {\em{}Addition and multiplication\/}. The addition function on
+	the natural numbers is defined by the recursion
+		\begin{eqnarray*}
+		n + 0 & = & n,\\
+		n + Sm & = & S(n + m)
+		\end{eqnarray*}
+	and multiplication is defined next, using addition, by the recursion
+		\begin{eqnarray*}
+		n \cdot 0 & = & 0, \\
+		n \cdot Sm & = & (n\cdot{}m) + m
+		\end{eqnarray*}
+\w A binary relation $\le$ on a set $P$ is a {\bf{}partial ordering}
+	if it is reflexive, transitive, and antisymmetric.
+\w The partial ordering $\le$ is {\bf{}total} (or {\bf{}linear})
+	if any two elements of $P$ are {\bf{}comparable} in $\le$, i.e.,
+		\[ (\forall{}x, y \in P)[x \le y \mbox{\ or\ } y \le x] \]
+\w The binary relation $\le$ on $P$ is a {\bf{}wellordering} of $P$
+	if it is a total ordering of $P$ and, in addition, {\em{}every
+	non-empty subset of $P$ has a least element\/},
+	\[ (\forall{X}\subseteq P)[X \ne \emptyset \Rightarrow
+		(\exists{x \in X})(\forall{y \in X})[x \le y] \]
+		\bit
+		\w The order relation $\le$ on the natural numbers is 
+			defined by the equivalence
+			\[ n \le m \triangleq (\exists{s})[m = n + s] \]
+		\w The ordering $\le$ on $\N$ is a wellordering.
+		\eit
+\w A set $A$ is {\bf{}finite} if there exists some natural
+	number $n$ s.t. $A =_c [0, n)$, {\bf{}infinite} if it is not
+	finite and {\bf{}countable} if it is finite or equinumerous
+	with $\N$. The {\bf{}finite cardinals} are the cardinal
+	numbers of finite sets.
+\w ({\bf{}Pigeonhole Principle}) Every injection $f: A \inj A$
+	on a finite set into itself is also a surjection, i.e.
+	$f[A] = A$.
+
+\w ({\bf{}Simultaneous Recursion Theorem}) For each two sets
+	$E_1, E_2$, elements $a_1 \in E_1, a_2 \in E_2$, and functions
+	$h_1: E_1\times{E_2} \rightarrow E_1, h_2: 
+		E_1\times{E_2} \rightarrow E_2$,
+	there exists unique functions
+		\[f_1: {\N} \rightarrow E_1, \quad f_2: {\N} \rightarrow E_2 \]
+	which satisfy the identities
+		\begin{eqnarray*}
+		f_1(0) & = & a_1,\\
+		f_2(0) & = & a_2,\\
+		f_1(n+1) & = & h_1(f_1(n), f_2(n)),\\
+		f_2(n+1) & = & h_2(f_1(n), f_2(n)) 
+		\end{eqnarray*}
+\eit
+
+\paragraph{The Cardinal Numbers}
+\bit
+\w For each set $A$, we define the set of {\bf{}finite sequences}
+	(or {\bf{}words} or {\bf{}strings}) from $A$ by
+	\begin{eqnarray*}
+	A^{(n)} & \triangleq & \{u \in {\N}\times{A}: 
+			\mbox{\ \em{}Function}(u) 
+		\mbox{\ and\ }
+       \mbox{\ \em{}Domain}(u) = [0, n)\},\\
+	A^* & \triangleq & \bigcup_{i=0}^\infty A^{(i)}
+	\end{eqnarray*}
+	\bit
+	\w The {\bf{}length} of the string $u$ is defined as
+		\[ lh(u) \triangleq \mbox{\ max}\{i: i = 0 \mbox{\ or\ }
+			i -1 \in \mbox{\ \em{}Domain}(u)\}, \]
+			$u \in A^*$
+	\w We let $u \sqsubseteq v$ if $u \subseteq v$ for $u, v \in A^*$
+		and we call $u$ an {\bf{}initial segment} of $v$ if $u \sqsubseteq v$.
+	\eit
+\w For each cardinal number $\kappa$ and each $n \in {\N}$, we
+	set 
+		\[ \kappa^n \triangleq |\kappa^{(n)}| \]
+\w For each countably infinite set $A$ and each $n > 0$,
+	\[ A =_c A\times{A} =_c A^{(n)} =_c A^*. \]
+	As equations of cardinal arithmetic, these read:
+		\[ \aleph_0 =_c \aleph_0\cdot\aleph_0 =_c
+			{\aleph_0}^n =_c |\aleph_0^*| \]
+\w {\bb{}The Continuum\/}.
+	The classical notation for the cardinal of ${\cal{}P}(\N)$ is 
+		\[ \c \ \triangleq\ |{\cal{}P}(\N)| =_c 2^{\aleph_0} \]
+	\bit
+	\w $\c\cdot{\c} =_c 2^{\aleph_0}\cdot{}2^{\aleph_0} =_c
+		2^{\aleph_0 + \aleph_0} =_c 2^{\aleph_0} =_c \c$
+	\w $\c =_c {\aleph_0}^{\aleph_0} =_c \c^{\aleph_0}$
+	\w {\em{}The Continuum Hypothesis} revisited
+	\[ (\forall{\kappa \le_c \c})[\kappa \le_c \aleph_0 \mbox{\ or\ }
+		\kappa =_c \c]\]
+	\eit
+\eit
+
+\section{Fixed Points}
+\bit
+\w A {\bf{}partially ordered set} (or {\bf{}poset}) is a structured
+	set \[P = (\mbox{\em{}Field}(P), \le_P),\] where
+	$\mbox{\em{}Field}(P)$ is an arbitrary set and $\le_P$ is a partial ordering
+	on $\mbox{\em{}Field}(P)$.
+	\bit
+	\w Note that $\le_P$ determines $P$ since it's reflexive, i.e.
+		\[ x \in \mbox{\ \em{}Field}(P) \ \RA \ x \le_P x \]
+	\w $\bot = \bot_P \triangleq \mbox{\ the least element of $P$ 
+		(if it exists)}$
+	\eit
+\w Let $P$ be a poset, $S \subseteq P$ and $M \in P$ a member of $P$.
+	\ben
+	\w $M$ is an {\bf{}upper bound} of $S$ if it is greater than
+		or equal to every element of $S$, i.e.
+		$(\forall{x \in S})[x \le M]$.
+	\w $M$ is a {\bf{}greatest element} in $S$ 
+		if it is a member and an upper
+		bound of $S$, i.e. $M \in S$ and $(\forall{x \in S})[x \le M]$.
+	\w $M$ is a {\bf{}least upper bound} of $S$ if it is an upper
+		bound and also less than or 
+		equal to every other upper bound of 
+		$S$, i.e.
+		
+		\[ (\forall{x} \in S)[x \le M]\] and
+		\[(\forall{M'})[(\forall{x \in S})[x \le M']\ \Ra\ M \le M']\]
+	\w $M$ is {\bf{}maximal} in $S$ if 
+		\[ (\forall{x \in S})[M \le x\ \Ra\ M = x]. \]
+		Note that maximal elements are not necessarily unique.
+	\een
+\w When it exists, the least upper bound of $S$ is denoted by
+	\[ \sup S = \mbox{\ the least upper bound of $S$} \]
+	\bit
+	\w There exists {\em{}at most one\/} least upper bound of $S$.
+	\w If $M$ is a greatest element 
+		of $S$ then $M$ is the least upper bound of $S$.
+	\eit
+\w A {\bf{}partial function} on a set $A$ to a set $E$ is any function
+	with domain of definition some subset of $A$ and values
+	in $E$, in symbols
+	\begin{eqnarray*}
+	f: A \rightharpoonup E &\triangleq &
+		\mbox{\ \em{}Function}(f) \mbox{\ and\ } \\
+		&&\mbox{\ \em{}Domain}(f) \subseteq A
+		\mbox{\ and\ } \mbox{\ \em{}Image}(F) \subseteq E
+	\end{eqnarray*}
+
+		\bit
+		\w $(A \rightharpoonup E) \triangleq \{f \subseteq A \times E:
+			f: A \rightharpoonup E\}$
+		\eit
+\w A {\bf{}chain} in a poset $P$ is any linearly ordered subset $S$
+	of $P$, i.e. a subset satisfying
+		\[ (\forall{x, y \in S})[x \le y \mbox{\ or\ } y \le x]. \]
+	A poset $P$ is {\bf{}chain-complete} or {\bf{}inductive} if
+	every chain in $P$ has a {\em{}least upper bound\/}.
+	\bit
+	\w For each set $A$, the powerset ${\cal{}P}(A)$ is inductive.
+	\w For any two sets $A, B$, the poset $(A \rightharpoonup E)$
+		of all partial functions from $A$ to $E$ is inductive.
+	\w For every poset $P$, the set
+		\[ \mbox{\em{}Chains}(P) 
+		\triangleq \{S \subseteq P: S \mbox{\ is a chain}\} \]
+		of all chains in $P$ (partially ordered under $\subseteq$) is
+		inductive.
+	\eit
+\w ({\bf{}Zorn's Lemma}) Given a poset $(P, \le_P)$, if every nonempty
+	chain has an upper bound, then $P$ has at least one
+	greatest element.
+\w A mapping $\pi: P \rightarrow Q$ on a poset $P$ to another is
+	{\bf{}monotone} if for all $x, y \in P$,
+		\[ x \le_P y\ \Ra\ \pi(x) \le_Q \pi(y) \]
+\w A monotone mapping $\pi: P \rightarrow Q$ on an {\em{}inductive\/} poset
+	to another is {\bf{}countably continuous} if for every
+	non-empty, countable chain $S \subseteq P$,
+		\[\pi(\sup S) = \sup \pi[S]\]
+\w ({\bf{}Continuous Least Fixed Point Theorem})
+	Every countably continuous, monotone mapping $\pi: P \rightarrow P$ 
+	on an
+	inductive poset into itself has exactly one
+	{\bf{}strongly least fixed point} $x^*$, which is characterized by
+	the two properties,
+	\begin{eqnarray*}
+		& \pi(x^*) = x^*, &\\
+		&(\forall{y \in P})[\pi(y) \le y\ \Ra\ x^* \le y]&
+	\end{eqnarray*}
+\w A partial function $g: A \rightharpoonup E$ is {\bf{}finite}
+	if it has finite domain, i.e. if it is a finite set of ordered pairs.
+	A mapping $\pi: (A \rightharpoonup E) \rightarrow (B \rightharpoonup M)$ 
+	from one partial function space to another
+	is {\bf{}continuous}, if it is monotone and for each 
+	$f: A \rightharpoonup E$, and each $y \in B$ and $v \in M$,
+	\[ \pi(f)(y) = v \Rightarrow (\exists{g}\in f)[g \mbox{\ is finite\ and\ }
+	\pi(g)(y) = v]\]
+	\bit
+	\w A function $f: X \rightarrow Y$ from one topological space to another
+		is (topologically) {\bf{}continuous} if the inverse  image 
+		$f^{-1}[G]$ of every open subset of $Y$ is an open subset of $X$.
+	\eit
+\w Every continuous mapping $\pi: (A \rightharpoonup E) \rightarrow
+	(B \rightharpoonup M)$ is countably continuous, in fact, for every
+	(not necessarily countable) non-empty chain $S \subseteq (A 
+	\rightharpoonup E)$, 
+		\[ \pi(\sup S) = \sup \pi[S] \]
+\eit
+
+\section{Well-Ordered Sets}
+\bit
+\w A {\bf{}well-ordered set} is a poset
+	\[ U = (\mbox{\em{}Field}(U),\ \le_U), \]
+	where $\le_U$ is a {\bf{}wellordering} on {\em{}Field\/}$(U)$, i.e.
+	a linear (total) ordering on {\em{}Field\/}$(U)$ such that
+	every non-empty $X \subseteq \mbox{\em{}\ Field\/}(U)$ has a 
+	least member.
+	\bit
+	\w Associated with $U$ is also its {\bf{}strict ordering}
+	$<_U$,
+	\[ x < y\ \Leftrightarrow\ x <_U y \ \triangleq \ 
+	x \le_U y \mbox{\ and\ } x \ne y.\]
+	\eit
+\w A set is {\bf{}well orderable} if it admits a wellordering, so
+	it is the field of some well ordered set $(A, \le)$.
+	\bit
+	\w One important lesson in this section is that 
+		{\em{}well orderable sets behave much better than
+		arbitrary sets, for example, any two of them are comparable
+		in cardinality\/}.
+	\w If fact, {\em{}every set is well orderable\/}, which was
+		proved by Zermelo.
+	\eit
+\eit
+
+
+
+\bibliographystyle{plain}
+\bibliography{bib/mac,bib/math}
+\nocite{Moschovakis94,Barwise77,BM96}
+%\pagebreak
+%\tableofcontents
+\end{document} 
+% LocalWords:  Extensionality surjection Equinumerosity equinumerous Dedekind
+% LocalWords:  iff countability Liouville powerset Schr der CH GCH ary Emptyset
+% LocalWords:  extensionality Russell's Pairset equinumerosity subsethood Peano
+% LocalWords:  functionhood Infinitary unionset wellordering poset surjective
+% LocalWords:  Zorn's LocalWords

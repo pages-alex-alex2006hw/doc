@@ -1,0 +1,71 @@
+\documentclass{memo}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+\begin{document}
+\small
+\noindent{\large\bf{}OpenCL}
+
+\paragraph{Overview}
+OpenCL specification is defined in four parts, or four models, that can be
+summarized as follows:
+\bit
+\w \bb{Platform model}: specifies the processor, called \bb{host} (eg. x86
+CPU), which {\em   coordinates} the execution, and one or more processors,
+called \bb{devices} (e.g. GPU cores,) 
+capable of execution of OpenCL C code;
+
+   it also defines an abstract hardware model that is used by programmers when
+   writing OpenCL C functions, callled \bb{kernels}, that execute on the
+   devices
+
+\w \bb{Execution model}: defines how the OpenCL environment is {\em
+  configured\/}  on the host and how kernels are executed on the devide; 
+
+this
+includes setting up an \bb{OpenCL context} on the host, providing mechanisms
+for host-device interaction, and defining a concurrency model used for kernel
+execution on devices
+
+\w \bb{Memory model}: defines an abstract memory hierarchy that kernels use,
+regardless of the actual underlying memory architecture
+
+\w \bb{Programming model}: defines how the concurrency model is mapped to
+physical hardware
+\eit
+
+
+
+
+\paragraph{Platform Layer API}
+Platform layer API is an abstraction layer for diverse computational
+resources. One can use platform layer API to query, select, and initialize
+\bb{compute devices}. Also can create \bb{compute contexts\/} and
+\bb{work-queues}. 
+
+\paragraph{Runtime API}
+Runtime is reponsible for launching \bb{compute kernels} and setting kernel
+execution configurations. Most of all, it manages {\em scheduling, compute
+  resources\/}, and {\em memory resources\/}. 
+
+\paragraph{OpenCL language}
+OpenCL is a C-based cross-platform programming interface is used to write
+\bb{compute kernels} that run on a \bb{compute device}. 
+OpenCL is a subset of ISO C99 with some language extensions. It includes rich
+set of built-in functins, in addition to standard C operators.
+
+\paragraph{Work items in NDRange (N-dimensional range)}
+Host program launches kernel in index space called \bb{NDRange}, which is a
+multitude of kernel instances arranged into 1, 2, or 3 dimensions.
+A single kernel instance in the index space is called a \bb{work item}.
+Each work item executes the same compute kernel on different data and work
+items have unique \bb{global IDs} in the index space.
+
+Consider a C loop which performs some computation. Then {\em each iteration\/}
+may correspond to a single work item, which are executed in parallel.
+
+
+
+
+\end{document}
+
+% LocalWords:  GPU vertices SPMD GPUs

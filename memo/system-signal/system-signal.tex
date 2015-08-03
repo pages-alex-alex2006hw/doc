@@ -1,0 +1,66 @@
+\documentclass{memo}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+\begin{document}
+\small
+\noindent{\large\bf{}Unix Signals}
+
+\paragraph{Overview} 
+A Unix \bb{signal}, also known as {\em software interrupts\/}, is a
+notification to a process that an event has occurred.  Signals can be sent
+\bit
+\w by one process to another process (or to itself),
+\w by the kernel to the process
+\eit
+
+\paragraph{Signal action}
+Every signal has a \bb{action}, which is also called the \bb{disposition}
+associated with the signal. The action of the signal can be set by
+\verb+sigaction()+ function. There are three choices for the action:
+\ben
+\w We can set up a functino to be called whenever a specific signal
+occurs. This function is called a \bb{signal handler} and this action is
+called \bb{catching} a signal. Two signals \verb+SIGKILL+ and \verb+SIGSTOP+
+cannot be called. Function prototype of signal handler is
+  \begin{verbatim}
+  void handler(int signo);
+  \end{verbatim}
+\w We can \bb{ignore} a signal by setting its disposition to
+\verb+SIG_IGN+. The two signals \verb+SIGKILL+ and \verb+SIGSTOP+ cannot be
+ignored. 
+\w We can set the \bb{default} disposition for a signal by setting its
+disposition to \verb+SIG_DFL+. 
+\een
+
+\paragraph{The {\tt sigaction()} function}
+\begin{verbatim}
+  int sigaction(int signum, 
+                const struct sigaction *act,
+                struct sigaction *oldact);
+\end{verbatim}
+\verb+signum+ can be any signal except for \verb+SIGKILL+ and \verb+SIGSTOP+.
+\verb+act+ has the following structure type:
+\begin{verbatim}
+  struct sigaction { 
+    void (*sa_handler)(int);
+    void (*sa_sigaction)(int,siginfo_t*,void*);
+    sigset_t sa_mask
+    int sa_flags;
+    void (*sa_restorer)(void);  // obsolete
+  };
+\end{verbatim}
+The \verb+sa_handler+ can be one of \verb+SIG_DFL+, \verb+SIG_IGN+ or a
+pointer to \verb+void signal_handler(int)+ function.
+
+The \verb+sa_mask+ specifies a mask of signals which should be blocked
+(i.e. added to the signal mask of the thread in which the signal handler is
+blocked) during the execution of the signal handler. . 
+
+
+
+\end{document}
+
+% LocalWords:  Pthreads interprocess multithreaded sigaltstack errno realtime
+% LocalWords:  datatypes pthreads pthread mutex pthrad mutexattr cond condattr
+% LocalWords:  attr retval struct thr joinable mutexes reentrancy strtok
+% LocalWords:  reentrant

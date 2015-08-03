@@ -1,0 +1,28 @@
+\section{AUTOMATIC THEOREM PROVING}
+\subsection{Basic results}
+\bit
+\w\bb{G\"{o}del's completeness theorem}: there exist logical calculi
+in which every {\em true\/} formula is provable
+\w \bb{Church's undecidability theorem}:
+there is no decision procedure for deciding whether a formula is true (valid)
+\w Church's theorem states that it's impossible to find an algorithm
+that halts and says NO when the theorem is not true.
+\eit
+
+
+\subsection{Horn clauses}
+\bit
+\w Boolean expression of the form $\bigwedge_i C_i$ is said to be in a
+\bb{conjunctive normal form} and $C_i$, a disjunction of literals, is called a
+\bb{clause}. 
+\w Boolean expression $\bigvee_i D_i$ is said to be in a
+\bb{disjunctive normal form} and $D_i$, a conjunction of literals, is called a
+\bb{implicant}. 
+\w A \bb{Horn clause} is a clause which has \bb{at most one positive
+  literal}.
+\w (EXAMPLE) $(\overline{x_1} \vee \overline{x_2} \vee x_3)$ is a Horn clause
+   with one positive literal 
+   and can be rewritten as $((x_1 \wedge x_2) \rightarrow x_3)$.
+\w Satisfiability of CNF of Horn clauses can be determined in polynimial time.
+   (HORNSAT $\in$ NP).
+\eit

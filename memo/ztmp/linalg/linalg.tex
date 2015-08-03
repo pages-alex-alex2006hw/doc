@@ -1,0 +1,108 @@
+\documentclass{myproc}
+\usepackage{mydef}
+\def\sbf{\sf\bfseries}
+\def\mat#1{\left[\begin{array}{r} #1 \end{array}\right]}
+\def\matt#1{\left[\begin{array}{rr} #1 \end{array}\right]}
+\begin{document}
+\title{\large\bf Notes on Linear Algebra \vspace*{-0.5cm}}
+\author{\normalsize{}Cheoljoo Jeong $\arc{\mbox{cjeong@cs.columbia.edu}}$}
+\maketitle
+\small
+%\vspace*{-2.5cm}
+\section{Matrices and Gaussian Elimination}
+\subsection{The geometry of linear equations}
+\bit
+\w Suppose that we are given two equations:
+  \begin{eqnarray*}
+    2x - y & = & 1 \\
+    x + y & = & 5
+  \end{eqnarray*}
+\w They are actually one \bb{vector equation}:
+   \[ 2 \mat{2 \\ 1} + y \mat{-1 \\ 1} = \mat{1\\5}\]
+  In this case, the problem is {\em to find the combination of column vectors
+    on the left side
+    which produces the vector on the right side.}
+\w The two basic operations over the vectors are
+  \bb{multilication (of vectors) by numbers} and \bb{addition (of vectors)}.
+\w The result of applying finite number of basic operations over vectors is
+  called a \bb{linear combination}.
+\w Thus, the basic problem, $Ax = b$, asks for a linear combination of
+    $n$-vectors that equals $b$.
+\w The problem $Ax = b$ is \bb{singular} if the lines are parallel, and it is
+    \bb{nonsingular} if they meet.
+\w Given a singular system, either there is no solution or there are inifity
+    of solutions. 
+\eit
+
+\subsection{Multiplication of a matrix and a vector}\
+\bit
+\w $Ax$ is a \bb{linear combination of the columns of} $A$. The coefficients
+which multiply the columns are the components of $x$.
+\eit
+\subsection{Matrix multiplication}
+\bit
+\w Each column of $AB$ is a \bb{linear combination of the columns of} $A$.
+\w Each row of $AB$ is a \bb{linear combination of the rows of} $B$
+  \w Each entry of $AB$ is the product of a \bb{row} and a \bb{column}:
+     \[\mbox{$(AB)_{ij}$ = (row $i$ of $A$) $\times$ (column $j$ of $B$)}\]
+  \w Each column of $AB$ is the product of a \bb{matrix} and a \bb{column}:
+    \[\mbox{column $j$ of $AB$ = $A$ $\times$ (column $j$ of $B$)}\]
+  \w Each row of $AB$ is the product of a \bb{row} nad a \bb{matrix}:
+    \[\mbox{row $i$ of $AB$ = (row $i$ of $A$) $\times$ $B$}\]
+
+\w Check out the following example:
+  \[ AB = \left[\begin{array}{rr}1 & 0\\ 2 & 3\end{array}\right]
+\left[\begin{array}{rr}a & b \\c & d\end{array}\right] =
+\left[\begin{array}{rr}a & b \\ 2a+3c & 2b+3d\end{array}\right]\]
+\w Matrix multiplication is \bb{associative}, \bb{distributive}, but \bb{not
+  commutative}. 
+\eit
+\subsection{Inverses and transposes}
+\bit
+\w The matrix $A$ is \bb{invertible} if there exists a matrix $B$ such that
+$BA = I$ and $AB = I$. There is at most one such $B$, called the \bb{inverse}
+of $A$ and is noted by $A^{-1}$.
+\w A product $AB$ of invertible matrices has an inverse, $(AB)^{-1} =
+B^{-1}A^{-1}$.
+\w {\sbf Theorem}: 
+  A square matrix is invertible if and only if it is nonsingular.
+\w The \bb{transpose} of $A$, $A^T$ is defined by $(A^T)_{ij} = A_{ji}$.
+\w The transpose of $AB$ is $(AB)^T = B^TA^T$.
+\w The transpose of $A^{-1}$ is $(A^{-1})^T = (A^T)^{-1}$.
+\eit
+
+
+\section{Determinants}
+\bit
+\w The main uses of determinants are:
+  \ben
+  \w [(a)] it gives a test for invertibility
+  \w [(b)] the determinant of $A$ equals the volume of a parallelepiped $P$ in
+  $n$-dimensional space, provided the edges of $P$ come from the rows of $A$ 
+  \w [(c)] it gives formulas for the piots
+  \w [(d)] the determinant measures the dependence of $A^{-1}b$ on each
+  element of $b$
+  \een
+\w $\det\left[\begin{array}{rr}a & b\\ c&d\end{array}\right]
+  = \left|\begin{array}{rr} a&b\\c&d\end{array}\right| = ad - bc$
+\w \bb{Properties of determinants}
+ \ben
+ \w [(a)] The determinant depends linearly on the first row.
+ \w [(b)] The determinant changes sign when two rows are exchanged.
+ \een
+\eit
+
+\section{Eigenvalues and Eigenvectors}
+\bit
+\w The number $\lambda$ is an \bb{eigenvalue} of $A$ if and only if
+ \[ \det(A - \lambda{}I) = 0.\]
+  This is the characteristic equation, and each solution $\lambda$ has a
+  corresponding eigenvector $x$:
+ \[ (A - \lambda I)x = 0 \mbox{\ \ or\ \ } Ax = \lambda x.\]
+\eit
+
+
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/math,00bib/algo}
+\nocite{Strang88}
+\end{document}

@@ -1,0 +1,21 @@
+\BOOKMARK [1][-]{section.1}{Interface Description}{}
+\BOOKMARK [2][-]{subsection.1.1}{WSDL \(Web Services Description Language\)}{section.1}
+\BOOKMARK [3][-]{subsubsection.1.1.1}{WSDL Document Example}{subsection.1.1}
+\BOOKMARK [1][-]{section.2}{Service Discovery}{}
+\BOOKMARK [2][-]{subsection.2.1}{UDDI: \(Universal Description, Discovery, and Integration\)}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{WS-Discovery \(Web Services Dynamic Discovery\)}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Terms and definitions}{subsection.2.2}
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Example Probe sent multicast in ad hoc mode}{subsection.2.2}
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Example ProbeMatch sent in response to Probe}{subsection.2.2}
+\BOOKMARK [1][-]{section.3}{Service Activation and Messaging}{}
+\BOOKMARK [2][-]{subsection.3.1}{SOAP \(Simple Object Activation Protocol\)}{section.3}
+\BOOKMARK [1][-]{section.4}{Service Orchestration}{}
+\BOOKMARK [2][-]{subsection.4.1}{WS-BPEL \(Business Process Execution Language\)}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.1.1}{History}{subsection.4.1}
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Orchestration vs Choreography}{subsection.4.1}
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Example purchaseOrderProcess}{subsection.4.1}
+\BOOKMARK [1][-]{section.5}{Service Choreography}{}
+\BOOKMARK [2][-]{subsection.5.1}{WS-CDL \(Web Services Choreography Description Language\)}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.1.1}{WS-CDL model overview}{subsection.5.1}
+\BOOKMARK [2][-]{subsection.5.2}{WSCI \(Web Service Choreography Interface\)}{section.5}
+\BOOKMARK [2][-]{subsection.5.3}{WSCL \(Web Service Conversation Language\)}{section.5}

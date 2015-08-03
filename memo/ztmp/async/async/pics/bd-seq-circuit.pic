@@ -1,0 +1,22 @@
+.PS
+   # gen_init: Gpic m4 macro settings detected.
+   rp_ang = 0
+   rtod_ = 57.295779513082323
+   dtor_ = 0.017453292519943295
+   linethick = 0.8
+  arrowwid = 0.05*scale; arrowht = 0.1*scale
+   
+   
+line invis to Here+(linewid*3/2,0)
+  rp_wid = last line.end.x-last line.start.x
+  rp_ht = last line.end.y-last line.start.y
+  if (rp_ht == 0) && (rp_wid == 0) then {rp_ang=0} else {  rp_ang = atan2(rp_ht,rp_wid) }
+  rp_len = sqrt((rp_wid)^2+(rp_ht)^2); move to last line.start
+   
+         {line to Here+((cos(rp_ang))*(max(0,rp_len/2-(.5)/2)),(sin(rp_ang))*(max(0,rp_len/2-(.5)/2)))
+      {line to Here+(-((sin(rp_ang))*((.3)/2)),(cos(rp_ang))*((.3)/2)) then to Here+((cos(rp_ang))*((.5))-((sin(rp_ang))*((.3)/2)),(sin(rp_ang))*((.5))+(cos(rp_ang))*((.3)/2))\
+      then to Here+((cos(rp_ang))*((.5))-((sin(rp_ang))*(-(.3)/2)),(sin(rp_ang))*((.5))+(cos(rp_ang))*(-(.3)/2)) then to Here+(-((sin(rp_ang))*(-(.3)/2)),(cos(rp_ang))*(-(.3)/2)) then to Here }
+    move to Here+((cos(rp_ang))*((.5)),(sin(rp_ang))*((.5))); line to Here+((cos(rp_ang))*(max(0,rp_len/2-(.5)/2)),(sin(rp_ang))*(max(0,rp_len/2-(.5)/2)))}
+  {[box invis ht (.3) wid (.5)] at Here+((cos(rp_ang))*(rp_len/2),(sin(rp_ang))*(rp_len/2))}
+   line to Here+((cos(rp_ang))*(rp_len),(sin(rp_ang))*(rp_len)) invis 
+.PE

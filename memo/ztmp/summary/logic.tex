@@ -1,0 +1,69 @@
+\section{MATHEMATICAL LOGIC}
+\subsection{Basic definitions}
+\bit
+\w A logical {\em language\/} consists of a set of \bb{sorts} and
+\bb{operators}. 
+\w An \bb{application} consists of an operator and a tuple of terms, each of
+which has the same sort as the corresponding domain sort for the operator.
+
+
+\w When a sentence is true in a structure, we say that the structure is a
+\bb{model} of the sentence.
+
+\w A \bb{sentence} is a predicate with {\em no free variables\/}.
+\w A sentence $S$ is a \bb{logical consequence} of a set $T$ of sentences if
+  every model of $T$ is also a model of $S$.
+
+\w A set of sentences is \bb{closed} under logical consequence if it contains
+all its logical consequences.
+\w A \bb{theory} is a set of sentences closed under logical consequence.
+\w A theory is \bb{complete} if for every sentence $S$, either $S$ or $\neg S$
+is in the theory.
+
+\w A set of sentences is \bb{consistent} if it has a model.
+  \bit
+  \w \bb{Theorem}: A sentence $S$ is a consequence of a set $T$ of sentences
+  if and only if $T \cup \{\neg S\}$ is inconsistent. (foundation of \bb{resolution method})
+  \eit
+\w A theory is \bb{consistent} if and only if it does not contain a
+  \bb{contradition}, that is, a sentence $\mbox{\tt{}TRUE} =
+  \mbox{\tt{}FALSE}$.\eit
+
+\subsection{Proofs and consequences}
+\bit
+\w The meaning ``$S$ is a logical consequence of $T$'' defined above
+(e.g. every model of $T$ is a model of $S$) is semantic description not
+{\em syntactic\/}. 
+\w \bb{Syntactic characterization} of ``$S$ is a logical consequence of $T$'':
+   is needed!
+\w A formal \bb{deduction system} consists of sentences (\bb{logical axioms})
+and a set of functions (\bb{deduction rules}). 
+   \bit
+   \w A deduction rule maps a finite
+   set of sentences 
+   (\bb{premises}) to a single sentence (\bb{conclusion}). As an EXAMPLE,
+  \[\infer{Q}{P, P \Rightarrow Q} \qquad \ \mbox{(MODUS PONENS)}\]
+   \eit
+\w A \bb{proof} based on a set $T$ of sentences is a finite sequence of
+sentences each of which is either a logical axiom, a member of $T$, or the
+conclusion of a deduction rule applied to a set of sentences occurring earlier
+in the proof.
+\w A sentence $S$ is a \bb{theorem} of $T$ if it occurs in some proof based on
+$T$. 
+\w \ee{Three properties of a formal system}:
+  \bit
+  \w A system is \bb{sound} if, for any $T$, every theorem of $T$ is really a
+  logical consequence of $T$. (NO SPURIOUS PROOF)
+  \w A system is \bb{complete} if, for any $T$, every logical consequence of
+  $T$ is also a theorem of $T$.
+  \w A system is \bb{effective} if, for any computable set $T$ of sentences,
+  the 
+   set of proofs based on $T$ is also computable.
+  \eit
+\eit
+
+\subsection{Notations}
+\bit
+\w $T \vdash S$: $T$ implies $S$
+\w $T \models S$: $T$ satisfies $S$
+\eit

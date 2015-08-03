@@ -1,0 +1,1895 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Graphviz version 2.20.3 (Tue Nov 11 15:56:12 UTC 2008)
+%%For: (cjeong) Cheoljoo Jeong
+%%Title: cs
+%%Pages: (atend)
+%%BoundingBox: (atend)
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 2435 1592
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 2399 1556 boxprim clip newpath
+1 1 set_scale 0 rotate 40 40 translate
+% algorithm
+gsave
+1 setlinewidth
+0.000 0.000 0.000 nodecolor
+newpath 311 1476 moveto
+239 1476 lineto
+239 1440 lineto
+311 1440 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+247 1453.9 moveto 56 (algorithm) alignedtext
+grestore
+% distributed algorithm
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+557.5 1381.9 moveto 121 (distributed algorithm) alignedtext
+grestore
+% algorithm--distributed algorithm
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 311 1451 moveto
+363 1441 460 1421 541 1404 curveto
+544 1403 547 1403 550 1402 curveto
+stroke
+grestore
+% parallel algorithm
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+662 373.9 moveto 102 (parallel algorithm) alignedtext
+grestore
+% algorithm--parallel algorithm
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 239 1442 moveto
+223 1433 204 1420 193 1404 curveto
+170 1370 174 1354 174 1314 curveto
+174 1314 174 1314 174 1098 curveto
+174 996 250 983 250 882 curveto
+250 882 250 882 250 522 curveto
+250 438 529 398 654 384 curveto
+stroke
+grestore
+% randomized algorithm
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+8 1381.9 moveto 130 (randomized algorithm) alignedtext
+grestore
+% algorithm--randomized algorithm
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 239 1445 moveto
+207 1433 160 1417 124 1404 curveto
+stroke
+grestore
+% probabilistic algorithm
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+210 1381.9 moveto 130 (probabilistic algorithm) alignedtext
+grestore
+% algorithm--probabilistic algorithm
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 275 1440 moveto
+275 1429 275 1415 275 1404 curveto
+stroke
+grestore
+% scheduling
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+373.5 1381.9 moveto 63 (scheduling) alignedtext
+grestore
+% algorithm--scheduling
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 308 1440 moveto
+328 1429 353 1415 373 1404 curveto
+stroke
+grestore
+% system
+gsave
+1 setlinewidth
+0.000 0.000 0.000 nodecolor
+newpath 838 1548 moveto
+782 1548 lineto
+782 1512 lineto
+838 1512 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+790 1525.9 moveto 40 (system) alignedtext
+grestore
+% networks
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1066.5 445.9 moveto 53 (networks) alignedtext
+grestore
+% system--networks
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 838 1526 moveto
+900 1516 1044 1482 1044 1386 curveto
+1044 1386 1044 1386 1044 594 curveto
+1044 553 1049 542 1063 504 curveto
+1068 491 1075 478 1081 468 curveto
+stroke
+grestore
+% architecture
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+958.5 373.9 moveto 69 (architecture) alignedtext
+grestore
+% system--architecture
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 782 1514 moveto
+767 1504 750 1491 738 1476 curveto
+707 1434 716 1415 695 1368 curveto
+688 1351 684 1348 678 1332 curveto
+656 1262 649 1243 649 1170 curveto
+649 1170 649 1170 649 522 curveto
+649 481 639 460 668 432 curveto
+708 395 855 405 907 396 curveto
+921 393 937 390 951 387 curveto
+stroke
+grestore
+% OS
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+942 1309.9 moveto 18 (OS) alignedtext
+grestore
+% system--OS
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 838 1517 moveto
+876 1499 941 1460 967 1404 curveto
+978 1381 969 1351 960 1332 curveto
+stroke
+grestore
+% distributed systems
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+755 1453.9 moveto 110 (distributed systems) alignedtext
+grestore
+% system--distributed systems
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 810 1512 moveto
+810 1501 810 1487 810 1476 curveto
+stroke
+grestore
+% real-time systems
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+512.5 1453.9 moveto 101 (real-time systems) alignedtext
+grestore
+% system--real-time systems
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 782 1522 moveto
+743 1511 672 1490 621 1475 curveto
+stroke
+grestore
+% software
+gsave
+1 setlinewidth
+0.000 0.000 0.000 nodecolor
+newpath 1416 1404 moveto
+1352 1404 lineto
+1352 1368 lineto
+1416 1368 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1359.5 1381.9 moveto 49 (software) alignedtext
+grestore
+% database systems
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1335.5 1309.9 moveto 97 (database systems) alignedtext
+grestore
+% software--database systems
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1384 1368 moveto
+1384 1357 1384 1343 1384 1332 curveto
+stroke
+grestore
+% AI
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1899.5 445.9 moveto 15 (AI) alignedtext
+grestore
+% software--AI
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1416 1384 moveto
+1531 1377 1916 1346 1916 1242 curveto
+1916 1242 1916 1242 1916 954 curveto
+1916 769 1929 724 1932 540 curveto
+1933 524 1936 519 1932 504 curveto
+1930 491 1924 478 1918 468 curveto
+stroke
+grestore
+% graphics
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+868.5 1093.9 moveto 49 (graphics) alignedtext
+grestore
+% software--graphics
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1353 1368 moveto
+1265 1316 1012 1168 924 1116 curveto
+stroke
+grestore
+% formal
+gsave
+1 setlinewidth
+0.000 0.000 0.000 nodecolor
+newpath 2185 1188 moveto
+2131 1188 lineto
+2131 1152 lineto
+2185 1152 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+2139 1165.9 moveto 38 (formal) alignedtext
+grestore
+% process theories
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1513 1093.9 moveto 94 (process theories) alignedtext
+grestore
+% formal--process theories
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2131 1167 moveto
+2039 1156 1740 1120 1615 1105 curveto
+stroke
+grestore
+% data theories
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+2305 301.9 moveto 74 (data theories) alignedtext
+grestore
+% formal--data theories
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2185 1163 moveto
+2238 1148 2349 1107 2349 1026 curveto
+2349 1026 2349 1026 2349 450 curveto
+2349 404 2346 351 2343 324 curveto
+stroke
+grestore
+% model checking
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1951.5 877.9 moveto 95 (model checking) alignedtext
+grestore
+% formal--model checking
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2148 1152 moveto
+2119 1100 2037 952 2009 900 curveto
+stroke
+grestore
+% programming systems
+gsave
+1 setlinewidth
+0.000 0.000 0.000 nodecolor
+newpath 2245 468 moveto
+2101 468 lineto
+2101 432 lineto
+2245 432 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+2109 445.9 moveto 128 (programming systems) alignedtext
+grestore
+% lambda calculus
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+2071.5 301.9 moveto 91 (lambda calculus) alignedtext
+grestore
+% programming systems--lambda calculus
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2171 432 moveto
+2169 413 2164 383 2154 360 curveto
+2148 347 2140 334 2132 324 curveto
+stroke
+grestore
+% semantics
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+2183 229.9 moveto 56 (semantics) alignedtext
+grestore
+% programming systems--semantics
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2176 432 moveto
+2183 391 2201 293 2208 252 curveto
+stroke
+grestore
+% type theory
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+2246.5 373.9 moveto 67 (type theory) alignedtext
+grestore
+% programming systems--type theory
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2200 432 moveto
+2217 421 2237 407 2253 396 curveto
+stroke
+grestore
+% compilers
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1387.5 373.9 moveto 57 (compilers) alignedtext
+grestore
+% programming systems--compilers
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2101 443 moveto
+1943 428 1570 393 1452 381 curveto
+stroke
+grestore
+% interpreters
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+2070.5 373.9 moveto 67 (interpreters) alignedtext
+grestore
+% programming systems--interpreters
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2156 432 moveto
+2145 421 2132 407 2121 396 curveto
+stroke
+grestore
+% ILP
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1008 301.9 moveto 20 (ILP) alignedtext
+grestore
+% architecture--ILP
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 999 360 moveto
+1003 349 1008 335 1012 324 curveto
+stroke
+grestore
+% IPC
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+940 1237.9 moveto 22 (IPC) alignedtext
+grestore
+% OS--IPC
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 951 1296 moveto
+951 1285 951 1271 951 1260 curveto
+stroke
+grestore
+% memory
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1278 517.9 moveto 50 (memory) alignedtext
+grestore
+% OS--memory
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 966 1296 moveto
+973 1286 982 1273 987 1260 curveto
+1003 1222 1006 1210 1006 1170 curveto
+1006 1170 1006 1170 1006 954 curveto
+1006 763 1206 594 1278 540 curveto
+stroke
+grestore
+% distributed systems--distributed algorithm
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 762 1440 moveto
+733 1429 695 1415 666 1404 curveto
+stroke
+grestore
+% distributed systems--IPC
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 823 1440 moveto
+831 1430 841 1416 849 1404 curveto
+881 1357 885 1343 915 1296 curveto
+923 1284 932 1270 939 1260 curveto
+stroke
+grestore
+% message passing
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+694.5 1309.9 moveto 95 (message passing) alignedtext
+grestore
+% distributed systems--message passing
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 795 1440 moveto
+787 1430 778 1417 771 1404 curveto
+760 1380 751 1351 746 1332 curveto
+stroke
+grestore
+% naming
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+788 1381.9 moveto 44 (naming) alignedtext
+grestore
+% distributed systems--naming
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 810 1440 moveto
+810 1429 810 1415 810 1404 curveto
+stroke
+grestore
+% security
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+904 1381.9 moveto 46 (security) alignedtext
+grestore
+% distributed systems--security
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 840 1440 moveto
+858 1429 880 1415 898 1404 curveto
+stroke
+grestore
+% concurrency control
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1324 1165.9 moveto 120 (concurrency control) alignedtext
+grestore
+% IPC--concurrency control
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 978 1237 moveto
+1045 1226 1219 1198 1316 1181 curveto
+stroke
+grestore
+% reliability
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+469.5 1381.9 moveto 55 (reliability) alignedtext
+grestore
+% real-time systems--reliability
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 546 1440 moveto
+536 1429 523 1415 513 1404 curveto
+stroke
+grestore
+% memory--architecture
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1273 504 moveto
+1257 494 1236 480 1217 468 curveto
+1195 452 1193 444 1168 432 curveto
+1125 410 1072 395 1035 387 curveto
+stroke
+grestore
+% reconfigurable computing
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1267 445.9 moveto 150 (reconfigurable computing) alignedtext
+grestore
+% memory--reconfigurable computing
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1313 504 moveto
+1319 493 1326 479 1332 468 curveto
+stroke
+grestore
+% high-level synthesis
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1211 157.9 moveto 116 (high-level synthesis) alignedtext
+grestore
+% memory--high-level synthesis
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1280 504 moveto
+1270 494 1257 482 1250 468 curveto
+1231 431 1231 418 1231 378 curveto
+1231 378 1231 378 1231 306 curveto
+1231 259 1250 207 1261 180 curveto
+stroke
+grestore
+% embedded systems
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1451 445.9 moveto 110 (embedded systems) alignedtext
+grestore
+% memory--embedded systems
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1336 509 moveto
+1341 507 1345 506 1350 504 curveto
+1384 491 1421 478 1451 468 curveto
+stroke
+grestore
+% reconfigurable computing--architecture
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1259 433 moveto
+1189 419 1091 398 1035 387 curveto
+stroke
+grestore
+% reconfigurable computing--compilers
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1361 432 moveto
+1372 421 1387 407 1398 396 curveto
+stroke
+grestore
+% high-level synthesis--reconfigurable computing
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1272 180 moveto
+1278 220 1294 317 1319 396 curveto
+1323 408 1329 422 1333 432 curveto
+stroke
+grestore
+% concurrency control--process theories
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1428 1152 moveto
+1455 1141 1490 1127 1516 1116 curveto
+stroke
+grestore
+% Petri nets
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1436 1021.9 moveto 54 (Petri nets) alignedtext
+grestore
+% concurrency control--Petri nets
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1394 1152 moveto
+1409 1124 1438 1072 1453 1044 curveto
+stroke
+grestore
+% transactions
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1350 1237.9 moveto 68 (transactions) alignedtext
+grestore
+% database systems--transactions
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1384 1296 moveto
+1384 1285 1384 1271 1384 1260 curveto
+stroke
+grestore
+% theorem proving
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1858 373.9 moveto 98 (theorem proving) alignedtext
+grestore
+% AI--theorem proving
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1907 432 moveto
+1907 421 1907 407 1907 396 curveto
+stroke
+grestore
+% transactions--concurrency control
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1384 1224 moveto
+1384 1213 1384 1199 1384 1188 curveto
+stroke
+grestore
+% pi-calculus
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1722 1021.9 moveto 62 (pi-calculus) alignedtext
+grestore
+% process theories--pi-calculus
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1608 1080 moveto
+1637 1070 1673 1056 1705 1044 curveto
+1708 1043 1711 1042 1714 1041 curveto
+stroke
+grestore
+% CCS \& CSP
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+2144.5 805.9 moveto 71 (CCS & CSP) alignedtext
+grestore
+% process theories--CCS \& CSP
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1615 1093 moveto
+1705 1082 1886 1052 2016 972 curveto
+2081 932 2140 861 2166 828 curveto
+stroke
+grestore
+% process theories--Petri nets
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1536 1080 moveto
+1521 1069 1502 1055 1487 1044 curveto
+stroke
+grestore
+% algebraic spec
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+2301 229.9 moveto 82 (algebraic spec) alignedtext
+grestore
+% data theories--algebraic spec
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2342 288 moveto
+2342 277 2342 263 2342 252 curveto
+stroke
+grestore
+% model checking--CCS \& CSP
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2045 864 moveto
+2073 853 2109 839 2137 827 curveto
+stroke
+grestore
+% model checking--theorem proving
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1999 864 moveto
+1998 836 1998 783 1997 738 curveto
+1997 738 1997 738 1997 522 curveto
+1998 470 1955 421 1928 396 curveto
+stroke
+grestore
+% SAT
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1815 589.9 moveto 26 (SAT) alignedtext
+grestore
+% model checking--SAT
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1988 864 moveto
+1958 812 1869 664 1839 612 curveto
+stroke
+grestore
+% parallel architecture
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+786.5 445.9 moveto 115 (parallel architecture) alignedtext
+grestore
+% parallel architecture--parallel algorithm
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 811 432 moveto
+791 421 765 407 746 396 curveto
+stroke
+grestore
+% parallel architecture--architecture
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 882 432 moveto
+905 421 933 407 956 396 curveto
+stroke
+grestore
+% shared memory
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+798 373.9 moveto 92 (shared memory) alignedtext
+grestore
+% parallel architecture--shared memory
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 844 432 moveto
+844 421 844 407 844 396 curveto
+stroke
+grestore
+% message passing--shared memory
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 730 1296 moveto
+714 1269 687 1218 687 1170 curveto
+687 1170 687 1170 687 954 curveto
+687 852 611 839 611 738 curveto
+611 738 611 738 611 522 curveto
+611 480 606 460 635 432 curveto
+683 385 717 413 781 396 curveto
+784 395 787 394 790 394 curveto
+stroke
+grestore
+% security--OS
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 933 1368 moveto
+937 1357 941 1343 945 1332 curveto
+stroke
+grestore
+% lambda calculus--semantics
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2141 288 moveto
+2155 277 2174 263 2188 252 curveto
+stroke
+grestore
+% scheme
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+2014 13.9 moveto 44 (scheme) alignedtext
+grestore
+% lambda calculus--scheme
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2119 288 moveto
+2122 247 2126 145 2091 72 curveto
+2084 58 2072 46 2061 36 curveto
+stroke
+grestore
+% type theory--data theories
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2296 360 moveto
+2305 349 2317 335 2327 324 curveto
+stroke
+grestore
+% type theory--semantics
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2271 360 moveto
+2258 332 2233 280 2220 252 curveto
+stroke
+grestore
+% debugging
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1431 301.9 moveto 62 (debugging) alignedtext
+grestore
+% compilers--debugging
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1428 360 moveto
+1435 349 1444 335 1451 324 curveto
+stroke
+grestore
+% linking \& loading
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1527 301.9 moveto 104 (linking & loading) alignedtext
+grestore
+% compilers--linking \& loading
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1452 362 moveto
+1477 351 1512 336 1538 324 curveto
+stroke
+grestore
+% C \& C++
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1342.5 301.9 moveto 55 (C & C++) alignedtext
+grestore
+% compilers--C \& C++
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1404 360 moveto
+1397 349 1388 335 1381 324 curveto
+stroke
+grestore
+% interpreters--lambda calculus
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2107 360 moveto
+2109 349 2112 335 2114 324 curveto
+stroke
+grestore
+% continuations
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1997.5 85.9 moveto 77 (continuations) alignedtext
+grestore
+% interpreters--continuations
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2082 360 moveto
+2072 350 2061 338 2055 324 curveto
+2023 249 2029 149 2034 108 curveto
+stroke
+grestore
+% parallelizing compilers
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+876 517.9 moveto 132 (parallelizing compilers) alignedtext
+grestore
+% parallelizing compilers--parallel architecture
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 917 504 moveto
+902 493 883 479 868 468 curveto
+stroke
+grestore
+% parallelizing compilers--compilers
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 964 504 moveto
+977 494 993 480 1007 468 curveto
+1027 452 1028 442 1050 432 curveto
+1109 405 1300 387 1380 381 curveto
+stroke
+grestore
+% theory
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1650 1021.9 moveto 38 (theory) alignedtext
+grestore
+% finite state machines
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1762 949.9 moveto 118 (finite state machines) alignedtext
+grestore
+% theory--finite state machines
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1696 1012 moveto
+1699 1011 1702 1009 1705 1008 curveto
+1731 996 1759 982 1781 972 curveto
+stroke
+grestore
+% computability
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+2033 805.9 moveto 78 (computability) alignedtext
+grestore
+% theory--computability
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1696 1011 moveto
+1699 1010 1702 1009 1705 1008 curveto
+1863 955 1966 1034 2063 900 curveto
+2078 879 2077 848 2075 828 curveto
+stroke
+grestore
+% complexity
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1636.5 949.9 moveto 65 (complexity) alignedtext
+grestore
+% theory--complexity
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1669 1008 moveto
+1669 997 1669 983 1669 972 curveto
+stroke
+grestore
+% Turing machine
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1151.5 517.9 moveto 93 (Turing machine) alignedtext
+grestore
+% theory--Turing machine
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1642 1022 moveto
+1584 1014 1451 994 1411 972 curveto
+1354 940 1202 773 1202 738 curveto
+1202 738 1202 738 1202 666 curveto
+1202 620 1200 567 1199 540 curveto
+stroke
+grestore
+% finite state machines--model checking
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1866 936 moveto
+1893 925 1928 911 1955 900 curveto
+stroke
+grestore
+% CAD
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1752 805.9 moveto 30 (CAD) alignedtext
+grestore
+% finite state machines--CAD
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1830 936 moveto
+1838 917 1847 887 1836 864 curveto
+1827 846 1809 832 1794 823 curveto
+stroke
+grestore
+% CAD--high-level synthesis
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1750 792 moveto
+1742 782 1732 769 1726 756 curveto
+1698 692 1667 519 1667 450 curveto
+1667 450 1667 450 1667 306 curveto
+1667 236 1448 190 1335 172 curveto
+stroke
+grestore
+% logic synthesis
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1512 733.9 moveto 86 (logic synthesis) alignedtext
+grestore
+% CAD--logic synthesis
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1740 801 moveto
+1706 789 1648 770 1606 755 curveto
+stroke
+grestore
+% physical synthesis
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1743 733.9 moveto 104 (physical synthesis) alignedtext
+grestore
+% CAD--physical synthesis
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1774 792 moveto
+1778 781 1784 767 1788 756 curveto
+stroke
+grestore
+% testing
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1877 517.9 moveto 38 (testing) alignedtext
+grestore
+% CAD--testing
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1794 802 moveto
+1817 794 1848 780 1864 756 curveto
+1911 688 1904 582 1899 540 curveto
+stroke
+grestore
+% computability--lambda calculus
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2064 792 moveto
+2054 765 2036 712 2035 666 curveto
+2035 666 2035 666 2035 450 curveto
+2036 409 2034 395 2054 360 curveto
+2062 346 2076 333 2088 324 curveto
+stroke
+grestore
+% circuit complexity
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1714.5 877.9 moveto 105 (circuit complexity) alignedtext
+grestore
+% complexity--circuit complexity
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1694 936 moveto
+1709 925 1728 911 1743 900 curveto
+stroke
+grestore
+% K-complexity
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1601 877.9 moveto 80 (K-complexity) alignedtext
+grestore
+% complexity--K-complexity
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1662 936 moveto
+1658 925 1652 911 1648 900 curveto
+stroke
+grestore
+% circuit complexity--CAD
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1767 864 moveto
+1767 853 1767 839 1767 828 curveto
+stroke
+grestore
+% Turing machine--architecture
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1190 504 moveto
+1180 483 1161 451 1136 432 curveto
+1106 409 1066 395 1035 387 curveto
+stroke
+grestore
+% Turing machine--reconfigurable computing
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1234 504 moveto
+1256 493 1284 479 1306 468 curveto
+stroke
+grestore
+% digital systems
+gsave
+1 setlinewidth
+0.000 0.000 0.000 nodecolor
+newpath 1451 900 moveto
+1351 900 lineto
+1351 864 lineto
+1451 864 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1358.5 877.9 moveto 85 (digital systems) alignedtext
+grestore
+% digital systems--architecture
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1363 864 moveto
+1249 809 916 642 859 540 curveto
+852 525 850 517 859 504 curveto
+887 465 927 501 960 468 curveto
+980 449 988 416 991 396 curveto
+stroke
+grestore
+% digital systems--reconfigurable computing
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1400 864 moveto
+1400 824 1400 726 1422 648 curveto
+1441 582 1514 560 1475 504 curveto
+1463 486 1445 475 1425 467 curveto
+stroke
+grestore
+% digital systems--CAD
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1451 872 moveto
+1529 856 1679 827 1740 815 curveto
+stroke
+grestore
+% SoC
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1297.5 589.9 moveto 25 (SoC) alignedtext
+grestore
+% digital systems--SoC
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1380 864 moveto
+1369 854 1358 842 1351 828 curveto
+1315 754 1310 653 1310 612 curveto
+stroke
+grestore
+% FPGA
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1440 661.9 moveto 36 (FPGA) alignedtext
+grestore
+% FPGA--reconfigurable computing
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1473 648 moveto
+1498 616 1541 548 1508 504 curveto
+1498 489 1461 477 1425 467 curveto
+stroke
+grestore
+% FPGA--digital systems
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1454 684 moveto
+1446 715 1431 776 1417 828 curveto
+1414 840 1410 854 1407 864 curveto
+stroke
+grestore
+% logic synthesis--FPGA
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1531 720 moveto
+1516 709 1497 695 1482 684 curveto
+stroke
+grestore
+% BDD
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1637.5 661.9 moveto 29 (BDD) alignedtext
+grestore
+% logic synthesis--BDD
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1579 720 moveto
+1594 709 1613 695 1628 684 curveto
+stroke
+grestore
+% control circuits
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1511 661.9 moveto 88 (control circuits) alignedtext
+grestore
+% logic synthesis--control circuits
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1555 720 moveto
+1555 709 1555 695 1555 684 curveto
+stroke
+grestore
+% SoC--memory
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1308 576 moveto
+1307 565 1306 551 1305 540 curveto
+stroke
+grestore
+% SoC--embedded systems
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1321 576 moveto
+1334 556 1357 524 1383 504 curveto
+1403 489 1427 477 1449 468 curveto
+stroke
+grestore
+% NoC
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1085.5 517.9 moveto 27 (NoC) alignedtext
+grestore
+% SoC--NoC
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1283 587 moveto
+1248 578 1186 560 1135 540 curveto
+1132 539 1129 537 1126 536 curveto
+stroke
+grestore
+% arithmetic
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1399.5 517.9 moveto 59 (arithmetic) alignedtext
+grestore
+% SoC--arithmetic
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1337 578 moveto
+1355 566 1380 552 1399 540 curveto
+stroke
+grestore
+% NoC--networks
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1097 504 moveto
+1096 493 1095 479 1095 468 curveto
+stroke
+grestore
+% prolog
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1737 589.9 moveto 38 (prolog) alignedtext
+grestore
+% constraint programming
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1703 517.9 moveto 140 (constraint programming) alignedtext
+grestore
+% prolog--constraint programming
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1760 576 moveto
+1763 565 1766 551 1769 540 curveto
+stroke
+grestore
+% constraint programming--AI
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1807 504 moveto
+1830 492 1859 476 1880 465 curveto
+stroke
+grestore
+% constraint programming--theorem proving
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1790 504 moveto
+1816 476 1864 424 1890 396 curveto
+stroke
+grestore
+% SAT--testing
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1845 576 moveto
+1855 565 1869 551 1879 540 curveto
+stroke
+grestore
+% SAT--constraint programming
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1814 576 moveto
+1806 565 1795 551 1787 540 curveto
+stroke
+grestore
+% BDD--SAT
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1679 656 moveto
+1708 646 1753 628 1792 612 curveto
+1795 611 1798 609 1801 608 curveto
+stroke
+grestore
+% scheduling--OS
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 444 1370 moveto
+447 1369 450 1369 453 1368 curveto
+607 1332 650 1349 806 1332 curveto
+847 1327 895 1321 924 1317 curveto
+stroke
+grestore
+% scheduling--high-level synthesis
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 369 1368 moveto
+313 1339 212 1280 212 1242 curveto
+212 1242 212 1242 212 306 curveto
+212 293 971 199 1203 170 curveto
+stroke
+grestore
+% mutual exclusion
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1079.5 949.9 moveto 97 (mutual exclusion) alignedtext
+grestore
+% Petri nets--mutual exclusion
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1428 1019 moveto
+1377 1009 1281 990 1198 972 curveto
+1194 971 1189 970 1184 968 curveto
+stroke
+grestore
+% async circuits
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1427.5 949.9 moveto 79 (async circuits) alignedtext
+grestore
+% Petri nets--async circuits
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1464 1008 moveto
+1465 997 1465 983 1466 972 curveto
+stroke
+grestore
+% mutual exclusion--IPC
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1117 972 moveto
+1085 1024 994 1172 962 1224 curveto
+stroke
+grestore
+% mutual exclusion--concurrency control
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1184 969 moveto
+1209 978 1239 990 1261 1008 curveto
+1315 1048 1357 1119 1375 1152 curveto
+stroke
+grestore
+% async circuits--digital systems
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1450 936 moveto
+1440 925 1427 911 1417 900 curveto
+stroke
+grestore
+% async circuits--logic synthesis
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1473 936 moveto
+1479 917 1489 888 1498 864 curveto
+1514 825 1534 781 1546 756 curveto
+stroke
+grestore
+% Tangram
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1515 877.9 moveto 52 (Tangram) alignedtext
+grestore
+% async circuits--Tangram
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1486 936 moveto
+1497 925 1512 911 1523 900 curveto
+stroke
+grestore
+% Tangram--process theories
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1543 900 moveto
+1546 941 1555 1039 1558 1080 curveto
+stroke
+grestore
+% control circuits--SoC
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1503 650 moveto
+1500 650 1497 649 1494 648 curveto
+1439 631 1373 612 1337 602 curveto
+stroke
+grestore
+% control circuits--embedded systems
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1557 648 moveto
+1561 617 1564 553 1546 504 curveto
+1541 490 1532 478 1524 468 curveto
+stroke
+grestore
+% arithmetic--digital systems
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1415 540 moveto
+1396 566 1365 617 1365 666 curveto
+1365 738 1365 738 1365 738 curveto
+1365 784 1383 837 1394 864 curveto
+stroke
+grestore
+% distributed algorithms
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1118 1021.9 moveto 126 (distributed algorithms) alignedtext
+grestore
+% distributed algorithms--mutual exclusion
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1168 1008 moveto
+1160 997 1149 983 1141 972 curveto
+stroke
+grestore
+% spatial computation
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1305 229.9 moveto 110 (spatial computation) alignedtext
+grestore
+% C \& C++--spatial computation
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1367 288 moveto
+1366 277 1364 263 1363 252 curveto
+stroke
+grestore
+% spatial computation--reconfigurable computing
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1345 252 moveto
+1337 262 1330 275 1326 288 curveto
+1311 338 1326 401 1336 432 curveto
+stroke
+grestore
+% spatial computation--high-level synthesis
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1337 216 moveto
+1323 205 1305 191 1292 180 curveto
+stroke
+grestore
+% continuations--scheme
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 2036 72 moveto
+2036 61 2036 47 2036 36 curveto
+stroke
+grestore
+% GPU
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+770.5 517.9 moveto 29 (GPU) alignedtext
+grestore
+% graphics--GPU
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 877 1080 moveto
+856 1054 821 1003 821 954 curveto
+821 954 821 954 821 666 curveto
+821 620 803 567 793 540 curveto
+stroke
+grestore
+% GPU--architecture
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 812 506 moveto
+814 505 815 505 817 504 curveto
+858 487 874 493 909 468 curveto
+937 448 960 416 976 396 curveto
+stroke
+grestore
+% GPU--architecture
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 812 513 moveto
+820 510 828 507 835 504 curveto
+876 487 892 493 927 468 curveto
+955 448 978 416 989 396 curveto
+stroke
+grestore
+% GPU--parallel architecture
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 800 504 moveto
+809 493 820 479 829 468 curveto
+stroke
+grestore
+% map-reduce
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+684.5 445.9 moveto 69 (map-reduce) alignedtext
+grestore
+% GPU--map-reduce
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 768 504 moveto
+758 493 745 479 735 468 curveto
+stroke
+grestore
+% map-reduce--parallel algorithm
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 717 432 moveto
+716 421 715 407 715 396 curveto
+stroke
+grestore
+% VLIW
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1108.5 229.9 moveto 37 (VLIW) alignedtext
+grestore
+% ILP--VLIW
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1045 288 moveto
+1062 277 1083 263 1100 252 curveto
+stroke
+grestore
+% superscalar
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1010 229.9 moveto 64 (superscalar) alignedtext
+grestore
+% ILP--superscalar
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1024 288 moveto
+1028 277 1032 263 1036 252 curveto
+stroke
+grestore
+% pipelining
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+918 229.9 moveto 58 (pipelining) alignedtext
+grestore
+% ILP--pipelining
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1000 288 moveto
+989 277 975 263 965 252 curveto
+stroke
+grestore
+% continuation
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1033 157.9 moveto 72 (continuation) alignedtext
+grestore
+% pipelining--continuation
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 978 216 moveto
+997 205 1020 191 1039 180 curveto
+stroke
+grestore
+% tail-recursion
+gsave
+0.000 0.000 0.000 nodecolor
+14 /Times-Roman set_font
+1492.5 85.9 moveto 77 (tail-recursion) alignedtext
+grestore
+% continuation--tail-recursion
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1113 155 moveto
+1201 141 1396 111 1485 97 curveto
+stroke
+grestore
+% tail-recursion--scheme
+gsave
+1 setlinewidth
+0.000 0.000 0.000 edgecolor
+newpath 1577 83 moveto
+1679 69 1921 34 2006 22 curveto
+stroke
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+%%BoundingBox: 36 36 2435 1592
+end
+restore
+%%EOF

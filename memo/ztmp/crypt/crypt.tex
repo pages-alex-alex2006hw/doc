@@ -1,0 +1,380 @@
+\documentclass{article}
+\usepackage{hfont,mydef,amssymb}
+\begin{document}
+\title{\Large\bf Notes on Cryptography}
+\author{Á¤ Ã¶ÁÖ}
+\maketitle
+
+\section{Basic Number Theory}
+\subsection{Prime Numbers}
+\subsubsection{Divisibility}
+When an integer $a$ is \bb{divisible} by $b$, not $0$, 
+if there's a third integer $c$ such that
+	$a = bc$.
+The fact that $a$ is divisible by $b$ is expressed by
+	\[ b \mid a, \]
+and $b$ is said to be a \bb{divisor} of $a$.
+
+
+\subsubsection{Prime numbers}
+A number $p$ is said to be \bb{prime} if
+\ben
+\w [(a)] $p > 1$, and 
+\w [(b)] $p$ has no positive divisors except $1$ and $p$.
+\een
+
+\begin{theorem}
+Every positive integer, except $1$, is a product of primes.
+\end{theorem}
+
+\begin{lemma}
+If $ab = n$, then $a$ and $b$ cannot both exceed $\sqrt{n}$.
+Hence any composite $n$ is divisible by a prime $p$ which does
+not exceed $\sqrt{n}$.
+\end{lemma}
+
+\begin{lemma}
+Every positive integer can be represented as a product of
+primes as in,
+	\[ n = p_1^{a_1}p_2^{a_2}\cdots{}p_k^{a_k}
+	\quad (a_i > 0, p_1 < p_2 < \cdots < p_k),\]
+which we say that $n$ is expressed in {\em standard form\/}.
+\end{lemma}
+
+
+\begin{theorem}[Fundamental theorem of arithmetic]
+The standard form of $n$ is unique; apart from rearrangements 
+of factors, $n$ can be expressed as a product of primes in 
+one way only.
+\end{theorem}
+
+\begin{theorem}[Euclid's first theorem]
+If $p$ is prime, and $p \mid ab$, then $p \mid a$ or $p \mid b$.
+\end{theorem}
+
+\subsubsection{The series of primes}
+\begin{theorem}[Euclid's second theorem]
+The number of primes is infinite.
+\end{theorem}
+\proof Let $p$ be the largest prime. Given that $P = \{2, 3, \cdots, p\}$
+is the set of primes less than or equal to $p$, 
+\[ p' = 2\cdot3\cdots\ \cdot{p} + 1\]
+is either prime or is divisible by a prime between $p$ and $p'$ 
+since it's not divisible by any primes in $P$.
+\qed
+
+\begin{theorem}
+There are blocks of consecutive composite numbers whose length
+exceeds any given number $n$.
+\end{theorem}
+
+
+\begin{theorem}[The prime number theorem]
+The number of primes not exceeding $x$, $\pi(x)$, is 
+asymptotic\footnote{Asymptoticity of two (intgeral or continuous) functions, 
+denoted by $f(n) \sim g(n)$, 
+means that 
+$\lim_{n\rightarrow\infty}f(n)/g(n) = 1$.} to $x/\ln x$:
+\[ \pi(x) \sim \frac{x}{\ln x}.\]
+\end{theorem}
+
+
+\begin{theorem}[Tchebychef's theorem]
+The order of magnitude of $\pi(x)$ is $x/\ln x$:
+	\[ \pi(x) = \Theta\left(\frac{x}{\ln x}\right).\]
+\end{theorem}
+
+\begin{theorem} The $n$-th prime number is asymptotic to $n\ln n$:
+\[p_n \sim n\ln n.\]
+\end{theorem}
+
+\begin{theorem} 
+$p_n = \Theta(n\ln n)$.
+\end{theorem}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{Basic Algebra}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Basic Combinatorics}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Basic Probability Theory}
+\subsection{The Sample Space}
+A \bb{sample space} is a set of sample points and an \bb{event}
+is a subset of the sample space.
+
+\begin{theorem}
+For any two events $A_1$ and $A_2$, the probability that either $A_1$
+or $A_2$ or both occur is given by
+\[ P\{A_1 \cup A_2\} = P\{A_1\} + P\{A_2\} - P\{A_1A_2\}.\]
+\end{theorem}
+
+
+\subsection{Combination of Events}
+If $A_1$ and $A_2$ are two events, then $A = A_1 \cup A_2$ denotes
+the event that either $A_1$ or $A_2$ or both occur.
+Given $n$ events $A_1, A_2, \cdots, A_n$, let $A_{ij}$ be
+$A_i \cup A_j$ and $A_{ijk}$ be $A_i \cup A_j \cup A_k$, and so on.
+And let's define $p_i$ to be $P\{A_i\}$, $p_{ij}$ to be $P\{A_{ij}\}$,
+and so on.
+\begin{theorem}
+The probability $P_1$ of the realization of at least one among the
+events $A_1, A_2, \cdots, A_n$ is given by
+	\[ P_1 = S_1 - S_2 + S_3 - S_4 + \cdots \pm S_n.\]
+\end{theorem}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Basic Complexity Theory}
+\subsection{Time Complexity}
+Let $t: \N \rightarrow \N$ be a function. Then we define the
+{\bf time complexity class}, $\mbox{TIME}(t(n))$, to be
+\[ \mbox{TIME}((t(n)) = \{L \ \mid\ 
+	\mbox{$L$ is decided by a $O(t(n))$ time
+	DTM}\}.\]
+
+\subsubsection{The class P}
+\bb{P} is the class of languages that are decidable in polynomial time on a
+deterministic single-tape Turing machine. In other words,
+\[ P = \bigcup_k \mbox{TIME}(n^k).\]
+
+\begin{theorem}
+Every context-free language is a member of P.
+\end{theorem}
+
+\subsubsection{The class NP}
+A \bb{verifier} for a language $A$ is an algorithm $V$, where
+	\[ A = \{w \ \mid\ \mbox{$V$ accepts $\arc{w, c}$
+	for some string $c$}\}.\]
+We measure the time of a verifier only in terms of the length of $w$,
+so a \bb{polynomial time verifier} runs in polynomial time in the 
+length of $w$. A language $A$ is \bb{polynomially verifiable}
+if it has a polynomial time verifier.
+The \bb{NP} is the class of languages that have polynomial time verifiers.
+\begin{theorem}
+A language is in NP iff it is decided by some nondeterministic polynomial time
+Turing machine.
+\end{theorem}
+
+We define the nondeterministic time complexity class NTIME$(t(n))$ as
+\[ \mbox{NTIME}((t(n)) = \{L \ \mid\ 
+	\mbox{$L$ is decided by a $O(t(n))$ time
+	NDTM}\}.\]
+\begin{corollary}
+\[\mbox{NP} = \bigcup_k \mbox{NTIME}(n^k).\]
+\end{corollary}
+
+
+\subsubsection{NP-completeness}
+\paragraph{SAT: The satisfiability problem}
+A {\em Boolean variable\/} is one that takes on the values true ($0$) or
+false ($1$) and a {\em Boolean formula\/} is an expression involving Boolean
+variables and operations.
+A Boolean formula is \bb{satisfiable} if some assignment of $0$s and $1$s
+to the variables makes the formula evaluate to $1$.
+The \bb{sastifiability problem} is to test whether a Boolean formula
+is satisfiables. Let
+\[ SAT = \{\arc{\phi}\ \mid\ \mbox{$\phi$ is a satisfiable Boolean 
+	formula}.\}\]
+\begin{theorem}[Cook-Levin theorem]
+$SAT \in \mbox{{P} iff\ {P = NP}}$.
+\end{theorem}
+A function $f:\Sigma^*\ \ra\ \Sigma^*$ is a \bb{polynomial time computable
+function} if some polynomial time Turing machine $M$ exists that halts with
+just $f(w)$ on its tape, when started on any input $w$.
+
+Language $A$ is \bb{polynomial time mapping reducible}, or simply
+\bb{polynomial time reducible}, to language $B$, written 
+$A \le_{\mbox{\scriptsize{}P}} B$,
+if a polynomial time computable function $f: \Sigma^*\ \ra\ \Sigma^*$ exists,
+where for every $w$,
+	\[ w \in A \Leftrightarrow f(w) \in B. \]
+The function $f$ is called the \bb{polynomial time reduction} of $A$ to $B$.
+A language $B$ is \bb{NP-complete} if it satisfies two conditions:
+\ben
+\w [(a)] $B$ is in NP, and
+\w [(b)] every $A$ in NP is polynomial time reducible to $B$.
+\een
+If $B$ merely satisfies condition (b), we say that is is
+\bb{NP-hard}.
+\begin{theorem}
+If $B$ is NP-complete, and $B \in P$, then $P = NP$.
+\end{theorem}
+
+\begin{theorem}
+If $B$ is NP-complete and $B \le_{\mbox{\scriptsize{}P}} C$ for $C$ in NP,
+then $C$ is NP-complete.
+\end{theorem}
+
+\begin{theorem}
+$SAT$ is NP-complete.
+\end{theorem}
+
+\subsection{Space Complexity}
+Let $M$ be a deterministic Turing machine that halts on all inputs. We define
+the \bb{space complexity} of $M$ to be function $f: \N\ \ra\ \N$, where
+$f(n)$ is the maximum number of tape cells that $M$ scans on any input of
+length $n$. If the space complexity of $M$ is $f(n)$, we also say that $M$
+runs in space $f(n)$.
+If $M$ is a nondeterministic Turing machine wherein all branches halt on all
+inputs, we define its space complexity $f(n)$ to be the maximum number of tape
+cells that $M$ scans on any branch of its computation for any input of 
+length $n$.
+
+
+Let $f: \N \rightarrow \N$ be a function. The \bb{space complexity classes},
+SPACE$(f(n))$ and NSPACE$(f(n))$, are defined as follows.
+\begin{eqnarray*}
+\mbox{SPACE}(f(n)) & = & \{L \ \mid\ 
+	\mbox{$L$ is decided by a $O(f(n))$ space DTM}\}.\\
+\mbox{NSPACE}(f(n)) & = & \{L \ \mid\ 
+	\mbox{$L$ is decided by a $O(f(n))$ space NDTM}\}.
+\end{eqnarray*}
+
+
+\begin{theorem}[Savitch's theorem]
+For any function $f: \N \rightarrow \N$, where $f(n) \ge n$,
+\[\mbox{\rm{}NSPACE}(f(n)) \subseteq \mbox{\rm{}SPACE}(f^2(n)).\]
+\end{theorem}
+
+\paragraph{Yieldability problem} Given two configurations of the NTM, $c_1$
+and $c_2$, together with a number $t$, and we must test whether the NTM can
+get from $c_1$ to $c_2$ within $t$ steps. We call this problem the
+\bb{yieldability problem}.
+
+\subsubsection{The class PSPACE}
+\bb{PSPACE} is the class of languages that are decidable in polynomial space 
+on a
+deterministic Turing machine. In other words,
+\[ \mbox{PSPACE} = \bigcup_k \mbox{SPACE}(n^k).\]
+Conjectured relationship among the four classes P, NP, PSPACE, and
+EXPTIME is as follows.
+\[ \mbox{P} \subseteq \mbox{NP} \subseteq \mbox{PSPACE}
+	= \mbox{NPSPACE} \subseteq \mbox{EXPTIME}. \]
+
+\subsubsection{PSPACE-completeness}
+A language $B$ is \bb{PSAPCE-complete} if it satisfies two conditions:
+\ben
+\w [(a)] $B$ is in PSPACE, and
+\w [(b)] every $A$ in PSPACE is polynomial time reducible to $B$.
+\een
+If $B$ merely satisfies condition (b), we say that is is
+\bb{PSPACE-hard}.
+
+\paragraph{TQBF: True fully quantified Boolean formula problem}
+Boolean formulas with quantifiers, $\forall$ and $\exists$, are
+called \bb{quantified Boolean formulas}. When each variable of a 
+formula appears within the scope of some quantifier, the formula
+is said to be \bb{fully quantified}. A fully quantified Boolean
+formula is cometimes called a \bb{sentence} and is always either
+true or false. The \bb{TQBF problem} is to determine whether
+a fully quantified Boolean formula is true or false. We define
+the language
+	\[ \mbox{\em TQBF\/}\ = 
+	\{\arc{\phi}\ \mid\ \phi \mbox{\ is a true fully
+	quantified Boolean formula}\}.\]
+
+\begin{theorem}
+TQBF is PSPACE-complete.
+\end{theorem}
+
+
+\subsubsection{The classes L and NL}
+\bb{L} is the class of languages that are decidable in logarithmic
+space on a deterministic Turing machine. In other words,
+\[ L = \mbox{\ SPACE}(\lg n).\]
+\bb{NL} is the class of languages that are decidable in logarithmic
+space on a nondeterministic Turing machine. In other words,
+\[ NL = \mbox{\ NSPACE}(\lg n).\]
+
+
+\subsubsection{NL-completeness}
+A \bb{log space transducer} is a Turing machine with a read-only input tape, a
+write-only output tape, and a read/write work tape. The work tape may contain
+$O(\lg n)$ symbols. A log space transducer $M$ computes a function $f:
+\Sigma^* \rightarrow \Sigma^*$, where $f(w)$ is the string remaining on the
+output tape after $M$ halts when it is started with $w$ on its input tape. We
+call $f$ a \bb{log space computable function}. Language $A$ is \bb{log space
+reducible} to language $B$, written $A \le_{\mbox{\scriptsize{}L}} B$, 
+if $A$ is mapping
+reducible to $B$ using a log space computable function $f$.
+A language $B$ is \bb{NL-complete} if
+\ben
+\w [(a)] $B \in $ NL, and
+\w [(b)] every $A$ in NL is log space reducible to $B$.
+\een
+
+\begin{theorem}
+If $A \le_{\mbox{\scriptsize{}L}} B$ and $B \in L$, then $A \in L$.
+\end{theorem}
+
+\begin{corollary}
+If any NL-complete language is in L, then L = NL.
+\end{corollary}
+
+
+\begin{theorem}
+PATH is NL-complete.
+\end{theorem}
+
+\begin{corollary}
+$NL \subseteq P$.
+\end{corollary}
+
+\subsubsection{NL equals co-NL}
+\begin{theorem}
+NL = co-NL.
+\end{theorem}
+
+\subsection{Intractability}
+\subsubsection{Hierarchy theorems}
+A function $f: \N \rightarrow \N$, where $f(n) \ge \lg n$, is called \bb{space
+constructible} if the function that maps $1^n$ to the binary representation of
+$f(n)$ is computable in space $O(f(n))$.
+
+\begin{theorem}[Space hierarchy theorem]
+For any space constructible function $f: \N \rightarrow \N$, there exists a
+language $A$ that is decidable in space $O(f(n))$ but not in space $o(f(n))$.
+\end{theorem}
+
+\begin{corollary}
+For any two functions $f_1, f_2: \N \rightarrow \N$, where $f_1(n)$ is
+$o(f_2(n))$ and $f_2$ is space constructible, SPACE$(f_1(n)) \subsetneq $
+SPACE$(f_2(n))$.
+\end{corollary}
+
+\begin{corollary}
+For any two real numbers $0 \le \epsilon_1 < \epsilon_2$,
+	\[ \mbox{SPACE}(n^{\epsilon_1}) \subsetneq
+	\mbox{SPACE}(n^{\epsilon_2}).\]
+\end{corollary}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Randomized Algorithms}
+
+
+
+\section{One-Way Functions}
+
+
+\pagebreak
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/math,00bib/theory,00bib/algo,00bib/sec}
+\nocite{Goldreich01,HW79,GB96,BC94,BDG95,Papadimitriou94,Sipser96,MR95,Feller68a,CLRS01}
+\pagebreak
+\tableofcontents
+\end{document}
+% LocalWords:  bc ab Asymptoticity intgeral continutous ln th decidable iff mac
+% LocalWords:  verifier polynomially verifiers nondeterministic NTIME NDTM algo
+% LocalWords:  computable reducible NSPACE DTM
+

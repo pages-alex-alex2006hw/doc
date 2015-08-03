@@ -1,0 +1,44 @@
+\documentclass{memo}
+\usepackage{mathptm,mydef,myenv}
+%\usepackage{MinionPro}
+\begin{document}
+\small
+\noindent{\large\bf{}TCP/IP}
+
+\paragraph{The Internet}
+Internet uses TCP/IP protocol suite (a.k.a. Internet protocol suite).
+The protocol adopts the well-known 4-layer stack.
+\bit
+\w \bb{application layer}: e.g. HTTP
+\w \bb{transport layer}: TCP (Transmission Control Protocol)
+\w \bb{network layer}: IP (Internet Protocol)
+\w \bb{datalink layer}: e.g. Ethernet
+\eit
+
+\paragraph{Transport layer: TCP}
+TCP (\bb{Transmission Control Protocol}) is a \bb{reliable},
+\bb{connection-based}, \bb{full-duplex} protocol based on acknowledgement and
+retransmission.  TCP \bb{sequences} the data by associating a sequence number
+with every {\em byte\/} it sends. 
+
+Also, TCP provides \bb{flow control}. TCP always tells it peer exactly how
+many bytes of data it is willing to accept from the peer at one time (this is
+called \bb{advertised window}). At any time, the window (which dynamically
+changes) is the amount of room currently available in the receive buffer,
+guaranteeing that the sender cannot overflow the receive buffer. 
+
+\paragraph{Transport layer: UDP}
+UDP (\bb{User Datagram Protocol}) is a \bb{connectionless}, \bb{full-duplex}
+protocol and UDP sockets are an example of datagram sockets.  This is a
+\bb{unreliable} protocol whith no guarantee that
+UDP datagrams will ever reach their destination. 
+So, if we want any reliable communication, we need to add the such features at
+the application level (e.g. acknowledge, timeouts, retransmissions, etc.).
+
+UDP does not provide \bb{flow control}. 
+
+
+
+
+
+\end{document}

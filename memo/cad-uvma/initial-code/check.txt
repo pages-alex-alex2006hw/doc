@@ -1,0 +1,315 @@
+river:
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/uvc_9.
+19/sec_rxf/v201408/sv/sec_rxf_driver.sv
+
+   - overview:
+       - looks like single-interface solution is applicable
+
+   - basic idea: create drive_transfer task inside interface.
+       from inside main_bfm(), call vintf.drive_transfer() instead of drive_tran
+sfer.
+
+       - e.g.
+         interface rxf_interface;
+           task drive_transfer;
+           endtask
+
+           initial $ixc_ctrl("tb_export", "drive_transfer");
+         endinterface
+
+
+   - if there are any class object read inside driver_transfer or drv_rxf_4g/drv
+_rxf/drv_rxf_3gt, it should be transformed
+     into a paramerter.
+
+       - for example, p_cfg.rat_mode_cfg is a field of p_cfg (which is a attribu
+te of driver class)  and
+         we need to encode/pass rat_mode_cfg as follows:
+
+            FROM:
+                   task main_bfm();
+                     ...
+                     drive_transfer(req);
+                     ...
+                   endtask
+
+            TO:
+                   task main_bfm();
+                     ...
+                     int rat_mode_cfg_val = 0;
+                     case (p_cfg.rat_mode_cfg);
+                       "4g": rat_mode_cfg_val = 1;
+                       "3gf": rat_mode_cfg_val = 2;
+                       "3gt": rat_mode_cfg_val = 3;
+                     endcase
+                     vintf.drive_transfer(req, rat_mode_val);
+                   endtask
+
+                   interfaces rxf_interface;
+                     task drive_transfer(sec_rxf_trans_c req, int rat_mode_cfg_v
+al);
+                       case (rat_mode_cfg_val)
+                          1: ...
+                          2: ...
+                          3: ...
+                     endtask
+                   endinterface
+
+         - also, there are other fields of p_cfg - e.g. p_cfg.rx_start_offset, p
+_cfg.srch_3gt_on, ...
+           => these need to be added as parameter
+
+     - class sec_rxf_trans_c req is passed as argument to drive_transfer
+
+         - fields with packed datatypes can be passed as a vector argument
+         - fields with unpacked datatypes can be passed through memory
+
+            in particular,
+              int in_on[2][3]; // [ant][c]
+              int in_data[2][3][];
+
+           => for in_on (non-dynamic array) create a memory inside rxf interface
+              reg [31:0] in_on_dut[2*3];
+
+           => for in_data (dynamic array) create two memories, one for data, the
+ other for size info
+              reg [31:0] in_data_dut[2*3*UPPERBOUND];  // upperbound must be a c
+onstant
+              int in_data_dut_size[2*3];    // in_data_size[i][j] will contain r
+eq.in_data[i][j].size()
+
+         - change CALLER
+           => before calling drive_transfer, above memories needs to be filled i
+n either using MARG interface
+              or following suggested write_mem task;
+
+           => interface rx_itnerface;
+                reg [31:0] in_on_dut[2*3];
+                reg [31:0] in_data_dut[2*3*UPPERBOUND];  // upperbound must be a
+ constant
+                int in_data_dut_size[2*3];    // in_data_size[i][j] will contain
+ req.in_data[i][j].size()
+                task write_in_on(int in_on_arg[2][3]);
+                  for (int i = 0; i < 2; i++)
+                    for (int j = 0; j < 3; i++)
+                      in_on_dut[i*3+j] = in_on_arg[i][j];
+                endtask
+                task write_in_data(int in_data_arg[2][3][]);
+                  for (int i = 0; i < 2; i++)
+                    for (int j = 0; j < 3; i++) begin
+                      in_data_dut_size[i*3+j] = in_data_arg[i][j].size();
+                      for (int k = 0; k < in_data_arg[i][j].size(); k++) begin
+                        in_data_dut[i*(3*UPPERBOUND)+ j*UPPERBOUND + k] = in_on_
+arg[i][j][k];
+                      end
+                    end
+                endtask
+                initial $ixc_ctrl("tb_task", "write_in_on");
+                initial $ixc_ctrl("tb_task", "write_in_data");
+              endinterface
+
+           => NOTE: please be careful with ADDRESS translation (my translation i
+s very rough and incorrect!)
+
+
+         - change CALLEE (body of collect_type0)
+           => now, any reference to in_on, in_data, in_data.size() needs to be c
+hanged
+
+           => e.g. FROM:
+               for (int i = 0; req.in_data[ant][c].size();) begin
+                   vintf.AntRxAdc[2I*c+ant] = req.in_data[ant][c][i++];
+               end
+             TO:
+               for (int i = 0; in_data_dut_size[ant*2+c] ;) begin
+                   vintf.AntRxAdc[2I*c+ant] = in_data_dut[2*ant+c];
+               end
+
+
+Interface:
+
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_mo
+dem_9.19/lib/common/common_intf.sv
+   - overview:
+     - common_intf.sv is included from all sec_modem_9.19/lib/*/*intf.sv
+     - any interface which contains common_intf must be split into two interface
+s: S-interface and H-interface
+     - for this, common_intf.sv must be split into two:
+       => common_intf_sw.sv
+       => common_intf_hw.sv
+   - common_intf contains many constructs which cannot be put into HW-side; in p
+articuilar,
+      string check_point_name[MAX_CHECK_NUM];  // strings can be only written/re
+ad in SW-space
+      string check_int_key_name[MAX][$];
+      int check_int_key_value[MAX][$];
+
+      - NOTE: before going on, for each object in common_intf.sv classify them!
+
+           a. those which are only needed in TB/UVM
+           b. those which are needed by both TB/UVM and DUT
+
+
+           => objects in a. are potential candidates which can be moved out of S
+V interface!
+
+      - fill in common_intf_sw.sv and common_intf_hw.sv
+
+          interface common_intf_sw.sv
+            // put all objects which are not synthesizable OR which are accessed
+ only by TB/UVM (or changeable s.t.
+            // accesses are moved to TB)
+            string check_point_name[MAX];
+            string check_int_key_name[MAX][$];
+            int check_int_key_value[MAX][$];
+
+            // put all objects which are accessed by DUT (also, possibly by TB/U
+VM) but
+            // is dynamic (e.g. queue, or dynamic array such as int a[10][])
+
+          endinterface
+
+          interface common_intf_hw.sv
+            // for each queue, which is a real DUT object (read/written by DUT),
+ create a fixed non-dynamic array
+            // with upper bounds
+
+            // synthesizable DUT objects, put them only in common_intf_hw.
+            logic [127:0] check_data[MAX];
+            ...
+          endinterface
+
+        => CJ: check common/base_lib_mon.sv to see usage of object of common_int
+f.sv
+
+        => originally, the caller calls collect_type0(0, 1, ...) but collect_typ
+e0 contains many contructs which cannot
+              be synthesized;
+              ==> split collect_type0 into collect_type0_sw and collect_type0_hw
+
+              ==> changing collect_type0 is not trivial - will come back to this
+ later
+              ==> !!!!!
+
+
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_mo
+dem_9.19/lib/demod_4g/demod_4g_intf.sv
+   - following code may cause sw-hw sync (in particular, systemclock causes larg
+e # of syncs)
+
+     - $expot_event(demod_4g_intf.nReset);
+     - $expot_read(demod_4g_intf.nReset);
+     - $expot_event(demod_4g_intf.SystemClock);
+     - $expot_read(demod_4g_intf.SystemClock);
+     => be prepared to comment out these directives
+
+
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_mo
+dem_9.19/lib/rxf/rxf_intf.sv
+     - parameterized interface
+     - need dual-interfaces solution
+     - split into two interfaces: rxf_intf_sw.sv and rxf_intf_hw.sv
+
+     - rxf_intf_sw.sv will contain all code/objects which doesn't need to access
+ed by DUT; e.g.
+       - all initial processes which will access check_point_name, check_int_key
+_value, etc.
+       - all initial processes for file I/O
+       - some DUT objects which are read by DUT code but are dynamic arrays or q
+ueues,
+         => create a fixed array version (memory) in rxf_intf_hw.sv (as seen bel
+ow)
+         => create a fixed array version (memory) in rxf_intf_sw.sv (as seen bel
+ow)
+         => if initial code performs push_back to this?, we need to write those
+values to HW counterpart (memory -
+            see below for details)
+
+           FROM:
+             initial begin
+                #1;
+                Fptr1 = $fopen ($sformatf("%0s/rxflt_dcr2_a0007_out3gf_a1c0.txt"
+,vec_dir),"r");
+                if (Fptr1) begin
+                   while ($fgets(line1,Fptr1)) begin
+                      line_valid1 = $sscanf (line1,"%s %s",str10,str11);
+                      if (line_valid1 == 2) begin
+                         dvgaout3gf_array1_i.push_back(str10.atohex());
+                         dvgaout3gf_array1_q.push_back(str11.atohex());
+                      end
+                   end
+                   $fclose(Fptr1);
+                end
+             end
+           TO:
+             int  dvgaout3gf_array1_i_hw;  // just handle -- see training slides
+ for details
+             int  dvgaout3gf_array1_q_hw;  // just handle
+             int  dvgaout3gf_array1_i_sw[UPPERBOUND];
+             int  dvgaout3gf_array1_q_sw[UPPERBOUND];
+
+             int ptr;
+             initial begin
+                #1;
+                ptr = 0;
+                Fptr1 = $fopen ($sformatf("%0s/rxflt_dcr2_a0007_out3gf_a1c0.txt" ,vec_dir),"r");
+                if (Fptr1) begin
+                   while ($fgets(line1,Fptr1)) begin
+                      line_valid1 = $sscanf (line1,"%s %s",str10,str11);
+                      if (line_valid1 == 2) begin
+                         dvgaout3gf_array1_i_sw[ptr  ] = str10.atohex();
+                         dvgaout3gf_array1_q_sw[ptr++] str11.atohex();
+                      end
+                   end
+                   $fclose(Fptr1);
+                end
+
+                dpiMap::putInts(dvgaout3gf_array1_i_hw /* handle */, dvgaout3gf_
+array1_i_sw /* data to transfer */,
+                                ptr /* number of ints to transfer */);
+                dpiMap::putInts(dvgaout3gf_array1_q_hw /* handle */, dvgaout3gf_
+array1_q_sw /* data to transfer */,
+                                ptr /* number of ints to transfer */);
+             end
+
+             initial dpiMap::bindProxy("tb.s_if0 {dvgaout3fg_array1_i_hw ...}" "
+tb.h_if0");
+
+
+    - rxf_intf_hw.sv will contain real code which needs to be executed by DUT
+       - some DUT objects which are accessed by DUT code but are dynamic arrays
+or queues need to be defined
+         as a memory (with some upper bounds) e.g.
+           int  dvgaout3gf_array1_i_hw[UPPERBOUND];  // same name as handle in r
+xf_intf_sw.sv
+           int  dvgaout3gf_array1_o_hw[UPPERBOUND];
+
+         => values of these memories will be populated from S-interface through
+dpiMap::putInts, etc.
+
+       - if an object is only accessed fro DUT, put it only H-interface; e.g.
+            logic [7:0] dvgaout3gf_a1c0_i;
+            logic [7:0] dvgaout3gf_a1c0_q;
+       - most always processes will be put only in H-interface
+
+
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_modem_9.19/lib/symbproc4g/symbproc4g_intf.sv
+- /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_modem_9.19/lib/symbproc4gc/symbproc4gc_intf.sv
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_modem_9.19/lib/ifrgen/ifrgen_intf.sv
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_modem_9.19/lib/dm/dm_intf.sv
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_modem_9.19/tb/top/intf_inst.sv
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/uvc_9.19/sec_dm/v201408/sv/sec_dm_intf.sv
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/uvc_9.19/sec_demod/v201408/sv/sec_demod_intf.sv
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/uvc_9.19/sec_rxf/v201408/sv/sec_rxf_intf.sv
+
+
+Sequence:
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_modem_9.19/lib/rxf/rxf_vseq_lib.sv , rxf_seq_lib.sv
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_modem_9.19/lib/symbproc4g
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_modem_9.19/lib/symbproc4gc
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_modem_9.19/lib/demod_4g
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_modem_9.19/lib/dm
+ - /user/emul001/PROJECT/201409_ModemIP/emulator/to_emulator/sec_uvm_9.19/sec_modem_9.19/lib/ifrgen
+
+Checkers:
+

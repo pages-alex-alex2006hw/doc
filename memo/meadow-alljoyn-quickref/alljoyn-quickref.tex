@@ -1,0 +1,158 @@
+\documentclass{note}
+\addtolength{\topmargin}{-2cm}
+\addtolength{\textheight}{2cm}
+\usepackage{mathptm,mydef,myenv}
+\usepackage{alltt}
+%\renewcommand{\ttdefault}{txtt}
+\usepackage[all]{xy}
+%\usepackage{MinionPro}
+\begin{document}
+\small
+
+
+\begin{center}
+{\large\bf Notes on Alljoyn}
+\end{center}
+
+\vspace*{1cm}
+
+\subsection*{AllJoyn application workflow}
+\xymatrix@-0.5pc{
+&  & *+[F]\txt<3cm>{{connect to AllJoyn}} \ar[d]\ar@{.}[r]& \txt<4cm>{\em create
+    {\tt{}\em BusAttachment} and connect to Alljoyn Router}\\
+&  & *+[F]\txt<3cm>{{establish how you will communicate}} \ar[d]\ar@{.}[r]& 
+   \txt<4cm>{\em determine the methods and interactions your app will support 
+   (i.e. {\tt{}\em BusObject})}
+   \\
+&  & *+[F]\txt<3cm>{{choose a unique ID}} \ar[ld]\ar[rd]\ar@{.}[r]& 
+   \txt<4cm>{\em create a unique {\bf\em well-known name}}
+  \\
+& *+[F]\txt<3cm>{{choose a group other apps can join}}\ar[d]&
+\txt<2.5cm>{\em create {\tt\em Session}} \ar@{.}[l] 
+ & *+[F]\txt<3cm>{{find other apps nearby}}\ar[d] &
+\txt<2cm>{\em do {\bf\em Discovery}} \ar@{.}[l] 
+\\
+&   *+[F]\txt<3cm>{{tell other apps you're there}}\ar[dr]&
+\txt<2.5cm>{\em do \bb{\em Advertisement}} \ar@{.}[l]
+  & *+[F]\txt<3cm>{{join a group that you found}}\ar[dl]&
+\txt<2cm>{\em join {\tt\em Session}} \ar@{.}[l]
+\\
+&  & *+[F]\txt<3cm>{{communicate with other apps in your group}}&
+\txt<4cm>{\em communicate through {\bf\em method invocations}} \ar@{.}[l]
+}
+
+\vspace*{0.5cm}
+
+\subsection*{Connecting to AllJoyn}
+\begin{alltt}
+  BusAttachment *bus = new BusAttachment();
+   
+  // {\bf{}#1: create interface}
+  IntefaceDescrption *if = NULL;
+  bus->{\em{}CreateInterface}("org.mv.chat", if);
+  if->{\tt\em{}AddMethod}("cat", "ss" /*input signature*/, "s" /*output sig*/, 
+                "inStr1,inStr2,outStr" /*arg names*/, 0 /*access perm*/);
+  if->Activate();
+
+  // {\bf{}#2: register bus listener}
+  // bool MyBusListener::AcceptSeesionJoiner(SessionPort port, char *joiner,
+  //                                         SessionOpts& opts) {
+  //   return (port == SERVICE_PORT) ? true : false;
+  // }
+  MyBusListener listener; 
+  bus->{\em{}registerBusListner}(listener);
+
+  // {\bf{}#3: start message bus}
+  bus->start();
+
+  // {\bf{}#4: bus object which implements "if"}
+  BasicSampleObject obj(*bus, SERVICE_PATH);
+  bus->RegisterBusObject(obj);
+
+  // {\bf{}#5: connect bus attachment}
+  bus->Connect();
+\end{alltt}
+
+\subsection*{Request well-known name}
+\begin{alltt}
+  BusAttachment *bus = ...;
+
+  // {\bf SERVICE_NAME ("org.mv.chat") will be the name used by the clients}
+  // {\bf to discover this service}
+  const uint flags = DBUS_NAME_FLAG_REPlACE_EXISTING |
+                     DBUS_NAME_FLAG_DO_NOT_QUEUE;
+  bus->requestName(SERVICE_NAME /* "org.mv.chat" */, flags);
+\end{alltt}
+
+\subsection*{Advertise}
+\begin{alltt}
+  BusAttachment *bus = ...;
+  
+  // TRANSPORT_NONE: no transports
+  // TRANSPORT_LOCAL: local (same device) transport
+  // TRANSPORT_BLUETOOTH: tranport using Bluetooth
+  // TRANSPORT_TCP: tranport using TCP 
+  // TRANSPORT_WLAN: tranport using WIRELESS LAN (same as TRANSPORT_TCP)
+  // TRANSPORT_WWAN: transport using WIRELESS WAN
+  // TRANSPORT_LAN: transport using WIRED LAN
+  // TRANSPORT_ICE: transport using ICE protocol
+  // TRANSPORT_WFD: transport using WiFi direct
+  // TRANSPORT_ANY = (0xFFFF & ~TRANSPORT_WFD)
+  TransPortMask mask = TRANSPORT_BLUETOOTH | TRANSPORT_WLAN;
+  bus->{\tt{}\em{}AdvertiseName}(SERVICE_NAME /* "org.mv.chat" */, mask);
+\end{alltt}
+
+\subsection*{Create a session}
+\begin{alltt}
+  BusAttachment *bus = ...;
+
+  TransportMask mask = TRANSPORT_ANY;
+  SessionOpts opts(SessionOpts::TRAFFIC_MESSAGES /* TrafficType */,
+                   false                         /* isMultiPoint */,
+                   SessionOpts::PROXIMITY_ANY    /* SessionOpts::Proximity */,
+                   mask                          /* TransportMask */);
+  SessionPort port = SERVICE_PORT;
+  bus->{\em{}BindSessionPort}(port, opts, listener /* BusListener */);
+\end{alltt}
+
+\subsection*{Discover and join session}
+\begin{alltt}
+  BusAttachment *bus = ...
+
+  // class MyBusListener : public BusListener, public SessionListener {
+  //  void {\em{}FoundAdvertisedName}(char *name, TransportMask transport,
+  //                          char *nameprefix) {
+  //     // since we are in a callback, we must enable concurrent callbacks
+  //     // before calling a synchronous method
+  //     bus->{\em{}EnableConcurrentCallbacks}();
+  //     SessionOpts opts(SessionOpts::TRAFFIC_MESSAGES, ... );
+  //     bus->{\em{}JoinSession}(name, SERVICE_PORT, this, session_id, opts);
+  //  }
+  //};
+  MyBusListener listener;
+  bus->{\em{}RegisterBusListener}(listener);
+
+  // SERVICE_NAME = "org.mv.chat"
+  bus->{\em{}FindAdvertisedName}(SERVICE_NAME);
+\end{alltt}
+
+
+\subsection*{Communicate through method invocation}
+\begin{alltt}
+  // create proxy object
+  ProxyBusObject remoteobj(*bus, SERVICE_NAME, SERVICE_PATH, session_id);
+
+  // get interface
+  InterfaceDescription *if = bus->{\em{}GetInterface}(INTERFACE_NAME);
+  remoteobj.{\em{}AddInterface}(*if);
+
+  // method invocation
+  Message reply(*bus);
+  MsgArg inputs[2];
+  inputs[0].Set("s", "Hello ");
+  inputs[1].Set("s", "World!");
+  remoteobj.{\em{}MethodCall}(SERVICE_NAME, "cat" /* method name */,
+                              inputs, 2, reply, 5000);
+\end{alltt}
+
+\end{document}

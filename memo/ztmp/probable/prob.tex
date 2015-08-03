@@ -1,0 +1,180 @@
+\documentclass{myproc}
+\usepackage{hfont,mydef}
+\def\sbf{\sf\bfseries}
+\begin{document}
+\title{\large\bf Notes on Probability Theory \vspace*{-0.5cm}}
+\author{\normalsize{}Cheoljoo Jeong $\arc{\mbox{cjeong@cs.columbia.edu}}$}
+\maketitle
+\scriptsize
+%\vspace*{-2.5cm}
+\small
+
+
+\section{Counting}
+\subsection{Permutations and Combinations}
+\bit
+\w \bb{Maxwell-Boltzman statistics}: 한 cell에 들어갈 수 있는 particle의 수에
+제한이 없고 distinguishable한 $k$ particle들이 $n$ cells에 랜덤하게 배치될
+때, 배치 방법의 수는 $n^k$
+\w \bb{Fermi-Dirac statistics}: 한 cell에 두 개 이상의 particle이 들어갈 수
+없고 indistinguishable한 $k$ particle들이 $n$ 개의 cell에 랜덤하게 배치된다고
+할 때, 가능한 배치 방법의 수는 $n \choose k$
+\w \bb{Bose-Einstein statistics}: 한 cell에 들어갈 수 있는 particle의 수에
+제한이 없고 indistinguishable한 $k$ particle이 $n$ cell에 랜덤하게 배치된다고
+할 때, 배치 방법의 수는 ${n + k - 1} \choose k$
+\w {\bf Multinomial Theorem}: 
+   \[ (x_1 + \cdots + x_k)^n = 
+   \sum_{\stackrel{r_1 + \cdots + r_k = n,}{r_i \ge 0}}
+      {n \choose {r_1, \cdots, r_k}}x_1^{r_1}\cdots x_k^{r_k}.\]
+\eit
+
+
+\section{Hypergeometric distribution}
+\bit
+\w 검은 공 $B$개와 흰 공 $W$개가 들어 있는 상자에서 $n$ 개의 공을 동시추출할
+때 나타나는 검은 공의 갯수를 $X$라고 하면,
+  $X$의 probability function은
+  \[ f(x) = P(X = x) = \frac{{B \choose x}{W \choose n - x}}{{{B + W} \choose
+      n}}.\]
+이 분포를 hypergeometric distribution이라 부른다.
+\eit
+
+\section{Uniform distribution}
+\bit
+\w Exp$(X) = \frac{(a+b)}{2}$, \ \ Var$(X) = \frac{(b-a)^2}{12}$.
+\eit
+
+\section{Bernoulli distribution}
+\bit
+\w $\Omega = \{S, F\}$와 같이 두 개의 가능한 사건만 가능할 경우,  
+   \[ X(S) = 1, \qquad X(F) = 0,\]
+의 random variable $X$를 Bernoulli random variable이라 한다.
+$P(X = S) = p$인 Bernoulli trial에서, Bernoulli r.v.의 probability
+function은 
+  \[ f(x) = P(X = x) = p^x(1 - p)^{1-x}, \quad x = 0, 1\]
+로 주어지고, 이러한 분포를 Bernoulli distribution이라고 한다.
+\w 성공률이 $p$일 때, 성공할 확률 (또는 실패할 확률)을 model함
+\eit
+
+\section{Binomial distribution}
+\bit
+\w $P(X = S) = p$인 Bernoulli trial을 $n$번 independent하게 반복할 때,
+  나타나는 $S$의 횟수를 $X$라 하자. 이러한 $X$를 binomial r.v.라 한다.
+   이를 $X$의 prbiability function을 $b(x; n, p)$로 표기하는데,
+  \[ b(x; n, p) = P(X = x) = {n \choose x} p^x (1-p)^{n-x}\]
+  가 성립한다.
+  이러한 분포를 binomial distribution이라 하고 $X \sim B(n, p)$로 나타낸다.
+\w 성공률이 $p$일 때, $n$번 시행 중 성공횟수가 $x$일 확률을 model함
+\w Exp$(X) = np$, \ \ Var$(X) = np(1-p)$.
+\eit
+
+\section{Negative binomial distribution}
+\bit
+\w 성공률 $p$의 Bernoulli distribution에서, 정해진 성공의 횟수가 나타날
+때까지의 시행횟수를 생각해보자 (이는 inverse function의 상황).
+$r$번째 성공까지의 시행횟수를 $X$라 한다면, $X$를 negative binomial r.v.라
+하며,
+ $X$의 probability function은
+  \[ f(x) = P(X = x) = {{x-1}\choose{r-1}}p^r(1-p)^{x-r}\]
+  이러한 분포를 negative binomial distribution이라 하며 기호로는 $X \sim NB(r,
+  p)$로 나타낸다.
+\eit
+
+\section{Geometric distribution}
+\bit
+\w Negative binomial distribution에서 $r = 1$일 때, 즉 첫번째 성공까지의
+시행횟수의 분포를 geometric distribution이라고 한다.
+\w Exp$(X) = \frac{1}{1-p}$, \ \ Var$(X) = \frac{p}{(1-p)^2}$.
+\eit
+
+\section{Poisson distribution}
+\bit
+\w 성공률 $p$가 매우 작고, 시행횟수 $n$이 큰 경우의 이항분포를 다룰 때,
+이항분포의 극한으로 나타나게 되는 분포가 Poisson distribution임
+\w 단위 시간당 사건의 발생률 (e.g. arrival rate)가 $\lambda$일 때, 단위 시간에
+$x$ 발생하는 사건의 수를 나타내는 
+  r.v.를 Poisson r.v.라 하며 이의 확률 함수를 $p(x; \lambda)$로
+표기한다.
+ \[ p(x; \lambda) = \frac{\lambda^xe^{-{\lambda}}}{x!} \]
+\w Exp$(X) = $Var$(X) = \lambda$.
+\eit
+
+
+\section{Normal distribution}
+
+
+\section{Erlang distribution}
+\bit
+\w Parameter가 $\lambda$인 Possion process에서 $n$번째 사건이 발생할 때까지의
+시간을 나타내는 r.v.를 Erlang r.v.라 하며, 이 r.v.는
+  \[ f_n(t) = \frac{\lambda^n}{(n-1)!}t^{n-1}e^{-\lambda{}t}, \quad t > 0\]
+의 probability function을 가진다.
+이 분포를 Erlang distribution이라 한다.
+\eit
+
+\section{Exponential distribution}
+\bit
+\w $n = 1$인 Erlang distribution을 exponential distribution이라 하며
+ exponential r.v. $X$에 대해 $X \sim E(\lambda)$로 표기한다. 이 때
+ probability function은
+  \[ f_1(t) = \lambda{}te^{-\lambda{}t}, \quad t > 0\]
+  이다.
+\w Exponential distribution은 Poisson process의 \bb{waiting time}의 분포로서
+중요한 역할을 한다.
+\w Exponential  distribution은 유일한 {\em memoryless random
+  distribution}이다. 
+\w Exp$(X) = \frac{1}{\lambda}$, Var$(X) = \frac{1}{\lambda^2}$.
+\eit
+
+
+\section{Gamma distribution}
+\bit
+\w Erlang 분포에서는 $n$이 자연수인데, 이를 임의의 실수 $\alpha$로 일반화한
+것이 gamma distribution이다. 
+\w Gamma function을 
+  \[ \Gamma(\alpha) = \int^{\infty}_0 t^{\alpha -1}e^{-t} dt \quad (\alpha >
+  0)\] 
+  으로 정의했을 때, Gamma probability function은
+  \[ f(t) =  \frac{\lambda^\alpha}{\Gamma(\alpha)}t^{\alpha-1}e^{-\lambda t},
+  \qquad t > 0\]
+  이 된다.
+\eit
+
+
+
+\section{Stochastic process}
+\bit
+\w 연속적으로 변하는 양을 parameter $t \ge 0$으로 나타내고, 이를 {\em
+  ``시간''의 변화\/}로 간주한다. 
+  시각 $0$에서 $t$까지 사이에 일어나느 사건의 발생 횟수를 random한 것으로
+  간주하여, 이를 r.v. $N_{(0, t)}$ 또는 간단히  $N_{(t)}$로 나타낸다. 따라서,
+  시간이 흐름에 따라 발생하는 사건의 횟수를 확률변수들의 모임으로서 
+  \[ \{N_{(t)} : t \ge 0\} \]
+  를 생각할 수 있는데, 이를 \bb{stochastic process}라 부른다.
+
+\w \bb{Poisson stochastic process}의 예를 들면, 이 process는 다음의 성질을
+만족한다: 
+  \ben
+  \w [(a)] 임의의 $h$에 대해, $N_{(t + h)} - N_{(t)}$의 분포과 $N_{(h)}$의
+  분포는 $t$에 관계없이 동일하다. \bb{(stationary increments)}
+  \w [(b)] 임의의 $t_1 < t_2 < \cdots < t_n$에 대해,
+     $N_{(t_2)} - N_{(t_1)}$,
+     $N_{(t_3)} - N_{(t_2)}$, $\cdots$,
+     $N_{(t_n)} - N_{(t_{n-1})}$의 각각에 대한 사건들은 mutually
+  independent하다.  \bb{(independent increments)}
+  \w [(c)] 적당한 $\lambda > 0$에 대하여
+   \[ \lim_{h \rightarrow 0} \frac{1}{h}P(N_{(h)} = 1) = \lambda.\]
+  \w [(d)]
+   $\lim_{h \rightarrow 0} \frac{1}{h}P(N_{(h)} \ge 2) = 0.$
+  \een
+ 
+\eit
+
+
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/math,00bib/algo}
+\nocite{Jeon87,Feller68a}
+\end{document}
+
+% LocalWords:  Cheoljoo Jeong vertices endvertices endvertex cutvertex bc algo
+% LocalWords:  cutvertices

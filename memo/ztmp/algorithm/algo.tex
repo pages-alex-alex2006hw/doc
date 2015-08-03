@@ -1,0 +1,62 @@
+\documentclass{myproc}
+\usepackage{mydef}
+\def\sbf{\sf\bfseries}
+\begin{document}
+\title{\large\bf Notes on Design and Analysis of Algorithms \vspace*{-0.5cm}}
+\author{\normalsize{}Cheoljoo Jeong $\arc{\mbox{cjeong@cs.columbia.edu}}$}
+\maketitle
+\small
+%\vspace*{-2.5cm}
+
+\section{Elementary Graph Algorithms}
+\bit
+\w A \bb{graph} 
+   $G = (V, E)$ is a set $V$ of vertices and a set $E$ of edges such
+   that an edge $(u, v) \in E$ is a pair of vertices in $V$.
+   We represent the number of vertices by $n$ and the number of edges by $e$.
+\w A \bb{dense} graph is one where $n$ is close to $e$ and a \bb{sparse} 
+   graph is one where $n <\!\!\!< e$.
+\w The \bb{incidence matrix} of a graph $G = (V, E)$ is a $n \times e$ matrix
+   $B = (b_{ij})$ such that
+   \[ b_{ij} = \left\{\begin{array}{ll}
+        -1 & \mbox{if edge $j$ leaves vertex $i$},\\
+        0 & \mbox{if edge $j$ is not incident to vertex $i$},\\
+        1 & \mbox{if edge $j$ enters vertex $i$}.
+		   \end{array}\right. 
+\]
+
+\w \bb{(Square)} 
+   A \bb{square} of a {\em directed graph\/} $G = (V, E)$ is the graph $G^2 =
+   (V, E^2)$ such that $(u, w) \in E^2$ if and only if for some $v \in V$, 
+   both $(u, v) \in E$ and $(v, w) \in E$.  That is, $G^2$ contains an edge
+   between $u$ and $w$ whenever $G$ contains a path exactly two edges on it.
+
+\w \bb{(Adjacency power)} $G^n = (V, E^n)$ is an \bb{$n$th 
+   adjacency power} of $G$, where $(u, v) \in E^n$ if and only if $G$ contains
+   a length-$n$ path from $u$ to $v$. 
+   When $(a_{ij})^n$ is the adjacency matrix for $G^n$,
+   \[ a_{ij}^n = \sum_{k = 1}^na_{ik}^{n-1}a_{kj}. \]
+
+\w \bb{(Celebrity problem)} A vertex $v$ in $G$ is a \bb{universal sink} if
+   $indeg(v) = n - 1$ and 
+   $outdeg(v) = 0$. When an adjacency matrix is used to represent $G$, we can
+   find universal sink in $O(n)$ time.
+   
+\eit
+
+\subsection{Breadth-first search}
+\bit
+\w Breadth-first search algorithm discovers all vertices at distance $k$
+   before discovering any vertices at distance $k+1$. 
+\w Breadth-first search algorithm visits all the {\em reachable\/} vertices
+   and computes \bb{shortest-path} distance from the {\em source vertex\/}.
+\eit
+
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/math,00bib/algo}
+\nocite{CLRS01}
+\end{document}
+
+
+% LocalWords:  Cheoljoo Jeong vertices endvertices endvertex cutvertex bc algo
+% LocalWords:  cutvertices

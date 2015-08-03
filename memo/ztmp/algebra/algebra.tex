@@ -1,0 +1,162 @@
+\documentclass{myproc}
+\usepackage{mydef}
+\def\sbf{\sf\bfseries}
+\begin{document}
+\title{\large\bf Notes on Abstract Algebra \vspace*{-0.5cm}}
+\author{\normalsize{}Cheoljoo Jeong $\arc{\mbox{cjeong@cs.columbia.edu}}$}
+\maketitle
+\small
+%\vspace*{-2.5cm}
+
+\section{Groups and Subgroups}
+\subsection{Binary operations}
+\bit
+\w A \bb{binary operation} $*$ 
+on a set $S$ is a \bb{function} mapping $S \times
+S$ into $S$. For each $(a, b) \in S \times S$, we will denote the element
+$*((a, b))$ of $S$ by $a * b$.
+\w Let $*$ be a binary operation on $S$ and let $H$ be a subset of $S$. The
+subset $H$ is \bb{closed under} $*$ if for all $a, b \in H$, $a * b \in H$. In
+this Case, the binary operation on $H$ given by restricting $*$ to $H$ is the
+\bb{induced operation} of $*$ on $H$.
+\w A binary operation $*$ on a set $S$ is \bb{commutative} if and only if $a *
+b = b * a$ for all $a, b \in S$.
+\w A binary operation $*$ on a set $S$ is \bb{associative} if and only if $a *
+(b * c) = (a * b) * c$ for all $a, b, c \in S$.
+\w {\sbf Theorem}: Let $S$ be a set and let $f, g$ and $h$ be functions
+mapping $S$ into $S$. Then, $f \circ (g \circ h) = (f \circ g) \circ h$.
+\eit
+
+\subsection{Isomorphic binary structures}
+\bit
+\w Let $\arc{S, *}$ and $\arc{S', *'}$ be binary algebraic structures. An
+\bb{isomorphism of $S$} with $S'$ is a {\em one-to-one\/} $\phi$ mapping $S$
+onto $S'$ such that
+ \[ \phi(x * y) = \phi(x) *' \phi(y) \mbox{\ \ \ for all $x, y \in S$}.\]
+If such a map $\phi$ exists, then $S$ and $S'$ are \bb{isomorphic binary
+  structures} which we denote by $S \simeq S'$.
+\w A \bb{structural property} of a binary structure  is one that must be
+  shared by any isomorphic structure.
+\w A structural property that is characterized in terms of the binary
+  operation $*$, like associativity, is an \bb{algebraic property}.
+\w Let $\arc{S, *}$ be a binary structure. An element $e$ of $S$ is an
+  \bb{identity for} $*$ if $e * s = s * e = s$ for all $s \in S$.
+\w {\sbf Theorem}: 
+  A binary structure $\arc{S, *}$ has at most one identity. That is, if there
+  is an identity, it is unique.
+\w {\sbf Theorem}: Suppose $\arc{S, *}$ has identity $e$ for $*$. If $\phi: S
+  \rightarrow S'$ is an isomorphism of $\arc{S, *}$ with $\arc{S', *'}$ then
+  $\phi(e)$ is identity for the binary operation $*'$ on $S'$.
+\eit
+\subsection{Groups}
+\bit
+\w A \bb{group} $\arc{G, *}$ is a set $G$, closed under a binary operation
+$*$, such that the following axioms are satisfied:
+  \ben
+  \w [(a)] (\bb{associativity}) 
+  For all $a, b, c \in G$, $(a * b) * c = a * (b * c)$.
+  \w [(b)] (\bb{identity})
+  There is an element $e$ in $G$ such that for all $x \in G$,
+  $e * x = x * e = x$.
+  \w [(c)] (\bb{inverse})
+  Corresponding to each $a \in G$, there is an element 
+  $a'$ in $G$ such that for all $x \in G$,
+  $a * a' = a' * a = e$.
+  \een
+\w A group $G$ is \bb{abelian} if its binary operation $*$ is commutative.
+\w Vector space $V$ under vector addition is an abelian group.
+\w {\sbf Theorem}: If $G$ is a group with binary operation $*$, then \bb{the
+  left and right cancellation laws} hold in $G$, that is, $a * b = a * c$
+implies $b = c$, and $b * a = c * a$ implies $b = c$ where $a, b, c \in G$.
+\w {\sbf Theorem}: If $G$ is a group with binary operation $*$, and if $a$ and
+$b$ are any elements of $G$, then the linear equations $a * x = b$ and $y * a
+= b$ have unique solutions in $G$.
+\w {\sbf Theorem}: In a group $G$,  the identity element $e$ is
+unique and inverses for each element of $G$ are unique in the group.
+\w {\sbf Corollary}: Let $G$ be a group. For all $a, b \in G$, we have $(a *
+b)' = b' * a'$.
+%\w A \bb{monoid} is a semigroup that has an identity element for the binary
+%operation. 
+\eit
+
+\subsection{Subgroups}
+\bit
+\w If $G$ is a finite group, then the \bb{order} $|G|$ of $G$ is the number of
+elements in $G$. 
+\w If a subset $H$ of a group $G$ is closed under the binary operation of $G$
+and if $H$ with the induced operation from $G$ is itself a group, then $H$ is
+a \bb{subgroup of} $G$. We shall let $H \le G$ or $G \ge H$ denote that $H$ is
+a subgroup of $G$, and $H < G$ or $G > H$ shall mean $H \le G$ but $H \ne G$.
+\w If $G$ is a groiup, then the subgroup consisting of $G$ itself is the
+\bb{improper subgroup} of $G$. All other subgroups are \bb{proper
+  subgroups}. The subgroup $\{e\}$ is the \bb{trivial subgroup} of $G$. All
+other groups are \bb{nontrivial}.
+\w {\sbf Theorem}: A subset $H$ of a group $G$ is a subgroup of $G$ if and
+only if 
+  \ben
+  \w [(a)] $H$ is closed under the binary operation of $G$,
+  \w [(b)] the identity $e$ of $G$ is in $H$,
+  \w [(c)] for all $a \in H$ it is true that $a^{-1} \in H$ also.
+  \een
+\w {\sbf Theorem}: Let $G$ be a group and let $a \in G$. Then
+  \[ H = \{a^n: n \in \Z\}\]
+ is a subgroup of $G$ and is the smallest subgroup of $G$ that contains $a$,
+ that is, every subgroup containing $a$ contains $H$.
+\w The group $H$ in the above theorem is the \bb{cyclic subgroup of $G$
+ generated by $a$}, and will be denoted by $\arc{a}$.
+\w An element $a$ of a group $G$ \bb{generates} $G$ and is a \bb{generator
+ for} $G$ if $\arc{a} = G$. A group $G$ is \bb{cyclic} if there is some
+ element $a$ that generates $G$.
+\eit
+
+\subsection{Cycle groups and generators}
+\bit
+\w {\sbf Theorem}: Every cyclic group is abelian.
+\w {\sbf Theorem}: Every subgroup of a cyclic group is cyclic.
+\w {\sbf Corollary}: The subgroups of $\Z$ udner addition are precisely the
+group $n\Z$ under addition for $n \in \Z$.
+\w Let $r$ and $s$ be two positive integers. The positive generator $d$ of the
+cyclic group
+ \[ H = \{nr + ms: n, m \in \Z\} \]
+under addition is the \bb{greatest common divisor} (or \bb{gcd}) of $r$ and
+$s$. 
+\w Let $n$ be a fixed positive integer and let $h$ and $k$ be anyintegers. The
+remainder $r$ when $h + k$ is divided by $n$ in accord with the division
+algorithm is the \bb{sum of $h$ and $k$ modulo $n$}.
+\w {\sbf Theorem}: The set $\Z_n = \{0, 1, \cdots, n-1\}$ under addition
+modulo $n$ is a cyclic group.
+\w {\sbf Theorem}: Let $G$ be a cyclic group with $n$ elements and generated
+by $a$. Let $b \in G$ and let $b = a^s$. Then $b$ generates a cyclic subgroup
+$H$ of $G$ containing $n/d$ elements, where $d$ is the greated common divisor
+of $n$ and $s$.
+\w {\sbf Corollary}: If $a$ is a generator of a finite cyclic group $G$ or
+order $n$, then the other generators of $G$ are the elements of form $a^r$,
+where $r$ is relatively prime to $n$.
+\w Let $\{S_i: i \in I\}$ be a collection of sets. Here $I$ may be any set of
+indices. The \bb{intersection $\cap_{i\in I} S_i$ of the sets $S_i$} is the
+set of all elements that are in all the sets $S_i$; that is,
+ \[ \bigcap_{i\in I}S_i = \{x: x \in S_i \mbox{\ for all\ } i \in E\}.\]
+\w {\sbf Theorem}: The intersection of subgroups $H_i$ of a group $G$ for $i
+\in I$ is a subgroup of $G$.
+\w Let $G$ be a group and let $a_i \in G$ for $i \in I$. The smallest subgroup
+of $G$ containing $\{a_i: i \in I\}$ is the \bb{subgroup generated by $\{a_i:
+  i \in I\}$}. If this subgroiup is all of $G$, then $\{a_i: i \in I\}$
+  \bb{generates} $G$ and the $a_i$ are \bb{generators of} $G$. If there is a
+  finite set $\{a_i: i \in I\}$ that generates $G$, then $G$ is \bb{finitely
+    generated}. 
+\w {\sbf Theorem}: If $G$ is a group and $a_i \in G$ for $i \in I$, then the
+subgroup $H$ of $G$ generated by $\{a_i: i \in I\}$ has as elements precisely
+those elements of $G$ that are finite products of integral powers of the
+$a_i$, where powers of a fixed $a_i$ may occur several times in the product.
+\eit
+
+
+
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/math,00bib/algo}
+\nocite{Fraleigh99}
+\end{document}
+
+
+% LocalWords:  Cheoljoo Jeong vertices endvertices endvertex cutvertex bc algo
+% LocalWords:  cutvertices abelian

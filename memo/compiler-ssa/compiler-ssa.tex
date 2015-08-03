@@ -1,0 +1,143 @@
+\documentclass{memo}
+\usepackage{mathptm,mydef,myenv}
+\usepackage[all]{xy}
+%\usepackage{MinionPro}
+\begin{document}
+\small
+\noindent{\large\bf{}Static Single Assignment Form}
+
+
+\paragraph{Overview} 
+Many dataflow analyses need to find the \bb{use-sites} of each {\em defined\/}
+variable or the \bb{def-sites} of of each variable {\em used\/} in an
+expression. The \bb{def-use} chain is a data structure that makes this
+efficient: for each statement in the flowgraph, the compiler can keep a list
+of pointers to all the use-sites of the variables defined there,  and a list
+of pointers to all def-sites of the variables used there.  But when a variable
+has $N$ definitions and $M$ uses, we need $N\cdot{}M$ pointers to connect
+them. 
+
+SSA avoids this problem by ``getting the right number of names.'' Even if we
+see only one variable, $x$, based on its definition, the variable has many
+versions ($x$ defined in statement $S_1$, $x$ defined in statement $S_2$,
+etc.), each deserve its own name. 
+
+In SSA, \bb{each variable in the program has only one definition} -- it is
+assigned only once. The assignment might be, in a loop, which is executed many
+times; so single assignment is a {\em static property\/} of the program text,
+not a dynamic property of program execution.
+
+To achieve single-assignment, we make up a new variable name for each
+assignment to the variable. SSA simplifies and improves the results of various
+compiler optimizations, by simplifying the properties of variables. For
+example, given:
+\begin{verbatim}
+
+   original:  y = 1;        SSA: y1 = 1
+              y = 2;  ===>       y2 = 2
+              x = y;             x1 = y2
+\end{verbatim}
+
+{\em Reaching definition analysis\/} which determines that the first
+\verb+y = 1+ is useless can be easily performed in SSA form. The following
+compiler optimizations can benefit from the use of SSA:
+\bit
+\w constant propagation
+\w sparse conditional constant propagation
+\w dead code elimination
+\w global value numbering
+\w partial redundancy elimination
+\w strength reduction
+\w register allocation
+\eit
+
+
+%% \paragraph{Data dependence graph}
+%% A \bb{data dependence graph} or \bb{precedence graph} is a form which
+%% represents the flow of data between {\em definition points\/} and {\em use
+%%   points\/}. This is an auxiliary intermediate representation used along with
+%% the major representation such as flowgraphs. 
+
+\paragraph{Converting flowgraph to SSA graph} Converting flowgraph into an SSA
+graph involves {\em replacing the target of each {\bfseries definition}
+  with a new variable, and the {\bfseries use} of a variable with the
+  ``version'' of the variable   {\bfseries reaching} that point\/}. Given:
+\[\xymatrix@-0.5pc{
+  & *+[F]\txt{$x \leftarrow 5$ \\ $x \leftarrow x - 3$ \\ $x <
+    3?$}\ar[rd]\ar[ld]& \\
+*+[F]\txt{$y \leftarrow x * 2$ \\ $w \leftarrow y$ } \ar[rd]&& *+[F]\txt{$y
+  \leftarrow x-3$} \ar[ld]\\
+& *+[F]\txt{$w \leftarrow x - y$ \\ $z \leftarrow x + y$} &
+}\]
+its SSA form is:
+\[\xymatrix@-0.5pc{
+  & *+[F]\txt{$x_1 \leftarrow 5$ \\ $x_2 \leftarrow x_1 - 3$ \\ $x_2 <
+    3?$}\ar[rd]\ar[ld]& \\
+*+[F]\txt{$y_1 \leftarrow x_2 * 2$ \\ $w_1 \leftarrow y_1$ } \ar[rd]&& *+[F]\txt{$y_2 \leftarrow x_2-3$} \ar[ld]\\
+& *+[F]\txt{$y_3 \leftarrow \phi(y_1, y_2)$\\ $w_2 \leftarrow x_2 - y_3$ \\ $z_1 \leftarrow x_2 + y_3$} &
+}\]
+
+\paragraph{The $\phi$-function}
+Creating SSA forms when there is no jumps is easy. However, when two
+control-flow edges join together, {\bf carry different values of some variable
+  $x$}, we must somehow merge the two values. This is done using  the
+$\phi$-function. 
+
+The $\phi$-function at the last block, in the figure above, is inserted to
+reconcile the conflict between two definitions, $y_1$ and $y_2$, along
+different paths.  A $\phi$-function tasks as arguments the SSA-names for the
+value on {\em each   control-flow edge entering the block\/}. It defines a new
+name for subsequent uses. 
+
+\paragraph{Computing minimal SSA using dominance frontiers}
+{\em Dominance frontiers capture the precise places at which we need
+$\phi$-functions:\/} if the node $A$ defines a certain variable, then that
+definition and that definition alone (or redefinitions) will reach every node
+$A$ dominates. 
+
+
+\paragraph{Global value numbering}
+Global value numbering (GVN) eliminates redundancy by constructing a \bb{value 
+  graph} of the program, and then determines which values are computed by
+equivalent expressions. GVN is able to identify some redundancy that
+\bb{common subexpression elimination} cannot, and vice versa.
+
+\paragraph{Sparse conditional constant propagation}
+This optimization is effectively equivalent to iteratively performing
+\bb{constant propagation}, constant folding, and dead code elimination until there is no
+change, but is much more efficient. 
+This optimization symbolically executes the program,
+simultaneously propagating constant values and eliminating portions of the
+control flow graph that this makes unreachable. 
+
+\paragraph{Appel: SSA is functional programming}
+Consider the following program:
+\begin{verbatim}
+  i = 1;
+  j = 1;
+  k = 0;
+  while (k < 100) {
+    if (j < 20) {
+      j = i;
+      k = k + 1;
+    }
+    else {
+      j = k;
+      k = k + 2;
+    }
+  }
+\end{verbatim}
+Its flowgraph is given below:
+\[ \xymatrix@-0.5cm{
+   &   *+[F]\txt{$i \ \la 1$ \\ $j \ \la 1$ \\ $k \ \la 0$} \ar[d]& &\\
+ & *+[F]\txt{if $k < 100$} \ar[d]\ar[ld]& &\\
+  *+[F]\txt{if $j < 20$} \ar[d]\ar[rd]& *+[F]\txt{return $j$}  &\\
+  *+[F]\txt{$j \ \la 1$ \\ $k \ \ \la k +1$} \ar[rd]& 
+           *+[F]\txt{$j \ \la k$\\ $k \ \la k + 2$} \ar[d] &&\\
+   &       *+[F]\txt{$\arc{\mbox{empty}}$} \ar@/_13ex/[uuu] & &
+}\]
+
+
+\end{document}
+
+% LocalWords:  flowgraph ld Appel GVN subexpression versa dataflow uuu

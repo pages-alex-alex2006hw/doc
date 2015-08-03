@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{hfont,theorem,mydef,latexsym}
+\usepackage[all]{xy}
+\begin{document}
+\title{\Large\bf{}Notes on Trees}
+\author{정 철주}
+\date{}
+\maketitle
+
+\section{Definitions}
+\subsection{Trees}
+\bit
+\w \bb{Tree}는 다음 조건을 만족하는 \underline{하나 이상의} node들의 
+	유한 집합 $T$이다:
+	\ben
+	\w [(a)] {\em{}root\/}라 부르는 하나의 지정된 
+		node를 포함한다;
+	\w [(b)] root를 제외한 나머지 node들은
+	$m \ge 0$ 개의 disjoint sets $T_1, \cdots, T_m$으로
+	partition된다; 이 때, $T_i$는 tree이며 root의 {\em{}subtree\/}라
+	부른다;
+	\een
+\w Root의 \bb{level}은 $0$이다. 그리고 non-root node의 \bb{level}은
+	그 parent node의 level에 1을 더한 값이다.
+	\bit
+	\w 즉, node의 \bb{level}은 해당 node로부터 root까지의
+		distance이다.
+	\eit
+\w Subtree들의 relative order가 중요한 경우, \bb{ordered tree}라 한다.
+\w Subtree들의 relative order를 상관하지 않는 경우, \bb{oriented tree}라 한다.
+\eit
+
+\subsection{Binary trees}
+\bit
+\w \bb{Binary tree}는 {\em{}empty\/}이거나 
+	$(n, l, r)$이다. 이 때, $n$은 node, $l, r$은 binary tree이다.
+	$l, r$을 각기 {\em{}left subtree\/}와 {\em{}right subtree\/}라 한다.
+	\bit
+	\w Binary tree는 tree의 special case가 아니다: 예를 들어,
+		\[\xymatrix@-0.7pc{
+		& A& & A &\\
+	B \ar[ru] & & & & B \ar[lu]
+	}\]
+	에서, 이들은 서로 다른 binary tree이지만, tree로 본다면, 서로 동일한
+	tree이다.
+	
+	\eit
+\w \bb{Extended binary tree}는 {\em{}empty\/} binary tree를
+	작은 square, $\Box$로 나타낸 것이다\footnote{Extended binary tree는 
+	사실 별다른 수학적 의미를 가지지 않으며 단지 그림으로 binary tree를
+	나타냈을 때에만 의미를 가진다}.
+\w \bb{Complete binary tree}
+\eit
+
+
+\subsection{Combinatorics of trees}	
+\bit
+\w Tree가 $1 \le i \le m$에 대하여 degree $i$의 node를 $n_i$개를 가지고 
+	있을 때, 전체 node의 갯수는?
+\eit
+
+
+\section{Traversing Binary Trees}
+
+\section{Enumeration of Trees}
+\bit
+\w 
+\eit
+
+\end{document}

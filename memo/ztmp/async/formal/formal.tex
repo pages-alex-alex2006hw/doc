@@ -1,0 +1,38 @@
+\documentclass{myart}
+\usepackage{minion,euler,hfont,theorem,mydef,amssymb}
+\usepackage[all]{xy}
+
+\pagestyle{empty}
+
+\begin{document}
+\title{\large\bf{}Formal Models of Asynchronous Circuits}
+\author{\normalsize ¡§ √∂¡÷}
+\date{}
+\maketitle
+
+
+%\small
+
+\section{Trace Theory}
+\subsection{Trace structure}
+
+\subsection{Delay-insensitivity}
+\bit
+\w \bb{R0 (No transmission interference):}\\
+  for any trace $t \in T$ and symbol $a \in A$, $saa \not\in T$
+\w \bb{R1 (Independence of arrival/departure order):} \\
+  for traces $s, t \in T$ and for symbols $a, b \in A$ of the same type,
+ $sabt \in T = sbat \in T$
+\w \bb{R2 (Independence of input and output):}\\
+  for traces $s, t \in T$ and for symbols $a, b \in A$ of different types,
+  \[(sab \in T\ \wedge\ sba \in T)\ \Rightarrow\ 
+  (sabt \in T = sbat \in T)\]
+\w \bb{R3$'$ (Synchronization):}\\
+\w \bb{R3$''$ (Data communication):}\\
+\w \bb{R3$'''$ (Arbitration):}\\
+\eit
+
+
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/async}
+\end{document} 

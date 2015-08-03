@@ -1,0 +1,1383 @@
+% Author:  Cheoljoo Jeong <cjeong@cs.columbia.edu>
+% use note for \normalsize
+% use myart for \small 
+\documentclass{note}
+\usepackage{minion,hfont,mydef,timing,myenv}
+%\usepackage{times,hfont,mydef,timing,myenv}
+\usepackage[matrix,arrow,curve,frame]{xy}
+\def\T{{\cal{}T}}
+\def\I{I}
+\def\O{O}
+\def\M{{\cal{}M}}
+\begin{document}
+\title{\large\bf Notes on Asynchronous Circuits and Systems}
+\author{\normalsize 정 철주 $\arc{\mbox{\tt{}cjeong@cs.columbia.edu}}$}
+\date{\normalsize\today}
+\maketitle
+\small
+
+\xyoption{matrix}
+
+\thispagestyle{empty}
+\tableofcontents
+\pagebreak
+
+\section{Introduction}
+\subsection{A brief history}
+
+\paragraph{Huffman circuits}
+\paragraph{Muller circuits}
+
+\subsection{Advantages of asynchronous circuits}
+Clock을 필요로 하는 synchronous circuit과는 달리 asynchronous circuit은 
+{\em common notion of time\/}을 가지지 않으며, 이 결과
+  high performance, low power, noise/EMC의 감소, 그리고
+  heterogenous system timing에 적합하다는 장점을 가진다 \cite{vBJN99}.
+\paragraph{High performance}
+\paragraph{Low power}
+\paragraph{Low noise and electro-magnetic emission}
+\paragraph{Heterogeneous system timing}
+Asynchronous design은 timing을 functionality로부터 separate한다.
+Transistor size는 줄어들고, system size는 커지는 현 상황에서 synchronous
+design은 clock distribution과 clock skew의 문제점을 가지지만, asynchronous
+design에서는 timing information이 개개의 circuit element에 localize되므로
+이러한 문제들로부터 자유롭다.
+\paragraph{Modularity and composability}
+\paragraph{Robustness towards variations}
+Supply voltage, temperature, 그리고 fabrication process parameter의
+variation에 대해 더 robust한 circuit을 얻을 수 있다. 
+
+\subsection{A criticism on asynchronous circuits}
+Handshaking을 통한 asynchronous circuit은 일반적으로 silicon area, circuit
+speed, 그리고 power consumption에서 단점이 있다. 따라서 위에서 열거한 일부의
+장점들은 상쇄되기도 한다. 
+
+다음은 Ted Williams가 2003년 Asynchronous Circuits and Systems Symposium의
+talk에서 제기한 asynchronous circuit에 대한 비판들이다.
+
+
+\pagebreak
+\section{Basic Concepts}
+Clockless circuit의 설계를 위하여 다양한 수학적 모형들이 개발되었는데 이들
+모형들은 각기 다른 assumption들을 가진다.
+이 중 delay model은 
+\subsection{Delay models}
+\paragraph{Two delay models: Pure vs. inertial delay model}
+Delay는 physical circuit에 고유한 특성이며 {\em delay element\/}를
+통해 인위적으로 추가할 수도 있다.
+가장 보편적인 두 개의 delay model은 \bb{pure delay model}과 \bb{inertial delay
+  model}이다.
+Pure delay는 signal의 waveform을 바꾸지 않으며 다만, waveform이 발생하는
+시간을 delay할 뿐이다.
+Inertial delay는 waveform을 변경할 수 있는데, ``ideal'' inertial delay는
+threshould period $D$를 가진다. $D$ 이하의  duration을 가지는 pulse는 
+filter out된다.
+
+\paragraph{Delays according to timing models}
+Delay는 timing model에 의해 characterize될 수 있는데, \bb{unbounded delay
+  model}에서는 delay가 임의의 finite value를 가질 수 있다. \bb{Bounded delay
+  model}에서는 delay는 주어진 time interval 내의 임의의 값을 가질 수 있다.
+\bb{Fixed delay model}은 delay가 모두 동일한 fixed value를 가지는 것으로
+  가정된다. 
+
+\paragraph{Attaching delays to circuit elements}
+일반적으로 delay는 circuit 내의 모든 wire에 associate된다. \bb{simple-gate}
+또는 \bb{gate-level model}에서는 delay가 circuit 내의 각 gate에 attach되며,
+\bb{complex-gate model}에서는 single delay가 network of gates에
+associate된다. 
+
+\subsection{Circuit models}
+Circuit model은 gate와 wire에 대한 delay model을 이용하여 정의된다.
+Gate나 component의 functionality는 일반적으로 instantaneous operator로서
+model된다.
+대부분의 asynchronous circuit model에서는 unbounded gate delay를 가정한다.
+그러나 wire delay에 대해서는 서로 다른 가정을 하는데, 예를 들어,
+delay insensitive circuit에서는 unbounded wire delay를 가정하는데 반해 
+speed independent circuit은 zero wire delay를 가정한다.
+Delay insensitive circuit model이 speed independent circuit model보다 
+더 distinguishing model인데, 이는 speed independent circuit mode은
+fanout에서 서로 달라지는 delay들을 capture하지 못한다는 데에 기인한다.
+예를 들어 gate $g_1$의 output이 gate $g_2$와 $g_3$로 feed된다고 했을 때,
+두개의 stem 상의 wire delay는 달라질 수 있다.
+그러나 speed independent circuit에서는 모든 fanout delay가 동일하다고
+가정한다. 
+\begin{figure}[hbt]
+\small
+\input pics/wire-delay
+\centerline{\box\graph}
+\caption{Wire delays}\label{fig:wire-delay}
+\end{figure}
+
+\subsection{Environmental models}
+Environmental model은 circuit이 어떻게 environment와 interact하는지를
+describe한다. 
+Circuit과 environment, 이 둘은 하나의 closed system을 형성하는데 이를
+\bb{complete circuit}이라 한다.
+Environment가 circuit output에 아무런 timing
+constraint를 가지지 않고 respond할 경우, 이 circuit은 
+\bb{input/output mode}로 동작한다고 한다. 
+또, environment가 circuit이 stable할 때까지 respond할 수 없을 경우, 
+이 circuit은 \bb{fundamental mode}에서 동작한다고 한다.
+
+\subsection{Categories of asynchronous circuits}
+\subsubsection{Delay-insensitive (DI) circuits}
+Delay-insensitive (DI) circuit은 어떠한 gate delay나 wire delay가 발생하더라도
+correct하게 동작한다. 
+Simple gate를 이용하여 구현될 수 있는 실용적인 DI circuit은 극히 드물지만, 더
+복잡한 component를 이용하여 유용한 circuit을 만드는 것은 가능하다.
+  
+
+\subsubsection{Quasi-delay-insensitive (QDI) circuits}
+Delay-insensitive circuit에 \bb{isochronic forks}의 assumption을 추가한 것이
+quasi-delay-insensitive circuit이다. Isochronic fork란, wire가 branch할 경우,
+서로 다른 branch를 통한 delay는 동일하거나 큰 차이를 가지지 않는다는
+가정이다. 
+
+\subsubsection{Speed-independent (SI) circuits}
+Speed-independent (SI) circuit은 gate delay에 무관하게 correct하게 동작한다.
+하지만, correctness를 위해서는 모든 wire는 negligible 또는 zero-delay를 가져야
+한다. 
+
+
+\subsubsection{Self-timed circuits}
+Self-timed circuit은 {\em self-timed element\/}들로 이루어진다.
+하나의 self-timed 
+element는 \bb{equipotential region}에 속하며, 이 region 내에서는
+wire들이 negligible 또는 알려진 delay를 가진다.
+일반적으로 self-timed {\em element\/}는 SI circuit으로서 design되는데,
+element 간의 communication에는 timing assumption이 없다.
+
+\subsubsection{Asynchronous circuits}
+이상 논의된 circuit들은 모두 input/output mode에서 동작하며 environment와의
+communication에 있어 아무런 timing assumption을 가지지 않는다.
+가장 일반적인 category가 asynchronous circuit으로서 global clock을 가지지
+않지만, circuit 내의 environment와의 interaction에 timing assumption을 가질 수
+있다. Set-up과 hold time을 가진 latch나 flip-flop이 이 category에 속한다.
+
+\begin{table}
+\scriptsize
+\centerline{\begin{tabular}{|c|p{2.5cm}|p{2.7cm}|c|}\hline
+\sl Category & \multicolumn{2}{c|}{\sl Timing assumptions} & 
+\sl Environment model \\ \hline
+\bb{delay-insensitive} & arbitrary gate delay &
+ arbitrary wire delay & input/output \\ \hline 
+\bb{quasi-delay-insensitive} & arbitrary gate delay &  isochronic forks 
+& input/output \\ \hline
+\bb{speed-independent} &arbitrary gate delay & no wire delay & input/output \\
+\hline 
+\bb{self-timed}  & arbitrary gate delay & no wire delay in equipotential
+regions, arbitrary wire delay between regions & input/output  \\ \hline
+\bb{asynchronous} & arbitrary gate delay & arbitrary wire delay & fundamental
+ \\ \hline
+	    \end{tabular}}
+\caption{\small Categories of asynchronous circuits}
+\end{table}
+
+
+\subsection{Control protocols; signaling protocols}
+Asynchronous circuit에서 module 간의 모든 communication은 handshaking을 
+통해서 이루어진다.
+Handshaking이란 client module의 request와 server module의 acknowledgement을
+통해 두 개의 module이 의사 전달을 하는 과정을 의미한다.
+Pipeline의 경우를 예로 들면, 두 개의 인접한 pipeline stage는 handshaking을
+통해, 전달하고자 하는 data가 available한지 또는 전달된 data가
+consume되었는지 등의 정보를 교환한다.
+
+일반적으로 
+client와 server 간의 asynchronous signaling을 위해서는 두 개의 wire가
+필요하다. 하나는 server 측에서  request signal을 보내기 위해 사용되며,
+다른 하나는 client 측에서 acknowledge signal을 보내기 위해 사용한다.
+
+
+
+\begin{figure}[hbt]
+%\small
+\centerline{\begin{timing}[2s]{0cm}
+{\linethickness{0.001cm}
+%% Clock
+\til{1}{LLHHHHHHLLLLLLHHHHHHLLLL}
+\til{1.7}{LLLLLHHHHHHLLLLLLHHHHHHL}
+\sline{0.4}{2}{2.2}
+\sline{0.4}{5.0}{2.2}
+\sline{0.4}{8.0}{2.2}
+\sline{0.4}{11.0}{2.2}
+\tnote{2.4}{1.2}{$req^\uparrow$}
+\tnote{2.4}{4.2}{$ack^\uparrow$}
+\tnote{2.4}{7.2}{$req^\downarrow$}
+\tnote{2.4}{10.2}{$ack^\downarrow$}}
+\end{timing}}
+\vspace*{0.5cm}
+\caption{4-phase request-acknowledge handshaking}\label{fig:hshake}
+\end{figure}
+
+
+\subsubsection{RZ signaling: 4-phase handshaking protocol}
+그림~\ref{fig:hshake}의 4-phase handshaking protocol (return-to-zero protocol,
+RZ protocol) 은 다음의 4개의 순차적인 동작을 반복한다.
+\ben
+\w Client는 $req^\uparrow$를 통해 service request를 한다.
+   (Data bundling을 사용하는 경우, 만약 server의 동작에 data가 필요하다면, 
+   이 signal이 server에 도착하기 전에 data 역시 도착해있도록 해야 한다.)
+\w Server는 $ack^\uparrow$를 통해 acknowledge한다.
+   (Data bundling을 사용하는 경우, server는 data를 모두 consume하였고,
+   이제 더 이상 data가 필요하지 않다는 사실을 이 signal을 통해 client에게
+   알린다.)
+\w Client는 $req^\downarrow$를 통해 acknowledge가 접수되었음을 알린다.
+   
+\w Server는 $ack^\downarrow$를 통해 handshaking이 끝났음을 알린다.
+   (Client는 이 signal을 받은 다음에야 
+   새로운 handshaking을 cycle을 시작할 수 있다.)
+\een
+
+
+
+\subsubsection{Transition signaling: 2-phase handshaking protocol}
+Transition signaling은 event-based signaling으로서 rising transition과 falling
+transition이 \bb{event}라는 하나의 의미로 해석된다.
+모든 transition signal에 대한 response들은 \bb{edge-triggered}이며
+rising edge와 falling edge 모두에 대해 trigger된다.
+
+
+\subsubsection{Comparison of two protocols}
+4-phase handshaking protocol을 사용할 경우, 2-phase handshaking의 경우에 비해
+더 많은 time과 energy를 필요로 한다는 단점이
+있는 대신 더 simple하고 cheap한 circuit을 설계할 수 있으며,
+{\em self-initialization\/}을 통해 reset 회로를
+따로 필요로 하지 않는다는 면에서 hardware의 크기를 줄일 수 있다.
+ 
+양자 간의 우열에 대해서는 많은 논란이 있었지만, 현재로서는 ``think 2-phase;
+build 4-phase''로의 합의가 이루어지고 있다 \cite{vBR95}.
+
+
+\subsection{Data encoding schemes}
+
+\subsubsection{Single-rail scheme: Bundled data}
+\bb{Single-rail data encoding scheme}은 1 bit에 하나의 wire를 사용하며,
+data의 validity를 나타내기 위하 추가의 wire를 하나 더 사용한다.
+즉, $n$ bit data를 전달하기 위해서는 $n+1$ 개의 wire를 필요로 한다.
+이 형태의 data encoding을 \bb{bundled data}라고도 부르며 60대의 Macromodule
+project에서 사용된 바 있다.
+특히 wide한 datapath에 있어 single-rail encoding은 wire와 transitor 수를
+줄임으로써 더 작은 area를 이용하여 circuit을 구현할 수 있도록 한다.
+Single-rail encoding은 timing constraint를 부과하는데 이는 {\em 
+data-validity wire를 통한 delay는 datapath 상의 worst-case delay보다 
+커야 한다\/}는 것이다. 이를 \bb{bundling constraint}라 한다.
+
+%% Single-rail datapath의 중요한 장점은 adder나 XOR 같은
+%% 임의의 standard-cell library에서 
+%% datapath operator가
+비록 dual-rail encoding에 비해 single-rail encoding이 area 상에서는
+비효율적이지만, 전체의 circuit의 area를 따질 때 {\em control path\/} 역시
+고려해야 한다. 
+Bundling constraint는 design flow에 있어 새로운 verification obligation을
+야기한다. 
+
+\paragraph{4-phase bunded data convention}
+\begin{figure}[hbt]
+\small
+\centerline{\begin{timing}[2s]{0cm}
+%% Clock
+\tnote{1}{.5}{\tt req}
+\tnote{1.7}{.5}{\tt ack}
+%\tnote{2.7}{1}{\tt data}
+%\tnote{3.3}{1}{\tt data}
+%\tnote{3.9}{1}{\tt data}
+\til{1}{LLLLHHHHHHHHHHHHHHHHHHHHLLLLLLLLLLLLL}
+\til{1.7}{LLLLLLLLLLHHHHHHHHHHHHHHHHHHHHHHLLLLL}
+\til{2.7}{UUXVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVUUU}
+\til{3.3}{UUXVVVVVVVVVVUUUUUUUUUUUUUUUUUUUUUUUU}
+\til{3.9}{UUUUUUUUUUUUUUUUUUUUUXVVVVVVVVVVVVUUU}
+\tnote{2.58}{16}{\rm broad}
+\tnote{3.18}{5.8}{\rm early}
+\tnote{3.78}{26}{\rm late}
+\end{timing}}
+%\vspace*{0.5cm}
+\caption{4-phase data-bundled convention}\label{fig:data-validity}
+\end{figure}
+
+
+\paragraph{2-phase bundled data convention}
+이 scheme \cite{Sutherland89} 에서는 
+세 개의 event가 존재한다: {\em data change}, {\em request
+  event}, {\em acknowledge event}.
+하나의 cycle에 이 세 event가 순서대로 발생하는데, 이를 nonoverlapping clocked
+logic으로 구현할 경우, 5개의 event가 하나의 cycle에 필요로 한다: {\em data
+  change\/}, {\em $\phi_1$ rises}, {\em $\phi_1$ falls}, {\em $\phi_2$ rises},
+{\em $\phi_2$ falls}. 여기서 $\phi_1$과 $\phi_2$는 각기 sender와 receiver를
+동작시키는데 사용되는 clock pulse이다.
+
+\begin{figure}[hbt]
+\small
+\centerline{\begin{timing}[2s]{0cm}
+%% Clock
+\tnote{.5}{.5}{\tt req}
+\tnote{1.7}{.5}{\tt ack}
+%\tnote{2.7}{1}{\tt data}
+%\tnote{3.3}{1}{\tt data}
+%\tnote{3.9}{1}{\tt data}
+  \til{1}{HHHHHHHHHHLLLLLLLLLLHHHHHHHHHHLLLL}
+\til{1.7}{LLLLHHHHHHHHHHLLLLLLLLLLHHHHHHHHHH}
+\til{2.7}{VVVVVVUUVVVVVVVVUUVVVVVVVVUUVVVVVV}
+\tnote{2.58}{.5}{\tt data}
+\end{timing}}
+%\vspace*{0.5cm}
+\caption{2-phase data-bundled convention}\label{fig:2phase-bundle}
+\end{figure}
+
+
+
+\subsubsection{Dual-rail data scheme}
+Dual-rail scheme은 1 bit의 정보를 전달하기 위해 두 개의 wire를 사용한다.
+Sender와 receiver 사이에 $n$ bit의 정보가 전달된다고 했을 때,
+$4n$-wire protocol과 $(2n+1)$-wire protocol의 두 가지가 존재하는데,
+이들 protocol은 2-phase signaling 또는 4-phase signaling과 함께 사용할 수
+있다.
+$4n$-wire protocol은 1 bit의 전송을 위해 4개의 wire ($R_0/R_1/A_0/A_1$) 를
+필요로 하며 $(2n+1)$-wire protocol은 1 bit의 전송을 위해 3 개의 wire
+($R_0/R_1/A$) 를 필요로 한다.
+
+특히, $(2n+1)$-wire protocol이 4-phase signaling과 함께 사용될 경우,
+\bb{dual-rail signaling}이라 부르며, bundled data scheme과는 달리
+delay constraint가 존재하지 않는다는 점에서 dual-rail scheme은
+\bb{delay-insensitive} data encoding scheme으로 불린다.
+
+
+
+\paragraph{Return to zero (RZ)}
+
+\paragraph{Transition signaling}
+여기서도 bit \verb+X+는 두 개의 wire \verb+X0+와 \verb+X1+에 의해 encode된다.
+그러나 여기서 ``0-value가 도착했다는 사건''은 \verb+X0+ 상의 임의의 
+signal 변화 ($0 \rightarrow 1$ 또는 $1 \rightarrow 0$) 에 의해 표현된다.
+마찬가지로 wire \verb+X1+ 상에 발생한 change는 1-value가 도착했음을 나타낸다.
+
+\paragraph{LEDR}
+위에서 다룬 
+두 가지의 delay-insensitive data encoding scheme인 RZ dual-rail encoding
+scheme과 dual-rail transition-signaling-based dual-rail encoding 
+signaling을 비교해보자. 
+
+Dual-rail RZ scheme의 단점은 모든 wire들이 $0$으로 돌아가야 하는
+{\em reset\/} phase를 필요로 한다는 점이다. 그러나 wire level이 도착하는
+value를 직접적으로 나타낸다는 장점이 있다.
+
+
+
+\subsubsection{Power consumption of data encoding schemes}
+하나의 bit를 전달하는데 평균적으로 몇 번의 transition이 필요하느냐를 통해
+각 data encoding scheme의 power efficiency를 계산할 수 있다.
+Control signal을 위한 transition을 제외하고 data wire 상의 transition만을
+고려한다고 했을 때,
+2-phase/4-phase 
+bundled-data scheme에서는 하나의 bit를 전달할때, 평균적으로 $0.5$
+번의 transition을 한다:
+\[ Exp[\mbox{number of transitions}] = \frac{1}{2} \times 1 + \frac{1}{2} \times 0. \]
+Transition signaling (2-phase dual-rail) 에서는 1번의 transition이 필요하며
+RZ signaling (4-phase dual-rail) 에서는 reset이 필요하므로 2번의 transition이
+필요하다.
+
+%재미있는 점은 1-of-4 code scheme의 경우, 
+
+\subsection{Operating modes}
+\subsubsection{Fundamental mode}
+\subsubsection{Input-output mode}
+
+\pagebreak
+\section{Theories of Delay-Insensitivity}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DI-code
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\section{Delay-Insensitive Codes}
+\subsection{Background}
+Coding이란 set of information chunks들을 어떻게 `represent'할 것인가 대한
+연구이다. Coding은 주어진 information set의 각 원소로부터
+representation set으로의 mapping을 정의한다.
+특히, delay-insensitive code는 timing 없이 data arrival을 guarantee할 수 있는
+code들을 의미한다.
+
+\bb{Code}는 pair ${\cal C} = (I, C)$로서 정의된다. 
+이 때, $I$는 \bb{rail index}들의 finite
+set이고 $C$는 $I$의 subset들의 set이다, e.g. $C \subseteq 2^I$. 
+$|I|$를 \bb{code length}라 하고 $|C|$를 \bb{code size}라 한다.
+이 때,  $I$는 communication channel의 각 wire를 나타내고, $C$는 주어진 code
+set에서 의미있는 code word들의 집합을 나타낸다.
+하나의 code word $w \in C$는 chracteristic function $c: I \rightarrow \{0,
+1\}$을 이용하여 나타난다.
+
+\begin{example}[One-hot code]
+One-hot code는 $I =\{i_1, \cdots, i_n\}$, $C = \{\{i_1\}, \{i_2\}, \cdots,
+\{i_{n}\}\}$로 정의되는 code이다. 
+Code word $\{i_1\}$의 characteristic function을 bit vector representation으로
+나타낼 경우, $1000\cdots{}0$이 된다. 
+\end{example}
+Code는 다음의 조건을 만족할 때, \bb{delay-insensitive}라 정의한다:
+ \[  (\forall x, y)[(x \in C \wedge x \in C \wedge x \subseteq y) 
+   \rightarrow (x = y)].\]
+즉, 하나의 code word는 다른 code word에 contain되어서는 안 된다. 만약 그렇지
+않다면, arbitrary delay가 가능한 상황에서 
+receiver 측에서 data를 다 받았는지 아니면 더 기다려야 하는지 판단하지 못하게
+된다. 
+
+
+\bb{Code ${\cal C} = (I, C)$의 complement}는 $\overline{\cal{}C} =
+(I, \overline{C} = \{\overline{w}: w \in C\})$로 정의된다. 여기서
+$\overline{w} = I \setminus w$로 정의된다.
+
+\begin{theorem}
+Code가 delay-insensitive이기 위한 필요충분조건은 그 complement가
+delay-insensitive라는 것이다.
+\end{theorem}
+
+\subsection{Compendium of delay-insensitive codes}
+\subsubsection{$m$-of-$n$ codes and Spencer codes}
+\subsubsection{Berger codes}
+\subsubsection{Knuth codes}
+\subsubsection{Logarithmic codes}
+\subsubsection{LEDR codes}
+
+\subsection{Engineering aspects of delay-insensitive codes}
+\subsubsection{Power consumption in different coding schemes}
+
+\subsection{Theoretical issues of delay-insensitive codes}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HANDSHAKE CIRCUITS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\section{Handshake Circuits}
+{\em Handshake circuit\/}은 {\em handshake channel\/}들로 연결된
+{\em handshake component\/}들의 network로서 정의된다.
+Handshake circuit는 asynchronous circuit에 대한
+specification (또는 program) 으로부터 
+실제 asynchronous circuit을 derive하는 과정에서
+intermediate representation으로 사용된다.
+
+\paragraph{Handshake channels}
+Handshake signaling은 point-to-point synchronization에 사용되는 communication
+mechanism이다. A handshake은 서로 다른 역할을 하는 두 개의 party를 필요로
+하는데, 이 중 한 쪽을 \bb{active} party, 다른 한 쪽을 \bb{passive}
+party라고 한다.
+이 두 party는 서로 \bb{request}와 \bb{acknowledge} signal들을 교환하는데, 
+passive party는 request가 올 때까지 기다리며, request signal이 도착하면
+acknowledge signal을 보냄으로써 대답한다.
+Active party는 request를 issue함으로써 communication을 시작하며, request를
+보낸 후에는 acknowledge가 도착하기롤 기다리게 된다.
+이 request와 acknowledge의 조합을 \bb{handshake}라고 정의한다.
+또, 두 party 간의 communication medium을 \bb{handshake channel}이라고 한다.
+
+하나의 component가 active party인지 아니면 passive party인지는 channel에 대해
+상대적인 개념이다. 특정 component는 channel $c_1$에 대해서는 active이며
+channel $c_2$에 대해서는 passive일 수 있다.
+일반적으로 active handshake party는 bullet ($\bullet$) 으로 그리고 passive
+party는 circle ($\circ$) 로 표시한다.
+
+\begin{figure}[hbt]
+\small
+\[ 
+ \xymatrix@-.7pc{ 
+ \mbox{active} & \bullet \ar@{-}[rrr] & && \circ & \mbox{passive}
+ }
+\]
+\caption{Handshake channel}
+\end{figure}
+
+\begin{figure}[hbt]
+\small
+%% \small
+%% \[ \xymatrix@-.7pc{ 
+%% \mbox{\bf nonput channel} & 
+%%   \mbox{active nonput} & \bullet \ar@{-}[rrr] & && \circ & \mbox{passive nonput}  \\
+%% \mbox{\bf push channel} & 
+%%   \mbox{active output} & \bullet \ar[rrr] & && \circ & \mbox{passive input} \\
+%% \mbox{\bf pull channel} & 
+%%   \mbox{active input} & \bullet \ar@{<-}[rrr] & && \circ & \mbox{passive 
+%%     output} \\
+%% \mbox{\bf biput channel} & 
+%%   \mbox{active biput} & \bullet \ar@{<->}[rrr] & && \circ & 
+%%   \mbox{passive biput}} 
+%% \]
+\caption{Handshake channel의 4가지 유형}
+\end{figure}
+
+
+\paragraph{Handshake components}
+Handshake component는 handshake channel들을 이용하여 environment와
+communicate하는 component이다.
+Handshake component와 handshake channel과의 interface를 \bb{handshake
+port}라고 한다. 이 port는 component가 해당 channel에 대하여 active role을
+가지는지 아니면 passive role을 가지는지에 따라 \bb{active port}와 \bb{passive
+  port}로 구분된다.
+Handshake channel에 data가 encode되는 경우, handshake port는 해당 channel이
+push인지 pull인지에 따라 \bb{output port} 또는 \bb{input port}로 구분되기도
+한다. 
+
+
+
+
+\subsection{Basic elements of asynchronous circuits}
+\paragraph{XOR element}
+XOR element는 event들에 대해서 \bb{OR}의 역할을 한다. 
+XOR의 중요한 특징은 {\em
+  input 중 하나만 state를 change하면 output state가 change된다\/}라는
+  것이다. Input이 셋 이상인 경우에는 parity에 의해 output이 정의된다.
+이 XOR element는 \bb{merge} element라 불리는데 이는 XOR을 통해 둘 이상의
+event stream이 하나로 merge되기 때문이다.
+
+\paragraph{Muller C-element}
+Event들에 대해 \bb{AND}의 역할을 하는 것은 Muller C-element인데, 이 element는
+{\em input 모두가 동일한 logical state를 가질 경우, Muller C-element의 state와
+output이 이 logical state를 copy한다\/}.
+만약 input들이 다른 값을 가지게 되면 Muller C-element의 state는 
+이 전 값을 그대로 유지하게 되며 output 역시 변하지 않는다.
+Muller C-element는 \bb{rendezvous} element라고 불린다.
+
+
+\subsection{Brunvand's 2-phase handshake circuits}
+\subsection{Philips/Manchester's 4-phase handshake circuits}
+\subsubsection{Control components}
+
+
+\paragraph{Q-element}
+Q-element는 computation을 split하는데 사용된다.
+
+
+
+\paragraph{D-element}
+
+\paragraph{Repeater}
+Repeater는 passive port $a$와 active port $b$를 가지고 있으며,
+behavior는 다음과 같이
+$a$를 통해 request가 들어오면 port $b$를 통한 무한한 handshake로써
+respond하는 것으로 정의된다.
+\[ a_r^\uparrow\ 
+(b_r^\uparrow b_a^\uparrow b_r^\downarrow b_a^\downarrow)^* \]
+위의 behavioral specification을 통해 볼 수 있듯이 $a$를 통한 request는
+acknowledge되지 않는다 (이는 $a_a$를 ground시킴으로써 구현할 수 있다).
+
+\begin{figure}[hbt]
+\small
+\input pics/tangram-repeater
+\centerline{\box\graph}
+\caption{Symbol and implementation of the Tangram 
+  repeater}\label{fig:tangram-repeater}
+\end{figure}
+
+\paragraph{Sequencer}
+Sequencer는 두 개의 서로 다른 component를 {\em sequential하게\/} 수행하도록
+하는데에 사용된다. 하나의 passive port $a$와 두 개의 active port $b, c$를
+가지고
+있으며 behavior는 다음과 같이 정의된다.
+\[ (a_r\ b_r\ b_a\ c_r\ c_a\ a_a) \]
+\[ (a_r^\uparrow\  \
+   b_r^\uparrow b_a^\uparrow x^\downarrow b_r^\downarrow b_a^\downarrow\ \
+   c_r^\uparrow c_a^\uparrow a_a^\uparrow a_r^\downarrow 
+   x^\uparrow c_r^\downarrow c_a^\downarrow\ \
+   a_a^\downarrow)^* \]
+%% 실제 4-phase handshake protocol의 동작을 이해하기 위해 위의 behavior를
+%% 분석해보자.
+%% \[ (a_r\!\uparrow\  \
+%%    b_r\!\uparrow b_a\!\uparrow x\!\downarrow b_r\!\downarrow b_a\!\downarrow\ \
+%%    c_r\!\uparrow c_a\!\uparrow a_a\!\uparrow a_r\!\downarrow 
+%%    x\!\uparrow c_r\!\downarrow c_a\!\downarrow\ \
+%%    a_a\!\downarrow)* \]
+
+\paragraph{Mixer}
+\begin{figure}[hbt]
+\small
+\caption{Symbol and implementation of the Tangram mixer}
+\label{fig:tangram-mixer} 
+\end{figure}
+Figure~\ref{fig:tangram-mixer}의 mixer는 passive port $a, b$와 active port
+$c$를 가지고 있다.
+Acknowledgement는 Muller-C element에 의해 생성된다.
+
+\paragraph{L/A;R element}
+
+\paragraph{Arbiter}
+Arbiter는 두 개의 passive port $a, b$와 active port $c, d$를 가지는 handshake
+component로서 $a, b$를 통해 들어오는 request에 대한 arbitration을 제공한다.
+$a, b$를 통해 두 개의 request가 동시에 들어오더라도 둘 중에 하나에 대해서만
+service함으로써 mutual exclusion을 제공한다. 단, Petri-net 명세에서 볼 수
+있듯이 starvation (indefinite postponement) 이 발생할 수 있다.
+
+
+
+\paragraph{Call component}
+
+\paragraph{While component}
+
+\subsubsection{Data components}
+\paragraph{Variable}
+\paragraph{Transferer}
+Transferer는 
+
+\pagebreak
+\section{Metastability and Asynchronous Arbiters}
+Arbiter는 하나의 resource를 다수 개의 모듈들이 공유할 때
+(e.g. shared bus, multiport memory, packet router), 이 resource에 대한
+{\em mutually exclusive\/} access를 보장하기 위하여 사용한다.
+Asynchronous arbiter는 common clock을 사용하지 않으면서 하나의 shared
+resource를 복수 개의 모듈에게 mutually exclusive하게 할당하는 circuit이다.
+Global clock을 가지지 않는 asynchronous sysmtem에서는 arbiter가
+synchronization을 수행하게 된다.
+
+
+\subsection{Seitz의 mutual exclusion element}
+모든 arbiter는 mutual exclusion (ME) element에 의존하여 원하는 동작을
+수행한다. ME element는 latch와 그 output에 metastability detector를 연결시킨
+것이다. 만약 두 개의 request가 device-specific time 내의 짧은 시간 내에
+동시에 발생할 경우, latch는 metastable한 상태에 들어간다. Metastability
+detector는 metastability가 resolve되기 전에는 ME element의 output이 변하지
+않도록 한다.
+
+그림~\ref{fig:seitz-me}은 Chuck Seitz \cite{Seitz80} 에 
+의해 제안된 ME element이다. 왼쪽에는
+R-S latch가 있으며 오른 쪽의 4개의 transistor가 metastability detector
+(interlock element) 의
+역할을 한다. 
+\begin{figure}[hbt]
+\small
+\input pics/seitz-me
+\centerline{\box\graph}
+\caption{Seitz의 ME element}\label{fig:seitz-me}
+\end{figure}
+먼저, 두 개의 input, $R_1$, $R_2$ 중 하나의 input에만 signal이 도착하는 경우를
+생각해보자. $R_1$, $R_2$는 0으로 초기화되어 있다고 가정했을 때,
+NAND gate들의 output들은 1 값을 가지며, 이 1 값을 PMOS transitor들을
+enable시켜 $A_1$, $A_2$이 ground되게 한다.
+$R_1$이 assert되면, 위쪽 NAND gate의 두 input은 모두 1이 되며, NAND gate의
+output은 0이 된다. 이 신호는 아래의 NMOS transistor를 enable하는 동시에 아래쪽
+PMOS transistor를 disable시키며, $A_1$이 1 값을 가지게 한다.
+
+두 개의 input $R_1$, $R_2$가 동시에 (또는 device-specific time 내에)
+1 값을 가지게 되는 경우에는, metastability의 가능성이 있으며, metastable 
+$\cdots$
+
+
+
+
+
+
+
+
+
+
+
+
+\pagebreak
+\section{Asynchronous Pipelines}
+Pipelining는 복수 개의 stage가 동시에 동작하도록 함으로써 high speed
+processor를 구축하는 기술이다.
+
+\paragraph{Elastic vs. inelastic pipelines} 
+Pipeline에 들어있는 data의 양이 고정된
+pipeline을 \bb{inelastic pipeline}이라고 한다. 
+Inelastic pipeline의 input rate와
+output rate는 동일해야 하며, inelastic pipeline에서 processing logic을
+제거하면 \bb{shift register}처럼 동작한다.
+\bb{Elastic pipeline}에서는 input rate와 output rate가 다를 수 있으며 
+elastic pipeline에서 processing logic을 제거하면 \bb{FIFO}처럼 동작한다.
+
+
+\begin{table}[hbt]
+\small
+\centerline{\begin{tabular}{r|c|c|c}\hline
+Pipeline & Control & Data encoding & registers\\ \hline
+Micropipeline & transition + 4-phase & single-rail & level-sensitive\\ 
+Brunvand & transition & single-rail & double-edge-triggered\\ 
+Yun & transition & single-rail & double-edge-triggered\\ 
+asP & transition & single-rail & level-sensitive \\
+GasP & transition & single-rail &  \\
+Mousetrap pipeline & transition & single-rail & \\ 
+PS0 pipeline & 4-phase & dual-rail & \\ 
+PC0 pipeline & & &\\ 
+Lookahead pipeline & & \\ \hline
+\end{tabular}}
+\caption{\small{}Comparison of asynchronous pipelines}
+\end{table}
+
+
+\subsection{Sutherland's micropipelines}
+Micropipleline에서 하나의 stage는 하나의 state를 유지하는데 
+이를 \bb{full/empty} state라고 하자.
+Micropipeline에서 정확한 pipeline의 동작을 위해 사용하는 \bb{control rule}은
+다음과 같다.
+\ben
+\w [(a)] 자신이 empty이고 predecessor가 full이면 항상 새로운 data를 가져오고
+자신의 상태를 full로 set한다.
+\w [(b)] 자신이 full이고 successor가 empty이면 항상 자신의 상태를 emtpy로
+set한다. 
+\een
+이는 다음의 하나의 rule로 단순화될 수 있다.
+\begin{quote}
+\bb{Micropipeline stage rule}: {\em predecessor와 success가 다른 state를
+  가지면, 
+predecessor의 state를 copy하고, 그렇지 않은 경우, 현재 state를 유지하라.\/} 
+\end{quote}
+Micropipeline의 control system은 
+모든 stage가 동일한 state에 있거나 (empty pipeline)
+alternate stage들이 opposite state에 있을 때 (filled pipeline), 
+\bb{stable}하다
+Control circuit의 특성은 
+  \ben
+  \w Muller C-element의 상태는 full/empty를 나타낸다.
+  \w 단, 초기의 상태가 0으로 initialize되었다고 할때 (모든 wire, 모든
+  C-element) $0\rightarrow 1$은 해당 stage에 data가 full임을 나타내고,
+  next stage가 이 full (1) 을 전해받게되면, 이 때부터는 $1$이 empty가
+  되었다는 것을 나타낸다.
+  \w 다시 $1\rightarrow 0$이 되면, 다시 full임을 나타낸다
+  \w 즉, Muller C-element 값 (0 또는 1)의 full인지 empty인지는 next와
+  previous state의 값에 따라 달라진다 (위의 stage rule 참고)
+  \een
+
+
+%% \begin{figure*}[hbt]
+%% \scriptsize
+%% \[\xymatrix@-1.5pc{
+%%         \ar@/^3ex/[rr]^{r_0} \ar@{<-}@/_3ex/[rr]_{a_0}&& 
+%%   **{=<1.8pc>[o][F]}{c_0} \ar@/_3ex/[rr]_{r_1} \ar@{<-}@/^3ex/[rr]^{a_1}&& 
+%%   **{=<1.8pc>[o][F]}{c_1} \ar@/^3ex/[rr]^{r_2} \ar@{<-}@/_3ex/[rr]_{a_2}&& 
+%%   **{=<1.8pc>[o][F]}{c_2} \ar@/_3ex/[rr]_{r_3} \ar@{<-}@/^3ex/[rr]^{a_3}&& 
+%%   **{=<1.8pc>[o][F]}{c_3} \ar@/^3ex/[rr]^{r_4} \ar@{<-}@/_3ex/[rr]_{a_4}&& 
+%%   **{=<1.8pc>[o][F]}{c_4} \ar@/_3ex/[rr]_{r_5} \ar@{<-}@/^3ex/[rr]^{a_5}&&  \\
+%%   &  & & & & & & \\
+%% \mbox{\bb{1.}}& r_0\uparrow \\
+%% \mbox{\bb{2.}}& & c_0\uparrow \\
+%% %0 && 1 && 0 && 0 && 0 && 0 && 0\\
+%% \mbox{\bb{3.}}& a_0\uparrow & & r_1\uparrow &\\
+%% \mbox{\bb{4.}}&&  && c_1\uparrow\\
+%% \mbox{\bb{5.}}&r_0\downarrow&  &a_1\uparrow&&r_2\uparrow \\
+%% \mbox{\bb{6.}}&& c_0\downarrow && && c_2\uparrow\\
+%% \mbox{\bb{7.}}&a_0\downarrow&  &r_1\downarrow&&a_2\uparrow && r_3\uparrow\\
+%% \mbox{\bb{8.}}&& && c_1\downarrow&& && c_3\uparrow\\
+%% \mbox{\bb{7.}}&r_0\uparrow&  &a_1\downarrow&&r_2\downarrow && a_3\uparrow &&
+%%  r_4\uparrow\\
+%% \mbox{\bb{9.}}&& c_0\uparrow && && c_2\downarrow && && c_4\uparrow\\
+%% \mbox{\bb{10.}}&a_0\uparrow&  &r_1\uparrow&&a_2\downarrow && r_3\downarrow
+%%  && a_4\uparrow && r_5 \uparrow\\
+%% \mbox{\bb{11.}}&&  && c_1\uparrow&&  && c_3 \downarrow&& \\
+%% \mbox{\bb{12.}}&r_0\downarrow&  &a_1\uparrow&&r_2\uparrow && a_3\downarrow
+%%  && r_4\downarrow && a_5 \uparrow\\
+%% \mbox{\bb{13.}}&& c_0\downarrow && && c_2\uparrow && && c_4\downarrow\\
+%% }\]
+%% \small
+%% \caption{Micropipeline의 control circuit 동작 예}
+%% \end{figure*}
+
+
+\subsection{Montek/Nowick's mousetrap pipelines}
+\subsection{Williams' PS0/PC0 pipelines}
+\subsection{LEDR pipelines}
+\subsection{Montek's lookahead pipelines}
+
+
+\pagebreak
+\section{Combinational Hazards and Hazard-Free Logic Synthesis}
+\subsection{Combinational hazards}
+\subsubsection{Function hazards}
+\subsection{Hazard-Free logic synthesis}
+\subsubsection{Two-level hazard-free logic synthesis}
+\subsubsection{Multilevel hazard-free logic synthesis}
+\paragraph{Kung algebra}
+\paragraph{Hazard-non-increasing transformations}
+Kung은 
+
+
+\pagebreak
+\section{Approaches to Asynchronous Circuit Specification}
+Asynchronous controller의 design style은 크게 다음의 
+3 개의 category로 나뉠 수 있다:
+(a) translation methods, (b) Petri-net 또는 graph-based methods, 그리고 (c)
+asynchronous state machine-based methods.
+
+\subsection{Translation methods}
+Translation methods는 concurrency construct들을 포함한 high-level language로
+작성된 specification을 일련의 transformation (or translation) 을 통해
+asynchronous circuit으로 compile하는 방법이다.
+ 
+Martin's method는 Hoare의 CSP \cite{Hoare85} 에 기반하고 있으며,
+specification은 channel을 통해 communicate하는 
+set of concurrent process들을 기술한다.
+이 method를 이용하여 distributed mutual exclusion element나 asynchronous
+microprocessor 등이 설계되었는데, 이들 design은 일반적으로 주로 
+four-phase handshaking protocol을 사용하고 있다.
+여기서 생성된 circuit들은 다음의 추가된 assumption을 제외하면 기본적으로
+quasi-delay-insensitive circuit이다. 
+
+Brunvand는 CSP의 variant인 occam을 이용하여 concurrent system을 기술하는
+접근방식을 제시했는데, four-phase handshaking 대신 two-phase handshaking을 
+사용하고 있다. 
+
+
+\subsection{Petri-net-based methods}
+
+
+
+\subsection{Asynchronous state machine-based methods}
+
+
+\pagebreak
+\section{Asynchronous Controllers through Burst-Mode Specifications}
+
+\subsection{Sequential logic circuits}
+
+\begin{figure}[hbt]
+\input pics/bd-seq-circuit
+\centerline{\box\graph}
+\caption{\small{}Block diagram for a sequential circuit}\label{fig:bd-seq-circuit}
+\end{figure}
+
+
+Wire 또는 gate delay 때문에 combinational circuit의 동작시 hazard가
+발생할 수 있다. 이 transient가 flip-flop이나 latch의 입력으로 주어질
+경우에 incorrect state를 야기할 수 있기 때문에 combinational circuit은
+hazard를 발생하지 않도록 구현되어야 한다.
+{\em Fundamental mode operation\/}에서는 memory element들이 모두 {\em
+  stable\/}할 경우에만 (임의의 $i$에 대하여 $y_i = Y_i$) 
+input이 바뀔 수 있도록 제한한다.
+하나의 input transition에 대하여 하나 이상의 state variable이 바뀌는 경우,
+{\em race condition\/}이 발생했다고 한다. 특히, circuit의 correct behavior가
+race의 결과에 종속적인 경우, 이 race를 {\em critical race\/}라고 하는데,
+circuit의 동작이 transient에 의해 영향을 받지 않게 하기 위해서는 
+적절한 state assignment에 의해 critical race를 피해야 한다.
+
+\subsection{Locally-clocked state machine implementation}
+\bb{Locally-clocked asynchronous state machine}은 combinational logic, clock
+control을 가진 storage elements, primary inputs, primary outputs, 그리고
+machine input으로 fed back되는 state variable들로 이루어진다.
+그러나 synchronous design과는 달리, state change는 새로운 input burst가
+도착했을 때에만 발생할 수 있다. 결과적으로, {\em fixed cycle-time\/}이
+존재하지 않는다.
+Clock은 현재의 input과 state에만 dependent하며, 각 module에 {\em local하게\/}
+generate된다. 
+
+
+\subsection{Burst-mode specification}
+Burst-mode specification은 multiple-input change를
+허용하는 asynchronous state machine에 대한 specification이다.
+엄밀히 burst-mode specification은 rooted, labeled, directed graph $G = (V, E,
+I, O, v_0, in, out)$이며, 이 때 $V$는 \bb{state}들의 finite set, $E \subseteq
+V \times V$는 \bb{transition}들의 집합, $I = \{x_1, \cdots, x_m\}$은
+\bb{input}들의 finite set, $O = \{z_1, \cdots, x_n\}$은 \bb{output}들의 finite
+set, $v_0 \in V$는 unique한 \bb{start state}, 그리고 $in$과 $out$은 각 state의
+unique한 entry point를 정의하는 \bb{labeling function}들이다.
+여기서, $in: V \rightarrow \{0, 1\}^m$와 $out: V
+\rightarrow \{0, 1\}^n$은 각 state의 entry point에서 $m$ input과 $n$ output의
+value들을 나타내며, 
+State $v \in V$로 들어가는 시점에서 input variable $x_i$의 value를
+$in_i(v)$로, output variable $z_j$의 value를 $out_j(v)$로 정의한다.
+
+Graph $G$가 주어졌을 때, 두 개의 \bb{edge-labeling function} $trans_i$와
+$trans_o$을 다음과 같이 정의하자.
+$trans_i: E \rightarrow 2^{I}$는 각 edge에 대한 
+input change (or \bb{input burst}) 들의 집합을
+정의하며 $trans_o: E \rightarrow 2^{O}$는 edge에 대한
+output change (or \bb{output burst})
+들의 집합을 정의한다.
+Edge $e \in (u, v)$가 주어졌을 때, input variable $x_i$가 
+$u$와 $v$ 사이에서 value change를 할 경우, 
+$e$의 input burst에 포함된다\footnote{엄밀히, $x_i \in trans_i(e)$이기 위한
+필요충분조건은 $in_i(u) \ne in_i(v)$이다}.
+
+
+주어진 burst-mode specification $G = (V, E, I, O, v_0, in, out)$이 valid하기
+위해서는 다음의 네 가지 조건을 만족해야 한다.
+주의할 점은, 앞의 세가지 조건은 specification의 form에 대한 well-formedness
+condition이지만, 마지막 조건은 specification을 만족하는 implementation에 대한
+성질을 기술한 것이라는 점이다.
+\bde
+\w [Maximal set property]
+임의의 두 edge $(u, v), (u, w) \in E$에 대하여, 
+$trans_i(u, v) \subseteq trans_i(u, w)$이면 $v = w$이다.
+즉, $trans_i(u, v) \cap trans_i(u, w) \not= \emptyset$이어야 한다.
+
+\w [Unique entry point]
+각 state $v$는 항상 unique한 $in(v)$와 $out(v)$를 가진다. 이 조건은
+minimization과 hazard-free implementation이 존재하도록 guarantee하기 위한
+조건이다. 만약 주어진 state diagram이 이 조건을 만족하지 않을 경우, 
+state를 split함으로써 unique entry point 조건을 만족하는 equivalent한
+state diagram으로 변환할 수 있다.
+
+\w [Non-empty input bursts]
+임의의 edge $e \in E$에 대하여, $trans_i(e) \ne \emptyset$이다.
+즉, 모든 input burst는 non-empty이어야 하며, 
+input change가 발생하지 않는 경우,
+system은 stable한 상태이다.
+\w [Arbitrary input change] 
+Input은 임의의 순서로 임의의 시점에서 발생할 수 있다.
+\ede
+
+\begin{proposition}
+$G = (V, E, I, O, v_o, in, out)$에서,
+$(u, v), (u, w) \in E$가 $v \ne w$를 만족하는 
+$u \in V$에서의 임의의 edge pair라 하자.
+이 때, $in(v) \not\in [in(u), in(w)]$가 만족된다.
+\end{proposition}
+
+
+\subsection{State minimization}
+\subsection{State assignment}
+
+
+\pagebreak
+\section{Philips approach}
+
+\subsection{Udding's chracterization of delay-insensitive circuits}
+Udding \cite{Udding86} 은 delay insensitivity를 semantics level에서
+정의하였다. 즉, 하나의 circuit의 semantics를 trace structure로 보았을 때,
+circuit이 delay insensitive하기 위한 필요충분조건을 trace structure 상에서
+제시하였다.
+그러나, 그의 결과는 직접적으로 delay insensitive circuit의 {\em
+  derivation\/}을
+제시하는 것은 아니다.
+다만, delay insensitve circuit이 되기 위해서는 이러해야 한다는 
+requirement를 formalize한 것에 불과하다.
+과연 이런 delay insensitive semantics (``trace structure'') 를 가지는
+circuit을 어떻게 ``implement''할 수 있는지에 대한 논의와는 다른 것임에
+주의해야 한다.
+
+
+\begin{definition}[Trace structure]
+\bb{Trace structure} $T$는 $(A, \mbox{\ trace}(T))$로 정의된다.
+이 때, alphabet $A = I\ \cup\ O$는 input alphabet $I$와 output alphabet $O$의
+union이고 trace$(T) \subseteq A^*$는 $T$의 trace들의 집합이다.
+Trace $t \in I^*$는 alphabet들의 finit sequence이다.
+\end{definition}
+
+\begin{proposition}
+  (\bb{R0}) {\em Trace $s$와 symbol $a \in A$에 대하여, $saa \not\in\
+    \mbox{trace}(T)$.\/} 
+\end{proposition}
+하나의 wire를 통해 동시에 두 개의 연속한 signal이 전송될 수 없다.
+R0를 통해 {\em transmission interference}가 방지된다.
+
+\begin{proposition}
+(\bb{R1})
+  {\em Trace $s$와 $t$, 그리고 symbol $a, b \in I$ (또는 $a, b \in O$) 에
+    대하여,  
+   \[sabt \in \mbox{\ trace}(T) \Leftrightarrow sbat \in \mbox{\ trace}(T).\]}
+\end{proposition}
+   R1은 동일한 방향으로 보내지는 두 개의 wire 상의 두 개의 signal의
+   순서에 system은 robust해야 한다는 의미이다.
+   Unknown wire delay에 의해 어떤 signal이 먼저 도착할지 우리는 guarantee할 수
+   없다.
+   즉, 주어진 trace structure를 만족시키는 system을 구현하고자 할 경우, 
+   우리는 signal 간의 도착 순서를 가정해서는 안 된다.
+
+\begin{proposition}
+(\bb{R2})
+  {\em Trace $s$와 $t$, 그리고 symbol $a \in I$, $b \in O$ 또는 
+   $a \in O, b \in I$에 대하여, 
+   \[(sab \in \mbox{\ trace}(T) \ \wedge\  sba \in \mbox{\ trace}(T))
+    \Rightarrow (sabt \in \mbox{\ trace}(T) \Leftrightarrow sbat \in \mbox{\
+  trace}(T)).\]} 
+\end{proposition}
+
+\begin{proposition}
+(\bb{R3.1})
+   {\em Trace $s$와 서로 다른 symbol $a, b \in A$에 대하여, 
+  $(sa \in \mbox{\ trace}(T) \ \wedge\ sb \in \mbox{\ trace}(T))\
+   \Rightarrow\ sab \in \mbox{\ trace}(T).$}
+\end{proposition}
+   R3.1은 다음의 네 가지 경우를 포함한다. 즉 $i,i' \in I, o,o' \in O$에 대하여,
+   \ben
+   \w $(si \in \mbox{\ trace}(T) \ \wedge\ so \in \mbox{\ trace}(T))\
+   \Rightarrow\ sio \in \mbox{\ trace}(T).$
+   \w $(si \in \mbox{\ trace}(T) \ \wedge\ so \in \mbox{\ trace}(T))\
+   \Rightarrow\ soi \in \mbox{\ trace}(T).$
+   \w $(si \in \mbox{\ trace}(T) \ \wedge\ si' \in \mbox{\ trace}(T))\
+   \Rightarrow\ sii' \in \mbox{\ trace}(T).$
+   \w $(so \in \mbox{\ trace}(T) \ \wedge\ so' \in \mbox{\ trace}(T))\
+   \Rightarrow\ soo' \in \mbox{\ trace}(T).$
+   \een
+
+
+\pagebreak
+\section{Martin's method}
+Martin's method \cite{Martin90book,Martin93} 은 CSP와 Dijkstra의 guarded
+command language에서 derived된 syntax를 가지고 있다.
+Message passing에 기반한 communication model을 가지고 있으며, 하나의 system을 
+set of {\em production rule\/}들로 정의한다.
+Martin's translation method는 주어진 CSP-like high-level program을 
+set of production rule로 translate한 후, 이 production rule들로부터
+circuit을 derive한다.
+
+
+\subsection{Syntax}
+\subsubsection{Commands}
+\bb{Skip command}  `\bb{skip}'은 아무런 동작을 수행하지 않음을 의미한다.
+Boolean variable $b$에 대해, ``$b := \mbox{\bf true}$''는 
+\bb{simple assignment}라 부르며, 해당 variable에 해당 Boolean value를
+assign한다. 
+
+Communication을 위하여 두 개의 communication command가 제공되는데,
+\bb{input command} $X?u$는 input port $X$에서 value $u$를 읽어들임을
+의미하며
+\bb{output command} $Y!v$는 output port $Y$에 value $v$를 출력함을 
+의미한다.
+
+\subsubsection{Composition Operators}
+Commands $S_1$과 $S_2$에 대하여, $S_1;S_2$는 \bb{sequential composition}이라
+부르며 $S_1$의 실행이 끝난 후 $S_2$가 실행됨을 의미한다.
+$S_1 || S_2$는 \bb{parallel composition}이라 부르며 
+$S_1$과 $S_2$가 동시에 수행됨을 의미한다.
+Parallel composition $||$는 \bb{weakly fair}하다: 예들 들어, 
+주어진 state에서 $x$가
+$S_1$의 next atomic action인 경우, $x$의 수행은 {\em finite but
+unbounded\/} number of $S_2$ atomic actions를 수행한 다음에야 가능할 수 있다.
+
+\bb{Coincident composition} $S_1\bullet S_2$는 communication commands를
+compose하는데에만 사용되는데, 이 bullet operator는 $S_1$과 $S_2$가
+\bb{non-interfering}인 경우에만 정의된다.
+
+
+
+\subsubsection{Control constructs}
+먼저 \bb{deterministic selection} command는 
+    $[G_1 \rightarrow S_1 \ ||\ \cdots \ ||\ G_n \rightarrow S_n]$
+과 같이 표기된다. 여기서는 \bb{guarded command}들이 parallel operator들에
+의해 compose되는데, 하나의 guarded command는 $G \rightarrow S$의 형태를
+가진다. $G$는 variable들에 대한 Boolean expression이고 $S$는 command들이다.
+Deterministic selection에서는 $n$ 개의 guard들 중 기껏해야 하나의 guard가
+satisfy되며, satisfy된 guard의 command가 실행된다.
+만약 guard들이 하나도 satisfy되지 않는 경우에는 guard 중 하나가 satisfy될
+때까지 suspend된다. 
+\bb{Nondeterministic select} command는 
+    $[G_1 \rightarrow S_1 \ |\ \cdots \ |\ G_n \rightarrow S_n]$
+과 같이 표기되며, 동시에 복수 개의 guard가 satisfy될 수 있다.
+이 경우, true은 guard들 중 임의의 하나의 guard command가 선택되어 실행된다.
+
+
+\bb{Repetition command} $*[G_1 \rightarrow S_1 \ ||\ \cdots \ ||\ G_n
+  \rightarrow S_n]$는, true인 $G_i$에 대한 $S_i$의 실행을 반복한다. 
+Boolean expression $G$에 대해 $[G]$는 $[G \rightarrow \bb{skip}]$와 동일하며 
+``wait until $G$ holds''의 의미를 가진다.
+따라서, 
+  \[ [G];S \ \ \equiv\ \  [G \rightarrow \mbox{\bf skip}]; S \ \ \equiv\
+  \ [G \rightarrow S] \]
+그리고, command $S$에 대하여 $*[S]$는 $*[\mbox{\bf true} \rightarrow S]$와
+동일하며 ``repeat $S$ forever''를 의미한다.
+
+
+
+
+
+\pagebreak
+\section{Other Methods for Deriving Circuits through Program Transformation}
+
+
+\subsection{Brundvand's handshake circuits}
+
+\subsection{Philips' Tangram and handshake circuits}
+Tangram \cite{Berkel93} 은 Philips에서 개발된 VLSI programming language로서
+일반 programming language가 machine code를 생성하는 것을 목적하는 것과는 달리 
+Tangram program은 handshake circuit을 생성하는 것을 목적으로 작성된다.
+Tangram program들은 소위 ``silicon
+compiler''에 의해 handshake circuit들로 변환되는데 handshake circuit는
+intermediate representation이라 할 수 있다.
+Handshake circuit들은 최종적으로 VLSI circuit으로 변환된다.
+
+Tangram은 4-phase handshaking protocol을 사용한다.
+
+\subsubsection{Simple Tangram program: One-place buffer}
+One-place buffer는 다음의 tangram program $\mbox{\em{}BUF}_1(a, b)$로 
+정의될 수 있다:
+\[ (a?W\ \&\ b!W)\cdot|[x : \mbox{\bb{var}}\ W\ |\ \#[a?x;\ b!x] ]| \]
+여기서 $W$는 임의의 type (예를 들어, {\em bool}) 을 가진다.
+처음의 parantheses pair는 $\mbox{\em{}BUF}_1$의
+external port들인 $a, b$와 그 type을
+선언한다. Tangram program의 body는 
+
+
+\begin{table}[hbt]
+\small
+\centerline{\begin{tabular}{c|c|c} \hline
+notation & port activity & channel type \\ \hline
+$a^{\circ}$ & passive & nonput \\
+$a^{\bullet}$ & active & nonput \\ \hline
+	    \end{tabular}}
+\caption{Handshake channel $a$에 연결되는 port type을 표기하기 위한 notation}
+\end{table}
+
+\subsection{Manchester's Balsa}
+
+\pagebreak
+\section{Petri-Net-Based Synthesis Methods for Speed-Independent Circuits}
+SI 또는 QDI circuit의 specification style로 가장
+널리 사용되는 formalism은 STG (state transition graph) 이다.
+이 approach에서는 unbounded gate delay를 가정하며, wire delay에 
+있어서는 isochronic fork assumption을 가진다.
+
+\subsection{Speed-independent circuits}
+임의의 allowed state sequence에서 마지막의 class를 \bb{terminal class}라
+부른다. Circuit은 state $s$에서 시작하는 모든 state sequence가 동일한 terminal
+class를 가질 때, \bb{state $s$에 대해 speed independent}하다고 정의한다.
+
+주어진 STG로부터 SG가 derive되었다고 하자. 
+SG의 allowed sequence는 다음과 같은 조건을 만족하는 state sequence이다.
+\ben
+\w [(a)] Consecutive states $s_i$와 $s_{i+1}$은 동일하지 않다.
+\w [(b)] 임의의 state $s_{j+1}$과 signal $u_i$에 대해서 다음 중 하나가
+성립한다:
+\[ s_{j+1}(i) = s_j(i) \mbox{\ 또는\ } s_{j+1}(i) = s_j'(i).\]
+\w [(c)] $s_j$를 follow하는 sequence의 모든 $s_r$에 대하여
+  $s_j(i) = s_r(i)$와 $s_j'(i) = s_r'(i)$를 만족시키는 signal $u_i$와
+  state $s_j$가 존재할 경우, 
+   $s_j(i) = s_j'(i)$가 만족된다.
+\een
+
+
+
+
+
+\subsection{Petri nets}
+\bb{Petri net}은 quadruple $\mbox{\em{}PN} = \arc{P, T, I, O}$로서
+정의되는데, 이 때 $P$는 \bb{place}들의 finite set,
+$T$는 \bb{transition}들의 finite set이고,
+$I: T \rightarrow P^{\infty}$와 $O: T \rightarrow P^{\infty}$는
+각기 \bb{input function\/}과 \bb{output function}이다. 
+$I$와 $O$는 $T$에서 bags of places로의 mapping으로 정의된다\footnote{Bag
+theory는 set theory의 extension으로써 
+element들의 multiple occurrences를 허용한다.
+Bag theory에서, ``number of occurrences'' relation이 set theory에서의
+``membership'' relation을 대신하며, Bag $B$에서 원소 $x$의 occurence의 수는
+$\#(x, B)$로 denote된다.}.
+\bb{Marking\/} $\mu: P \rightarrow \N$는 places에서 \N으로의 mapping으로서,
+token을 place에 assign하는 것을 의미한다.
+일반적으로, $\mu$는 $|P| = n$인 경우, $n$-vector로서 표현되는데, 
+$\mu = (\mu_1, \mu_2, \cdots, \mu_n)$에서 
+$\mu_i = \mu(p_i)$는 place $p_i$에서의 token의 갯수를 의미한다. 
+\bb{Marked Petri net\/} $M = \arc{\mbox{\em{}PN}, \mu}$은
+Petri net $\mbox{\em{}PN}$와 marking $\mu$의 tuple로서 정의된다.
+
+Petri net은 net 상의 token들의 분포에 의해 control되는데, 
+Petri net의 execution은 transition을 \bb{fire}함으로써 이루어진다:
+이 때 transition $t_j$는 $t_j$의 input place에 있는 token들을
+$t_j$의 output place들로 distribute함으로써 fire된다.
+Transtion $t_j$는 transition이 \bb{enabled}일 때만 fire될 수 있는데,
+$t_j$는 $p_i \in P$에 대하여 
+	\[ \mu(p_i) \geq \#(p_i, I(t_j)), \]
+일 경우에만 fire될 수 있다.
+여기서, $\#(p_i, I(t_j))$는 $p_i$에서 $t_j$로의 arc의 갯수를
+나타낸다\footnote{마찬가지로 $\#(p_i, O(t_j))$는 $t_j$에서 $p_i$로의 arc의
+  수를 나타낸다.}.
+
+\paragraph{State space of Petri nets}
+Marked Petri net $\arc{PN, \mu}$이 주어졌을 때, net의 \bb{state}는 
+marking function에 의해 정의된다.
+$n$-place Petri net의 \bb{state space}는 transition의 firing에 의해
+가능한 모든 marking과 state change들의 집합으로 정의된다.
+일반적으로 state space는 ${\N}^n$로 표기한다.
+\bb{State transition function} $\delta: {\N}^n \times T \rightarrow 
+{\N}^n$ 은 다음과 같이 정의된다:
+$\delta(\mu, t_j) = \mu'$일 경우, 각 $p_i \in P$에 대하여,
+	\[ \mu'(p_i) = \mu(p_i) - \#(p_i, I(t_j)) + \#(p_i, O(t_j)).\]
+
+\subsection{STG: Signal Transition Graphs}
+STG는 다음의 특징을 같는 Petri-net의 부류이다.
+\ben
+\w Input-choice free이다. 
+\w 
+\een
+
+
+
+
+\pagebreak
+\section{Formal Methods: Concurrency Theories}
+본 절에서는 수많은 formal method 중 
+
+\subsection{Hoare's CSP}
+
+
+\subsection{Milner's CCS and $\pi$-calculus}
+
+%%%%
+\subsection{Trace theory}
+CSP의 trace model은 이전 절에서 다루어진 바 있지만, 본 절에서는 
+Rem  et al.에 의해 제안되었고, Dill \cite{Dill89} 에서 발전된 VLSI
+circuit을 위한 tracy theory를 다룬다.
+
+\begin{definition}[Conformance]
+동일한 input set $X$와 output set $Z$를 가지는
+두 개의 trace structure $I$ and $S$에 대하여,
+다음의 두 조건이 만족될 때  $I$는 $B$에 \bb{conform}한다라고 정의하고,
+이를 $I \preceq S$로 표기한다:
+\ben
+\w [(a)] 임의의 $\alpha \in S_I \cap S_S$와 input $i \in X$에 대하여,
+   \[\alpha i \in S_S  \Rightarrow \alpha i \in S_I.\]
+\w [(a)] 임의의 $\alpha \in S_I \cap S_S$와 output $j \in X$에 대하여,
+   \[\alpha j \in S_I  \Rightarrow \alpha i \in S_S.\]
+\een
+\end{definition}
+즉, $I$가 $S$에 conform하면, 우리는 안전하게 $S$를 $I$로 substitute할 수 
+있는데, 이는 조건 (a)에 의하여, $S$가 handle할수 있는 입의의 입력은 $I$도
+handle할 수 있으며, 조건 (b)에 의하여 $I$는 기껏해야 $S$가
+produce하는 정도의 출력 밖에는 할 수 없기 때문이다.
+
+
+\begin{example}
+$M$이 $((a + b)c)^*$이고 $AM$가 $(acbc)^*$인 경우, $M \preceq AM$인가 
+아니면 $AM \preceq M$인가?
+\end{example}
+
+\begin{example}
+$U$가 $(a (bc + cb)$이고 $V$가 $(abc)^*$인 경우, $U \preceq V$인가 
+아니면 $V \preceq U$인가?
+\end{example}
+
+\begin{example}
+$M$이 $((a+b)c)^*$이고 $B$가 $(a+b)^*$인 경우, $M \preceq B$인가
+아니면 $B \preceq M$인가?
+\end{example}
+
+
+
+\begin{observation}
+Trace theory는 safety property는 검사할수 있지만, liveness property는 검사할
+수 없다. 
+\end{observation}
+즉, trace theory에 의하여 implementation $I$가 specification $S$에
+conform한다는 사실을 증명을 했다고 했을 때, 이 증명이 $I$는 ``safe하게'' $S$를
+대치할 수 있다는 사실은 보장하지만, $I$가 liveness property를 가진다는 사실은
+증명하지 못한다. 
+
+
+
+\paragraph{Three operators on trace structures}
+\subparagraph{Rename}
+\subparagraph{Hide}
+\subparagraph{Compose}
+두 개의 trace structure $\T_1 = (\I_1, \O_1, \M_1)$과 
+$\T_2 = (\I_2, \O_2, \M_2)$가 주어졌다고 하자.
+
+
+\paragraph{Example: 4-phase arbiter와 merge element의 composition}
+4-phase arbiter ARB$(r_1, r_2, a_1, a_2)$와 merge element
+MERGE$(a_1, a_2, z)$가 주어졌다고 하자.
+ARB는 두 개의 input $r_1, r_2$를 가지며, 두 개의 output $a_1, a_2$를 
+가진다. 
+ARB의 interface들의 쌍 $(r_1, a_1)$과 $(r_2, a_2)$는 4-phase로 동작하며
+MERGE는 2-phase로 동작한다.
+이 때, ARB의 경우, $a_1^\uparrow$ 와 $a_1^\downarrow$의 사이, 그리고
+$a_2^\uparrow$ 와 $a_2^\downarrow$는 critical section이다.
+
+이 두 component를 이용하여,
+새로운 circuit
+   \[ \mbox{\bb{hide}}
+   (a_1, a_2) [ \mbox{\bb{compose}}
+     (\mbox{ARB}(r_1, r_2, a_1, a_2), \mbox{MERGE}(a1, a_2, z))] \]
+을 만들었다고 하자.
+우리가 하고자 하는 것은, trace theory 상에서,
+이 새로운 circuit과 MERGE 간에 어떤 conformance 관계가
+존재하는지, 그리고 이 새로운 circuit과 Alternating MERGE 간에 어떤 관계가
+존재하는지를 알아내는 것이다.
+
+Arbiter에 대한 trace structure $\T_{A} = (\I_{A}, \O_{A}, \M_{A})$는
+$\I_{A} = \{r_1, r_2\}$, 
+$\O_{A} = \{a_1, a_2\}$, 그리고 Figure~\ref{fig:automata}의 왼쪽 automata
+로 명세할 수 있고, 
+merge element component에 대한 trace structure는 
+$\T_{M} = (\I_{M}, \O_{M}, \M_{M})$는 
+$\I_{A} = \{a_1, a_2\}$, 
+$\O_{A} = \{z\}$와 Figure~\ref{fig:automata}의 오른쪽 automata
+로 명세할 수 있고 
+
+\begin{figure}[hbt]
+\begin{minipage}{6cm}
+{\scriptsize
+\[\xymatrix{
+ \ar[r]
+  &**{=<1.4pc>[o][F]}{P_0} \ar[r]^{r_1} \ar[d]_{r_2}& 
+     **{=<1.4pc>[o][F]}{P_1} \ar[r]^{a_1} \ar[d]_{r_2}& 
+     **{=<1.4pc>[o][F]}{P_2} \ar[r]^{r_1} \ar[d]_{r_2}&
+     **{=<1.4pc>[o][F]}{P_3} \ar@/_6ex/[lll]_{a_1} \ar[d]_{r_2}\\
+ & **{=<1.4pc>[o][F]}{P_4} \ar[r]^{r_1} \ar[d]_{a_2}& 
+     **{=<1.4pc>[o][F]}{P_5} \ar[r]^{a_1} \ar[d]_{a_2}& 
+     **{=<1.4pc>[o][F]}{P_6} \ar[r]^{r_1} &
+     **{=<1.4pc>[o][F]}{P_7} \ar@/_6ex/[lll]_{a_1} \\
+ & **{=<1.4pc>[o][F]}{P_8} \ar[r]^{r_1} \ar[d]_{r_2}& 
+     **{=<1.4pc>[o][F]}{P_9} \ar[d]_{r_2} \\
+ & **{=<1.4pc>[o][F]}{P_8} \ar[r]^{r_1} \ar@/^7ex/[uuu]^{a_2} & 
+     **{=<1.4pc>[o][F]}{P_9} \ar@/^7ex/[uuu]^{a_2} 
+}\]
+}
+\end{minipage} \ \
+\begin{minipage}{5cm}
+{\scriptsize
+\[\xymatrix{
+  \ar[r]& **{=<1.4pc>[o][F]}{Q_0} \ar@/^3ex/[rr]^{a_1, a_2}&&
+  **{=<1.4pc>[o][F]}{Q_1} \ar@/^3ex/[ll]^{z}
+}\]}
+\end{minipage}
+\caption{Trace structure $\T_A$와 $\T_M$에 대한 automata}\label{fig:automata}
+\end{figure}
+
+
+이제 두 개의 trace structure $\T_A$와 $\T_M$을 compose해보자.
+이를 위해, 각각에 failure state를 추가한 결과는 다음과 같다.
+
+\begin{figure}[hbt]
+\begin{minipage}{6cm}
+{\scriptsize
+\[\xymatrix{
+\ar[r]
+  &**{=<1.4pc>[o][F]}{P_0} \ar[r]^{r_1} \ar[d]_{r_2} & 
+     **{=<1.4pc>[o][F]}{P_1} \ar[r]^{a_1} \ar[d]_{r_2} & 
+     **{=<1.4pc>[o][F]}{P_2} \ar[r]^{r_1} \ar[d]_{r_2}&
+     **{=<1.4pc>[o][F]}{P_3} \ar@/_6ex/[lll]_{a_1} \ar[d]_{r_2} \\
+ & **{=<1.4pc>[o][F]}{P_4} \ar[r]^{r_1} \ar[d]_{a_2}& 
+     **{=<1.4pc>[o][F]}{P_5} \ar[r]^{a_1} \ar[d]_{a_2}& 
+     **{=<1.4pc>[o][F]}{P_6} \ar[r]^{r_1} &
+     **{=<1.4pc>[o][F]}{P_7} \ar@/_6ex/[lll]_{a_1} \\
+ & **{=<1.4pc>[o][F]}{P_8} \ar[r]^{r_1} \ar[d]_{r_2}& 
+     **{=<1.4pc>[o][F]}{P_9} \ar[d]_{r_2} \\
+ & **{=<1.4pc>[o][F]}{P_8} \ar[r]^{r_1} \ar@/^7ex/[uuu]^{a_2} & 
+     **{=<1.4pc>[o][F]}{P_9} \ar@/^7ex/[uuu]^{a_2}  & & 
+     **{=<1.4pc>[o][F]}{P_F} \ar@(d,r)_{a_1,a_2}
+}\]
+}
+\end{minipage} \ \
+\begin{minipage}{5cm}
+{\scriptsize
+\[\xymatrix{
+  \ar[r]& **{=<1.4pc>[o][F]}{Q_0} \ar@/^3ex/[rr]^{a_1, a_2}&&
+  **{=<1.4pc>[o][F]}{Q_1} \ar@/^3ex/[ll]^{z} \ar[dd]^{a_1,a_2}\\ \\
+  &&& **{=<1.4pc>[o][F]}{Q_F} \ar@(d,r)_{a_1,a_2}
+}\]}
+\end{minipage}
+\caption{Failure state를 추가한 automata}\label{fig:with-failure}
+\end{figure}
+
+
+
+
+\subsubsection{Circuit algebra}
+
+
+\subsection{Delay-insensitivity}
+Udding \cite{Udding86} 은 delay-insensitivity를 trace theory를 이용하여
+엄밀하게 정의하였다.
+Delay
+
+\subsection{DI algebra}
+
+\subsection{Comparative semantics}
+
+
+\pagebreak
+\section{Model checking}
+
+
+
+\pagebreak
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/async,00bib/algo,00bib/formal,00bib/math}
+\nocite{Nowick95,Dill89,DP98,YPL94}
+\end{document}
+% LocalWords:  cjeong

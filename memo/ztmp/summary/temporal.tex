@@ -1,0 +1,82 @@
+\section{TEMPORAL LOGIC}
+\subsection{Basics}
+\bit
+\w $Fq$ is true in the \ee{present} if $q$ is true {\em at some time in the
+  future}. 
+\w $Pq$ is true in the \ee{present} if $q$ is true {\em at some point in the
+  past}. 
+\w $Gq$ is true in the \ee{present} if $q$ is {\em always\/} true {\em in the
+  future\/}.  
+  That is, $Gq \equiv \neg P\neg q$. 
+\w $Hq$ is true in the \ee{present} if $q$ is {\em always\/} true {\em in the
+  past\/}.  
+  That is, $Hq \equiv \neg P\neg q$. 
+\eit
+\subsection{Possible worlds semantics}
+\bit
+\w A \bb{frame} consists of
+a class $S$ of \bb{states} through which the system evolves, and a relation
+$<$ representing \bb{temporal order}. A \bb{model} of a temporal logic 
+is a frame with a \bb{valuation} $L$, which assigns truth
+values to every atomic proposition in every state. 
+This model is essentially a \bb{Kripke structure} $(S, <, L)$.
+
+
+\w A {\em temporal formula\/} is a term with one free parameter representing
+the present state. That is, a formula defines a function $f: S \rightarrow
+\{T, F\}$. 
+
+Now, $f^{-1}(T)$ returns the set of states where the {\em given\/} 
+formula evaluates to true.
+\eit
+
+\subsection{Basic deduction system for temporal logic}
+\bit
+\w The following choice of \bb{axioms} in the logic characterize the temporal
+ordering relation $<$.
+  \begin{eqnarray*}
+   G(p \Rightarrow q) & \Rightarrow & (Gp \Rightarrow Gq)\\
+   H(p \Rightarrow q) & \Rightarrow & (Hp \Rightarrow Hq)\\
+   p & \Rightarrow & GPp\\
+   p & \Rightarrow & HFp
+  \end{eqnarray*}
+\w Two \bb{inference rules} are used: \bb{modus ponens} and \bb{temporal
+  generalization}. 
+%  \begin{eqnarray*}
+  \[\infer{q}{p, p \Rightarrow q} \quad \mbox{(MODUS PONENS)}, \qquad\qquad
+  \infer{Gq, Hq}{q}\quad \mbox{(TEMPORAL GENERALIZATION)}\]
+%  \end{eqnarray*}
+  Temporal generalization means that the rules of sound inference does not
+  change with time. That is, if $q$ is derivable at some point, it should be
+  derived at any future or at any past.
+  
+\eit
+
+\subsection{Linear time}
+\bit
+\w We think of time as a \bb{linearly ordered set}.
+\w A frame is linearly ordered if the temporal order $<$ is \bb{total}.
+\w Two more axioms are needed:
+  \begin{eqnarray*}
+   (FPq) & \Rightarrow & (Pq \vee q \vee Fq)\\
+  (PFq) & \Rightarrow & (Pq \vee q \vee Fq)
+  \end{eqnarray*}
+\w Linear time temporal logic is usually extended with the \bb{until} operator
+and the \bb{since} operator. 
+\w $p U q$ states that $p$ will hold at some moment
+in the future, until which time $q$ will hold at all moments.
+\w $p S q$ states that $p$ held at some moment in the past, since which time
+$q$ has held at all moments.
+\eit
+
+\subsection{Discrete time}
+\bit
+\w Discrete time frames can be characterized by adding the following two
+axioms to those for \bb{linear time logic}:
+  \begin{eqnarray*}
+   p \wedge Hp   & \Rightarrow & FH p \\
+   p \wedge Gp   & \Rightarrow & PG p 
+  \end{eqnarray*}
+\eit
+
+\subsection{Branching (non-deterministic) time}

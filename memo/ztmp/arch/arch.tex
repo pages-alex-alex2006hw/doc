@@ -1,0 +1,111 @@
+\documentclass{myart}
+\usepackage{mydef,epsfig}
+\def\sbf{\sf\bfseries}
+\def\Q{{\sf{}Q}}
+\def\A{{\sf{}A}}
+\begin{document}
+\title{\large\bf Notes on Computer Architecture \vspace*{-0.5cm}}
+\author{\normalsize Cheoljoo Jeong $\arc{\mbox{cjeong@cs.columbia.edu}}$}
+\date{}
+\maketitle
+\small
+
+\section{Hazards}
+\subsection{Hazards in P/H basic 5-stage pipeline}
+\subsubsection{Structural hazards}
+\bit
+\w \ee{happens when there exist resource contentions}
+\w \bb{register file}: dual-ported read, single-ported write
+  \bit
+  \w \Q: what if we need two register writes in one cycle?
+  \w \A: not in 5-stage pipeline. reg-write happens only in WB stage. and only
+  one instruction can be in WB stage.
+  \w \Q: if it happens in other pipelines?
+  \w \A: dual-ported write register file. or all but one ``write'' must STALL.
+  \eit
+\eit
+\subsection{Data hazards}
+\bit
+\w \ee{happens when pipeline changes order of an access to operands}
+\w \bb{solutions}:
+   \bit
+   \w \bb{forwarding/bypassing}: FU (forwarding unit) 을 만들어서, ``어느 때''
+   forwarding이 필요한지를 detect;
+   \w FU는 \bb{producer instruction}은 무엇이고, {consumer instruction}은
+   무엇인지 나열한 후, 각 pair에 대해 \bb{condition}을 기술하고, \bb{action}을
+   기술함 
+      \bit
+      \w e.g. IR.EX/MEM[op] = R-type 이고 IR.ID/EX[op] = R-type 이고,
+              IR.EX/MEM[rd] = IR.ID/EX[rs] 이면, ...
+      \eit 
+   \w Forwarding의 \bb{source points}:
+       \ben
+       \w ALU result
+       \w Data Memory output
+       \een
+   \w Forwarding의 \bb{destination points}:
+       \ben
+       \w ALU input A 
+       \w ALU input B
+       \w Data memory (In)
+       \w COND $\stackrel{?}{>} 0$
+       \een
+   \eit
+\w \bb{load delay}: extra latency to produce load result (일반 ALU instruction
+경우, EX stage에서 result, LOAD instr.의 경우, MEM stage에서 result) 
+\w \bb{Classification}  
+   \bit
+   \w RAW (read after write)
+   \w WAW (write after write): NO since write happens only in WB
+   \w WAR (write after read): 
+   \w RAR (read after read): NOT a hazard
+   \eit
+\w \Q: Memory location (instead of regs) 을 통한 data hazard는 가능한가?
+\w \A: No. since MEM stage는 instruction-order를 preserve
+\w \bb{HDU (hazard detection unit)}: forwarding에 의해 해결 불가능한 경우에,
+   stall시켜주는 unit
+   \ben
+   \w freeze PC \& freeze IF/ID
+   \w advance EX-WB forward
+   \w inject no-op (bubble) to EX stage (즉, ID/EX pipeline reg)
+   \een
+\eit
+\subsection{Control hazards (a.k.a. branch hazards)}
+\bit
+\w POLICY\#1: \bb{ALWAYS STALL} (3 cycle penalty)
+\w POLICY\#1': \bb{ALWAYS STALL, Use ``optimized'' pipeline\footnote{BTA와 COND
+  resolution을 ID stage에서}} (2 cycle penalty)
+\w POLICY\#2A: \bb{Assume ``Branch Not Taken'' (= ``Branch unlikely'')}
+   \bit
+   \w Idea: fall-through does not stall
+   \w Penalty: 실제로 branch NOT taken인 경우 penalty 0, branch taken인 경우,
+   penalty 1 
+   \eit
+\w POLICY\#2B: \bb{Assume ``Branch Taken'' (= ``Branch likely'')}
+   \bit
+   \w Idea: branch does not stall
+   \w Penalty: 실제로 branch taken인 경우 penalty 0, branch NOT taken인 경우,
+   penalty 1 
+   \eit
+\w POLICY\#3: \bb{Branch delay slot (COMPILER solution)}
+   \bit
+   \w Idea: we always execute the instr. following branch; schedule something
+   useful for this delay slot
+   \w Variants: FROM FALL-THROUGH, FROM TARGET, FROM BEFORE
+   \eit
+\w POLICY\#4: \bb{Canceling/Nullifying branch}
+\eit
+\subsection{Hazards in ``Multicycle Operations''}
+\bit
+\w EX-units: 
+   \bit
+   \w integer unit (1 cycle): handles load/store (EA calculation), int ALU
+   ops, branches
+   \w FP add/sub (4 cycles): pipelined
+   \w FP/int multiplier (7 cycles): pipelined
+   \w FP/int divider (40 cycles): NOT pipelined
+   \eit
+\eit
+
+
+\end{document}

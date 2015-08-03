@@ -1,0 +1,273 @@
+% $Id: plt.tex,v 1.1.1.1 2002/08/10 03:28:03 cjeong Exp $
+% Cheoljoo Jeong (cjeong@cs.columbia.edu)
+%
+\documentclass{myart}
+\usepackage{mydef,epsfig}
+\usepackage[all]{xy}
+\begin{document}
+\small
+\hrule
+\vspace*{0.2cm}
+\noindent
+{\normalsize\bf Notes on Programming Languages and Translators}
+\vspace*{0.1cm}\\
+{\small{}Author: Cheoljoo Jeong (\tt{}cjeong@cs.columbia.edu})\\
+{\small{}Date: \today}
+\vspace*{0.2cm}
+\hrule
+
+\section{Values}
+\subsection{Types and values}
+\bit
+\w a {\em type\/} is a set of values
+\w a \bb{primitive type} is one whose values are atomic and
+	therefore cannot be decomposed into simpler values
+\w \bb{composite types}: 
+	\bit
+	\w Cartesian products (tuples and records)
+	\w disjoint unions (variants and unions)
+	\w mappings (arrays and functions)
+	\w powersets (sets)
+	\w recursive types (dynamic data structures)
+	\eit
+\eit
+\subsection{Type systems}
+\bit
+\w In a \bb{statically typed} languages, every variable and parameter
+	has a fixed type chosen by the programmer.
+\w In a \bb{dynamiically typed} languages, only the {\em values\/}
+	have fixed types. 
+	\bit
+	\w A variable and parameter has no designated
+	types, but may take values of different types at different
+	times.
+	\w The operands must be type-checked {\em immediately before\/}
+	performing an operation at {\em run-time\/}
+	\w Example: Lisp \& Smalltalk
+	\eit
+\w \bb{structural equivalence} of types:
+	$T \equiv T'$ iff $T$ and $T'$ have the same set of values
+\w \bb{name equivalence}:
+	$T \equiv T'$ iff $T$ and $T'$ were defined in the same place
+\w \bb{first-class values}: assigned as 
+\w \bb{type completeness principle}: no operation should be
+	{\em arbitrarily\/} restricted in the types of the values involved
+\eit
+
+
+
+\section{Storage}
+\section{Bindings}
+\bit
+\w A \bb{binding} is a pair of \bb{name} and \bb{value} it denotes.
+\w An \bb{environment} is a set of bindings.
+\w \bb{static and dynamic biding}
+\eit
+
+%%%%
+\section{Type Systems}
+\bit
+\w \bb{monomorphic} type system:
+	not good for reuse; e.g. sorting procedures are inherently
+	{\em generic}
+\w \bb{overloading}: a single name enotes several abstractions
+	simulataneously
+\w \bb{polymorphism}: abstractions that operate uniformly on
+	values of different types
+\w \bb{inheritence}: subtypes inherit operations from their supertypes
+\eit
+
+\subsection{Monomorphism}
+\bit
+\w 
+\eit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Q1
+\section{Lexical Analysis}
+\subsection{The role of the lexical analyzer}
+\bit
+\w What does a lexical analyzers do?
+	\bit
+	\w reads the input characters and produce as output a sequence
+of tokens that the parser uses for syntax analysis
+	\w correlates error messages from the compiler with the source
+program
+	\w strips out from the source program comments and white
+spaces
+	\w sometimes, macro preprocessor functions may be implemented
+as part of a lexical analyzer
+	\eit
+\w Why separate the lexical analysis from parsing
+	\bit
+	\w \bb{for simpler design}: parser assuming no white space and
+comments are far easier to design than one that does not
+	\w \bb{compiler efficiency}:  a large amount of time is spent
+doing I/O (reading source file); speciailized techniques for reading
+and processing tokens can speed up the compilation process
+	\w \bb{compiler portability}: 
+	input alphabet peculiarities and other device-specific
+anomalies can be restricted to the lexical analyzer (e.g, Pascal's
+$\uparrow$ operator)
+	\eit
+\w \bb{Tokens, patterns, lexemes}
+	\bit
+	\w \bb{pattern}: a rule describing the set of lexemes that can
+represent a particular token in source programs
+		 a set of strings for which the same token
+		is produced
+	\w a pattern is said to {\em match\/} each string in the set
+	\w \bb{lexeme}: a sequence of characters in the source program
+that is matched by the pattern for a token
+	\w Example: {\tt const pi = 3.1416;} 
+		\bit
+		\w {\tt pi} is a lexeme for the token {\em IDENTIFIER\/}.
+		\eit
+	\w {\em {tokens} are terminal symbols in the grammar}
+	\eit
+\w \bb{Attributes for tokens}
+	\bit
+	\w when more than one pattern matches a lexeme, lexer must
+provide additional information
+	e.g. pattern \bb{num} may match both the string {\tt 0} and {\tt
+1},
+	though not useful for lexer but it's essential for the code generator 
+	\eit
+\eit
+
+
+
+\section{Run-Time Environments}
+\bit
+\w We need to relate the {\em static source text\/} to the {\em
+	actions	that must occur at run time\/}
+\w Relationship between \bb{names} and \bb{data objects}
+	\bit
+	\w same name deonte different data objects as execution proceeds
+	\eit
+\w Allocation and deallocation of data objects is managed by the {\bf
+	run-time support\/} package
+	\bit
+	\w run-time support package consists of routines loaded ``with''
+		the generated target code
+	\eit
+\w Each execution of a procedure is referred to as an \bb{activation}
+	of the procedure
+	\bit
+	\w For recursive procedure, there may be several of its
+		activations
+	\eit
+\w The {\bf representation\/} of a data object at run time is
+	determined
+	by its {\em type\/}
+\eit
+\subsection{Source language issues}
+\bit
+\w A \bb{procedure definition} is a declaration that, in its simplest
+	form, associates an identifier (procedure name) with a 
+	statement (procedure body).
+\eit
+\paragraph{Activation trees}
+	\bit
+	\w Assumptions: 
+		\bit
+		\w control flows sequentially
+		\w each execution of a procedure starts at the
+beginning of
+		the procedure and eventually returns control to the
+point immediately following the place where the procedure was called;
+	this means the flow of control between procedures can be
+depicted
+using {\em trees\/}
+		\eit
+	\w \bb{activation of a procedure}: each execution of the
+procedure body
+	\w \bb{lifetime} of an activation of a procedure $p$:
+	the sequence of steps between the first and last steps in the
+execution of the procedure body, including the lifetime of the 
+procedures called by $p$, and so on.
+	\w If $a$ and $b$ are procedure activations, then their
+	lifetimes are either \bb{non-overlapping} or are \bb{nested}:
+		this is why \bb{trees}! (recall $2n \choose n+1$)
+	\w a procedure is \bb{recursive} if a new activation can begin
+	before an earlier activation of the same procedure has ended.
+	\w \bb{activation tree} is used to depict the way control
+	enters and leaves activations.
+	\eit
+\paragraph{Control stacks}
+	\bit
+	\w the flow of control corresponds to the DFS of the
+activation tree
+	\w \bb{control stakcs} are used to keep track of live
+procedure activations.
+	\w idea is {\em put the node for an activation on the stack 
+	as the activation begins and to pop the node when the
+activation ends\/}
+	\w when node $n$ is at the top of the stack, the stack
+contains the nodes along the path from $n$ to the root.
+	\eit
+\paragraph{The scope of a declaration}
+	\bit
+	\w a \bb{declaration} in a language is a syntactic construct
+	that associates information with a {\em name}
+	\w the \bb{scope rules} of a language determines which
+declarations of a name applies when the name appears in the text of a program.
+	\w the portion of the program to which a declaration applies
+is called the \bb{scope} of that declaration
+	\w an occurrence of a name in a procedure is said to be {\em local\/}
+to the procedure if it is in the scope of a declaration within the
+procedure, o.w. {\em nonlocal\/}
+	\eit
+\paragraph{Bindings of names}
+	\bit
+	\w \bb{environment} refers to a function that maps a {\em
+name\/} to a 
+	{\em storage location\/}
+	\w \bb{state} refers to a function that maps a {\em storage
+	location\/} to the {\em value\/} held there
+\[\xymatrix{
+	\mbox{name} \ar[rr]^{\mbox{\scriptsize environment}} & &
+	\mbox{storage: l-value}  \ar[rr]^{\mbox{\scriptsize state}} &&
+	\mbox{value: r-value}
+}\]
+	
+	\w \bb{assignment changes the state not the environment}
+	\w when environment associates storage location $s$ with the
+	name {\tt x}
+		\bit
+		\w {\tt x} is bound to $s$
+		\w this association itself is referred to as a
+	\bb{binding} of {\tt x}
+		\eit
+	\w \bb{A binding is the dynamic counterpart of a delcaration}.
+\vspace*{0.2cm} \\
+\centerline{\begin{tabular}{l|l} \hline
+static notion & dynamic counter part \\ \hline 
+definition of a procedure & activations of the procedure \\
+declaration of a name & bindings of the name \\
+scope of the delcaration & lifetime of a binding \\ \hline
+\end{tabular}}
+	\eit
+
+
+\subsection{Storage organization}
+\paragraph{Subdivision of run-time memory}
+
+
+
+\bibliographystyle{plain}
+\bibliography{00bib/mac,00bib/sys,00bib/inet,00bib/math}
+\end{document}
