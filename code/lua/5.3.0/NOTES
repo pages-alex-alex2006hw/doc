@@ -1,0 +1,14 @@
+* stack
+  - array of *TValue*
+  - Tvalue is a struct of Value and int tt_
+    - value(Tvalue) returns value field
+    - rttype(TValue) returns type tag
+
+* lua_State: per-thread state
+  - StkId top; first free slot in the stack
+  - ci: callinfo for the current function
+
+* global_State: global state
+
+
+

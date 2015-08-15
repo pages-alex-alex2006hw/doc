@@ -522,7 +522,10 @@ LUA_API const char *lua_pushfstring (lua_State *L, const char *fmt, ...) {
   return ret;
 }
 
-
+/* L: per-thread state
+ * fn: C function
+ * n: number of upvalues 
+ */
 LUA_API void lua_pushcclosure (lua_State *L, lua_CFunction fn, int n) {
   lua_lock(L);
   if (n == 0) {
@@ -530,9 +533,9 @@ LUA_API void lua_pushcclosure (lua_State *L, lua_CFunction fn, int n) {
   }
   else {
     CClosure *cl;
-    api_checknelems(L, n);
+    api_checknelems(L, n);  // n < (L->top - L->ci->func)
     api_check(n <= MAXUPVAL, "upvalue index too large");
-    luaC_checkGC(L);
+    luaC_checkGC(L);        
     cl = luaF_newCclosure(L, n);
     cl->f = fn;
     L->top -= n;
@@ -542,7 +545,7 @@ LUA_API void lua_pushcclosure (lua_State *L, lua_CFunction fn, int n) {
     }
     setclCvalue(L, L->top, cl);
   }
-  api_incr_top(L);
+  api_incr_top(L);   // L->top++
   lua_unlock(L);
 }
 
