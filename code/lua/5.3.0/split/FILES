@@ -1,0 +1,103 @@
+File          Description                      Prefix
+------------  -------------------------------  -------------------------------
+luaconf.h     LUA configuration                LUA_ 
+lua.h         LUA API to C                     LUA_, lua_ 
+              - Lua values API
+              - stack manipulation
+              - function call
+              - coroutine API
+ 
+lapi.h        Auxiliary LUA API to C
+
+lauxlib.h     For building Lua libraries       luaL_ 
+
+llimits.h     Value limits
+
+// internal
+
+lobject.h     Lua internal representation of 
+              values
+              - union Value 
+              - StkId: ptr to stack elt
+              - Proto: function prototype
+
+lfunc.h       For func protos and closures    luaF_
+              - UpVal: upvalues for closures
+
+llex.h        Lua lexer                       luaX_
+lparser.h     Lua parser                      luaY_
+lopcodes.h    VM instr OP code
+lcode.h       Lua VM code generator           luaK_ 
+
+lstate.h      Lua states
+              - CallInfo: per-call
+              - gloal_State
+              - lua_State: per-thread
+
+lmem.h        Memory manager                  luaM_ 
+              - new, malloc, realloc
+
+ltable.h      Lua Hash table                  luaH_
+
+ldo.h         Lua stack and call structures   luaD_ 
+              - luaD_pcall
+lgc.h         Garbage collector               luaC_
+
+lvm.h         Lua virtual machine             luaV_  
+
+
+// Lua standard libraries
+lualib.h      Lua standard libraries          luaL_
+
+lctype.h      'ctype' functions for Lua
+ldebug.h      Debug interface                 luaG_
+lundump.h     Load precompiled Lua chunks     luaU_
+lprefix.h      
+lstring.h     String table                    luaS_
+ltm.h         Tag methods                     luaT_ 
+lzio.h        Buffered streams                luaZ_
+
+======================================================================
+
+
+
+File          Description                      
+------------  --------------------------------------------------------
+
+lapi.c        Lua API (lua.h) implementatoins
+
+
+lauxlib.c
+lbaselib.c
+lbitlib.c
+lcode.c
+lcorolib.c
+lctype.c
+ldblib.c
+ldebug.c
+ldo.c
+ldump.c
+lfunc.c
+lgc.c
+linit.c
+liolib.c
+llex.c
+lmathlib.c
+lmem.c
+loadlib.c
+lobject.c
+lopcodes.c
+loslib.c
+lparser.c
+lstate.c
+lstring.c
+lstrlib.c
+ltable.c
+ltablib.c
+ltm.c
+lua.c
+luac.c
+lundump.c
+lutf8lib.c
+lvm.c
+lzio.c
