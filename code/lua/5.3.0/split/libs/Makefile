@@ -19,31 +19,29 @@ MYOBJS =
 
 # llex lparser lapi ldo (fcall) lcode (codegen)
 
-VM_SOURCES = \
-	lctype.c \
-	lmem.c \
-	lobject.c \
-	lstate.c \
-	lstring.c \
-	ltable.c \
-	lopcodes.c \
-	lgc.c \
-	lfunc.c \
-	ldebug.c \
-	ltm.c \
-	ldump.c \
-	lundump.c \
-	lzio.c \
-	lvm.c \
+LIBS_SOURCES = \
+	lbaselib.c \
+	lcorolib.c \
+  lmathlib.c \
+	loslib.c \
+	ltablib.c \
+	lauxlib.c \
+	lbitlib.c \
+	ldblib.c \
+	liolib.c \
+	loadlib.c \
+	lstrlib.c \
+	lutf8lib.c \
+	linit.c
 
-VM_OBJECTS = $(VM_SOURCES:.c=.o)
-VM_LIBRARY = liblua_vm.a
+LIBS_OBJECTS = $(LIBS_SOURCES:.c=.o)
+LIBS_LIBRARY = liblua_libs.a
 
-all: $(VM_LIBRARY)
+all: $(LIBS_LIBRARY)
 
-$(VM_LIBRARY): $(VM_OBJECTS)
-	$(AR) $@ $(VM_OBJECTS)
+$(LIBS_LIBRARY): $(LIBS_OBJECTS)
+	$(AR) $@ $(LIBS_OBJECTS)
 	$(RANLIB) $@
 
 clean:
-	$(RM) $(VM_OBJECTS) $(VM_LIBRARY)
+	$(RM) $(LIBS_OBJECTS) $(LIBS_LIBRARY)
