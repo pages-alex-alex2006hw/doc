@@ -1,5 +1,4 @@
 
-
 CC = gcc -std=gnu99
 CFLAGS = -g -Wall -Wextra -DLUA_COMPAT_5_2 $(SYSCFLAGS) $(MYCFLAGS)
 LDFLAGS = $(SYSLDFLAGS) $(MYLDFLAGS)
@@ -18,24 +17,21 @@ MYLIBS =
 MYOBJS = 
 
 
-# core
-CORE_SOURCES = \
-	lapi.c \
-	lcode.c \
+VM_SOURCES = \
 	lctype.c \
 	ldebug.c \
-	ldo.c \
-	ldump.c \
 	lfunc.c \
 	lgc.c \
-	llex.c \
 	lmem.c \
-	lobject.c 
+	lobject.c \
+	lopcodes.c \
+	lstate.c \
+	lstring.c \
+	ltable.c \
+	ltm.c
 
-# library
-LIB_SOURCES =
+VM_OBJECTS = $(VM_SOURCES:.c=.o)
+VM_LIBRARY = liblua_vm.a
 
-
-
-all:
+all: $(VM_LIBRARY)
 
