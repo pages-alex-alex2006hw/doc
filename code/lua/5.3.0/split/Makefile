@@ -5,11 +5,22 @@ LIB_SUBDIRS = \
 	libs \
 	lapi 
 
-TOOLS_SUBDIRS = \
-	tools/lua \
-	tools/luac
+TOOL_SUBDIRS = \
+	tools
 
-all: 
-	for dir in $(LIB_SUBDIRS); do \
+all: lib tool
+
+lib: 
+	@for dir in $(LIB_SUBDIRS); do \
 		make -C $$dir; \
+	done \
+
+tool: 
+	@for dir in $(TOOL_SUBDIRS); do \
+		make -C $$dir; \
+	done \
+
+clean: 
+	@for dir in $(LIB_SUBDIRS); do \
+		make -C $$dir clean; \
 	done \
