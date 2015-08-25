@@ -2,8 +2,7 @@ V =
 
 LIB_SUBDIRS = \
 	vm \
-	libs \
-	lapi 
+	libs 
 
 TOOL_SUBDIRS = \
 	tools

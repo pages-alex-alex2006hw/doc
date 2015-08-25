@@ -1,8 +1,4 @@
-
-vm (=runtime):
-
-libs:
-
-lapi: 
-
-tools/{lua,luac}:
+* lapi::lua_load(L, reader, data, name, mode)
+  - luaZ_init(L, &zio, ...);
+  - luaD_protectedparser(L, &z, name, mode);
+  

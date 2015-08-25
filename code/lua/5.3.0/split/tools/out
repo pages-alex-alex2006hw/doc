@@ -1,0 +1,104 @@
+gcc -std=gnu99 -g -Wall -Wextra -DLUA_COMPAT_5_2 -I../include   -o lua lua.c   
+/tmp/ccq7oUJl.o: In function `lstop':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:113: undefined reference to `lua_sethook'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:114: undefined reference to `luaL_error'
+/tmp/ccq7oUJl.o: In function `laction':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:126: undefined reference to `lua_sethook'
+/tmp/ccq7oUJl.o: In function `report':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:168: undefined reference to `lua_tolstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:170: undefined reference to `lua_settop'
+/tmp/ccq7oUJl.o: In function `msghandler':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:180: undefined reference to `lua_tolstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:182: undefined reference to `luaL_callmeta'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:183: undefined reference to `lua_type'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:186: undefined reference to `lua_type'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:186: undefined reference to `lua_typename'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:186: undefined reference to `lua_pushfstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:189: undefined reference to `luaL_traceback'
+/tmp/ccq7oUJl.o: In function `docall':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:200: undefined reference to `lua_gettop'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:201: undefined reference to `lua_pushcclosure'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:202: undefined reference to `lua_rotate'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:205: undefined reference to `lua_pcallk'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:207: undefined reference to `lua_rotate'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:207: undefined reference to `lua_settop'
+/tmp/ccq7oUJl.o: In function `createargtable':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:230: undefined reference to `lua_createtable'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:232: undefined reference to `lua_pushstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:233: undefined reference to `lua_rawseti'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:235: undefined reference to `lua_setglobal'
+/tmp/ccq7oUJl.o: In function `dofile':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:246: undefined reference to `luaL_loadfilex'
+/tmp/ccq7oUJl.o: In function `dostring':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:251: undefined reference to `luaL_loadbufferx'
+/tmp/ccq7oUJl.o: In function `dolibrary':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:261: undefined reference to `lua_getglobal'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:262: undefined reference to `lua_pushstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:265: undefined reference to `lua_setglobal'
+/tmp/ccq7oUJl.o: In function `get_prompt':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:275: undefined reference to `lua_getglobal'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:276: undefined reference to `lua_tolstring'
+/tmp/ccq7oUJl.o: In function `incomplete':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:294: undefined reference to `lua_tolstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:296: undefined reference to `lua_settop'
+/tmp/ccq7oUJl.o: In function `pushline':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:315: undefined reference to `lua_settop'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:320: undefined reference to `lua_pushfstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:322: undefined reference to `lua_pushstring'
+/tmp/ccq7oUJl.o: In function `addreturn':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:335: undefined reference to `lua_pushlstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:336: undefined reference to `lua_pushvalue'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:337: undefined reference to `lua_concat'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:338: undefined reference to `lua_tolstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:339: undefined reference to `luaL_loadbufferx'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:340: undefined reference to `lua_rotate'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:340: undefined reference to `lua_settop'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:342: undefined reference to `lua_settop'
+/tmp/ccq7oUJl.o: In function `multiline':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:353: undefined reference to `lua_tolstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:354: undefined reference to `luaL_loadbufferx'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:357: undefined reference to `lua_pushlstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:358: undefined reference to `lua_rotate'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:359: undefined reference to `lua_concat'
+/tmp/ccq7oUJl.o: In function `loadline':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:372: undefined reference to `lua_settop'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:378: undefined reference to `lua_rotate'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:378: undefined reference to `lua_settop'
+/tmp/ccq7oUJl.o: In function `l_print':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:388: undefined reference to `lua_gettop'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:390: undefined reference to `luaL_checkstack'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:391: undefined reference to `lua_getglobal'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:392: undefined reference to `lua_rotate'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:393: undefined reference to `lua_pcallk'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:394: undefined reference to `lua_tolstring'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:394: undefined reference to `lua_pushfstring'
+/tmp/ccq7oUJl.o: In function `doREPL':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:414: undefined reference to `lua_settop'
+/tmp/ccq7oUJl.o: In function `pushargs':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:425: undefined reference to `lua_getglobal'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:426: undefined reference to `luaL_error'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:427: undefined reference to `luaL_len'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:428: undefined reference to `luaL_checkstack'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:430: undefined reference to `lua_rawgeti'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:431: undefined reference to `lua_rotate'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:431: undefined reference to `lua_settop'
+/tmp/ccq7oUJl.o: In function `handle_script':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:441: undefined reference to `luaL_loadfilex'
+/tmp/ccq7oUJl.o: In function `pmain':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:554: undefined reference to `lua_tointegerx'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:555: undefined reference to `lua_touserdata'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:558: undefined reference to `luaL_checkversion_'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:567: undefined reference to `lua_pushboolean'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:568: undefined reference to `lua_setfield'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:570: undefined reference to `luaL_openlibs'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:590: undefined reference to `lua_pushboolean'
+/tmp/ccq7oUJl.o: In function `main':
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:597: undefined reference to `luaL_newstate'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:602: undefined reference to `lua_pushcclosure'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:603: undefined reference to `lua_pushinteger'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:604: undefined reference to `lua_pushlightuserdata'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:605: undefined reference to `lua_pcallk'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:606: undefined reference to `lua_toboolean'
+/home/cjeong/work/tools/lua/lua-5.3.0/split/tools/lua.c:608: undefined reference to `lua_close'
+collect2: error: ld returned 1 exit status
+make: *** [lua] Error 1

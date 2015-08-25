@@ -23,6 +23,8 @@ TOOLS_SOURCES = \
 	llex.c \
 	lparser.c \
 	lcode.c \
+	lundump.c \
+	lapi.c \
 	ldo.c 
 
 TOOLS_OBJECTS = $(TOOLS_SOURCES:.c=.o)
@@ -38,9 +40,12 @@ LUAC_TOOL = luac
 all: $(LUA_TOOL) $(LUAC_TOOL)
 
 $(LUA_TOOL): $(TOOLS_LIBRARY)
-	$(CC) $(CFLAGS) -o $@ lua.c \
-		$(TOOLS_LIBRARY) $(VM_LIBRARY) $(LIBS_LIBRARY) $(LAPI_LIBRARY) \
-		$(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ lua.c $(LDFLAGS) \
+		$(LAPI_LIBRARY) \
+		$(VM_LIBRARY) \
+		$(LIBS_LIBRARY) \
+		$(TOOLS_LIBRARY) \
+		$(LIBS)
 
 $(LUAC_TOOL):
 

@@ -199,7 +199,7 @@ static void LoadFunction (LoadState *S, Proto *f, TString *psource) {
   f->source = LoadString(S);
   if (f->source == NULL)  /* no source in dump? */
     f->source = psource;  /* reuse parent's source */
-  f->linedefined = LoadInt(S);
+	f->linedefined = LoadInt(S);
   f->lastlinedefined = LoadInt(S);
   f->numparams = LoadByte(S);
   f->is_vararg = LoadByte(S);
