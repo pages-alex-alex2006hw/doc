@@ -1,12 +1,12 @@
 ((nil
-  (indent-tabs-mode . nil)
-  (tab-width . 2))
+  (indent-tabs-mode . t)
+  (tab-width . 8))
  (c-mode
   (c-file-style . "bsd")
-  (c-basic-offset . 2))
+  (c-basic-offset . 8))
  (shell-mode
-  (sh-basic-offset . 2)
-  (sh-indentation . 2))
+  (sh-basic-offset . 8)
+  (sh-indentation . 8))
  (python-mode
   (indent-tabs-mode . nil))
  )

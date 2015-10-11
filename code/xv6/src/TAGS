@@ -1,4 +1,18 @@
 
+boot/boot.S,232
+.set 8,250
+.set 9,314
+.set 10,378
+.globl 12,441
+start:start13,454
+seta20.1:seta20.128,1104
+seta20.2:seta20.236,1282
+protcseg:protcseg58,1980
+spin:spin72,2494
+.p2align 76,2528
+gdt:gdt77,2595
+gdtdesc:gdtdesc82,2722
+
 boot/main.c,122
 #define SECTSIZE	32,1131
 #define ELFHDR	33,1152
@@ -6,130 +20,6 @@ bootmain(39,1293
 readseg(72,2092
 waitdisk(99,2821
 readsect(107,2928
-
-kern/console.c,1653
-delay(16,352
-#define COM1	26,448
-#define COM_RX	28,469
-#define COM_TX	29,518
-#define COM_DLL	30,569
-#define COM_DLM	31,623
-#define COM_IER	32,678
-#define   COM_IER_RDI	33,731
-#define COM_IIR	34,794
-#define COM_FCR	35,842
-#define COM_LCR	36,891
-#define	  COM_LCR_DLAB	37,940
-#define	  COM_LCR_WLEN8	38,998
-#define COM_MCR	39,1051
-#define	  COM_MCR_RTS	40,1101
-#define	  COM_MCR_DTR	41,1146
-#define	  COM_MCR_OUT2	42,1191
-#define COM_LSR	43,1238
-#define   COM_LSR_DATA	44,1285
-#define   COM_LSR_TXRDY	45,1333
-#define   COM_LSR_TSRE	46,1389
-static bool serial_exists;48,1439
-serial_proc_data(51,1478
-serial_intr(59,1592
-serial_putc(66,1678
-serial_init(79,1843
-lpt_putc(112,2633
-static unsigned addr_6845;128,2853
-static uint16_t *crt_buf;crt_buf129,2880
-static uint16_t crt_pos;130,2906
-cga_init(133,2944
-cga_putc(163,3430
-#define NO	214,4399
-#define SHIFT	216,4414
-#define CTL	217,4436
-#define ALT	218,4456
-#define CAPSLOCK	220,4477
-#define NUMLOCK	221,4501
-#define SCROLLLOCK	222,4525
-#define E0ESC	224,4552
-static uint8_t shiftcode[shiftcode226,4575
-static uint8_t togglecode[togglecode236,4706
-static uint8_t normalmap[normalmap243,4805
-static uint8_t shiftmap[shiftmap264,5690
-#define C(285,6574
-static uint8_t ctlmap[ctlmap287,6598
-static uint8_t *charcode[charcode304,7327
-kbd_proc_data(316,7524
-kbd_intr(364,8427
-kbd_init(370,8486
-#define CONSBUFSIZE 381,8726
-	uint8_t buf[buf384,8767
-	uint32_t rpos;385,8794
-	uint32_t wpos;386,8810
-} cons;387,8826
-cons_intr(392,8954
-cons_getc(407,9217
-cons_putc(429,9671
-cons_init(438,9777
-cputchar(452,9973
-getchar(458,10013
-iscons(468,10108
-
-kern/console.h,200
-#define _CONSOLE_H_4,68
-#define MONO_BASE	11,215
-#define MONO_BUF	12,239
-#define CGA_BASE	13,264
-#define CGA_BUF	14,287
-#define CRT_ROWS	16,313
-#define CRT_COLS	17,333
-#define CRT_SIZE	18,353
-
-kern/entrypgdir.c,121
-pte_t entry_pgtable[entry_pgtable4,49
-pde_t entry_pgdir[entry_pgdir21,934
-pte_t entry_pgtable[entry_pgtable33,1329
-
-kern/init.c,111
-test_backtrace(12,228
-i386_init(23,416
-const char *panicstr;panicstr51,1115
-_panic(58,1263
-_warn(83,1700
-
-kern/kdebug.c,48
-stab_binsearch(51,1753
-debuginfo_eip(105,3021
-
-kern/kdebug.h,246
-#define JOS_KERN_KDEBUG_H2,26
-struct Eipdebuginfo 7,137
-	const char *eip_file;eip_file8,159
-	int eip_line;9,215
-	const char *eip_fn_name;eip_fn_name11,267
-	int eip_fn_namelen;13,366
-	uintptr_t eip_fn_addr;14,415
-	int eip_fn_narg;15,472
-
-kern/monitor.c,375
-#define CMDBUF_SIZE 14,314
-struct Command 17,380
-        const char *name;name18,397
-        const char *desc;desc19,423
-	int (*func)func21,495
-static struct Command commands[commands24,558
-#define NCOMMANDS 28,739
-mon_help(33,865
-mon_kerninfo(43,1076
-mon_backtrace(59,1774
-#define WHITESPACE 69,1935
-#define MAXARGS 70,1964
-runcmd(73,1995
-monitor(112,3147
-
-kern/monitor.h,32
-#define JOS_KERN_MONITOR_H2,27
-
-kern/printf.c,47
-putch(10,212
-vcprintf(17,269
-cprintf(26,385
 
 inc/assert.h,145
 #define JOS_INC_ASSERT_H4,73
@@ -566,94 +456,38 @@ static __inline uint32_t read_ebp(33,2150
 static __inline uint32_t read_esp(34,2222
 static __inline uint64_t read_tsc(36,2401
 breakpoint(39,2495
-inb(45,2569
-insb(53,2701
-inw(62,2908
-insw(70,3041
-inl(79,3248
-insl(87,3381
-outb(96,3584
-outsb(102,3701
-outw(111,3901
-outsw(117,4019
-outsl(126,4219
-outl(135,4419
-invlpg(141,4537
-lidt(147,4643
-lgdt(153,4728
-lldt(159,4813
-ltr(165,4903
-lcr0(171,4991
-rcr0(177,5091
-rcr2(185,5212
-lcr3(193,5329
-rcr3(199,5429
-lcr4(207,5546
-rcr4(213,5646
-tlbflush(221,5763
-read_eflags(229,5925
-write_eflags(237,6060
-read_ebp(243,6176
-read_esp(251,6301
-cpuid(259,6422
-read_tsc(276,6787
-xchg(284,6902
-
-lib/printfmt.c,307
-static const char * const error_string[error_string21,589
-printnum(36,995
-getuint(55,1609
-getint(68,1897
-vprintfmt(83,2193
-printfmt(247,5283
-struct sprintbuf 256,5443
-	char *buf;buf257,5462
-	char *ebuf;ebuf258,5474
-	int cnt;259,5487
-sprintputch(263,5513
-vsnprintf(271,5615
-snprintf(288,5913
-
-lib/readline.c,63
-#define BUFLEN 4,47
-static char buf[buf5,67
-readline(8,100
-
-lib/string.c,319
-#define ASM 9,264
-strlen(12,283
-strnlen(22,371
-strcpy(32,496
-strcat(43,636
-strncpy(51,745
-strlcpy(66,998
-strcmp(80,1201
-strncmp(88,1340
-strchr(101,1645
-strfind(112,1889
-memset(122,2002
-memmove(142,2359
-memset(174,3099
-memmove(188,3221
-memcpy(209,3470
-memcmp(215,3554
-memfind(230,3801
-strtol(240,4001
-
-user/sendpage.c,129
-const char *str1 str16,128
-const char *str2 str27,188
-#define TEMP_ADDR	9,247
-#define TEMP_ADDR_CHILD	10,283
-umain(13,331
-
-boot/main.c,122
-#define SECTSIZE	32,1131
-#define ELFHDR	33,1152
-bootmain(39,1293
-readseg(72,2092
-waitdisk(99,2821
-readsect(107,2928
+inb(45,2568
+insb(53,2697
+inw(62,2900
+insw(70,3030
+inl(79,3233
+insl(87,3363
+outb(96,3562
+outsb(102,3678
+outw(111,3874
+outsw(117,3991
+outsl(126,4187
+outl(135,4383
+invlpg(141,4500
+lidt(147,4605
+lgdt(153,4689
+lldt(159,4773
+ltr(165,4862
+lcr0(171,4949
+rcr0(177,5048
+rcr2(185,5166
+lcr3(193,5280
+rcr3(199,5379
+lcr4(207,5493
+rcr4(213,5592
+tlbflush(221,5706
+read_eflags(229,5865
+write_eflags(237,5997
+read_ebp(243,6112
+read_esp(251,6234
+cpuid(259,6352
+read_tsc(276,6691
+xchg(284,6803
 
 kern/console.c,1653
 delay(16,352
@@ -734,6 +568,20 @@ pte_t entry_pgtable[entry_pgtable4,49
 pde_t entry_pgdir[entry_pgdir21,934
 pte_t entry_pgtable[entry_pgtable33,1329
 
+kern/entry.S,238
+.align 31,932
+.long 32,941
+.long 33,970
+.long 34,999
+.globl	39,1216
+_start 40,1231
+.globl 42,1254
+entry:entry43,1267
+relocated:relocated69,2169
+spin:spin83,2501
+bootstack:bootstack92,2734
+bootstacktop:bootstacktop95,2788
+
 kern/init.c,111
 test_backtrace(12,228
 i386_init(23,416
@@ -755,21 +603,21 @@ struct Eipdebuginfo 7,137
 	uintptr_t eip_fn_addr;14,415
 	int eip_fn_narg;15,472
 
-kern/monitor.c,375
-#define CMDBUF_SIZE 14,314
-struct Command 17,380
-        const char *name;name18,397
-        const char *desc;desc19,423
-	int (*func)func21,495
-static struct Command commands[commands24,558
-#define NCOMMANDS 28,739
-mon_help(33,865
-mon_kerninfo(43,1076
-mon_backtrace(59,1774
-#define WHITESPACE 69,1935
-#define MAXARGS 70,1964
-runcmd(73,1995
-monitor(112,3147
+kern/monitor.c,360
+#define CMDBUF_SIZE	14,314
+struct Command 17,371
+	const char *name;name18,388
+	const char *desc;desc19,407
+	int (*func)func21,465
+static struct Command commands[commands24,528
+#define NCOMMANDS 28,695
+mon_help(33,821
+mon_kerninfo(43,997
+mon_backtrace(59,1618
+#define WHITESPACE 69,1765
+#define MAXARGS 70,1794
+runcmd(73,1825
+monitor(112,2606
 
 kern/monitor.h,32
 #define JOS_KERN_MONITOR_H2,27
@@ -778,474 +626,6 @@ kern/printf.c,47
 putch(10,212
 vcprintf(17,269
 cprintf(26,385
-
-inc/assert.h,145
-#define JOS_INC_ASSERT_H4,73
-void _panic(9,171
-#define warn(11,247
-#define panic(12,304
-#define assert(14,364
-#define static_assert(18,521
-
-inc/elf.h,1289
-#define JOS_INC_ELF_H2,22
-#define ELF_MAGIC 4,45
-struct Elf 6,109
-	uint32_t e_magic;7,122
-	uint8_t e_elf[e_elf8,165
-	uint16_t e_type;9,185
-	uint16_t e_machine;10,203
-	uint32_t e_version;11,224
-	uint32_t e_entry;12,245
-	uint32_t e_phoff;13,264
-	uint32_t e_shoff;14,283
-	uint32_t e_flags;15,302
-	uint16_t e_ehsize;16,321
-	uint16_t e_phentsize;17,341
-	uint16_t e_phnum;18,364
-	uint16_t e_shentsize;19,383
-	uint16_t e_shnum;20,406
-	uint16_t e_shstrndx;21,425
-struct Proghdr 24,451
-	uint32_t p_type;25,468
-	uint32_t p_offset;26,486
-	uint32_t p_va;27,506
-	uint32_t p_pa;28,522
-	uint32_t p_filesz;29,538
-	uint32_t p_memsz;30,558
-	uint32_t p_flags;31,577
-	uint32_t p_align;32,596
-struct Secthdr 35,619
-	uint32_t sh_name;36,636
-	uint32_t sh_type;37,655
-	uint32_t sh_flags;38,674
-	uint32_t sh_addr;39,694
-	uint32_t sh_offset;40,713
-	uint32_t sh_size;41,734
-	uint32_t sh_link;42,753
-	uint32_t sh_info;43,772
-	uint32_t sh_addralign;44,791
-	uint32_t sh_entsize;45,815
-#define ELF_PROG_LOAD	49,871
-#define ELF_PROG_FLAG_EXEC	52,931
-#define ELF_PROG_FLAG_WRITE	53,960
-#define ELF_PROG_FLAG_READ	54,990
-#define ELF_SHT_NULL	57,1051
-#define ELF_SHT_PROGBITS	58,1075
-#define ELF_SHT_SYMTAB	59,1102
-#define ELF_SHT_STRTAB	60,1128
-#define ELF_SHN_UNDEF	63,1186
-
-inc/error.h,179
-#define JOS_INC_ERROR_H4,72
-	E_UNSPECIFIED	8,172
-	E_BAD_ENV	9,226
-	E_INVAL	11,326
-	E_NO_MEM	12,362
-	E_NO_FREE_ENV	13,418
-	E_FAULT	15,511
-	E_NO_SYS	16,542
-	MAXERROR18,587
-
-inc/kbdreg.h,1811
-#define JOS_KBDREG_H2,21
-#define KEY_HOME	5,63
-#define KEY_END	6,85
-#define KEY_UP	7,107
-#define KEY_DN	8,128
-#define KEY_LF	9,149
-#define KEY_RT	10,170
-#define KEY_PGUP	11,191
-#define KEY_PGDN	12,213
-#define KEY_INS	13,235
-#define KEY_DEL	14,257
-#define	KBSTATP	19,331
-#define	 KBS_DIB	20,389
-#define	 KBS_IBF	21,436
-#define	 KBS_WARM	22,485
-#define	 KBS_OCMD	23,535
-#define	 KBS_NOSEC	24,594
-#define	 KBS_TERR	25,654
-#define	 KBS_RERR	26,706
-#define	 KBS_PERR	27,753
-#define	KBCMDP	29,800
-#define	 KBC_RAMREAD	30,850
-#define	 KBC_RAMWRITE	31,896
-#define	 KBC_AUXDISABLE	32,942
-#define	 KBC_AUXENABLE	33,1000
-#define	 KBC_AUXTEST	34,1056
-#define	 KBC_KBDECHO	35,1108
-#define	 KBC_AUXECHO	36,1162
-#define	 KBC_AUXWRITE	37,1217
-#define	 KBC_SELFTEST	38,1274
-#define	 KBC_KBDTEST	39,1323
-#define	 KBC_KBDDISABLE	40,1374
-#define	 KBC_KBDENABLE	41,1431
-#define	 KBC_PULSE0	42,1486
-#define	 KBC_PULSE1	43,1536
-#define	 KBC_PULSE2	44,1586
-#define	 KBC_PULSE3	45,1636
-#define	KBDATAP	47,1687
-#define	KBOUTP	48,1732
-#define	K_RDCMDBYTE	50,1777
-#define	K_LDCMDBYTE	51,1802
-#define	KC8_TRANS	53,1828
-#define	KC8_MDISABLE	54,1883
-#define	KC8_KDISABLE	55,1929
-#define	KC8_IGNSEC	56,1978
-#define	KC8_CPU	57,2029
-#define	KC8_MENABLE	58,2088
-#define	KC8_KENABLE	59,2142
-#define	CMDBYTE	60,2199
-#define	KBC_RESET	63,2285
-#define	KBC_RESEND	64,2333
-#define	KBC_SETDEFAULT	65,2405
-#define	KBC_DISABLE	66,2480
-#define	KBC_ENABLE	67,2564
-#define	KBC_TYPEMATIC	68,2614
-#define	KBC_SETTABLE	69,2676
-#define	KBC_MODEIND	70,2739
-#define	KBC_ECHO	71,2801
-#define	KBR_EXTENDED	74,2889
-#define	KBR_RESEND	75,2943
-#define	KBR_ACK	76,2997
-#define	KBR_OVERRUN	77,3050
-#define	KBR_FAILURE	78,3089
-#define	KBR_BREAK	79,3138
-#define	KBR_RSTDONE	80,3207
-#define	KBR_ECHO	81,3253
-
-inc/memlayout.h,699
-#define JOS_INC_MEMLAYOUT_H2,28
-#define GD_KT 15,324
-#define GD_KD 16,366
-#define GD_UT 17,408
-#define GD_UD 18,448
-#define GD_TSS0 19,488
-#define	KERNBASE	87,4609
-#define IOPHYSMEM	92,4814
-#define EXTPHYSMEM	93,4841
-#define KSTACKTOP	96,4887
-#define KSTKSIZE	97,4914
-#define KSTKGAP	98,4972
-#define MMIOLIM	101,5058
-#define MMIOBASE	102,5096
-#define ULIM	104,5133
-#define UVPT	112,5361
-#define UPAGES	114,5434
-#define UENVS	116,5515
-#define UTOP	123,5650
-#define UXSTACKTOP	125,5710
-#define USTACKTOP	128,5837
-#define UTEXT	131,5913
-#define UTEMP	134,6008
-#define PFTEMP	137,6168
-#define USTABDATA	139,6265
-typedef uint32_t pte_t;143,6320
-typedef uint32_t pde_t;144,6344
-
-inc/mmu.h,4204
-#define JOS_INC_MMU_H2,22
-#define PGNUM(30,964
-#define PDX(33,1040
-#define PTX(36,1121
-#define PGOFF(39,1200
-#define PGADDR(42,1300
-#define NPDENTRIES	45,1421
-#define NPTENTRIES	46,1491
-#define PGSIZE	48,1554
-#define PGSHIFT	49,1602
-#define PTSIZE	51,1640
-#define PTSHIFT	52,1718
-#define PTXSHIFT	54,1756
-#define PDXSHIFT	55,1814
-#define PTE_P	58,1910
-#define PTE_W	59,1942
-#define PTE_U	60,1976
-#define PTE_PWT	61,2005
-#define PTE_PCD	62,2045
-#define PTE_A	63,2085
-#define PTE_D	64,2118
-#define PTE_PS	65,2148
-#define PTE_G	66,2183
-#define PTE_AVAIL	70,2353
-#define PTE_SYSCALL	73,2480
-#define PTE_ADDR(76,2586
-#define CR0_PE	79,2665
-#define CR0_MP	80,2713
-#define CR0_EM	81,2763
-#define CR0_TS	82,2803
-#define CR0_ET	83,2847
-#define CR0_NE	84,2892
-#define CR0_WP	85,2937
-#define CR0_AM	86,2981
-#define CR0_NW	87,3026
-#define CR0_CD	88,3073
-#define CR0_PG	89,3117
-#define CR4_PCE	91,3155
-#define CR4_MCE	92,3213
-#define CR4_PSE	93,3265
-#define CR4_DE	94,3317
-#define CR4_TSD	95,3368
-#define CR4_PVI	96,3418
-#define CR4_VME	97,3483
-#define FL_CF	100,3554
-#define FL_PF	101,3594
-#define FL_AF	102,3635
-#define FL_ZF	103,3685
-#define FL_SF	104,3724
-#define FL_TF	105,3763
-#define FL_IF	106,3802
-#define FL_DF	107,3846
-#define FL_OF	108,3890
-#define FL_IOPL_MASK	109,3933
-#define FL_IOPL_0	110,3996
-#define FL_IOPL_1	111,4040
-#define FL_IOPL_2	112,4084
-#define FL_IOPL_3	113,4128
-#define FL_NT	114,4172
-#define FL_RF	115,4213
-#define FL_VM	116,4254
-#define FL_AC	117,4301
-#define FL_VIF	118,4346
-#define FL_VIP	119,4399
-#define FL_ID	120,4455
-#define FEC_PR	123,4519
-#define FEC_WR	124,4584
-#define FEC_U	125,4636
-#define SEG_NULL	139,4841
-#define SEG(142,4903
-struct Segdesc 152,5176
-	unsigned sd_lim_15_0 153,5193
-	unsigned sd_base_15_0 154,5251
-	unsigned sd_base_23_16 155,5316
-	unsigned sd_type 156,5384
-	unsigned sd_s 157,5450
-	unsigned sd_dpl 158,5510
-	unsigned sd_p 159,5569
-	unsigned sd_lim_19_16 160,5609
-	unsigned sd_avl 161,5668
-	unsigned sd_rsv1 162,5736
-	unsigned sd_db 163,5777
-	unsigned sd_g 164,5848
-	unsigned sd_base_31_24 165,5921
-#define SEG_NULL	168,6006
-#define SEG_FAULT	170,6130
-#define SEG(172,6224
-#define SEG16(176,6437
-#define STA_X	184,6708
-#define STA_E	185,6753
-#define STA_C	186,6817
-#define STA_W	187,6885
-#define STA_R	188,6947
-#define STA_A	189,7004
-#define STS_T16A	192,7068
-#define STS_LDT	193,7117
-#define STS_T16B	194,7168
-#define STS_CG16	195,7212
-#define STS_TG	196,7257
-#define STS_IG16	197,7314
-#define STS_TG16	198,7364
-#define STS_T32A	199,7409
-#define STS_T32B	200,7458
-#define STS_CG32	201,7502
-#define STS_IG32	202,7547
-#define STS_TG32	203,7597
-struct Taskstate 215,7777
-	uint32_t ts_link;216,7796
-	uintptr_t ts_esp0;217,7834
-	uint16_t ts_ss0;218,7894
-	uint16_t ts_padding1;219,7954
-	uintptr_t ts_esp1;220,7977
-	uint16_t ts_ss1;221,7997
-	uint16_t ts_padding2;222,8015
-	uintptr_t ts_esp2;223,8038
-	uint16_t ts_ss2;224,8058
-	uint16_t ts_padding3;225,8076
-	physaddr_t ts_cr3;226,8099
-	uintptr_t ts_eip;227,8142
-	uint32_t ts_eflags;228,8198
-	uint32_t ts_eax;229,8219
-	uint32_t ts_ecx;230,8269
-	uint32_t ts_edx;231,8287
-	uint32_t ts_ebx;232,8305
-	uintptr_t ts_esp;233,8323
-	uintptr_t ts_ebp;234,8342
-	uint32_t ts_esi;235,8361
-	uint32_t ts_edi;236,8379
-	uint16_t ts_es;237,8397
-	uint16_t ts_padding4;238,8460
-	uint16_t ts_cs;239,8483
-	uint16_t ts_padding5;240,8500
-	uint16_t ts_ss;241,8523
-	uint16_t ts_padding6;242,8540
-	uint16_t ts_ds;243,8563
-	uint16_t ts_padding7;244,8580
-	uint16_t ts_fs;245,8603
-	uint16_t ts_padding8;246,8620
-	uint16_t ts_gs;247,8643
-	uint16_t ts_padding9;248,8660
-	uint16_t ts_ldt;249,8683
-	uint16_t ts_padding10;250,8701
-	uint16_t ts_t;251,8725
-	uint16_t ts_iomb;252,8765
-struct Gatedesc 256,8857
-	unsigned gd_off_15_0 257,8875
-	unsigned gd_sel 258,8941
-	unsigned gd_args 259,8991
-	unsigned gd_rsv1 260,9059
-	unsigned gd_type 261,9125
-	unsigned gd_s 262,9183
-	unsigned gd_dpl 263,9235
-	unsigned gd_p 264,9308
-	unsigned gd_off_31_16 265,9349
-#define SETGATE(282,10332
-#define SETCALLGATE(296,10745
-struct Pseudodesc 310,11183
-	uint16_t pd_lim;311,11203
-	uint32_t pd_base;312,11231
-
-inc/stab.h,797
-#define JOS_STAB_H2,19
-#define	N_GSYM	15,436
-#define	N_FNAME	16,474
-#define	N_FUN	17,517
-#define	N_STSYM	18,555
-#define	N_LCSYM	19,602
-#define	N_MAIN	20,648
-#define	N_PC	21,691
-#define	N_RSYM	22,734
-#define	N_SLINE	23,776
-#define	N_DSLINE	24,826
-#define	N_BSLINE	25,876
-#define	N_SSYM	26,925
-#define	N_SO	27,973
-#define	N_LSYM	28,1017
-#define	N_BINCL	29,1056
-#define	N_SOL	30,1104
-#define	N_PSYM	31,1153
-#define	N_EINCL	32,1196
-#define	N_ENTRY	33,1238
-#define	N_LBRAC	34,1285
-#define	N_EXCL	35,1323
-#define	N_RBRAC	36,1368
-#define	N_BCOMM	37,1407
-#define	N_ECOMM	38,1445
-#define	N_ECOML	39,1481
-#define	N_LENG	40,1530
-struct Stab 43,1637
-	uint32_t n_strx;44,1651
-	uint8_t n_type;45,1704
-	uint8_t n_other;46,1747
-	uint16_t n_desc;47,1801
-	uintptr_t n_value;48,1847
-
-inc/stdarg.h,141
-#define	JOS_INC_STDARG_H4,91
-typedef __builtin_va_list va_list;6,117
-#define va_start(8,153
-#define va_arg(10,210
-#define va_end(12,263
-
-inc/stdio.h,48
-#define JOS_INC_STDIO_H2,24
-#define NULL	7,87
-
-inc/string.h,30
-#define JOS_INC_STRING_H2,25
-
-inc/types.h,761
-#define JOS_INC_TYPES_H2,24
-#define NULL 5,62
-typedef _Bool bool;9,130
-enum { false,10,150
-enum { false, true 10,150
-typedef __signed char int8_t;13,219
-typedef unsigned char uint8_t;14,249
-typedef short int16_t;15,280
-typedef unsigned short uint16_t;16,303
-typedef int int32_t;17,336
-typedef unsigned int uint32_t;18,357
-typedef long long int64_t;19,388
-typedef unsigned long long uint64_t;20,415
-typedef int32_t intptr_t;26,673
-typedef uint32_t uintptr_t;27,699
-typedef uint32_t physaddr_t;28,727
-typedef uint32_t ppn_t;31,791
-typedef uint32_t size_t;34,859
-typedef int32_t ssize_t;37,975
-typedef int32_t off_t;40,1048
-#define MIN(43,1108
-#define MAX(49,1241
-#define ROUNDDOWN(58,1476
-#define ROUNDUP(64,1637
-#define offsetof(71,1854
-
-inc/x86.h,1667
-#define JOS_INC_X86_H2,22
-static __inline void breakpoint(6,69
-static __inline uint8_t inb(7,139
-static __inline void insb(8,209
-static __inline uint16_t inw(9,298
-static __inline void insw(10,369
-static __inline uint32_t inl(11,458
-static __inline void insl(12,529
-static __inline void outb(13,618
-static __inline void outsb(14,700
-static __inline void outw(15,796
-static __inline void outsw(16,879
-static __inline void outsl(17,975
-static __inline void outl(18,1071
-static __inline void invlpg(19,1154
-static __inline void lidt(20,1226
-static __inline void lldt(21,1293
-static __inline void ltr(22,1365
-static __inline void lcr0(23,1436
-static __inline uint32_t rcr0(24,1508
-static __inline uint32_t rcr2(25,1576
-static __inline void lcr3(26,1644
-static __inline uint32_t rcr3(27,1716
-static __inline void lcr4(28,1784
-static __inline uint32_t rcr4(29,1856
-static __inline void tlbflush(30,1924
-static __inline uint32_t read_eflags(31,1992
-static __inline void write_eflags(32,2067
-static __inline uint32_t read_ebp(33,2150
-static __inline uint32_t read_esp(34,2222
-static __inline uint64_t read_tsc(36,2401
-breakpoint(39,2495
-inb(45,2569
-insb(53,2701
-inw(62,2908
-insw(70,3041
-inl(79,3248
-insl(87,3381
-outb(96,3584
-outsb(102,3701
-outw(111,3901
-outsw(117,4019
-outsl(126,4219
-outl(135,4419
-invlpg(141,4537
-lidt(147,4643
-lgdt(153,4728
-lldt(159,4813
-ltr(165,4903
-lcr0(171,4991
-rcr0(177,5091
-rcr2(185,5212
-lcr3(193,5329
-rcr3(199,5429
-lcr4(207,5546
-rcr4(213,5646
-tlbflush(221,5763
-read_eflags(229,5925
-write_eflags(237,6060
-read_ebp(243,6176
-read_esp(251,6301
-cpuid(259,6422
-read_tsc(276,6787
-xchg(284,6902
 
 lib/printfmt.c,307
 static const char * const error_string[error_string21,589

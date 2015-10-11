@@ -1,0 +1,69 @@
+\documentclass{myart}
+\usepackage{mydef,myenv}
+\usepackage{mathptm}
+
+
+%\def\sbf{\sf\bfseries}
+\def\sbf{\bfseries}
+\pagestyle{empty}
+
+\begin{document}
+%\small
+
+\noindent{\large\bf Notes on Computer Science}
+
+
+\paragraph{Sets}
+\bit
+\w A \bb{set} is a collection of distinguishable objects, called its
+\bb{members} (or \bb{elements}). 
+
+\w \bb{Set membership} is representation by the symbol $\in$. 
+  \bit
+  \w $x \in S$: object $x$ is a member of the set $S$
+  \w $x \not\in S$: object $x$ is not a member of the set $S$
+  \eit
+\w Two ways to define a set:
+  \bit
+  \w \bb{set extension}: define a set by listing all members of the set
+    \bit
+    \w $S = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$
+    \w $E = \{0, 2, 4, \cdots\}$
+    \eit
+  \w \bb{set comprehension (definition by intension)}: 
+        describe properties that its members must satisfy
+    \bit
+    \w $S = \{i : 1 \le  i \le 10\}$
+    \w $E = \{2n : n \in \N\}$ is the set of even natural numbers, given that 
+      $\N$ is the set of {\em natural numbers}.
+    \eit
+\w Set examples:
+   \bit
+   \w $\{1, 2, 2\}$ is NOT a set since objects are not
+   distinguishable. However, it is called a \bb{multiset} -- multiset is a
+   collectio of (possibly redundant) objects.
+   \eit
+
+\w \bb{Set inclusion}: 
+   Given two sets $A$ and $B$, if $x \in A$ implies $x \in B$, 
+   we way $A$ is a \bb{subset} of $B$.
+  \bit
+  \w This is also denoted by $A \subseteq B$.
+  \eit
+\w \bb{Set equivalence}: Given two sets $A$ and $B$, if $A \subseteq B$ and $B
+\subseteq A$,  
+   $A$ and $B$ are \bb{equivalent}. 
+
+\w \bb{Set operations}
+  \bit
+
+  \eit
+\eit
+
+\paragraph{Graphs}
+
+\end{document}
+
+
+% LocalWords:  Cheoljoo Jeong vertices endvertices endvertex cutvertex bc algo
+% LocalWords:  cutvertices iff uv cocycles coboundary
