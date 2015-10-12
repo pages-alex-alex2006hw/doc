@@ -1,0 +1,31 @@
+\documentclass{memo}
+\usepackage{mathptm,mydef,myenv}
+\usepackage[all]{xy}
+%\usepackage{MinionPro}
+\begin{document}
+\small
+\noindent{\large\bf{}Notes on Continuations}
+
+\paragraph{Continuations}
+\bit
+\w Every letter to which a reply is expected needs to enclose a self-addressed
+envelope for the reply.
+\eit
+
+\paragraph{Continuation-passing style}
+\bit
+\w \bb{CPS transformation}: \ee{function call} is transformed into a \bb{jump with arguments to the
+  callee} 
+   \bit
+   \w {argument} is a \bb{return address} -- i.e. {\em the continuation that
+     enables the callee to jump back to the caller}
+   \w 
+   \eit
+\eit
+
+\end{document}
+
+% LocalWords:  Inlining inline callees Scalarization structs dominators Fortran
+% LocalWords:  flowgraph dominator dataflow subgraph setjmp longjmp WAW RAR iff
+% LocalWords:  boolean stmt Unswitching flowgraphs outdegree indegree dom idom
+% LocalWords:  postdominators postdominates pdom
