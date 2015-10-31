@@ -12,7 +12,7 @@
 ;;              Aaron Smith <aaron-lua@gelatinous.com>.
 ;;
 ;; URL:         http://immerrr.github.com/lua-mode
-;; Version:     20130419
+;; Version:     20151025
 ;;
 ;; This file is NOT part of Emacs.
 ;;
@@ -35,7 +35,7 @@
 
 ;; This field is expanded to commit SHA, date & associated heads/tags during
 ;; archive creation.
-;; Revision: $Format:%h (%cD %d)$
+;; Revision: bdf121b (Sun, 25 Oct 2015 15:30:37 +0300  (HEAD -> master, tag: v20151025, tag: rel-20151025))
 ;;
 
 ;;; Commentary:
@@ -94,6 +94,11 @@
 
 
 ;; rx-wrappers for Lua
+
+(eval-when-compile
+  ;; Silence compilation warning about `compilation-error-regexp-alist' defined
+  ;; in compile.el.
+  (require 'compile))
 
 (eval-and-compile
   (defvar lua-rx-constituents)
@@ -223,7 +228,8 @@ for Emacsen that doesn't contain one (pre-23.3)."
 (defcustom lua-indent-level 3
   "Amount by which Lua subexpressions are indented."
   :type 'integer
-  :group 'lua)
+  :group 'lua
+  :safe #'integerp)
 
 (defcustom lua-comment-start "-- "
   "Default value of `comment-start'."
@@ -307,16 +313,20 @@ Should be a list of strings."
 
 If the latter is nil, the keymap translates into `lua-mode-map' verbatim.")
 
+(defvar lua--electric-indent-chars
+  (mapcar #'string-to-char '("}" "]" ")")))
+
+
 (defvar lua-mode-map
   (let ((result-map (make-sparse-keymap))
         prefix-key)
-    (mapc (lambda (key_defn)
-            (define-key result-map (read-kbd-macro (car key_defn)) (cdr key_defn)))
-          ;; here go all the default bindings
-          ;; backquote enables evaluating certain symbols by comma
-          `(("}" . lua-electric-match)
-            ("]" . lua-electric-match)
-            (")" . lua-electric-match)))
+    (unless (boundp 'electric-indent-chars)
+      (mapc (lambda (electric-char)
+              (define-key result-map
+                (read-kbd-macro
+                 (char-to-string electric-char))
+                #'lua-electric-match))
+            lua--electric-indent-chars))
     (define-key result-map [menu-bar lua-mode] (cons "Lua" lua-mode-menu))
 
     ;; FIXME: see if the declared logic actually works
@@ -601,7 +611,6 @@ Groups 6-9 can be used in any of argument regexps."
     ;; Hightlights the name of the label in the "goto" statement like
     ;; "goto label"
     (,(lua-rx (symbol (seq "goto" ws+ (group-n 1 lua-name))))
-      nil nil
       (1 font-lock-constant-face))
 
     ;; Highlight lua builtin functions and variables
@@ -642,7 +651,15 @@ Groups 6-9 can be used in any of argument regexps."
       (3 font-lock-warning-face t noerror)))
 
     (,(lua-rx (or bol ";") ws lua-funcheader)
-     (1 font-lock-function-name-face)))
+     (1 font-lock-function-name-face))
+
+    (,(lua-rx (or (group-n 1
+                           "@" (symbol "author" "copyright" "field" "release"
+                                       "return" "see" "usage" "description"))
+                  (seq (group-n 1 "@" (symbol "param" "class" "name")) ws+
+                       (group-n 2 lua-name))))
+     (1 font-lock-keyword-face t)
+     (2 font-lock-variable-name-face t noerror)))
 
   "Default expressions to highlight in Lua mode.")
 
@@ -651,9 +668,9 @@ Groups 6-9 can be used in any of argument regexps."
   "Imenu generic expression for lua-mode.  See `imenu-generic-expression'.")
 
 (defvar lua-sexp-alist '(("then" . "end")
-                         ("function" . "end")
-                         ("do" . "end")
-                         ("repeat" . "until")))
+                      ("function" . "end")
+                      ("do" . "end")
+                      ("repeat" . "until")))
 
 (defvar lua-mode-abbrev-table nil
   "Abbreviation table used in lua-mode buffers.")
@@ -718,8 +735,8 @@ Groups 6-9 can be used in any of argument regexps."
     (with-no-warnings
       ;; font-lock-syntactic-keywords are deprecated since 24.1
       (lua--setq-local
-       font-lock-syntactic-keywords 'lua-font-lock-syntactic-keywords)))
-  (lua--setq-local font-lock-extra-managed-props  '(syntax-table))
+       font-lock-syntactic-keywords 'lua-font-lock-syntactic-keywords)
+      (lua--setq-local font-lock-extra-managed-props  '(syntax-table))))
   (lua--setq-local parse-sexp-lookup-properties   t)
   (lua--setq-local indent-line-function           'lua-indent-line)
   (lua--setq-local beginning-of-defun-function    'lua-beginning-of-proc)
@@ -727,8 +744,15 @@ Groups 6-9 can be used in any of argument regexps."
   (lua--setq-local comment-start                  lua-comment-start)
   (lua--setq-local comment-start-skip             lua-comment-start-skip)
   (lua--setq-local comment-use-syntax             t)
-  (lua--setq-local comment-use-global-state       t)
+  (lua--setq-local fill-paragraph-function        #'lua--fill-paragraph)
+  (with-no-warnings
+    (lua--setq-local comment-use-global-state     t))
   (lua--setq-local imenu-generic-expression       lua-imenu-generic-expression)
+  (when (boundp 'electric-indent-chars)
+    ;; If electric-indent-chars is not defined, electric indentation is done
+    ;; via `lua-mode-map'.
+    (lua--setq-local electric-indent-chars
+                  (append electric-indent-chars lua--electric-indent-chars)))
 
 
   ;; setup menu bar entry (XEmacs style)
@@ -764,12 +788,35 @@ Groups 6-9 can be used in any of argument regexps."
 (defun lua-electric-match (arg)
   "Insert character and adjust indentation."
   (interactive "P")
-  (self-insert-command (prefix-numeric-value arg))
+  (let (blink-paren-function)
+   (self-insert-command (prefix-numeric-value arg)))
   (if lua-electric-flag
       (lua-indent-line))
   (blink-matching-open))
 
 ;; private functions
+
+(defun lua--fill-paragraph (&optional justify region)
+  ;; Implementation of forward-paragraph for filling.
+  ;;
+  ;; This function works around a corner case in the following situations:
+  ;;
+  ;;     <>
+  ;;     -- some very long comment ....
+  ;;     some_code_right_after_the_comment
+  ;;
+  ;; If point is at the beginning of the comment line, fill paragraph code
+  ;; would have gone for comment-based filling and done the right thing, but it
+  ;; does not find a comment at the beginning of the empty line before the
+  ;; comment and falls back to text-based filling ignoring comment-start and
+  ;; spilling the comment into the code.
+  (while (and (not (eobp))
+              (progn (move-to-left-margin)
+                     (looking-at paragraph-separate)))
+    (forward-line 1))
+  (let ((fill-paragraph-handle-comment t))
+    (fill-paragraph justify region)))
+
 
 (defun lua-prefix-key-update-bindings ()
   (let (old-cons)
@@ -1667,6 +1714,10 @@ This function just searches for a `end' at the beginning of a line."
           (replace-match "\\\\\\&" t)))
       (concat "'" (buffer-string) "'"))))
 
+;;;###autoload
+(defalias 'run-lua #'lua-start-process)
+
+;;;###autoload
 (defun lua-start-process (&optional name program startfile &rest switches)
   "Start a lua process named NAME, running PROGRAM.
 PROGRAM defaults to NAME, which defaults to `lua-default-application'.

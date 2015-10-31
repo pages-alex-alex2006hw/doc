@@ -1,6 +1,15 @@
 ; .emacs
 ;
 
+; enable MELPA
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages") t)
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+
 ; set load-path
 (setq load-path (cons "~/doc/etc/emacs-el" load-path))
 (setq load-path (cons "/usr/local/share/emacs/site-lisp" load-path))
@@ -40,8 +49,8 @@
 	 ("\\.cu" . c-mode)
 	 ("\\.ino" . c-mode)
 	 ("\\.y" . bison-mode)
-	 ("\\.l" . flex-mode)
-	 ("\\.lua" . lua-mode)
+	 ("\\.lua$" . lua-mode)
+	 ("\\.l$" . flex-mode)
 	 ("\\.java" . java-mode)) auto-mode-alist))
 (autoload 'xscheme "scheme-mode" "Scheme mode" t)
 (autoload 'bison-mode "bison-mode" "Bison mode" t)
@@ -50,6 +59,9 @@
 (autoload 'lua-mode "lua-mode" "Lua mode" t)
 (autoload 'sml-mode "sml-mode" "Standard ML mode" t)
 (autoload 'run-sml "sml-proc" "Run an inferior SML process" t)
+
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
+
 
 ; text
 (add-hook 'text-mode-hook 
