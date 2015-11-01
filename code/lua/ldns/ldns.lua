@@ -5,23 +5,24 @@
 local P = {}
 
 
-
-
-
 -- connections
+P.name = "default"
+P.ipaddr = ""
+P.parent = ""
 P.init_done = false
-local parent = ""
+P.sock = ni
 
-local function init(ipaddr)
-   if (P.init_done) then
-      return
+local function init(name, ipaddr)
+   if (not P.init_done) then
+      P.ipaddr = ipaddr
+      P.sock = require "socket"
+      P.init_done = true
    end
-   P.ipaddr = ipaddr
 end
 
-local function connect(name)
+local function connect(device, name, ipaddr)
+   
 end
-
 
 
 -- props
