@@ -39,12 +39,12 @@ end
 local function server_thread()
    while 1 do
       local client = P.recv_sock.accept()
-      client.settimeout(10)
-      local line, err = client.receive()
+      client:settimeout(10)
+      local line, err = client:receive()
       if (not err) then
          -- parse line; serve request
       end
-      client.close()
+      client:close()
    end
 end
 
