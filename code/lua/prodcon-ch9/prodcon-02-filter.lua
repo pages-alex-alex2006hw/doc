@@ -27,7 +27,7 @@ end
 
 function filter(prod)
    return coroutine.create(function()
-         for line = 1, math.huge do
+         for line = 1, 10 do
             local x = receive(prod) -- get new value
             x = string.format("%5d %s", line, x)
             send(x)
@@ -45,4 +45,4 @@ end
 
 
 -- RUN
-consumer(filter(producer))
+consumer(filter(producer()))
