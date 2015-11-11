@@ -44,19 +44,25 @@ end
 
 function dispatch()
    local i = 1
+   local timedout = {}
    while true do
       if threads[i] == nil then  -- no more threads?
          if threads[1] == nil then -- if empty
             break
          end
-         i = 1  -- restart the loop
+         i = 1
+         timedout = {}
       end
       
       local status, res = coroutine.resume(threads[i])
       if not res then -- thread finished its task?
          table.remove(threads, i)
-      else
+      else  -- timeout
          i = i + 1  -- go to next thread
+         timedout[#timedout + 1] = res
+         if #timedout == #threads then -- all threads blocked?
+            socket.select(timedout)
+         end
       end
    end
 end
