@@ -13,7 +13,6 @@
 \section{SystemVerilog Elaboration}
 
 
-
 \section{SystemVerilog Optimization and Transformation}
 \subsection{Assignment operator transformation}
 \bit
@@ -529,7 +528,7 @@ An example sequence of interactions between these components are given
 below. Leftmost column shows the activity number, and the rest three columns
 represent three components.
 \begin{quote}
-\begin{tabular}{|r|p{5.5cm}|p{5.5cm}|p{4.5cm}|} \hline
+\centerline{\begin{tabular}{|r|p{5.0cm}|p{5.0cm}|p{4.0cm}|} \hline
  &\bb{xc\_top\_incl.v} & \bb{ixc\_time} & \bb{iscDelay module} \\ \hline
    \multicolumn{4}{|c|}{\bb{simtime: 100}} \\ \hline
 @1 & delay = xcNextEclk() &  &  \\ \hline
@@ -550,7 +549,7 @@ means ``time to next event'' & \\ \hline
 @13 & & nextClkTime = lastClkTime + minT & \\ \hline
 @14 & & @(eClk) lastClkTime $\leftarrow$ min(nextTbTime, nextClkTime) & \\ \hline
 @15 & xcNextClkTime(ixc\_time.nextClkTime) & & \\ \hline
-\end{tabular}
+\end{tabular}}|
 \end{quote}
 
 \paragraph{S/W-side optimization}
@@ -641,9 +640,34 @@ The following is brief explanation of the S/W process;
 \subsection{Assignment Operator}
 
 
+\section{Clocking}
+\subsection{ICE-Mode Clocking}
+\subsubsection{CAKE (Clock Averaging with Ko-incident Edges)}
+\bit
+\w \bb{oversampling ratio}: number of FCLK cycles per cycle of fastest
+    design clock
+    \bit
+    \w CAKE 0.5X mode: 0.5 FCLK cycles to emulate one fastest clock cycle --
+    i.e. 1 FCLK emulates two fastest cycles
+      \bit
+      \w 
+      \eit
+    \w CAKE 1X mode: 1 FCLK cycle to emulate one fastest clock cycle
+      \bit
+      \w 
+      \eit
+    \w CAKE 2X mode: 2 FCLK cycles to emulate one fastest clock cycle --
+        e.g. delays inserted for loop breaking requires multiple passes
+      \bit
+      \w 
+      \eit
+    \eit
+\eit
+\subsection{SCM (Simulation Control Module)}
+\subsection{SA-Mode Clocking}
+
 
 \section{ECM}
-ECM is responsible for 
 
 
 \section{Primitives}
