@@ -2,7 +2,7 @@
 \usepackage{mathptm,mydef,myenv}
 \usepackage[all]{xy}
 \usepackage{graphicx}
-\usepackage{MinionPro}
+%\usepackage{MinionPro}
 \begin{document}
 \small
 
@@ -641,7 +641,18 @@ The following is brief explanation of the S/W process;
 \subsection{Assignment Operator}
 
 
+
+\section{ECM}
+ECM is responsible for 
+
+
 \section{Primitives}
+\subsection{IXC\_CALL\_CLK}
+\bit
+\w It has a state variable, \verb+active+:
+\eit
+
+\subsection{IXC\_EDGE}
 \begin{verbatim}
   module ixc_edge(ev, s);
     parameter DIR = 0; /* 0: posedge, 1: negedge, 2: duedge */
