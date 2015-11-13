@@ -2,15 +2,15 @@
 \contentsline {section}{\numberline {2}SystemVerilog Optimization and Transformation}{1}
 \contentsline {subsection}{\numberline {2.1}Assignment operator transformation}{1}
 \contentsline {subsection}{\numberline {2.2}Dead code elimination}{2}
-\contentsline {subsection}{\numberline {2.3}Loop unrolling}{2}
-\contentsline {subsection}{\numberline {2.4}Constant propagation}{2}
+\contentsline {subsection}{\numberline {2.3}Loop unrolling}{3}
+\contentsline {subsection}{\numberline {2.4}Constant propagation}{3}
 \contentsline {subsection}{\numberline {2.5}Tristate buffer transformation}{3}
 \contentsline {subsection}{\numberline {2.6}DISABLE transformation}{3}
 \contentsline {subsection}{\numberline {2.7}Continue/Break statement}{4}
 \contentsline {subsection}{\numberline {2.8}Multiple event transformation}{4}
 \contentsline {paragraph}{Same events}{4}
 \contentsline {paragraph}{Different events}{5}
-\contentsline {paragraph}{Branching: same events}{5}
+\contentsline {paragraph}{Branching: same events}{6}
 \contentsline {subsection}{\numberline {2.9}RTL blocking delay transformation}{6}
 \contentsline {paragraph}{Transformation of iscDelay module}{7}
 \contentsline {paragraph}{ixc\_time.v: Computing DUT-side delays}{8}
@@ -18,7 +18,12 @@
 \contentsline {paragraph}{S/W run: Interaction between 3 components}{9}
 \contentsline {paragraph}{S/W-side optimization}{10}
 \contentsline {subsection}{\numberline {2.10}Assignment Operator}{12}
-\contentsline {section}{\numberline {3}ECM}{12}
-\contentsline {section}{\numberline {4}Primitives}{12}
-\contentsline {subsection}{\numberline {4.1}IXC\_CALL\_CLK}{12}
-\contentsline {subsection}{\numberline {4.2}IXC\_EDGE}{12}
+\contentsline {section}{\numberline {3}Clocking}{12}
+\contentsline {subsection}{\numberline {3.1}ICE-Mode Clocking}{12}
+\contentsline {subsubsection}{\numberline {3.1.1}CAKE (Clock Averaging with Ko-incident Edges)}{12}
+\contentsline {subsection}{\numberline {3.2}SCM (Simulation Control Module)}{12}
+\contentsline {subsection}{\numberline {3.3}SA-Mode Clocking}{12}
+\contentsline {section}{\numberline {4}ECM}{12}
+\contentsline {section}{\numberline {5}Primitives}{12}
+\contentsline {subsection}{\numberline {5.1}IXC\_CALL\_CLK}{12}
+\contentsline {subsection}{\numberline {5.2}IXC\_EDGE}{13}
