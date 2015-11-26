@@ -50,6 +50,7 @@
 	 ("\\.ino" . c-mode)
 	 ("\\.y" . bison-mode)
 	 ("\\.lua$" . lua-mode)
+	 ("\\.go$" . go-mode)
 	 ("\\.l$" . flex-mode)
 	 ("\\.java" . java-mode)) auto-mode-alist))
 (autoload 'xscheme "scheme-mode" "Scheme mode" t)
@@ -57,6 +58,7 @@
 (autoload 'flex-mode "flex-mode" "Flex mode" t)
 (autoload 'verilog-mode "verilog-mode" "Verilog mode" t)
 (autoload 'lua-mode "lua-mode" "Lua mode" t)
+(autoload 'go-mode "go-mode" "Go mode" t)
 (autoload 'sml-mode "sml-mode" "Standard ML mode" t)
 (autoload 'run-sml "sml-proc" "Run an inferior SML process" t)
 
