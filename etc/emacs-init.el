@@ -138,6 +138,13 @@
 	  (function (lambda ()
 		      (c-set-style "java"))))
 
+; go
+(add-hook 'go-mode-hook
+	  (function (lambda ()
+                      (add-hook 'before-save-hook 'gofmt-before-save)
+                      (setq tab-width 2)
+                      (setq indent-tables-mode nil))))
+
 ; verilog
 (setq verilog-indent-level             2
       verilog-indent-level-module      2
