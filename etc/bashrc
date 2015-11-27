@@ -38,6 +38,10 @@ export TEXINPUTS=.:$HOME/doc/etc/tex:
 # subversion
 export SVN_EDITOR='vi'
 
+# go
+export GOROOT=/opt/go
+export PATH=$GOROOT/bin:$PATH
+
 #---------------------------------------------------------------
 # ssh, keys
 #---------------------------------------------------------------
