@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/cjeong/doc/notes/meadow/system-overview'
+let g:netrw_dirhist_2='/home/cjeong/.emacs.d'
+let g:netrw_dirhist_3='/tmp/zz/dev1'
+let g:netrw_dirhist_4='/home/cjeong/work/tools/mv/mv-src/include/mv/engine'
+let g:netrw_dirhist_5='/home/cjeong/work/meadow/mvcode/mvrt'
+let g:netrw_dirhist_6='/home/cjeong/work/meadow/mvcode/test/demo/dev1'
+let g:netrw_dirhist_7='/home/cjeong/doc/code/jake/.git'
+let g:netrw_dirhist_8='/home/cjeong/work/meadow/tools/.git'
