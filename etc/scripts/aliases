@@ -9,13 +9,9 @@ alias dir='ls -lF -X'
 alias pd='pushd .'
 
 # chdir shortcuts
-alias cdtex='cd $TEXMF'
 alias doc='cd ~/doc'
 alias wo='cd ~/work'
-alias reg='cd ~/work/mv/tests'
 alias to='cd ~/work/tools'
-alias db='cd ~/ztmp/Dropbox'
-alias box='cd ~/ztmp/Dropbox'
 alias comp='pushd ~/work/mv/src; make; popd'
 alias www='cd /var/www'
 alias co='cd ~/ztmp/code'
