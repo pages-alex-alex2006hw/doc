@@ -29,5 +29,10 @@ func (mr *MapReduce) KillWorkers() *list.List {
 func (mr *MapReduce) RunMaster() *list.List {
 	// Your code here
 
+	for i := 0; i < nMap; i++ {
+		worker := <-mr.registerChannel
+		fmt.Printf("WKR: %s\n", worker)
+	}
+
 	return mr.KillWorkers()
 }

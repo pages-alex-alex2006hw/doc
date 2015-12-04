@@ -69,7 +69,7 @@ func Reduce(key string, values *list.List) string {
 func main() {
 	if len(os.Args) != 4 {
 
-		Fmt.Printf("%s: see usage comments in file\n", os.Args[0])
+		fmt.Printf("%s: see usage comments in file\n", os.Args[0])
 
 	} else if os.Args[1] == "master" {
 
