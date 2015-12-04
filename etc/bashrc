@@ -41,6 +41,7 @@ export SVN_EDITOR='vi'
 # go
 export GOROOT=/opt/go
 export PATH=$GOROOT/bin:$PATH
+export GOPATH=$HOME/.go
 
 #---------------------------------------------------------------
 # ssh, keys
