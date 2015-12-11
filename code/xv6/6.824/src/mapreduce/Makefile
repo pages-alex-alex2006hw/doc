@@ -1,5 +1,5 @@
 all:
-	go test
+	go test | tee out
 	
 clean:
-	rm -rf mrtmp*
+	rm -rf mrtmp* out
