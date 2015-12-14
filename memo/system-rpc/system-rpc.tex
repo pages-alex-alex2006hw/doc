@@ -1,0 +1,66 @@
+\documentclass{memo}
+%\addtolength{\topmargin}{-2cm}
+%\addtolength{\textheight}{2.2cm}
+\usepackage{mathptm,mydef,myenv}
+\usepackage[all]{xy}
+%\usepackage{MinionPro}
+\usepackage{courier}
+\usepackage{alltt}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.png,.jpg}
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks, 
+    citecolor=black, 
+    filecolor=black, 
+    linkcolor=blue, 
+    urlcolor=black
+}
+
+\begin{document}
+\small
+\noindent{\large\bf{}Notes on RPC}
+
+\paragraph{Background}
+\bit
+\w Network protocols are about ``two autonomous 
+       (state) machines talking to each other''.
+  \bit
+  \w \bb{data}: which data, which format, which meaning, when
+  \w \bb{protocol spec}: just like BNF specifies possible strings, 
+     protocol spec specifies how ``well-defined sequence of talking'' can
+     occur  
+  \eit
+\w \bb{Two interacting state machines}: $M_0$ and $M_1$
+   \bit
+   \w Product of two state machines defines how they interact.
+   \w `` Each talk'' changes each machine state (i.e. the collective 
+      states of $M_0$ and $M_1$. 
+   \eit
+\eit
+
+\paragraph{RPC Overview}
+\bit
+\w Transfer of control and data across ``network''
+  \bit
+  \w \underline{No shared address space}
+  \w Two different machines (two PCs, register sets, etc.)
+  \eit
+\eit
+
+\paragraph{Issues}
+\bit
+\w \bb{RPC failure semantics}: in presence of machine/communication failures
+
+\w \bb{Shared address space}: {address-containing arguments in the absence of shared address space}  
+\w \bb{Binding}:  how a caller determines the location and identity of cal\w
+\bb{protocols}
+\w \bb{security}:
+\eit
+
+
+\end{document}
+
