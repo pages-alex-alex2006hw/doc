@@ -1,44 +1,44 @@
-\BOOKMARK [1][-]{section.1}{Inrtoduction}{}
-\BOOKMARK [1][-]{section.2}{The First Process}{}
-\BOOKMARK [2][-]{subsection.2.1}{Boot process}{section.2}
-\BOOKMARK [2][-]{subsection.2.2}{Kernel entry \(entry.S\)}{section.2}
-\BOOKMARK [2][-]{subsection.2.3}{Kernel init \(kern/init.c\)}{section.2}
-\BOOKMARK [2][-]{subsection.2.4}{Console \(kern/console.c\)}{section.2}
-\BOOKMARK [2][-]{subsection.2.5}{Monitor \(kern/monitor.c\)}{section.2}
-\BOOKMARK [2][-]{subsection.2.6}{Printfmt \(lib/printfmtc\)}{section.2}
-\BOOKMARK [2][-]{subsection.2.7}{proc: Per-process state}{section.2}
-\BOOKMARK [2][-]{subsection.2.8}{Creating the first user process \(main.c \040proc.c\)}{section.2}
-\BOOKMARK [2][-]{subsection.2.9}{Running the first process}{section.2}
-\BOOKMARK [2][-]{subsection.2.10}{Context switch \(switch.S\)}{section.2}
-\BOOKMARK [2][-]{subsection.2.11}{The first system call: exec}{section.2}
-\BOOKMARK [1][-]{section.3}{Virtual Memory}{}
-\BOOKMARK [2][-]{subsection.3.1}{Basics}{section.3}
-\BOOKMARK [2][-]{subsection.3.2}{Setting up kernel virtual memory}{section.3}
-\BOOKMARK [2][-]{subsection.3.3}{Creating an address space by creating/populating page tables}{section.3}
-\BOOKMARK [2][-]{subsection.3.4}{Paging in x86}{section.3}
-\BOOKMARK [2][-]{subsection.3.5}{Physical memory allocation}{section.3}
-\BOOKMARK [2][-]{subsection.3.6}{System call: exec \205 Creating user part of address space}{section.3}
-\BOOKMARK [2][-]{subsection.3.7}{allocuvm: Allocating user memory}{section.3}
-\BOOKMARK [2][-]{subsection.3.8}{loaduvm: Loading user memory}{section.3}
-\BOOKMARK [2][-]{subsection.3.9}{System call: exec \205 Calling convention}{section.3}
-\BOOKMARK [1][-]{section.4}{Traps, Interrupts, and Device Drivers}{}
-\BOOKMARK [2][-]{subsection.4.1}{System calls, exceptions, and interrupts}{section.4}
-\BOOKMARK [2][-]{subsection.4.2}{System call example: exec \(initcode.S\)}{section.4}
-\BOOKMARK [2][-]{subsection.4.3}{Assembly trap handlers}{section.4}
-\BOOKMARK [2][-]{subsection.4.4}{Setting up interrupt gate descriptor}{section.4}
-\BOOKMARK [2][-]{subsection.4.5}{What happens on system calls, exceptions, and interrupts}{section.4}
-\BOOKMARK [2][-]{subsection.4.6}{IDT: Interrupt descriptor table}{section.4}
-\BOOKMARK [2][-]{subsection.4.7}{trapasm.S}{section.4}
-\BOOKMARK [2][-]{subsection.4.8}{Trapframes}{section.4}
-\BOOKMARK [2][-]{subsection.4.9}{trap: Execution of trap}{section.4}
-\BOOKMARK [2][-]{subsection.4.10}{System calls in Linux}{section.4}
-\BOOKMARK [2][-]{subsection.4.11}{Classification of interrupts and exceptions}{section.4}
-\BOOKMARK [1][-]{section.5}{File Systems}{}
-\BOOKMARK [2][-]{subsection.5.1}{Buffer cache}{section.5}
-\BOOKMARK [2][-]{subsection.5.2}{What happens when fread is executed?}{section.5}
-\BOOKMARK [1][-]{section.6}{X86 Assembly Tutorial}{}
-\BOOKMARK [2][-]{subsection.6.1}{80386+ Register Set}{section.6}
-\BOOKMARK [2][-]{subsection.6.2}{Segmentation}{section.6}
-\BOOKMARK [2][-]{subsection.6.3}{Common/Useful Instructions}{section.6}
-\BOOKMARK [2][-]{subsection.6.4}{A simple example}{section.6}
-\BOOKMARK [2][-]{subsection.6.5}{Mixing C and Assembly Language}{section.6}
+\BOOKMARK [1][-]{section.1}{Inrtoduction}{}% 1
+\BOOKMARK [1][-]{section.2}{The First Process}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Boot process}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Kernel entry \(entry.S\)}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Kernel init \(kern/init.c\)}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Console \(kern/console.c\)}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Monitor \(kern/monitor.c\)}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{Printfmt \(lib/printfmtc\)}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.7}{proc: Per-process state}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.8}{Creating the first user process \(main.c \040proc.c\)}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.9}{Running the first process}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.10}{Context switch \(switch.S\)}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.11}{The first system call: exec}{section.2}% 13
+\BOOKMARK [1][-]{section.3}{Virtual Memory}{}% 14
+\BOOKMARK [2][-]{subsection.3.1}{Basics}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.2}{Setting up kernel virtual memory}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.3}{Creating an address space by creating/populating page tables}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.4}{Paging in x86}{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.5}{Physical memory allocation}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.6}{System call: exec \205 Creating user part of address space}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.7}{allocuvm: Allocating user memory}{section.3}% 21
+\BOOKMARK [2][-]{subsection.3.8}{loaduvm: Loading user memory}{section.3}% 22
+\BOOKMARK [2][-]{subsection.3.9}{System call: exec \205 Calling convention}{section.3}% 23
+\BOOKMARK [1][-]{section.4}{Traps, Interrupts, and Device Drivers}{}% 24
+\BOOKMARK [2][-]{subsection.4.1}{System calls, exceptions, and interrupts}{section.4}% 25
+\BOOKMARK [2][-]{subsection.4.2}{System call example: exec \(initcode.S\)}{section.4}% 26
+\BOOKMARK [2][-]{subsection.4.3}{Assembly trap handlers}{section.4}% 27
+\BOOKMARK [2][-]{subsection.4.4}{Setting up interrupt gate descriptor}{section.4}% 28
+\BOOKMARK [2][-]{subsection.4.5}{What happens on system calls, exceptions, and interrupts}{section.4}% 29
+\BOOKMARK [2][-]{subsection.4.6}{IDT: Interrupt descriptor table}{section.4}% 30
+\BOOKMARK [2][-]{subsection.4.7}{trapasm.S}{section.4}% 31
+\BOOKMARK [2][-]{subsection.4.8}{Trapframes}{section.4}% 32
+\BOOKMARK [2][-]{subsection.4.9}{trap: Execution of trap}{section.4}% 33
+\BOOKMARK [2][-]{subsection.4.10}{System calls in Linux}{section.4}% 34
+\BOOKMARK [2][-]{subsection.4.11}{Classification of interrupts and exceptions}{section.4}% 35
+\BOOKMARK [1][-]{section.5}{File Systems}{}% 36
+\BOOKMARK [2][-]{subsection.5.1}{Buffer cache}{section.5}% 37
+\BOOKMARK [2][-]{subsection.5.2}{What happens when fread is executed?}{section.5}% 38
+\BOOKMARK [1][-]{section.6}{X86 Assembly Tutorial}{}% 39
+\BOOKMARK [2][-]{subsection.6.1}{80386+ Register Set}{section.6}% 40
+\BOOKMARK [2][-]{subsection.6.2}{Segmentation}{section.6}% 41
+\BOOKMARK [2][-]{subsection.6.3}{Common/Useful Instructions}{section.6}% 42
+\BOOKMARK [2][-]{subsection.6.4}{A simple example}{section.6}% 43
+\BOOKMARK [2][-]{subsection.6.5}{Mixing C and Assembly Language}{section.6}% 44

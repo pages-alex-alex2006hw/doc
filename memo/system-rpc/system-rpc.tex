@@ -55,10 +55,27 @@
 \bit
 \w \bb{RPC failure semantics}: in presence of machine/communication failures
 
-\w \bb{Shared address space}: {address-containing arguments in the absence of shared address space}  
-\w \bb{Binding}:  how a caller determines the location and identity of cal\w
-\bb{protocols}
-\w \bb{security}:
+\w \bb{Shared address space}: {address-containing arguments in the absence of
+  shared address space} 
+  \bit
+  \w How can a \bb{remote address} represented? Or, just would \bb{remote
+    handle} (e.g. HOST addr + handle id) would suffice? Just like remote
+     name-value table? After all, we need higher-level sharing than machine
+     addresses. 
+  \w Even with this higher-level sharing, getting values from remote
+  name-value table can be expensive.
+    \bit
+    \w may need a cache.
+    \eit
+  \eit
+
+\w \bb{Blocking vs nonblocking calls}:
+ 
+\w \bb{Binding}:  how a caller determines the location and identity of call
+
+\w \bb{Protocols}:
+
+\w \bb{Security}:
 \eit
 
 
