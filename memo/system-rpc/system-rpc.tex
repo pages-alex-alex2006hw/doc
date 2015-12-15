@@ -51,7 +51,7 @@
   \eit
 \eit
 
-\paragraph{Issues}
+\paragraph{Complications}
 \bit
 \w \bb{RPC failure semantics}: in presence of machine/communication failures
 
@@ -78,6 +78,57 @@
 \w \bb{Security}:
 \eit
 
+\paragraph{At-most-once semantics}
+\bit
+\w Server need to detect duplicate request
+   \bit
+   \w HOW: client send XID (universally-unique ID) for each request; uses same
+       XID for re-send 
+   
+   \eit
+\eit
+
+\paragraph{Binding}
+\bit
+\w \bb{Binding}: to bind an importer of an interface to an exporter of an
+    interface 
+   \bit
+   \w \bb{interface}: {type} + {instance}
+     \bit
+     \w \bb{type}: specify which interface the caller expects the callee to
+     implement (e.g. ``MAIL SERVER'') -- governs how client/server interacts
+     \w \bb{instance}: specify which particular implementor of an abstract
+     interface is desired (e.g. {\tt{}smtp.live.com})
+     \eit
+   \eit
+\w \bb{Locating exporter}:
+   \bit
+   \w methods:
+     \ben
+     \w use \bb{distributed lookup table}, which is replicated and reliable
+     \w use \bb{static lookup table} saved at each machine: may contain
+     non-up-to-update data
+     \een
+   \eit
+\eit
+
+\paragraph{\textcolor{blue2}{Protocols}}
+\bit
+\w There are two types of protocols: (i) \bb{latency}-oriented protocol vs
+(ii) bandwidth-oriented protocol
+  \bit
+  \w \bb{latency-oriented protocol}: 
+     \bit
+     \w need small setup/teardown connection time
+     \w cannot maintain large state for connection; since, otherwise, it will
+     add latency
+     \w typically, many requests coming -- need to serve them fast
+     \eit
+  \w \bb{bandwidth-oriented protocol}: opposite
+  \eit
+\w For RPC: we need latency-oriented protocol
+   
+\eit
 
 \end{document}
 
