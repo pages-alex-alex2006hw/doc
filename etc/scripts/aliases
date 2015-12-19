@@ -14,7 +14,7 @@ alias wo='cd ~/work'
 alias to='cd ~/work/tools'
 alias comp='pushd ~/work/mv/src; make; popd'
 alias www='cd /var/www'
-alias co='cd ~/ztmp/code'
+alias co='cd ~/doc/code'
 
 # automatically-added options
 alias vncviewer='vncviewer -Shared'
