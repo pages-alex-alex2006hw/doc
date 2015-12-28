@@ -1,4 +1,4 @@
-\documentclass{myproc}
+\documentclass{note}
 %\addtolength{\topmargin}{-2cm}
 %\addtolength{\textheight}{2cm}
 \usepackage{mathptm,mydef}
@@ -26,11 +26,35 @@
 
 
 \begin{center}
-{\large\bf Guard Mask}
+{\large\bf Guard Mark}
 \end{center}
 
-\section{Problem}
-Let $n$ cows, $C_0, C_1,  given 
+\section{The Problem}
+Given:
+\bit
+\w a set $C = \{C_0, C_1, \cdots, C_{N-1}\}$ of $N$ cows, where each
+    cow, $C_i$, has its 
+    weight, height, and strength -- denoted by $W(C_i)$, $H(C_i)$ and $S(C_i)$
+respectively
+\w the height of Mark $M$
+\eit
+we want to find a subset $G = \{G_0, G_1, \cdots, G_k\}$ of $C$ such that
+following two constraints are satisfied:
+\ben
+\w (HEIGHT CONSTRAINT) 
+    \[\sum_{i=0}^{k} H(G_i) \ge M\]
+\w (STRENGTH CONSTRAINT) 
+   \[\sum_{i=j+1}^{k} W(G_i) \le S(G_j), \mbox{\ for each\ } 0 \le j \le k\]
+\een
+Moreover, we want such a subset which would maximize the \bb{safety factor},
+which is defined as the weight we can add to the stack of cows without putting
+more weight than any of the cow in the stack can handle.
+
+
+\section{Solution}
+We want to solve this problem inductively -- find the best solution which we
+can make out of 
+
 
 
 \end{document}
