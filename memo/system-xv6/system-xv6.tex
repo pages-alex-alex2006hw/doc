@@ -3,7 +3,7 @@
 \addtolength{\textheight}{2.2cm}
 \usepackage{mathptm,mydef,myenv}
 \usepackage[all]{xy}
-\usepackage{MinionPro}
+%\usepackage{MinionPro}
 \usepackage{courier}
 \usepackage{alltt}
 \usepackage[T1]{fontenc}
@@ -32,14 +32,36 @@
 \tableofcontents
 \pagebreak
 
-\section{Inrtoduction}
+\section{Introduction}
+
+\subsection{Problem statement}
+\bit
+\w \bb{What we want to do}:
+  \bit
+  \w Multiple jobs (abtract notion) to do (OPTIONAL: owned by multiple users)
+  \w Jobs are given in the form of a ``\bb{program}'' (in any possible form --
+  e.g. in a disk)
+  \eit
+\w \bb{What we are given}:
+  \bit
+  \w von-Neumann, stored-program machine (processor, memory, I/O)
+  \eit
+\w \bb{Constraints}:
+  \bit
+  \w Protection: program executions should be protected from each other; also,
+  kernel should be protected from program exeuctions
+  \w No deadlock, etc.
+  \eit
+\eit
+
+\subsection{Solution: OS}
 \bit
 \w \textcolor{red2}{\bf TAPPING (DOWNWARD)}: HW (processor + devices + console + etc.) is just an \textcolor{red2}{\em
   autonomous, free-running pieces of metal\/}.  
   \bit
   \w Suppose you want to ``use'' these pieces of metal. Then, you need to add a
 ``tap'' to this free-running wheel, through which you do something useful.
-  OS allows that.
+  OS allows that. 
   \w ``Stored program concept'' already adds one level of abstraction (compare
   this to a circuitry which performs a single fixed-function).
   \w \bb{WHAT MACHINE CAN DO}:
@@ -72,7 +94,7 @@
 \w \textcolor{red2}{\bf{}YET ANOTHER PROGRAM}: An OS is yet another
 program. Just like an interpreter is yet another program. 
    \bit
-   \w Consider a simple example, which uniprocessor, single-threaded system.
+   \w Consider a simple example -- uniprocessor, single-threaded system.
    \w \textcolor{red2}{From HW viewpoint, there is only one program running --
      a program named ``kernel''.}
    \w Kernel allows multiple processes to ``share'' HW through
@@ -96,6 +118,14 @@ program. Just like an interpreter is yet another program.
   on Unix 
   \w it has all essentials -- process creation, deletion, resource allocation,
   etc. 
+  \eit
+\eit
+
+\subsection{What is so special about ``shell''}
+\bit
+\w It's all about how ``USER'' interact with the ``SYSTEM'', where
+  \bit
+  \w SYSTEM = MACHINE + OS
   \eit
 \eit
 
