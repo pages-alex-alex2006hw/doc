@@ -18,7 +18,6 @@
 ; modes
 (menu-bar-mode t)
 (tool-bar-mode nil)
-(scroll-bar-mode nil)
 (column-number-mode t)
 (toggle-truncate-lines)
 (global-font-lock-mode t)
@@ -45,7 +44,8 @@
        	 ("\\.sig" . sml-mode)
 	 ("\\.scm" . scheme-mode)
 	 ("\\.tex" . tex-mode)
-	 ("\\.h" . c++-mode)
+	 ("\\.c" . c-mode)
+	 ("\\.h" . c-mode)
 	 ("\\.cu" . c-mode)
 	 ("\\.ino" . c-mode)
 	 ("\\.y" . bison-mode)
@@ -71,7 +71,8 @@
 		      (setq fill-column 78)
                       (turn-on-auto-fill))))
 
-; c; available c styles: k&r, bsd, linux, stroustrup, gnu, java
+; c
+; available c styles: k&r, bsd, linux, stroustrup, gnu, java
 (add-hook 'c-mode-hook
 	  (function (lambda ()
                       (c-add-style
@@ -95,11 +96,14 @@
                           (access-label . 0)
                           (inher-cont . c-lineup-java-inher)
                           (func-decl-cont . c-lineup-java-throws))))
-		      (c-set-style "gnu"))))
+		      (c-set-style "my-c")
+                      (setq tab-width 2)
+                      (setq c-basic-offset tab-width)
+                      (setq indent-tabs-mode nil))))
 
+
+; c++
 ; for disabling indentation right below c++ namespace
-
-;; c++
 (add-hook 'c++-mode-hook
  	  (function (lambda ()
                       (c-add-style 
@@ -200,8 +204,9 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(column-number-mode t)
  '(display-time-mode t)
+ '(indent-tabs-mode nil)
+ '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
