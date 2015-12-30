@@ -187,7 +187,7 @@ does more:
 		       |    etc.    |   /
 		       |            |   |
 		       |            |   |
-		%esp-> +------------+   /
+		%esp-> +------------+   /  <= by "add
 \end{verbatim}
     \w \verb+%esp+ can move to make stack frame bigger, smaller
     \w \verb+%ebp+ points at saved \verb+%ebp+ from previous function, chain
