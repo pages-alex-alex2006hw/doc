@@ -118,93 +118,102 @@ program. Just like an interpreter is yet another program.
   on Unix 
   \w it has all essentials -- process creation, deletion, resource allocation,
   etc. 
+  \w provides the interaction between USERs and MACHINES (via OS)
   \eit
-\eit
-
-\subsection{What is so special about ``shell''}
-\bit
-\w It's all about how ``USER'' interact with the ``SYSTEM'', where
-  \bit
-  \w SYSTEM = MACHINE + OS
-  \eit
-\w At a very primitive level, a MONITOR allows a user to interact with the 
-    machine
 \eit
 
 \subsection{x86 calling convention}
 \bit
-\w \textcolor{red2}{\bb{MACHINE}} (x86) dictates that stack grows down:
+\w \textcolor{red2}{\bb{HARDWARE}} (x86) provides \bb{stack registers} (\verb+%esp+, \verb+%ebp+), and \bb{stack instructions} (\verb+push+, \verb+pop+, \verb+call+, verb+ret+)
   \begin{alltt}
-   EXAMPLE INSTRUCTION    WHAT IT DOES
-   -------------------    ------------
-   \textcolor{blue2}{pushl %eax}             subl $4, %esp
+   EXAMPLE INSTRUCTION    WHAT IT EFFECTIVELY DOES
+   -------------------    ------------------------
+   \textcolor{blue2}{pushl %eax}             subl $4, %esp         ; stack grows down
                           movl %eax, (%esp)
    \textcolor{blue2}{popl %eax}              movl (%esp), %eax
                           addl $4, %esp
-   \textcolor{blue2}{call 0x12345}           pushl %eip            ; not a real instr
-                          movl $0x12345, %eip   ; not a real instr
-   \textcolor{blue2}{ret}                    popl %eip             ; not a real instr
+   \textcolor{blue2}{call 0x12345}           pushl %eip
+                          movl $0x12345, %eip
+   \textcolor{blue2}{ret}                    popl %eip 
   \end{alltt}
 
-\w \textcolor{red2}{\bb{COMPILER}} (GCC) dictates how the stack is used. Contract between caller
-and callee on x86:
+
+\w \textcolor{red2}{\bb{COMPILER}} (GCC) dictates how the stack is
+used. Contract between caller and callee on x86:
   \bit
-  \w \bb{at entry to a function} (i.e. right after call)
+  \w \bb{at entry to a function} (i.e. right after
+  \textcolor{red2}{\textbf{\texttt{call}}}} instruction is executed)
      \bit
-     \w \verb+%eip+ points at first instruction of function
+     \w \verb+%eip+ points at first instruction of function  ({\tt{}call}
+              pushes \verb+%eip+ which is the \bb{return address})
      \w \verb+%esp+4+ points at first argument
      \w \verb+%esp+ points at return address 
-     \een
-  \w \bb{after ret instruction}
+     \eit
+  \w \bb{right after \textcolor{red2}{\textbf{\texttt{ret}}} instruction is executed}
      \bit
      \w \verb+%eip+ contains return address
      \w \verb+%esp+ points at arguments pushed by caller
-     \w called function may have trashed arguments
+     \w CALLEE may have trashed arguments
      \w \verb+%eax+ (and \verb+%edx+, if return type is 64-bit) contains
-              %return value (or trash if function is void) 
-     \w \verb+%eax+, \verb+%edx+ (above), and \verb+%ecx+ may be trashed
-     \verb+%ebp+, \verb+%ebx+, \verb+%esi+, \verb+%edi+ must contain contents
+              return value (or trash if function is void) 
+     \w \bb{caller-saved registers} (\verb+%eax+, \verb+%edx+ (above), and
+                                \verb+%ecx+) may be trashed during the
+                                ``call'' 
+       \bit
+       \w so, in case caller have been using these registers, caller should save
+          it (and restore it later before it will use it again)
+       \w COMPILER must insert save/restore code in CALLER-side
+       \eit
+     \w \bb{callee-saved registers} (\verb+%ebp+, \verb+%ebx+, \verb+%esi+, \verb+%edi+) must contain contents
      from time of \bb{\texttt{call}} 
+        \bit
+        \w i.e. callee should have properly restored these registers to contain
+        pre-call values
+       \w COMPILER must insert save/restore code in CALLEE-side
+        \eit
      \eit
   \eit
 \w Functions can do anything that doesn't violate contract. By convention, GCC
 does more: 
   \bit
   \w each function has a stack frame marked by \verb+%ebp+, \verb+%esp+
-\begin{verbatim}
+\begin{alltt}
 		       +------------+   |
-		       | arg 2      |   \
+		       | arg 2      |   \textbackslash
 		       +------------+    >- previous function's stack frame
 		       | arg 1      |   /
 		       +------------+   |
-		       | ret %eip   |   /
-		       +============+   
-		       | saved %ebp |   \  <= by "push %ebp" inside callee
+		       | ret %eip   |   /  <= "CALL" pushed %eip
+		       \textcolor{red2}{+============+}
+		       | saved %ebp |   \textbackslash  <= by "push %ebp" inside callee
 		%ebp-> +------------+   |  <= by "move %esp, %ebp" in callee
 		       |            |   |
-		       |   local    |   \
+		       |   local    |   \textbackslash
 		       | variables, |    >- current function's stack frame
 		       |    etc.    |   /
 		       |            |   |
 		       |            |   |
-		%esp-> +------------+   /  <= by "add
-\end{verbatim}
+		%esp-> +------------+   /  <= by "stack alloc" in callee
+   \end{alltt}
     \w \verb+%esp+ can move to make stack frame bigger, smaller
     \w \verb+%ebp+ points at saved \verb+%ebp+ from previous function, chain
              to walk stack 
-    \w \bb{function prologue}:
+    \w \textcolor{red2}{\bb{function prologue}}: CALLEE performs upon entry
      \begin{verbatim}
-    			pushl %ebp
+    			pushl %ebp        ; push curr %ebp (%esp increments)
+                                          ; 
     			movl %esp, %ebp
      \end{verbatim}
+     \w textcolor{red2}{\bb{}function init setup}: CALLEE prepares function
+       execution; allows local vars, set current stackframe
     		
-     \w \bb{function epilogue}: can easily find return EIP on stack:
+     \w \textcolor{red2}{\bb{}function epilogue}: CALLEE performs upon exit
      \begin{verbatim}
+                        // can easily find return EIP on stack:
     			movl %ebp, %esp
     			popl %ebp
-    		
-\end{verbatim}
-  \eit
+     \end{verbatim}
+     \eit
 \eit
 
 
@@ -1651,5 +1660,9 @@ This example does the following:
 \w  Copies the value in eax into the global variable r.
 \w  Restores (pops) the contents of the temporary registers eax and ebx.
 \een
+
+\section{JOS Virtual Memory Map}
+\centerline{\includegraphics[width=13cm]{pics/jos_layout}}
+
 \end{document}
 
