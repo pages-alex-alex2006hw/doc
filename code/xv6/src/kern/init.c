@@ -3,6 +3,7 @@
 #include <inc/stdio.h>
 #include <inc/string.h>
 #include <inc/assert.h>
+#include <inc/x86.h>
 
 #include <kern/monitor.h>
 #include <kern/console.h>
@@ -30,6 +31,8 @@ void i386_init(void)
   // Initialize the console.
   // Can't call cprintf until after we do this!
   cons_init();
+
+  cprintf("x=%d y=%d\n", 3);
 
   cprintf("6828 decimal is %o octal!\n", 6828);
 
