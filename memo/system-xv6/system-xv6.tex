@@ -142,7 +142,7 @@ program. Just like an interpreter is yet another program.
 used. Contract between caller and callee on x86:
   \bit
   \w \bb{at entry to a function} (i.e. right after
-  \textcolor{red2}{\textbf{\texttt{call}}}} instruction is executed)
+  \textcolor{red2}{\textbf{\texttt{call}}}instruction is executed)
      \bit
      \w \verb+%eip+ points at first instruction of function  ({\tt{}call}
               pushes \verb+%eip+ which is the \bb{return address})
@@ -207,7 +207,7 @@ does more:
      \w textcolor{red2}{\bb{}function init setup}: CALLEE prepares function
        execution; allows local vars, set current stackframe
     		
-     \w \textcolor{red2}{\bb{}function epilogue}: CALLEE performs upon exit
+     \w \textcolor{red2}{\bb{function epilogue}}: CALLEE performs upon exit
      \begin{verbatim}
                         // can easily find return EIP on stack:
     			movl %ebp, %esp
