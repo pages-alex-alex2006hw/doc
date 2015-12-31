@@ -1482,7 +1482,7 @@ The implementation uses three state flags internally:
 
 
 \pagebreak
-\section{X86 Assembly Tutorial}
+\section{Assembly: X86 Assembly Tutorial}
 For more detailed information about the architecture and about processor
 instructions, you will need access to a 486 (or 386) microprocessor
 manual. For more details, see The 80386 book, by Ross P. Nelson.
@@ -1661,8 +1661,40 @@ This example does the following:
 \w  Restores (pops) the contents of the temporary registers eax and ebx.
 \een
 
-\section{JOS Virtual Memory Map}
-\centerline{\includegraphics[width=13cm]{pics/jos_layout}}
+\pagebreak
+\section{Appendix: JOS Virtual Memory Map}
+\centerline{\includegraphics[width=15cm]{pics/jos_layout}}
+
+\pagebreak
+\section{Appendix: Linux Device Drivers}
+\subsection{Classes of Devices and Modules}
+\bit
+\w \bb{char devices}: can be accessed as \textcolor{red2}{\bb{stream of bytes}}
+   \bit
+   \w usually drive r implements: open, close, read, write system calls
+   \w e.g. text console (\verb+/dev/console+) or serial ports (\verb+/dev/ttyS0+)
+   \eit
+\w \bb{block devices}: block devices are accessed by \bb{filesystem nodes} in
+   the  \verb+/dev+ directory 
+   \bit
+   \w in most systems, can only handle I/O operations that transfer one or
+   more whole blocks (e.g. 512-byte block)
+   \w modern OS (e.g. Linux) allows to read any number of bytes from block devices 
+   \eit
+\w \bb{network interfaces}:
+    \bit
+    \w sends/receives data packets, driven by the network subsystem of the
+    ``kernel'' 
+    \w transmission is available in \bb{packets}
+    \w since it's not a stream-oriented device, a network interface cannot be
+    easily mapped to a file in \verb+/dev/+ directory
+      \bit
+      \w instead, Unix assignes a unique name (e.g. \verb+eth0+)
+      \eit
+    \eit
+\w devices can also be classified according to device protocols: USB, I2C,
+   FireWire, etc.
+\eit
 
 \end{document}
 
